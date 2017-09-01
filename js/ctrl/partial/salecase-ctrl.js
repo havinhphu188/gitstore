@@ -677,7 +677,7 @@ var CaseManagementDetailCtrl = ['$rootScope', '$scope', '$filter', '$log', '$sta
         		} else {
         			$scope.rollbackApplicationStatus();
     				if (salecaseUIService.findElementInDetail_V3(["Product"]) == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK ||
-    					salecaseUIService.findElementInDetail_V3(["Product"]) == commonService.CONSTANTS.PRODUCT.ENDOWMENT) {
+    					salecaseUIService.findElementInDetail_V3(["Product"]) == commonService.CONSTANTS.PRODUCT.ENDOWMENT ||
     					salecaseUIService.findElementInDetail_V3(["Product"]) == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK) {
     					var error = salecaseUIService.findElementInElement_V3(data,['response-message']);
     					if (angular.isArray(error)) error = error[0];
