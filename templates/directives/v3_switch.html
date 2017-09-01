@@ -1,0 +1,24 @@
+<!-- <div layout="row" class="v3-switch-indicator" >
+   <div flex="5">    
+    </div>
+    <div class="v3-switch-option-item" id="left-switch-{{::switchName}}"  ng-click="toggleSwitch(true, options[0].value)" flex="40">
+        {{::options[0].text}}
+    </div>
+   
+    <div class="v3-switch-option-item" id="right-switch-{{::switchName}}" flex="40" ng-click="toggleSwitch(false, options[1].value)">
+        {{::options[1].text}}
+    </div>
+     <div flex="5">
+        <div id="switch-{{::switchName}}" class="v3-switch-indicator-bar-default">
+        </div>
+    </div>
+</div>
+ -->
+ <div layout="row" id="switch-{{::switchName}}" class="v3-switch-indicator" >
+    <div class="v3-switch-option-item-left" id="left-switch-{{::switchName}}"  ng-click="toggleSwitch(true, switchItems[0].value)" flex>
+        {{::switchItems[0].text}}
+    </div>
+    <div class="v3-switch-option-item-right" id="right-switch-{{::switchName}}" flex ng-click="toggleSwitch(false, switchItems[1].value)">
+        {{::switchItems[1].text}}
+    </div>
+</div>

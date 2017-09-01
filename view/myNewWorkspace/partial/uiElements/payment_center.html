@@ -1,0 +1,252 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+ <div fieldId="transaction:labelTransactionCenter" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 centered summary">
+         <div class="form-group form-group-lg has-success">
+             <span style="font-size: xx-large;">{{'v3.transactioncenter.label.TransactionCenter' | translate}}</span>
+         </div>
+     </div>
+</div>
+ <div fieldId="transaction:transaction-center" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-20 summary">
+	<div style="width:100%; margin: 0 auto;">
+		<div flex layout="row"  layout-align="center center" >
+			<div class="container-fluid v3-padding-0">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+					<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+					    <div class="form-group form-group-lg has-success">
+					        <label>{{"new.v3.transactioncenter.transactioncenter.label.TransactionType" | translate}}</label>
+					        <!-- <ng-newDropDown model="transactionType"
+				   			list="productList.ProductName.Option" 
+				  			type="nonFlag" prefix="v3.mynewworkspace.portlet.label.ipos-product"></ng-newDropDown> -->
+				  			<v3-switch-new switch-size="" switch-name="TransactionType" prefix="v3.payment.transactiontype"
+					           	switch-model="abc.transactionType" 
+					           	switch-default-value="" switch-disabled="false" 
+					           	switch-options="transactionTypeLazyList">
+					           	
+							</v3-switch-new>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+					<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+						<div class="form-group form-group-lg has-success">
+							<label>{{"new.v3.transactioncenter.transactioncenter.label.ReferenceNo" | translate}}</label>
+							<input class="form-control" type="text" ng-model="abc.referenceNo" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+				       <div class="form-group form-group-lg has-success">
+				           <label>{{"new.v3.transactioncenter.transactioncenter.label.EffectiveDateFrom" | translate}}</label>
+				           <div style="position:relative"><input ms-datepicker ng-model="abc.effectiveDateFrom" class="ms-calendar"/></div>
+				       </div>
+				   </div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+				        <div class="form-group form-group-lg has-success">
+				            <label>{{"new.v3.transactioncenter.transactioncenter.label.EffectiveDateTo" | translate}}</label>
+				            <div style="position:relative"><input ms-datepicker ng-model="abc.effectiveDateTo" class="ms-calendar"/></div>
+				        </div>
+				    </div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+					<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+						<div class="form-group form-group-lg has-success">
+							<label>{{"new.v3.transactioncenter.transactioncenter.label.PolicyOwner" | translate}}</label>
+							<input class="form-control" type="text" ng-model="abc.policyOwner" />
+						</div>
+					</div>
+				</div>			
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				 	<div class="col-xs-offset-1 col-xs-10"	style="margin-bottom: 20px;">
+				        <div class="form-group form-group-lg has-success" style="text-align: center;">		            
+				        	<button class="btn btn-lg v3-btn-primary" style="width: 200px; margin-top: 15px;" ng-click="searchTransactionCenter()">{{"new.v3.transactioncenter.transactioncenter.button.Search" | translate}}</button>
+				        </div>
+				    </div>
+				</div>	
+			</div>
+		</div>
+		<div flex layout="row" class="ipos_portlet_table_header_item_transaction" layout-align="center center" style="line-height: 30px; margin-top: 35px;">
+			<div flex="85">
+				<!-- <input style="padding-left: 40px" ng-change="searchPayment()" class="form-control" ng-model="searchText" placeholder="Search">
+				<i style="position: absolute; top: 7px; left: 25px;" class="fa fa-search fa-2x"></i> -->
+			</div>
+			<div flex="15"><div class="form-group  form-group-lg has-success"><label></label></div></div>
+			<!-- <div flex="10">Action</div> -->
+		</div>
+	
+		<div dir-paginate="transaction in transactionList | itemsPerPage: pageSize" current-page="currentPage">
+	  		<div id="node" flex layout="row" class="ipos_portlet_table_header_item_transaction_row" ng-class="$index%2==0?'row_odd':'row_even'" style="line-height: 25px">
+		   		
+				<div flex="85" style="text-align: left">
+					<div class="container-fluid v3-padding-0">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-10">   
+						   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-padding-left-0">
+							   <div style="padding-left: 0px;">
+									<div class="form-group form-group-lg has-success">
+									    <label>{{"new.v3.transactioncenter.transactioncenter.label.TransactionType" | translate}} : <a href="" ng-click="getCaseDetail(transaction)">{{"v3.payment.transactiontype." + transaction.CaseType | translate }}</a> </label>
+								  	</div>
+							  	</div>
+						   </div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">   
+						   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-padding-left-0">
+							   <div style="padding-left: 0px;">
+									<div class="form-group form-group-lg has-success">
+									    <label>{{"new.v3.transactioncenter.transactioncenter.label.ReferenceNo" | translate}} : <a href="" ng-click="openPdfReferenceNo(transaction)">{{transaction.ReferenceNo}}</a></label> 
+								  	</div>
+							  	</div>
+						   </div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">   
+						   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-padding-left-0">
+							   <div style="padding-left: 0px;">
+									<div class="form-group form-group-lg has-success">
+									    <label>{{"new.v3.transactioncenter.transactioncenter.label.ProductType" | translate}} : {{'v3.mynewworkspace.portlet.label.productName.' + transaction.Product | translate  | trimtext:false:20:'..'}}</label> 
+								  	</div>
+							  	</div>
+						   </div>
+						</div>
+						
+						<!-- more detail -->
+						<div  class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0px">
+							<div id="detail_{{$index}}" class="cssSlideUp" ng-hide="transaction.isShow">
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									<div class="form-group form-group-lg has-success">
+										<label>{{"new.v3.transactioncenter.transactioncenter.label.EffectiveDate" | translate}} : {{transaction.EffectiveDate | dateFilter}}</label> 
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+									<div class="form-group form-group-lg has-success">
+										<label>{{"new.v3.transactioncenter.transactioncenter.label.PolicyOwner" | translate}} : {{transaction.POFullName}}</label> 
+								   </div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									<div class="form-group form-group-lg has-success">
+										<div class="row">
+											<label>{{"new.v3.transactioncenter.transactioncenter.label.DatePaidtoAgent" | translate}} :</label>
+										    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+										         <button ng-show="commonService.hasValueNotEmpty(transaction.ClientPaymentDate)" class="col-sm-offset-4 col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="printPaymentSlip(transaction)">{{moduleServiceTransaction.convertToDateTime(transaction.ClientPaymentDate,'DD/MM/YYYY')}}</button> 
+										    </div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									<div class="form-group form-group-lg has-success">
+										<div class="row">
+											<label> {{"new.v3.transactioncenter.transactioncenter.label.DatePaidtoCompany" | translate}} : </label>
+										    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+										         <button ng-show="commonService.hasValueNotEmpty(transaction.AgentPaymentDate)" class="col-sm-offset-4 col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="printPaymentDetail(transaction)">{{transaction.AgentPaymentDate | dateFilter}}</button> 
+										    </div>
+										</div> 
+									</div>
+								</div>
+	<!-- 							<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6 ">
+									<div class="row">
+										<label>Policy No.:</label> <a href="">{{payment.policyNum}}</a>
+									</div>
+								</div>
+	 -->							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									<div class="form-group form-group-lg has-success">
+										<label> {{"new.v3.transactioncenter.transactioncenter.label.StatusChangeDate" | translate}} : {{moduleServiceTransaction.convertToDateTime(transaction.UpdatedDate,'DD/MM/YYYY')}}</label>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									<div class="form-group form-group-lg has-success">
+										<label> {{"new.v3.transactioncenter.transactioncenter.label.Status" | translate}} : {{'v3.document.status.' + transaction.BusinessStatus | translate}}</label>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						
+						<!-- action list -->
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
+						   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-padding-left-0 ">
+							   <div class="col-xs-10" style="padding-left: 0px;">
+							   		<i id="endorse-submenu-caret-{{$index}}"  class="fa fa-angle-down fa-lg icon-action-list" ></i>
+									<div class="form-group-lg has-success action-list">
+									    <a href="" ng-click="showTransactionDetail($index, transaction)" ng-show="transaction.isShow">{{"new.v3.transactioncenter.transactioncenter.hyperlink.More" | translate}} </a>
+									    <a href="" ng-click="showTransactionDetail($index, transaction)" ng-hide="transaction.isShow">{{"new.v3.transactioncenter.transactioncenter.hyperlink.Less" | translate}} </a>
+									    
+									    <!-- <span class="carret-button" ng-click="showPaymentDetail($index, payment.DocId)">
+											<i id="endorse-submenu-caret-{{$index}}"  class="fa fa-angle-down fa-2x"></i>Detail
+										</span> -->
+								  	</div>
+								  	<i class="fa fa-star fa-lg icon-action-list" style="color: #f1c40f"></i>
+								  	<div class="form-group-lg has-success action-list">
+									    <a href="">{{"new.v3.transactioncenter.transactioncenter.hyperlink.Star" | translate}} </a>
+								  	</div>
+							  	</div>
+						   </div>
+						</div>
+						
+					</div>
+				</div>
+				<div flex="15" style="text-align: right; padding-right: 10px;" class="margin-top-10">
+					<!-- <input  format="number" ng-disabled="true" style="border: none; text-align: right; background-color: transparent; width: 100%; padding-right: 10px;"  ng-model="payment.Premium"/> -->
+					
+					<div class="form-group form-group-lg has-success">
+					<label>{{"new.v3.transactioncenter.transactioncenter.label.PayableAmount" | translate}} ({{transaction.BillingCurrency}})
+					( {{"v3.paymentType.G" | translate}} ) :
+							{{transaction.PayableAmount}}
+						<!-- <span ng-if="moduleServiceTransaction.findElementInDetail_V3(['agent-payment:PaymentType']).Value == 'G'">
+							( {{"v3.paymentType." + moduleServiceTransaction.findElementInDetail_V3(['agent-payment:PaymentType']).Value | translate}} ) :
+							{{transaction.PayableAmount}}
+						</span> 
+						<span ng-if="moduleServiceTransaction.findElementInDetail_V3(['agent-payment:PaymentType']).Value == ''">
+							({{"v3.paymentType.G" | translate}}) :
+							{{transaction.PayableAmount}}
+						</span>
+						<span ng-if="moduleServiceTransaction.findElementInDetail_V3(['agent-payment:PaymentType']).Value == 'N'">
+							({{"v3.paymentType." + moduleServiceTransaction.findElementInDetail_V3(['agent-payment:PaymentType']).Value | translate}}) :
+						</span> -->
+					</label> 
+				</div>
+				</div>
+				<!-- <div flex="10"><i class="fa fa-eye" ng-click="showPaymentDetail($index, payment.DocId)"></i></div> -->
+	  		</div>
+			<md-divider ></md-divider>
+		</div>
+		<div class="ipos_portlet_table_header_item_transaction_row" ng-if="!transactionList.length" style="text-align: center; height: 100px; line-height: 100px;">
+			No item is displayed
+		</div>
+		<md-divider ng-if="!transactionList.length"></md-divider>
+	    <!-- <div flex layout="row" layout-margin>
+	  		<div flex="65"></div>
+	  		<div flex layout="row">Total&nbsp;&nbsp;<b>{{totalPremium | number:2}}</b></div>
+	 	</div>	 -->
+	    <div layout-margin flex layout="row" layout-align="end center">	
+			<div class="ipos_paging_margin_top_25" flex layout="row"  layout-align="end center">							
+	                           <span>{{'v3.transactioncenter.label.Itemsperpage' | translate}}</span>
+					<!-- <md-select class="small-md-select ipos_paging_dropdown_65" ng-model="pageSize">
+	                    <md-option ng-repeat="size in pageSizes" value="{{size}}">{{size}}</md-option>
+	                </md-select> -->
+	                <select class="form-control ipos_paging_dropdown_70" style="margin-top: 5px !important;" ng-model="pageSize" ng-options="size as size for size in pageSizes">
+					</select>
+			</div>	
+			<dir-pagination-controls boundary-links="true" max-size="5">
+			</dir-pagination-controls>
+		</div>
+	</div>
+</div>

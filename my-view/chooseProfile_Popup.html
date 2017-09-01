@@ -1,0 +1,69 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<md-dialog class="popup" aria-label="Settings">	
+	<div class="row" style="padding-top: 10px; padding-bottom: 10px; margin-left: auto; margin-right: auto; width: 100%; background-color: #34495E; font-size: 15px; font-weight: bold; color: white; text-align: center;">
+		<span>Choose Profile</span>
+	</div>  
+    <div>
+        <md-content class="popupSelectContainer">
+            <!-- <div class="row v3-margin-auto" style="width: 100%">
+            	<div class="col-xs-5">
+            		{{::'v3.personal.label.user.ProfileType' | translate}}
+            	</div>
+            	<div class="col-xs-5">
+            		{{::'v3.personal.label.user.ProfileId' | translate}}
+            	</div>
+            </div>
+            <div class="row v3-margin-auto popupSelectBeakeline popupSelect" style="width: 100%" ng-click="selectedValue(item, $index)" ng-repeat="item in items">
+            	<div class="col-xs-5">
+            		{{::'v3.personalprofile.portlet.label.' + item['user:ProfileType'].Value | translate}}
+            	</div>
+            	<div class="col-xs-5">
+            		{{::item['@profile-id']}}
+            	</div>
+            	<div class="col-xs-2">
+            		 <div id="select-{{::$index}}"></div>
+            	</div>
+            </div> -->
+             
+            <div class="row v3-margin-auto popupSelectBeakeline popupSelect" style="width: 100%" ng-click="selectedValue(item, $index)" ng-repeat="item in items">
+            	<div class="col-xs-9 col-xs-offset-1">
+            		<b>{{::'v3.personalprofile.portlet.label.' + item['user:ProfileType'].Value | translate}}</b> ({{::item['@profile-id']}})
+            	</div>
+            	<div class="col-xs-2">
+            		 <div id="select-{{::$index}}"></div>
+            	</div>
+            </div>
+        </md-content>
+    </div>
+    <div class="row v3-margin-auto" style="margin-top: 10px; margin-bottom: 10px;">
+    	<div class="col-xs-6" >
+			<button type="button" class="btn-lg v3-btn-primary button-size-level2 button-login-border-none" ng-click="cancelDialog()">Cancel</button>
+		</div>	
+		<div class="col-xs-6" >
+			<button type="button" class="btn-lg v3-btn-primary button-size-level2 button-login-border-none" ng-click="doneSelect()">Done</button>
+		</div>	
+    </div>
+</md-dialog>
+
+<!-- <div layout="row" class="popupSelectBeakeline popupSelect" ng-click="selectedValue(item, $index)" ng-repeat="item in items">
+    <h flex="86" class="popupSelectList">{{::item['@profile-id']}}</h>
+    <div flex="10"  id="select-{{::$index}}"></div>
+</div> -->

@@ -1,0 +1,2249 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div fieldId="application-income-protection:Summary" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-left-padding">
+		     <div class="form-group form-group-lg has-success">
+		         <span style="font-weight: bold">1. {{::'v3.mynewworkspace.income-protection-plan.application.label.ProposerFirstInsuredPerson' | translate}}</span>
+		     </div>
+		 </div>
+		 
+		 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.FullName' | translate}}*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.income-protection.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	         	<span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.DateOfBirth' | translate}}*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding"></span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.Gender' | translate}}*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.income-protection.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	         	<span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.SmokingStatus' | translate}}*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding"></span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.Occupation' | translate}}*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.income-protection.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	         	<span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.AnnualIncome' | translate}}()*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding"></span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	         	<span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.ResidentialAddress' | translate}}*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding"></span>
+	         </div>
+	     </div>
+	     
+	     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-left-padding">
+		     <div class="form-group form-group-lg has-success">
+		         <span style="font-weight: bold">2. {{::'v3.mynewworkspace.income-protection-plan.application.label.SecondInsuredPerson' | translate}}</span>
+		     </div>
+		 </div>
+		 
+		 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.FullName' | translate}}*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.income-protection.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	         	<span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.DateOfBirth' | translate}}*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding"></span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.Gender' | translate}}*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.income-protection.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	         	<span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.SmokingStatus' | translate}}*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding"></span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.Occupation' | translate}}*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.income-protection.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	         	<span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.AnnualIncome' | translate}}*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding"></span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	         	<span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection-plan.application.label.ResidentialAddress' | translate}}*:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding"></span>
+	         </div>
+	     </div>
+	</div>
+</div>
+
+<!-- DocumentPreview -->
+<div fieldId="application-income-protection:ProposerName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{::'v3.mynewworkspace.income-protection.illustration.label.ProposerName' | translate}}:</span>
+		<span class="col-md-6"></span>
+	</div>
+</div>
+<div fieldId="application-income-protection:NumberOfInsuredPerson" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{::'v3.mynewworkspace.income-protection-plan.application.label.PlanName' | translate}}:</span>
+		<span class="col-md-6"></span>
+	</div>
+</div>
+<div fieldId="application-income-protection:Currency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{::'v3.mynewworkspace.income-protection.illustration.label.Currency' | translate}}:</span>
+		<span class="col-md-6"></span>
+	</div>
+</div>
+
+<!-- ChannelAndPolicyDelivery -->
+<div fieldId="application-income-protection:ReferralCode" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" >
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection-plan.application.label.ReferralCode' | translate}}</label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="application-income-protection:PolicyDelivery" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection-plan.application.label.PolicyDelivery' | translate}}</label>
+			<v3-switch-new switch-size="" switch-name="gender" prefix="v3.gender.enum"
+	           	switch-model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).Value" 
+	           	switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender'])['@editable']=='0'" 
+	           	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['POGender','Option'])">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+
+<!-- PaymentDetails -->
+<div fieldId="application-income-protection:PremiumFrequency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" >
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection-plan.application.label.PremiumFrequency' | translate}}</label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="application-income-protection:PremiumFrequencyTemp" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ></div>
+<div fieldId="application-income-protection:MethodFirstPremium" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection-plan.application.label.MethodForPayingFirstPremium' | translate}}<span>*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="application-income-protection:MethodRenewalPremium" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection-plan.application.label.MethodForPayingRenewalPremium' | translate}}<span>*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="application-income-protection:PayorVsProposer" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" >
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" style="margin-top: 30px;">	
+	    <div class="form-group form-group-lg has-success">
+	     	<label>{{::'v3.mynewworkspace.income-protection-plan.application.label.PayorVsProposer' | translate}}</label>
+		    <v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+	   			switch-model="moduleService.payor" 
+	   			switch-default-value="" switch-disabled="false"
+	   			switch-options="yesno">
+	   		</v3-switch-new-slide>
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="application-income-protection:PayorVsProposerTemp" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content"  style="margin-top: 30px;">
+  	</div>
+</div>
+<div fieldId="application-income-protection:PayorName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-if="moduleService.payor == 'Y'">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection-plan.application.label.PayorName' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="application-income-protection:PayorRelationship" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"  ng-if="moduleService.payor == 'Y'">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection-plan.application.label.PayorRelationships' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="application-income-protection:PayorIDNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"  ng-if="moduleService.payor == 'Y'">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection-plan.application.label.PayorNRICPassport' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+
+<!-- USTaxDeclaration -->
+<div fieldId="application-income-protection:USTaxDeclaration" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content" >
+	<div class="col-xs-offset-1 col-xs-11 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <md-radio-group ng-model="taxDeclaration" layout="column">
+		      <md-radio-button value="NONUS">
+		     	 <span style="margin-left: 10px;">Non-US person</span>
+		     	 <div style="font-size: 15px; margin-top: 6px;    margin-left: 10px;">I/We represent and warrant that I/we am/are not a US Person, and I/we am/are not acting for, or, on behalf of, a US Person. If my/our tax status changes and I/we become a US Person, I/we agree that I/we shall notify the insurance company(ies) within 30 days from the date of change</div>
+		      </md-radio-button>
+		      <md-radio-button value="ADDR">
+		      	<span>Non-US person with a US address (or green card holder claiming tax treaty benefits)[Form W8BEN]</span>
+		      </md-radio-button>
+		      <md-radio-button value="US">
+		      	<span>US person[Form W9]</span>
+		      </md-radio-button>
+		    </md-radio-group>
+		    <div ng-if="taxDeclaration == 'US'"	class="row margin-top-10">
+				<div class="col-md-3" style="margin-left: 25px;">
+					<label>US Tax ID Number *</label>
+				</div>
+				<div class="col-md-5">
+					<input type="text" class="form-control"  maxlength="20" />
+				</div>
+			</div> 
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+
+<!-- PrivacyPolicy -->
+<div fieldId="application-income-protection:PrivacyPolicy" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content" >
+	<div class="col-xs-offset-1 col-xs-11 v3-column-content">	
+	    <div class="form-group form-group-lg has-success"  ng-init="privacyPolicyNote = true">
+	   		 <label class="margin-bottom-15">Note: Please tick to select the one(s) that apply</label>
+	    	 <label class="margin-bottom-15">I/We wish to receive information, including marketing materials from CSC Insurance from the following channels*</label>
+	    	 <md-checkbox class="in-line" ng-model="privacyPolicy1" aria-label="Voice Calls" ng-true-value="'Y'" ng-false-value="'N'" >
+	           Voice Calls
+	         </md-checkbox>
+	         <md-checkbox class="in-line" ng-model="privacyPolicy2" aria-label="Text Messages" ng-true-value="'Y'" ng-false-value="'N'" >
+	           Text Messages
+	         </md-checkbox>
+	         <md-checkbox class="in-line" ng-model="privacyPolicy3" aria-label="Fax Messages" ng-true-value="'Y'" ng-false-value="'N'" >
+	          	Fax Messages
+	         </md-checkbox>
+	         <md-checkbox class="in-line" ng-model="privacyPolicy4" aria-label="Direct Mail" ng-true-value="'Y'" ng-false-value="'N'" >
+	          	Direct Mail
+	         </md-checkbox>
+	         <md-checkbox class="in-line" ng-model="privacyPolicy5" aria-label="Mail" ng-true-value="'Y'" ng-false-value="'N'" >
+	          	Mail
+	         </md-checkbox>
+	         <md-checkbox class="in-line" ng-model="privacyPolicy6" aria-label="All" ng-true-value="'Y'" ng-false-value="'N'" >
+	          	All
+	         </md-checkbox>
+        
+        	<p class="margin-top-15"> Note:
+	        	<a class="accordion-toggle" href="javascript:void(0)" ng-click="collapsePanel('#privacyPolicyNote');privacyPolicyNote = !privacyPolicyNote"> 
+					<i class="fa fa-arrow-circle-down fa-2x" id="privacyPolicyNote"></i>
+				</a>
+			</p>
+			<p collapse="privacyPolicyNote">
+				<span>* "Text message" means any messages, whether in sound, text, visual or other form, sent to telephone number, these include SMS, MMS and data applications which use a Singapore telephone number such as "Whatsapp", "iMessage,"</span>
+				<br>
+				<br>
+				<span style="margin-top: 10px">By signing and submitting this form:
+(a) I consent to CSC Insurance and its related corporations (collectively, the "CSC Group"), its agents, authorised service providers and marketing partners collecting, using, disclosing and/or processing my personal data, in order to contact me about products and services marketed by CSC Insurance or its partners as well as benefits, promotions and rewards, via the modes selected above and using my contact particulars which CSC Insurance may have in its records from time to time (including where applicable my Singapore telephone number(s));
+(b) I confirm and agree that my consents granted herein do not supersede or replace any other consents which I may have previously provided to CSC Insurance in respect of my personal data, and are additional to any rights which CSC Insurance may have at law to collect, use or disclose my personal data.</span> 
+			</p>
+	  	</div>
+	</div>
+</div>
+
+<!-- WitnessForApplication -->
+<div fieldId="application-income-protection:NameOfWitness" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" >
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection-plan.application.label.ProposerFirstInsuredPerson' | translate}}Name of Witness<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="application-income-protection:NRICOfWitness" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" >
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection-plan.application.label.ProposerFirstInsuredPerson' | translate}}NRIC of Witness<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+
+<!-- FIResindencyDetails -->
+<div fieldId="first-insured:FIResindencyDetails" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content" >
+	<div class="col-xs-offset-1 col-xs-11 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <md-radio-group ng-model="resindencyDetails" layout="column">
+		    	<div class="row margin-top-20"> <!-- Using ng-repeat at here  -->
+			    	<div class="col-md-12 no-left-padding no-right-padding"> 
+					    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+						      <md-radio-button value="ABC">
+						     	 <span style="margin-left: 10px;">Singapore Citizen - Have you resided outside Singapore continuously for 5 years or more before the date of this application and is not currently residing in Singapore?</span>
+						      </md-radio-button>
+					    </div>
+					    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					    	<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+					   			switch-model="value1" 
+					   			switch-default-value="" switch-disabled="resindencyDetails != 'ABC'"
+					   			switch-options="yesno">
+					   		</v3-switch-new-slide>
+					    </div>
+				    </div>
+			    </div>
+		    	
+		    	<div class="row margin-top-20">
+			    	<div class="col-md-12 no-left-padding no-right-padding"> 
+					    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+						      <md-radio-button value="CDE">
+						     	 <span style="margin-left: 10px;">Singapore Permanent Resident/Work Pass or Permit Holder - Have you resided in Singapore for less than 183 days in the last 12 months before the date of this application?</span>
+						      </md-radio-button>
+					    </div>
+					    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					    	<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+					   			switch-model="value2" 
+					   			switch-default-value="" switch-disabled="resindencyDetails != 'CDE'"
+					   			switch-options="yesno">
+					   		</v3-switch-new-slide>
+					    </div>
+				    </div>
+			    </div>
+		    	
+		    	<div class="row margin-top-20">
+			    	<div class="col-md-12 no-left-padding no-right-padding"> 
+					    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+						      <md-radio-button value="FGH">
+						     	 <span style="margin-left: 10px;">Others (eg Dependant's Pass/Student's Pass/Social Visit Pass etc) - Do you have a Singapore immigration pass or permit that has a duration longer than 90 days and you have resided in Singapore continuously for at least 90 days in the last 12 months before the date of this application?</span>
+						      </md-radio-button>
+					    </div>
+					    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					    	<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+					   			switch-model="value3" 
+					   			switch-default-value="" switch-disabled="resindencyDetails != 'FGH'"
+					   			switch-options="yesno">
+					   		</v3-switch-new-slide>
+					    </div>
+				    </div>
+			    </div>
+		    </md-radio-group>
+	  	</div>
+	</div>
+</div>
+
+
+<!-- FIMailingAddress -->
+<div fieldId="first-insured:SelectAddress" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		<label><i>{{::'v3.mynewworkspace.income-protection-plan.application.label.MailingAddress' | translate}}</i></label>
+		</div>
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.application.label.SelectAddress' | translate}}*</label>
+			<ng-newDropDown 
+			   model="moduleService.selectedAddress"
+			   list="moduleService.addressList" 
+			   type="irregular" key="person:Street">
+			</ng-newDropDown>
+				<i  class="fa fa-arrow-circle-down fa-3x button-import" ng-click="importAddress(moduleService.selectedAddress)" style="top: 40px;"></i>  
+		</div>
+	</div>
+</div>
+<div fieldId="first-insured:AddressTemp" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+</div>
+<div fieldId="first-insured:AddressType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{'v3.mynewworkspace.personal-accident.application.label.AddressType' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','AddressType'])['@mandatory'] == '1'">*</span></label>
+		    <ng-newDropDown model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','AddressType'])"
+				disable="moduleService.findElementInDetail_V3(['CorrespondenceAddress','AddressType'])['@editable'] == '0'"
+				list=" moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['CAddressType']).Option" 
+				type="nonFlag" prefix="v3.pnc.addressType.enum"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','AddressType']).errorMessage | translate"></span>	
+	  	</div>
+	</div>
+</div>
+
+<div fieldId="first-insured:BlkHouseNoAndStreet" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label class="col-xs-12 col-sm-12 col-lg-12 no-left-padding no-right-padding">{{'v3.mynewworkspace.personal-accident.application.label.BlockHouseNoAndStreet' | translate}} <span>*</span></label>		    
+		    <div class="col-xs-12 col-sm-3 col-lg-3 no-left-padding no-right-padding">
+			    <input type="text" class="form-control" ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','BlkHouseNo'])['@editable'] == '0'"  
+	        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','BlkHouseNo']).$" />
+	        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','BlkHouseNo']).errorMessage | translate"></span>
+        	</div>
+		    <div class="col-xs-12 col-sm-9 col-lg-9 no-left-padding no-right-padding">
+			    <input type="text" class="form-control" maxlength="30" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Street']).$" />
+	        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Street']).errorMessage | translate"></span>
+        	</div>
+	  	</div>
+	</div>
+</div>
+<div fieldId="first-insured:UnitNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{'v3.mynewworkspace.personal-accident.application.label.UnitNumber' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control"  placeholder="{{(moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0') ? '' : ('v3.mynewworkspace.personal-accident.application.label.UnitNumber' | translate) }}" 
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="first-insured:Building" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{'v3.mynewworkspace.personal-accident.application.label.Building' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Building'])['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control" placeholder="{{'v3.mynewworkspace.personal-accident.application.label.Building' | translate}}" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['CorrespondenceAddress','Building'])['@editable'] == '0'"  
+       			maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Building']).$" />
+        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Building']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="first-insured:City" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{'v3.mynewworkspace.personal-accident.application.label.City' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','City'])['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control" placeholder="{{'v3.mynewworkspace.personal-accident.application.label.City' | translate}}" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['CorrespondenceAddress','City'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','City']).$" />
+        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','City']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="first-insured:Country" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{'v3.mynewworkspace.personal-accident.application.label.Country' | translate}} <span>*</span></label>
+			<ng-newDropDown model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Country'])"
+				disable="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Country'])['@editable'] == '0'"
+				list=" moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['POCountry']).Option" type="full-flag" prefix="v3.pnc.country.enum"></ng-newDropDown>
+	        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Country']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="first-insured:Postal" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{'v3.mynewworkspace.personal-accident.application.label.PostalCode' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Postal'])['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control" placeholder="{{'v3.mynewworkspace.personal-accident.application.label.PostalCode' | translate}}" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['CorrespondenceAddress','Postal'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Postal']).$" />
+        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Postal']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+
+<!-- FIPlanDetails -->
+<div fieldId="first-insured:FIPlanDetails" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	 	<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-table-content" >
+	        <div flex layout="row" class="ipos_portlet_custom_table_header_item" layout-align="center center">
+	            <div flex="25" >{{::'v3.mynewworkspace.income-protection.illustration.label.BasicPlanAndRider' | translate}}</div>
+	            <div flex="15" >{{::'v3.mynewworkspace.income-protection.illustration.label.BenefitAmount' | translate}} <br>({{::'v3.mynewworkspace.income-protection.illustration.label.PerMonth' | translate}}) <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+	            <div flex="15" >{{::'v3.mynewworkspace.income-protection.illustration.label.SumInsured' | 	translate}} <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+	            <div flex="15" >{{::'v3.mynewworkspace.income-protection.illustration.label.BasePremium' | translate}} <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+	            <div flex="10" >{{::'v3.mynewworkspace.income-protection.illustration.label.TaxDeduction' | translate}} <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+	            <div flex="10" >{{::'v3.mynewworkspace.income-protection.illustration.label.NetPremium' | translate}} <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+	            <div flex="10" >{{::'v3.mynewworkspace.income-protection.illustration.label.ExpiryAge' | translate}}</div>
+	        </div>
+	        <div flex layout="row" class="ipos_portlet_table_listRow" style="text-align: left; border: none;">
+	            <div flex="25"><span class="ipos_portlet_table_listRow_label_left"><b>{{::'v3.mynewworkspace.income-protection.illustration.label.IncomeProtectionPlan' | translate}}</b></span></div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+		    </div>
+		    <div flex layout="row" class="ipos_portlet_table_listRow" style="text-align: left;">
+	            <div flex="25"><span class="ipos_portlet_table_listRow_label_left">{{::'v3.mynewworkspace.income-protection.illustration.label.AccidentLumpSumOption' | translate}}</span></div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+		    </div>
+	        <div flex layout="row" class="ipos_portlet_table_listRow" style="text-align: left;">
+	            <div flex="25"><span class="ipos_portlet_table_listRow_label_left">{{::'v3.mynewworkspace.income-protection.illustration.label.StampDuty' | translate}}</span></div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+		    </div>
+	        <div flex layout="row" class="ipos_portlet_table_listRow" style="text-align: left;">
+	            <div flex="25"><span class="ipos_portlet_table_listRow_label_left">{{::'v3.mynewworkspace.income-protection.illustration.label.TotalPremium' | translate}} (yearly)</span></div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+		    </div>
+		     <div flex layout="row" class="ipos_portlet_custom_table_header_item" >
+	            <div flex="25" style="text-align: left; padding-left: 10px"><b>{{::'v3.mynewworkspace.income-protection.illustration.label.PlanType' | translate}}</b></div>
+	            <div flex="15"><b>{{::'v3.mynewworkspace.income-protection.illustration.label.PremiumType' | translate}}</b></div>
+	            <div flex="15"><b>{{::'v3.mynewworkspace.income-protection.illustration.label.BenefitPeriod' | translate}}</b></div>
+	            <div flex="15"><b>{{::'v3.mynewworkspace.income-protection.illustration.label.WaitingPeriodDays' | translate}}</b></div>
+	            <div flex="10"><b>{{::'v3.mynewworkspace.income-protection.illustration.label.ConsumerPriceIndexation' | translate}}</b></div>
+	            <div flex="10"><b>{{::'v3.mynewworkspace.income-protection.illustration.label.OccupationClass' | translate}}</b></div>
+	            <div flex="10"><b>{{::'v3.mynewworkspace.income-protection.illustration.label.MarginalTaxRate' | translate}}</b></div>
+		    </div>
+		    <div flex layout="row" class="ipos_portlet_table_listRow" style="text-align: left;">
+	            <div flex="25"><span class="ipos_portlet_table_listRow_label_left">{{::'v3.mynewworkspace.income-protection.illustration.label.AgreedValue' | translate}}</span></div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="15">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+	            <div flex="10">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+		    </div>
+	    </div> -->
+	    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding-left no-padding-right" >
+		<div class="table-responsive">
+			<table class="table v3-responsive-table">
+				<thead>
+            		<tr>
+            			<th style="width: 210px;">{{::'v3.mynewworkspace.income-protection.illustration.label.BasicPlanAndRider' | translate}}</th>
+			            <th style="width: 150px;">{{::'v3.mynewworkspace.income-protection.illustration.label.BenefitAmount' | translate}} <br>({{::'v3.mynewworkspace.income-protection.illustration.label.PerMonth' | translate}}) <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</th>
+			            <th style="width: 120px;">{{::'v3.mynewworkspace.income-protection.illustration.label.SumInsured' | 	translate}} <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</th>
+			            <th style="width: 120px;">{{::'v3.mynewworkspace.income-protection.illustration.label.BasePremium' | translate}} <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</th>
+			            <th>{{::'v3.mynewworkspace.income-protection.illustration.label.TaxDeduction' | translate}} <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</th>
+			            <th style="width: 105px;">{{::'v3.mynewworkspace.income-protection.illustration.label.NetPremium' | translate}} <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</th>
+			            <th>{{::'v3.mynewworkspace.income-protection.illustration.label.ExpiryAge' | translate}}</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr class="row-no-border-bottom">
+            			 <td><span><b>{{::'v3.mynewworkspace.income-protection.illustration.label.IncomeProtectionPlan' | translate}}</b></span></td>
+            			 <td></td>
+            			 <td></td>
+            			 <td></td>
+            			 <td></td>
+            			 <td></td>
+            			 <td></td>
+            		</tr>
+            		<tr class="row-no-border-top">
+            			<td><span>{{::'v3.mynewworkspace.income-protection.illustration.label.AccidentLumpSumOption' | translate}}</span></td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+            		</tr>
+            		<tr>
+            			<td><span>{{::'v3.mynewworkspace.income-protection.illustration.label.StampDuty' | translate}}</span></td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+            		</tr>
+            		<tr>
+            			<td><span>{{::'v3.mynewworkspace.income-protection.illustration.label.TotalPremium' | translate}} (yearly)</span></td>
+	            		<td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+            		</tr>
+            		<tr class="row-in-table">
+            			<td style="text-align: left; padding-left: 10px"><b>{{::'v3.mynewworkspace.income-protection.illustration.label.PlanType' | translate}}</b></td>
+			            <td><b>{{::'v3.mynewworkspace.income-protection.illustration.label.PremiumType' | translate}}</b></td>
+			            <td><b>{{::'v3.mynewworkspace.income-protection.illustration.label.BenefitPeriod' | translate}}</b></td>
+			            <td><b>{{::'v3.mynewworkspace.income-protection.illustration.label.WaitingPeriodDays' | translate}}</b></td>
+			            <td><b>{{::'v3.mynewworkspace.income-protection.illustration.label.ConsumerPriceIndexation' | translate}}</b></td>
+			            <td><b>{{::'v3.mynewworkspace.income-protection.illustration.label.OccupationClass' | translate}}</b></td>
+			            <td><b>{{::'v3.mynewworkspace.income-protection.illustration.label.MarginalTaxRate' | translate}}</b></td>
+            		</tr>
+            		<tr>
+            			<td><span>{{::'v3.mynewworkspace.income-protection.illustration.label.AgreedValue' | translate}}</span></td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+            		</tr>
+            	</tbody>
+			</table>
+		</div>
+		</div>
+	 </div>
+</div>
+
+<!-- FIReplacement -->
+<div fieldId="first-insured:FIReplacement" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>1.&nbsp;Do you have any existing policy? If Yes, please provide details below *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="replacement1" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="replacement1 == 'Y'">
+		<thead>
+			<tr>
+				<th><label>Name of company</label></th>
+				<th><label>Year issuedy</label></th>
+				<th><label>Life Sum Insured ()</label></th>
+				<th><label>Critical Illness Sum Insured ()</label></th>
+				<th><label>Term Sum Insured ()</label></th>
+				<th><label>Total and permanent disability ()</label></th>
+				<th><label>Accident and hospitalisation ()</label></th>
+				<th><label>Others ()</label></th>
+				<th>
+					<!-- <a ng-click="" class=""> 
+						<i class="pointer fa fa-plus-square fa-2x"></i>
+					</a> -->
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select class="form-control" ng-model="abc" 
+					ng-options='item.value as item.text for item in [{"value":"ETI","text":"ipos","group":null},{"value":"AIA","text":"AIA","group":null},{"value":"AVI","text":"Aviva","group":null},{"value":"AXA","text":"Axa","group":null},{"value":"FP","text":"Friends Provident","group":null},{"value":"GEN","text":"Generali ","group":null},{"value":"GE","text":"Great Eastern ","group":null},{"value":"HSBC","text":"HSBC Insurance","group":null},{"value":"NTUC","text":"NTUC Income","group":null},{"value":"LIC","text":"Life Ins. Corp.","group":null},{"value":"MAN","text":"Manulife","group":null},{"value":"PRU","text":"Prudential","group":null},{"value":"SKA","text":"Skandia","group":null},{"value":"STL","text":"Standard Life","group":null},{"value":"SWL","text":"Swiss Life","group":null},{"value":"TML","text":"Tokio Marine Life","group":null},{"value":"TRA","text":"Transamerica","group":null},{"value":"ZUR","text":"Zurich Life","group":null},{"value":"OTHERS","text":"Others","group":null}]'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>2.&nbsp;Has any proposal or application for a life / critical illness / disability / accident / hospital insurance policy ever been refused, postponed and accepted at special rates with CSCI or any other insurer?*</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="replacement2" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table id="first" class="table v3-mynewworkspace-table" ng-if="false">
+		<thead>
+			<tr>
+				<th><label>Underwriting Decision</label></th>
+				<th><label>Company</label></th>
+				<th><label>Type Of Plan</label></th>
+				<th><label>Year Of Occurrence</label></th>
+				<th><label>Remarks</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select class="form-control" ng-model="abc" 
+					ng-options='item.value as item.text for item in [{"value":"decline","text":"Decline","group":null},{"value":"postponed","text":"Postponed","group":null},{"value":"rated","text":"Rated","group":null},{"value":"subject_special_term","text":"Subject to Special Term","group":null}]'>
+					</select> 
+				</td>
+				<td>
+					<select class="form-control" ng-model="abc" 
+					ng-options='item.value as item.text for item in [{"value":"etiqa","text":"Etiqa","group":null},{"value":"aia","text":"AIA","group":null},{"value":"aviva","text":"Aviva","group":null},{"value":"axa","text":"Axa","group":null},{"value":"friends_provident","text":"Friends Provident","group":null},{"value":"generali","text":"Generali ","group":null},{"value":"great_eastern","text":"Great Eastern ","group":null},{"value":"hsbc_insurance","text":"HSBC Insurance","group":null},{"value":"ntuc_income","text":"NTUC Income","group":null},{"value":"life_ins_corp","text":"Life Ins. Corp.","group":null},{"value":"manulife","text":"Manulife","group":null},{"value":"prudential","text":"Prudential","group":null},{"value":"skandia","text":"Skandia","group":null},{"value":"standard_life","text":"Standard Life","group":null},{"value":"swiss_life","text":"Swiss Life","group":null},{"value":"tokio_marine","text":"Tokio Marine Life","group":null},{"value":"transamerica","text":"Transamerica","group":null},{"value":"zurich_life","text":"Zurich Life","group":null},{"value":"other_company","text":"Other company","group":null}]'>
+					</select> 
+				</td>
+				<td>
+					<select class="form-control" ng-model="abc" 
+					ng-options='item.value as item.text for item in [{"value":"life","text":"Life","group":null},{"value":"accident","text":"Accident","group":null},{"value":"critical_illness","text":"Critical Illness","group":null},{"value":"medical","text":"Medical/Hospitalisation","group":null},{"value":"permanent_disability","text":"Permanent Disability","group":null},{"value":"longterm_care","text":"Long Term Care","group":null},{"value":"other_plans","text":"Others","group":null}]	'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>3.&nbsp;Are you making or have you made any claims, including hospitalisation claims on any policy with CSCI or any other insurer? *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="replacement3" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="false">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>4.&nbsp;Do you have any concurrent proposal or application with us at CSCI or any other insurer? *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="replacement4" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="false">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>5.&nbsp;Is the insurance you are applying for meant to replace any existing policy with CSCI or any other insurer? *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="replacement5" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12" ng-if="replacement5 == 'Y'"  ng-init="warninngQ5 = true">
+		<div class="col-md-10">
+		<p class="margin-top-15"> Warning:
+	        	<a class="accordion-toggle" href="javascript:void(0)" ng-click="collapsePanel('#warninngQ5');warninngQ5 = !warninngQ5"> 
+					<i class="fa fa-arrow-circle-down fa-2x" id="warninngQ5"></i>
+				</a>
+			</p>
+			<p collapse="warninngQ5">
+				<span>We would not advise you to replace an existing life insurance policy with a new one. Some of the disadvantages are: 
+				<br>a. The insurance may not be granted on standard terms; 
+				<br>b. You may have to pay a higher premium as you are now older; and 
+				<br>c. You will lose financial benefits built up over the years
+				<br><br>
+				Please consult present insurer before making a final decision. Make a careful comparison so that you can be sure that you are making a decision that is in your best interest.
+				</span> 
+			</p>
+		</div>
+	</div>
+	
+	<div class="col-md-12"  ng-if="false">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+</div>
+
+<!-- FILifestyleDetails -->
+<div fieldId="first-insured:FILifestyleDetails" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>1.&nbsp;Do you drink alcohol or take any other stimulants?*</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="lifestyleDetails1" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="lifestyleDetails1 == 'Y'">
+		<thead>
+			<tr>
+				<th><label>Type</label></th>
+				<th><label>Glasses Each Week</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select class="form-control" ng-model="q1" 
+					ng-options='item.value as item.text for item in [{"value":"beer","text":"Beer","group":null},{"value":"wine","text":"Wine","group":null},{"value":"alcohol","text":"Alcohol","group":null},{"value":"others","text":"Others, Please specify","group":null}]'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>2.&nbsp;Do you smoke either cigarette/cigar/nicotine/pipe/waterpipe (hookah)/others?*</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="lifestyleDetails2" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="lifestyleDetails2 == 'Y'">
+		<thead>
+			<tr>
+				<th><label>Type</label></th>
+				<th><label>Sticks per day</label></th>
+				<th><label>Duration (yrs)</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select class="form-control" ng-model="q2" 
+					ng-options='item.value as item.text for item in [{"value":"cigarette","text":"Cigarette","group":null},{"value":"cigar","text":"Cigar","group":null},{"value":"bidi","text":"Bidi","group":null},{"value":"nicotine","text":"Nicotine","group":null},{"value":"pipe","text":"Pipe","group":null},{"value":"hookah","text":"Waterpipe (Hookah)","group":null},{"value":"others","text":"Others, Please specify","group":null}]'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>3.&nbsp;Do you take part in or do you plan to take part in military or private flying other than as a passenger on a regular airline or any other dangerous occupation or pursuits such as scuba diving, mountain or rock climbing, free-fall parachuting, sky diving or motor racing? *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="lifestyleDetails3" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="false">
+		<thead>
+			<tr>
+				<th><label>Type of Activity/Sport/Pursuit</label></th>
+				<th><label>Frequency per Year</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select class="form-control" ng-model="q2" 
+					ng-options='item.value as item.text for item in [{"value":"scuba_diving","text":"Scuba diving","group":null},{"value":"mountain_climbing","text":"Mountain/rock climbing","group":null},{"value":"free_fall_parachuting","text":"Free fall parachuting","group":null},{"value":"sky_diving","text":"Sky diving","group":null},{"value":"motor_racing","text":"Motor racing","group":null},{"value":"other_activities","text":"Others","group":null}]'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>4.&nbsp;Have you been taking any drugs which can become addictive or have you ever been treated for drug or alcohol addiction?*</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="lifestyleDetails4" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="false">
+		<thead>
+			<tr>
+				<th><label>Type of Drug</label></th>
+				<th><label>Age/Year Onset</label></th>
+				<th><label>Duration</label></th>
+				<th><label>Current Condition</label></th>
+				<th><label>Type of Medication/Treatment</label></th>
+				<th><label>Name & Address of Hospital/Clinic</label></th>
+				<th><label>Doctor's Name</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select class="form-control" ng-model="q2" 
+					ng-options='item.value as item.text for item in [{"value":"treated_drug_alcohol_addition","text":"Treated for drug or alcohol addiction","group":null},{"value":"taken_narcotics","text":"Taken narcotics","group":null},{"value":"other_habit_drug","text":"Taken other habit forming drug","group":null}]'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td>
+					<select class="form-control" ng-model="q2" 
+					ng-options='item.value as item.text for item in [{"value":"alexandra_hosp","text":"Alexandra Hosp.","group":null},{"value":"changigen_hosp","text":"Changi Gen. Hosp.","group":null},{"value":"gleneagles_hosp","text":"Gleneagles Hosp.","group":null},{"value":"inst_of_mental_health","text":"Inst. Of Mental Health","group":null},{"value":"john_hopkins_med_ctr","text":"John Hopkins Med. Ctr.","group":null},{"value":"jurong_med_ctr","text":"Jurong Med. Ctr.","group":null},{"value":"khoo_teck_puat_hosp","text":"Khoo Teck Puat Hosp.","group":null},{"value":"kk_w_c_hosp","text":"KK W & C Hosp.","group":null},{"value":"alvernia_hosp","text":"Mt. Alvernia Hosp. ","group":null},{"value":"elizabeth_hosp","text":"Mt. Elizabeth Hosp. ","group":null},{"value":"nat_neuroscience_ctr","text":"Nat. Neuroscience Ctr.","group":null},{"value":"nat_university_hosp","text":"Nat. University Hosp.","group":null},{"value":"national_cancer_ctr","text":"National Cancer Ctr.","group":null},{"value":"national_heart_ctr","text":"National Heart Ctr.","group":null},{"value":"national_skin_ctr","text":"National Skin Ctr.","group":null},{"value":"parkway_east_hosp","text":"Parkway East Hosp.","group":null},{"value":"raffles_hosp","text":"Raffles Hosp.","group":null},{"value":"singapore_gen_hosp","text":"Singapore Gen. Hosp.","group":null},{"value":"tan_tock_seng_hosp","text":"Tan Tock Seng Hosp.","group":null},{"value":"thomson_med_ctr","text":"Thomson Med. Ctr. ","group":null},{"value":"other_hosp","text":"Others","group":null}]'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<!-- FIRegularDoctorDetails -->
+<div fieldId="first-insured:FIRegularDoctorDetails" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>Do you have regular doctor or any doctor that you have consulted for an existing condition? *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="regularDoctorDetails" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	
+	<div ng-if="regularDoctorDetails == 'Y'">
+		<div class="col-md-6 v3-column-content">
+				 <div class="form-group form-group-lg has-success">
+				    <label>Name of doctor<span>*</span></label>
+				    <input type="text" class="form-control"  
+				    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+		       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+			  	</div>
+		</div>
+		
+		<div class="col-md-8 v3-column-content">
+			 <div class="form-group form-group-lg has-success">
+			    <label>Address of regular doctor/clinic<span>*</span></label>
+			    <textarea rows="5" cols="120"></textarea>
+	       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+		  	</div>
+		</div>
+		
+		<div class="col-md-5 v3-column-content" style="margin-top: 20px;">
+			 <div class="form-group form-group-lg has-success">
+			    <label>Date of last consultation<span>*</span></label>
+			   <div class="ms-calendar-wrapper"><input ms-datepicker ng-model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'BirthDate']).$" class="ms-calendar"/></div>
+	       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+		  	</div>
+		</div>
+		
+		<div class="col-md-8 v3-column-content">
+			 <div class="form-group form-group-lg has-success">
+			    <label>Reasons and details of last consultation<span>*</span></label>
+			   <textarea rows="5" cols="120"></textarea>
+	       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+		  	</div>
+		</div>
+	</div>
+</div>
+
+<!-- FIHealthDetails -->
+<div fieldId="first-insured:FIHealthDetails" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+		<div class="form-group form-group-lg has-success">
+			<span>1.&nbsp;Height & Weight (cm & kg)*</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" >
+		<div class="row col-md-12 form-group form-group-lg has-success no-left-padding">
+			<div class="col-md-6">
+				<input class="form-control" type="text">
+			</div>
+			<div class="col-md-4">
+				<label class="padding-left-15">cm</label>
+			</div>
+		</div>
+		<div class="row col-md-12 form-group form-group-lg has-success margin-top-10 no-left-padding">
+			<div class="col-md-6">
+				<input class="form-control" type="text">
+			</div>
+			<div class="col-md-4">
+				<label class="padding-left-15">kg</label>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+		<div class="form-group form-group-lg has-success">
+			<span>2. Have you ever had, been told that you had or been treated for any of the following:</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(a) Cancer, or malignant tumour/growth?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub1" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub1 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(b) Heart attack, chest pain or discomfort, irregular heartbeat, heart valve disorder, heart murmur or any other blood vessel or heart disease or disorder?*</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub2" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub2 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(c) High blood pressure or high cholesterol?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub3" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub3 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(d) Diabetes, elevated or raised blood sugar, thyroid disorders or any other endocrine disease or disorder?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub4" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub4 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(e) Asthma, bronchitis, pneumonia, tuberculosis or any other lung and respiratory disorder?*  </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub5" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub5 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(f) Hepatitis B/C, fatty liver, abnormal liver function, gallstones or any other liver or gallbladder disease or disorder?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub6" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub6 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(g) Stomach ulcers or any other bowel and digestive disease or disorder?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub7" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub7 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(h) Kidney stones, kidney infection, urine abnormalities or any other kidney, bladderm prostate or gynaecological disease or disorder?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub8" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub8 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(i) Stroke, epilepsy, fits, head injury or any other neurological disease or disorder?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub9" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub9 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(j) Drug or alcohol addiction or abuse?*  </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub10" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub10 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(k) AIDs, HIV or sexually transmitted disease?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub11" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub11 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+		<div class="form-group form-group-lg has-success">
+			<span>3. In the past five years, have you had:</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(a) Any medical test(s) with abnormal results such as X-ray, ultrasound, imaging scan, biopsy, electrocardiogram (ECG), bloog or urine test, prostate check, pap smear or mammogram; or* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub31" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="sub31 == 'Y'">
+		<thead>
+			<tr>
+				<th><label>Proposer & First Insured Person / Second Insured Person</label></th>
+				<th><label>Type of Treatment</label></th>
+				<th><label>Date/Year</label></th>
+				<th><label>Result</label></th>
+				<th><label>Reason for Test/Hospitalization</label></th>
+				<th><label>Name & Address of Hospital/Clinic</label></th>
+				<th><label>Doctor's Name</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td>
+					<select class="form-control" ng-model="q2" 
+					ng-options='item.value as item.text for item in [{"value":"cigarette","text":"Cigarette","group":null},{"value":"cigar","text":"Cigar","group":null},{"value":"bidi","text":"Bidi","group":null},{"value":"nicotine","text":"Nicotine","group":null},{"value":"pipe","text":"Pipe","group":null},{"value":"hookah","text":"Waterpipe (Hookah)","group":null},{"value":"others","text":"Others, Please specify","group":null}]'>
+					</select> 
+				</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(b) Any illness, disorder, operation, physical, disability, treatment or hospitalization not mentioned above?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub32" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="sub32 == 'Y'">
+		<thead>
+			<tr>
+				<th><label>Proposer & First Insured Person / Second Insured Person</label></th>
+				<th><label>Type of Treatment</label></th>
+				<th><label>Date/Year</label></th>
+				<th><label>Result</label></th>
+				<th><label>Reason for Test/Hospitalization</label></th>
+				<th><label>Name & Address of Hospital/Clinic</label></th>
+				<th><label>Doctor's Name</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td>
+					<select class="form-control" ng-model="q2" 
+					ng-options='item.value as item.text for item in [{"value":"cigarette","text":"Cigarette","group":null},{"value":"cigar","text":"Cigar","group":null},{"value":"bidi","text":"Bidi","group":null},{"value":"nicotine","text":"Nicotine","group":null},{"value":"pipe","text":"Pipe","group":null},{"value":"hookah","text":"Waterpipe (Hookah)","group":null},{"value":"others","text":"Others, Please specify","group":null}]'>
+					</select> 
+				</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+		<div class="form-group form-group-lg has-success">
+			<span>4. Have you had an application, reinstatement or renewal of a Life, Critical Illness, Health, Accident or Disability policy postponed, declined or accepted with special terms? *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="q4" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="q4 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+</div>
+
+
+<!-- SIResindencyDetails -->
+<div fieldId="second-insured:SIResindencyDetails" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content" >
+	<div class="col-xs-offset-1 col-xs-11 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <md-radio-group ng-model="resindencyDetails" layout="column">
+		    	<div class="row margin-top-20"> <!-- Using ng-repeat at here  -->
+			    	<div class="col-md-12 no-left-padding no-right-padding"> 
+					    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+						      <md-radio-button value="ABC">
+						     	 <span style="margin-left: 10px;">Singapore Citizen - Have you resided outside Singapore continuously for 5 years or more before the date of this application and is not currently residing in Singapore?</span>
+						      </md-radio-button>
+					    </div>
+					    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					    	<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+					   			switch-model="value1" 
+					   			switch-default-value="" switch-disabled="resindencyDetails != 'ABC'"
+					   			switch-options="yesno">
+					   		</v3-switch-new-slide>
+					    </div>
+				    </div>
+			    </div>
+		    	
+		    	<div class="row margin-top-20">
+			    	<div class="col-md-12 no-left-padding no-right-padding"> 
+					    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+						      <md-radio-button value="CDE">
+						     	 <span style="margin-left: 10px;">Singapore Permanent Resident/Work Pass or Permit Holder - Have you resided in Singapore for less than 183 days in the last 12 months before the date of this application?</span>
+						      </md-radio-button>
+					    </div>
+					    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					    	<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+					   			switch-model="value2" 
+					   			switch-default-value="" switch-disabled="resindencyDetails != 'CDE'"
+					   			switch-options="yesno">
+					   		</v3-switch-new-slide>
+					    </div>
+				    </div>
+			    </div>
+		    	
+		    	<div class="row margin-top-20">
+			    	<div class="col-md-12 no-left-padding no-right-padding"> 
+					    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+						      <md-radio-button value="FGH">
+						     	 <span style="margin-left: 10px;">Others (eg Dependant's Pass/Student's Pass/Social Visit Pass etc) - Do you have a Singapore immigration pass or permit that has a duration longer than 90 days and you have resided in Singapore continuously for at least 90 days in the last 12 months before the date of this application?</span>
+						      </md-radio-button>
+					    </div>
+					    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					    	<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+					   			switch-model="value3" 
+					   			switch-default-value="" switch-disabled="resindencyDetails != 'FGH'"
+					   			switch-options="yesno">
+					   		</v3-switch-new-slide>
+					    </div>
+				    </div>
+			    </div>
+		    </md-radio-group>
+	  	</div>
+	</div>
+</div>
+
+<!-- SIPlanDetails -->
+<div fieldId="second-insured:SIPlanDetails" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding-left no-padding-right" >
+		<div class="table-responsive">
+			<table class="table v3-responsive-table">
+				<thead>
+            		<tr>
+            			<th style="width: 210px;">{{::'v3.mynewworkspace.income-protection.illustration.label.BasicPlanAndRider' | translate}}</th>
+			            <th style="width: 150px;">{{::'v3.mynewworkspace.income-protection.illustration.label.BenefitAmount' | translate}} <br>({{::'v3.mynewworkspace.income-protection.illustration.label.PerMonth' | translate}}) <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</th>
+			            <th style="width: 120px;">{{::'v3.mynewworkspace.income-protection.illustration.label.SumInsured' | 	translate}} <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</th>
+			            <th style="width: 120px;">{{::'v3.mynewworkspace.income-protection.illustration.label.BasePremium' | translate}} <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</th>
+			            <th>{{::'v3.mynewworkspace.income-protection.illustration.label.TaxDeduction' | translate}} <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</th>
+			            <th style="width: 105px;">{{::'v3.mynewworkspace.income-protection.illustration.label.NetPremium' | translate}} <br>({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</th>
+			            <th>{{::'v3.mynewworkspace.income-protection.illustration.label.ExpiryAge' | translate}}</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr class="row-no-border-bottom">
+            			 <td><span><b>{{::'v3.mynewworkspace.income-protection.illustration.label.IncomeProtectionPlan' | translate}}</b></span></td>
+            			 <td></td>
+            			 <td></td>
+            			 <td></td>
+            			 <td></td>
+            			 <td></td>
+            			 <td></td>
+            		</tr>
+            		<tr class="row-no-border-top">
+            			<td><span>{{::'v3.mynewworkspace.income-protection.illustration.label.AccidentLumpSumOption' | translate}}</span></td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+            		</tr>
+            		<tr>
+            			<td><span>{{::'v3.mynewworkspace.income-protection.illustration.label.StampDuty' | translate}}</span></td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+            		</tr>
+            		<tr>
+            			<td><span>{{::'v3.mynewworkspace.income-protection.illustration.label.TotalPremium' | translate}} (yearly)</span></td>
+	            		<td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+            		</tr>
+            		<tr class="row-in-table">
+            			<td style="text-align: left; padding-left: 10px"><b>{{::'v3.mynewworkspace.income-protection.illustration.label.PlanType' | translate}}</b></td>
+			            <td><b>{{::'v3.mynewworkspace.income-protection.illustration.label.PremiumType' | translate}}</b></td>
+			            <td><b>{{::'v3.mynewworkspace.income-protection.illustration.label.BenefitPeriod' | translate}}</b></td>
+			            <td><b>{{::'v3.mynewworkspace.income-protection.illustration.label.WaitingPeriodDays' | translate}}</b></td>
+			            <td><b>{{::'v3.mynewworkspace.income-protection.illustration.label.ConsumerPriceIndexation' | translate}}</b></td>
+			            <td><b>{{::'v3.mynewworkspace.income-protection.illustration.label.OccupationClass' | translate}}</b></td>
+			            <td><b>{{::'v3.mynewworkspace.income-protection.illustration.label.MarginalTaxRate' | translate}}</b></td>
+            		</tr>
+            		<tr>
+            			<td><span>{{::'v3.mynewworkspace.income-protection.illustration.label.AgreedValue' | translate}}</span></td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            <td>{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+            		</tr>
+            	</tbody>
+			</table>
+		</div>
+		</div>
+	 </div>
+</div>
+
+<!-- SIReplacement -->
+<div fieldId="second-insured:SIReplacement" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>1.&nbsp;Do you have any existing policy? If Yes, please provide details below *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="replacement1" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="replacement1 == 'Y'">
+		<thead>
+			<tr>
+				<th><label>Name of company</label></th>
+				<th><label>Year issuedy</label></th>
+				<th><label>Life Sum Insured ()</label></th>
+				<th><label>Critical Illness Sum Insured ()</label></th>
+				<th><label>Term Sum Insured ()</label></th>
+				<th><label>Total and permanent disability ()</label></th>
+				<th><label>Accident and hospitalisation ()</label></th>
+				<th><label>Others ()</label></th>
+				<th>
+					<!-- <a ng-click="" class=""> 
+						<i class="pointer fa fa-plus-square fa-2x"></i>
+					</a> -->
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select class="form-control" ng-model="abc" 
+					ng-options='item.value as item.text for item in [{"value":"ETI","text":"ipos","group":null},{"value":"AIA","text":"AIA","group":null},{"value":"AVI","text":"Aviva","group":null},{"value":"AXA","text":"Axa","group":null},{"value":"FP","text":"Friends Provident","group":null},{"value":"GEN","text":"Generali ","group":null},{"value":"GE","text":"Great Eastern ","group":null},{"value":"HSBC","text":"HSBC Insurance","group":null},{"value":"NTUC","text":"NTUC Income","group":null},{"value":"LIC","text":"Life Ins. Corp.","group":null},{"value":"MAN","text":"Manulife","group":null},{"value":"PRU","text":"Prudential","group":null},{"value":"SKA","text":"Skandia","group":null},{"value":"STL","text":"Standard Life","group":null},{"value":"SWL","text":"Swiss Life","group":null},{"value":"TML","text":"Tokio Marine Life","group":null},{"value":"TRA","text":"Transamerica","group":null},{"value":"ZUR","text":"Zurich Life","group":null},{"value":"OTHERS","text":"Others","group":null}]'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>2.&nbsp;Has any proposal or application for a life / critical illness / disability / accident / hospital insurance policy ever been refused, postponed and accepted at special rates with CSCI or any other insurer?*</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="replacement2" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table id="first" class="table v3-mynewworkspace-table" ng-if="false">
+		<thead>
+			<tr>
+				<th><label>Underwriting Decision</label></th>
+				<th><label>Company</label></th>
+				<th><label>Type Of Plan</label></th>
+				<th><label>Year Of Occurrence</label></th>
+				<th><label>Remarks</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select class="form-control" ng-model="abc" 
+					ng-options='item.value as item.text for item in [{"value":"decline","text":"Decline","group":null},{"value":"postponed","text":"Postponed","group":null},{"value":"rated","text":"Rated","group":null},{"value":"subject_special_term","text":"Subject to Special Term","group":null}]'>
+					</select> 
+				</td>
+				<td>
+					<select class="form-control" ng-model="abc" 
+					ng-options='item.value as item.text for item in [{"value":"etiqa","text":"Etiqa","group":null},{"value":"aia","text":"AIA","group":null},{"value":"aviva","text":"Aviva","group":null},{"value":"axa","text":"Axa","group":null},{"value":"friends_provident","text":"Friends Provident","group":null},{"value":"generali","text":"Generali ","group":null},{"value":"great_eastern","text":"Great Eastern ","group":null},{"value":"hsbc_insurance","text":"HSBC Insurance","group":null},{"value":"ntuc_income","text":"NTUC Income","group":null},{"value":"life_ins_corp","text":"Life Ins. Corp.","group":null},{"value":"manulife","text":"Manulife","group":null},{"value":"prudential","text":"Prudential","group":null},{"value":"skandia","text":"Skandia","group":null},{"value":"standard_life","text":"Standard Life","group":null},{"value":"swiss_life","text":"Swiss Life","group":null},{"value":"tokio_marine","text":"Tokio Marine Life","group":null},{"value":"transamerica","text":"Transamerica","group":null},{"value":"zurich_life","text":"Zurich Life","group":null},{"value":"other_company","text":"Other company","group":null}]'>
+					</select> 
+				</td>
+				<td>
+					<select class="form-control" ng-model="abc" 
+					ng-options='item.value as item.text for item in [{"value":"life","text":"Life","group":null},{"value":"accident","text":"Accident","group":null},{"value":"critical_illness","text":"Critical Illness","group":null},{"value":"medical","text":"Medical/Hospitalisation","group":null},{"value":"permanent_disability","text":"Permanent Disability","group":null},{"value":"longterm_care","text":"Long Term Care","group":null},{"value":"other_plans","text":"Others","group":null}]	'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>3.&nbsp;Are you making or have you made any claims, including hospitalisation claims on any policy with CSCI or any other insurer? *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="replacement3" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="false">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>4.&nbsp;Do you have any concurrent proposal or application with us at CSCI or any other insurer? *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="replacement4" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="false">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>5.&nbsp;Is the insurance you are applying for meant to replace any existing policy with CSCI or any other insurer? *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="replacement5" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12" ng-if="replacement5 == 'Y'"  ng-init="warninngQ5 = true">
+		<div class="col-md-10">
+		<p class="margin-top-15"> Warning:
+	        	<a class="accordion-toggle" href="javascript:void(0)" ng-click="collapsePanel('#warninngQ5');warninngQ5 = !warninngQ5"> 
+					<i class="fa fa-arrow-circle-down fa-2x" id="warninngQ5"></i>
+				</a>
+			</p>
+			<p collapse="warninngQ5">
+				<span>We would not advise you to replace an existing life insurance policy with a new one. Some of the disadvantages are: 
+				<br>a. The insurance may not be granted on standard terms; 
+				<br>b. You may have to pay a higher premium as you are now older; and 
+				<br>c. You will lose financial benefits built up over the years
+				<br><br>
+				Please consult present insurer before making a final decision. Make a careful comparison so that you can be sure that you are making a decision that is in your best interest.
+				</span> 
+			</p>
+		</div>
+	</div>
+	
+	<div class="col-md-12"  ng-if="false">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+</div>
+
+<!-- SILifestyleDetails -->
+<div fieldId="second-insured:SILifestyleDetails" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>1.&nbsp;Do you drink alcohol or take any other stimulants?*</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="lifestyleDetails1" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="lifestyleDetails1 == 'Y'">
+		<thead>
+			<tr>
+				<th><label>Type</label></th>
+				<th><label>Glasses Each Week</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select class="form-control" ng-model="q1" 
+					ng-options='item.value as item.text for item in [{"value":"beer","text":"Beer","group":null},{"value":"wine","text":"Wine","group":null},{"value":"alcohol","text":"Alcohol","group":null},{"value":"others","text":"Others, Please specify","group":null}]'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>2.&nbsp;Do you smoke either cigarette/cigar/nicotine/pipe/waterpipe (hookah)/others?*</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="lifestyleDetails2" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="lifestyleDetails2 == 'Y'">
+		<thead>
+			<tr>
+				<th><label>Type</label></th>
+				<th><label>Sticks per day</label></th>
+				<th><label>Duration (yrs)</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select class="form-control" ng-model="q2" 
+					ng-options='item.value as item.text for item in [{"value":"cigarette","text":"Cigarette","group":null},{"value":"cigar","text":"Cigar","group":null},{"value":"bidi","text":"Bidi","group":null},{"value":"nicotine","text":"Nicotine","group":null},{"value":"pipe","text":"Pipe","group":null},{"value":"hookah","text":"Waterpipe (Hookah)","group":null},{"value":"others","text":"Others, Please specify","group":null}]'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>3.&nbsp;Do you take part in or do you plan to take part in military or private flying other than as a passenger on a regular airline or any other dangerous occupation or pursuits such as scuba diving, mountain or rock climbing, free-fall parachuting, sky diving or motor racing? *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="lifestyleDetails3" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="false">
+		<thead>
+			<tr>
+				<th><label>Type of Activity/Sport/Pursuit</label></th>
+				<th><label>Frequency per Year</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select class="form-control" ng-model="q2" 
+					ng-options='item.value as item.text for item in [{"value":"scuba_diving","text":"Scuba diving","group":null},{"value":"mountain_climbing","text":"Mountain/rock climbing","group":null},{"value":"free_fall_parachuting","text":"Free fall parachuting","group":null},{"value":"sky_diving","text":"Sky diving","group":null},{"value":"motor_racing","text":"Motor racing","group":null},{"value":"other_activities","text":"Others","group":null}]'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>4.&nbsp;Have you been taking any drugs which can become addictive or have you ever been treated for drug or alcohol addiction?*</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="lifestyleDetails4" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="false">
+		<thead>
+			<tr>
+				<th><label>Type of Drug</label></th>
+				<th><label>Age/Year Onset</label></th>
+				<th><label>Duration</label></th>
+				<th><label>Current Condition</label></th>
+				<th><label>Type of Medication/Treatment</label></th>
+				<th><label>Name & Address of Hospital/Clinic</label></th>
+				<th><label>Doctor's Name</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select class="form-control" ng-model="q2" 
+					ng-options='item.value as item.text for item in [{"value":"treated_drug_alcohol_addition","text":"Treated for drug or alcohol addiction","group":null},{"value":"taken_narcotics","text":"Taken narcotics","group":null},{"value":"other_habit_drug","text":"Taken other habit forming drug","group":null}]'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td>
+					<select class="form-control" ng-model="q2" 
+					ng-options='item.value as item.text for item in [{"value":"alexandra_hosp","text":"Alexandra Hosp.","group":null},{"value":"changigen_hosp","text":"Changi Gen. Hosp.","group":null},{"value":"gleneagles_hosp","text":"Gleneagles Hosp.","group":null},{"value":"inst_of_mental_health","text":"Inst. Of Mental Health","group":null},{"value":"john_hopkins_med_ctr","text":"John Hopkins Med. Ctr.","group":null},{"value":"jurong_med_ctr","text":"Jurong Med. Ctr.","group":null},{"value":"khoo_teck_puat_hosp","text":"Khoo Teck Puat Hosp.","group":null},{"value":"kk_w_c_hosp","text":"KK W & C Hosp.","group":null},{"value":"alvernia_hosp","text":"Mt. Alvernia Hosp. ","group":null},{"value":"elizabeth_hosp","text":"Mt. Elizabeth Hosp. ","group":null},{"value":"nat_neuroscience_ctr","text":"Nat. Neuroscience Ctr.","group":null},{"value":"nat_university_hosp","text":"Nat. University Hosp.","group":null},{"value":"national_cancer_ctr","text":"National Cancer Ctr.","group":null},{"value":"national_heart_ctr","text":"National Heart Ctr.","group":null},{"value":"national_skin_ctr","text":"National Skin Ctr.","group":null},{"value":"parkway_east_hosp","text":"Parkway East Hosp.","group":null},{"value":"raffles_hosp","text":"Raffles Hosp.","group":null},{"value":"singapore_gen_hosp","text":"Singapore Gen. Hosp.","group":null},{"value":"tan_tock_seng_hosp","text":"Tan Tock Seng Hosp.","group":null},{"value":"thomson_med_ctr","text":"Thomson Med. Ctr. ","group":null},{"value":"other_hosp","text":"Others","group":null}]'>
+					</select> 
+				</td>
+				<td><input class="form-control" type="text"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<!-- SIRegularDoctorDetails -->
+<div fieldId="second-insured:SIRegularDoctorDetails" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+		<div class="form-group form-group-lg has-success">
+			<span>Do you have regular doctor or any doctor that you have consulted for an existing condition? *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="regularDoctorDetails" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	
+	<div ng-if="regularDoctorDetails == 'Y'">
+		<div class="col-md-6 v3-column-content">
+				 <div class="form-group form-group-lg has-success">
+				    <label>Name of doctor<span>*</span></label>
+				    <input type="text" class="form-control"  
+				    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+		       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+			  	</div>
+		</div>
+		
+		<div class="col-md-8 v3-column-content">
+			 <div class="form-group form-group-lg has-success">
+			    <label>Address of regular doctor/clinic<span>*</span></label>
+			    <textarea rows="5" cols="120"></textarea>
+	       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+		  	</div>
+		</div>
+		
+		<div class="col-md-5 v3-column-content" style="margin-top: 20px;">
+			 <div class="form-group form-group-lg has-success">
+			    <label>Date of last consultation<span>*</span></label>
+			   <div class="ms-calendar-wrapper"><input ms-datepicker ng-model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'BirthDate']).$" class="ms-calendar"/></div>
+	       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+		  	</div>
+		</div>
+		
+		<div class="col-md-8 v3-column-content">
+			 <div class="form-group form-group-lg has-success">
+			    <label>Reasons and details of last consultation<span>*</span></label>
+			   <textarea rows="5" cols="120"></textarea>
+	       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+		  	</div>
+		</div>
+	</div>
+</div>
+
+<!-- SIHealthDetails -->
+<div fieldId="second-insured:SIHealthDetails" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+		<div class="form-group form-group-lg has-success">
+			<span>1.&nbsp;Height & Weight (cm & kg)*</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" >
+		<div class="row col-md-12 form-group form-group-lg has-success no-left-padding">
+			<div class="col-md-6">
+				<input class="form-control" type="text">
+			</div>
+			<div class="col-md-4">
+				<label class="padding-left-15">cm</label>
+			</div>
+		</div>
+		<div class="row col-md-12 form-group form-group-lg has-success margin-top-10 no-left-padding">
+			<div class="col-md-6">
+				<input class="form-control" type="text">
+			</div>
+			<div class="col-md-4">
+				<label class="padding-left-15">kg</label>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+		<div class="form-group form-group-lg has-success">
+			<span>2. Have you ever had, been told that you had or been treated for any of the following:</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(a) Cancer, or malignant tumour/growth?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub1" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub1 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(b) Heart attack, chest pain or discomfort, irregular heartbeat, heart valve disorder, heart murmur or any other blood vessel or heart disease or disorder?*</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub2" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub2 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(c) High blood pressure or high cholesterol?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub3" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub3 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(d) Diabetes, elevated or raised blood sugar, thyroid disorders or any other endocrine disease or disorder?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub4" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub4 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(e) Asthma, bronchitis, pneumonia, tuberculosis or any other lung and respiratory disorder?*  </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub5" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub5 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(f) Hepatitis B/C, fatty liver, abnormal liver function, gallstones or any other liver or gallbladder disease or disorder?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub6" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub6 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(g) Stomach ulcers or any other bowel and digestive disease or disorder?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub7" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub7 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(h) Kidney stones, kidney infection, urine abnormalities or any other kidney, bladderm prostate or gynaecological disease or disorder?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub8" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub8 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(i) Stroke, epilepsy, fits, head injury or any other neurological disease or disorder?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub9" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub9 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(j) Drug or alcohol addiction or abuse?*  </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub10" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub10 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(k) AIDs, HIV or sexually transmitted disease?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub11" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="sub11 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+	
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+		<div class="form-group form-group-lg has-success">
+			<span>3. In the past five years, have you had:</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(a) Any medical test(s) with abnormal results such as X-ray, ultrasound, imaging scan, biopsy, electrocardiogram (ECG), bloog or urine test, prostate check, pap smear or mammogram; or* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub31" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="sub31 == 'Y'">
+		<thead>
+			<tr>
+				<th><label>Proposer & First Insured Person / Second Insured Person</label></th>
+				<th><label>Type of Treatment</label></th>
+				<th><label>Date/Year</label></th>
+				<th><label>Result</label></th>
+				<th><label>Reason for Test/Hospitalization</label></th>
+				<th><label>Name & Address of Hospital/Clinic</label></th>
+				<th><label>Doctor's Name</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td>
+					<select class="form-control" ng-model="q2" 
+					ng-options='item.value as item.text for item in [{"value":"cigarette","text":"Cigarette","group":null},{"value":"cigar","text":"Cigar","group":null},{"value":"bidi","text":"Bidi","group":null},{"value":"nicotine","text":"Nicotine","group":null},{"value":"pipe","text":"Pipe","group":null},{"value":"hookah","text":"Waterpipe (Hookah)","group":null},{"value":"others","text":"Others, Please specify","group":null}]'>
+					</select> 
+				</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 margin-left-10">
+		<div class="form-group form-group-lg has-success">
+			<span>(b) Any illness, disorder, operation, physical, disability, treatment or hospitalization not mentioned above?* </span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="sub32" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<table class="table v3-mynewworkspace-table" ng-if="sub32 == 'Y'">
+		<thead>
+			<tr>
+				<th><label>Proposer & First Insured Person / Second Insured Person</label></th>
+				<th><label>Type of Treatment</label></th>
+				<th><label>Date/Year</label></th>
+				<th><label>Result</label></th>
+				<th><label>Reason for Test/Hospitalization</label></th>
+				<th><label>Name & Address of Hospital/Clinic</label></th>
+				<th><label>Doctor's Name</label></th>
+				<th>
+					<button class="btn v3-btn-primary plus">
+						<i class="fa fa-plus"></i>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td><input class="form-control" type="text"></td>
+				<td>
+					<select class="form-control" ng-model="q2" 
+					ng-options='item.value as item.text for item in [{"value":"cigarette","text":"Cigarette","group":null},{"value":"cigar","text":"Cigar","group":null},{"value":"bidi","text":"Bidi","group":null},{"value":"nicotine","text":"Nicotine","group":null},{"value":"pipe","text":"Pipe","group":null},{"value":"hookah","text":"Waterpipe (Hookah)","group":null},{"value":"others","text":"Others, Please specify","group":null}]'>
+					</select> 
+				</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+		<div class="form-group form-group-lg has-success">
+			<span>4. Have you had an application, reinstatement or renewal of a Life, Critical Illness, Health, Accident or Disability policy postponed, declined or accepted with special terms? *</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+   			switch-model="q4" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="yesno">
+   		</v3-switch-new-slide>
+	</div>
+	<div class="col-md-12"  ng-if="q4 == 'Y'">
+		<div class="col-md-1">Details*</div>
+		<div class="col-md-11"><textarea rows="5" cols="120" style="width: 500px;"></textarea></div>
+	</div>
+</div>

@@ -1,0 +1,346 @@
+<ion-nav-bar class="bar-positive green-bar">
+    <ion-nav-buttons side="right">
+        <md-button ng-click="popover.show($event)" class="md-primany green-title" style="width: 35px; padding: 5px;">
+            <md-tooltip>
+                Option
+            </md-tooltip>
+            <span class="fa fa-ellipsis-v fa-2x " style="margin-left: 0px;"></span>
+        </md-button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+        <md-button ng-click="backToPreState()" class="md-primany green-title" style="width: 35px; padding: 5px; z-index: 1;">
+            <md-tooltip>
+                Back
+            </md-tooltip>
+            <span class="fa fa-arrow-left fa-lg" style="margin-left: 0px;"></span>
+        </md-button>
+    </ion-nav-buttons>
+    <ion-nav-title class="green-title" style="margin-left: 5%;">
+        Edit Mode
+    </ion-nav-title>
+</ion-nav-bar>
+<ion-view>
+    <ion-content class="has-header" style="height: 100%">
+        <div style="margin:0 auto; width: 100%;">
+            <md-tabs class="md-primary" style="margin:0 auto; width: 50%;" md-selected="selectedIndex">
+                <md-tab id="tab1" aria-controls="tab1-content">
+                    Client
+                    <div class="md-ripple-container"></div>
+                </md-tab>
+                <md-tab id="tab2" aria-controls="tab2-content" ng-disabled="data.secondLocked">
+                    Address
+                </md-tab>
+                <md-tab md-ink-ripple="#bbb" id="tab3" aria-controls="tab3-content">
+                    Contact
+                </md-tab>
+                <md-tab md-ink-ripple="#bbb" id="tab4" aria-controls="tab4-content">
+                    Paymant Schedule
+                </md-tab>
+                <md-tab md-ink-ripple="#bbb" id="tab5" aria-controls="tab5-content">
+                    Policy History
+                </md-tab>
+            </md-tabs>
+            <ng-switch on="selectedIndex" class="tabpanel-container">
+                <div role="tabpanel" id="tab1-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()">
+                    <md-card style=" margin:0 auto; background-color: white; width: 80%;">
+                        <h2>Basic Information</h2>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="30">
+                                <div flex="50">
+                                    <h3>Title *</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select ng-model="moduleService.findElementInDetail_V3(['ipos-prospect:Person', 'ipos-prospect:Title']).Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="person in listTitle | filter : $select.search ">
+                                            <div ng-bind-html="person | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Title')"></span>
+                                </div>
+                            </div>
+                            <div class="row" flex="70">
+                                <div flex="20">
+                                    <h3>Fullname *</h3>
+                                </div>
+                                <div flex="70">
+                                    <input type="text" style="width: 100%;" class="" ng-disabled="visible" ng-model="moduleService.findElementInDetail_V3(['ipos-prospect:Person', 'ipos-prospect:FirstName']).$" placeholder="Fullname *">
+                                    <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:FirstName')"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="30">
+                                <div flex="50">
+                                    <h3>Birthday *</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" style="width:100% !important" ng-disabled="visible" ng-model="moduleService.findElementInDetail_V3(['ipos-prospect:Person', 'ipos-prospect:BirthDate']).$ " ms-datepicker>
+                                    <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:BirthDate')"></span>
+                                </div>
+                            </div>
+                            <div class="row" flex="35">
+                                <div flex="40">
+                                    <h3>Gender *</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select search-enabled="false" ng-model="moduleService.findElementInDetail_V3(['ipos-prospect:Person', 'ipos-prospect:Gender']).Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:Gender.Options').Option | filter : $select.search ">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span>
+                                </div>
+                            </div>
+                            <div class="row" flex="30">
+                                <div flex="50">
+                                    <h3>Marital Status *</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select search-enabled="false" ng-model="moduleService.findElementInDetail_V3(['ipos-prospect:Person', 'ipos-prospect:MarStat']).Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in moduleService.findElementInDetail_V3(['ipos-prospect:Person', 'ipos-prospect:MarStat', 'Options']).Option | filter : $select.search ">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" layout-margin>
+                            <div class="row" flex="30">
+                                <div flex="50">
+                                    <h3>Business/Industry *</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select search-enabled="false" ng-model="dis" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in listOccupation| filter : $select.search  | limitTo: 100">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                            <div class="row" flex="35">
+                                <div flex="40">
+                                    <h3>Occupation *</h3>
+                                </div>
+                                <div flex="50">
+
+                                    <ui-select search-enabled="false" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:Occupation').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in listOccupation| filter : $select.search  | limitTo: 100">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                            <div class="row" flex="30">
+                                <div flex="50">
+                                    <h3>Referer Type *</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select search-enabled="false" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:MarStat').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:MarStat.Options').Option | filter : $select.search ">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="30">
+                                <div flex="50">
+                                    <h3>Referrer</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" class="" ng-disabled="visible" ng-model="referer" value="" placeholder="Referrer">
+                                </div>
+                            </div>
+                            <div class="row" flex="35">
+                                <div flex="40">
+                                    <h3>Race *</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select search-enabled="false" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:BirthCountry').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in listCountry | filter : $select.search ">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                            <div class="row" flex="30">
+                                <div flex="50">
+                                    <h3>Nationality *</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:BirthCountry').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in listCountry | filter : $select.search ">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="30">
+                                <div flex="50">
+                                    <h3>ID Type *</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select search-enabled="false" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:IDType').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:IDType.Options').Option | filter : $select.search ">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:IDType')"></span>
+                                </div>
+                            </div>
+                            <div class="row" flex="35">
+                                <div flex="40">
+                                    <h3>ID Number *</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" style="width:100%;" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:IDNum').$" value="" placeholder="ID Number *">
+                                    <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:IDNum')"></span>
+                                </div>
+                            </div>
+                            <div class="row" layout-margin flex="35">
+                            </div>
+                        </div>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="30">
+                                <div flex="50">
+                                    <h3>Staff</h3>
+                                </div>
+                                <div flex="50">
+                                    <md-switch style="margin-top:-5px !important;" ng-model="data.cb2" class="md-primary" aria-label="Staff">
+                                    </md-switch>
+                                </div>
+                            </div>
+                            <div class="row" flex="35">
+                                <div flex="40">
+                                    <h3>VIP</h3>
+                                </div>
+                                <div flex="50">
+                                    <md-switch style="margin-top:-5px !important;" ng-model="data.cb3" class=" md-primary" aria-label="VIP">
+                                    </md-switch>
+                                </div>
+                            </div>
+                            <div class="row" flex="35">
+                                <div flex="40">
+                                    <h3>Smoker Status</h3>
+                                </div>
+                                <div flex="50">
+                                    <md-switch style="margin-top:-5px !important;" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:SmokerStat').$" class=" md-primary">
+                                    </md-switch>
+                                </div>
+                            </div>
+                        </div>
+                    </md-card>
+                </div>
+                <div role="tabpanel" id="tab2-content" aria-labelledby="tab2" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()">
+                    <md-card style=" margin:0 auto; background-color: white; width: 80%;">
+                        <div layout-margin>
+                            <div class="row">
+                                <label class="input-label">Residential Address</label>
+                            </div>
+                            <div class="row">
+                                <div class="item-input fixposition" style="width: 50%">
+                                    <div class="input-label">
+                                        Blk/House No
+                                    </div>
+                                    <div class="textbox-100">
+                                        <input type="text" class="fixposition" ng-disabled="visible" ng-model="user.blkhouseno" value="" placeholder="Blk/House No">
+                                    </div>
+                                </div>
+                                <div class="item-input fixposition" style="width: 50%">
+                                    <div class="input-label">
+                                        Street
+                                    </div>
+                                    <div class="textbox-100">
+                                        <input type="text" class="fixposition" ng-disabled="visible" ng-model="user.blkhouse" value="" placeholder="Street">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="item-input fixposition" style="width: 50%">
+                                    <div class="input-label">
+                                        Unit No
+                                    </div>
+                                    <div class="textbox-100">
+                                        <input type="text" class="fixposition" ng-disabled="visible" ng-model="user.unitno" value="" placeholder="Unit No">
+                                    </div>
+                                </div>
+                                <div class="item-input fixposition" style="width: 50%">
+                                    <div class="input-label">
+                                        Building
+                                    </div>
+                                    <div class="textbox-100">
+                                        <input type="text" class="fixposition" ng-disabled="visible" ng-model="user.building" value="" placeholder="Building">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="item-input fixposition" style="width: 50%">
+                                    <div class="input-label">
+                                        City
+                                    </div>
+                                    <div class="textbox-100">
+                                        <input type="text" class="fixposition" ng-disabled="visible" ng-model="user.city" value="" placeholder="City">
+                                    </div>
+                                </div>
+
+
+                                <div class="item-input fixposition" style="width: 50%">
+                                    <div class="input-label">
+                                        Postal Code
+                                    </div>
+                                    <div class="textbox-100">
+                                        <input type="text" class="fixposition" ng-disabled="visible" ng-model="user.blkhouse" value="" placeholder="Postal Code">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="list fixposition" style="width: 50%">
+                                    <div class="item item-input item-select">
+                                        <div class="input-label">
+                                            Country
+                                        </div>
+                                        <select ng-disabled="visible">
+                                            <option>Vietnam</option>
+                                            <option selected>Japan</option>
+                                            <option>USA</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </md-card>
+                </div>
+                <div role="tabpanel" id="tab3-content" aria-labelledby="tab3" ng-switch-when="2" md-swipe-left="next()" md-swipe-right="previous()">
+                    3
+
+                </div>
+                <div role="tabpanel" id="tab4-content" aria-labelledby="tab4" ng-switch-when="3" md-swipe-left="next()" md-swipe-right="previous()">
+                    4
+                </div>
+                <div role="tabpanel" id="tab5-content" aria-labelledby="tab5" ng-switch-when="4" md-swipe-left="next()" md-swipe-right="previous()">
+                    5
+
+                </div>
+            </ng-switch>
+        </div>
+    </ion-content>
+</ion-view>

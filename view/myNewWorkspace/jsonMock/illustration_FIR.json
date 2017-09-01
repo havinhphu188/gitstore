@@ -1,0 +1,380 @@
+{
+  "IposDocument": {
+    "Data": {
+      "illustration-fire:QuotationFire": {
+        "@key": ["QuotationFire"],
+        "@section": "illustration-fire:QuotationFire",
+        "permission":{
+            "AGENT": {
+                "editable": true,
+                "viewable": true
+            },
+            "PROSPECT": {
+                "editable": true,
+                "viewable": true
+            },
+            "GUEST": {
+                "editable": true,
+                "viewable": true
+            },
+            "POLICY_OWNER": {
+                "editable": true,
+                "viewable": true
+            }
+        },
+        "illustration-fire:SummaryTile": {
+          "@section": "illustration-fire:QuotationFire",
+          "@onOpen": "getUserRole()",
+          "illustration-fire:Summary": {
+			"@section": "illustration-fire:SummaryTile",
+			"@key": ["Summary"],          	
+            "illustration-fire:QuotationInformation": {
+              "@key": ["DocName"],
+              "@preview": ["illustration-fire:Summary"],
+           	  "@labelKey": "v3.mynewworkspace.portlet.label.illustration:QuotationInformation"
+            },
+            "illustration-fire:CurrentStatus": {
+              "@key": ["BusinessStatus"],
+           	  "@preview": ["illustration-fire:SummaryTile", "illustration-fire:Summary"],
+           	  "@valuePrefix": "v3.document.status.",
+           	  "@labelKey": "v3.mynewworkspace.portlet.label.illustration:CurrentStatus"
+            },
+            "illustration-fire:PendingInformation": {},
+            "illustration-fire:NextRequiredAction": {},
+            "illustration-fire:SummaryQuotation": {},
+            "illustration-fire:PreviewPDF": {}          	
+            },
+            "illustration-fire:DocumentPreview": {
+          	  "@section": "illustration-fire:SummaryTile",
+          	  "@key": ["DocumentPreview"], 
+          	  "illustration-fire:DocumentPreviewQuotation": {} 
+            }
+        },
+        "illustration-fire:BasicProduct": {
+          "@section": "illustration-fire:QuotationFire",
+          "@key": ["BasicInformation"],
+          "illustration-fire:ProductName": {
+            "@key": ["ProductName"],
+            "@preview": ["illustration-fire:Summary", "illustration-fire:BasicProduct"],
+            "@labelKey": "v3.mynewworkspace.portlet.label.illustration:ProductName"
+          },
+          "illustration-fire:SICurrency": {
+            "@key": ["SICurrency"]
+          },
+          "illustration-fire:BillingCurrency": {
+            "@preview": ["illustration-fire:BasicProduct"],
+            "@key": ["BillingCurrency"],
+            "@valuePrefix": "v3.illustration.fire.billingCurrency."
+          },
+          "illustration-fire:InceptionDate": {
+            "@preview": ["illustration-fire:BasicProduct"],
+            "@format": "datetime",
+            "@key": ["InceptionDate"]
+          },
+          "illustration-fire:ExpiryDate": {
+            "@preview": ["illustration-fire:BasicProduct"],
+            "@format": "datetime",
+            "@key": ["ExpiryDate"]
+          }
+        },
+        "illustration-fire:Accumulation": {
+          "@key": ["Accumulation"],
+          "@section": "illustration-fire:QuotationFire",
+          "illustration-fire:State": {
+            "@preview": ["illustration-fire:Accumulation"],
+            "@key": ["State"],
+            "@valuePrefix": "v3.illustration.fire.state."
+          },
+          "illustration-fire:Locality": {
+            "@preview": ["illustration-fire:Accumulation"],
+            "@key": ["Locality"],
+            "@valuePrefix": "v3.illustration.fire.locality."
+          },
+          "illustration-fire:Register": {
+            "@preview": ["illustration-fire:Accumulation"],
+            "@key": ["Register"],
+            "@valuePrefix": "v3.illustration.fire.register."
+          }
+        },
+        "illustration-fire:BuildingInfo": {
+          "@key": ["BuildingInfo"],
+          "@section": "illustration-fire:QuotationFire",
+          "illustration-fire:SituationOfRisk": {
+            "@preview": ["illustration-fire:BuildingInfo"],
+            "@key": ["SituationOfRisk"]
+          },
+          "illustration-fire:Business": {
+            "@key": ["Business"]
+          },
+          "illustration-fire:ProtectedBy": {
+            "@key": ["ProtectedBy"]
+          },
+          "illustration-fire:OccupiedAs": {
+            "@key": ["OccupiedAs"]
+          },
+          "illustration-fire:BuildingStoreyAndFloorArea": {
+            "@key": ["BuildingStoreyAndFloorArea"]
+          },          
+          "illustration-fire:PostalCodeAndConstructionYear": {
+            "@key": ["PostalCodeAndConstructionYear"]
+          },          
+          "illustration-fire:NoOfStorey": {
+            "@key": ["NoOfStorey"]
+          },
+          "illustration-fire:FloorArea": {
+            "@key": ["FloorArea"]
+          },
+          "illustration-fire:Attached": {
+            "@key": ["Attached"]
+          },
+           "illustration-fire:PostalCode": {
+            "@key": ["PostalCode"]
+          },
+          "illustration-fire:ConstructionYear": {
+            "@key": ["ConstructionYear"]
+          },
+          "illustration-fire:RiskRatingCode": {
+            "@preview": ["illustration-fire:BuildingInfo"],
+            "@key": ["RiskRatingCode"],
+            "@valuePrefix": "v3.illustration.fire.riskRatingCode."
+          },
+          "illustration-fire:ConstructionType": {
+            "@preview": ["illustration-fire:BuildingInfo"],
+            "@key": ["ConstructionType"],
+            "@valuePrefix": "v3.illustration.fire.constructionType."
+          },
+          "illustration-fire:HazardGrade": {
+            "@key": ["HazardGrade"]
+          },
+          "illustration-fire:BasicRateAndRateBasis": {
+            "@key": ["BasicRateAndRateBasis"]
+          },
+          "illustration-fire:BasicRate": {},
+          "illustration-fire:RateBasis": {
+            "@key": ["RateBasis"]
+          }
+        },
+        "illustration-fire:InsuredInterests": {
+          "@key": ["InsuredInterests"],
+          "@section": "illustration-fire:QuotationFire",
+          "illustration-fire:InsuredInterest": {
+            "@key": ["InsuredInterest"],
+            "@section": "illustration-fire:InsuredInterests",
+            "@cssClass": "v3-box-2",
+            "@cardType": "template",
+            "@onOpen": "updateInterestTypeList()",
+            "@icon": {
+               "main": "fa fa-bar-chart",
+               "subAction": "removeIcon"
+            },            
+            "illustration-fire:InterestCode": {
+              "@key": ["InterestCode"]
+            },
+            "illustration-fire:FOCAndFloater": {
+              "@key": ["FOCAndFloater"]
+            },
+            "illustration-fire:IndexAndNoAccum": {
+              "@key": ["IndexAndNoAccum"]
+            },
+            "illustration-fire:FOC": {
+              "@key": ["FOC"]
+            },
+            "illustration-fire:Floater": {
+              "@key": ["Floater"]
+            },
+            "illustration-fire:Index": {
+              "@key": ["Index"]
+            },
+            "illustration-fire:NoAccum": {
+              "@key": ["NoAccum"]
+            },
+            "illustration-fire:SumInsured": {
+              "@key": ["SumInsured"]
+            },
+            "illustration-fire:PremiumClass": {
+              "@key": ["PremiumClass"],
+              "@preview": ["illustration-fire:InsuredInterest"],
+              "@valuePrefix": "v3.illustration.fire.class."
+            },
+            "illustration-fire:SumInsuredPreview": {
+              "@key": ["SumInsured"],
+              "@preview": ["illustration-fire:InsuredInterest"]
+            },
+            "illustration-fire:Loading": {
+              "@key": ["Loading"]
+            },
+            "illustration-fire:Multiply": {
+              "@key": ["Multiply"]
+            },
+            "illustration-fire:PremiumRate": {
+              "@key": ["PremiumRate"],
+              "@preview": ["illustration-fire:InsuredInterest"]
+            },
+            "illustration-fire:Premium": {
+              "@key": ["Premium"],
+              "@preview": ["illustration-fire:InsuredInterest"]
+            }
+          },
+          "illustration-fire:AddNewInterest": {
+            "@section": "illustration-fire:InsuredInterests",
+            "@icon": {
+            	"main": "fa fa-fire",
+            	"mainAction":"addIcon"
+            },
+            "@cssClass": "v3-box-2",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          }   
+        },
+        "illustration-fire:PerilFEAOthers": {
+          "@key": ["PerilFEAOthers"],
+          "@section": "illustration-fire:QuotationFire",
+          "@previewHtml": "v3-summary-static-illustration-FIR-PerilFEAOthers.html",
+          "illustration-fire:PerilFEAOther": {
+            "@key": ["PerilFEAOther"],
+            "@section": "illustration-fire:PerilFEAOthers",
+            "@cssClass": "v3-box-2",
+            "@cardType": "template",
+            "@icon": {
+               "main": "fa fa-bar-chart",
+               "subAction": "removeIcon"
+            },             
+            "illustration-fire:PerilFEAOtherIndicator": {
+              "@key": ["PerilFEAOtherIndicator"]
+            },
+            "illustration-fire:PerilFEAOtherDescription": {
+              "@key": ["PerilFEAOtherType"],
+              "@preview": ["illustration-fire:PerilFEAOther"],
+              "@valuePrefix": "v3.illustration.fire.perilFEAOtherDescription."
+            },
+            "illustration-fire:PerilFEAOtherRate": {
+              "@key": ["PerilFEAOtherRate"],
+              "@preview": ["illustration-fire:PerilFEAOther"]
+            },
+            "illustration-fire:PerilFEAOtherAmount": {
+              "@key": ["PerilFEAOtherAmount"],
+              "@preview": ["illustration-fire:PerilFEAOther"]
+            },
+            "illustration-fire:PerilFEAOtherPremiumClass": {
+              "@key": ["PerilFEAOtherPremiumClass"]
+            }
+          },
+          "illustration-fire:AddNewPerilFEAOther": {
+            "@section": "illustration-fire:PerilFEAOthers",
+            "@icon": {
+            	"main": "fa fa-fire",
+            	"mainAction":"addIcon"
+            },
+            "@cssClass": "v3-box-2",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          }
+        },
+        "illustration-fire:Excess": {
+          "@key": ["Excess"],
+          "@section": "illustration-fire:QuotationFire",
+          "illustration-fire:ExcessLabel": {
+            "@key": ["ExcessLabel"]
+          },
+          "illustration-fire:ExcessType": {
+            "@key": ["ExcessType"],
+            "@valuePrefix": "v3.illustration.fire.excessType."
+          },
+          "illustration-fire:ExcessDescription": {
+            "@key": ["ExcessDescription"]
+          },
+          "illustration-fire:ExcessPercent": {
+            "@preview": ["illustration-fire:Excess"],
+            "@key": ["ExcessRate"]
+          },
+          "illustration-fire:ExcessAmount": {
+            "@preview": ["illustration-fire:Excess"],
+            "@key": ["ExcessAmount"]
+          },
+          "illustration-fire:VoluntaryExcessLabel": {
+            "@key": ["VoluntaryExcessLabel"]
+          },
+          "illustration-fire:VoluntaryExcessRate": {
+            "@preview": ["illustration-fire:Excess"],
+            "@key": ["VoluntaryExcessRate"]
+          },
+          "illustration-fire:VoluntaryExcessAmount": {
+            "@preview": ["illustration-fire:Excess"],
+            "@key": ["VoluntaryExcessAmount"]
+          }
+        },
+        "illustration-fire:RiskSIAndPremiums": {
+          "@section": "illustration-fire:QuotationFire",
+          "illustration-fire:InterestInsuredLabel": {
+            "@key": ["InterestInsuredLabel"]
+          },
+          "illustration-fire:TotalInterestSumInsured": {
+            "@key": ["TotalInterestSumInsured"]
+          },
+          "illustration-fire:TotalInterestPremium": {
+            "@key": ["TotalInterestPremium"]
+          },
+          "illustration-fire:AdditionalSumInsuredLabel": {
+            "@key": ["AdditionalSumInsuredLabel"]
+          },
+          "illustration-fire:AdditionalSumInsured": {
+            "@key": ["AdditionalSumInsured"]
+          },
+          "illustration-fire:AdditionalPremiumRate": {
+            "@key": ["AdditionalPremiumRate"]
+          },
+          "illustration-fire:AdditionalPremium": {
+            "@key": ["AdditionalPremium"]
+          },
+          "illustration-fire:AdditionalPremiumClass": {
+            "@key": ["AdditionalPremiumClass"]
+          },
+          "illustration-fire:LTADiscountLabel": {
+            "@key": ["LTADiscountLabel"]
+          },
+          "illustration-fire:LTADiscountPercent": {
+            "@key": ["LTADiscountRate"]
+          },
+          "illustration-fire:LTADiscountAmount": {
+            "@key": ["LTADiscountAmount"]
+          },
+          "illustration-fire:TotalFireSumInsured": {
+            "@preview": ["illustration-fire:SummaryTile", "illustration-fire:InsuredInterests", "illustration-fire:RiskSIAndPremiums"],
+            "@key": ["LTADiscountTotalFireSI"]
+          },
+          "illustration-fire:TotalFirePremium": {
+            "@preview": ["illustration-fire:SummaryTile", "illustration-fire:InsuredInterests", "illustration-fire:RiskSIAndPremiums"],
+            "@key": ["LTADiscountTotalFirePremium"]
+          },
+          "illustration-fire:FireAccumulationSumInsured": {
+            "@key": ["LTADiscountFireAccumulationSI"]
+          },
+          "illustration-fire:RemarkOnExtraPerils": {
+            "@key": ["RemarkOnExtraPerils"]
+          }
+        },
+        "emptyCardQuotation":{
+          "@section": "illustration-fire:QuotationFire",
+          "@isVisible": false,
+         	"illustration-fire:ProductName": {
+	            "@key": ["ProductName"],
+	            "@preview": ["illustration-fire:QuotationFire"],
+	            "@labelKey": "v3.mynewworkspace.portlet.label.illustration:ProductName"
+	        },
+            "illustration-fire:CurrentStatus": {
+              "@key": ["BusinessStatus"],
+           	  "@preview": ["illustration-fire:QuotationFire"],
+           	  "@valuePrefix": "v3.document.status.",
+           	  "@labelKey": "v3.mynewworkspace.portlet.label.illustration:CurrentStatus"
+            },
+            "illustration-fire:ExpiryDate": {
+            "@preview": ["illustration-fire:QuotationFire"],
+            "@format": "datetime",
+            "@key": ["ExpiryDate"]
+         	}
+         	
+        }
+      }
+    }
+  }
+}

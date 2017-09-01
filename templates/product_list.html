@@ -1,0 +1,35 @@
+<md-dialog class="popup" aria-label="Settings">
+    <div class="breakLine">
+        <div layout="row" class="popup-header" layout-margin>
+            
+             <div flex="10">
+                <div ng-click="cancelDialog()" class="center default-color">Cancel</div>
+            </div>
+            <div flex>
+                <div class="center">Product List</div>
+            </div>
+            <div flex="10">
+                <div ng-click="okDialog()" class="center default-color">Done</div>
+            </div>
+           
+        </div>
+    </div>
+    <div>
+        <md-content class="popupSelectContainer">
+            <div layout="row" class="popupSelectBeakeline popupSelect" ng-click="selectedProduct(item.action, $index)" ng-repeat="item in productList">
+                <h flex="86" class="popupSelectList">{{::item.productname}}</h>
+                <div flex="10"  id="select-{{::$index}}"></div>
+            </div>
+        </md-content>
+    </div>
+<!--     <div class="custom-dialog-footer">
+        <div layout="row">
+            <div flex>
+                <div ng-click="cancelDialog()" class="center">Cancel</div>
+            </div>
+            <div flex>
+                <div ng-click="okDialog()" class="center">OK</div>
+            </div>
+        </div>
+    </div> -->
+</md-dialog>

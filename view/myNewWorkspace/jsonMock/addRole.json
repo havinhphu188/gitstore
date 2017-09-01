@@ -1,0 +1,18 @@
+{
+  "IposDocument": {
+    "Data": {
+      "ipos-agent:Agent": {
+        "@section": "ipos-agent:Agent",
+        "ipos-agent:AgentDetail": {
+          "@section": "ipos-agent:Agent",
+          "ipos-agent:Agent_ID": {
+            "@index": "1"
+          },
+          "ipos-agent:First_Name": {
+            "@index": "2"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<div layout="column" class="height-inherit">
+    <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div style="overflow: scroll;" class="backgroundColor touch">
+        <div refresh-on="vars.bIsContentChanged" use-boolean>
+              <div >
+                    <div layout="row" class="header-repeat-bar">
+                        <div flex="80" layout-margin>
+                            <h class="repeat-toobar-text"><span t-lazy v3-translate="v3.myworkspace.label.prospect.Contacts-C" prefix=""></span></h>
+                        </div>
+                        <div flex="10">
+                           <!--  <div class="rotateCounterwise" ng-disabled="::!moduleService.isEditMode" id="arrow1" align="center" ng-click="hideParties()">
+                                <i class="fa fa-caret-up fa-lg repeat-toobar-icon"></i>
+                            </div> -->
+                        </div>
+                        <div flex="10">
+                           <div ng-click="addNewContact()" ng-disabled="::!moduleService.isEditMode">
+                                <i class="fa fa-plus-circle fa-lg repeat-toobar-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="variables.Contacts['@counter']>0" class="white-card" style="overflow: hidden;" ng-repeat="contact in moduleService.contacts track by $index">
+                        <div layout-margin>
+                            <!-- <i class="fa fa-times fa-lg" ng-if="moduleService.contacts.length > 1" style=" float: right; margin top: 0px; color: grey;" ng-click="removeContact($index)" ng-disabled="::!moduleService.isEditMode"></i> -->
+                            <i class="fa fa-times fa-lg" ng-if="variables.Contacts['@minOccurs']==0" style=" float: right; margin top: 0px; color: grey;" ng-click="removeContact($index)" ng-disabled="::!moduleService.isEditMode"></i>
+                        </div>
+                        <div layout="row" class="row breakLine" layout-margin>
+                            <div flex="20">
+                                <v3-label label-prop="variables.ContactType" label-value="v3.myworkspace.label.prospect.Contacttype" />
+                            </div>
+                            <div flex="5">
+                                <div ng-click="toggleErrorMsg('ContactType')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Contacts.ipos-prospect:Contact.ipos-prospect:ContactType')">
+
+                                    <i style="color:red;" class="fa fa-exclamation-circle">
+                                </i>
+                                    <div id="ContactType" style="display:none;" class="triangle-right">
+                                        <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Contacts.ipos-prospect:Contact.ipos-prospect:ContactType')"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div flex="65">
+                                 <!-- more-action="clearContact($index)" -->
+                                <v3-Select class="input-select" more-action="clearAllContactData(value1, $index)" hide-error-msg="closeErrorMsg('ContactType');" src-data="moduleService.listContactType" displayText="text" displayValue="value" Prefix="" dialogTitle="Contact Type" select-disabled="::!moduleService.isEditMode" model="moduleService.findElementInElement_V3(contact, ['ipos-prospect:ContactType']).Value">
+                            </div>
+                        </div>
+                        <fieldset ng-disabled="!moduleService.findElementInElement_V3(contact, ['ipos-prospect:ContactType']).Value">
+                            <div layout="row" layout-margin>
+                                <div flex="30">
+                                    <v3-label label-prop="variables.ContactInformation" label-value="v3.myworkspace.label.prospect.ContactInformation" />
+                                </div>
+                                <div flex="5">
+                                    <div ng-click="toggleErrorMsg('ContactInformation')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Contacts.ipos-prospect:Contact.ipos-prospect:ContactInformation')">
+
+                                        <i style="color:red;" class="fa fa-exclamation-circle">
+                                        </i>
+                                        <div id="ContactInformation" style="display:none;" class="triangle-isosceles">
+                                            <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Contacts.ipos-prospect:Contact.ipos-prospect:ContactInformation')"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div flex="5">
+                                    <div ng-click="toggleErrorMsg('ContactInformation')" ng-if="vars.contactError">
+                                        <i style="color:red;" class="fa fa-exclamation-circle">
+                                        </i>
+                                        <div id="ContactInformation" style="display:none;" class="triangle-isosceles">
+                                        <span class="error-message">{{vars.contactError}}</span>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div flex="55">
+                                    <input class="input" ng-blur="validateEmail(moduleService.findElementInElement_V3(contact, ['ipos-prospect:ContactType']).Value,moduleService.findElementInElement_V3(contact, ['ipos-prospect:ContactInformation']).$)" maxlength="50" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInElement_V3(contact, ['ipos-prospect:ContactInformation']).$">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

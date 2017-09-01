@@ -1,0 +1,1346 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- GTL Quotations -->
+<!-- GTL Quotations Summary -->
+<div fieldId="illustration-gtl:labelQuoteSummary" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 centered summary">
+         <div class="form-group form-group-lg has-success">
+             <span style="font-size: xx-large;">Quote Summary</span>
+         </div>
+     </div>
+</div>
+<div fieldId="illustration-gtl:productNameQuoteSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">Product Name:</span>
+		<span class="col-md-6">{{uiElement.refDetail}}</span>
+	</div>
+</div>
+<div fieldId="illustration-gtl:policyOwnerQuoteSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">Policy Owner:</span>
+		<span class="col-md-6">{{uiElement.refDetail.$}}</span>
+	</div>
+</div>
+<div fieldId="illustration-gtl:quotationNoQuoteSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">Quotation No.:</span>
+		<span class="col-md-6">{{uiElement.refDetail}}</span>
+	</div>
+</div>
+<div fieldId="illustration-gtl:statusQuoteSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">Status:</span>
+		<span class="col-md-6">{{uiElement.refDetail}}</span>
+	</div>
+</div>
+<div fieldId="illustration-gtl:createdDateQuoteSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">Created Date:</span>
+		<span class="col-md-6">{{uiElement.refDetail}}</span>
+	</div>
+</div>
+<div fieldId="illustration-gtl:lastUpdatedDateQuoteSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">Last Updated Date:</span>
+		<span class="col-md-6">{{uiElement.refDetail}}</span>
+	</div>
+</div>
+<!-- GTL Quotation Policy Info -->
+<!-- GTL Quotation Policy Info Policy Details -->
+<div fieldId="illustration-gtl:labelPolicyDetails" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 centered summary">
+         <div class="form-group form-group-lg has-success">
+             <span style="font-size: xx-large;">Policy Details</span>
+         </div>
+     </div>
+</div>
+<div fieldId="illustration-gtl:quotationNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Quotation No.</label>
+      <input class="form-control" type="text" disabled ng-model="moduleService.findElementInDetail_V3(['DocInfo'])['DocName']"/>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:policyDetailPolicyOwnerName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Policy Owner Name<span ng-show="moduleService.findElementInDetail_V3(['PolicyOwnerName'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" disabled type="text" ng-model="moduleService.findElementInDetail_V3(['PolicyOwnerName']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerName']).errorMessage | translate"></span>
+  </div>
+</div>
+<div fieldId="illustration-gtl:quotationStartDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Quotation Start Date<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper">
+      	<input ms-datepicker ng-model="uiElement.refDetail.$" class="ms-calendar"/>
+      </div> 
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:quotationEndDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Quotation End Date<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper">
+      	<input ms-datepicker ng-model="uiElement.refDetail.$" class="ms-calendar"/>
+      </div> 
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:insuredFromDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Insured From Date<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper">
+      	<input ms-datepicker ng-model="uiElement.refDetail.$" class="ms-calendar"/>
+      </div> 
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:insuredToDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Insured To Date<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper">
+      	<input ms-datepicker ng-model="uiElement.refDetail.$" class="ms-calendar"/>
+      </div> 
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:policyCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Policy Currency<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new switch-size="" switch-name="BillingCurrency" prefix="v3.motor.privateCarM.billingCurrency"
+              switch-model="uiElement.refDetail.Value" 
+              switch-default-value="SGD" switch-disabled="false" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['BillingCurrency','Option'])">
+      </v3-switch-new>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:ageBasis" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Age Basis<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['AgeBasis','Option'])"
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:memberIdentification" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Member Identification<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['MemberIdentification','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:policyDetailAgentName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Agent Name<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span> :</label>
+      <input class="form-control" disabled type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Interest Parties / Agent Information -->
+<div fieldId="illustration-gtl:AgentName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>Agent Name<span ng-show="moduleService.findElementInDetail_V3(['AgentName'])['@mandatory'] == '1'">*</span> :</b></label>
+      <input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['AgentName']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['AgentName']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:AgentTemp1" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-gtl:LocationCd" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>Location Code<span ng-show="moduleService.findElementInDetail_V3(['LocationCd'])['@mandatory'] == '1'">*</span></b></label>
+<ng-newDropDown model="moduleService.findElementInDetail_V3(['LocationCd'])" list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['LocationCd']).Option" type="nonFlag" prefix="v3.pnc.locationcd.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['LocationCd']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:SubLocationCd" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>Sub-Location Code<span ng-show="moduleService.findElementInDetail_V3(['SubLocationCd'])['@mandatory'] == '1'">*</span></b></label>
+<ng-newDropDown model="moduleService.findElementInDetail_V3(['SubLocationCd'])" list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['SubLocationCd']).Option" type="nonFlag" prefix="v3.pnc.sublocationcd.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['SubLocationCd']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:Contact" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>Contact :</b></label>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-gtl:AgentTemp2" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-top-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-gtl:PhoneNumberOfAgent" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>Telephone :<span ng-show="moduleService.findElementInDetail_V3(['PhoneNumberOfAgent'])['@mandatory'] == '1'">*</span></b></label>
+      <input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['PhoneNumberOfAgent']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PhoneNumberOfAgent']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:EmailAddressOfAgent" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>Email :<span ng-show="moduleService.findElementInDetail_V3(['EmailAddressOfAgent'])['@mandatory'] == '1'">*</span></b></label>
+      <input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['EmailAddressOfAgent']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['EmailAddressOfAgent']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Interest Parties / Servicing Staff Information -->
+<div fieldId="illustration-gtl:InsuranceCompany" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+  <div class="col-xs-10">
+    <div class="form-group form-group-lg has-success">
+      <label><b>Insurance Company :<span ng-show="moduleService.findElementInDetail_V3(['AgentName'])['@mandatory'] == '1'">*</span></b></label>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:ServicingStaffTemp1" class="col-xs-12 col-sm-6 col-md-6 col-lg-6  margin-bottom-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-gtl:importServicingStaff" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>Import Servicing Staff<span ng-show="moduleService.findElementInDetail_V3(['ServicingStaffCd'])['@mandatory'] == '1'">*</span> :</b></label>
+ 	  <ng-newDropDown disable="false"
+ 			model = "selected.Value"
+            list='clientList'
+            type="regular" key="FullName">
+	  </ng-newDropDown> 
+	  <i class="fa fa-arrow-circle-down fa-3x button-import" ng-click="importStaff(selected.Value.DocId,true)"></i>  
+	  <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ServicingStaffCd']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:ServicingStaffTemp2" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-gtl:ServicingStaffCd" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>Marketing Staff<span ng-show="moduleService.findElementInDetail_V3(['ServicingStaffCd'])['@mandatory'] == '1'">*</span> :</b></label>
+<input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['ServicingStaffCd']).$"/>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ServicingStaffCd']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:PhoneNumberOfServicingStaff" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>Service Staff Telephone No.<span ng-show="moduleService.findElementInDetail_V3(['PhoneNumberOfServicingStaff'])['@mandatory'] == '1'">*</span> :</b></label>
+      <input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['PhoneNumberOfServicingStaff']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PhoneNumberOfServicingStaff']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:importMarketingStaff" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>Import Marketing Staff<span ng-show="moduleService.findElementInDetail_V3(['ServicingStaffCd'])['@mandatory'] == '1'">*</span> :</b></label>
+ 	  <ng-newDropDown disable="false"
+ 			model = "selected.Value"
+            list='clientList'
+            type="regular" key="FullName"">
+	  </ng-newDropDown>
+	  <i class="fa fa-arrow-circle-down fa-3x button-import" ng-click="importStaff(selected.Value.DocId,false)"></i>  
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ServicingStaffCd']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:ServicingStaffTemp3" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-gtl:MarketingStaffCd" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>Marketing Staff<span ng-show="moduleService.findElementInDetail_V3(['MarketingStaffCd'])['@mandatory'] == '1'">*</span> :</b></label>
+<input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['MarketingStaffCd']).$"/>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MarketingStaffCd']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:PhoneNumberOfMarketingStaff" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>Marketing Staff Telephone No.<span ng-show="moduleService.findElementInDetail_V3(['PhoneNumberOfMarketingStaff'])['@mandatory'] == '1'">*</span> :</b></label>
+      <input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['PhoneNumberOfMarketingStaff']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PhoneNumberOfMarketingStaff']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- GTL Quotation Policy Info Billing Details-->
+<div fieldId="illustration-gtl:labelBillingDetails" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 centered summary">
+         <div class="form-group form-group-lg has-success">
+             <span style="font-size: xx-large;">Billing Details</span>
+         </div>
+     </div>
+</div>
+<div fieldId="illustration-gtl:billingCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Billing Currency<span ng-show="moduleService.findElementInDetail_V3(['BillingCurrency'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown model="moduleService.findElementInDetail_V3(['BillingCurrency'])"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['BillingCurrency','Option'])" 
+        type="nonFlag" prefix="">
+      </ng-newDropDown>
+      <!-- <v3-switch-new switch-size="" switch-name="BillingCurrency" prefix="v3.motor.privateCarM.billingCurrency"
+              switch-model="moduleService.findElementInDetail_V3(['BillingCurrency']).Value" 
+              switch-default-value="" switch-disabled="false" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['BillingCurrency','Option'])">
+      </v3-switch-new> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BillingCurrency']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:paymentMethod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Payment Method<span ng-show="moduleService.findElementInDetail_V3(['PaymentMethod'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="moduleService.findElementInDetail_V3(['PaymentMethod'])"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['PaymentMethod','Option'])"
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PaymentMethod']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:billingFrequency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Billing Frequency<span ng-show="moduleService.findElementInDetail_V3(['BillingFrequency'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="moduleService.findElementInDetail_V3(['BillingFrequency'])"
+       	list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['BillingFrequency','Option'])"
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BillingFrequency']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:adjustmentFrequency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Adjustment Frequency<span ng-show="moduleService.findElementInDetail_V3(['AdjustmentFrequency'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="moduleService.findElementInDetail_V3(['AdjustmentFrequency'])"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['AdjustmentFrequency','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['AdjustmentFrequency']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- GTL Quotation Policy Info Other Policy Details-->
+<div fieldId="illustration-gtl:labelOtherPolicyDetails" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 centered summary">
+         <div class="form-group form-group-lg has-success">
+             <span style="font-size: xx-large;">Other Policy Details</span>
+         </div>
+     </div>
+</div>
+<div fieldId="illustration-gtl:takeOver" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Take Over<span ng-show="moduleService.findElementInDetail_V3(['TakeOver'])['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new-slide switch-size="" switch-name="BillingCurrency" prefix="v3.motor.privateCarM.billingCurrency"
+              switch-model="moduleService.findElementInDetail_V3(['TakeOver']).Value" 
+              switch-default-value="YES" switch-disabled="false" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['TakeOver','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['TakeOver']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:pooling" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Pooling<span ng-show="moduleService.findElementInDetail_V3(['Pooling'])['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new-slide switch-size="" switch-name="BillingCurrency" prefix="v3.motor.privateCarM.billingCurrency"
+              switch-model="moduleService.findElementInDetail_V3(['Pooling']).Value" 
+              switch-default-value="YES" switch-disabled="false" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Headcount','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Pooling']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:sourceOfBusiness" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Source Of Business<span ng-show="moduleService.findElementInDetail_V3(['SourceOfBusiness'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="moduleService.findElementInDetail_V3(['SourceOfBusiness'])"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['SourceOfBusiness','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['SourceOfBusiness']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:defaultDataTemplate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Default Data Template<span ng-show="moduleService.findElementInDetail_V3(['DefaultDataTemplate'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="moduleService.findElementInDetail_V3(['DefaultDataTemplate'])"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['DefaultDataTemplate','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['DefaultDataTemplate']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- GTL Quotation Policy Info Organisation Info-->
+<div fieldId="illustration-gtl:labelOrganisationProfile" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 centered summary">
+         <div class="form-group form-group-lg has-success">
+             <span style="font-size: xx-large;">Organisation Profile</span>
+         </div>
+     </div>
+</div>
+<div fieldId="illustration-gtl:labelOrganisationInfo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+        	<label class=""><b>Organisation Infomation:</b></label>
+    	</div>
+    </div>
+</div>
+<div fieldId="illustration-gtl:natureOfGroup" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Nature Of Group<span ng-show="moduleService.findElementInDetail_V3(['NatureOfGroup'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="moduleService.findElementInDetail_V3(['NatureOfGroup'])"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['NatureOfGroup','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['NatureOfGroup']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:medicalTestRequired" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Employment medical test required<span ng-show="moduleService.findElementInDetail_V3(['EmpMedicalCheck'])['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new-slide switch-size="" switch-name="BillingCurrency" prefix="v3.motor.privateCarM.billingCurrency"
+              switch-model="moduleService.findElementInDetail_V3(['EmpMedicalCheck']).Value" 
+              switch-default-value="YES" switch-disabled="false" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Headcount','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['EmpMedicalCheck']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:hazardEvent" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+    <div class="form-group form-group-lg has-success col-xs-11">
+      <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12">Hazard Events <span ng-show="moduleService.findElementInDetail_V3(['BillingCurrency'])['@mandatory'] == '1'">*</span></label>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 no-padding-left no-padding-right" ng-repeat="item in moduleService.findElementInDetail_V3(['HazardousEvent'])">
+	      	<ng-newDropDown disable="false"
+	        model="moduleService.findElementInElement_V3(item,['HazardousEventCd'])"
+	         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['HazardousEventCd','Option'])" 
+	         type="nonFlag" prefix=""></ng-newDropDown>
+	      <span class="errorMessage" ng-bind="item.errorMessage"></span>
+      </div>
+    </div>
+</div>
+<div fieldId="illustration-gtl:labelEmployeeProfile" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+        	<label class=""><b>Employee Profile:</b></label>
+    	</div>
+    </div>
+</div>
+<div fieldId="illustration-gtl:totalEmployee" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Total Employee<span ng-show="moduleService.findElementInDetail_V3(['illustration:TotalEmployees'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['illustration:TotalEmployees']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['illustration:TotalEmployees']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:activelyAtWork" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Actively At Work<span ng-show="moduleService.findElementInDetail_V3(['TotalEmployeesActively'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['TotalEmployeesActively']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['TotalEmployeesActively']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:noOfMaleEmployee" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Number Of Male Employee<span ng-show="moduleService.findElementInDetail_V3(['NumberOfMale'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['NumberOfMale']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['NumberOfMale']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:noOfFemaleEmployee" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Number Of Female Employee<span ng-show="moduleService.findElementInDetail_V3(['NumberOfFemale'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['NumberOfFemale']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['NumberOfFemale']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:averageSalary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Average Salary<span ng-show="moduleService.findElementInDetail_V3(['AverageSalary'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['AverageSalary']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['AverageSalary']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:averageAge" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Average Age<span ng-show="moduleService.findElementInDetail_V3(['AverageAge'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['AverageAge']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['AverageAge']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:labelEmployeeDistribution" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+        	<label class=""><b>Employee Distribution by Age and Occupation Class: </b></label>
+    	</div>
+    </div>
+    <div class="col-xs-11">
+    	<table id="testTable1" class="table v3-responsive-table">
+			<thead>
+           		<tr>
+           			<th rowspan="2" style="height: 45px; vertical-align: middle;">Occupation Class</th>
+		            <th style="height: 45px; vertical-align: middle;">Up to (Age)</th>
+		            <th style="height: 45px; vertical-align: middle;">Up to (Age)</th>
+		            <th style="height: 45px; vertical-align: middle;">Up to (Age)</th>
+		            <th style="height: 45px; vertical-align: middle;">Up to (Age)</th>
+		            <th style="height: 45px; vertical-align: middle;">Up to (Age)</th>
+           		</tr>
+           		<tr>
+           			 <td class="form-group-lg has-success center-align  no-padding-left no-padding-right" style="width: 15%;" ng-repeat="item in moduleService.findElementInElement_V3(testAgeValue,['UpToAge'])">
+           			 	<input class="form-control" type="text" ng-model="moduleService.findElementInElement_V3(item,['UpToAgeVal']).$">
+           			 </td>
+           		</tr>
+           	</thead>
+           	<tbody>
+           		
+           		<tr ng-repeat="item in organisationDistArray">
+           			<td class="form-group form-group-lg has-success center-align no-padding-left no-padding-right">
+           				<select ng-model="item.key" class="md-select-Style md-select md-select-label" 
+           				style="border: 2px solid rgb(217, 215, 213); line-height: 40px; font-size: 17px; height: 45px; cursor: pointer; background-color: rgb(255, 255, 255); margin: 0px;">
+           					<option value=""></option>
+           					<option ng-repeat="option in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ClassOfInsuredPeople','Option'])" 
+				         	value="{{option.value}}">{{option.value}}</option>
+				         </select>
+           			</td>
+           			<td class="form-group-lg has-success center-align  no-padding-left no-padding-right" ng-repeat = "item1 in item.ageListVal">
+           				<input class="form-control" type="text" ng-model="item1.val">
+           			</td>
+           			
+           		</tr>
+           	</tbody>
+		</table>
+    </div>
+    <div class="col-xs-1">
+    	<button class="btn btn-lg v3-btn-primary" style="min-width: 10px; margin-right: -10px;" ng-click="addOccupationClass()"><i class="fa fa-plus"></i></button>
+    </div>
+</div>
+<div fieldId="illustration-gtl:additionalInfo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary v3-column-content">
+	<div class="col-xs-11 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label class="">Additional Information <span ng-if="modulePolicyService.findElementInDetail_V3(['EndorsementReasonNote'])['@mandatory'] == 1">*</span></label>
+			<textarea id="additionalInfo" class="form-control bottom-25" ng-disabled="false"
+     			type="text" ng-model="additionalInfo">
+     		</textarea>
+		</div>
+	</div>
+</div>
+
+<!-- Pricing -->
+<div fieldId="illustration-gtl:productName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Product Name<span ng-show="moduleService.findElementInDetail_V3(['ProductCd'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="moduleService.findElementInDetail_V3(['ProductCd'])"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ProductCd','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ProductCd']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:premiumRateType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Premium Rate Type<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['PremiumRateType','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:unitOfRating" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Unit Of Rating<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:policySpecificUnitRate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-show="moduleService.findElementInDetail_V3(['PremiumRateType']).Value == 03">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Policy Specific Unit Rate<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:expenseLoading" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-show="moduleService.findElementInDetail_V3(['PremiumRateType']).Value == 03">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Expense Loading<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:commissionLoading" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-show="moduleService.findElementInDetail_V3(['PremiumRateType']).Value == 03">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Commission Loading<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:ratingFactor" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-show="moduleService.findElementInDetail_V3(['PremiumRateType']).Value == 02">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Rating Factor<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:profitLoading" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-show="moduleService.findElementInDetail_V3(['PremiumRateType']).Value == 03">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Profit Loading<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:experienceRefund" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-show="moduleService.findElementInDetail_V3(['PremiumRateType']).Value == 03">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Experience Refund<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new-slide switch-size="" switch-name="ExperienceRefund" prefix="v3.motor.privateCarM.billingCurrency"
+              switch-model="uiElement.refDetail.Value" 
+              switch-default-value="" switch-disabled="false" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ExperienceRefund','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<!-- Product Information -->
+<div fieldId="illustration-gtl:product" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Product<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ProductCd','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:productType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Product Type<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ProductType','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:freeCoverLimit" class="col-xs-12 col-sm-6 col-md-12 col-lg-12 v3-column-content">
+  <div class="col-xs-12 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>FreeCoverLimit<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <div class="col-xs-11 no-padding-left no-padding-right">
+      <table id="" class="table v3-responsive-table">
+			<thead>
+           		<tr>
+           			<th rowspan="2" style="height: 45px; vertical-align: middle;">Age</th>
+		            <th style="height: 45px; vertical-align: middle;">Up to (Age)</th>
+		            <th style="height: 45px; vertical-align: middle;">Up to (Age)</th>
+		            <th style="height: 45px; vertical-align: middle;">Up to (Age)</th>
+		            <th style="height: 45px; vertical-align: middle;">Up to (Age)</th>
+           		</tr>
+           		<tr>
+           			 <td class="form-group-lg has-success center-align  no-padding-left no-padding-right" style="width: 15%;" ng-repeat="item in moduleService.findElementInElement_V3(uiElement.parent.refDetail,['FreeCoverLimit'])">
+           			 	<input class="form-control" type="text" ng-model="moduleService.findElementInElement_V3(item,['FCLUpToAge']).$">
+           			 </td>
+           		</tr>
+           	</thead>
+           	<tbody>
+           		
+           		<tr>
+           			<td style="height: 45px; vertical-align: middle;">Amount</td>
+           			<td class="form-group-lg has-success center-align  no-padding-left no-padding-right" ng-repeat="item in moduleService.findElementInElement_V3(uiElement.parent.refDetail,['FreeCoverLimit'])">
+           				<input class="form-control" type="text" ng-model="moduleService.findElementInElement_V3(item,['FCLAmount']).$">
+           			</td>
+           			
+           		</tr>
+           	</tbody>
+		</table>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:istYearBasicCommissionRate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Ist Year Basic Commission Rate<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:renewalBasicCommissionRate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Renewal Basic Commission Rate<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:istYearOverRidingCommisstionRate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Ist Year Over Riding Commisstion Rate<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:renewalYearOverRidingCommisstionRate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Renewal Year Over Riding Commisstion Rate<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:discount" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Discount<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:gstType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>GST Type<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['GST','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:experienceRefundFormula" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Experience Refund Formula</label>
+      <table border="0">
+      	<tr>
+      		<td><input class="form-control" type="text" ng-model="uiElement.refDetail['illustration:Param1'].$"/></td>
+      		<td>%(</td>
+      		<td><input class="form-control" type="text" ng-model="uiElement.refDetail['illustration:Param2'].$"/></td>
+      		<td>% Premium - Claims)</td>
+      	</tr>
+      </table>
+      <!-- <div>
+	      <input class="form-control" style="width:20%;" type="text" ng-model="uiElement.refDetail['illustration:Param1'].$"/>%(<input class="form-control" style="width:20%;" type="text" ng-model="uiElement.refDetail['illustration:Param2'].$"/>% Premium - Claims)
+      </div> -->
+      
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:plan_Product" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+  <div class="col-xs-6 v3-column-content">
+  	<div class="col-xs-10 v3-column-content no-padding-left">
+	  	<div class="form-group form-group-lg has-success">
+	      <label>Product<span ng-show="moduleService.findElementInElement_V3(uiElement.parent.parent.parent.parent.refDetail,['ProductCd'])['@mandatory'] == '1'">*</span></label>
+	      <input class="form-control" type="text" ng-model="moduleService.findElementInElement_V3(uiElement.parent.parent.parent.parent.refDetail,['ProductCd']).Value"/>
+	      <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(uiElement.parent.parent.parent.parent.refDetail,['ProductCd']).errorMessage | translate"></span>
+	    </div>
+  	</div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:planNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Plan Number<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:planDescription" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Plan Description<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:premiumMethod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Premium Method<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['PremiumMethod','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:classOfInsuredPeople" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Class Of Insured People<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ClassOfInsuredPeople','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:coverageBasis" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Coverage Basis<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['AgeBasis','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:fixedSumInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Fixed Sum Insured<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:yearlySalaryMultiplier" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Yearly Salary Multiplier<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:monthlySalaryMultiplier" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Monthly Salary Multiplier<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:minSumInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Minimum Sum Insured<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:maxSumInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Maximum Sum Insured<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:headCount" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Head Count<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new-slide switch-size="" switch-name="HeadCount" prefix=""
+              switch-model="uiElement.refDetail.Value" 
+              switch-default-value="YES" switch-disabled="false" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Headcount','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:salaryFrequency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Salary Frequency<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['SalaryFrequency','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:minAge" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Minimum Age<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:maxAge" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Maximum Age<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:benefitTemplate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Benefit Template<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['BenefitTemplate','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- PO Basic Information -->
+<div fieldId="illustration-gtl:poName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Policy Owner Name<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:clientStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Client Status<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:dateOfIncorporation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Date Of Incorporation<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:countryOfOrigin" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Country Of Origin<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['CountryOfOrigin','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:industry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Industry<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Industry','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:category" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Category<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Category','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:personInChargeName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Person In Charge Name<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:freeTradeZone" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Free Trade Zone<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new-slide switch-size="" switch-name="freeTradeZone" prefix=""
+              switch-model="uiElement.refDetail.Value" 
+              switch-default-value="" switch-disabled="false" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Headcount','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:labelPOContact" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+      <div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+        	<label class=""><b>Contact</b></label>
+    	</div>
+    </div>
+</div>
+<div fieldId="illustration-gtl:telephoneNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Telephone No.<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:emailAddress" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Email Address<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<!-- Business Address -->
+<div fieldId="illustration-gtl:BBlkHouseNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Block/House Number<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:BStreet" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Street<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:BUnitNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Unit No.<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:BBuilding" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Building<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:BCity" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>City<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:BCountry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Country<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['CountryOfOrigin','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:BPostal" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Postal<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<!-- MailingAddress -->
+<div fieldId="illustration-gtl:MBlkHouseNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Block/House Number<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:MStreet" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Street<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:MUnitNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Unit No.<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:MBuilding" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Building<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:MCity" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>City<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:MCountry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Country<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['CountryOfOrigin','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:MPostal" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Postal<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<!-- Registered Office Address -->
+<div fieldId="illustration-gtl:RBlkHouseNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Block/House Number<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:RStreet" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Street<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:RUnitNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Unit No.<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:RBuilding" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Building<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:RCity" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>City<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:RCountry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Country<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="false"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['CountryOfOrigin','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:RPostal" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Postal<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:attachmentMember" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="attachment" ng-include="initContextPath+'/view/fileAttachment/fileAttachmentIllustration.html'"></div>
+</div>
+

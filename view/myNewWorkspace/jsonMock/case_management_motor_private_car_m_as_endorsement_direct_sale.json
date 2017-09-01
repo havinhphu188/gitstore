@@ -1,0 +1,383 @@
+{
+  "IposDocument": {
+    "Data": {
+      "endorsement-motor:EndorsementDetail": {
+        "@key": [
+          "CaseManagement"
+        ],
+        "@section": "endorsement-motor:EndorsementDetail",
+        "@icon": "",
+        "@cssClass": "v3-box-7",
+        "endorsement-motor:Summary": {
+          "@section": "endorsement-motor:EndorsementDetail",
+          "@icon": "fa fa-info",
+          "@cssClass": "v3-box-7",
+          "endorsement-motor:endorsementInformation": {
+            "@key": [
+              "DocInfo",
+              "DocName"
+            ],
+            "@preview": [
+              "endorsement-motor:Summary"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.case-management-motor:EndorsementInformation"
+          },
+          "endorsement-motor:currentStatus": {
+            "@key": [
+              "DocStatus",
+              "BusinessStatus"
+            ],
+            "@preview": [
+              "endorsement-motor:Summary"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.case-management-motor:CurrentStatus",
+            "@valuePrefix": "v3.document.status."
+          },
+          "endorsement-motor:ProductName": {},
+          "endorsement-motor:PolicyNumber": {},
+          "endorsement-motor:POName": {},
+          "endorsement-motor:ClientID": {},
+          "endorsement-motor:InceptionDate": {},
+          "endorsement-motor:ExpiryDate": {},
+          "endorsement-motor:SumInsured": {},
+          "endorsement-motor:AnnualPremium": {}
+        },
+        "endorsement-motor:Step1": {
+          "@key": [
+            ""
+          ],
+          "@icon": "fa fa-pencil",
+          "@cssClass": "v3-box-7",
+          "@section": "endorsement-motor:EndorsementDetail",
+          "@previewHtml": "v3-endorsement-step1-preview.html",
+          "endorsement-motor:PolicyBasicInformation": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "1"
+          },
+          "endorsement-motor:ProductName": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "2"
+          },
+          "endorsement-motor:PolicyNumber": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "3"
+          },
+          "endorsement-motor:POName": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "4"
+          },
+          "endorsement-motor:ClientID": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "5"
+          },
+          "endorsement-motor:InceptionDate": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "6"
+          },
+          "endorsement-motor:ExpiryDate": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "7"
+          },
+          "endorsement-motor:EffectiveDateStep1": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "8"
+          },
+          "endorsement-motor:EnterChangeRequest": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "9"
+          },
+          "endorsement-motor:addBenefitTemporary": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "10"
+          },
+          "endorsement-motor:field1": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "11"
+          },
+          "endorsement-motor:field2": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "12"
+          },
+          "endorsement-motor:field3": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "13"
+          },
+          "endorsement-motor:field5": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "14"
+          },
+          "endorsement-motor:field6": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "15"
+          },
+          "endorsement-motor:field7": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "16"
+          }
+        },
+        "endorsement-motor:Step2": {
+          "$icon": "fa fa-check",
+          "$cssClass": "v3-box-7",
+          "@section": "endorsement-motor:EndorsementDetail",
+          "@previewHtml": "v3-endorsement-step2-preview.html",
+          "endorsement-motor:PolicyBasicInformation": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "1"
+          },
+          "endorsement-motor:ProductName": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "2"
+          },
+          "endorsement-motor:PolicyNumber": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "3"
+          },
+          "endorsement-motor:POName": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "4"
+          },
+          "endorsement-motor:ClientID": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "5"
+          },
+          "endorsement-motor:InceptionDate": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "6"
+          },
+          "endorsement-motor:ExpiryDate": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "7"
+          },
+          "endorsement-motor:EffectiveDate": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "7"
+          },
+          "endorsement-motor:ReviewChangeInformation": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "8"
+          },
+          "endorsement-motor:field5": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "9"
+          },
+          "endorsement-motor:field6Disabled": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "10"
+          },
+          "endorsement-motor:field4Disabled": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "12"
+          },
+          "endorsement-motor:tablePreview": {
+            "@key": [
+              ""
+            ],
+            "@visible": "1",
+            "@index": "3"
+          }
+        },
+        "endorsement-motor:Step3": {
+          "@icon": "fa fa-paperclip",
+          "@cssClass": "v3-box-7",
+          "@section": "endorsement-motor:EndorsementDetail",
+          "@onOpen": "getDocumentCenterList()",
+          "@key": [
+            "Step3"
+          ],
+          "case-management-motor:TransactionDocuments": {
+            "@key": [
+              "case-management-motor:Prints"
+            ],
+            "@icon": "fa fa-file-text-o",
+            "@section": "endorsement-motor:Step3",
+            "TransactionDocument": {
+              "@key": [
+                "Print"
+              ],
+              "@section": "case-management-motor:TransactionDocuments",
+              "@icon": "fa fa-paperclip",
+              "@cssClass": "v3-box-1",
+              "@onOpen": "fileReaderService.openFileReader('view',card.metadata,[],'')",
+              "@cardType": "template"
+            }
+          },
+          "case-management-motor:Attachments": {
+            "@key": [
+              "Attachments"
+            ],
+            "@section": "endorsement-motor:Step3",
+            "@icon": "fa fa-paperclip",
+            "@cssClass": "v3-box-1",
+            "@previewHtml": "v3-summary-static-attachment.html",
+            "Attachment": {
+              "@key": [
+                "Attachment"
+              ],
+              "@section": "case-management-motor:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "subAction": "removeIcon"
+              },
+              "@cssClass": "v3-box-1",
+              "@previewHtml": "v3-summary-static-attachment-file.html",
+              "@cardType": "template",
+              "@onOpen": "fileReaderService.openFileReader('view',card.refDetail,self.moduleService.convertToArray(self.moduleService.findElementInElement_V3(self.moduleService.detail, ['Attachment'])),'uploadMode')"
+            },
+            "addAttachment": {
+              "@section": "case-management-motor:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "mainAction": "addIcon"
+              },
+              "@cardType": "action",
+              "@staticHtml": "fileUpload.html",
+              "@onClick": "importFile()"
+            }
+          }
+        },
+        "endorsement-motor:Step4": {
+          "@key": [
+            "Underwriting"
+          ],
+          "@icon": "fa fa-pencil-square-o",
+          "@cssClass": "v3-box-7",
+          "@onOpen": "getUnderwritingLazyList()",
+          "@isVisible": "hasValueNotEmpty(findElementInDetail(['Underwriting'])['@refUid'])",
+          "@section": "endorsement-motor:EndorsementDetail"
+        },
+        "endorsement-motor:Step5": {
+          "@key": [
+            "eCoverNotes"
+          ],
+          "@icon": {
+            "main": "fa fa-spinner"
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "endorsement-motor:EndorsementDetail",
+          "@isVisible": "hasValueNotEmpty(findElementInDetail(['eCoverNote'])[0]['@refUid'])",
+          "@onOpen": "checkAddendumAdding()",
+          "case-management-motor:AddAddendum": {
+            "@key": [
+              "eCoverNotes"
+            ],
+            "@section": "endorsement-motor:Step5",
+            "@icon": {
+              "main": "fa fa-spinner",
+              "mainAction": "addIcon"
+            },
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "addAddendumAndHideAction(card)"
+          },
+          "case-management-motor:ECoverNote": {
+            "@key": [
+              "eCoverNote"
+            ],
+            "@icon": {
+              "main": "fa fa-spinner"
+            },
+            "@cssClass": "v3-box-5",
+            "@section": "endorsement-motor:Step5",
+            "@onOpen": "getECoverLazyList()",
+            "@cardType": "template"
+            
+          }
+        },
+        "endorsement-motor:Payment": {
+          "@key": [
+            "ClientPayment"
+          ],
+          "@onOpen": "checkPaymentAmount()",
+          "@isVisible": "hasValueNotEmpty(findElementInDetail(['ClientPayment'])['@refUid'])",
+          "@icon": "fa fa-credit-card",
+          "@cssClass": "v3-box-7",
+          "@section": "endorsement-motor:EndorsementDetail"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,158 @@
+<div ng-init="importNewIdToCase()" layout="column" class="height-inherit">
+    <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div style="overflow: scroll;" class="backgroundColor touch">
+
+
+
+        <div class="white-card">
+            <v3-sub-pages sub-name='Propect' sub-id='prospect'></v3-sub-pages>
+            <!-- <v3-sub-pages sub-name='Benefit Illustration' sub-id='term_life'></v3-sub-pages> -->
+            <div ng-if="::!moduleService.prospects[0]['@refUid']" layout="row" layout-margin class="row breakLine" ng-click="open();">
+                <div flex="90">Benefit Illustration</div>  
+            </div>
+            <div ng-if="::moduleService.prospects[0]['@refUid']" ng-click="createNewDocTermLife('term-life-protect')"  layout="row" layout-margin class="row breakLine" ng-click="open();">
+               
+                <div flex="90">Benefit Illustration</div>
+                <div flex="5"><i class="fa fa-angle-right fa-lg icon-color"></i></div>
+            </div>
+
+
+
+
+
+        </div>
+     <!--  <div ng-if="::moduleService.isEditMode">
+            <div layout="row" class="header-repeat-bar">
+                <div flex="80" layout-margin>
+                    <h class="repeat-toobar-text">Prospect</h>
+                </div>
+                <div flex="10">
+                    <md-button md-no-ink ng-click="toggleCollapseCase()" class="md-icon-button button" aria-label="Edit Prospect">
+                        <i class="fa fa-caret-up fa-lg repeat-toobar-icon"></i>
+                    </md-button>
+                </div>
+                <div flex="10">
+                    <md-button md-no-ink ng-click="toggleCollapseCaseNew()" class="md-icon-button button" aria-label="Edit Prospect">
+                        <i class="fa fa-plus-circle fa-lg repeat-toobar-icon"></i>
+                    </md-button>
+                </div>
+            </div>
+            <div layout="row" ng-if="prospectCaseNew==true" class="white-card-small collapse-case">
+                <div align="center" ng-click="createNewDocPropsect()" flex="10" style="background: rgb(55, 71, 79);line-height:30px; color:white;">
+                    <div><i class="fa fa-book fa-lg"></i></div>
+                    <div style="margin-top:-10px !important; font-size: 80%;"><span>New</span></div>
+                </div>
+                <div flex="80">
+                    <div layout="row" class="row-small" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.FullName" label-value="Prospect List" />
+                        </div>
+                        <div flex="5">
+                        </div>
+                        <div flex="75">
+                            <v3-Select class="input" more-action="addNewProspect(value1)" src-data="listProspect" displayText="FullName" displayValue="DocId" dialogTitle="Prospect List" ng-disabled="false" model="moduleService.findElementInDetail_V3(['ipos-case-management-motor-private-car-m:AgentSale', 'ipos-case-management-motor-private-car-m:Policy'])['@refUid']"></v3-Select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse-case" style="margin-left:3.5%;" ng-if="prospectCase==true">
+                <div layout="column" class="product-card-green" style="float:left;" ng-repeat="item in moduleService.prospects track by $index">
+                    <div>
+                        <div layout="row" style="height: 0px;position:relative;">
+                            <div flex="80">
+                            </div>
+                            <div flex="5">
+                                <md-button md-no-ink ng-click="addNewTab(card.DocId);" style="" class="md-icon-button button" aria-label="add new tab">
+                                    <i style="color:gray" class="fa fa-times-circle-o fa-lg"></i>
+                                </md-button>
+                            </div>
+                        </div>
+                        <div layout="row">
+                            <div flex="20" layout-margin>
+                                <img v3-avatar="::card.Photo" class="avatar">
+                            </div>
+                            <div flex="5"></div>
+                            <div flex="80" layout-margin>
+                                <div class="margin-card">
+                                    <span class="main-info short-word">{{item['@refUid']}}</span>
+                                    <br>
+                                    <span class="sub-info"> Age: 23</span>
+                                    <br>
+                                    <span class="sub-info"> Gender: Male</span>
+                                    <br>
+                                    <span class="sub-info"> Created Date: 07/12/2014 </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div layout="row" class="header-repeat-bar">
+                <div flex="90" layout-margin>
+                    <h class="repeat-toobar-text" style="color:#940E3D;">Benefit Illustration</h>
+                </div>
+                <div flex="10">
+                    <div class="rotateCounterwise" ng-disabled="::!moduleService.isEditMode" id="arrow1" align="center" ng-click="hideParties()">
+                        <i class="fa fa-caret-up fa-lg repeat-toobar-icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div layout="row" ng-if="moduleService.findElementInDetail_V3(['ipos-case-management-motor-private-car-m:AgentSale', 'ipos-case-management-motor-private-car-m:Policy'])['@refUid']" class="white-card-small collapse-case">
+                <div align="center" ng-click="createNewDocTermLife('term-life-protect')" flex="10" style="background: rgb(55, 71, 79);line-height:30px; color:white;">
+                    <div><i class="fa fa-book fa-lg"></i></div>
+                    <div style="margin-top:-10px !important; font-size: 80%;"><span>New</span></div>
+                </div>
+                <div flex="80">
+                    <div layout="row" class="row-small" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.FullName" label-value="Benefit Illustration" />
+                        </div>
+                        <div flex="5">
+                        </div>
+                        <div flex="75">
+                            <v3-Select class="input" more-action="addNewProspect(value1)" src-data="listTermlife" displayText="FullName" displayValue="DocId" dialogTitle="Prospect List" ng-disabled="false" model="moduleService.findElementInDetail_V3(['ipos-case-management-motor-private-car-m:AgentSale', 'ipos-case-management-motor-private-car-m:Policy'])['@refUid']"></v3-Select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse-case">
+                <div class="product-card-row">
+                    <div layout="row" layout-margin>
+                        <div flex="50" class="product-card-pink">
+                            <div layout="row" style="height: 0px;position:relative;">
+                                <div flex="80">
+                                </div>
+                                <div flex="5">
+                                    <md-button md-no-ink ng-click="addNewTab(card.DocId);" style="" class="md-icon-button button" aria-label="add new tab">
+                                        <i style="color:gray" class="fa fa-times-circle-o fa-lg"></i>
+                                    </md-button>
+                                </div>
+                            </div>
+                            <div layout="row">
+                                <div flex="20" layout-margin>
+                                    <img v3-avatar="::card.Photo" class="avatar">
+                                </div>
+                                <div flex="50" layout-margin>
+                                    <div class="margin-card">
+                                        <span class="main-info short-word">Le Huu Nghia</span>
+                                        <br>
+                                        <span class="sub-info"> Age: 23</span>
+                                        <br>
+                                        <span class="sub-info"> Gender: Male</span>
+                                        <br>
+                                        <span class="sub-info"> Created Date: 07/12/2014 </span>
+                                    </div>
+                                </div>
+                                <div flex="5" layout-margin>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>

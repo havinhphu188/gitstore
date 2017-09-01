@@ -1,0 +1,465 @@
+<md-dialog  style="height:60%; width:100%;" class="md-content-overflow" aria-label="">
+  <div  class="md-sticky-no-effect md-subheader md-default-theme" style="min-height: 43px; background-color: #3D4944!important; color: white; font-weight: bold; margin-right: 0px" sticky-state="next">
+    <div layout="row">
+      <div flex="25">
+      </div>
+      <div flex="50" class="attachment-text" style="text-align: center;">
+        <span style="font-size: 15px;">Profile</span>
+      </div>
+      <div flex="25" style="text-align: right; padding-right: 5px;">
+
+      </div>
+    </div>
+  </div>
+  
+  <ul id="carouselList" rn-carousel rn-carousel-index="carouselIndex" style="height: 100%;">
+    <li>
+    <ion-content class="ion-content-carousel-custom">
+      <md-item>
+      
+          <div layout-margin>
+            <div class="row">
+              <label class="input-label " style="max-width: 50%; font-weight: bold">FA Rep Personal Information</label>
+            </div>
+            <div class="row">
+              <div class="item-input fixposition" style="width:33%; margin-top: 20px">
+                <div class="input-label input-label-user-info">
+                  FA Rep Code
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.refcode" value="" placeholder="FA Rep Code">
+                </div>
+              </div>  
+              <div class="item-input fixposition" style="width:33%">
+                <div class="input-label input-label-user-info">
+                  FA Rep Name
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.repname" value="" placeholder="FA Rep Name">
+                </div>
+              </div>  
+              <div class="item-input fixposition" style="width:33%">
+                <div class="input-label input-label-user-info">
+                  MAS Rep No
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.repno" value="" placeholder="MAS Rep No">
+                </div>
+              </div> 
+              
+            </div>
+            <div class="row">
+              <div class="item-input fixposition" style="width:33%; margin-top: 20px">
+                <div class="input-label input-label-user-info">
+                  Start Date
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.startdate" value="" placeholder="Start Date">
+                </div>
+              </div>  
+              <div class="item-input fixposition" style="width:33%">
+                <div class="input-label input-label-user-info">
+                  Status Code
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.statuscode" value="" placeholder="Status Code">
+                </div>
+              </div>  
+              <div class="item-input fixposition" style="width:33%">
+                <div class="input-label input-label-user-info">
+                  Blacklist
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.blacklist" value="" placeholder="Blacklist">
+                </div>
+              </div> 
+              
+            </div>
+
+            <div class="row">
+              <div class="item-input fixposition" style="width:33%; margin-top: 20px">
+                <div class="input-label input-label-user-info">
+                  Distribution Channel
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.distributionchannel" value="" placeholder="Distribution Channel">
+                </div>
+              </div>  
+              <div class="item-input fixposition" style="width:33%">
+                <div class="input-label input-label-user-info">
+                  Branch
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.branch" value="" placeholder="Branch">
+                </div>
+              </div>  
+              <div class="item-input fixposition" style="width:33%">
+                <div class="input-label input-label-user-info">
+                  Last Updated Date
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.lastupdate" value="" placeholder="Last Updated Date">
+                </div>
+              </div> 
+              
+            </div>
+          </div>  
+    
+      </md-item>
+      
+      <md-item>
+      
+          <div layout-margin>
+            <div class="row">
+              <label class="input-label" style="max-width: 50%; font-weight: bold">Payment Information</label>
+            </div>
+            <div class="row">
+              <div class="item-input fixposition" style="width:33%; margin-top: 20px">
+                <div class="input-label input-label-user-info">
+                  Payment Method
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.refcode" value="" placeholder="Payment Method">
+                </div>
+              </div>  
+              <div class="item-input fixposition" style="width:33%">
+                <div class="input-label input-label-user-info">
+                  Payment Frequency
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.repname" value="" placeholder="Payment Frequency">
+                </div>
+              </div>  
+              <div class="item-input fixposition" style="width:33%">
+                <div class="input-label input-label-user-info">
+                  Payment Currency
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.repno" value="" placeholder="Payment Currency">
+                </div>
+              </div>  
+            </div>
+          </div>
+
+      </md-item>
+
+      <md-item>
+          <div layout-margin>
+            <div class="row">
+              <label class="input-label" style="max-width: 50%; font-weight: bold">Training and Authorized Activities</label>
+            </div>
+            <div class="row">
+              <div class="item-input fixposition" style="width:70%; margin-top: 20px">
+                <div class="input-label input-label-user-info">
+                  Not Authorized to Sell Product
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.refcode" value="" placeholder="Not Authorized to Sell Product">
+                </div>
+              </div>  
+            </div>
+            <div class="row">
+              <div class="item-input fixposition" style="width:70%">
+                <div class="input-label input-label-user-info">
+                  License Type
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.repname" value="" placeholder="License Type">
+                </div>
+              </div>
+            </div>
+            <div class="row">  
+              <div class="item-input fixposition" style="width:70%">
+                <div class="input-label input-label-user-info">
+                  Training Completed
+                </div>
+                <div class="textbox-100">
+                  <input type="text" ng-disabled="visible" ng-model="user.repno" value="" placeholder="Training Completed">
+                </div>
+              </div>
+            </div>  
+          </div>  
+      </md-item>
+      
+      <md-item>
+        <div layout-margin>
+          <div class="row">
+            <label class="input-label" style="max-width: 50%; font-weight: bold">Hierarchy Manager Information</label>
+          </div>
+          <div class="row">
+            <div class="item-input fixposition" style="width:50%; margin-top: 20px">
+              <div class="input-label input-label-user-info">
+                Manager Code
+              </div>
+              <div class="textbox-100">
+                <input type="text" ng-disabled="visible" ng-model="user.refcode" value="" placeholder="Manager Code">
+              </div>
+            </div>  
+            <div class="item-input fixposition" style="width:50%">
+              <div class="input-label input-label-user-info">
+                Manager Name
+              </div>
+              <div class="textbox-100">
+                <input type="text" ng-disabled="visible" ng-model="user.repname" value="" placeholder="Manager Name">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </md-item>
+      </ion-content>  
+    </li>
+
+    <li>
+      <ion-content class="ion-content-carousel-custom">
+        <md-item>
+        
+            <div layout-margin>
+              <div class="row">
+                <label class="input-label " style="max-width: 50%; font-weight: bold">FA Rep Personal Information</label>
+              </div>
+              <div class="row">
+                <div class="item-input fixposition" style="width:33%; margin-top: 20px">
+                  <div class="input-label input-label-user-info">
+                    Title
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.refcode" value="" placeholder="FA Rep Code">
+                  </div>
+                </div>  
+                <div class="item-input fixposition" style="width:33%">
+                  <div class="input-label input-label-user-info">
+                    Full Name
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.repname" value="" placeholder="FA Rep Name">
+                  </div>
+                </div>  
+                <div class="item-input fixposition" style="width:33%">
+                  <div class="input-label input-label-user-info">
+                    Date of Birth
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.repno" value="" placeholder="MAS Rep No">
+                  </div>
+                </div> 
+                
+              </div>
+              <div class="row">
+                <div class="item-input fixposition" style="width:33%; margin-top: 20px">
+                  <div class="input-label input-label-user-info">
+                    Gender
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.startdate" value="" placeholder="Start Date">
+                  </div>
+                </div>  
+                <div class="item-input fixposition" style="width:33%">
+                  <div class="input-label input-label-user-info">
+                    ID Type
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.statuscode" value="" placeholder="Status Code">
+                  </div>
+                </div>  
+                <div class="item-input fixposition" style="width:33%">
+                  <div class="input-label input-label-user-info">
+                    ID Number
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.blacklist" value="" placeholder="Blacklist">
+                  </div>
+                </div> 
+                
+              </div>
+
+              <div class="row">
+                <div class="item-input fixposition" style="width:33%; margin-top: 20px">
+                  <div class="input-label input-label-user-info">
+                    Marital Status
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.distributionchannel" value="" placeholder="Distribution Channel">
+                  </div>
+                </div>  
+                <div class="item-input fixposition" style="width:33%">
+                  <div class="input-label input-label-user-info">
+                    Nationality
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.branch" value="" placeholder="Branch">
+                  </div>
+                </div>  
+                <div class="item-input fixposition" style="width:33%">
+                  <div class="input-label input-label-user-info">
+                    Race
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.lastupdate" value="" placeholder="Last Updated Date">
+                  </div>
+                </div> 
+                
+              </div>
+            </div>  
+      
+        </md-item>
+        
+        <md-item>
+        
+            <div layout-margin>
+              <div class="row">
+                <label class="input-label" style="max-width: 50%; font-weight: bold">FA Rep Residential Addresses</label>
+              </div>
+              <div class="row">
+                <div class="item-input fixposition" style="width:50%; margin-top: 20px">
+                  <div class="input-label input-label-user-info">
+                    Residential Address
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.refcode" value="" placeholder="Residential Address">
+                  </div>
+                </div>  
+              </div>
+
+              <div class="row">
+                <div class="item-input fixposition" style="width:50%; margin-top: 20px">
+                  <div class="input-label input-label-user-info">
+                    Line 1: Blk/House No
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.refcode" value="" placeholder="Line 1: Blk/House No">
+                  </div>
+                </div>  
+                <div class="item-input fixposition" style="width:50%">
+                  <div class="input-label input-label-user-info">
+                    Line 2: Street
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.repname" value="" placeholder="Line 2: Street">
+                  </div>
+                </div>  
+              </div>
+
+              <div class="row">
+                <div class="item-input fixposition" style="width:50%; margin-top: 20px">
+                  <div class="input-label input-label-user-info">
+                    Line 3: Unit No
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.refcode" value="" placeholder="Line 3: Unit No">
+                  </div>
+                </div>  
+                <div class="item-input fixposition" style="width:50%">
+                  <div class="input-label input-label-user-info">
+                    Line 4: Building
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.repname" value="" placeholder="Line 4: Building">
+                  </div>
+                </div>  
+              </div>
+
+              <div class="row">
+                <div class="item-input fixposition" style="width:33%; margin-top: 20px">
+                  <div class="input-label input-label-user-info">
+                    City Code
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.refcode" value="" placeholder="City Code">
+                  </div>
+                </div>  
+                <div class="item-input fixposition" style="width:33%">
+                  <div class="input-label input-label-user-info">
+                    Country Code
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.repname" value="" placeholder="Country Code">
+                  </div>
+                </div>
+                <div class="item-input fixposition" style="width:33%">
+                  <div class="input-label input-label-user-info">
+                    Postal Code
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.repname" value="" placeholder="Postal Code">
+                  </div>
+                </div>    
+              </div>
+            </div>
+
+        </md-item>
+
+        <md-item>
+            <div layout-margin>
+              <div class="row">
+                <label class="input-label" style="max-width: 50%; font-weight: bold">FA Rep Contacts</label>
+              </div>
+              <div class="row">
+                <div class="item-input fixposition" style="width:50%; margin-top: 20px">
+                  <div class="input-label input-label-user-info">
+                    Email Address
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.refcode" value="" placeholder="Email Address">
+                  </div>
+                </div>  
+                <div class="item-input fixposition" style="width:50%">
+                  <div class="input-label input-label-user-info">
+                    Mobile Tel Number
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.repname" value="" placeholder="Mobile Tel Number">
+                  </div>
+                </div>  
+              </div>
+
+              <div class="row">
+                <div class="item-input fixposition" style="width:50%; margin-top: 20px">
+                  <div class="input-label input-label-user-info">
+                    Office Tel Number
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.refcode" value="" placeholder="Office Tel Number">
+                  </div>
+                </div>  
+                <div class="item-input fixposition" style="width:50%">
+                  <div class="input-label input-label-user-info">
+                    Home Tel Number
+                  </div>
+                  <div class="textbox-100">
+                    <input type="text" ng-disabled="visible" ng-model="user.repname" value="" placeholder="Home Tel Number">
+                  </div>
+                </div>  
+              </div>  
+            </div>  
+        </md-item>
+        
+      </ion-content>
+      </li>
+      
+        <!-- <div class="rn-carousel-control fa fa-chevron-left custom-chevron" ng-click="prevSlide()" ></div>
+        <div style="float: right" class="rn-carousel-control fa fa-chevron-right custom-chevron" ng-click="nextSlide()" ></div> -->
+
+        <div class="rn-carousel-control custom-chevron" style="margin-left: 15px; top: 0%; padding-top: 20vh;" ng-click="prevSlide()">
+          <span class="fa fa-chevron-left background-chevron"></span>
+            
+        </div>
+        <div class="rn-carousel-control custom-chevron" style="margin-right:15px; float: right; position: initial!important; padding-top: 20vh;" ng-click="nextSlide()">
+          <span class="fa fa-chevron-right background-chevron"></span>
+        </div>
+      
+  </ul>
+  <div class="rn-carousel-indicator custom-indicator">
+      <md-button style="width: 30px; height: 30px; margin-left: 15px" ng-repeat="slide in slides" class="md-fab md-primary" md-theme="cyan" ng-class="{active: $index==$parent.carouselIndex}" ng-click="$parent.carouselIndex = $index"></md-button>
+  </div>
+  <div class="md-actions" style="display: block;" layout="row">
+    <md-button ng-click="cancelDialog()" style="float: right; margin-right:8px; color: white; width: 100px; background-color: #3D4944">
+      Cancel
+    </md-button>
+
+    <!-- create indicator of carousel -->
+    
+
+  </div>
+
+</md-dialog>

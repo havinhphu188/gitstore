@@ -1,0 +1,19 @@
+{
+  "IposDocument": {
+    "Data": {
+      "underwriting-travel-express:Underwriting": {
+        "section": "underwriting-travel-express:Underwriting",
+        "icon": "fa fa-pencil-square-o",
+        "underwriting-travel-express:labelUnderwritingReview": {},
+        "underwriting-travel-express:Product": {},
+        "underwriting-travel-express:TravelInformation": {},
+        "underwriting-travel-express:UnderwritingFindings": {},
+        "underwriting-travel-express:UnderwriterDecision": {},
+        "underwriting-travel-express:Premium": {},
+        "underwriting-travel-express:UnderwriterRemark": {},
+        "underwriting-travel-express:CustomerDecision": {},
+        "underwriting-travel-express:AgentRemark": {}
+      }
+    }
+  }
+}

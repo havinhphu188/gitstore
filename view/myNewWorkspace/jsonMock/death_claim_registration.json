@@ -1,0 +1,280 @@
+{
+  "IposDocument": {   
+    "Data": {
+      "death-claim-registration:DeathClaimRegistration": {
+        "key": [
+          "DeathClaimRegistration"
+        ],
+        "section": "death-claim-registration:DeathClaimRegistration",
+        "death-claim-registration:DeathClaim": {
+          "type": "",
+          "key": [
+            "DeathClaim"
+          ],         
+           "@previewHtml":"v3-preview-static-deathclaim-maincard.html",
+          "section": "death-claim-registration:DeathClaimRegistration",
+         
+          "isVisible": "true"
+        },
+        "death-claim-registration:Summary": {
+          "type": "",
+          "key": [
+            "Summary"
+          ],       
+           "@previewHtml":"v3-preview-static-deathclaim-sumary.html",
+       
+          "section": "death-claim-registration:DeathClaim",
+          "isVisible": "true",
+          "death-claim-registration:infomationTitle": {
+            "key": [
+              ""
+            ],
+            "type": ""
+          },
+          
+         
+          "death-claim-registration:dateOfDate": {
+            "key": [
+              ""
+            ],
+           
+            "type": ""
+          },
+           "death-claim-registration:deceasedName": {
+            "key": [
+              ""
+            ],
+           
+            "type": ""
+          },
+          "death-claim-registration:linkToDeathClaim": {
+            "key": [
+              "linkToDeathClaim"
+            ],
+            "type": ""
+          }
+        },
+        "death-claim-registration:Registration": {
+          "section": "death-claim-registration:DeathClaim",
+          "key": [
+            "PolicyDetails"
+          ],
+          "isVisible": "true",
+          "type": "",
+          "death-claim-registration:DeathClaimInformation": {
+            "section": "death-claim-registration:Registration",
+            "key": [
+              "DeathClaimInformation"
+            ],
+            "type": "",
+            "death-claim-registration:deathClaimInfomation": {
+              "key": [
+                "deathClaimInfomation"
+              ],
+              "type": ""
+            },
+            "death-claim-registration:deathClaimInfomationleft": {
+              "key": [
+                "deathClaimInfomationleft"
+              ],
+              "type": ""
+            },
+            "death-claim-registration:ClientNumber": {
+              "key": [
+                "ClientNumber"
+              ],
+              "type": ""
+            },
+            "death-claim-registration:ReportedDate": {
+              "key": [
+                "ReportedDate"
+              ],
+               "format": "datetime",
+               "@preview": [
+	         "death-claim-registration:DeathClaimInformation",
+	         "death-claim-registration:Registration"
+	   	   ],
+              "type": ""
+            },
+            "death-claim-registration:DeathDate": {
+              "key": [
+                "DeathDate"
+              ],
+               "format": "datetime",
+               "@preview": [
+	        "death-claim-registration:DeathClaimInformation"       
+	      
+	   	   ],
+              "type": ""
+            },
+            "death-claim-registration:DeathCause": {
+              "key": [
+                "DeathCause"
+              ],
+              "type": ""
+            },
+            "death-claim-registration:Information": {
+              "key": [
+                "Information"
+              ],
+              "type": ""
+            },
+            "death-claim-registration:InformantName": {
+              "key": [
+                "InformantName"
+              ],
+              
+              "type": "",
+               "@preview": [             
+                "death-claim-registration:Registration"
+              ]     
+            },
+            "death-claim-registration:InformantTel": {
+              "key": [
+                "InformantTel"
+              ],
+              "type": ""
+            },
+            "death-claim-registration:InformantAddInfo": {
+              "key": [
+                "InformantAddInfo"
+              ],
+              "type": ""
+            },
+            "death-claim-registration:InformantEmail": {
+              "key": [
+                "InformantEmail"
+              ],
+              "type": ""
+            }
+          },
+          
+           
+          "death-claim-registration:PolicyDetail": { 
+            "@key": [
+              "PolicyDetail"
+            ],
+            "icons":{
+              "cardIcon": {
+                "content": "fa fa-user"
+              },
+              "removeCardInList" : {}
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "death-claim-registration:Registration",             
+            "@cardType": "template",      
+            "death-claim-registration:PolicyNo": { 
+              "key": [
+                "PolicyNo"
+              ],
+               "@preview": [
+	      	  "PolicyDetail"
+	      	 
+	   	   ],
+              "type": ""             
+            },
+            "death-claim-registration:Product": {     
+              "key": [
+                "Product"
+              ],
+              "type": ""         
+            },
+            "death-claim-registration:POName": {   
+              "key": [
+                "POName"
+              ],
+               "@preview": [
+	        "death-claim-registration:PolicyDetail"
+	        
+	        
+	   	   ],
+              
+              "type": ""        
+            },
+            "death-claim-registration:LIName": {        
+              "key": [
+                "LIName"
+              ],
+               
+              "type": "",
+              "@preview": [             
+              
+              ]     
+            },
+            "death-claim-registration:SumInsured": {    
+              "key": [
+                "SumInsured"
+              ],
+              "type": ""         
+            },
+             "death-claim-registration:DeathClaimNo": {
+               "key": [
+                "DeathClaimNo"
+              ],
+              "type": ""   
+            }
+          },
+          
+                     
+          "death-claim-registration:Attachments": {
+            "@key": [
+              "Attachments"
+            ],
+            "@section": "death-claim-registration:Registration",
+            "@icon": "attachmentIcon",
+            "icons": {
+              "cardIcon": {
+                "content": "attachmentIcon"
+              }
+            },
+            "@cssClass": "v3-box-1",
+            "@previewHtml": "v3-summary-static-attachment.html",
+            "Attachment": {
+              "@key": [
+                "Attachment"
+              ],
+              "@section": "death-claim-registration:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "subAction": "removeIcon"
+              },
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                },
+                "removeCardInList": {}
+              },
+              "@cssClass": "v3-box-1",
+              "@previewHtml": "v3-summary-static-attachment-file.html",
+              "@cardType": "template",
+              "@onOpen": "fileReaderService.openFileReader('view',card.refDetail,self.moduleService.convertToArray(self.moduleService.findElementInElement_V3(self.moduleService.detail, ['Attachment'])),'uploadMode')"
+            },
+            "addAttachment": {
+              "@section": "death-claim-registration:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "mainAction": "addIcon"
+              },
+              "icons": {
+                "cardIcon": {
+                  "content": "fa fa-paperclip"
+                },
+                "cardIconPlus": {}
+              },
+              "@cardType": "action",
+              "@staticHtml": "fileUpload.html",
+              "@onClick": "importFile()"
+            }
+          }
+          
+         
+  },
+   "emptyCard": {
+	    "@section": "death-claim-registration:DeathClaimRegistration",
+	    "@isVisible": false
+	   
+        }
+      }
+    }
+  }
+}

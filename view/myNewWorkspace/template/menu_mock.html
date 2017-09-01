@@ -1,0 +1,204 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+	<div ng-click='showChild($event)' class='box-item box-bi card-item  {{::child}}'>
+		<div class="row v3-margin-right-0">
+			<div class="col-md-10 v3-padding-0">
+				<span class="card-detail v3-card-title">
+						Illustration
+				</span> 
+			</div>
+ 				<span class="card-status">
+	  			<i class="fa fa-check-square" ng-if="true"></i>
+	  			<i class="fa fa-exclamation-triangle" ng-if="false"></i>
+	  		</span>
+  		</div>
+  		<div class="row">
+			<span class="card-info">
+				<span class="side-icon-left">
+					<i class="fa fa-info-circle fa-2x"></i>					
+				</span>
+				<span class="side-icon-right">20 days ago</span>  				
+			</span>
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+	<div ng-click="showChildDetail($event)" class='box-item {{::currentCss}} card-item  {{::child}}'>
+		<div class="row v3-margin-right-0">
+			<div class="col-md-10 v3-padding-0">
+				<span class="card-detail v3-card-title">
+						Basic Information
+				</span> 
+			</div>
+ 				<span class="card-status">
+	  			<i class="fa fa-check-square" ng-if="true"></i>
+	  			<i class="fa fa-exclamation-triangle" ng-if="false"></i>
+	  		</span>
+  		</div>
+  		<div class="row">
+			<span class="card-info">
+				<span class="side-icon-left">
+					<i class="fa fa-info-circle fa-2x"></i>					
+				</span>
+				<span class="side-icon-right">20 days ago</span>  				
+			</span>
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+	<div ng-click='showChild($event)' class='box-item {{::currentCss}} card-item  {{::child}}'>
+		<div class="row v3-margin-right-0">
+			<div class="col-md-10 v3-padding-0">
+				<span class="card-detail v3-card-title">
+						Contact
+				</span> 
+			</div>
+ 				<span class="card-status">
+	  			<i class="fa fa-check-square" ng-if="false"></i>
+	  			<i class="fa fa-exclamation-triangle" ng-if="true"></i>
+	  		</span>
+  		</div>
+		<div class="row">
+			<span class="card-info">
+				<span class="side-icon-left">
+					<i class="fa fa-home fa-2x"></i>					
+				</span>
+				<span class="side-icon-right">20 days ago</span>  				
+			</span>
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+	<div ng-click='showChild($event)' class='box-item {{::currentCss}} card-item  {{::child}}'>
+		<div class="row v3-margin-right-0">
+			<div class="col-md-10 v3-padding-0">
+				<span class="card-detail v3-card-title">
+						Address
+				</span> 
+			</div>
+ 				<span class="card-status">
+	  			<i class="fa fa-check-square" ng-if="false"></i>
+	  			<i class="fa fa-exclamation-triangle" ng-if="true"></i>
+	  		</span>
+  		</div>
+		<div class="row">
+			<span class="card-info">
+				<span class="side-icon-left">
+					<i class="fa fa-building fa-2x"></i>					
+				</span>
+				<span class="side-icon-right">20 days ago</span>  				
+			</span>
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+	<div ng-click='showChild($event)' class='box-item {{::currentCss}} card-item  {{::child}}'>
+		<div class="row v3-margin-right-0">
+			<div class="col-md-10 v3-padding-0">
+				<span class="card-detail v3-card-title">
+						PDPA
+				</span> 
+			</div>
+ 				<span class="card-status">
+	  			<i class="fa fa-check-square" ng-if="false"></i>
+	  			<i class="fa fa-exclamation-triangle" ng-if="true"></i>
+	  		</span>
+  		</div>
+		<div class="row">
+			<span class="card-info">
+				<span class="side-icon-left">
+					<i class="fa fa-shield fa-2x"></i>					
+				</span>
+				<span class="side-icon-right">20 days ago</span>  				
+			</span>
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+	<div ng-click='showChild($event)' class='box-item {{::currentCss}} card-item  {{::child}}'>
+		<div class="row v3-margin-right-0">
+			<div class="col-md-10 v3-padding-0">
+				<span class="card-detail v3-card-title">
+					Attachment
+				</span> 
+			</div>
+ 				<span class="card-status">
+	  			<i class="fa fa-check-square" ng-if="true"></i>
+	  			<i class="fa fa-exclamation-triangle" ng-if="false"></i>
+	  		</span>
+  		</div>
+		<div class="row">
+			<span class="card-info">
+				<span class="side-icon-left">
+					<i class="fa fa-paperclip fa-2x"></i>					
+				</span>
+				<span class="side-icon-right">20 days ago</span>  				
+			</span>
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+	<div ng-click='showChild($event)' class='box-item {{::currentCss}} card-item  {{::child}}'>
+		<div class="row v3-margin-right-0">
+			<div class="col-md-10 v3-padding-0">
+				<span class="card-detail v3-card-title">
+					Attachment
+				</span> 
+			</div>
+ 				<span class="card-status">
+	  			<i class="fa fa-check-square" ng-if="true"></i>
+	  			<i class="fa fa-exclamation-triangle" ng-if="false"></i>
+	  		</span>
+  		</div>
+		<div class="row">
+			<span class="card-info">
+				<span class="side-icon-left">
+					<i class="fa fa-paperclip fa-2x"></i>					
+				</span>
+				<span class="side-icon-right">20 days ago</span>  				
+			</span>
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+	<div ng-click='showChild($event)' class='box-item {{::currentCss}} card-item  {{::child}}'>
+		<div class="row v3-margin-right-0">
+			<div class="col-md-10 v3-padding-0">
+				<span class="card-detail v3-card-title">
+					Attachment
+				</span> 
+			</div>
+ 				<span class="card-status">
+	  			<i class="fa fa-check-square" ng-if="true"></i>
+	  			<i class="fa fa-exclamation-triangle" ng-if="false"></i>
+	  		</span>
+  		</div>
+		<div class="row">
+			<span class="card-info">
+				<span class="side-icon-left">
+					<i class="fa fa-paperclip fa-2x"></i>					
+				</span>
+				<span class="side-icon-right">20 days ago</span>  				
+			</span>
+		</div>
+	</div>
+</div>

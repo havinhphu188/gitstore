@@ -1,0 +1,37 @@
+<!-- <md-toolbar>
+      <div class="md-toolbar-tools">
+        <md-button md-no-ink ng-click="toggleLeft()"  class="md-icon-button button">
+            <i class="fa fa-list fa-2x button-padding-10 "></i>
+        </md-button>  
+    </div>
+</md-toolbar> -->
+<div align="left"  ng-init="autoSelect()" style="color:white; margin-top:70px;">
+   
+    <div id="prospect" class="listModule" ng-click="openView(CONSTANTS.MODULE_NAME.PROSPECT)">
+        <i align="left" class="fa fa-book fa-lg"></i>
+    </div>
+    <div id="illustration" class="listModule" ng-click="openView(CONSTANTS.MODULE_NAME.ILLUSTRATION)">
+        <i align="left" class="fa fa-bar-chart fa-lg"></i>
+    </div>
+    <div id="pdpa" class="listModule" ng-click="openView(CONSTANTS.MODULE_NAME.PDPA)">
+        <i align="left" class="fa fa-file-o fa-lg"></i>
+    </div>
+    <!--  <div id="{{::CONSTANTS.MODULE_NAME.APPLICATION}}" class="listModule selected" ng-click="openView(CONSTANTS.MODULE_NAME.APPLICATION)">
+        <i align="center" class="fa fa-file-text fa-lg"></i>
+    </div> -->
+    <div id="sync" class="listModule" ng-click="openView(CONSTANTS.MODULE_NAME.SYNC)">
+        <i align="left" class="fa fa-refresh fa-lg"></i>
+    </div>
+    <div class="listModule" ng-click="showSetting()">
+        <i align="center" class="fa fa-cog fa-lg"></i>
+    </div>
+    <div class="listModule" style="padding-left: 21px" ng-click="showAboutUs()">
+        <i align="center" class="fa fa-info fa-lg"></i>
+    </div>
+    <div class="listModule" ng-click="confirmLogOut()">
+        <i align="center" class="fa fa-sign-out fa-lg"></i>
+    </div>
+<!--      <div id="cas-management" class="listModule" ng-click="openView(CONSTANTS.MODULE_NAME.CASE)">
+        <i align="left" class="fa fa-suitcase fa-lg"></i>
+    </div> -->
+</div>

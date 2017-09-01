@@ -1,0 +1,16 @@
+<div layout="row" class="height-100">
+    <div class="mask" ng-show="vars.bLoadingFullView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <md-backdrop class="md-sidenav-backdrop md-opaque md-default-theme md-sidenav-backdrop-custom disabled" ng-click="checkClosingForm()"></md-backdrop>
+    <md-sidenav  style="overflow: visible;" class="md-sidenav-left md-whiteframe-z2" style="width: 30%; max-width: 35%; float: left; position: relative;" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+        <ui-view name="left-view" flex="30" class="height-100" style="position: fixed; z-index:100;"></ui-view>
+    </md-sidenav>
+    <ui-view  ng-click="closeSideBar()" flex id="main-view" ng-swipe-right="toggleLeftNav()" ng-swipe-left="close()" class="height-100 backgroundColor main-view-position-relative">
+        <ui-view name="right-header"></ui-view>
+       <!--  <ui-view name="tab-list" class="has-header main-view-position-static"></ui-view> -->
+        <div content-panel>
+            <ui-view name="right-content" class="height-100 container-module" ng-class="::{back: vars.back}"></ui-view>
+        </div>
+    </ui-view>
+</div>

@@ -1,0 +1,42 @@
+{
+  "name": "code-snippets",
+  "main": "first-paint.js",
+  "version": "0.3.2",
+  "homepage": "https://github.com/bahmutov/code-snippets",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "docs",
+    "Gruntfile.js",
+    "package.json",
+    "index.html"
+  ],
+  "keywords": [
+    "testing",
+    "test",
+    "exploratory",
+    "mock",
+    "chrome",
+    "devtools",
+    "code",
+    "snippets"
+  ],
+  "description": "Chrome DevTools code snippets ",
+  "authors": [
+    "Gleb Bahmutov <gleb.bahmutov@gmail.com>"
+  ],
+  "_release": "0.3.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.3.2",
+    "commit": "4eb7c827dd2849faa5e99ca4f578787bf03652bb"
+  },
+  "_source": "git://github.com/bahmutov/code-snippets.git",
+  "_target": "~0.3.2",
+  "_originalSource": "code-snippets",
+  "_direct": true
+}

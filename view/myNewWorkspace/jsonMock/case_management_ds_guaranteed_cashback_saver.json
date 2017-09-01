@@ -1,0 +1,154 @@
+{
+  "IposDocument": {
+    "Data": {
+      "case-management:CaseManagement": {
+        "section": "case-management:CaseManagement",
+        "@vpms-suffix": "admin",
+        "@cssClass": "v3-box-1",
+        "@icon": "fa fa fa-umbrella",
+        "icons": {
+          "cardIcon": {
+            "content": "fa fa-money"
+          }
+        },
+        "case-management-guaranteed-cashback-saver:Summary": {
+          "@icon": "fa fa-pencil",
+          "icons": {
+            "cardIcon": {
+              "content": "fa fa-pencil"
+            }
+          },
+          "section": "case-management:CaseManagement",
+          "case-management-guaranteed-cashback-saver:CaseInformation": {},
+          "case-management-guaranteed-cashback-saver:Status": {},
+          "case-management-guaranteed-cashback-saver:CreatedDate": {},
+          "case-management-guaranteed-cashback-saver:UpdatedDate": {},
+          "case-management-guaranteed-cashback-saver:ProductName": {},
+          "case-management-guaranteed-cashback-saver:PolicyOwner": {},
+          "case-management-guaranteed-cashback-saver:PolicyNumber": {}
+        },
+       "case-management-guaranteed-cashback-saver:Step2_Quotation": {
+          "@key": [
+            "Quotations"
+          ],
+          "@onOpen": "changeNameUnderwriterQuotation('case-management-guaranteed-cashback-saver:Step2_Quotation')",
+          "@icon": {
+            "main": "fa fa-bar-chart",
+            "step": "3"
+          },
+          "icons": {
+            "step": {
+              "content": "3"
+            },
+            "cardIcon": {
+              "content": "quotationIcon"
+            }
+          },
+          "@cssClass": "v3-box-2",
+          "@section": "case-management:CaseManagement",
+          "case-management-guaranteed-cashback-saver:Quotation": {
+            "@key": [
+              "Quotation"
+            ],
+            "isShowOnlyLastItem" : true,
+            "icons": {
+              "cardIcon": {
+                "content": "quotationIcon"
+              },
+              "removeCardInList": {
+                "isVisible": "card.metadata.BusinessStatus != 'ACCEPTED'",
+                "onClick": "removeCardInList()"
+              }
+            },
+            "@cssClass": "v3-box-2",
+            "@section": "case-management-guaranteed-cashback-saver:Step2_Quotation",
+            "@cardType": "template"
+          }
+        },
+        "case-management-guaranteed-cashback-saver:SubmitApplication": {
+          "section": "case-management:CaseManagement",
+          "key": [
+            "Application"
+          ],
+          "icons": {
+            "cardIcon": {
+              "content": "applicationIcon"
+            }
+          }
+        },
+        "case-management-guaranteed-cashback-saver:ReviewAndApproval": {
+          "@section": "case-management:CaseManagement",
+          "icons": {
+            "step": {
+              "content": "5"
+            },
+            "cardIcon": {
+              "content": "review-icon"
+            }
+          },
+          "@isVisible": "findElementInDetail(['ManagerReview'])['@refUid'] || findElementInDetail(['Underwriting'])['@refUid']",
+          "case-management-guaranteed-cashback-saver:ManagerReview": {
+            "@key": [
+              "ManagerReview"
+            ],
+            "permission": {
+              "AGENT": {
+                "openable": false,
+                "editable": false
+              },
+              "PROSPECT": {
+                "openable": false,
+                "editable": false
+              },
+              "GUEST": {
+                "openable": false,
+                "editable": false
+              },
+              "UW": {
+                "openable": false,
+                "editable": false
+              },
+              "CSO": {
+                "openable": false,
+                "editable": false
+              },
+              "POLICY_OWNER": {
+                "openable": false,
+                "editable": false
+              }
+            },
+            "@previewHtml": "v3-manager-review-gcs.html",
+            "@onOpen": "checkManager()",
+            "@section": "case-management-guaranteed-cashback-saver:ReviewAndApproval"
+          },
+          "case-management-guaranteed-cashback-saver:Underwriting": {
+            "@key": [
+              "Underwriting"
+            ],
+            "@isVisible": "findElementInDetail(['Underwriting'])['@refUid']",
+            "@section": "case-management-guaranteed-cashback-saver:ReviewAndApproval",
+            "@icon": "fa fa-pencil-square-o",
+            "icons": {
+              "cardIcon": {
+                "content": "uWIcon"
+              }
+            },
+            "@onOpen": "getUnderwritingLazyList()"
+          }
+        },
+        "case-management-guaranteed-cashback-saver:MakePayment": {
+          "key": [
+            "ClientPayment"
+          ],
+          "icons": {
+            "cardIcon": {
+              "content": "fa fa-credit-card"
+            }
+          },
+          "onOpen": "getPaymentLazyList()",
+          "section": "case-management:CaseManagement"
+        }
+      }
+    }
+  }
+}

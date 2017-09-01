@@ -1,0 +1,51 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<section class="common-action-box pull-right" ng-click='commonUIService.showHideItems()' ng-if="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != commonService.CONSTANTS.STATUS.ACCEPTED) && (moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != commonService.CONSTANTS.STATUS.REJECTED)"><i class="fa fa-list-ul fa-2x"></i></section>
+<!-- <section class="common-action-box pull-right"><i class="fa fa-repeat fa-2x"></i></section>
+<section class="common-action-box pull-right" loading loading-action="saveManagerReview(false)" ><i class="fa fa-floppy-o fa-2x"></i></section> -->
+<!-- <section class="common-action-box pull-right" ng-click='commonUIService.showHideItems()'>
+    <i class="fa fa-ellipsis-v fa-2x"></i></section> -->
+    <section class="common-action-box pull-right"><i class="fa fa-repeat fa-2x"></i></section>
+    <section class="common-action-box pull-right" loading loading-action="saveGroupDepartment(true)"><i class="fa fa-floppy-o fa-2x"></i></section>
+<div id="showMore">
+    <span class="arrow arrow-action"></span>
+    <div class="common-action-bar-container">
+
+           <div>
+	            <div class="common-action-items-back" ng-click= "groupDepartmentAction('approval');commonUIService.showHideItems()" ng-show="moduleService.freeze==false">
+	                <div class="common-action-items">
+	                    <span class="common-action-items-icon"><i
+	            class='fa fa-check-circle fa-2x'></i></span>
+	                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Approval' | translate}}</span>
+	                </div>
+	                <md-divider></md-divider>
+	            </div>
+	            
+	            <div class="common-action-items-back" ng-click= "groupDepartmentAction('reject');commonUIService.showHideItems()" ng-show="moduleService.freeze==false">
+	                <div class="common-action-items">
+	                    <span class="common-action-items-icon"><i
+	            class='fa fa-times-circle-o fa-2x'></i></span>
+	                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Reject' | translate}}</span>
+	                </div>
+	            </div>
+          </div>
+     </div>
+</div>
+    

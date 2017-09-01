@@ -1,0 +1,16 @@
+{
+  "IposDocument": {
+    "Data": {
+      "manager-review:saleManager": {
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "manager-review:saleManager",
+            "manager-review:assessmentChecklist": {},
+            "manager-review:reviewedCase": {},
+			"manager-review:AssessmentQuestions": {}
+          }
+    }
+  }
+}

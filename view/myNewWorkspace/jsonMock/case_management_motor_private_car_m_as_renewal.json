@@ -1,0 +1,243 @@
+{
+  "IposDocument": {
+    "Data": {
+      "case-management-motor:CaseManagement": {
+        "@key": [
+          "CaseManagement"
+        ],
+        "@section": "case-management-motor:CaseManagement",
+        "@case-name": "",
+        "@product": "motor-private-car-m-as",
+        "case-management-motor:Renewal": {
+          "@key": [
+            "Renewal"
+          ],
+          "case-management-motor:Summary": {
+            "@icon": "fa fa-pencil",
+            "@cssClass": "v3-box-4",
+            "@section": "case-management-motor:CaseManagement",
+            "case-management-motor:CaseInformation": {
+              "@key": [
+                "DocName"
+              ]
+            },
+            "case-management-motor:PolicyNumber": {
+              "@key": [
+                "PolicyNumber"
+              ]
+            },
+            "case-management-motor:CurrentStatus": {
+              "@key": [
+                "BusinessStatus"
+              ]
+            },
+            "case-management-motor:PendingInformation": {
+              "@key": [
+                "PendingInformation"
+              ]
+            },
+            "case-management-motor:NextRequiredAction": {
+              "@key": [
+                "NextRequiredAction"
+              ]
+            }
+          },
+          "case-management-motor:Step1_GenerateQuotation": {
+            "@key": [
+              "Quotation"
+            ],
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "step": "1"
+            },
+            "@cssClass": "v3-box-4",
+            "@section": "case-management-motor:CaseManagement"
+          },
+          "case-management-motor:Step2_ReviewAccept": {
+            "@key": [
+              "Step2_ReviewAccept"
+            ],
+            "@icon": {
+              "main": "fa fa-search",
+              "step": "2"
+            },
+            "@cssClass": "v3-box-4",
+            "@onOpen": "showAcceptActions()",
+            "@section": "case-management-motor:CaseManagement",
+            "case-management-motor:ReviewQuotation": {}
+          },
+          "case-management-motor:Step3_Application": {
+            "@key": [
+              "Application"
+            ],
+            "@icon": {
+              "main": "fa fa-file-o",
+              "step": "3"
+            },
+            "@cssClass": "v3-box-4",
+            "@onOpen": "checkQuotation()",
+            "@section": "case-management-motor:CaseManagement",
+            "@businessType": "RENEWAL"
+          },
+          "case-management-motor:Step4_DocumentCenter": {
+            "@key": [
+            "Step4_DocumentCenter"
+          ],
+          "@icon": {
+            "main": "fa fa-paperclip"
+          },
+          "@section": "case-management-motor:CaseManagement",
+          "case-management-motor:TransactionDocuments": {
+            "@key": [
+              "Prints"
+            ],
+            "@icon": "fa fa-file-text-o",
+            "@section": "case-management-motor:Step4_DocumentCenter",
+            "TransactionDocument":{
+            	"@key": [
+                	"Print"
+              	],
+              	"@section": "case-management-motor:TransactionDocuments",
+	            "@icon": "fa fa-paperclip",
+	            "@cssClass": "v3-box-1",
+                "@onOpen": "fileReaderService.openFileReader('view',card.metadata,[],'')",
+	            "@cardType": "template"
+            }
+          },
+          "case-management-motor:Attachments": {
+            "@key": [
+              "Attachments"
+            ],
+            "@section": "case-management-motor:Step4_DocumentCenter",
+            "@icon": "fa fa-paperclip",
+            "@cssClass": "v3-box-1",
+            "@previewHtml": "v3-summary-static-attachment.html",
+            "Attachment": {
+              "@key": [
+                "Attachment"
+              ],
+              "@section": "case-management-motor:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "subAction": "removeIcon"
+              },
+              "@cssClass": "v3-box-1",
+              "@cardType": "template",
+              "@onOpen": "fileReaderService.openFileReader('view',card.refDetail,self.moduleService.convertToArray(self.moduleService.findElementInElement_V3(self.moduleService.detail, ['Attachment'])),'uploadMode')"
+            },
+            "addAttachment": {
+              "@section": "case-management-motor:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "mainAction": "addIcon"
+              },
+              "@cardType": "action",
+              "@staticHtml": "fileUpload.html",
+              "@onClick": "importFile()"
+            }
+          }
+          },
+          "case-management-motor:Step5_Underwriting": {
+            "@key": [
+              "Underwriting"
+            ],
+            "@icon": {
+              "main": "fa fa-pencil-square-o",
+              "step": "4"
+            },
+            "@isVisible": false,
+            "@onOpen": "getUnderwritingLazyList()",
+            "@cssClass": "v3-box-4",
+            "@section": "case-management-motor:CaseManagement"
+          },
+          "case-management-motor:Step6_eCoverMaintain": {
+          "@key": [
+            "eCoverNotes"
+          ],
+          "@icon": {
+            "main": "fa fa-institution",
+            "step": "5"
+          },    
+          "@isVisible": false,
+          "@onOpen":"checkAddendumAdding()",        
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-motor:CaseManagement",
+          "case-management-motor:AddAddendum": {
+            "@key": [
+              "AddAddendum"
+            ],
+            "@section": "case-management-motor:Step6_eCoverMaintain",
+            "@icon": {
+              "main": "fa fa-fa-institution",
+              "mainAction": "addIcon"
+            },
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "addAddendumAndHideAction(card)"
+          },
+          "case-management-motor:ECoverNote": {
+            "@key": [
+              "eCoverNote"
+            ],
+            "@icon": {
+              "main": "fa fa-shield"
+            },
+            "@onOpen":"getECoverLazyList()",
+            "@cssClass": "v3-box-5",
+            "@section": "case-management-motor:Step6_eCoverMaintain",
+            "@cardType": "template"
+          }
+        },
+        "case-management-motor:Step5_eCoverMaintain": {
+          "@key": [
+            "eCoverNotes"
+          ],
+          "@icon": {
+            "main": "fa fa-shield",
+            "step": "4"
+          },    
+          "@isVisible": false,
+          "@onOpen":"checkAddendumAdding()",        
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-motor:CaseManagement",
+          "case-management-motor:AddAddendum": {
+            "@key": [
+              "AddAddendum"
+            ],
+            "@section": "case-management-motor:Step5_eCoverMaintain",
+            "@icon": {
+              "main": "fa fa-shield",
+              "mainAction": "addIcon"
+            },
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "addAddendumAndHideAction(card)"
+          },
+          "case-management-motor:ECoverNote": {
+            "@key": [
+              "eCoverNote"
+            ],
+            "@icon": {
+              "main": "fa fa-shield"
+            },
+            "@onOpen":"getECoverLazyList()",
+            "@cssClass": "v3-box-5",
+            "@section": "case-management-motor:Step5_eCoverMaintain",
+            "@cardType": "template"
+          }
+        },
+          "case-management-motor:PaymentCard": {
+            "@icon": "fa fa-credit-card",
+            "@isVisible": "hasValueNotEmpty(findElementInDetail(['ClientPayment'])['@refUid'])",
+            "@cssClass": "v3-box-4",
+            "@onOpen":"getPaymentLazyList()",
+            "@section": "case-management-motor:CaseManagement",
+	          "@key": [
+	            "ClientPayment"
+	          ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+
+<md-tabs md-selected="currIndex" md-no-bar md-no-ink md-no-pagination="false" md-autoselect="false">
+    <md-tab ng-repeat="tab in moduleService.getInstances() track by $index" md-on-select="changeToTab($index)">
+        <md-tab-label >
+            <span>
+                {{tab.title}}
+            </span>
+            <md-button md-no-ink ng-click="removeTab($index); $event.stopPropagation();" class="md-button-tab" ng-if="moduleService.getTabsLength() != 1" aria-label="Close Tab" >
+                <md-icon md-svg-icon="md-close" class="md-teal-theme" aria-hidden="true">
+                </md-icon>
+            </md-button>
+        </md-tab-label>
+    </md-tab>
+</md-tabs>

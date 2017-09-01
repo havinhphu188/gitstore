@@ -1,0 +1,18 @@
+<md-dialog class="dialog-style" aria-label="Settings" style="min-width: 600px;">
+    <div class="custom-dialog-header">
+        <h2 class="margin-text-center">Choose New Avatar</h2>
+    </div>
+    <div class="custom-dialog-content" style="height: 380px; text-align: justify;">
+        <div style="width: 30%;">
+            <output id="pic">
+                <img class="edit-avatar" src="img/avatar_generic.png">
+            </output>
+        </div>
+        <div class="margin-text-center">
+            <input id="fileAttach" v3-file-change="onFileSelect" type="file" name="files[]" style="display:block">
+            <div class="span4" layout="comlumn">
+                <input type="button" id="upload" value="Upload" ng-click="doUpload()" />
+            </div>
+        </div>
+    </div>
+</md-dialog>

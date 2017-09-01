@@ -1,0 +1,1016 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Configure Servers -->
+<script>
+
+</script>
+<div fieldId="ipos-admin:GlobalSetup_Table" class="container-fluid v3-padding-left-0">
+   	<div layout="column" class="">				
+		<div class="header-session-detail">
+			<span id="valueId">
+				<i style="padding-right: 7px;" class="fa fa-database fa-lg">
+				</i>{{'v3.adminconfiguration.label.ConfigureServers' | translate}}
+			</span>
+			<span id="valueId" class="configureServersToggle float-icon-right-hide-show" ng-click="toogleElement('configureServers','configureServersToggle')" tabindex="0">
+				<i class="fa fa-chevron-down fa-lg">
+				</i>
+			</span>
+		</div>
+		<div  class="configureServers">
+<!-- 			<div layout="row" flex layout-align="start center">
+				<div layout="row" flex="50">
+					{{'v3.adminconfiguration.label.ClientListServiceEndpoint' | translate}}
+				</div>
+				<div layout="row">
+					<button type="button" class="btn btn-info">{{'v3.adminconfiguration.label.VPMSUpload' | translate}}</button>
+				</div>
+			</div> -->
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 test1">    
+			     <div class="col-xs-offset-1 col-xs-10 ">
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.ClientListServiceEndpoint' | translate}}</label>	
+				  	</div>
+			  	</div>
+			</div>
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 test1 v3-column-content">    
+			     <div class="col-xs-offset-1 col-xs-10 ">
+					<div class="form-group form-group-lg has-success">
+			     		<button type="button" class="btn btn-info">{{'v3.adminconfiguration.label.VPMSUpload' | translate}}</button>	
+				  	</div>
+			  	</div>
+			</div>
+			
+<!-- 			<div layout="row" flex style="padding-left:2%">
+				<div layout="row" flex="50" layout-align="start center">
+					{{'v3.adminconfiguration.label.ServerName' | translate}} &nbsp;
+					<input class="form-control" ng-disabled="true" type="text" value="Client List Service Endpoint Main"/>
+				</div>
+				<div layout="row" flex layout-align="start center">
+					{{'v3.adminconfiguration.label.ServerURL' | translate}} &nbsp;
+					<input class="form-control" ng-disabled="true" type="text" value="https://server1:8080/ClientListMSP"/>	
+				</div>
+			</div> -->
+
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">	    	
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.ServerName' | translate}}</label>
+			     		<input class="form-control" ng-disabled="true" type="text" value="Client List Service Endpoint Main"/>	
+				  	</div>
+			  	</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">    	
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.ServerURL' | translate}}</label>
+			     		<input class="form-control" ng-disabled="true" type="text" value="https://server1:8080/ClientListMSP"/>	
+				  	</div>
+			  	</div>
+			</div>
+
+<!-- 			<div layout="row" flex style="padding-left:2%">
+				<div layout="row" flex="50" layout-align="start center">
+					{{'v3.adminconfiguration.label.ServerName' | translate}} &nbsp;
+					<input class="form-control" ng-disabled="true" type="text" value="Client List Service Endpoint Slave 1"/>
+				</div>
+				<div layout="row" flex layout-align="start center">
+					{{'v3.adminconfiguration.label.ServerURL' | translate}} &nbsp;
+					<input type="text" disabled="disabled" style="width:70% !important;" value="https://server2:8080/ClientListMSPSlave1"/>
+				</div>
+			</div> -->
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">   	
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.ServerName' | translate}}</label>
+			     		<input class="form-control" ng-disabled="true" type="text" value="Client List Service Endpoint Slave 1"/>	
+				  	</div>
+			  	</div>
+			</div>
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.ServerURL' | translate}}</label>
+			     		<input class="form-control" ng-disabled="true" type="text" value="https://server2:8080/ClientListMSPSlave1"/>	
+				  	</div>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div fieldId="ipos-admin:GlobalConfig" class="container-fluid v3-padding-left-0">
+   	<div layout="column" class="">				
+		<div class="header-session-detail">
+			<span id="activeUserAndPassword">
+				<i style="padding-right: 7px;" class="fa fa-clock-o fa-lg">
+				</i>{{'v3.adminconfiguration.label.configurationPassword' | translate}}</span>
+			<span id="activeUserAndPassword" class="configurePasswordAndActiveUserToggle float-icon-right-hide-show" ng-click="toogleElement('configurePasswordAdnActiveUser','configurePasswordAndActiveUserToggle')" tabindex="0">
+				<i class="fa fa-chevron-down fa-lg">
+				</i>
+			</span>
+		</div>
+		<div flex class="configurePasswordAdnActiveUser">
+		
+			<div  class="col-xs-12 v3-column-content test1">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 v3-padding-0 ">
+							 <div class="col-xs-offset-1 col-xs-10 v3-column-content  v3-padding-0">
+								<div class="form-group form-group-lg has-success">
+								    <label>{{'v3.adminconfiguration.label.SessionTimeOut' | translate}} min(s)</label>
+						     		<input class="form-control" ng-disabled="disabled" type="text" />	
+							  	</div>
+						  	</div>
+						</div>
+					</div>    
+				    
+				</div>	
+				
+				<div  class="col-xs-12 col-sm-4 col-md-4 col-lg-4 v3-column-content test1">    
+				     <div class="col-xs-offset-1 col-xs-10 v3-column-content">   	
+						<div class="form-group form-group-lg has-success">
+						    <label>{{'v3.adminconfiguration.label.ClearUserInfocache' | translate}}</label>
+						    <div id="valueId">
+						    	<button type="button" class="btn btn-lg v3-btn-primary" ng-click="resetUserMapInfo()">{{"v3.adminconfiguration.label.Clear" | translate}}</button>
+						    </div>
+					  	</div>
+				  	</div>
+				</div>
+				<div  class="col-xs-12 col-sm-4 col-md-4 col-lg-4 v3-column-content test1">    
+				     <div class="col-xs-offset-1 col-xs-10 v3-column-content">   	
+						<div class="form-group form-group-lg has-success">
+						    <label>{{'v3.adminconfiguration.label.ClearAllCache' | translate}}</label>
+						    <div id="valueId">
+						    	<button type="button" class="btn btn-lg v3-btn-primary" ng-click="clearCache()">{{"v3.adminconfiguration.label.Clear" | translate}}</button>
+						    </div>
+					  	</div>
+				  	</div>
+				</div>
+				<div  class="col-xs-12 col-sm-4 col-md-4 col-lg-4 v3-column-content test1">    
+				     <div class="col-xs-offset-1 col-xs-10 v3-column-content">   	
+						<div class="form-group form-group-lg has-success">
+	<!-- 					    <label>{{'v3.adminconfiguration.label.ClearAllCache' | translate}}</label> -->
+						    <label>Reset All User Guide Tour</label>
+						    <div id="valueId">
+						    	<button type="button" class="btn btn-lg v3-btn-primary" ng-click="resetAllUserGuideTour()">{{"v3.adminconfiguration.label.Clear" | translate}}</button>
+						    </div>
+					  	</div>
+				  	</div>
+				</div>
+			
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 v3-column-content">
+				    <div class="col-xs-offset-1 col-xs-10 v3-column-content">   	
+						<div class="form-group form-group-lg has-success">
+						    <label>{{'v3.adminconfiguration.label.activeType' | translate}} </label>
+					   
+				   		<!--  <div class="btn-group btn-group-lg">
+						    <button type="button" class="btn btn-success"  ng-click="showConfirmAuto($event)">
+      						  {{'v3.adminconfiguration.label.Auto' | translate}}</button>
+						    <button type="button" class="btn btn-primary"  ng-click="showConfirmEmail($event)">  {{'v3.adminconfiguration.label.Email' | translate}}</button>						   
+						  </div> -->
+						  <v3-switch-new-slide prefix="v3.adminconfiguration.label.activeType"
+	                       	switch-model="globalConfigs.require_active" 
+	                       	switch-default-value="" switch-disabled="false" 
+	                       	switch-options="activateOptions">
+	                	<v3-switch-new-slide>
+					  	</div>
+				  	</div>
+				</div>
+				
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 v3-column-content">
+				    <div class="col-xs-offset-1 col-xs-10 v3-column-content">   	
+						<div class="form-group form-group-lg has-success">
+						    <label>{{'v3.adminconfiguration.label.passwordType' | translate}}</label>
+						    
+						    <!--  <div class="btn-group btn-group-lg">
+						     <button type="button" class="btn btn-success"  ng-click="showConfirmPasswordComPlex($event)">
+      						  {{'v3.adminconfiguration.label.ComplexPass' | translate}}</button>
+						    <button type="button" class="btn btn-primary"  ng-click="showConfirmPasswordSimple($event)">  {{'v3.adminconfiguration.label.SimplePass' | translate}}</button>
+						    </div> -->
+						    <v3-switch-new-slide prefix="v3.adminconfiguration.label.passwordType"
+	                       	switch-model="globalConfigs.enableComplexPassword" 
+	                       	switch-default-value="" switch-disabled="false" 
+	                       	switch-options="passwordTypeOptions">
+	                	<v3-switch-new-slide>
+					  	</div>
+				  	</div>
+				</div>
+				
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 v3-column-content">
+				    <div class="col-xs-offset-1 col-xs-10 v3-column-content">   	
+						<div class="form-group form-group-lg has-success">
+						<label>{{'v3.adminconfiguration.label.passwordDefault' | translate}} </label>						  
+						  <v3-switch-new-slide prefix="v3.adminconfiguration.label.passwordDefault" 
+	                       	switch-model="globalConfigs.enableRandomPass" 
+	                       	switch-default-value="" switch-disabled="false" 
+	                       	switch-options="passwordDefaultOptions">
+	                	<v3-switch-new-slide>
+					  	</div>
+				  	</div>
+				</div>		
+				
+					<div  class="col-xs-12 v3-column-content test1" ng_hide="globalConfigs.enableComplexPassword=='Simple'">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 v3-padding-0 ">
+							 <div class="col-xs-offset-1 col-xs-10 v3-column-content  v3-padding-0">
+								<div class="form-group form-group-lg has-success">
+								   <label>{{'v3.adminconfiguration.label.CurrentSPassword' | translate}}</label>
+						    <input class="form-control" type="text" ng-model="globalConfigs.password_complex_default" />
+							  	</div>
+						  	</div>
+						</div>
+					</div>    
+				    
+				</div>	
+				<div  class="col-xs-12 v3-column-content test1" ng_hide="globalConfigs.enableComplexPassword=='Complex'">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 v3-padding-0 ">
+							 <div class="col-xs-offset-1 col-xs-10 v3-column-content  v3-padding-0">
+								<div class="form-group form-group-lg has-success">
+								   <label>{{'v3.adminconfiguration.label.CurrentSPassword' | translate}}</label>
+						    <input class="form-control" type="text" ng-model="globalConfigs.password_default" />
+							  	</div>
+						  	</div>
+						</div>
+					</div>    
+				    
+				</div>							
+				<!-- hcao7 handle multiple tabs & multiple sessions - ADD - START -->
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 v3-column-content">
+				    <div class="col-xs-offset-1 col-xs-10 v3-column-content">   	
+						<div class="form-group form-group-lg has-success">
+						<label>{{'v3.adminconfiguration.label.multipleTabs' | translate}} </label>						  
+						  <v3-switch-new-slide prefix="v3.adminconfiguration.label.passwordDefault" 
+	                       	switch-model="globalConfigs.multiple_tabs_per_session" 
+	                       	switch-default-value="" switch-disabled="false" 
+	                       	switch-options="passwordDefaultOptions">
+	                	<v3-switch-new-slide>
+					  	</div>
+				  	</div>
+				</div>	
+				
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 v3-column-content">
+				    <div class="col-xs-offset-1 col-xs-10 v3-column-content">   	
+						<div class="form-group form-group-lg has-success">
+						<label>{{'v3.adminconfiguration.label.multipleSessions' | translate}} </label>						  
+						  <v3-switch-new-slide prefix="v3.adminconfiguration.label.passwordDefault" 
+	                       	switch-model="globalConfigs.multiple_session_per_user" 
+	                       	switch-default-value="" switch-disabled="false" 
+	                       	switch-options="passwordDefaultOptions">
+	                	<v3-switch-new-slide>
+					  	</div>
+				  	</div>
+				</div>
+				<!-- hcao7 handle multiple tabs tabs & multiple sessions - ADD - END -->
+				
+		
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div class="row">
+				<div class="col-xs-6 col-sm-3 col-md-2 pull-right">
+					<div class="form-group form-group-lg has-success">
+					    <button type="button" class="btn btn-lg v3-btn-primary" ng-click="saveGlobalConfigToDB()">{{"v3.adminconfiguration.label.Save" | translate}}</button>
+				  	</div>
+				</div>
+			</div>			
+		</div>	
+			
+		</div>
+		<!-- end ldang -->
+	</div>
+</div>
+
+<!-- Configure OTP -->
+<div fieldId="ipos-admin:OTP_Table" class="hide-md col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div flex layout="row" layout-align="center center" style="line-height: 30px">
+		<div flex class="configureWebPortal">
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.TimeFilter' | translate}}</label>
+			     		<input class="form-control" ng-disabled="disabled" type="text" ng-model="vars.otpMinute"/>
+				  	</div>
+			  	</div>
+			</div>
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+				  	</div>
+			  	</div>
+			</div>
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">   	
+					<div class="form-group form-group-lg has-success">
+					    <div id="valueId">
+					    	<button type="button" class="btn btn-lg v3-btn-primary" ng-click="getListOTPUserInAdminConfig()">Submit</button>
+					    </div>
+				  	</div>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	
+	<div flex layout="row" class="ipos_portlet_table_header_item_transaction" layout-align="center center" style="line-height: 30px">
+		<div flex=5></div>
+		<div flex="80"></div>
+		<div flex="15"><div class="form-group  form-group-lg has-success"><label></label></div></div>
+		<!-- <div flex="10">Action</div> -->
+	</div>
+	<div class="ipos_portlet_table_header_item_transaction_row" dir-paginate="otp in listOTPUser | itemsPerPage: pageSize" current-page="currentPage">
+		<div id="node" flex layout="row" class="" style="line-height: 25px">
+			<div flex="100" style="text-align: left">
+				<div class="container-fluid v3-padding-0">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 v3-padding-left-0">
+							<div style="padding-left: 0px;">
+								<div class="form-group  form-group-lg has-success">
+									<label>{{"v3.login.label.UserID" | translate}} : {{otp.uid}}</label> 
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ng-repeat="token in otp.tokens">
+						<div class="col-md-8">
+							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+								<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 v3-padding-left-0">
+									<div style="padding-left: 0px;">
+										<div class="form-group  form-group-lg has-success">
+										    <label>{{"v3.adminconfiguration.label.OTP" | translate}} : {{token.value}}</label> 
+									  	</div>
+								  	</div>
+							   </div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">   
+							   <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 v3-padding-left-0">
+								   <div style="padding-left: 0px;">
+										<div class="form-group  form-group-lg has-success">
+										    <label>{{"v3.adminconfiguration.label.TimeGen" | translate}} : {{token.generatedTime | momentDate}}</label> 
+									  	</div>
+								  	</div>
+							   </div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
+							   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-padding-left-0">
+								   <div style="padding-left: 0px;">
+										<div class="form-group  form-group-lg has-success">
+										    <label>{{"v3.adminconfiguration.label.TimeExpire" | translate}} : {{token.expirationTime | momentDate}}</label> 
+									  	</div>
+								  	</div>
+							   </div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+  		</div>
+		<md-divider ></md-divider>
+	</div>
+	<div class="ipos_portlet_table_header_item_transaction_row" ng-if="!listOTPUser.length" style="text-align: center; height: 100px; line-height: 100px;">
+		No item is displayed
+		<md-divider ></md-divider>
+	</div>
+	<div layout-margin flex layout="row" layout-align="end center">	
+		<div class="ipos_paging_margin_top_25" flex layout="row"  layout-align="end center">
+			<span>{{'v3.transactioncenter.label.Itemsperpage' | translate}}</span>
+			<select class="form-control ipos_paging_dropdown_70" ng-model="pageSize" ng-options="size as size for size in pageSizes"></select>
+		</div>	
+		<dir-pagination-controls boundary-links="true" max-size="5">
+		</dir-pagination-controls>
+	</div>
+</div>
+<!-- Configure Servers -->
+<div fieldId="ipos-admin:RoleConfig" class="container-fluid v3-padding-left-0">
+	<div class="header-session-detail">
+		<span id="valueId">
+			<i style="padding-right: 7px;" class="fa fa-clock-o fa-lg">
+			</i>{{'v3.adminconfiguration.label.ConfigureAgentForDS' | translate}}</span>
+		<span id="valueId" class="configureAgentForDSToggle float-icon-right-hide-show" ng-click="toogleElement('configureAgentForDS','configureAgentForDSToggle')" tabindex="0">
+			<i class="fa fa-chevron-down fa-lg">
+			</i>
+		</span>
+	</div>
+	<div flex class="configureAgentForDS">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+				<div class="form-group form-group-lg has-success">
+				    <label><strong>{{'v3.adminconfiguration.label.AgentForDS' | translate}}</strong></label>
+				    <input class="form-control" type="text" ng-model="agentForDS" />
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<div class="header-session-detail">
+		<span id="valueId">
+			<i style="padding-right: 7px;" class="fa fa-clock-o fa-lg">
+			</i>{{'v3.adminconfiguration.label.ConfigureUserRolesAndSpaces' | translate}}</span>
+		<span id="valueId" class="configureUserRolesAndSpacesToggle float-icon-right-hide-show" ng-click="toogleElement('configureUserRolesAndSpaces','configureUserRolesAndSpacesToggle')" tabindex="0">
+			<i class="fa fa-chevron-down fa-lg">
+			</i>
+		</span>
+	</div>
+	<div flex class="configureUserRolesAndSpaces">
+		<div ng-repeat="roleConfig in roleConfigs">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+					    <label><strong>{{'v3.adminconfiguration.label.RoleName' | translate}}</strong></label>
+					    <input class="form-control" type="text" ng-model="roleConfig.name" />
+				  	</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.SpaceName' | translate}}</label>
+					    <input class="form-control" type="text" ng-model="roleConfig.space" />
+				  	</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.RoleCode' | translate}}</label>
+					    <input class="form-control" type="text" ng-model="roleConfig.code" />
+				  	</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.Channel' | translate}}</label>
+					    <v3-switch-new-slide prefix="v3.adminconfiguration.channel.label"
+	                       	switch-model="roleConfig.channel" 
+	                       	switch-default-value="" switch-disabled="false" 
+	                       	switch-options="channelOptions">
+	                	<v3-switch-new-slide>
+				  	</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-4 col-lg-2 v3-column-content"> 
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.HasPASID' | translate}}</label>
+					    <v3-switch-new-slide prefix="v3.adminconfiguration.hasPASID.label"
+	                       	switch-model="roleConfig.hasPASID" 
+	                       	switch-default-value="" switch-disabled="false" 
+	                       	switch-options="hasPASIDOptions">
+	                	<v3-switch-new-slide>
+				  	</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-4 col-lg-2 v3-column-content"> 
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.Role' | translate}}</label>
+					    <v3-switch-new-slide prefix="v3.adminconfiguration.role.label"
+	                       	switch-model="roleConfig.role" 
+	                       	switch-default-value="" switch-disabled="roleConfig.hasPASID=='N'" 
+	                       	switch-options="roleOptions">
+	                	<v3-switch-new-slide>
+				  	</div>
+				</div>
+				<div class="col-xs-2 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+						<label>&nbsp;</label>
+						<div>
+			  				<button style="min-width: 10px;" class="btn btn-lg v3-btn-danger" ng-click="removeRoleConfig($index)"><i class="fa fa-times"></i></button>
+			  			</div>
+			  		</div>
+			  	</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div class="col-xs-6 col-sm-3 col-md-2 pull-right">
+				<div class="form-group form-group-lg has-success">
+					<button class="btn btn-lg v3-btn-primary" style="min-width: 10px; margin-right: -10px;" ng-click="addRoleConfig()">{{"v3.adminconfiguration.label.AddNew" | translate}}</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div class="row">
+				<div class="col-xs-6 col-sm-3 col-md-2 pull-right">
+					<div class="form-group form-group-lg has-success">
+					    <button type="button" class="btn btn-lg v3-btn-primary" ng-click="saveRoleConfigToDB(roleConfigs, agentForDS)">{{"v3.adminconfiguration.label.Save" | translate}}</button>
+				  	</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+</div>
+
+<div fieldId="ipos-admin:getDataMigrateContainer" class="container-fluid v3-padding-left-0">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>DMS ID</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerInput.DMSID" ng-disabled="true"/>
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>Host</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerInput.sourceHost" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>Port</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerInput.sourcePort" />
+		  	</div>
+		</div>		
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>Username</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerInput.sourceUsername" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>Password</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerInput.sourcePassword" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>CompanyID</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerInput.sourceCompanyId" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>RepositoryID</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerInput.sourceRepositoryId" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>GroupID</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerInput.sourceGroupId" />
+		  	</div>
+		</div>
+
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label><strong>Get resource of all users:</strong></label>
+				<v3-switch-new-slide switch-size="" switch-name="question2" prefix="v3.yesno.enum"
+		   			switch-model="DataSourceServerInput.isAllUser" 
+		   			switch-default-value="" switch-disabled="false"
+		   			switch-options="listYesNoOption">
+		   		</v3-switch-new-slide> 
+			</div>
+		</div>
+
+		<div class="row" ng-hide="DataSourceServerInput.isAllUser == 'Y'">
+			<div class="form-group form-group-lg has-success">
+				<label><strong>List users:</strong></label>
+				<md-content class="md-padding" layout="column"> <md-chips
+					ng-model="DataSourceServerInput.listUser"></md-chips> </md-content>
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div class="row">
+				<div class="col-xs-6 v3-padding-0">
+					<div class="form-group form-group-lg has-success">
+					    <button type="button" class="btn btn-lg v3-btn-primary" ng-click="requestDataSourceServer()">Request Data</button>&nbsp;
+					    <button type="button" class="btn btn-lg v3-btn-primary" ng-click="refreshDataSourceServer('dataSourceServerUpload')">Refresh Data</button>
+				  	</div>
+				</div>
+			</div>			
+		</div>
+		
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content" ng-if="listDataSourceServer.length > 0">
+			<div class="hidden-xs container-fluid v3-padding-left-0 border-table">
+				<div class="row ipos_portlet_table_header_item v3-margin-right-0">
+					<div class="col-xs-2">DMS ID</div>
+					<div class="col-xs-2">Create Data</div>
+					<div class="col-xs-4">Description</div>
+					<div class="col-xs-2">Status</div>
+					<div class="col-xs-2">{{"v3.myworkspace.label.application.motor.Action"| translate}}</div>
+				</div>
+				<div class="row ipos_portlet_table_listRow v3-margin-right-0" ng-repeat="data in listDataSourceServer track by $index">			
+					<div class="col-xs-2 v3-padding-0" title="{{data.DMSID}}">{{data.DMSID | trimtext:false:15:'...'}}</div>
+					<div class="col-xs-2 v3-padding-0" title="{{data.createData}}">{{data.createData | datetimeFilter:"DD/MM/YYYY" | trimtext:false:15:'...'}}</div>
+					<div class="col-xs-4 v3-padding-0" title="{{data.description}}">{{data.description |  trimtext:false:15:' '}}</div>
+					<div class="col-xs-2 v3-padding-0">{{'v3.mynewworkspace.portlet.label.ipos-admin:DataMigrate.status.' + data.status | translate}}</div>
+					<div class="col-xs-2 v3-padding-0">
+						<a href="{{getDataSourceServer1(data)}}">
+							<i ng-if="data.status=='1'" class="fa fa-download fa-lg pointer" tooltips  tooltip-title="Download" tooltip-side="bottom" tooltip-size="medium"></i>
+						</a>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<div fieldId="ipos-admin:upDataMigrateContainer" class="container-fluid v3-padding-left-0">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>DMS ID</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerOutput.DMSID" ng-disabled="true"/>
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>Host</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerOutput.desHost" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>Port</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerOutput.desPort" />
+		  	</div>
+		</div>		
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>Username</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerOutput.desUsername" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>Password</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerOutput.desPassword" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>CompanyID</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerOutput.desCompanyId" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>RepositoryID</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerOutput.desRepositoryId" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>GroupID</strong></label>
+			    <input class="form-control" type="text" ng-model="DataSourceServerOutput.desGroupId" />
+		  	</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+				<label><strong>Empty all data of server:</strong></label>
+				<v3-switch-new-slide switch-size="" switch-name="question2"
+					prefix="v3.yesno.enum"
+					switch-model="DataSourceServerOutput.emptyAllData"
+					switch-default-value="" switch-disabled="false"
+					switch-options="listYesNoOption"> </v3-switch-new-slide>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+				<label><strong>Push resources to all users:</strong></label>
+				<v3-switch-new-slide switch-size="" switch-name="question2"
+					prefix="v3.yesno.enum"
+					switch-model="DataSourceServerOutput.isAllUser"
+					switch-default-value="" switch-disabled="false"
+					switch-options="listYesNoOption"> </v3-switch-new-slide>
+			</div>
+			<div class="row" ng-hide="DataSourceServerOutput.isAllUser == 'Y'">
+				<div class="form-group form-group-lg has-success">
+					<label><strong>List users:</strong></label>
+					<md-content class="md-padding" layout="column"> <md-chips
+						ng-model="DataSourceServerOutput.listUser"></md-chips> </md-content>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-7 col-sm-6 col-md-3 col-lg-4 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label><strong>File name</strong></label> <input
+					class="form-control" type="text" ng-model="multiUploadService.files[0].name" ng-disabled="true" />
+			</div>
+		</div>
+		<div
+			class="col-xs-5 col-sm-3 col-md-2 col-lg-2 v3-column-content v3-padding-0">
+			<div class="form-group form-group-lg has-success margin-top20">
+				<button type="file" class="btn btn-lg v3-btn-primary" ng-file-select="multiUploadService.onFileSelectDataMigration($files)"
+					accept=".zip" ng-click="multiUploadService.init()">Choose File...</button>
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div class="row">
+				<div class="col-xs-6 v3-padding-0">
+					<div class="form-group form-group-lg has-success">
+					    <button type="button" class="btn btn-lg v3-btn-primary" ng-click="sendDataSourceServer(multiUploadService.files[0])" ng-disabled="!(multiUploadService.files.length > 0)" >Upload Data</button> &nbsp;
+					    <button type="button" class="btn btn-lg v3-btn-primary" ng-click="refreshDataSourceServer('dataSourceServerdownload')">Refresh Data</button>
+				  	</div>
+				</div>
+			</div>			
+		</div>
+		
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content" ng-if="listDataSourceServerResponse.length > 0">
+			<div class="hidden-xs container-fluid v3-padding-left-0 border-table">
+				<div class="row ipos_portlet_table_header_item v3-margin-right-0">
+					<div class="col-xs-2">DMS ID</div>
+					<div class="col-xs-2">Create Data</div>
+					<div class="col-xs-4">Description</div>
+					<div class="col-xs-2">Status</div>
+					<div class="col-xs-2">{{"v3.myworkspace.label.application.motor.Action"| translate}}</div>
+				</div>
+				<div class="row ipos_portlet_table_listRow v3-margin-right-0" ng-repeat="data in listDataSourceServerResponse track by $index">			
+					<div class="col-xs-2 v3-padding-0" title="{{data.id}}">{{data.id | trimtext:false:15:'...'}}</div>
+					<div class="col-xs-2 v3-padding-0" title="{{data.createData}}">{{data.createData | datetimeFilter:"DD/MM/YYYY" | trimtext:false:15:'...'}}</div>
+					<div class="col-xs-4 v3-padding-0" title="{{data.description}}">{{data.description |  trimtext:false:15:' '}}</div>
+					<div class="col-xs-2 v3-padding-0">{{'v3.mynewworkspace.portlet.label.ipos-admin:DataMigrate.status.' + data.status | translate}}</div>
+					<div class="col-xs-2 v3-padding-0">
+						<i ng-click="" class="fa fa-download fa-lg pointer" tooltips  tooltip-title="Download" tooltip-side="bottom" tooltip-size="medium"></i>						
+					</div>
+				</div>
+			</div>	
+		</div>
+				
+	</div>
+</div>
+
+<div fieldId="ipos-admin:cleaningDataMigrateContainer" class="container-fluid v3-padding-left-0">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>DMS ID</strong></label>
+			    <input class="form-control" type="text" ng-model="cleaningProcessResource.DMSID" ng-disabled="true"/>
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>Host</strong></label>
+			    <input class="form-control" type="text" ng-model="cleaningProcessResource.desHost" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>Port</strong></label>
+			    <input class="form-control" type="text" ng-model="cleaningProcessResource.desPort" />
+		  	</div>
+		</div>		
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>Username</strong></label>
+			    <input class="form-control" type="text" ng-model="cleaningProcessResource.desUsername" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>Password</strong></label>
+			    <input class="form-control" type="text" ng-model="cleaningProcessResource.desPassword" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>CompanyID</strong></label>
+			    <input class="form-control" type="text" ng-model="cleaningProcessResource.desCompanyId" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>RepositoryID</strong></label>
+			    <input class="form-control" type="text" ng-model="cleaningProcessResource.desRepositoryId" />
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>GroupID</strong></label>
+			    <input class="form-control" type="text" ng-model="cleaningProcessResource.desGroupId" />
+		  	</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+				<label><strong>Clean all users data:</strong></label>
+				<v3-switch-new-slide switch-size="" switch-name="question2"
+					prefix="v3.yesno.enum"
+					switch-model="cleaningProcessResource.isAllUser"
+					switch-default-value="" switch-disabled="false"
+					switch-options="listYesNoOption"> </v3-switch-new-slide>
+			</div>
+			<div class="row" ng-hide="cleaningProcessResource.isAllUser == 'Y'">
+				<div class="form-group form-group-lg has-success">
+					<label><strong>List users:</strong></label>
+					<md-content class="md-padding" layout="column"> <md-chips
+						ng-model="cleaningProcessResource.listUser"></md-chips> </md-content>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div class="row">
+				<div class="col-xs-6 v3-padding-0">
+					<div class="form-group form-group-lg has-success">
+					    <button type="button" class="btn btn-lg v3-btn-primary" ng-click="requestCleaningData()" >Request</button> &nbsp;
+					    <button type="button" class="btn btn-lg v3-btn-primary" ng-click="refreshDataSourceServer('getListCleaningDataProcess')">Refresh Data</button>
+				  	</div>
+				</div>
+			</div>			
+		</div>
+		
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content" ng-if="listCleaningProcess.length > 0">
+			<div class="hidden-xs container-fluid v3-padding-left-0 border-table">
+				<div class="row ipos_portlet_table_header_item v3-margin-right-0">
+					<div class="col-xs-2">DMS ID</div>
+					<div class="col-xs-2">Create Data</div>
+					<div class="col-xs-4">Description</div>
+					<div class="col-xs-2">Status</div>
+					<div class="col-xs-2">{{"v3.myworkspace.label.application.motor.Action"| translate}}</div>
+				</div>
+				<div class="row ipos_portlet_table_listRow v3-margin-right-0" ng-repeat="data in listCleaningProcess track by $index">			
+					<div class="col-xs-2 v3-padding-0" title="{{data.id}}">{{data.id | trimtext:false:15:'...'}}</div>
+					<div class="col-xs-2 v3-padding-0" title="{{data.createData}}">{{data.createData | datetimeFilter:"DD/MM/YYYY" | trimtext:false:15:'...'}}</div>
+					<div class="col-xs-4 v3-padding-0" title="{{data.description}}">{{data.description |  trimtext:false:15:' '}}</div>
+					<div class="col-xs-2 v3-padding-0">{{'v3.mynewworkspace.portlet.label.ipos-admin:DataMigrate.status.' + data.status | translate}}</div>
+				</div>
+			</div>	
+		</div>
+				
+	</div>
+</div>
+
+<div fieldId="ipos-admin:TranslationConfigContent" class="container-fluid v3-padding-left-0">
+	<div class="row">
+			
+		<div class="col-xs-7 col-sm-6 col-md-3 col-lg-4 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label><strong>{{"v3.adminconfiguration.label.FileName" | translate}}</strong></label>
+			    <input class="form-control" type="text" ng-model="multiUploadService.files[0].name" ng-disabled="true" />
+		  	</div>
+		</div>		
+		<div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 v3-column-content v3-padding-0">
+			<div class="form-group form-group-lg has-success margin-top27">
+			    <button type="file" class="btn btn-lg v3-btn-primary" ng-file-select="multiUploadService.onFileSelectDataMigration($files)" accept=".json" ng-click="multiUploadService.init()">{{"v3.adminconfiguration.label.ChooseFile" | translate}}</button>
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-padding-0">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+				<div class="form-group form-group-lg has-success">
+				    <label><strong>{{'v3.adminconfiguration.label.LanguageName' | translate}}</strong></label>
+				    <input class="form-control" type="text" ng-model="language.name" />
+			  	</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-padding-0">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+				<div class="form-group form-group-lg has-success">
+				    <label><strong>{{'v3.adminconfiguration.label.LanguageText' | translate}}</strong></label>
+				    <input class="form-control" type="text" ng-model="language.text" />
+			  	</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div class="row">
+				<div class="col-xs-6 v3-padding-0">
+					<div class="form-group form-group-lg has-success">
+					    <button type="button" class="btn btn-lg v3-btn-primary" loading loading-action="uploadTranslationFile(multiUploadService.files[0], language)" ng-disabled="multiUploadService.files[0].name==undefined">{{"v3.adminconfiguration.label.UploadData" | translate}}</button>
+				  	</div>
+				</div>
+			</div>			
+		</div>
+	
+	</div>
+</div>
+
+<!-- UI Config -->
+<div fieldId="ipos-admin:autoSaveInterval" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.adminconfiguration.label.autoSaveInterval' | translate}}</label>
+			<input class="form-control" type="text" ng-disabled="false" ng-model="uiConfigs.autoSaveInterval" value="" />
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-admin:autoSaveNavigating" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.adminconfiguration.label.autoSaveNavigating' | translate}}</label>
+			<v3-switch-new-slide prefix="v3.truefalse.enum"
+				switch-model="uiConfigs.autoSaveNavigating"
+				switch-default-value="" switch-disabled="false"
+				switch-options="trueFalseOptions">
+			</v3-switch-new-slide>
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-admin:cacheFlg" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.adminconfiguration.label.cacheFlg' | translate}}</label>
+			<v3-switch-new-slide prefix="v3.truefalse.enum"
+				switch-model="uiConfigs.cacheFlg"
+				switch-default-value="" switch-disabled="false"
+				switch-options="trueFalseOptions">
+			</v3-switch-new-slide>
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-admin:cardPreview" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.adminconfiguration.label.cardPreview' | translate}}</label>
+			<v3-switch-new-slide prefix="v3.truefalse.enum"
+				switch-model="uiConfigs.cardPreview"
+				switch-default-value="" switch-disabled="false"
+				switch-options="trueFalseOptions">
+			</v3-switch-new-slide>
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-admin:DEV_MODE" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.adminconfiguration.label.DEV_MODE' | translate}}</label>
+			<v3-switch-new-slide prefix="v3.truefalse.enum"
+				switch-model="uiConfigs.DEV_MODE"
+				switch-default-value="" switch-disabled="false"
+				switch-options="trueFalseOptions">
+			</v3-switch-new-slide>
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-admin:useUIModelFromDB" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.adminconfiguration.label.useUIModelFromDB' | translate}}</label>
+			<v3-switch-new-slide prefix="v3.truefalse.enum"
+				switch-model="uiConfigs.useUIModelFromDB"
+				switch-default-value="" switch-disabled="false"
+				switch-options="trueFalseOptions">
+			</v3-switch-new-slide>
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-admin:importQuotation" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.adminconfiguration.label.importQuotation' | translate}}</label>
+			<v3-switch-new-slide prefix="v3.truefalse.enum"
+				switch-model="uiConfigs.importQuotation"
+				switch-default-value="" switch-disabled="false"
+				switch-options="trueFalseOptions">
+			</v3-switch-new-slide>
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-admin:isShowLeftSideBar" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.adminconfiguration.label.isShowLeftSideBar' | translate}}</label>
+			<v3-switch-new-slide prefix="v3.truefalse.enum"
+				switch-model="uiConfigs.isShowLeftSideBar"
+				switch-default-value="" switch-disabled="false"
+				switch-options="trueFalseOptions">
+			</v3-switch-new-slide>
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-admin:useTranslationDataFromDB" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.adminconfiguration.label.useTranslationDataFromDB' | translate}}</label>
+			<v3-switch-new-slide prefix="v3.truefalse.enum"
+				switch-model="uiConfigs.useTranslationDataFromDB"
+				switch-default-value="" switch-disabled="false"
+				switch-options="trueFalseOptions">
+			</v3-switch-new-slide>
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-admin:serverUrl_V3" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.adminconfiguration.label.serverUrl_V3' | translate}}</label>
+			<input class="form-control" type="text" ng-disabled="false" ng-model="uiConfigs.serverUrl_V3" value="" />
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-admin:maxDayToRenew" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.adminconfiguration.label.maxDayToRenew' | translate}}</label>
+			<input class="form-control" type="text" ng-disabled="false" ng-model="uiConfigs.maxDayToRenew" value="" />
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-admin:saveButton" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-offset-6 col-xs-4 v3-column-content">
+		<div class="col-xs-6 col-sm-3 col-md-2 pull-right">
+			<div class="form-group form-group-lg has-success">
+			    <button type="button" class="btn btn-lg v3-btn-primary" ng-click="saveUiConfigToDB()">{{"v3.adminconfiguration.label.Save" | translate}}</button>
+		  	</div>
+		</div>
+	</div>
+</div>

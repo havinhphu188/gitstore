@@ -1,0 +1,151 @@
+{
+  "IposDocument": {
+    "Data": {
+      "case-management-income-protection:CaseManagement": {
+        "@key": [
+          "CaseManagement"
+        ],
+        "@icon": {
+          "main": "fa fa-umbrella"
+        },
+        "@section": "case-management-income-protection:CaseManagement",
+        "@case-name": "",
+        "@product": "income-protection",
+        "case-management-income-protection:Summary": {
+          "@icon": "fa fa-pencil",
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-income-protection:CaseManagement",
+          "case-management-income-protection:CaseInformation": {
+            "@key": [
+              "DocName"
+            ],
+            "@preview": [
+              "case-management-income-protection:Summary"
+            ]
+          },
+          "case-management-income-protection:CurrentStatus": {
+            "@key": [
+              "BusinessStatus"
+            ],
+            "@preview": [
+              "case-management-income-protection:Summary"
+            ],
+            "@valuePrefix": "v3.document.status."
+          },
+          "case-management-income-protection:PendingInformation": {},
+          "case-management-income-protection:NextRequiredAction": {},
+          "case-management-income-protection:PolicyNo": {
+            "@key": [
+              "PolicyNumber"
+            ]
+          }
+        },
+        "case-management-income-protection:Step1_ProspectClient": {
+          "@key": [
+            "Prospects"
+          ],
+          "@icon": {
+            "main": "fa fa-user",
+            "step": "1"
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-income-protection:CaseManagement",
+          "case-management-income-protection:ImportFromExistingProspect": {
+            "@key": [
+              "ImportFromExistingProspect"
+            ],
+            "@section": "case-management-income-protection:Step1_ProspectClient",
+            "@icon": "fa fa-user",
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "importFromExistingProspect(card)",
+            "@staticHtml": "list_existing_prospect.html"
+          },
+          "case-management-income-protection:NewProspect": {
+            "@key": [
+              "case-management-income-protection:NewProspect"
+            ],
+            "@section": "case-management-income-protection:Step1_ProspectClient",
+            "@icon": {
+              "main": "fa fa-user",
+              "mainAction": "addIcon"
+            },
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          },
+          "case-management-income-protection:Prospect": {
+            "@key": [
+              "Prospect"
+            ],
+            "@icon": {
+              "subAction": "removeIcon"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "case-management-income-protection:Step1_ProspectClient",
+            "@cardType": "template"
+          }
+        },
+        "case-management-income-protection:Step2_Quotation": {
+        	"@initCtrl": "illustration",
+        
+          "@key": [
+            "Quotation"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart",
+            "step": "2"
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-income-protection:CaseManagement"
+        },
+        "case-management-income-protection:Step3_Application": {
+          "@initCtrl": "application",
+          "@key": [
+            "Application"
+          ],
+          "@icon": {
+            "main": "fa fa-file-o",
+            "step": "3"
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-income-protection:CaseManagement"
+        },
+        "case-management-income-protection:Step4_DocumentCenter": {
+          "@key": [
+            "Step4_DocumentCenter"
+          ],
+          "@icon": {
+            "main": "fa fa-paperclip"
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-income-protection:CaseManagement",
+          "@onOpen": "getDocumentCenterList()",
+          "case-management-income-protection:DocumentCenter": {}
+        },
+        "case-management-income-protection:Step5_Underwriting": {
+          "@icon": {
+            "main": "fa fa-pencil-square-o",
+            "step": "5"
+          },
+          "@isVisible": false,
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-income-protection:CaseManagement"
+        },
+        "case-management-income-protection:Payment": {
+          "@key": [
+            "Step8_Payment"
+          ],
+          "@isVisible": false,
+          "@icon": {
+            "main": "fa fa-credit-card"
+          },
+          "@cssClass": "v3-box-4",
+          "@onOpen": "getPaymentDetail()",
+          "@section": "case-management-income-protection:CaseManagement",
+          "case-management-income-protection:Payment": {}
+        }
+      }
+    }
+  }
+}

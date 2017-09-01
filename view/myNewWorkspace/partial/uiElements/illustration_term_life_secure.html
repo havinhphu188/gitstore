@@ -1,0 +1,647 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- summary -->
+<div fieldId="guaranteed-cashback-saver:ProductName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-md-6">{{'new.v3.mynewworkspace.endowment.ProductName'|
+			translate}}:</span>
+    <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.productName.' + moduleService.findElementInDetail_V3(['Product']) | translate}}</span>
+  </div>
+</div>
+<div fieldId="guaranteed-cashback-saver:ProductNameFake" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+      &nbsp
+  </div>
+</div>
+<div fieldId="guaranteed-cashback-saver:QuotationNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-md-6">{{'new.v3.mynewworkspace.endowment.QuotationNo'|
+			translate}}:</span>
+    <span class="col-md-6">{{moduleService.findElementInDetail_V3(['DocName'])}}</span>
+  </div>
+</div>
+
+<div fieldId="guaranteed-cashback-saver:CreatedDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-md-6">{{'new.v3.mynewworkspace.endowment.CreatedDate'|
+			translate}}:</span>
+    <span class="col-md-6">{{moduleService.findElementInDetail_V3(['CreatedDate'])  | datetimeFilter:"MMM DD, YYYY" }}</span>
+  </div>
+</div>
+
+<div fieldId="guaranteed-cashback-saver:Status" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-md-6">{{'new.v3.mynewworkspace.endowment.Status' |
+			translate}}:</span>
+    <span class="col-md-6">{{'v3.document.status.' + moduleService.findElementInDetail_V3(['BusinessStatus']) |translate}}</span>
+  </div>
+</div>
+
+<div fieldId="guaranteed-cashback-saver:LastUpdatedDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-md-6">{{'new.v3.mynewworkspace.endowment.LastUpdatedDate'|
+			translate}}:</span>
+    <span class="col-md-6">{{moduleService.findElementInDetail_V3(['UpdatedDate'])  | datetimeFilter:"MMM DD, YYYY" }}</span>
+  </div>
+</div>
+
+
+<div fieldId="guaranteed-cashback-saver:ProposerName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-md-6">{{'new.v3.mynewworkspace.endowment.ProposerName' |
+			translate}}:</span>
+    <span class="col-md-6">{{moduleService.findElementInDetail_V3(['PolicyOwnerInformation','FullName']).$}}</span>
+  </div>
+</div>
+<div fieldId="guaranteed-cashback-saver:InsuredName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-md-6">{{'new.v3.mynewworkspace.endowment.InsuredName' |
+			translate}}:</span>
+    <span class="col-md-6">{{moduleService.findElementInDetail_V3(['LifeInsured', 'FullName']).$}}</span>
+  </div>
+</div>
+<div fieldId="guaranteed-cashback-saver:PreviewQuotationDetail" class="col-xs-12 col-sm-6 col-md-12 col-lg-12 summary">
+  <div class="form-group form-group-lg has-success">
+  	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+  		<button ng-click="printPdf('abridge')" class="col-sm-offset-4 col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding">{{'new.v3.mynewworkspace.endowment.PreviewQuotationDetail' | translate}}</button>
+ 	</div>
+  </div>
+</div>
+
+<!-- policy owner -->
+<div fieldId="guaranteed-cashback-saver:Title"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Title' |
+				translate}}<span
+				ng-show="moduleService.findElementInElement_V3(card.refDetail, ['Title'])['@mandatory'] == '1'">*</span>
+			</label>
+			<ng-newDropDown
+				disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInElement_V3(card.refDetail, ['Title'])['@editable']=='0' || isLastQuotation"
+				model="moduleService.findElementInElement_V3(card.refDetail, ['Title'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['POTitle','Option'])"
+				type="nonFlag" prefix="v3.pnc.title.enum"></ng-newDropDown>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Title']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:Name"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Name' | translate}}<span
+				ng-show="moduleService.findElementInElement_V3(card.refDetail, ['FullName'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+				moduleService.findElementInElement_V3(card.refDetail, ['FullName'])['@editable']=='0' || isLastQuotation" type="text"
+				ng-model="moduleService.findElementInElement_V3(card.refDetail, ['FullName']).$" />
+		</div>
+		<span class="errorMessage"
+			ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['FullName']).errorMessage | translate"></span>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:DateofBirth"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.DateofBirth' |
+				translate}}<span
+				ng-show="moduleService.findElementInElement_V3(card.refDetail, [ 'BirthDate'])['@mandatory'] == '1'">*</span>
+			</label>
+			<div class="ms-calendar-wrapper">
+				<input
+					ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+						moduleService.findElementInElement_V3(card.refDetail, ['BirthDate'])['@editable']=='0' || isLastQuotation"
+					ms-datepicker
+					ng-model="moduleService.findElementInElement_V3(card.refDetail, ['BirthDate']).$"
+					class="ms-calendar" />
+			</div>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['BirthDate']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:AgeNextBirthday"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.AgeNextBirthday' |
+				translate}}<span
+				ng-show="moduleService.findElementInDetail_V3( ['POAgeNextBirthday'])['@mandatory'] == '1'">*</span>
+			</label> <input class="form-control"
+				ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInDetail_V3( ['POAgeNextBirthday'])['@editable'] == '0' || isLastQuotation"
+				type="text"
+				ng-model="moduleService.findElementInDetail_V3( ['POAgeNextBirthday']).$"
+				 />
+				
+		</div>
+		<span class="errorMessage"
+			ng-bind="moduleService.findElementInDetail_V3( ['POAgeNextBirthday']).errorMessage | translateMessage"></span>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:Gender"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Gender' |
+				translate}}<span
+				ng-show="moduleService.findElementInElement_V3(card.refDetail, ['Gender'])['@mandatory'] == '1'">*</span>
+			</label>
+			<v3-switch-new
+				prefix="v3.gender.enum"
+				switch-model="moduleService.findElementInElement_V3(card.refDetail, ['Gender']).Value"
+				switch-default-value=""
+				switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInElement_V3(card.refDetail, ['Gender'])['@editable']=='0' || isLastQuotation"
+				switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['POGender','Option'])">
+			</v3-switch-new>
+			
+		</div>
+		<span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Gender']).errorMessage | translate"></span>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:Smoking"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Smoking' |
+				translate}}<span
+				ng-show="moduleService.findElementInDetail_V3(['SmokerStatus'])['@mandatory'] == '1'">*</span>
+			</label>
+			<v3-switch-new prefix="v3.pnc.smoker.enum"
+				switch-model="moduleService.findElementInDetail_V3(['SmokerStatus']).Value"
+				switch-default-value=""
+				switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInDetail_V3(['SmokerStatus'])['@editable']=='0' || isLastQuotation"
+				switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['POSmokerStatus','Option'])">
+			</v3-switch-new>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInDetail_V3(['SmokerStatus']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:BusinessIndustry"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.BusinessIndustry' |
+				translate}}<span
+				ng-show="moduleService.findElementInDetail_V3(['BusinessIndustry'])['@mandatory'] == '1'">*</span>
+			</label>
+			<ng-newDropDown
+				disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInDetail_V3(['BusinessIndustry'])['@editable']=='0' || isLastQuotation"
+				model="moduleService.findElementInDetail_V3(['BusinessIndustry'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['POBusinessIndustry','Option'])"
+				type="nonFlag" prefix="v3.pnc.industry.enum"></ng-newDropDown>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInDetail_V3(['BusinessIndustry']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:Occupation"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Occupation' |
+				translate}}<span
+				ng-show="moduleService.findElementInDetail_V3(['Occupation'])['@mandatory'] == '1'">*</span>
+			</label>
+			<ng-newDropDown
+				disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInDetail_V3(['Occupation'])['@editable']=='0' || isLastQuotation"
+				model="moduleService.findElementInDetail_V3(['Occupation'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['POOccupation','Option'])"
+				type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<!-- life insured -->
+<div fieldId="guaranteed-cashback-saver:SelectContact"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.SelectContact' |
+				translate}}
+			</label>
+			 <ng-newDropDown disable="false" model="selectedPropsect.Value" list="moduleService.chosenProspectList" type="regular" key="FullName"> </ng-newDropDown>
+			 <i class="fa fa-arrow-circle-down fa-3x button-import" ng-click="importProspectGCS(selectedPropsect.Value)"></i> <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Title']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:LITitle"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Title' |
+				translate}}<span
+				ng-show="moduleService.findElementInDetail_V3(['Title'])['@mandatory'] == '1'">*</span>
+			</label>
+			<ng-newDropDown
+				disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInDetail_V3(['Title'])['@editable']=='0' || isLastQuotation"
+				model="moduleService.findElementInElement_V3(card.refDetail, ['Title'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['LATitle','Option'])"
+				type="nonFlag" prefix="v3.pnc.title.enum"></ng-newDropDown>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Title']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:RelationshiptoPolicyOwner"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.RelationshiptoPolicyOwner'
+				| translate}}<span
+				ng-show="moduleService.findElementInDetail_V3(['LARelationship'])['@mandatory'] == '1'">*</span>
+			</label>
+			<ng-newDropDown
+				disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInDetail_V3(['LARelationship'])['@editable']=='0' || isLastQuotation"
+				model="moduleService.findElementInDetail_V3(['LARelationship'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['LARelationship','Option'])"
+				type="nonFlag" prefix="v3.pnc.RelationshipToPO"></ng-newDropDown>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInDetail_V3(['LARelationship']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:LIName"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Name' | translate}}<span
+				ng-show="moduleService.findElementInElement_V3(card.refDetail, ['FullName'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control"
+				ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInElement_V3(card.refDetail, ['FullName'])['@editable'] == '0' || isLastQuotation"
+				type="text"
+				ng-model="moduleService.findElementInElement_V3(card.refDetail, ['FullName']).$"
+				 />
+		</div>
+		<span class="errorMessage"
+			ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['FullName']).errorMessage | translate"></span>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:LIDateofBirth"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.DateofBirth' |
+				translate}}<span
+				ng-show="moduleService.findElementInElement_V3(card.refDetail, ['BirthDate'])['@mandatory'] == '1'">*</span>
+			</label>
+			<div class="ms-calendar-wrapper">
+				<input
+					ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+						moduleService.findElementInElement_V3(card.refDetail, ['BirthDate'])['@editable']=='0' || isLastQuotation"
+					ms-datepicker
+					ng-model="moduleService.findElementInElement_V3(card.refDetail, ['BirthDate']).$"
+					class="ms-calendar" />
+			</div>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['BirthDate']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+
+
+<div fieldId="guaranteed-cashback-saver:LIAgeNextBirthDay"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.AgeNextBirthday' |
+				translate}}<span
+				ng-show="moduleService.findElementInDetail_V3(['LAAgeNextBirthday'])['@mandatory'] == '1'">*</span>
+			</label> <input class="form-control"
+				ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInDetail_V3(['LAAgeNextBirthday'])['@editable'] == '0' || isLastQuotation"
+				type="text"
+				ng-model="moduleService.findElementInDetail_V3( ['LAAgeNextBirthday']).$"
+			/>
+		</div>
+		<span class="errorMessage"
+			ng-bind="moduleService.findElementInDetail_V3(['LAAgeNextBirthday']).errorMessage | translateMessage"></span>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:LIGender"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Gender' |
+				translate}}<span
+				ng-show="moduleService.findElementInElement_V3(card.refDetail, [ 'Gender'])['@mandatory'] == '1'">*</span>
+			</label>
+			<v3-switch-new
+				prefix="v3.gender.enum"
+				switch-model="moduleService.findElementInElement_V3(card.refDetail, ['Gender']).Value"
+				switch-default-value=""
+				switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInElement_V3(card.refDetail, [ 'Gender'])['@editable']=='0' || isLastQuotation"
+				switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['LAGender','Option'])">
+			</v3-switch-new>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Gender']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:LISmoking"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Smoking' |
+				translate}}<span
+				ng-show="moduleService.findElementInElement_V3(card.refDetail, ['SmokerStatus'])['@mandatory'] == '1'">*</span>
+			</label>
+			<v3-switch-new
+				prefix="v3.pnc.smoker.enum"
+				switch-model="moduleService.findElementInElement_V3(card.refDetail, ['SmokerStatus']).Value"
+				switch-default-value=""
+				switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInElement_V3(card.refDetail, ['SmokerStatus'])['@editable']=='0' || isLastQuotation"
+				switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['LASmokerStatus','Option'])">
+			</v3-switch-new>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['SmokerStatus']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:LIBusinessIndustry"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.BusinessIndustry' |
+				translate}}<span
+				ng-show="moduleService.findElementInElement_V3(card.refDetail, ['BusinessIndustry'])['@mandatory'] == '1'">*</span>
+			</label>
+			<ng-newDropDown
+				disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInElement_V3(card.refDetail, ['BusinessIndustry'])['@editable']=='0' || isLastQuotation"
+				model="moduleService.findElementInElement_V3(card.refDetail, ['BusinessIndustry'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['LABusinessIndustry','Option'])"
+				type="nonFlag" prefix="v3.pnc.industry.enum"></ng-newDropDown>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['BusinessIndustry']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:LIOccupation"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Occupation' |
+				translate}}<span
+				ng-show="moduleService.findElementInDetail_V3(['Occupation'])['@mandatory'] == '1'">*</span>
+			</label>
+			<ng-newDropDown
+				disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInElement_V3(card.refDetail, [ 'Occupation'])['@editable']=='0' || isLastQuotation"
+				model="moduleService.findElementInElement_V3(card.refDetail, ['Occupation'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['LAOccupation','Option'])"
+				type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Occupation']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<!-- basic plan -->
+<div fieldId="guaranteed-cashback-saver:EffectiveDate"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.EffectiveDate' |
+				translate}}<span
+				ng-show="moduleService.findElementInDetail_V3(['EffectiveDate'])['@mandatory'] == '1'">*</span>
+			</label>
+			<div class="ms-calendar-wrapper">
+				<input
+					ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+						moduleService.findElementInDetail_V3(['EffectiveDate'])['@editable']=='0' || isLastQuotation"
+					ms-datepicker
+					ng-model="moduleService.findElementInDetail_V3(['EffectiveDate']).$"
+					class="ms-calendar" />
+			</div>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInDetail_V3(['EffectiveDate']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:BackingDate"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.BackingDate' |
+				translate}}<span
+				ng-show="moduleService.findElementInDetail_V3(['BackdatingDate'])['@mandatory'] == '1'">*</span>
+			</label>
+			<div class="ms-calendar-wrapper">
+				<input
+					ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+						moduleService.findElementInDetail_V3(['BackdatingDate'])['@editable']=='0' || isLastQuotation"
+					ms-datepicker
+					ng-model="moduleService.findElementInDetail_V3(['BackdatingDate']).$"
+					class="ms-calendar" />
+			</div>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInDetail_V3(['BackdatingDate']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:ContractCurrency"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.ContractCurrency' |
+				translate}}<span
+				ng-show="moduleService.findElementInDetail_V3(['ContractCurrency'])['@mandatory'] == '1'">*</span>
+			</label>
+			<v3-switch-new-slide
+				prefix="v3.motor.privateCarM.billingCurrency"
+				switch-model="moduleService.findElementInDetail_V3(['ContractCurrency']).Value"
+				switch-default-value=""
+				switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInDetail_V3(['ContractCurrency'])['@editable']=='0' || isLastQuotation"
+				switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ContractCurrency','Option'])">
+			</v3-switch-new-slide>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInDetail_V3(['ContractCurrency']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:BillingCurrency"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.BillingCurrency' |
+				translate}}<span
+				ng-show="moduleService.findElementInDetail_V3(['BillingCurrency'])['@mandatory'] == '1'">*</span>
+			</label>
+			<v3-switch-new-slide
+				prefix="v3.motor.privateCarM.billingCurrency"
+				switch-model="moduleService.findElementInDetail_V3(['BillingCurrency']).Value"
+				switch-default-value=""
+				switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInDetail_V3(['BillingCurrency'])['@editable']=='0' || isLastQuotation"
+				switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['BillingCurrency','Option'])">
+			</v3-switch-new-slide>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInDetail_V3(['BillingCurrency']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:PolicyTerm"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.PolicyTerm' |
+				translate}}  <span
+				ng-show="moduleService.findElementInDetail_V3(['PolicyTerm'])['@mandatory'] == '1'">*</span>
+			</label>
+			<ng-newDropDown
+				disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInDetail_V3(['PolicyTerm'])['@editable']=='0' || isLastQuotation"
+				model="moduleService.findElementInDetail_V3(['PolicyTerm'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['PolicyTerm','Option'])"
+				type="nonFlag" prefix="v3.pnc.policyTerm"></ng-newDropDown>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInDetail_V3(['PolicyTerm']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:SumInsured"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.SumInsured' |
+				translate}} ({{moduleService.findElementInDetail_V3(['ContractCurrency']).Value}})<span
+				ng-show="moduleService.findElementInDetail_V3(['SumAssured'])['@mandatory'] == '1'">*</span>
+			</label>
+	
+				<input
+					ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+						moduleService.findElementInDetail_V3(['SumAssured'])['@editable']=='0' || isLastQuotation"
+				 class="form-control"
+					ng-model="moduleService.findElementInDetail_V3(['SumAssured']).$" pos-autonumeric decimal="0"
+					 />
+		
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInDetail_V3(['SumAssured']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+
+<div fieldId="guaranteed-cashback-saver:PremiumPrequency"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.PremiumPrequency' |
+				translate}}<span
+				ng-show="moduleService.findElementInDetail_V3(['PremiumFrequency'])['@mandatory'] == '1'">*</span>
+			</label>
+			<ng-newDropDown
+				disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInDetail_V3(['PremiumFrequency'])['@editable']=='0' || isLastQuotation"
+				model="moduleService.findElementInDetail_V3(['PremiumFrequency'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['PremiumFrequency','Option'])"
+				type="nonFlag" sort="false"  prefix="v3.pnc.premiumPrequency"></ng-newDropDown>
+			<!-- <ng-newDropDown model="moduleService.findElementInDetail_V3(['Reason'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Reason','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.reason"></ng-newDropDown> -->
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInDetail_V3(['PremiumFrequency']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:Loading" ng-if="isLastQuotation"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Loading'
+				| translate}} <span
+				ng-show="moduleService.findElementInDetail_V3(['Loading'])['@mandatory'] == '1'">*</span>
+			</label> <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+				moduleService.findElementInDetail_V3(['Loading'])['@editable']=='0'" type="text"
+				ng-model="moduleService.findElementInDetail_V3(['Loading']).$"
+			 />
+		</div>
+		<span class="errorMessage"
+			ng-bind="moduleService.findElementInDetail_V3(['Loading']).errorMessage | translateMessage"></span>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:Reason" ng-if="isLastQuotation"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Reason' |
+				translate}}<span
+				ng-show="moduleService.findElementInDetail_V3(['Reason'])['@mandatory'] == '1'">*</span>
+			</label>
+			<ng-newDropDown
+				disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+					moduleService.findElementInDetail_V3(['Reason'])['@editable']=='0'"
+				model="moduleService.findElementInDetail_V3(['Reason'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Reason','Option'])"
+				type="nonFlag" sort="false"  prefix="v3.gcs.illustration.reason"></ng-newDropDown>
+			<!-- <ng-newDropDown model="moduleService.findElementInDetail_V3(['Reason'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Reason','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.reason"></ng-newDropDown> -->
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInDetail_V3(['Reason']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:LoadingForFrequency" ng-if="isLastQuotation"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.LoadingForFrequency'
+				| translate}} ({{moduleService.findElementInDetail_V3(['ContractCurrency']).Value}})<span
+				ng-show="moduleService.findElementInDetail_V3(['LoadingForFrequency'])['@mandatory'] == '1'">*</span>
+			</label> <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || 
+				moduleService.findElementInDetail_V3(['LoadingForFrequency'])['@editable']=='0'" type="text"
+				ng-model="moduleService.findElementInDetail_V3(['LoadingForFrequency']).$"
+			 />
+		</div>
+		<span class="errorMessage"
+			ng-bind="moduleService.findElementInDetail_V3(['LoadingForFrequency']).errorMessage | translateMessage"></span>
+	</div>
+</div>
+<div fieldId="guaranteed-cashback-saver:FrequencyPremiumPayable"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.FrequencyPremiumPayable'
+				| translate}} ({{moduleService.findElementInDetail_V3(['ContractCurrency']).Value}})<span
+				ng-show="moduleService.findElementInDetail_V3(['PremiumFrequencyPayable'])['@mandatory'] == '1'">*</span>
+			</label> <input class="form-control" ng-disabled="true" type="text"
+				ng-model="moduleService.findElementInDetail_V3(['PremiumFrequencyPayable']).$"
+			 />
+		</div>
+		<span class="errorMessage"
+			ng-bind="moduleService.findElementInDetail_V3(['PremiumFrequencyPayable']).errorMessage | translateMessage"></span>
+	</div>
+</div>

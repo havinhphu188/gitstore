@@ -1,0 +1,423 @@
+<div layout="column" class="height-inherit">
+    <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div style="overflow: scroll;" class="backgroundColor touch">
+        <div refresh-on="vars.bIsContentChanged" use-boolean>
+            <div class="white-card">
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.EffectiveDate" label-value="v3.myworkspace.label.illustration.life.EffectiveDate" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('EffectiveDate')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:EffectiveDate')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="EffectiveDate" style="display:none;" class="triangle-right">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:EffectiveDate')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <input ng-blur="closeErrorMsg('EffectiveDate');" class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.EffectiveDate.$" ms-datepicker>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.BackdatingDate" label-value="v3.myworkspace.label.illustration.life.BackdatingDate" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('BackdatingDate')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:BackdatingDate')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="BackdatingDate" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:BackdatingDate')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <input ng-blur="closeErrorMsg('BackdatingDate');" class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.BackdatingDate.$" ms-datepicker>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.SumAssured" label-value="v3.myworkspace.label.illustration.life.SumInsured" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('SumAssured')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:SumAssured')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="SumAssured" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:SumAssured')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <!--  <v3-Input inputType="number" ng-disabled="::!moduleService.isEditMode" input-Value="variables.SumAssured.$" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></v3-Input> -->
+                        <input type="text" ng-focus="openErrorMsg('SumAssured')" ng-blur="closeErrorMsg('SumAssured');" class="input" ng-model="variables.SumAssured.$" ng-disabled="::!moduleService.isEditMode" format="number" />
+                        <!-- <input type="text" ng-model="test" format="number" /> -->
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.PolicyTerm" label-value="v3.myworkspace.label.illustration.life.PolicyTerm" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('PolicyTerm')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:PolicyTerm')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="PolicyTerm" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:PolicyTerm')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <v3-Select hide-error-msg="closeErrorMsg('PolicyTerm');" class="input-select" src-data="moduleService.listPolicyTerm" displayText="text" displayValue="value" Prefix="" dialogTitle="Policy Term" select-disabled="::!moduleService.isEditMode" model="variables.PolicyTerm.Value">
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.PaymentMode" label-value="v3.myworkspace.label.illustration.life.PaymentMode" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('PaymentMode')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:PaymentMode')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="PaymentMode" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:PaymentMode')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <!-- <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.PaymentMode.Value"> -->
+                        <v3-Select hide-error-msg="closeErrorMsg('PaymentMode');" class="input-select" src-data="moduleService.listPaymentMode" displayText="text" displayValue="value" Prefix="" dialogTitle="Payment Method" select-disabled="::!moduleService.isEditMode" model="variables.PaymentMode.Value">
+                    </div>
+                </div>
+                <div layout="row" class="row" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.Currency" label-value="v3.myworkspace.label.illustration.life.Currency" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('Currency')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:Currency')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="Currency" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:Currency')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <!-- <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.Currency.Value"> -->
+                        <v3-Select hide-error-msg="closeErrorMsg('Currency');" class="input-select" src-data="moduleService.listCurrency" displayText="text" displayValue="value" Prefix="" dialogTitle="Currency" select-disabled="::!moduleService.isEditMode" model="variables.Currency.Value">
+                    </div>
+                </div>
+            </div>
+
+            
+            <div layout="row" class="header-repeat-bar">
+                <div flex="80" layout-margin>
+                    <h class="repeat-toobar-text">
+                        RIDER
+                    </h>
+                </div>
+                <div flex="10">
+                    <div class="rotateCounterwise" ng-disabled="::!moduleService.isEditMode" id="arrow1" align="center" ng-click="hideRiders()">
+                        <i class="fa fa-caret-up fa-lg repeat-toobar-icon"></i>
+                    </div>
+                </div>
+
+                <div flex="10">
+                   <div ng-click="addNewRider()" ng-disabled="::!moduleService.isEditMode">
+                        <i class="fa fa-plus-circle fa-lg repeat-toobar-icon"></i>
+                    </div>
+                </div>
+            </div> 
+            <div class="animate-hide white-card" ng-if="variables.Riders['@counter']>0"  ng-repeat="rider in ::moduleService.riders track by $index">
+                <div>
+                    <i class="fa fa-times fa-lg" ng-if="moduleService.riders.length > 1" style=" float: right; color: grey;" ng-click="removeRider($index)"></i>
+                </div>
+                </br>
+
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.RiderType" label-value="Rider Type" />
+                    </div>
+                    <div flex="5">
+                         <div ng-click="toggleErrorMsg('RiderType')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Riders.ipos-illustration:Rider.RiderType')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="RiderType" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Riders.ipos-illustration:Rider.RiderType')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <v3-Select hide-error-msg="closeErrorMsg('RiderType');" class="input-select" src-data="moduleService.listCurrency" displayText="text" displayValue="value" Prefix="" dialogTitle="Rider Type" select-disabled="::!moduleService.isEditMode" model="moduleService.findElementInElement_V3(rider, ['RiderType']).Value">
+                    </div>
+                </div>
+                <div layout="row" class="row" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.RiderSumInsured" label-value="Sum Insured" />
+                    </div>
+                    <div flex="5">
+                         <div ng-click="toggleErrorMsg('RiderSumInsured')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Riders.ipos-illustration:Rider.RiderSumInsured')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="RiderSumInsured" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Riders.ipos-illustration:Rider.RiderSumInsured')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                         <input ng-blur="closeErrorMsg('RiderSumInsured');" class="input" ng-model="moduleService.findElementInElement_V3(rider, ['RiderSumInsured']).$">
+                    </div>
+                </div>
+            </div>
+            <div layout="row" class="header-repeat-bar">
+                <div flex="80" layout-margin>
+                    <h class="repeat-toobar-text">
+                        <span t-lazy v3-translate="v3.myworkspace.label.illustration.life.Parties-C" prefix=""></span>
+                    </h>
+                </div>
+                
+                <div flex="10">
+                    <div class="rotateCounterwise" ng-disabled="::!moduleService.isEditMode" id="arrow1" align="center" ng-click="hideParties()">
+                        <i class="fa fa-caret-up fa-lg repeat-toobar-icon"></i>
+                    </div>
+                </div>
+
+                <div flex="10">
+                   <div ng-click="addNewParty()" ng-disabled="::!moduleService.isEditMode">
+                        <i class="fa fa-plus-circle fa-lg repeat-toobar-icon"></i>
+                    </div>
+                </div>
+              
+            </div>
+            <div class="animate-hide white-card" ng-hide="hideParty" ng-repeat="party in moduleService.parties track by $index">
+                <div>
+                    <i class="fa fa-times fa-lg" ng-if="moduleService.parties.length > 1" style=" float: right; color: grey;" ng-click="removeParty($index)"></i>
+                </div>
+                </br>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.PartyType" label-value="v3.myworkspace.label.illustration.life.PartyType" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('PartyType')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.PartyType')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="PartyType" style="display:none;" class="triangle-right">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.PartyType')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <v3-Select hide-error-msg="closeErrorMsg('PartyType');" class="input-select" src-data="::moduleService.listPartyType" displayText="text" displayValue="value" Prefix="" dialogTitle="Party Type" select-disabled="::!moduleService.isEditMode" model="moduleService.findElementInElement_V3(party, ['PartyType']).Value">
+                    </div>
+                </div>
+                <div layout="row" ng-if="moduleService.findElementInElement_V3(party, ['PartyType']).Value == 'LIFEASSURED'" ng-disabled="::!moduleService.isEditMode" class="row breakLine slide-down" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="" label-value="v3.myworkspace.label.illustration.life.MainInsured" />
+                    </div>
+                    <div flex="65">
+                        <div ng-click="toggleErrorMsg('MainInsured')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.ipos-illustration:MainInsured')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="MainInsured" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.ipos-illustration:MainInsured')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="5">
+                        <md-checkbox md-no-ink ng-model="moduleService.findElementInElement_V3(party, ['ipos-illustration:MainInsured']).$" ng-true-value="'Y'" ng-false-value="'N'" ng-change="onCheck($index)" ng-disabled="::!moduleService.isEditMode" style="margin-top:-5px">
+                        </md-checkbox>
+                    </div>
+                </div>       
+
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="" label-value="v3.myworkspace.label.illustration.life.Prospect" />
+                    </div>
+                    <div flex="5">
+                        <!-- <md-button ng-if="party['@refUid']" style="margin-top:-15px; color: gray;" md-no-ink class="md-icon-button button" aria-label="">
+                            <span class="fa fa-plus-circle fa-2x button-padding-10"></span>
+                        </md-button>
+
+                        <md-button ng-if="!party['@refUid']" style="margin-top:-15px; color: gray;" md-no-ink ng-click="createNewProspect($index)" class="md-icon-button button" aria-label="">
+                            <span class="fa fa-plus-circle fa-2x button-padding-10 default-color"></span>
+                        </md-button> -->
+
+                        <md-button ng-if="::!moduleService.isEditMode" style="margin-top:-15px; color: gray;" md-no-ink class="md-icon-button button" aria-label="">
+                            <span class="fa fa-plus-circle fa-2x button-padding-10"></span>
+                        </md-button>
+
+                        <md-button ng-if="::moduleService.isEditMode" style="margin-top:-15px; color: gray;" md-no-ink ng-click="createNewProspect($index)" class="md-icon-button button" aria-label="">
+                            <span class="fa fa-plus-circle fa-2x button-padding-10 default-color"></span>
+                        </md-button>
+
+                    </div>
+                    <div flex="65">
+                        <v3-Select class="input-select" more-action="getDetail(value1, $index)" src-data="::prospectUIService.docListFull" displayText="FullName" displayValue="DocId" dialogTitle="Prospect List" select-disabled="::!moduleService.isEditMode" model="party['@refUid']"></v3-Select>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="40">
+                        <v3-label label-prop="variables.Relationship" label-value="v3.myworkspace.label.illustration.life.RelationshiptoPolicyOwner" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('Relationship')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.ipos-illustration:Relationship')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="Relationship" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.ipos-illustration:Relationship')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="45">
+                        <v3-Select hide-error-msg="closeErrorMsg('Relationship');" class="input-select" src-data="moduleService.listRelationship" displayText="text" displayValue="value" Prefix="v3.application.motor.relationship" dialogTitle="Relationship" select-disabled="::!moduleService.isEditMode" model="moduleService.findElementInElement_V3(party, ['ipos-illustration:Relationship']).Value">
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.FullName" label-value="v3.myworkspace.label.illustration.life.FullName" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('FullName')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.FullName')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="FullName" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.FullName')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <input ng-focus="openErrorMsg('FullName')" ng-blur="closeErrorMsg('FullName');" class="input" ng-disabled="party['@refUid'] != ''|| moduleService.isEditMode == false" ng-model="moduleService.findElementInElement_V3(party, ['FullName']).$">
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.BirthDate" label-value="v3.myworkspace.label.illustration.life.DateofBirth" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('BirthDate')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.BirthDate')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="BirthDate" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.BirthDate')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <input ng-blur="closeErrorMsg('BirthDate');" class="input" ng-disabled="party['@refUid'] != ''|| moduleService.isEditMode == false" ng-model="moduleService.findElementInElement_V3(party, ['BirthDate']).$" ms-datepicker>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.Gender" label-value="v3.myworkspace.label.illustration.life.Gender" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('Gender')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.Gender')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="Gender" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.Gender')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <!-- <input class="input" ng-model="moduleService.findValueByJsonXPath(party, 'Gender').Value"> -->
+                       <!--  <v3-Select hide-error-msg="closeErrorMsg('Gender');" class="input-select" src-data="prospectUIService.listGenders" displayText="text" displayValue="value" Prefix="" dialogTitle="Gender" select-disabled="true" model="moduleService.findElementInElement_V3(party, ['Gender']).Value"> -->
+
+                         <v3-switch-new alway-watch="true" style="float:right;" switch-name="gender" switch-disabled="party['@refUid'] != ''  || moduleService.isEditMode == false" switch-model="moduleService.findElementInElement_V3(party, ['Gender']).Value" switch-options="::prospectUIService.listGenders">
+                        </v3-switch-new>
+
+                      
+
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.SmokerStat" label-value="v3.myworkspace.label.illustration.life.SmokeStatus" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('SmokerStat')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.SmokerStat')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="SmokerStat" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.SmokerStat')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <!-- <v3-switch style="float:right;" switch-size="" switch-name="smoker" switch-disabled="true" switch-model="moduleService.findElementInElement_V3(party, ['SmokerStat']).Value" switch-default-value="" switch-options="{{::prospectUIService.listSmokeStat}}">
+                            <v3-switch> -->
+                        <v3-switch-new alway-watch="true" style="float:right;" switch-name="smoker" switch-disabled="party['@refUid'] != ''|| moduleService.isEditMode == false" switch-model="moduleService.findElementInElement_V3(party, ['SmokerStat']).Value" switch-options="::prospectUIService.listSmokeStat">
+                        </v3-switch-new>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="30">
+                        <v3-label label-prop="variables.Industry" label-value="v3.myworkspace.label.illustration.life.BusinessorIndustry" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('Industry')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.ipos-illustration:Industry')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="Industry" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.ipos-illustration:Industry')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="55">
+                        <v3-Select hide-error-msg="closeErrorMsg('Industry');" class="input-select" src-data="prospectUIService.listBussinessIndustry" displayText="text" displayValue="value" Prefix="v3.application.motor.industry" dialogTitle="Business Industry" select-disabled="party['@refUid'] != ''|| moduleService.isEditMode == false" model="moduleService.findElementInElement_V3(party, ['ipos-illustration:Industry']).Value" child-Model="moduleService.findElementInElement_V3(party, ['ipos-illustration:Occupation'])">
+                    </div>
+                </div>
+                <div layout="row" class="row" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.Occupation" label-value="v3.myworkspace.label.illustration.life.Occupation" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('Occupation')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.ipos-illustration:Occupation')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="Occupation" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party.ipos-illustration:Occupation')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                         <!-- select-disabled="!moduleService.isEditMode || variables.BusinessIndustry.Value === ''" -->
+                        <v3-Select hide-error-msg="closeErrorMsg('Occupation');" class="input-select" src-data="prospectUIService.listOccupation" displayText="text" displayValue="value" Prefix="" dialogTitle="Occupation" select-disabled="party['@refUid'] != ''|| moduleService.isEditMode == false" filter-by="{filterName: 'filterByGroup', paras: moduleService.findElementInElement_V3(party, ['ipos-illustration:Industry']).Value}" model="moduleService.findElementInElement_V3(party, ['ipos-illustration:Occupation']).Value">
+                    </div>
+                </div>
+            </div>
+            <!-- <div layout="row" class="header-repeat-bar">
+                <div flex layout-margin>
+                    <h class="repeat-toobar-text">ATTACHMENTS</h>
+                </div>
+            </div>
+            <div class="white-card">
+                <div ng-if="moduleService.findElementInDetail_V3(['Attachments'])['@counter'] > 0">
+                    <div layout="row" class="row breakLine" layout-margin ng-repeat="attachment in moduleService.attachments track by $index" class="tag-card">
+                        <div flex="5">
+                            <i align="left" class="fa fa-paperclip fa-lg"></i>
+                        </div>
+                        <div flex="60" ng-click="moduleService.attachmentPreview(attachment['@refResourceUid'])" style="text-align:left; color:gray;">
+                            {{attachment.FileName.$}}
+                        </div>
+                        <div flex >
+                            <div layout="row" ng-if="moduleService.isEditMode">
+                                <div flex="40" style="text-align: right" >
+                                    <i class="fa fa-edit fa-lg fa-style" ng-click="_showImgPickerEdit(attachment['@refResourceUid'])"></i>
+                                </div>
+                                <div flex="40" style="text-align: right">
+                                    <i class="fa fa-trash fa-lg fa-style" ng-click="_markRemoveFile(attachment['@refResourceUid'])"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

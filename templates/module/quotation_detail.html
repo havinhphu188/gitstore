@@ -1,0 +1,247 @@
+<md-toolbar>
+    <h2 class="md-toolbar-tools">
+        <div flex>
+            <md-button ng-click="backToPreState()" class="md-primany green-title" style="width: 35px; padding: 5px; z-index: 1;">
+                <md-tooltip>
+                    Back
+                </md-tooltip>
+                <span class="fa fa-arrow-left fa-lg" style="margin-left: 0px;"></span>
+            </md-button>
+        </div>
+        <div  flex class="row text-center">
+            <span class="fa-lg">Quotation:</span>
+
+            <input class = "header-text"  ng-model="moduleService.getDocName().DocName">
+        </div>
+        <div class="align-right" flex>
+             <md-button ng-click="showProduct()" class="md-primany optionButton">
+                <md-tooltip>
+                    Print PDF
+                </md-tooltip>
+                <span class="fa fa-print fa-2x " style="margin-left: 0px;"></span>
+            </md-button>
+            <md-button ng-click="save()" class="md-primany optionButton">
+                <md-tooltip>
+                    Save Illustration
+                </md-tooltip>
+                <span class="fa fa-floppy-o fa-2x"></span>
+            </md-button>
+            <md-button ng-click="computeQuotation()" class="md-primany optionButton">
+                <md-tooltip>
+                    Compute
+                </md-tooltip>
+                <span class="fa fa-play fa-2x "></span>
+            </md-button>
+            <md-button ng-click="popover.show($event)" class="md-primany optionButton">
+                <md-tooltip>
+                    Option
+                </md-tooltip>
+                <span class="fa fa-ellipsis-v fa-2x "></span>
+            </md-button>
+        </div>
+    </h2>
+</md-toolbar>
+<ion-view>
+    <ion-content class="has-header">
+        <md-card style=" margin:0 auto; background-color: white; width: 80%;">
+            <div layout-margin>
+                <h2 class="clientHeader">Vehicle Information V3</h2>
+                <div class="row">
+                    <div class="row">
+                        <div flex="35">
+                            <h3> Cover*</h3>
+                        </div>
+                        <div flex="65">
+                            <md-input-container>
+                                <input style="width:100% !important" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:Cover').Value">
+                                <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorQuotationList,'$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:BasePlan.ipos-motor-insurance:Cover')"></span>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div flex="35">
+                            <h3> Currency*</h3>
+                        </div>
+                        <div flex="65">
+                          
+                             <md-input-container>
+                                  <input type="text" style="width:100% !important" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:Currency').$">
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div flex="35">
+                            <h3>Commencement Date</h3>
+                        </div>
+                        <div flex="65">
+                        <md-input-container>
+                            <input type="text" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:CommencementDate').$" value="">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div flex="35">
+                            <h3>Sum Insured*</h3>
+                        </div>
+                        <div flex="65">
+                        <md-input-container>
+                            <input type="text" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:SumInsured').$" ng-model="user.building" value="">
+                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorQuotationList,'$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:BasePlan.ipos-motor-insurance:SumInsured')"></span>
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div flex="35">
+                            <h3>Vehicle Use *</h3>
+                        </div>
+                        <div flex="65">
+                        <md-input-container>
+                            <input type="text" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:VehicleUse').Value" ng-model="user.building" value="">
+                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorQuotationList,'$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:BasePlan.ipos-motor-insurance:VehicleUse')"></span>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div flex="35">
+                            <h3>Geographic Location *</h3>
+                        </div>
+                        <div flex="65">
+                        <md-input-container>
+                            <input type="text" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:GeographicLocation').Value" ng-model="user.building" value="">
+                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorQuotationList,'$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:BasePlan.ipos-motor-insurance:GeographicLocation')"></span>
+                        </md-input-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div flex="35">
+                            <h3> Make of Vehicle*</h3>
+                        </div>
+                        <div flex="65">
+                        <md-input-container>
+                            <input type="text" style="width:100% !important" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:MakeOfVehicle').Value">
+                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorQuotationList,'$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:BasePlan.ipos-motor-insurance:MakeOfVehicle')"></span>
+                        </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div flex="35">
+                            <h3> Engine Capacity(CC)*</h3>
+                        </div>
+                        <div flex="65">
+                            <md-input-container>
+                            <input type="text" style="width:100% !important" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:EngineCapacity').$">
+                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorQuotationList,'$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:BasePlan.ipos-motor-insurance:EngineCapacity')"></span>
+                        </md-input-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div flex="35">
+                            <h3> Permitted Driver *</h3>
+                        </div>
+                        <div flex="65">
+                        <md-input-container>
+                            <input type="text" style="width:100% !important" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:PermittedDriver').Value">
+                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorQuotationList,'$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:BasePlan.ipos-motor-insurance:PermittedDriver')"></span>
+                        </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div flex="35">
+                            <h3> Year of Registration*</h3>
+                        </div>
+                        <div flex="65">
+                          <md-input-container>
+                            <input type="text" style="width:100% !important" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:YearOfRegistration').$">
+                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorQuotationList,'$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:BasePlan.ipos-motor-insurance:YearOfRegistration')"></span>
+                        </md-input-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div flex="20">
+                        <h2 class="clientHeader">Additional Features</h2>
+                    </div>
+                    <div>
+                        <md-button class="md-primary" aria-label="create New">
+                            <!-- <span class="fa fa-plus"></span> -->
+                            <i class="fa fa-plus"></i>
+                        </md-button>
+                    </div>
+                </div>
+            </div>
+        </md-card>
+        </br>
+        <md-card style=" margin:0 auto; background-color: white; width: 80%;">
+            <h2 class="clientHeader">Driving Experience Information</h2>
+            <div layout-margin>
+                <h2 class="clientHeader">Basic Information</h2>
+                <div class="row">
+                    <div class="row">
+                        <div flex="35">
+                            <h3> Main Driver*</h3>
+                        </div>
+                        <div flex="65">
+                            <input type="text" style="width:100% !important" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:Parties.ipos-motor-insurance:Party[1].ipos-quotation-common:FirstName').$">
+                            <input type="text" style="width:100% !important" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:Parties.ipos-motor-insurance:Party[0].ipos-quotation-common:FirstName').$">
+                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorQuotationList,'$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:Parties.ipos-motor-insurance:Party[0].ipos-quotation-common:FirstName')"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div flex="35">
+                            <h3> Gender*</h3>
+                        </div>
+                        <div flex="65">
+                            <input type="text" style="width:100% !important" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:Parties.ipos-motor-insurance:Party[1].ipos-quotation-common:Gender').Value">
+                            <input type="text" style="width:100% !important" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:Parties.ipos-motor-insurance:Party[0].ipos-quotation-common:Gender').Value">
+                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorQuotationList,'$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:Parties.ipos-motor-insurance:Party[0].ipos-quotation-common:Gender')"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div flex="35">
+                            <h3>Date of Birth *</h3>
+                        </div>
+                        <div flex="65">
+                            <input type="text" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-quotation-common:BirthDate').$" value="" ms-datepicker>
+                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorQuotationList,'$..ipos-motor-insurance:MotorInsurance.ipos-motor-insurance:Inputs.ipos-motor-insurance:Parties.ipos-motor-insurance:Party[0].ipos-quotation-common:BirthDate')"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div flex="35">
+                            <h3>Smoke Status *</h3>
+                        </div>
+                        <div flex="65">
+                            <input type="text" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-quotation-common:SmokerStat').Value" ng-model="user.building" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div flex="35">
+                            <h3>NCD %</h3>
+                        </div>
+                        <div flex="65">
+                            <ui-select search-enabled="false" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasePlan.ipos-illustration:PaymentMode').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasePlan.ipos-illustration:PaymentMode.Options').Option | filter : $select.search ">
+                                    <div ng-bind-html="item | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+        </md-card>
+    </ion-content>
+</ion-view>

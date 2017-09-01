@@ -1,0 +1,1189 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Section: Policy Summary -->
+<div fieldId="policy-motor-private-car-m:PolicyInformation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{::'new.v3.mynewworkspace.motor.policy.label.PolicyInformation' | translate}}:</span>
+        <span class="col-md-6">{{'v3.illustration.product.'+ moduleService.findElementInDetail_V3(['Product']) |translate}} - <span ng-bind="moduleService.findElementInDetail_V3(['PolicyNo']).$"></span>
+        </span>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:PolicyOwner" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{::'new.v3.mynewworkspace.motor.policy.label.PolicyOwner' | translate}}:</span>
+        <span class="col-md-6">{{moduleService.findElementInDetail_V3(['PolicyOwner','person:FullName']).$}} - {{moduleService.findElementInDetail_V3(['ClientId']).$}}
+   </span>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:PolicyPeriod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{::'new.v3.mynewworkspace.motor.policy.label.PolicyPeriod' | translate}}:</span>
+        
+        <span class="col-md-6">{{moduleService.findElementInDetail_V3(['InceptionDate']).$  | dateFilter}} <strong> to </strong> {{moduleService.findElementInDetail_V3(['ExpiryDate']).$  | dateFilter}}
+  </span>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:PolicyStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{::'new.v3.mynewworkspace.motor.policy.label.PolicyStatus' | translate}}:</span>
+        <span class="col-md-6"> {{'v3.policystatus.' + moduleService.findElementInDetail_V3(['DocStatus']).BusinessStatus | translate}}
+     </span>
+    </div>
+</div>
+<!-- Section: Policy Owner -->
+<div fieldId="policy-motor-private-car-m:Title" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <div class="col-xs-4" style="padding-left: 0px; padding-right: 5px;">
+                <label for="ex1">{{::'new.v3.mynewworkspace.motor.policy.label.Title' | translate}}/{{::'new.v3.mynewworkspace.motor.policy.label.FullName' | translate}}</label>
+                <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.pnc.title.enum.' + moduleService.findElementInElement_V3(card.refDetail, ['person:Title']).Value | translate " />
+            </div>
+            <div class="col-xs-8" style="padding-left: 5px; padding-right: 0px;">
+                <label for="ex3">&nbsp;</label>
+                <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInElement_V3(card.refDetail,['person:FullName']).$" />
+            </div>
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:POIDs">
+    <div ng-repeat="item in ::moduleService.POIDs" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+        <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+            <div class="form-group form-group-lg has-success">
+                <div class="col-xs-6" style="padding-left: 0px; padding-right: 5px;">
+                    <label>{{::'new.v3.mynewworkspace.motor.policy.label.IDType' | translate}}/{{::'new.v3.mynewworkspace.motor.policy.label.IDNumber' | translate}}</label>
+                    <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.pnc.idType.enum.' + moduleService.findElement_V3('person:IDType', item).Value | translate " />
+                </div>
+                <div class="col-xs-6" style="padding-left: 5px; padding-right: 0px;">
+                    <label>&nbsp;</label>
+                    <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElement_V3('person:IDNumber', item).$" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:BirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.BirthDate' | translate}}</label>
+            <!-- <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-model="moduleService.findElementInElement_V3(card.refDetail,['person:BirthDate']).$" /> -->
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-model="card.refDetail['person:BirthDate'].$" format-input-date />
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="policy-motor-private-car-m:Mobile" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Mobile</label>
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:Mobile']).$" />
+        </div>
+    </div>
+</div> -->
+<!-- <div fieldId="policy-motor-private-car-m:Home" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Home</label>
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:Home']).$" />
+        </div>
+    </div>
+    
+    {{moduleService.POContacts}}
+</div> -->
+<div fieldId="policy-motor-private-car-m:Home" ng-if="moduleService.findElementInDetail_V3(['PolicyOwner','person:Contacts'])['@counter'] != '0'" ng-repeat="item in ::moduleService.POContacts" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{ 'v3.pnc.contactType.enum.' + item['person:ContactType'].Value |translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-model="::item['person:ContactInformation'].$" />
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="policy-motor-private-car-m:Office" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Office</label>
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:Office']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:EmailAddress" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Email Address</label>
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:EmailAddress']).$" />
+        </div>
+    </div>
+</div> -->
+<div fieldId="policy-motor-private-car-m:Gender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.Gender' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.pnc.gender.enum.' + moduleService.findElementInDetail_V3(['PolicyOwner','person:Gender']).Value | translate" />
+            <!--          <v3-switch-button switch-position="left" prefix="v3.application.motor.race"
+                            switch-model="abc"
+                            switch-default-value="" switch-disabled="viewMode || moduleProspectPersonalService.findElementInDetail_V3(['Gender'])['@editable'] == '0'"
+                            switch-options="race">
+                        </v3-switch-button> -->
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:MarialStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.MaritalStatus' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.pnc.maritalStatus.enum.' + moduleService.findElementInDetail_V3(['PolicyOwner','person:MaritalStatus']).Value | translate" />
+            <!--  <v3-switch-button switch-position="right"  switch-size="" switch-name="gendcxcxer" prefix="v3.application.motor.race"
+                            switch-model="moduleProspectPersonalService.findElementInDetail_V3(['Gender']).Value"
+                            switch-default-value="" switch-disabled="false"
+                            switch-options="race">
+                        </v3-switch-button> -->
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:Nationality" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.Nationality' | translate}}</label>
+            <!--    <select class="form-control" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:Nationality']).Value">
+              <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ProtectedBy','Option'])" 
+              value="{{item.value}}">{{::item.value}}</option>
+            </select> -->
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.pnc.nationality.enum.' + moduleService.findElementInDetail_V3(['PolicyOwner','person:Nationality']).Value | translate" />
+            <!--  <ng-newDropDown ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:Nationality']).Value" filename="nationality_mock" list=" moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Nationality']).Option" type="full-flag" prefix="v3.application.motor.nationality"></ng-newDropDown>
+         -->
+        </div>
+    </div>
+</div>
+<!-- Section: Policy Corresponding address -->
+<div fieldId="policy-motor-private-car-m:AddressType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.AddressType' | translate}}</label>
+            <!-- <select class="form-control" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:AddressType']).Value">
+                <option ng-repeat="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['AddressType']).Option" value="{{item.value}}">{{'v3.pnc.addresssType.enum.'+item.value | translate}}</option>
+            </select> -->
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.pnc.addressType.enum.' +moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'AddressType']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:BlockHouseNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.BlockHouseNo' | translate}} & {{::'new.v3.mynewworkspace.motor.policy.label.Street' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-value="moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'BlkHouseNo']).$ +  ' ' + moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'Street']).$" />
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="policy-motor-private-car-m:Street" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Street<span ng-show="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:Street'])['@mandatory'] == '1'">*</span></label>
+             <input class="form-control" type="text" ng-disabled="true"  ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:Street']).$"/>     
+        </div>
+    </div>
+</div> -->
+<div fieldId="policy-motor-private-car-m:UnitNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.UnitNo' | translate}} & {{::'new.v3.mynewworkspace.motor.policy.label.Building' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-value="moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'UnitNo']).$ + ' ' + moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'Building']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:City" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.City' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'City']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:Country" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.Country' | translate}}</label>
+            <!--    <select class="form-control" ng-disabled="true" ng-disabled="viewMode || moduleService.findElementInElement_V3(address, ['Country'])['@editable'] == '0'" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:Country']).$">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Country']).Option" value="{{item.value}}">{{'v3.pnc.country.enum.'+item.value | translate}}</option>
+            </select> -->
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.pnc.country.enum.' + moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'Country']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:PostalCode" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.PostalCode' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'Postal']).$" />
+        </div>
+    </div>
+</div>
+<!-- Section: Basic Product -->
+<div fieldId="policy-motor-private-car-m:ProductName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10">
+        <div class="form-group form-group-lg has-success">
+            <!-- <div class="col-xs-10" style="padding-left: 0px; padding-right: 5px;">
+                <label for="ex1">{{::'new.v3.mynewworkspace.motor.policy.label.ProductName' | translate}}</label>
+                <input class="form-control" type="text" ng-disabled="true" ng-value=" 'v3.illustration.product.'+  moduleService.findElementInDetail_V3(['Product']) |translate" />
+            </div>
+            <div class="col-xs-2" style="padding-left: 5px; padding-right: 0px;">
+                <label for="ex3">&nbsp;</label>
+                <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElement_V3('person:IDNumber', id).$" />
+            </div> -->
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.ProductName' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-value=" 'v3.illustration.product.'+  moduleService.findElementInDetail_V3(['Product']) |translate" />
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="policy-motor-private-car-m:InceptionDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10">
+        <div class="form-group form-group-lg has-success">
+            <label>Inception Date</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['InceptionDate']).$" format-input-date />
+        </div>
+    </div>
+</div> -->
+<div fieldId="policy-motor-private-car-m:PolicyNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10">
+        <div class="form-group form-group-lg has-success">
+            <div class="col-xs-6" style="padding-left: 0px; padding-right: 5px;">
+                <label for="ex1">{{::'new.v3.mynewworkspace.motor.policy.label.PolicyNumber' | translate}}</label>
+                <input class="form-control" type="text" ng-disabled="true" ng-value=" moduleService.findElementInDetail_V3(['PolicyNo']).$" />
+            </div>
+            <div class="col-xs-6" style="padding-left: 5px; padding-right: 0px;">
+                <label for="ex3">{{::'new.v3.mynewworkspace.motor.policy.label.InceptionDate' | translate}}</label>
+                <div class="ms-calendar-wrapper"><input ms-datepicker ng-disabled = "true" ng-model=" moduleService.findElementInDetail_V3(['InceptionDate']).$" class="ms-calendar"/></div>
+                <!-- <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['InceptionDate']).$  | dateFilter" /> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:IssueDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10">
+        <div class="form-group form-group-lg has-success">
+            <div class="col-xs-6" style="padding-left: 0px; padding-right: 5px;">
+                <label for="ex1">{{::'new.v3.mynewworkspace.motor.policy.label.IssuedDate' | translate}}</label>
+                <div class="ms-calendar-wrapper"><input ms-datepicker ng-disabled = "true" ng-model=" moduleService.findElementInDetail_V3(['IssueDate']).$" class="ms-calendar"/></div>
+                <!-- <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['IssueDate']).$  | dateFilter" /> -->
+            </div>
+            <div class="col-xs-6" style="padding-left: 5px; padding-right: 0px;">
+                <label for="ex3">{{::'new.v3.mynewworkspace.motor.policy.label.ExpiryDate' | translate}}</label>
+                <div class="ms-calendar-wrapper"><input ms-datepicker ng-disabled = "true" ng-model=" moduleService.findElementInDetail_V3(['ExpiryDate']).$" class="ms-calendar"/></div>
+                <!-- <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['ExpiryDate']).$  | dateFilter" /> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="policy-motor-private-car-m:ExpiryDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10">
+        <div class="form-group form-group-lg has-success">
+            <label>Expiry Date</label>
+            <input class="form-control"  format-input-date type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['ExpiryDate']).$" />
+        </div>
+    </div>
+</div> -->
+<div fieldId="policy-motor-private-car-m:PolicyOwner1" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10">
+        <div class="form-group form-group-lg has-success">
+            <div class="col-xs-6" style="padding-left: 0px; padding-right: 5px;">
+                <label for="ex1">{{::'new.v3.mynewworkspace.motor.policy.label.PolicyOwner' | translate}}</label>
+                <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['person:FullName']).$" />
+            </div>
+            <div class="col-xs-6" style="padding-left: 5px; padding-right: 0px;">
+                <label for="ex3">{{::'new.v3.mynewworkspace.motor.policy.label.VehicleNumber' | translate}}</label>
+                <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['motor:VehicleNo']).$" />
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="policy-motor-private-car-m:VehicleNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10">
+        <div class="form-group form-group-lg has-success">
+            <label>Vehicle Number</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['motor:VehicleNo']).$" />
+        </div>
+    </div>
+</div> -->
+<div fieldId="policy-motor-private-car-m:CoverageGrid" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content" style="margin-bottom: 15px;">
+   <!--  <div class="hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-table-content">
+        <div flex layout="row" class="ipos_portlet_table_header_item" layout-align="center center">
+            <div flex="10">{{::'new.v3.mynewworkspace.motor.policy.label.Order' | translate}}</div>
+            <div flex="40">{{::'new.v3.mynewworkspace.motor.policy.label.CoverageName' | translate}}</div>
+            <div flex="30">{{::'new.v3.mynewworkspace.motor.policy.label.SumInsured' | translate}} ({{moduleService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+            <div flex="20">{{::'new.v3.mynewworkspace.motor.policy.label.Premium' | translate}} ({{moduleService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_listRow">
+            <div flex="10">1</div>
+            <div flex="40">{{'v3.motor.privateCarM.CoverageType.'+ moduleService.findElementInDetail_V3(['CoverageType']).Value | translate}}</div>
+            <div flex="30" style="text-align: right; padding-right: 20px;">{{moduleService.findElementInDetail_V3(['SumInsured']).$}}</div>
+            <div flex="20" style="text-align: right; padding-right: 20px;">{{moduleService.findElementInDetail_V3(['AnnualPremium']).$}}</div>
+        </div>
+        <div ng-repeat="item in ::moduleService.AdditionalCoverages" flex layout="row" class="ipos_portlet_table_listRow">
+            <div flex="10">{{$index+2}}</div>
+            <div flex="40">{{'v3.privateCarM.extraCoverage.'+ moduleService.findElement_V3('AdditionalBenefitCode', item).Value | translate}}</div>
+            <div flex="30" style="text-align: right; padding-right: 20px;">{{moduleService.findElement_V3('AdditionalBenefitLimit', item).$}}</div>
+            <div flex="20" style="text-align: right; padding-right: 20px;">{{moduleService.findElement_V3('AdditionalBenefitPremium', item).$}}</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="80">{{::'new.v3.mynewworkspace.motor.policy.label.TotalPremium' | translate}} ({{moduleService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+            <div flex="20" style="text-align: right; padding-right: 20px;">{{moduleService.findElementInDetail_V3(['TotalPremium']).$}}</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="80">{{::'new.v3.mynewworkspace.motor.policy.label.ExtraCharges' | translate}} ({{moduleService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+            <div flex="20" style="text-align: right; padding-right: 20px;">{{moduleService.findElementInDetail_V3(['StampDuty']).$}}</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="80">{{::'new.v3.mynewworkspace.motor.policy.label.TotalPayablePremium' | translate}} ({{moduleService.findElementInDetail_V3(['SICurrency']).Value}}) </div>
+            <div flex="20" style="text-align: right; padding-right: 20px;">{{moduleService.findElementInDetail_V3(['TotalPayablePremium']).$}}</div>
+        </div>
+    </div> -->
+    
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding-left no-padding-right" >
+		<div class="table-responsive">
+			<table class="table v3-responsive-table">
+				<thead>
+            		<tr>
+            			<th style="height: 45px; vertical-align: middle;">{{'new.v3.mynewworkspace.motor.application.label.Order' | translate}}</th>
+			            <th style="height: 45px; vertical-align: middle;">{{'new.v3.mynewworkspace.motor.application.label.CoverageName' | translate}}</th>
+			            <th style="height: 45px; vertical-align: middle;">{{'new.v3.mynewworkspace.motor.application.label.SumInsured' | translate}} ({{moduleService.findElementInDetail_V3(['SICurrency']).Value}})</th>
+			            <th style="height: 45px; vertical-align: middle;">{{'new.v3.mynewworkspace.motor.application.label.Premium' | translate}} ({{moduleService.findElementInDetail_V3(['SICurrency']).Value}})</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			 <td class="center-align">1</td>
+            			 <td class="center-align">{{'v3.motor.privateCarM.CoverageType.'+ moduleService.findElementInDetail_V3(['CoverageType']).Value | translate}}</td>
+            			 <td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['SumInsured']).$ | number:0}}</td>
+            			 <td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['AnnualPremium']).$ | number:2}}</td>
+            		</tr>
+            		<tr ng-repeat="item in moduleService.convertToArray(moduleService.AdditionalCoverages)" ng-if="moduleService.findElement_V3('AdditionalBenefitCode', item).Value">
+            			 <td class="center-align">{{$index+2}}</td>
+            			 <td class="center-align">{{'v3.privateCarM.extraCoverage.'+ moduleService.findElement_V3('AdditionalBenefitCode', item).Value | translate}}</td>
+            			 <td class="v3-currency-alignment">{{moduleService.findElement_V3('AdditionalBenefitLimit', item).$ | number:2}}</td>
+            			 <td class="v3-currency-alignment">{{moduleService.findElement_V3('AdditionalBenefitPremium', item).$ | number:2}}</td>
+            		</tr>
+            		<tr>
+            			<td colspan="3" class="table-alignment-right">{{::'new.v3.mynewworkspace.motor.policy.label.TotalPremium' | translate}} ({{moduleService.findElementInDetail_V3(['SICurrency']).Value}})</td>
+            			<td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['TotalPremium']).$ | number:2}}</td>
+            		</tr>
+            		<tr>
+            			<td colspan="3" class="table-alignment-right">{{::'new.v3.mynewworkspace.motor.policy.label.ExtraCharges' | translate}} ({{moduleService.findElementInDetail_V3(['SICurrency']).Value}})</td>
+            			<td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['StampDuty']).$ | number:2}}</td>
+            		</tr>
+            		<tr>
+            			<td colspan="3" class="table-alignment-right">{{::'new.v3.mynewworkspace.motor.policy.label.TotalPayablePremium' | translate}} ({{moduleService.findElementInDetail_V3(['SICurrency']).Value}})</td>
+            			<td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['TotalPayablePremium']).$ | number:2}}</td>
+            		</tr>
+            	</tbody>
+			</table>
+		</div>
+		</div>
+</div>
+<!-- Section: coverage -->
+<div fieldId="policy-motor-private-car-m:UseofVehicle" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.UseOfVehicle' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-value="'v3.illustration.privatecar.directsale.useofvehicle.' + moduleService.findElementInDetail_V3(['UseOfVehicle']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:GeographyLocation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.GeographicLocation' | translate}}</label>
+            <!-- <select class="form-control" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:GeographyLocation']).Value">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" value="{{item.value}}">{{'v3.pnc.title.enum.'+item.value | translate}}</option>
+            </select> -->
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.motor.privateCarM.location.' + moduleService.findElementInDetail_V3(['GeographicLocation']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:Region" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.Region' | translate}}</label>
+            <!--     <select class="form-control" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:Region']).Value">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" value="{{item.value}}">{{'v3.pnc.title.enum.'+item.value | translate}}</option>
+            </select> -->
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.motor.privateCarM.region.' + moduleService.findElementInDetail_V3(['Region']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:Garage" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.Garage' | translate}}</label>
+            <!--  -->
+            <input class="form-control" type="text" ng-disabled="true" ng-value="'v3.motor.privateCarM.garage.' + moduleService.findElementInDetail_V3(['Garage']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:CIType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.CIType' | translate}}</label>
+            <!--  <select class="form-control" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:CIType']).Value">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ProtectedBy','Option'])" value="{{item.value}}">{{::item.value}}</option>
+            </select> -->
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.motor.privateCarM.cIType.' + moduleService.findElementInDetail_V3(['CIType']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:ExcessType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.ExcessType' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-value="'v3.motor.privateCarM.excessType.' + moduleService.findElementInDetail_V3(['ExcessType']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:ExcessAmount" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.ExcessAmount' | translate}}</label>
+            <input class="form-control" format="number" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['ExcessAmt']).$" />
+        </div>
+    </div>
+</div>
+<!-- Section: vehicle details -->
+<div fieldId="policy-motor-private-car-m:VehicleNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.VehicleNumber' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['motor:VehicleNo']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:MakeModel" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.MakeModel' | translate}}</label>
+            <!-- <select class="form-control" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:MakeModel']).$">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" value="{{item.value}}">{{'v3.pnc.title.enum.'+item.value | translate}}</option>
+            </select> -->
+            <!--   -->
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="moduleService.findElementInDetail_V3(['motor:MakeOrModel']).Value" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:ModelDescription" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.ModelDescription' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['motor:ModelDescription']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:NumberofSeats" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.NumberOfSeats' | translate}}</label>
+            <!-- <select class="form-control" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:NumberofSeats']).Value">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ProtectedBy','Option'])" value="{{item.value}}">{{::item.value}}</option>
+            </select> -->
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-model="moduleService.findElementInDetail_V3(['motor:NoOfSeat']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:Body" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.Body' | translate}}</label>
+            <!--  <select class="form-control" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:Body']).Value">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ProtectedBy','Option'])" value="{{item.value}}">{{::item.value}}</option>
+            </select> -->
+            <!--  -->
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.motor.privateCarM.body.'+ moduleService.findElementInDetail_V3(['motor:Body']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:YearManufactured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.YearOfManufactured' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['motor:YearOfManufacture']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:EngineCapacity" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.EngineCapacity' | translate}}</label>
+            <!-- <select class="form-control" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:EngineCapacity']).Value">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" value="{{item.value}}">{{'v3.pnc.title.enum.'+item.value | translate}}</option>
+            </select> -->
+            <input class="form-control" type="text" format="number" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['motor:EngineCapacity']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:ChassisNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.ChassisNumber' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['motor:ChassisNo']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:PoweredBy" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.PoweredBy' | translate}}</label>
+            <!-- -->
+            <input class="form-control" type="text" ng-disabled="true" ng-value="' v3.motor.privateCarM.powerBy.'+ moduleService.findElementInDetail_V3(['motor:PowerBy']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:EngineMotorNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.EngineMotorNo' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['EngineMotorNo']).$" />
+        </div>
+    </div>
+</div>
+<!-- Section: Policy vehicle other infor -->
+<div fieldId="policy-motor-private-car-m:VehicleClass" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.VehicleClass' | translate}}</label>
+            <!--  <select class="form-control" ng-disabled="true" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['Title'])['@editable']=='0'" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:VehicleClass']).Value">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" value="{{item.value}}">{{'v3.pnc.title.enum.'+item.value | translate}}</option>
+            </select> -->
+            <!--  v3.illustration.motor.sompo.vehicleclass -->
+            <input class="form-control" type="text" ng-disabled="true" ng-value="'v3.product.motor_insurance.VehicleClass.'+moduleService.findElementInDetail_V3(['motor:VehicleClass']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:LogBookNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.LogBookNo' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['motor:LogBookNo']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:SafetyCode" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.SafetyCode' | translate}}</label>
+            <!--  application.motor.safetyCode -->
+            <input class="form-control" type="text" ng-disabled="true" ng-value=" 'v3.motor.privateCarM.safetyCode.' + moduleService.findElementInDetail_V3(['motor:SafetyCode']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:AntiTheftCode" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.AntiTheftCode' | translate}}</label>
+            <!--   -->
+            <input class="form-control" type="text" ng-disabled="true" ng-value="'v3.motor.privateCarM.antiTheftCode.'+moduleService.findElementInDetail_V3(['motor:AntiThefCode']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:PermittedDriver" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.PermittedDriver' | translate}}</label>
+            <!--   -->
+            <input class="form-control" type="text" ng-disabled="true" ng-value="'v3.product.motor_insurance.I_PermittedDriver.'+ moduleService.findElementInDetail_V3(['motor:PermittedDriver']).Value | translate" />
+        </div>
+    </div>
+</div>
+<!-- Section: Financing information -->
+<div fieldId="policy-motor-private-car-m:OwnershipType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.OwnershipType' | translate}}</label>
+            <!--   -->
+            <input class="form-control" type="text" ng-disabled="true" ng-value="'v3.application.moto.sompo.ownershiptype.' + moduleService.findElementInDetail_V3(['OwnershipType']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:FinancialType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.FinancialType' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-value="'v3.application.moto.sompo.financialtype.' + moduleService.findElementInDetail_V3(['FinancialType']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:LoanCompany" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.LoanCompany' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['LoanCompany']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:VehiclePurchaseDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.VehiclePurchasedDate' | translate}}</label>
+            <div class="ms-calendar-wrapper"><input ms-datepicker ng-disabled = "true" ng-model=" moduleService.findElementInDetail_V3(['VehiclePurchaseDate']).$" class="ms-calendar"/></div>
+            <!-- <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['VehiclePurchaseDate']).$  | dateFilter" /> -->
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:PurchasePrice" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.PurchasedPrice' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" format="number" ng-model="moduleService.findElementInDetail_V3(['PurchasePrice']).$" />
+        </div>
+    </div>
+</div>
+<!-- Section: Driver information -->
+<!-- Section: Policy Main Driver -->
+<!-- <div fieldId="policy-motor-private-car-m:MDSalutation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Salutation</label>
+             <select class="form-control" ng-disabled="true" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['Title'])['@editable']=='0'" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:MDSalutation']).Value">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" value="{{item.value}}">{{'v3.pnc.title.enum.'+item.value | translate}}</option>
+            </select>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:MDSalutation']).Value" />
+        </div>
+    </div>
+</div> -->
+<div fieldId="policy-motor-private-car-m:MDFullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.FullName' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['MainDriver','person:FullName']).$" />
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="policy-motor-private-car-m:MDFullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>FullName</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:MDFullName']).$" />
+        </div>
+    </div>
+</div> -->
+<!-- <div fieldId="policy-motor-private-car-m:MDGender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Gender</label>
+            <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+                <v3-switch-new style="float:left;" switch-size="" switch-name="gender" switch-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:MDGender']).Value" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Gender']).Option" switch-disabled="true">
+                </v3-switch-new>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div fieldId="policy-motor-private-car-m:MDIDs">
+    <div ng-repeat="id in ::moduleService.MDIDs" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+        <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+            <div class="form-group form-group-lg has-success">
+                <div class="col-xs-6" style="padding-left: 0px; padding-right: 5px;">
+                    <label for="ex1">{{::'new.v3.mynewworkspace.motor.policy.label.IDType' | translate}}/{{::'new.v3.mynewworkspace.motor.policy.label.IDNumber' | translate}}</label>
+                    <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.pnc.idType.enum.' + moduleService.findElement_V3('person:IDType', id).Value | translate " />
+                </div>
+                <div class="col-xs-6" style="padding-left: 5px; padding-right: 0px;">
+                    <label for="ex3">&nbsp;</label>
+                    <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElement_V3('person:IDNumber', id).$" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:MDGender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.Gender' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.pnc.gender.enum.' + moduleService.findElementInDetail_V3(['MainDriver','person:Gender']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:MDBirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.BirthDate' | translate}}</label>
+            <div class="ms-calendar-wrapper"><input ms-datepicker ng-disabled = "true" ng-model=" moduleService.findElementInDetail_V3(['MainDriver','person:BirthDate']).$" class="ms-calendar"/></div>
+            <!-- <input format-input-date class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['MainDriver','person:BirthDate']).$  | dateFilter" /> -->
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:MDYearDrivingLicenceObtained" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.YearDrivingLicenseObtained' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['MainDriver','MDYearDrivingLicenceObtained']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:MDOccupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.Occupation' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-value="'v3.pnc.occupation.enum.' + moduleService.findElementInDetail_V3(['MainDriver','person:Occupation']).Value | translate" />
+        </div>
+    </div>
+</div>
+<!-- Section: Policy other Driver -->
+<!-- <div fieldId="policy-motor-private-car-m:ODSalutation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Salutation</label>
+            <select class="form-control" ng-disabled="true" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['Title'])['@editable']=='0'" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:ODSalutation']).Value">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" value="{{item.value}}">{{'v3.pnc.title.enum.'+item.value | translate}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:ODFullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>FullName</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:ODFullName']).$" />
+        </div>
+    </div>
+</div>
+ -->
+<div fieldId="policy-motor-private-car-m:ODSalutation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label for="ex1">{{::'new.v3.mynewworkspace.motor.policy.label.FullName' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInElement_V3(card.refDetail, ['person:FullName']).$" />
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="policy-motor-private-car-m:ODGender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Gender</label>
+            <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+                <v3-switch-new style="float:left;" switch-size="" switch-name="gender" switch-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:ODGender']).Value" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Gender']).Option" switch-disabled="true">
+                </v3-switch-new>
+            </div>
+        </div>
+    </div>
+</div>
+ -->
+<div fieldId="policy-motor-private-car-m:ODIDs">
+    <!-- {{moduleService.jsonToArray( card.refDetail ,'person:IDs' , 'person:ID')}}
+{{moduleService.findElement_V3('person:ID', moduleService.jsonToArray( card.refDetail ,'person:IDs' , 'person:ID'))}} -->
+    <div ng-repeat="id in findElementInArrayElement( card.refDetail ,'person:ID')" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+        <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+            <div class="form-group form-group-lg has-success">
+                <div class="col-xs-6" style="padding-left: 0px; padding-right: 5px;">
+                    <label for="ex1">{{::'new.v3.mynewworkspace.motor.policy.label.IDType' | translate}}/{{::'new.v3.mynewworkspace.motor.policy.label.IDNumber' | translate}}</label>
+                    <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.pnc.idType.enum.' + moduleService.findElement_V3('person:IDType', id).Value | translate " />
+                </div>
+                <div class="col-xs-6" style="padding-left: 5px; padding-right: 0px;">
+                    <label for="ex3">&nbsp;</label>
+                    <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElement_V3('person:IDNumber', id).$" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:ODGender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.Gender' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.pnc.gender.enum.' + moduleService.findElementInElement_V3(card.refDetail, ['person:Gender']).Value | translate" />
+            <!--  <div flex-sm="100" flex-md="100" layout="row" layout-align="start start" flex>
+                    <v3-switch-new style="float:left;" switch-size="" switch-name="MarStat" switch-disabled="true" switch-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:MarialStatus']).Value" switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['MaritalStatus'])['@editable'] == '0'" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['MaritalStatus']).Option">
+                    </v3-switch-new>
+                    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MaritalStatus']).errorMessage | translate"></span>
+                </div> -->
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:ODBirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.BirthDate' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInElement_V3(card.refDetail,['person:BirthDate']).$  | dateFilter" />
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="policy-motor-private-car-m:ODMarialStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Married Status</label>
+            <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.pnc.maritalStatus.enum.' + moduleService.findElementInElement_V3(card.refDetail,['person:MaritalStatus']).Value | translate" />
+               <v3-switch-new style="float:left;" switch-size="" switch-name="MarStat" switch-disabled="true" switch-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:MDMarialStatus']).Value" switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['MaritalStatus'])['@editable'] == '0'" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['MaritalStatus']).Option">
+                    </v3-switch-new>
+        </div>
+    </div>
+</div> -->
+<div fieldId="policy-motor-private-car-m:ODYearDrivingLicenceObtained" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.YearDrivingLicenseObtained' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInElement_V3(card.refDetail,['ODYearDrivingLicenceObtained']).$" />
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="policy-motor-private-car-m:ODMarialStatus" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-padding-left-0">
+        <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+            <div class="form-group form-group-lg has-success">
+                <label>Marital Status</label>
+                <div flex-sm="100" flex-md="100" layout="row" layout-align="start start" flex>
+                    <v3-switch-new style="float:left;" switch-size="" switch-name="MarStat" switch-disabled="true" switch-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:ODMarialStatus']).Value" switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['MaritalStatus'])['@editable'] == '0'" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['MaritalStatus']).Option">
+                    </v3-switch-new>
+                    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MaritalStatus']).errorMessage | translate"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div fieldId="policy-motor-private-car-m:OOccupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.Occupation' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-value="'v3.pnc.occupation.enum.' +moduleService.findElementInElement_V3(card.refDetail,['person:Occupation']).Value | translate" />
+        </div>
+    </div>
+</div>
+<!-- Section: Policy NCD Source -->
+<div fieldId="policy-motor-private-car-m:NCDForm" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.NCDFrom' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['NCDFrom']).Value" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:NCDVehicleNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.NCDVehicleNo' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['NCDVehicleNo']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:PrevPolicyNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.PrevPolicyNo' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['PreviousPolicyNo']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:PrevPolicyEffDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.PrevPolicyEffDate' | translate}}</label>
+            <input class="form-control" type="text" format-input-date ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['PreviousPolicyEffectiveDate']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:PrevPolicyExpDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.PrevPolicyExpDate' | translate}}</label>
+            <input class="form-control" type="text" format-input-date ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['PreviousPolicyExpiryDate']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:NCDAllow" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.NCDAllow' | translate}}</label>
+            <!--  v3.NCDAllowed. -->
+            <input class="form-control" type="text" ng-disabled="true" ng-value="moduleService.findElementInDetail_V3(['NCDAllowed']).Value + ' %'" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:NCDEffDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.NCDEffDate' | translate}}</label>
+            <input class="form-control" type="text" format-input-date ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['NCDEffectivedate']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:NoofClaimForLast3Years" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.NoOfClaims' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['NoOfClaim']).$" />
+        </div>
+    </div>
+</div>
+<!-- Section: Policy Interest Party -->
+<!-- <div fieldId="policy-motor-private-car-m:IFullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>FullName</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInElement_V3(card.refDetail,['FullName']).$" />
+        </div>
+    </div>
+</div> -->
+<!-- <div fieldId="policy-motor-private-car-m:IPartyType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Party Type</label>
+            v3.partytype
+            <input class="form-control" type="text" ng-disabled="true" ng-value="'v3.partytype.'+moduleService.findElementInElement_V3(card.refDetail,['PartyType']).Value | translate" />
+            <select class="form-control" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:IPartyType']).Value">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" value="{{item.value}}">{{'v3.pnc.title.enum.'+item.value | translate}}</option>
+            </select>
+        </div>
+    </div>
+</div> -->
+<div fieldId="policy-motor-private-car-m:IRelationship" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.Relationship' | translate}}</label>
+            <!-- <select class="form-control" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:IRelationship']).Value">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" value="{{item.value}}">{{'v3.pnc.title.enum.'+item.value | translate}}</option>
+            </select> -->
+            <!--  -->
+            <input class="form-control" type="text" ng-disabled="true" ng-value="'v3.application.motor.relationship.'+ moduleService.findElementInElement_V3(card.refDetail,['Relationship']).Value | translate" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:IClientNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <div class="col-xs-6" style="padding-left: 0px; padding-right: 5px;">
+                <label for="ex1">{{::'new.v3.mynewworkspace.motor.policy.label.ClientNumber' | translate}}</label>
+                <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInElement_V3(card.refDetail, ['ClientNumber']).$" />
+            </div>
+            <div class="col-xs-6" style="padding-left: 5px; padding-right: 0px;">
+                <label for="ex3">{{::'new.v3.mynewworkspace.motor.policy.label.FullName' | translate}}</label>
+                <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInElement_V3(card.refDetail,['FullName']).$" />
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Section: Policy Clause -->
+<div fieldId="policy-motor-private-car-m:ClauseDetail" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+        <!--  <label>Clause Detail<span ng-show="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:ClauseDetail'])['@mandatory'] == '1'">*</span></label> -->
+        <label>{{::'new.v3.mynewworkspace.motor.policy.label.Clause' | translate}}</label>
+        <input class="form-control" type="text" ng-disabled="true" style="cursor: pointer" ng-value="'v3.privateCarM.clause.' + moduleService.findElementInElement_V3(card.refDetail,['Clause']).Value | translate" />
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:IssueDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.IssueDate' | translate}}</label>
+            <input class="form-control" type="text" format-input-date ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:IssueDate']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:BillingCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.BillingCurrency' | translate}}</label>
+            <select class="form-control" ng-disabled="true" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['Title'])['@editable']=='0'" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:BillingCurrency']).$">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" value="{{item.value}}">{{'v3.pnc.title.enum.'+item.value | translate}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:ContactCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.ContractCurrency' | translate}}</label>
+            <select class="form-control" ng-disabled="true" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['Title'])['@editable']=='0'" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:ContactCurrency']).Value">
+                <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" value="{{item.value}}">{{'v3.pnc.title.enum.'+item.value | translate}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+<!-- Claim history -->
+ <div fieldId="policy-motor-private-car-m:ClaimPolicyId" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.PolicyNumber' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-value=" moduleService.findElementInDetail_V3(['PolicyNo']).$" />
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="policy-motor-private-car-m:ClaimClientId" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Claim Number</label>
+            <input class="form-control" type="text" ng-model="query.claimId">
+        </div>
+    </div>
+</div> -->
+<!-- <div fieldId="policy-motor-private-car-m:ClaimClaimant" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Claimant</label>
+            <input class="form-control" type="text" ng-model="query.fullName">
+        </div>
+    </div>
+</div> -->
+<!-- <div fieldId="policy-motor-private-car-m:ClaimClaimType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Claim Type</label>
+            <input class="form-control" type="text" ng-model="query.cnttype">
+             <ng-newDropDown prefix= "v3.claimType" disable="false"
+				model="SearchType.Value"
+		   		list="claimType" 
+		   		type="nonFlag" prefix=""></ng-newDropDown>
+        </div>
+    </div>
+</div> -->
+
+<div fieldId="policy-motor-private-car-m:ClaimByFrom" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.SearchBy' | translate}}</label>
+            <ng-newDropDown prefix= "v3.mynewworkspace.portlet.label.policy" disable="false"
+				model="SearchBy.Value"
+		   		list="listSearchBy" 
+		   		type="nonFlag" prefix=""></ng-newDropDown>
+        </div>
+    </div>
+    
+</div>
+<div fieldId="policy-motor-private-car-m:ClaimFrom" ng-if="SearchBy.Value.Value"  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.From' | translate}}</label>
+             <div class="ms-calendar-wrapper">
+                <input ms-datepicker ng-model="query.dateFrom" class="ms-calendar" />
+            </div>
+        </div>
+    </div>
+</div>
+ <div fieldId="policy-motor-private-car-m:ClaimTo" ng-if="SearchBy.Value.Value"  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.To' | translate}}</label>
+            <div class="ms-calendar-wrapper">
+                <input ms-datepicker ng-model="query.dateTo" class="ms-calendar" />
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div fieldId="policy-motor-private-car-m:ClaimSearch" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+        <button class="btn btn-lg v3-btn-primary" ng-click="searchClaim()">{{::'new.v3.mynewworkspace.motor.policy.label.Search' | translate}}</button>&nbsp;
+        <button class="btn btn-lg v3-btn-primary" ng-click="clearSearch()">{{::'new.v3.mynewworkspace.motor.policy.label.Cancel' | translate}}</button>
+    </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:ClaimTable" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-table-content">
+    <div class="form-group form-group-lg has-success">
+        <div flex layout="row" class="ipos_portlet_table_header_item" layout-align="center center">
+            
+            <div flex>{{::'new.v3.mynewworkspace.motor.policy.label.Claimant' | translate}}</div>
+            <div flex>{{::'new.v3.mynewworkspace.motor.policy.label.ClaimNumber' | translate}}</div>
+      
+            <div flex="30">{{::'new.v3.mynewworkspace.motor.policy.label.ClaimType' | translate}}</div>
+            <div flex>{{::'new.v3.mynewworkspace.motor.policy.label.DateOfLoss' | translate}}</div>
+            <div flex>{{::'new.v3.mynewworkspace.motor.policy.label.ReportDate' | translate}}</div>
+            <div flex>{{::'new.v3.mynewworkspace.motor.policy.label.Incurred' | translate}} ({{moduleService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+            <div flex="5">{{::'new.v3.mynewworkspace.motor.policy.label.View' | translate}}</div>
+        </div>
+        <div align="center" class="error" ng-if="!claimsHistoryLists">{{::'new.v3.common.message.ThereIsNoData' | translate}}</div>
+        <div ng-repeat="item in claimsHistoryLists" flex layout="row" class="ipos_portlet_table_listRow">
+      
+            <div flex>{{item.fullName}}</div>
+                  <div flex>{{item.claimId}}</div>
+            <div flex="30">{{'v3.claimType.'+ item.cnttype |translate}}</div>
+            <div flex>{{item.lossDate | dateFilter}}</div>
+            <div flex>{{item.reportDate | dateFilter}}</div>
+            <div flex>{{  item.incr  }}</div>
+            <div flex="5"><div ng-click="openDocumentFromMetaList(item)" flex class="uploadfile-conatiner"><i class="fa fa-search ipos_portlet_table_header_icon-elippsis"></i></div></div>
+        </div>
+    </div>
+</div>
+<!-- 
+
+<div fieldId="policy-motor-private-car-m:VehicleType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"> 
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Vehicle Type<span ng-show="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:VehicleType'])['@mandatory'] == '1'">*</span></label>
+            <select class="form-control" ng-disabled="true" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['Title'])['@editable']=='0'"
+                  ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:VehicleType']).Value">
+              <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" value="{{item.value}}">{{'v3.pnc.title.enum.'+item.value | translate}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:CoverageType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"> 
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Coverage Type<span ng-show="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:CoverageType'])['@mandatory'] == '1'">*</span></label>
+            <select class="form-control" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:CoverageType']).Value">
+               <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" value="{{item.value}}">{{'v3.pnc.title.enum.'+item.value | translate}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:SumInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Sum Insured<span ng-show="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:SumInsured'])['@mandatory'] == '1'">*</span></label>
+             <input class="form-control" type="text" ng-disabled="true"  ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:SumInsured']).$"/>     
+        </div>
+    </div>
+</div>
+
+Section: Policy Vehicle information
+
+
+
+
+
+
+<div fieldId="policy-motor-private-car-m:GoodCarriedByVehicle" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"> 
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>Good Carried By Vehicle<span ng-show="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:GoodCarriedByVehicle'])['@mandatory'] == '1'">*</span></label>
+            <select class="form-control" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:GoodCarriedByVehicle']).Value">
+              <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ProtectedBy','Option'])" 
+              value="{{item.value}}">{{::item.value}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+
+ -->
+<!-- Section: Policy Extra coveragre -->
+<div fieldId="policy-motor-private-car-m:ExtraCoverageDetail" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.ExtraCoverage' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:ExtraCoverageDetail']).$" />
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:ExSumInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.SumInsured' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:ExSumInsured']).$" pos-autonumeric decimal="0"/>
+        </div>
+    </div>
+</div>
+<div fieldId="policy-motor-private-car-m:ExPremiumClass" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.motor.policy.label.PremiumClass' | translate}}</label>
+            <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['policy-motor-private-car-m:ExPremiumClass']).Value" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="col-xs-12">
+	<div class="col-xs-12 v3-padding-0 section-padding">
+    	<div class="card-element section-card-item {{card.cssClass}}" name="{{card.name}}" ng-mouseenter="card.show = true" ng-mouseleave="card.show = false">			
+			<div class="col-xs-12 v3-padding-0">
+				<span class="section-card-icon-left">
+					<div class="col-xs-1 col-xs-offset-4 v3-padding-0">
+						<div ng-if="card.isShowValidationIcon == true">
+							<span ng-switch on="card.validStatus">
+								<i class="fa fa-check-circle" ng-switch-when="VALID"></i> <i
+								class="fa fa-exclamation-circle" ng-switch-when="INVALID"></i>
+							</span>
+						</div>
+					</div>
+				</span> 
+				<span class="section-card-icon-right">
+	        		<i ng-if="card.icon.subAction" class="fa fa-trash section-icon" ng-if="card.parent.refDetail['@counter'] > card.parent.refDetail['@minOccurs']" ng-click="closeChildCards(card.level); removeCard(card, $index); $event.stopPropagation()"></i>
+	        		<i ng-if="(card.icon.mainAction==null || card.icon==null) && !card.isSelected" class="fa fa-chevron-down section-icon"></i>
+        			<i ng-if="(card.icon.mainAction==null || card.icon==null) && card.isSelected" class="fa fa-chevron-up section-icon"></i>        			
+        			<i ng-if="card.icon.mainAction" class="fa fa-plus section-icon"></i> 
+	          </span>	        	
+	        </div>
+	        
+	        <!-- Card Title -->
+	        <h5 class="v3-card-title v3-auto-text-ellipsis-2">  
+	          <span class="section-card-detail" title="{{'v3.mynewworkspace.portlet.label.'+ card.name| translate}}">
+	                {{'v3.mynewworkspace.portlet.label.'+ card.name | translate}} 
+	          </span>
+	        </h5>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,624 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Business Module -->
+<!-- Data Model -->
+<div fieldId="ipos-admin:Prospect_Table" class="container-fluid v3-padding-left-0 ">
+    <div class="header-session-detail admin-config-text-size">
+        <span id="valueId"><i style="padding-right: 7px;" class="fa fa-file-excel-o fa-lg"></i>{{'v3.adminconfiguration.label.DataModel' | translate}}</span>
+        <span id="valueId" class="dataModelProspectToggle float-icon-right-hide-show" ng-click="toogleElement('dataModelProspect','dataModelProspectToggle')" tabindex="0"><i class="fa fa-chevron-down fa-lg"></i></span>
+    </div>
+    <div layout="column" flex>
+        <div class=" hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-table-content">
+            <div flex layout="row" class="ipos_portlet_table_header_item" layout-align="center center">
+                <div flex>{{'v3.adminconfiguration.label.OriginalFileName' | translate}}</div>
+                <div flex>{{'v3.adminconfiguration.label.FileExtension' | translate}}</div>
+                <div flex>{{'v3.adminconfiguration.label.FileSize' | translate}}</div>
+                <div flex>{{'v3.adminconfiguration.label.UpdateDate' | translate}}</div>
+                <div flex>{{'v3.adminconfiguration.label.UploadedBy' | translate}}</div>
+                <div flex>{{'v3.adminconfiguration.label.Action' | translate}}</div>
+            </div>
+            <div ng-if="moduleProspectService.detail != undefined " flex layout="row" class="ipos_portlet_table_listRow">
+                <div flex>{{ moduleProspectService.propsectInfor['@filename'] | trimtext:false:26:'...'}}</div>
+                <div flex>{{ getFileExtension(moduleProspectService.propsectInfor['@filename'])}}</div>
+                <div flex>N/A</div>
+                <div flex>{{ moduleProspectService.propsectInfor['@seeddate']}}</div>
+                <div flex>{{'v3.adminconfiguration.label.Admin' | translate}}</div>
+                <div flex layout="row">
+                    <div flex class="uploadfile-conatiner" ng-click="edit('prospect')">
+                        <i class="fa fa-upload ipos_portlet_table_header_icon-elippsis"></i>
+                        <input id="uploadBtn1" type="file" class="uploadfile-input" ng-file-select="multiUploadService.onFileSelectAdminConfig($files,'prospect')" accept=".xml" />
+                    </div>
+                    <div flex class="uploadfile-conatiner"> <i class="fa fa-download ipos_portlet_table_header_icon-elippsis"></i></div>
+                    <div flex class="uploadfile-conatiner"><i class="fa fa-list-alt ipos_portlet_table_header_icon-elippsis"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="isEditProspect==true">
+        <div ng-repeat="file in multiUploadService.files" class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-column-content">
+            <div class=" col-xs-12 v3-column-content">
+                <div class="form-group form-group-lg has-success">
+                    <div class="col-xs-6" style="padding-left: 0px; padding-right: 0px;">
+                        <label>{{'v3.adminconfiguration.label.Title' | translate}} <i>({{'v3.adminconfiguration.label.asitisappeared' | translate}})</i></label>
+                        <input type="text" class="form-control col-xs-4" ng-model="file.desc" style="width: 100% !important; margin-bottom: 0px !important;" />
+                    </div>
+                    <div class="col-xs-6" style="top: 30px;">
+                        <button class="btn btn-lg v3-btn-primary" ng-click="doUpload('prospect')" ng-disabled="file.validate !=''">{{'v3.adminconfiguration.label.Upload' | translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div fieldId="ipos-admin:DocType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'v3.adminconfiguration.label.ipos-admin:DocType' | translate}}</label>
+             <ng-newDropDown disable="false" model="docType" list="UIDoctypeList" type="nonFlag" more-action="getProductList(docType.Value)" prefix="v3.adminconfiguration.option"></ng-newDropDown>
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="ipos-admin:ProductName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'v3.adminconfiguration.label.ipos-admin:ProductName' | translate}}</label>
+             <ng-newDropDown disable="false" model="fileName" list="UIproductList"  type="nonFlag" prefix="v3.illustration.product"></ng-newDropDown>
+        </div>
+    </div>
+</div> -->
+<div fieldId="ipos-admin:BusinessType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'v3.adminconfiguration.label.ipos-admin:BusinessType' | translate}}</label>
+            <ng-newDropDown disable="fileName.Value == ''"
+         model="businessType"
+         list="UIBusinessTypeList" 
+         type="nonFlag" prefix="v3.adminconfiguration.option"></ng-newDropDown>
+            </div>
+    </div>
+</div>
+<div fieldId="ipos-admin:ChooseFile" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+        <label>&nbsp; </label>
+            <button class="btn btn-lg v3-btn-primary" type="file" ng-click="edit('uiDataModel')" ng-file-select="multiUploadService.onFileSelectAdminConfig($files)" accept=".json">{{'v3.adminconfiguration.label.ChooseNoneFile' | translate}}</button>&nbsp;
+     		<button class="btn btn-lg v3-btn-primary" type="file" ng-click="edit('allUiDataModel')" ng-multiple="true" ng-file-select="multiUploadService.onFileSelectAdminConfig($files)" accept=".json">{{'v3.adminconfiguration.label.ChooseMultiFile' | translate}}</button>
+     
+            </div>
+    </div>
+</div>
+<div fieldId="ipos-admin:UiDataModel" class="container-fluid v3-padding-left-0 ">
+ <!--    <div class="header-session-detail admin-config-text-size">
+        <span id="valueId"><i style="padding-right: 7px;" class="fa fa-file-excel-o fa-lg"></i>{{'v3.adminconfiguration.label.UiDataModel' | translate}}</span>
+        <span id="valueId" class="dataModelProspectToggle float-icon-right-hide-show" ng-click="toogleElement('dataModelProspect','dataModelProspectToggle')" tabindex="0"><i class="fa fa-chevron-down fa-lg"></i></span>
+    </div> -->
+   <!--  <div layout="column" flex>
+        <div class=" hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-table-content">
+            <div flex layout="row" class="ipos_portlet_table_header_item" layout-align="center center">
+                <div flex>{{'v3.adminconfiguration.label.OriginalFileName' | translate}}</div>
+                <div flex>UI </div>
+                <div flex>{{'v3.adminconfiguration.label.FileSize' | translate}}</div>
+                <div flex>{{'v3.adminconfiguration.label.UpdateDate' | translate}}</div>
+                <div flex>{{'v3.adminconfiguration.label.UploadedBy' | translate}}</div>
+                <div flex>{{'v3.adminconfiguration.label.Action' | translate}}</div>
+            </div>
+            <div flex layout="row" class="ipos_portlet_table_listRow">
+                <div flex>{{ moduleProspectService.propsectInfor['@filename'] | trimtext:false:26:'...'}}</div>
+                <div flex>JSON</div>
+                <div flex>N/A</div>
+                <div flex>{{ moduleProspectService.propsectInfor['@seeddate']}}</div>
+                <div flex>{{'v3.adminconfiguration.label.Admin' | translate}}</div>
+                <div flex layout="row">
+                    <div flex class="uploadfile-conatiner" ng-click="edit('uiDataModel')">
+                        <i class="fa fa-upload ipos_portlet_table_header_icon-elippsis"></i>
+                        <input id="uploadBtn1" type="file" class="uploadfile-input" ng-file-select="multiUploadService.onFileSelectAdminConfig($files)" accept=".json" />
+                    </div>
+                    <div flex class="uploadfile-conatiner" ng-click="edit('allUiDataModel')">
+                        <i class="fa fa-upload ipos_portlet_table_header_icon-elippsis"></i>
+                        <input id="uploadBtn2" type="file" class="uploadfile-input" ng-multiple="true" ng-file-select="multiUploadService.onFileSelectAdminConfig($files)" accept=".json" />
+                    </div>
+                    <div flex class="uploadfile-conatiner"><i class="fa fa-list-alt ipos_portlet_table_header_icon-elippsis"></i></div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div ng-show="isEditUiDataModel==true">
+        <div ng-repeat="file in multiUploadService.files" class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-column-content">
+            <div class=" col-xs-12 v3-column-content" style="margin-left: 4.5%;">
+                <div class="form-group form-group-lg has-success">
+                    <div class="col-xs-6" style="padding-left: 0px; padding-right: 0px;">
+                        <label>{{'v3.adminconfiguration.label.Title' | translate}} <i>({{'v3.adminconfiguration.label.asitisappeared' | translate}})</i></label>
+                        <input type="text" class="form-control col-xs-4" ng-model="file.desc" style="width: 100% !important; margin-bottom: 0px !important;" />
+                    </div>
+                    <div class="col-xs-6" style="top: 22px;">
+                        <button class="btn btn-lg v3-btn-primary" ng-click="doUpload('uiDataModel')" ng-disabled="file.validate !=''">{{'v3.adminconfiguration.label.Upload' | translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="!isEditAllUiDataModel">
+        <div class=" col-xs-12 v3-column-content" style="margin-left: 4.5%;">
+            <div class="form-group form-group-lg has-success">
+ 
+                <div class="col-xs-6" style="top: 22px;">
+                    <button class="btn btn-lg v3-btn-primary" ng-click="doUploadAllFile()">{{'v3.adminconfiguration.label.Upload' | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Quotation -->
+<div fieldId="ipos-admin:Quotation_Table" class="container-fluid v3-padding-left-0 ">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-padding-left-0">
+            <div class="col-xs-10 v3-column-content">
+                <div class="form-group form-group-lg has-success">
+                    <label>{{'v3.adminconfiguration.label.Pleaseselectaproduct' | translate}}</label>
+                    <select class="form-control" ng-change="getDocumentConfigurationFile_V3(moduleService, quotationProductName.value)" ng-model="quotationProductName.value">
+                        <option ng-repeat="item in moduleService.productList" value="{{item.productId}}">{{'v3.illustration.product.'+item.productId | translate}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="quotationProductName.value!=''">
+        <div ng-if="quotationProductName.value=='motor-private-car-m-as' || quotationProductName.value=='motor-private-car-m-ds'">
+            <div flex>
+                <div class="header-session-detail admin-config-text-size">
+                    <span id="valueId">
+						<i style="padding-right: 7px;" class="fa fa-file-excel-o fa-lg">
+						</i>{{'v3.adminconfiguration.label.DataModel' | translate}}
+					</span>
+                    <span id="valueId" class="dataModelBIToggle float-icon-right-hide-show" ng-click="toogleElement('dataModelBI','dataModelBIToggle')" tabindex="0">
+						<i class="fa fa-chevron-down fa-lg">
+						</i>
+					</span>
+                </div>
+                <div layout="column" flex class="dataModelBI">
+           
+                    <div class="hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-table-content">
+                        <div flex layout="row" class="ipos_portlet_table_header_item" layout-align="center center">
+                            <div flex>{{'v3.adminconfiguration.label.OriginalFileName' | translate}}</div>
+                            <div flex>{{'v3.adminconfiguration.label.FileExtension' | translate}}</div>
+                            <div flex>{{'v3.adminconfiguration.label.FileSize' | translate}}</div>
+                            <div flex>{{'v3.adminconfiguration.label.UpdateDate' | translate}}</div>
+                            <div flex>{{'v3.adminconfiguration.label.UploadedBy' | translate}}</div>
+                            <div flex>{{'v3.adminconfiguration.label.Action' | translate}}</div>
+                        </div>
+                        <div ng-show="moduleService.detail != undefined" flex layout="row" class="ipos_portlet_table_listRow">
+                            <div flex title="{{ moduleService.findElementInElement_V3(moduleService.detail, ['ipos-system:sample-xml'])['@filename']}}">{{ moduleService.findElementInElement_V3(moduleService.detail, ['ipos-system:sample-xml'])['@filename'] | trimtext:false:26:'...'}}</div>
+                            <div flex>{{ getFileExtension(moduleService.findElementInElement_V3(moduleService.detail, ['ipos-system:sample-xml'])['@filename'])}}</div>
+                            <div flex>N/A</div>
+                            <div flex>{{ moduleService.findElementInElement_V3(moduleService.detail, ['ipos-system:sample-xml'])['@seeddate']}}</div>
+                            <div flex>{{'v3.adminconfiguration.label.Admin' | translate}}</div>
+                            <div flex layout="row">
+                                <div flex class="uploadfile-conatiner" ng-click="edit('quotationDataModel')">
+                                    <i class="fa fa-upload ipos_portlet_table_header_icon-elippsis"></i>
+                                    <input id="uploadBtn1" type="file" class="uploadfile-input" ng-file-select="multiUploadService.onFileSelectAdminConfig($files,'quotationDataModel')" accept=".xml" />
+                                </div>
+                                <div flex class="uploadfile-conatiner"> <i class="fa fa-download ipos_portlet_table_header_icon-elippsis"></i></div>
+                                <div flex class="uploadfile-conatiner"><i class="fa fa-list-alt ipos_portlet_table_header_icon-elippsis"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--        </div>
+                        </div>
+                    </div> -->
+                    <div ng-show="isEditQuotationDataModel==true">
+                        <div ng-repeat="file in multiUploadService.files" class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-column-content">
+                            <div class=" col-xs-12 v3-column-content">
+                                <div class="form-group form-group-lg has-success">
+                                    <div class="col-xs-6" style="padding-left: 0px; padding-right: 0px;">
+                                        <label>{{'v3.adminconfiguration.label.Title' | translate}} <i>({{'v3.adminconfiguration.label.asitisappeared' | translate}})</i></label>
+                                        <input type="text" class="form-control col-xs-4" ng-model="file.desc" style="width: 100% !important; margin-bottom: 0px !important;" />
+                                    </div>
+                                    <div class="col-xs-6" style="top: 30px;">
+                                        <button class="btn btn-lg v3-btn-primary" ng-click="doUpload('quotationDataModel')" ng-disabled="file.validate !=''">{{'v3.adminconfiguration.label.Upload' | translate}}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-session-detail admin-config-text-size">
+                    <span id="valueId">
+						<i style="padding-right: 7px;" class="fa fa-file-pdf-o fa-lg">
+						</i>{{'v3.adminconfiguration.label.ReportTemplate' | translate}}
+					</span>
+                    <span id="valueId" class="reportTemplateBIToggle float-icon-right-hide-show" ng-click="toogleElement('reportTemplateBI','reportTemplateBIToggle')" tabindex="0">
+						<i class="fa fa-chevron-down fa-lg">
+						</i>
+					</span>
+                </div>
+                <div layout="column" flex class="reportTemplateBI">
+                    <div class="row-fluid">
+                        <div flex class="admin-config-text-size">
+                            <div class="row-fluid span12">
+                                <div class="documentcenter">
+                                    <div flex layout="row" class="ipos_portlet_table_header_item md-whiteframe-z1" layout-align="center center" style="line-height: 20px">
+                                        <div flex>{{'v3.adminconfiguration.label.OriginalFileName' | translate}}</div>
+                                        <div flex>{{'v3.adminconfiguration.label.FileExtension' | translate}}</div>
+                                        <div flex>{{'v3.adminconfiguration.label.FileSize' | translate}}</div>
+                                        <div flex>{{'v3.adminconfiguration.label.UpdateDate' | translate}}</div>
+                                        <div flex>{{'v3.adminconfiguration.label.UploadedBy' | translate}}</div>
+                                        <div flex>{{'v3.adminconfiguration.label.Action' | translate}}</div>
+                                    </div>
+                                    <div ng-show="moduleProspectService.detail != undefined" flex layout="row" class="ipos_portlet_table_listRow">
+                                        <div flex title="{{ moduleService.findElementInElement_V3(moduleProspectService.detail, ['ipos-system:sample-xml'])['@filename']}}">{{ moduleService.findElementInElement_V3(moduleProspectService.detail, ['ipos-system:sample-xml'])['@filename'] | trimtext:false:26:'...'}}</div>
+                                        <div flex>{{ getFileExtension(moduleService.findElementInElement_V3(moduleProspectService.detail, ['ipos-system:sample-xml'])['@filename'])}}</div>
+                                        <div flex>N/A</div>
+                                        <div flex>{{ moduleService.findElementInElement_V3(moduleProspectService.detail, ['ipos-system:sample-xml'])['@seeddate']}}</div>
+                                        <div flex>{{'v3.adminconfiguration.label.Admin' | translate}}</div>
+                                        <div flex>
+                                            <a class="pointer dropdown_action_disabled" ng-click="edit('quotationReportTemplate')" tooltips tooltip-title="Edit" tooltip-side="bottom" tooltip-size="medium">
+                                                <span id="valueId">
+													<i class="fa fa-upload ipos_portlet_table_header_icon-elippsis">
+													</i>
+												</span>
+                                            </a> &nbsp;
+                                            <a class="pointer dropdown_action_disabled" tooltips tooltip-title="Delete" tooltip-side="bottom" tooltip-size="medium">
+                                                <span id="valueId">
+													<i class="fa fa-trash-o ipos_portlet_table_header_icon-elippsis">
+													</i>
+												</span>
+                                            </a> &nbsp;
+                                            <a class="pointer dropdown_action_disabled" tooltips tooltip-title="Download" tooltip-side="bottom" tooltip-size="medium">
+                                                <span id="valueId">
+													<i class="fa fa-download ipos_portlet_table_header_icon-elippsis">
+													</i>
+												</span>
+                                            </a> &nbsp;
+                                            <a class="pointer dropdown_action_disabled" tooltips tooltip-title="Manage Versions" tooltip-side="bottom" tooltip-size="medium">
+                                                <span id="valueId">
+													<i class="fa fa-list-alt ipos_portlet_table_header_icon-elippsis">
+													</i>
+												</span>
+                                            </a> &nbsp;
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="isEditQuotationReportTemplate==true">
+                        <div layout="row" flex layout-align="center center" style="margin-top: 5px;">
+                            <div class="row-fluid span10" ng-repeat="file in multiUploadService.files">
+                                <div class="span3" style="text-align: right;">
+                                    <span>{{'v3.adminconfiguration.label.Title' | translate}} <i>({{'v3.adminconfiguration.label.asitisappeared' | translate}})</i></span>
+                                </div>
+                                <div class="span3" style="background-color: white !important">
+                                    <div flex layout="row">
+                                        <input class="form-control" type="text" ng-model="file.desc" style="width: 100% !important; margin-bottom: 0px !important;" />
+                                    </div>
+                                </div>
+                                <div class="span2">
+                                    <md-button class="fileUpload hover_button ipos_lower_button_letter" ng-click="doUpload('quotationReportTemplate')" ng-disabled="file.validate !=''">{{'v3.adminconfiguration.label.Upload' | translate}}</md-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-session-detail admin-config-text-size">
+                    <span id="valueId">
+						<i style="padding-right: 7px;" class="fa fa-file-o fa-lg">
+						</i>
+						{{'v3.adminconfiguration.label.ComputeEngine' | translate}}
+					</span>
+                    <span id="valueId" class="computeEngineBIToggle float-icon-right-hide-show" ng-click="toogleElement('computeEngineBI','computeEngineBIToggle')" tabindex="0">
+						<i class="fa fa-chevron-down fa-lg">
+						</i>
+					</span>
+                </div>
+                <div layout="column" flex class="computeEngineBI">
+
+                    <div class="hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-table-content">
+                        <div flex layout="row" class="ipos_portlet_table_header_item" layout-align="center center">
+                            <div flex>{{'v3.adminconfiguration.label.OriginalFileName' | translate}}</div>
+                            <div flex>{{'v3.adminconfiguration.label.FileExtension' | translate}}</div>
+                            <div flex>{{'v3.adminconfiguration.label.FileSize' | translate}}</div>
+                            <div flex>{{'v3.adminconfiguration.label.UpdateDate' | translate}}</div>
+                            <div flex>{{'v3.adminconfiguration.label.UploadedBy' | translate}}</div>
+                            <div flex>{{'v3.adminconfiguration.label.Action' | translate}}</div>
+                        </div>
+                        <div ng-show="moduleService.detail != undefined" flex layout="row" class="ipos_portlet_table_listRow">
+                            <div flex title="{{ moduleService.findElementInElement_V3(moduleService.detail, ['ipos-system:engine-runtime'])['@filename']}}">{{ moduleService.findElementInElement_V3(moduleService.detail, ['ipos-system:engine-runtime'])['@filename'] | trimtext:false:26:'...'}}</div>
+                            <div flex>{{ getFileExtension(moduleService.findElementInElement_V3(moduleService.detail, ['ipos-system:engine-runtime'])['@filename'])}}</div>
+                            <div flex>N/A</div>
+                            <div flex>{{ moduleService.findElementInElement_V3(moduleService.detail, ['ipos-system:engine-runtime'])['@seeddate']}}</div>
+                            <div flex>Admin</div>
+                            <div flex layout="row">
+                                <div flex class="uploadfile-conatiner" ng-click="edit('quotationComputeEngine')">
+                                    <i class="fa fa-upload ipos_portlet_table_header_icon-elippsis"></i>
+                                    <input id="uploadBtn1" type="file" class="uploadfile-input" ng-file-select="multiUploadService.onFileSelectAdminConfig($files,'quotationDataModel')" accept=".vpm" />
+                                </div>
+                                <div flex class="uploadfile-conatiner"> <i class="fa fa-download ipos_portlet_table_header_icon-elippsis"></i></div>
+                                <div flex class="uploadfile-conatiner"><i class="fa fa-list-alt ipos_portlet_table_header_icon-elippsis"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--        </div>
+                        </div>
+                    </div> -->
+                    <div ng-show="isEditQuotationComputeEngine==true">
+                        <div ng-repeat="file in multiUploadService.files" class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-column-content">
+                            <div class=" col-xs-12 v3-column-content">
+                                <div class="form-group form-group-lg has-success">
+                                    <div class="col-xs-6" style="padding-left: 0px; padding-right: 0px;">
+                                        <label>{{'v3.adminconfiguration.label.Title' | translate}} <i>({{'v3.adminconfiguration.label.asitisappeared' | translate}})</i></label>
+                                        <input type="text" class="form-control col-xs-4" ng-model="file.desc" style="width: 100% !important; margin-bottom: 0px !important;" />
+                                    </div>
+                                    <div class="col-xs-6" style="top: 30px;">
+                                        <button class="btn btn-lg v3-btn-primary" ng-click="doUpload('quotationComputeEngine')" ng-disabled="file.validate !=''">{{'v3.adminconfiguration.label.Upload' | translate}}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="quotationProductName.value!='motor-private-car-m-as' && quotationProductName.value!='motor-private-car-m-ds'">
+            <p class="admin-config-text-size" style="color: blue">You are not allowed to edit these settings</p>
+        </div>
+    </div>
+</div>
+<!-- Application -->
+<div fieldId="ipos-admin:Application_Table" class="container-fluid v3-padding-left-0 ">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-padding-left-0">
+            <div class="col-xs-10 v3-column-content">
+                <div class="form-group form-group-lg has-success">
+                    <label>{{'v3.adminconfiguration.label.Pleaseselectaproduct' | translate}}</label>
+                    <select class="form-control" ng-model="applicationProductName.value" ng-change="getDocumentConfigurationFile_V3(moduleApplicationService, applicationProductName.value)">
+                        <option ng-repeat="item in moduleApplicationService.productList" value="{{item.productId}}">{{'v3.application.product.'+item.productId | translate}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="applicationProductName.value!=''">
+        <div ng-if="applicationProductName.value=='motor-private-car-m-as' || applicationProductName.value=='motor-private-car-m-ds'">
+            <div class="header-session-detail admin-config-text-size">
+                <span id="valueId">
+					<i style="padding-right: 7px;" class="fa fa-file-excel-o fa-lg">
+					</i>{{'v3.adminconfiguration.label.DataModel' | translate}}
+				</span>
+                <span id="valueId" class="dataModelApplicationToggle float-icon-right-hide-show" ng-click="toogleElement('dataModelApplication','dataModelApplicationToggle')" tabindex="0">
+					<i class="fa fa-chevron-down fa-lg">
+					</i>
+				</span>
+            </div>
+            <div layout="column" flex class="dataModelApplication">
+                <div class="hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-table-content">
+                    <div flex layout="row" class="ipos_portlet_table_header_item" layout-align="center center">
+                        <div flex>{{'v3.adminconfiguration.label.OriginalFileName' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.FileExtension' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.FileSize' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.UpdateDate' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.UploadedBy' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.Action' | translate}}</div>
+                    </div>
+                    <div ng-if="moduleApplicationService.detail != undefined " flex layout="row" class="ipos_portlet_table_listRow">
+                        <div flex title="{{ moduleService.findElementInElement_V3(moduleApplicationService.detail, ['ipos-system:sample-xml'])['@filename']}}">{{ moduleService.findElementInElement_V3(moduleApplicationService.detail, ['ipos-system:sample-xml'])['@filename'] | trimtext:false:26:'...'}}</div>
+                        <div flex>{{ getFileExtension(moduleService.findElementInElement_V3(moduleApplicationService.detail, ['ipos-system:sample-xml'])['@filename'])}}</div>
+                        <div flex>N/A</div>
+                        <div flex>{{ moduleService.findElementInElement_V3(moduleApplicationService.detail, ['ipos-system:sample-xml'])['@seeddate']}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.Admin' | translate}}</div>
+                        <div flex layout="row">
+                            <div flex class="uploadfile-conatiner" ng-click="edit('applicationDataModel')">
+                                <i class="fa fa-upload ipos_portlet_table_header_icon-elippsis"></i>
+                                <input id="uploadBtn1" type="file" class="uploadfile-input" ng-file-select="multiUploadService.onFileSelectAdminConfig($files,'quotationDataModel')" accept=".xml" />
+                            </div>
+                            <div flex class="uploadfile-conatiner"> <i class="fa fa-download ipos_portlet_table_header_icon-elippsis"></i></div>
+                            <div flex class="uploadfile-conatiner"><i class="fa fa-list-alt ipos_portlet_table_header_icon-elippsis"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="isEditApplicationDataModel==true">
+                    <div ng-repeat="file in multiUploadService.files" class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-column-content">
+                        <div class=" col-xs-12 v3-column-content">
+                            <div class="form-group form-group-lg has-success">
+                                <div class="col-xs-6" style="padding-left: 0px; padding-right: 0px;">
+                                    <label>{{'v3.adminconfiguration.label.Title' | translate}} <i>({{'v3.adminconfiguration.label.asitisappeared' | translate}})</i></label>
+                                    <input type="text" class="form-control col-xs-4" ng-model="file.desc" style="width: 100% !important; margin-bottom: 0px !important;" />
+                                </div>
+                                <div class="col-xs-6" style="top: 30px;">
+                                    <button class="btn btn-lg v3-btn-primary" ng-click="doUpload('applicationDataModel')" ng-disabled="file.validate !=''">{{'v3.adminconfiguration.label.Upload' | translate}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-session-detail admin-config-text-size">
+                <span id="valueId">
+					<i style="padding-right: 7px;" class="fa fa-file-pdf-o fa-lg">
+					</i>
+					{{'v3.adminconfiguration.label.ReportTemplate' | translate}}
+				</span>
+                <span id="valueId" class="reportTemplateApplicationToggle float-icon-right-hide-show" ng-click="toogleElement('reportTemplateApplication','reportTemplateApplicationToggle')" tabindex="0">
+					<i class="fa fa-chevron-down fa-lg">
+					</i>
+				</span>
+            </div>
+            <div layout="column" flex class="reportTemplateApplication">
+
+                <div class="hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-table-content">
+                    <div flex layout="row" class="ipos_portlet_table_header_item" layout-align="center center">
+                        <div flex>{{'v3.adminconfiguration.label.OriginalFileName' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.FileExtension' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.FileSize' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.UpdateDate' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.UploadedBy' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.Action' | translate}}</div>
+                    </div>
+                    <div ng-if="moduleProspectService.detail != undefined" flex layout="row" class="ipos_portlet_table_listRow">
+                        <div flex title="{{ moduleService.findElementInElement_V3(moduleProspectService.detail, ['ipos-system:sample-xml'])['@filename']}}">{{ moduleService.findElementInElement_V3(moduleProspectService.detail, ['ipos-system:sample-xml'])['@filename'] | trimtext:false:26:'...'}}</div>
+                        <div flex>{{ getFileExtension(moduleService.findElementInElement_V3(moduleProspectService.detail, ['ipos-system:sample-xml'])['@filename'])}}</div>
+                        <div flex>N/A</div>
+                        <div flex>{{ moduleService.findElementInElement_V3(moduleProspectService.detail, ['ipos-system:sample-xml'])['@seeddate']}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.Admin' | translate}}</div>
+                        <div flex>
+                            <a class="pointer dropdown_action_disabled" ng-click="edit('applicationReportTemplate')" tooltips tooltip-title="Edit" tooltip-side="bottom" tooltip-size="medium">
+                                <span id="valueId">
+												<i class="fa fa-upload ipos_portlet_table_header_icon-elippsis">
+												</i>
+											</span>
+                            </a> &nbsp;
+                            <a class="pointer dropdown_action_disabled" tooltips tooltip-title="Delete" tooltip-side="bottom" tooltip-size="medium">
+                                <span id="valueId">
+												<i class="fa fa-trash-o ipos_portlet_table_header_icon-elippsis">
+												</i>
+											</span>
+                            </a> &nbsp;
+                            <a class="pointer dropdown_action_disabled" tooltips tooltip-title="Download" tooltip-side="bottom" tooltip-size="medium">
+                                <span id="valueId">
+												<i class="fa fa-download ipos_portlet_table_header_icon-elippsis">
+												</i>
+											</span>
+                            </a> &nbsp;
+                            <a class="pointer dropdown_action_disabled" tooltips tooltip-title="Manage Versions" tooltip-side="bottom" tooltip-size="medium">
+                                <span id="valueId">
+												<i class="fa fa-list-alt ipos_portlet_table_header_icon-elippsis">
+												</i>
+											</span>
+                            </a> &nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="isEditApplicationReportTemplate==true">
+                    <div layout="row" flex layout-align="center center" style="margin-top: 5px;">
+                        <div class="row-fluid span10" ng-repeat="file in multiUploadService.files">
+                            <div class="span3" style="text-align: right;">
+                                <span id="valueId">{{'v3.adminconfiguration.label.Title' | translate}} 
+									<i>({{'v3.adminconfiguration.label.asitisappeared' | translate}})
+									</i>
+								</span>
+                            </div>
+                            <div class="span3" style="background-color: white !important">
+                                <div flex layout="row">
+                                    <input type="text" ng-model="file.desc" style="width: 100% !important; margin-bottom: 0px !important;" />
+                                </div>
+                            </div>
+                            <div class="span2">
+                                <md-button class="fileUpload hover_button ipos_lower_button_letter" ng-click="doUpload('applicationReportTemplate')" ng-disabled="file.validate !=''">{{'v3.adminconfiguration.label.Upload' | translate}}</md-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-session-detail admin-config-text-size">
+                <span id="valueId">
+					<i style="padding-right: 7px;" class="fa fa-file-o fa-lg">
+					</i>{{'v3.adminconfiguration.label.ComputeEngine' | translate}}
+				</span>
+                <span id="valueId" class="computeEngineApplicationToggle float-icon-right-hide-show" ng-click="toogleElement('computeEngineApplication','computeEngineApplicationToggle')" tabindex="0">
+					<i class="fa fa-chevron-down fa-lg">
+					</i>
+				</span>
+            </div>
+            <div layout="column" flex class="computeEngineApplication">
+                <div class="hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-table-content">
+                    <div flex layout="row" class="ipos_portlet_table_header_item" layout-align="center center">
+                        <div flex>{{'v3.adminconfiguration.label.OriginalFileName' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.FileExtension' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.FileSize' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.UpdateDate' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.UploadedBy' | translate}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.Action' | translate}}</div>
+                    </div>
+                    <div ng-if="moduleApplicationService.detail != undefined" flex layout="row" class="ipos_portlet_table_listRow">
+                        <div flex title="{{ moduleService.findElementInElement_V3(moduleApplicationService.detail, ['ipos-system:engine-runtime'])['@filename']}}">{{ moduleService.findElementInElement_V3(moduleApplicationService.detail, ['ipos-system:engine-runtime'])['@filename'] | trimtext:false:26:'...'}}</div>
+                        <div flex>{{ getFileExtension(moduleService.findElementInElement_V3(moduleApplicationService.detail, ['ipos-system:engine-runtime'])['@filename'])}}</div>
+                        <div flex>N/A</div>
+                        <div flex>{{ moduleService.findElementInElement_V3(moduleApplicationService.detail, ['ipos-system:engine-runtime'])['@seeddate']}}</div>
+                        <div flex>{{'v3.adminconfiguration.label.Admin' | translate}}</div>
+                        <div flex layout="row">
+                            <div flex class="uploadfile-conatiner" ng-click="edit('applicationComputeEngine')">
+                                <i class="fa fa-upload ipos_portlet_table_header_icon-elippsis"></i>
+                                <input id="uploadBtn1" type="file" class="uploadfile-input" ng-file-select="multiUploadService.onFileSelectAdminConfig($files,'applicationComputeEngine')" accept=".vpm" />
+                            </div>
+                            <div flex class="uploadfile-conatiner"> <i class="fa fa-download ipos_portlet_table_header_icon-elippsis"></i></div>
+                            <div flex class="uploadfile-conatiner"><i class="fa fa-list-alt ipos_portlet_table_header_icon-elippsis"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="isEditApplicationComputeEngine==true">
+                    <div ng-repeat="file in multiUploadService.files" class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-column-content">
+                        <div class=" col-xs-12 v3-column-content">
+                            <div class="form-group form-group-lg has-success">
+                                <div class="col-xs-6" style="padding-left: 0px; padding-right: 0px;">
+                                    <label>{{'v3.adminconfiguration.label.Title' | translate}} <i>({{'v3.adminconfiguration.label.asitisappeared' | translate}})</i></label>
+                                    <input type="text" class="form-control col-xs-4" ng-model="file.desc" style="width: 100% !important; margin-bottom: 0px !important;" />
+                                </div>
+                                <div class="col-xs-6" style="top: 30px;">
+                                    <button class="btn btn-lg v3-btn-primary" ng-click="doUpload('applicationComputeEngine')" ng-disabled="file.validate !=''">{{'v3.adminconfiguration.label.Upload' | translate}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="applicationProductName.value!='motor-private-car-m-as' && applicationProductName.value!='motor-private-car-m-ds'">
+            <p style="color: blue" class="admin-config-text-size">You are not allowed to edit these settings</p>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-admin:docType" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class=" col-xs-6 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		<label>{{"v3.adminconfiguration.portlet.label.docType" | translate}}</label>
+			<ng-newDropDown 
+				model="moduleService.policyOwner"
+				list="moduleService.chosenProspectList"
+				disable="moduleService.freeze == true"
+				type="regular" key="FullName"></ng-newDropDown>
+			<i class="fa fa-plus-circle fa-3x button-import" ng-click="importProspect(moduleService.policyOwner.DocId)"></i> 
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-admin:product" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-6 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		<label>{{"v3.adminconfiguration.portlet.label.productName" | translate}}</label>
+			<ng-newDropDown 
+				model="moduleService.policyOwner"
+				list="moduleService.chosenProspectList"
+				disable="moduleService.freeze == true"
+				type="regular" key="FullName"></ng-newDropDown>
+			<i class="fa fa-plus-circle fa-3x button-import" ng-click="importProspect(moduleService.policyOwner.DocId)"></i> 
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-admin:commonDocumentList" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.adminconfiguration.portlet.label.productName" | translate}}:</span>
+		<span class="col-md-6">{{policyOwner.name}}</span>
+	</div>
+</div>
+<div fieldId="ipos-admin:businessDocumentList" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.illustration-gtl:policyOwner" | translate}}:</span>
+		<span class="col-md-6">{{policyOwner.name}}</span>
+	</div>
+</div>

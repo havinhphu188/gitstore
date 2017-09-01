@@ -1,0 +1,27 @@
+<div class="hint" ng-class="hClass">
+	<ul class="nav pull-right">
+		<li class="dropdown-topmenu">
+			<a ng-if="hasTab || hasTab == undefined" data-toggle="dropdown" href="javascript:void(0)" class="dropdown-toggle">
+				<i class="icon-info-sign"></i>
+			</a>
+			<a ng-if="!hasTab && hasTab != undefined" data-toggle="dropdown" href="javascript:void(0)" class="dropdown-toggle" tabindex="-1">
+				<i class="icon-info-sign"></i>
+			</a>
+			
+			<ul class="pull-right dropdown-menu content">
+				<div ng-switch on="multiple">
+					<div ng-switch-when="false">
+						<li>
+							{{content}}
+						</li>
+					</div>
+					<div ng-switch-when="true">
+						<li ng-repeat="line in content">
+							{{line }}
+						</li>
+					</div>
+				</div>
+			</ul>
+		</li>
+	</ul>
+</div>

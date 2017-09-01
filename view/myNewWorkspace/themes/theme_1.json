@@ -1,0 +1,365 @@
+{
+	"name": "theme_1",
+	"data": 
+	{
+		"constants": 
+		{
+			"blue": "v3-box-1",
+			"greenSapphire": "v3-box-2",
+			"pink": "v3-box-3",
+			"orange": "v3-box-4",
+			"green": "v3-box-5",
+			"blue-2": "v3-box-12",
+			"gray": "v3-box-13",
+			"purple": "v3-box-14",
+			"green-sea": "v3-box-15",
+			"addIcon": "fa fa-plus-circle",
+			"removeIcon": "fa fa-trash-o",
+			"mainIcon": "fa fa-plus",
+			"personIcon": "fa fa-user",
+			"corporateIcon": "fa fa-building",
+			"quotationIcon": "fa fa-bar-chart",
+			"applicationIcon": "fa fa-file-o",
+			"attachmentIcon": "fa fa-paperclip",
+			"transactionIcon": "fa fa-file-text-o",
+			"uWIcon": "fa fa-pencil-square-o",
+			"eCoverIcon": "fa fa-institution",
+			"lifeIcon": "fa fa-heart",
+			"fireIcon": "fa fa-fire",
+			"searchIcon": "fa fa-search",
+			"check-icon": "fa fa-check-square-o",
+			"review-icon": "fa fa-pencil-square",
+			"bulleye-icon": "fa fa-bullseye",
+			"signIcon": "fa fa-pencil"
+			
+		},
+
+		"card": 
+		{
+			"default": 
+			{
+				"color": "orange",
+				"icons": 
+				{
+					"main": "personIcon",
+					"mainAction": "removeIcon",
+					"subAction": "addIcon",
+					"valid": "",
+					"invalid": ""
+				}
+			},
+
+			"prospect": 
+			{
+				"color": "blue",
+				"icons": 
+				{
+					"main": "personIcon"
+				}
+			},
+
+			"organization-contact": 
+			{
+				"color": "blue",
+				"icons": 
+				{
+					"main": "corporateIcon"
+				}
+			},
+
+			"pdpa": 
+			{
+				"color": "purple",
+				"icons": 
+				{
+					"main": "personIcon"
+				}
+			},
+
+			"case-management": 
+			{
+				"color": "orange",
+				"icons": 
+				{
+					"main": "personIcon"
+				}
+			},
+
+			"admin": 
+			{
+				"color": "gray",
+				"icons": 
+				{
+					"main": "personIcon"
+				}
+			},
+
+			"userProfile": 
+			{
+				"color": "purple",
+				"icons": 
+				{
+					"main": "personIcon"
+				}
+			},
+
+			"user": 
+			{
+				"color": "pink",
+				"icons": 
+				{
+					"main": "personIcon"
+				}
+			},
+
+			"manager-review": 
+			{
+				"color": "green-sea",
+				"icons": 
+				{
+					"main": "review-icon"
+				}
+			},
+
+			"illustration": 
+			[
+				{
+					"productLine": "motor",
+					"color": "greenSapphire",
+					"icons": 
+					{
+						"main": "quotationIcon"
+					}
+				},
+
+				{
+					"productLine": "life",
+					"color": "greenSapphire",
+					"icons": 
+					{
+						"main": "lifeIcon"
+					}
+				},
+
+				{
+					"productLine": "FIR",
+					"color": "greenSapphire",
+					"icons": 
+					{
+						"main": "fireIcon"
+					}
+				},
+
+				{
+					"productLine": "personal-accident",
+					"color": "greenSapphire",
+					"icons": 
+					{
+						"main": "quotationIcon"
+					}
+				},
+
+				{
+					"productLine": "income-protection",
+					"color": "greenSapphire",
+					"icons": 
+					{
+						"main": "quotationIcon"
+					}
+				},
+
+				{
+					"productLine": "",
+					"color": "greenSapphire",
+					"icons": 
+					{
+						"main": "quotationIcon"
+					}
+				}
+			],
+
+			"application": 
+			[
+				{
+					"productLine": "motor",
+					"color": "pink",
+					"icons": 
+					{
+						"main": "quotationIcon"
+					}
+				},
+
+				{
+					"productLine": "life",
+					"color": "pink",
+					"icons": 
+					{
+						"main": "lifeIcon"
+					}
+				},
+
+				{
+					"productLine": "FIR",
+					"color": "pink",
+					"icons": 
+					{
+						"main": "fireIcon"
+					}
+				},
+
+				{
+					"productLine": "personal-accident",
+					"color": "pink",
+					"icons": 
+					{
+						"main": "fireIcon"
+					}
+				},
+
+				{
+					"productLine": "income-protection",
+					"color": "pink",
+					"icons": 
+					{
+						"main": "fireIcon"
+					}
+				},
+
+				{
+					"productLine": "guaranteed-cashback-saver",
+					"color": "pink",
+					"icons": 
+					{
+						"main": "applicationIcon"
+					}
+				},
+
+				{
+					"productLine": "",
+					"color": "pink",
+					"icons": 
+					{
+						"main": "applicationIcon"
+					}
+				}
+			],
+			"agent-payment": 
+			[
+				{
+					"productLine": "",
+					"color": "green",
+					"icons": 
+					{
+						"main": "searchIcon"
+					}
+				}
+			],
+			"underwriting": 
+			[
+				{
+					"productLine": "",
+					"color": "green",
+					"icons": 
+					{
+						"main": "searchIcon"
+					}
+				}
+			],
+			"underwriting2": 
+			[
+				{
+					"productLine": "",
+					"color": "green",
+					"icons": 
+					{
+						"main": "searchIcon"
+					}
+				}
+			],
+			"factfind": 
+			[
+				{
+					"productLine": "",
+					"color": "green",
+					"icons": 
+					{
+						"main": "searchIcon"
+					}
+				}
+			],
+			"group-department": 
+			[
+				{
+					"productLine": "",
+					"color": "blue-2",
+					"icons": 
+					{
+						"main": "searchIcon"
+					}
+				}
+			]
+		},
+
+		"icons": 
+		{
+			"default": 
+			{
+				"_comment": "default attribute values for icons",
+				"content": null,
+				"contentType": "cssClass",
+				"cssClass": null,
+				"isVisible": true,
+				"onClick": null
+			},
+
+			"cardIcon": 
+			{
+				"_comment": "main icon, in the middle of card",
+				"cssClass": "v3-card-main-icon"
+			},
+
+			"cardIconPlus": 
+			{
+				"_comment": "plus icon, beside the main icon",
+				"content": "addIcon",
+				"cssClass": "v3-card-icon-plus"
+			},
+			
+			"signIconPlus":
+			{
+				"_comment": "plus icon, beside the main icon"
+			},
+
+			"removeCard": 
+			{
+				"_comment": "remove icon, bottom-right corner, when click will hide the card and clear the associate refDetail of this card",
+				"content": "removeIcon",
+				"cssClass": "v3-card-icon-remove",
+				"onClick": "removeCard_New()"
+			},
+
+			"removeCardInList": 
+			{
+				"_comment": "remove icon, Only apply for card in multiple card list, when click will remove the card",
+				"content": "removeIcon",
+				"cssClass": "v3-card-icon-remove",
+				"isVisible": "isCardRemovable(card)",
+				"onClick": "removeCardInList()"
+			},
+
+			"step": 
+			{
+				"_comment": "step icon, top-left corner",
+				"contentType": "text",
+				"cssClass": "v3-card-icon-step"
+			},
+
+			"name": 
+			{
+				"_comment": "not apply yet",
+				"content": "formatTitleImage(card.refDetail.UserName)",
+				"contentType": "text"
+			}
+		}
+	}
+}

@@ -1,0 +1,59 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<md-dialog class="popup-pdf-template">
+	<div style="background-color: #4CAF50; color: white;" 
+		class="portlet_header md-whiteframe-z1">Select PDF Template</div>
+	<md-content style="margin: 10px">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content"> 
+		   <div class="col-xs-offset-1 col-xs-10">
+				<div class="form-group form-group-lg has-success">
+				    <label>Please select a template:</label>
+				    <select class="form-control" ng-model="printPdfService.template.name"
+				    	ng-options="item as item for item in printPdfService.listTemplate">
+		              	<option value="">----Select-----</option>
+		            </select>
+			  	</div>
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content"> 
+		   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+				<div class="form-group form-group-lg has-success">
+				    <label>Send E-mail?</label>
+				    <v3-switch-new-slide prefix="v3.pdf.emailOption"
+                       	switch-model="printPdfService.sendEmail.option" 
+                       	switch-default-value="" switch-disabled="false" 
+                       	switch-options="printPdfService.emailOptions">
+                	<v3-switch-new-slide>
+			  	</div>
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 20px;"ng-show="printPdfService.sendEmail.option == '1'">
+			<div class="col-xs-offset-1 col-xs-10">
+				<div class="form-group form-group-lg has-success">
+					<input class="form-control" type="text" placeholder="Email" ng-model="printPdfService.userEmail.value" />
+			  	</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" layout="row" layout-align="center" style="padding-bottom: 10px;">
+			<button style="margin-right:10%" ng-click="printPdfService.cancel()" class="btn btn-lg v3-btn-default"> Cancel </button>
+			<button ng-click="printPdfService.generatePdf()" class="btn btn-lg v3-btn-primary" ng-disabled="!printPdfService.isSelectedTemplate() || (printPdfService.sendEmail.option == '1' && !printPdfService.isValidEmail())"> Print PDF </md-button>
+		</div>
+	</md-content>
+</md-dialog>

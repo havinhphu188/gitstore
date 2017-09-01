@@ -1,0 +1,111 @@
+<div layout="column" class="height-inherit">
+    <form name="myform2">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <md-button md-no-ink ng-click="toggle()" class="md-icon-button button">
+                    <i class="fa fa-bars fa-lg"></i>
+                </md-button>
+                <span flex>
+                    <h2>
+                        <span >test List</span>
+                    </h2>
+                </span>
+                <md-button md-no-ink ng-click="toggleSearch()" class="md-icon-button button" aria-label="Open search bar">
+                    <i class="fa fa-search fa-lg"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <div class="backgroundColor" ng-if="vars.showSearchbar" layout="row" use-boolean style="height: 70px;">
+            <div flex="80">
+                <input class="searchText" name="mytextfield2" placeholder="search..." ng-model="vars.strSearch" ng-change="$parent.searchDoc()" aria-label="Search input">
+            </div>
+            <div ng-click="$parent.clearText();" OnClick="document.myform2.mytextfield2.focus();" flex="10">
+                <md-button md-no-ink class="md-icon-button button" aria-label="Open search bar">
+                    <md-icon md-svg-icon="md-close" class="ng-isolate-scope md-teal-theme" aria-hidden="true">
+                        <svg version="1.1" x="0px" y="0px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" style="pointer-events: none; display: block;">
+                            <g>
+                                <path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path>
+                            </g>
+                        </svg>
+                    </md-icon>
+                </md-button>
+            </div>
+        </div>
+    </form>
+    <div ng-show="vars.bLoadingLeftView" class="mask">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div style="background-color:white;" class="height-inherit none-horizontal-scroll touch">
+        <button ng-click="$parent.openContentView('test', index)">open</button>
+        <!-- <div ng-if="vars.showSearchbar"> -->
+        <p ng-if="vars.errorSearch" align="center" style="color: grey; margin:0 auto; width:90%;">{{vars.errorSearch}}</p>
+        <div refresh-on="vars.bIsListChanged" use-boolean after-refresh="broadcastEvent('finish_render')" class="height-101">
+            <!-- a dummy prospect card-->
+            <!-- <div ng-show="vars.showDummyCard">
+                <div class="breakLine list-content-100" id="{{::vars.dummyCardId}}">
+                    <div layout="row" style="height: 0px;position:relative;">
+                        <div flex="60">
+                        </div>
+                        <div flex="15">
+                        </div>
+                        <div flex="15">
+                        </div>
+                    </div>
+                    <div layout="row">
+                        <div flex="25" layout-margin>
+                            <img v3-avatar="::card.Photo" class="avatar">
+                        </div>
+                        <div flex="65">
+                            </br>
+                            </br>
+                            <div>
+                                <div>
+                                    <span class="main-info">New Document</span>
+                                    <br>
+                                    <span class="sub-info">Age: </span>
+                                </div>
+                                <div align="right">
+                                    <span class="list-footer"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div ng-repeat="item in pages" layout="row" id="{{::vars.dummyCardId}}-{{::$index}}" ng-click="$parent.$parent.openSubMenu($index, vars.dummyCardId)" class="list-item-actions breakLine">
+                        <div flex="10">
+                        </div>
+                        <div flex="10">
+                            <i class="{{::item.icon}}"></i>
+                        </div>
+                        <div flex="80">
+                            {{::item.option}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p ng-if="vars.showEmptyListMessage && !vars.showDummyCard" align="center" style="color: grey; margin:0 auto; width:90%;">
+                You don't have any {{::moduleService.name}} documents yet</p> -->
+            <div ng-repeat="card in lsDocDisp track by $index">
+                <test-card module="$scope" moreAction="openFirstDoc" index="::$index" card="::card"></test-card>
+                <!-- <div ng-if="$index === selectedIndex">
+                    <div ng-repeat="item in pages" layout="row" id="{{::$parent.$index}}-{{::$index}}" ng-click="$parent.$parent.openSubMenu($index, $parent.$index)" class="list-item-actions breakLine">
+                        <div flex="10">
+                        </div>
+                        <div flex="10">
+                            <i class="{{::item.icon}}"></i>
+                        </div>
+                        <div flex="80">
+                            {{::item.option}}
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="empty-card">
+        </div>
+    </div>
+    <md-button ng-click="createNewDoc();" md-no-ink class="md-primary md-fab md-fab-bottom-right" aria-label="Create Prospect">
+        <img style="margin-top: 10px;" src="img/ic_plus_white_24dp.png">
+    </md-button>
+</div>

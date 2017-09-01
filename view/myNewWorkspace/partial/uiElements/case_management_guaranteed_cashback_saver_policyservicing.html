@@ -1,0 +1,262 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="policy-servicing-GCS:BusinessCaseNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6" title="{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:BusinessCaseNo' | translate}}">
+            {{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:BusinessCaseNo'
+            | translate | trimtext:false:25:'...'}} : </span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['DocName'])}}</span>
+    </div>
+</div>
+<div fieldId="policy-servicing-GCS:Status" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6" title="{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:Status' | translate}}">
+            {{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:Status'
+            | translate | trimtext:false:25:'...'}} : </span>
+        <span class="col-md-6">{{'v3.document.status.' + moduleService.findElementInDetail_V3(['BusinessStatus']) |translate}}</span>
+    </div>
+</div>
+<div fieldId="policy-servicing-GCS:CreatedDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6" title="{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:CreatedDate' | translate}}">
+            {{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:CreatedDate'
+            | translate | trimtext:false:25:'...'}} : </span>
+        <span class="col-md-6">{{moduleService.findElementInDetail_V3(['CreatedDate']) | datetimeFilter:"DD MMM YYYY" }}</span>
+    </div>
+</div>
+<div fieldId="policy-servicing-GCS:UpdatedDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6" title="{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:UpdatedDate' | translate}}">
+            {{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:UpdatedDate'
+            | translate | trimtext:false:25:'...'}} : </span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['UpdatedDate']) | datetimeFilter:"DD MMM YYYY"}}</span>
+    </div>
+</div>
+<div fieldId="policy-servicing-GCS:PolicyNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6" title="{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:PolicyNo' | translate}}">
+                {{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:PolicyNo'
+            | translate | trimtext:false:25:'...'}} :</span>
+        <span class="col-md-6">{{moduleService.findElementInDetail_V3(['PolicyNumber']).$}}</span>
+    </div>
+</div>
+<div fieldId="policy-servicing-GCS:PolicyOwner" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6" title="{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:PolicyOwner' | translate}}">
+            {{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:PolicyOwner'
+            | translate | trimtext:false:25:'...'}} : </span>
+        <span class="col-md-6">{{policyModuleService.findElementInDetail_V3(['PolicyOwner', 'FullName']).$}}</span>
+    </div>
+</div>
+<div fieldId="policy-servicing-GCS:LifeAssured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:LifeAssured' | translate}}:</span>
+        <span class="col-md-6">{{policyModuleService.findElementInDetail_V3(['LifeInsured', 'FullName']).$}}</span>
+    </div>
+</div>
+<!-- Beneficiary share -->
+<div fieldId="policy-servicing-GCS:PolicyNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6" title="{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:PolicyNo' | translate}}">
+                {{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:PolicyNo'
+            | translate | trimtext:false:25:'...'}} :</span>
+        <span class="col-md-6">{{moduleService.findElementInDetail_V3(['PolicyNumber']).$}}</span>
+    </div>
+</div>
+<div fieldId="policy-servicing-GCS:BenificiaryShareTable" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding-left no-padding-right">
+    <div class="table-responsive">
+        <table class="table v3-responsive-table">
+            <thead>
+                <tr>
+                    <th style="height: 45px; vertical-align: middle;">{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:EffectiveDate' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['EffectiveFrom'])['@mandatory'] == '1'">*</span></th>
+                    <th style="height: 45px; vertical-align: middle;">{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:BeneficiaryName' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ProspectName'])['@mandatory'] == '1'">*</span></th>
+                    <th style="height: 45px; vertical-align: middle;">
+                        {{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:BeneficiaryType' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['BeneficiaryType'])['@mandatory'] == '1'">*</span>
+                    </th>
+                    <th style="height: 45px; vertical-align: middle;">{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:Relationship' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Relationship'])['@mandatory'] == '1'">*</span>
+                    </th>
+                    <th style="height: 45px; vertical-align: middle;">{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:Share' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Share'])['@mandatory'] == '1'">*</span>
+                    </th>
+            </thead>
+            <tbody>
+                <tr ng-if=" moduleService.findElementInDetail_V3(['Prospects'])['@counter'] != '0' || moduleService.findElementInDetail_V3(['Prospects'])['@counter'] != 0" ng-repeat="beneficiary in moduleService.convertToArray(moduleService.findElementInDetail_V3(['Prospects','Prospect'])) track by $index">
+                    <td class="center-align">
+                        <div class="ms-calendar-wrapper">
+							<input ms-datepicker  ng-disabled="moduleService.freeze == true || moduleService.findElementInElement_V3(beneficiary,['EffectiveFrom'])['@editable'] == '0'"
+								ng-model="moduleService.findElementInElement_V3(beneficiary,['EffectiveFrom']).$"
+								class="ms-calendar" maxdate="01/01/2100"/>
+								
+						</div>
+							<span class="errorMessage"
+							ng-bind="moduleService.findElementInElement_V3(beneficiary, ['EffectiveFrom']).errorMessage | translate"></span>
+                    </td>
+                    <td class="center-align">{{moduleService.findElementInElement_V3(beneficiary,['ProspectName']).$}}</td>
+                    <td class="center-align">
+                        <select class="form-control" 
+                        ng-disabled="moduleService.freeze == true || moduleService.findElementInElement_V3(beneficiary,['BeneficiaryType'])['@editable'] == '0'"
+                         ng-model="moduleService.findElementInElement_V3(beneficiary,['BeneficiaryType']).Value" 
+                         ng-options="item1.value as ('v3.life.BeneficiaryType.'+item1.value|translate) for item1 in moduleService.findElementInElement_V3(moduleService.lazyChoicelist,['EBeneficiaryType','Option'])">
+                        </select>
+                        	<span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(beneficiary, ['BeneficiaryType']).errorMessage | translate"></span>
+                    </td>
+                    <td class="center-align">
+                        <select class="form-control" 
+                        ng-disabled="moduleService.freeze == true || moduleService.findElementInElement_V3(beneficiary,['Relationship'])['@editable'] == '0'"
+                        ng-model="moduleService.findElementInElement_V3(beneficiary,['Relationship']).Value" 
+                        ng-options="item.value as ('v3.life.ClientRelationShip.'+item.value|translate) for item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist,['ERelationship','Option'])">
+                        </select>
+                        	<span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(beneficiary, ['Relationship']).errorMessage | translate"></span>
+                    </td>
+                    <td class="center-align">
+                        <input ng-model="moduleService.findElementInElement_V3(beneficiary, ['Share']).$" 
+                        ng-disabled="moduleService.freeze == true || moduleService.findElementInElement_V3(beneficiary,['Share'])['@editable'] == '0'"
+                        pos-autonumeric decimal="0"   min="1"  max="100" 
+                        class="form-control" type="text">
+                        <span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(beneficiary,['Share']).errorMessage | translate"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Change Premium Frequency -->
+<div fieldId="policy-servicing-GCS:PlanName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6" title="{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:PlanName' | translate}}">
+            {{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:PlanName'
+            | translate | trimtext:false:25:'...'}} : </span> <span class="col-md-6">{{"v3.mynewworkspace.portlet.label.ipos-product."+uiElement.refDetail | translate}}</span>
+    </div>
+</div>
+<div fieldId="policy-servicing-GCS:CurrentFrequency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6" title="{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:CurrentFrequency' | translate}}">
+            {{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:CurrentFrequency'
+            | translate | trimtext:false:25:'...'}} : </span> <span class="col-md-6">{{""+uiElement.refDetail.$ | translate}}</span>
+    </div>
+</div>
+<div fieldId="policy-servicing-GCS:InceptionDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6" title="{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:InceptionDate' | translate}}">
+            {{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:InceptionDate'
+            | translate | trimtext:false:25:'...'}} : </span> <span class="col-md-6">{{uiElement.refDetail.$ | datetimeFilter:"DD MMM YYYY"}}</span>
+    </div>
+</div>
+<div fieldId="policy-servicing-GCS:PaidToDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6" title="{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:PaidToDate' | translate}}">
+            {{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:PaidToDate'
+            | translate | trimtext:false:25:'...'}} : </span> <span class="col-md-6">{{uiElement.refDetail.$ | datetimeFilter:"DD MMM YYYY"}}</span>
+    </div>
+</div>
+<div fieldId="policy-servicing-GCS:BilledToDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6" title="{{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:BilledToDate' | translate}}">
+            {{'new.v3.mynewworkspace.case-management-GCS-PolicyServicing:BilledToDate'
+            | translate | trimtext:false:25:'...'}} : </span> <span class="col-md-6">{{uiElement.refDetail.$ | datetimeFilter:"DD MMM YYYY"}}</span>
+    </div>
+</div>
+<div fieldId="policy-servicing-GCS:NewFrequency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:NewFrequency" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInDetail_V3(['NewFrequency','Option'])" 
+         type="nonFlag" prefix="v3.payment.frequency.enum"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="policy-servicing-GCS:selectedFrequencyTable" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+    <div class="col-xs-12 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:SelectedFrequencyTable" | translate}}:</label>
+      <div class="col-xs-12 no-padding-left no-padding-right">
+      <table id="" class="table v3-responsive-table">
+			<thead>
+           		<tr>
+           			<th style="height: 45px; vertical-align: middle; width: 20%;">{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:TableFrequency" | translate}}</th>
+		            <th style="height: 45px; vertical-align: middle; width: 20%;">{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:TableGrossPremium" | translate}}({{moduleService.findElementInDetail_V3(['Currency']).Value}})</th>
+		            <th style="height: 45px; vertical-align: middle; width: 20%;">{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:TableFee" | translate}}({{moduleService.findElementInDetail_V3(['Currency']).Value}})</th>
+		            <th style="height: 45px; vertical-align: middle; width: 20%;">{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:TableTotalPremium" | translate}}({{moduleService.findElementInDetail_V3(['Currency']).Value}})</th>
+		            <th style="height: 45px; vertical-align: middle; width: 20%;">{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:TableTotalPremiumPayable" | translate }}({{moduleService.findElementInDetail_V3(['Currency']).Value}})</th>
+           		</tr>
+           	</thead>
+           	<tbody>
+           		<tr ng-repeat="item in moduleService.findElementInDetail_V3(['FrequencyTable'])" 
+           			ng-if="moduleService.findElementInElement_V3(item,['Frequency']).$ === moduleService.findElementInDetail_V3(['NewFrequency']).Value">
+           			<td style="height: 45px; vertical-align: middle; width: 20%;">{{"v3.payment.frequency.enum."+moduleService.findElementInElement_V3(item,['Frequency']).$ |translate}}</td>
+           			<td style="height: 45px; vertical-align: middle; width: 20%;">{{moduleService.findElementInElement_V3(item,['GrossPremium']).$}}</td>
+           			<td style="height: 45px; vertical-align: middle; width: 20%;">{{moduleService.findElementInElement_V3(item,['Fee']).$}}</td>
+           			<td style="height: 45px; vertical-align: middle; width: 20%;">{{moduleService.findElementInElement_V3(item,['TotalPremium']).$}}</td>
+           			<td style="height: 45px; vertical-align: middle; width: 20%;">{{moduleService.findElementInElement_V3(item,['TotalPremiumPayable']).$}}</td>
+           		</tr>
+           		<tr ng-if="moduleService.findElementInDetail_V3(['NewFrequency']).Value ===''">
+           			<td colspan="5">{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:NoFrequencySelected" | translate}}</td>
+           		</tr>
+           	</tbody>
+		</table>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div fieldId="policy-servicing-GCS:availableFrequencyTable" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+    <div class="col-xs-12 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:AvailableFrequencyTable" | translate	}}:</label>
+      <div class="col-xs-12 no-padding-left no-padding-right">
+      <table id="" class="table v3-responsive-table">
+			<thead>
+           		<tr>
+           			<th style="height: 45px; vertical-align: middle; width: 18%;">{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:TableFrequency" | translate}}</th>
+		            <th style="height: 45px; vertical-align: middle; width: 18%;">{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:TableGrossPremium" | translate }}({{moduleService.findElementInDetail_V3(['Currency']).Value}})</th>
+		            <th style="height: 45px; vertical-align: middle; width: 18%;">{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:TableFee" | translate }}({{moduleService.findElementInDetail_V3(['Currency']).Value}})</th>
+		            <th style="height: 45px; vertical-align: middle; width: 18%;">{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:TableTotalPremium" | translate }}({{moduleService.findElementInDetail_V3(['Currency']).Value}})</th>
+		            <th style="height: 45px; vertical-align: middle; width: 18%;">{{"new.v3.mynewworkspace.case-management-GCS-PolicyServicing:TableTotalPremiumPayable" | translate }}({{moduleService.findElementInDetail_V3(['Currency']).Value}})</th>
+		            <th style="height: 45px; vertical-align: middle; width: 10%;">{{"v3.dashboardportlet.label.Action" | translate }}</th>
+           		</tr>
+           	</thead>
+           	<tbody>
+           		<tr ng-repeat="item in moduleService.findElementInDetail_V3(['FrequencyTable'])" 
+           			ng-show="(moduleService.findElementInElement_V3(item,['Frequency']).$ !== moduleService.findElementInDetail_V3(['NewFrequency']).Value)
+           						&& checkFrequency(item)">
+           			<td style="height: 45px; vertical-align: middle; width: 18%;">{{"v3.payment.frequency.enum."+moduleService.findElementInElement_V3(item,['Frequency']).$ |translate}}</td>
+           			<td style="height: 45px; vertical-align: middle; width: 18%;">{{moduleService.findElementInElement_V3(item,['GrossPremium']).$}}</td>
+           			<td style="height: 45px; vertical-align: middle; width: 18%;">{{moduleService.findElementInElement_V3(item,['Fee']).$}}</td>
+           			<td style="height: 45px; vertical-align: middle; width: 18%;">{{moduleService.findElementInElement_V3(item,['TotalPremium']).$}}</td>
+           			<td style="height: 45px; vertical-align: middle; width: 18%;">{{moduleService.findElementInElement_V3(item,['TotalPremiumPayable']).$}}</td>
+           			<td style="height: 45px; vertical-align: middle; width: 10%;"><i class="fa fa-check" aria-hidden="true" ng-click="selectFrequency(item)"></i></td>
+           		</tr>
+           		<tr ng-if="commonService.hasValueNotEmpty(moduleService.findElementInDetail_V3(['AvailableFrequencyMsg']).$)">
+           			<td colspan="6">{{moduleService.findElementInDetail_V3(['AvailableFrequencyMsg']).$}}</td>
+           		</tr>
+           	</tbody>
+		</table>
+      </div>
+      
+    </div>
+  </div>
+</div>
+

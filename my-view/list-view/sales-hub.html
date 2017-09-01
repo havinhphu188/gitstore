@@ -1,0 +1,50 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div id="listViewContainer" class="container-fluid v3-padding-0">
+	<div class="row v3-margin-auto" ng-init="loadContactList()">
+		<div id="carousel-list-view-sale-hub" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+		    <li data-target="#carousel-list-view-sale-hub" data-slide-to="0" class="active" ng-click="loadContactList()"></li>
+		    <li data-target="#carousel-list-view-sale-hub" data-slide-to="1" ng-click="loadFNAList()"></li>
+<!-- 		    <li data-target="#carousel-list-view-sale-hub" data-slide-to="2" ng-click="loadFNAList('completed')"></li> -->
+<!-- 		    <li data-target="#carousel-list-view-sale-hub" data-slide-to="2" ng-click="getDocumentList('claim-notification')"></li> -->
+		  </ol>
+		
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner" role="listbox">				 
+		    <div class="item active">
+	     		<document-list-view datalist="contactList" doctype="prospect" title="my_contacts" reloadlist="loadContactList()" isloadlist="isLoadList">
+				</document-list-view>
+		    </div>
+		    <div class="item">
+				<document-list-view datalist="fnaListPending" doctype="fna" title="my_fna" reloadlist="loadFNAList()" isloadlist="isLoadList">
+				</document-list-view>
+				<document-list-view datalist="fnaListCompleted" doctype="fna" title="my_completed_fna" reloadlist="loadFNAList()" isloadlist="isLoadList">
+				</document-list-view>
+		    </div>
+			<!-- <div class="item">
+				<document-list-view datalist="claimNotificationList" doctype="claim-notification" title="claim_notification_list_page" reloadlist="" isloadlist="isLoadList">
+				</document-list-view>
+			</div> -->
+		  </div>
+		</div>
+	</div>
+</div>

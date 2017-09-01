@@ -1,0 +1,284 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Person Info -->
+<div fieldId="ipos-client:Salutation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.Title' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Title'])['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown model="moduleService.findElementInDetail_V3(['Title'])" list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Title']).Option" type="nonFlag" prefix="v3.pnc.title.enum" disable="true">
+            </ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Title']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:FullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.FullName' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['FullName'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" placeholder="Full Name" ng-disabled="true" type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['FullName'])" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['FullName']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:BirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.DateofBirth' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['BirthDate'])['@mandatory'] == '1'">*</span></label>
+            <div style="position:relative">
+                <input ms-datepicker ng-disabled="true" ng-model=" moduleService.findElementInDetail_V3(['BirthDate'])" class="ms-calendar" />
+            </div>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BirthDate']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="ipos-client:Gender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.Gender' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Gender'])['@mandatory'] == '1'">*</span></label>
+            <v3-switch-new switch-size="" switch-name="gender" prefix="v3.pnc.gender.enum" switch-model="moduleService.findElementInDetail_V3(['Gender'])" switch-default-value="" switch-disabled="true" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Gender']).Option">
+            </v3-switch-new>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Gender']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div> -->
+<div fieldId="ipos-client:Gender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.Gender' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Gender'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" placeholder="Full Name" ng-disabled="true" type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['Gender'])" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Gender']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:MaritalStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.MaritalStatus' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MaritalStatus'])['@mandatory'] == '1'">*</span></label>
+            <v3-switch-new switch-model="moduleService.findElementInDetail_V3(['MaritalStatus']).Value" prefix="v3.pnc.maritalStatus.enum" switch-default-value="" switch-disabled="true" ng-disabled="true" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['MarStat']).Option">
+            </v3-switch-new>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MaritalStatus']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:Nationality" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.Nationality' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Nationality'])['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown model="moduleService.findElementInDetail_V3(['Nationality'])" list=" moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Nationality']).Option" type="full-flag" prefix="v3.application.motor.nationality " disable="true">
+            </ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Nationality']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:IdNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.idnumber' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Code'])['@mandatory'] == '1'">*</span></label>
+            <input type="text" class="form-control" placeholder="ID Number" ng-disabled="true" maxlength="12" ng-model="moduleService.findElementInDetail_V3(['Code'])" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Code']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:Race" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.Race' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Race'])['@mandatory'] == '1'">*</span></label>
+            <v3-switch-new alway-watch="true" prefix="v3.pnc.race.enum" switch-model="moduleService.findElementInDetail_V3(['Race']).Value" prefix="v3.pnc.race.enum" switch-default-value="" switch-disabled="true" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Race']).Option">
+            </v3-switch-new>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Race']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<!-- Other Infor -->
+<!-- <div fieldId="ipos-client:CountryOfBirth" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.CountryOfBirth' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['user:CountryOfBirth'])['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown model="moduleService.findElementInDetail_V3(['Nationality'])" list=" moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Nationality']).Option" type="full-flag" prefix="v3.application.motor.nationality" disable="true">
+            </ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['user:CountryOfBirth']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div> -->
+<div fieldId="ipos-client:CountryOfBirth" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.CountryOfBirth' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PlaceOfBirth'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" placeholder="Occupation" ng-disabled="true" type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['PlaceOfBirth'])" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PlaceOfBirth']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="ipos-client:Occupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.Occupation' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Occupation'])['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown model="moduleService.findElementInElement_V3(moduleService.detail,['Occupation'])" list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum" disable="true">
+            </ng-newDropDown>
+        </div>
+    </div>
+</div> -->
+<div fieldId="ipos-client:Occupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.Occupation' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Occupation'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" placeholder="Occupation" ng-disabled="true" type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['Occupation'])" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:Staff" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.Staff' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Staff'])['@mandatory'] == '1'">*</span></label>
+            <v3-switch-new prefix="v3.yesno.enum" switch-model="moduleService.findElementInDetail_V3(['Staff']).Value" switch-default-value="" switch-disabled="true" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Staff']).Option">
+            </v3-switch-new>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Staff']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:VIP" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.VIP' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Vip'])['@mandatory'] == '1'">*</span></label>
+            <v3-switch-new prefix="v3.yesno.enum" switch-model="moduleService.findElementInDetail_V3(['Vip']).Value" switch-default-value="" switch-disabled="true" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Vip']).Option">
+            </v3-switch-new>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Vip']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<!-- Contacts -->
+<div fieldId="ipos-client:Contact" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content" ng-if="moduleService.findElementInDetail_V3(['Contacts'])['@counter'] == 0">
+        <i style="margin-right:5px; cursor: pointer" class="fa fa-plus-circle fa-3x"></i>
+    </div>
+    <div ng-show="moduleService.findElementInDetail_V3(['Contacts'])['@counter'] > 0">
+        <div layout="column" ng-repeat="contact in moduleService.convertToArray(moduleService.findElementInDetail_V3(['Contact'])) track by $index">
+            <div layout="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+                        <div class="form-group form-group-lg has-success">
+                            <label>{{'v3.myworkspace.label.application.motor.ContactType' | translate}}</label>
+                            <ng-newDropDown model="moduleService.findElementInElement_V3(contact,['ContactType'])"
+                                list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['ContactType']).Option"
+                                type="nonFlag" prefix="v3.pnc.contactType.enum" disable="true">
+                            </ng-newDropDown>
+                            <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['ContactType']).errorMessage | translate"></span>
+                            <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(contact, ['ContactType']).errorMessage | translate"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3">
+                    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+                        <div class="form-group form-group-lg has-success">
+                            <div ng-if="moduleService.findElementInElement_V3(contact,['ContactType']).Value!='EMAIL_ADDRESS' && moduleService.findElementInElement_V3(contact,['ContactType']).Value!=''">
+                                <label>{{'v3.myworkspace.label.application.motor.ContactInformation' | translate}}</label>
+                                <input class="form-control" type="text" ng-disabled="true" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber phone-Numbers-Only ng-model="moduleService.findElementInDetail_V3(['MobileNo'])" />
+                                <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(contact, ['ContactInformation']).errorMessage | translate"></span>
+                            </div>
+                            <div ng-if="moduleService.findElementInElement_V3(contact,['ContactType']).Value=='EMAIL_ADDRESS' && moduleService.findElementInElement_V3(contact,['ContactType']).Value!=''">
+                                <label>{{'v3.myworkspace.label.application.motor.ContactInformation' | translate}}</label>
+                                <input class="form-control" type="text" ng-disabled="true" close-text="Close" ng-model="moduleService.findElementInElement_V3(['EmailAddress'])" />
+                                <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(['EmailAddress']).errorMessage | translate"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Addresses -->
+<!-- <div fieldId="ipos-client:AddressType" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-padding-left-0">
+        <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+            <div class="form-group form-group-lg has-success">
+                <label>{{::'new.v3.mynewworkspace.client.label.AddressType' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['AddressType'])['@mandatory'] == '1'">*</span></label>
+                <v3-switch-new-slide switch-model="moduleService.findElementInDetail_V3(['AddressType']).Value" prefix="v3.pnc.addressType.enum" switch-default-value="" switch-disabled="true" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['AddressType']).Option">
+                </v3-switch-new-slide>
+                <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['AddressType']).errorMessage | translate"></span>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div fieldId="ipos-client:AddressType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'v3.mynewworkspace.portlet.label.Addresses' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Address'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" placeholder="Full Name" ng-disabled="true" type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['Address'])" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Address']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:BlkHouseNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.BlockHouseNumber' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['BlkHouseNo'])['@mandatory'] == '1'">*</span></label>
+            <input type="text" class="form-control" placeholder="{{(moduleService.findElementInDetail_V3(['BlkHouseNo'])['@editable'] == '0') ? '' : 'Block/ House Number'}}" ng-disabled="true" maxlength="12" ng-model="moduleService.findElementInDetail_V3(['BlkHouseNo']).$" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BlkHouseNo']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:Building" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.Building' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['Building'])['@mandatory'] == '1'">*</span></label>
+            <input type="text" class="form-control" placeholder="Building" ng-disabled="true" maxlength="12" ng-model="moduleService.findElementInDetail_V3(['Building']).$" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Building']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:City" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.City' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['City'])['@mandatory'] == '1'">*</span></label>
+            <input type="text" class="form-control" placeholder="City" ng-disabled="true" maxlength="12" ng-model="moduleService.findElementInDetail_V3(['City'])" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['City']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:Country" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.Country' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['Country'])['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown model="moduleService.findElementInDetail_V3(['Country'])" list=" moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Country']).Option" type="full-flag" prefix="v3.pnc.country.enum" disable="true">
+            </ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Country']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:Postal" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.PostalCode' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['Postal'])['@mandatory'] == '1'">*</span></label>
+            <input type="text" class="form-control" placeholder="Postal Code" ng-disabled="true" maxlength="12" ng-model="moduleService.findElementInDetail_V3(['Postal']).$" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Postal']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="ipos-client:UnitNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.mynewworkspace.client.label.unitNumber' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['UnitNo'])['@mandatory'] == '1'">*</span></label>
+            <input type="text" class="form-control" placeholder="{{(moduleService.findElementInDetail_V3(['UnitNo'])['@editable'] == '0') ? '' : 'Unit Number'}}" ng-disabled="true" maxlength="12" ng-model="moduleService.findElementInDetail_V3(['UnitNo']).$" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['UnitNo']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>

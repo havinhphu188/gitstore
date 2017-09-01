@@ -1,0 +1,290 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<style>
+	.popup_overlay{
+	  position:fixed; top:0; left:0;
+	  background-color: rgba(0, 0, 0, .8);
+	  z-index:9999; 
+	  width:100%; 
+	  height:100%; 
+	}
+	#ipos_viewer_header{
+	  background-color: white;
+	  width: 100%;
+	}
+	/* #ipos_file_content{
+	   background-color: #4B7E37 !important;
+	} */
+	 .file_content_color{
+	  color: #4CAF50 !important;
+	} 
+	#ipos_file_detail{
+	  color:white;
+	}
+	#ipos_send_email_detail{
+	    color: white !important;
+	    text-align: left;
+	    font-size: 12px;
+	}
+
+	#attachmentSection md-progress-linear .md-container.md-ready{
+	  	background-color: #e8f5e9 !important;
+ 		border-radius: 10px !important;
+	}
+	#attachmentSection md-progress-linear .md-container {
+		  height: 8px !important;
+	}
+	#attachmentSection md-progress-linear.md-default-theme .md-bar {
+		background-color: #4caf50 !important;
+		height: 8px !important;
+	}
+	#attachmentSection .dot-border-blue{
+		border-style: dotted;
+		margin-right: 20px;
+		margin-right: 0px !important;
+	}
+	#attachmentSection .zizap{
+		margin-top: 15px; 
+		border: 3px dashed #4B7E37; 
+		border-radius: 3px;
+	}
+	#attachmentSection .my-drop-zone {
+		border: dotted 3px;
+		height: 150px;
+		overflow: auto;
+		border-color: #4caf50 !important;
+	}
+	
+	#attachmentSection .drop-box {
+	    background: #F8F8F8;
+	    border: 5px dashed #DDD;
+	    width: 400px;
+	    line-height:40px;
+	    text-align: center;
+	 
+	    margin: 10px;
+	}
+	#attachmentSection .dragover {
+	    border: 5px dashed blue;
+	}
+	#attachmentSection .noFileDrop{
+		color: red;
+		font-size: 15px;
+		margin-top: 10px;
+	}
+	.border-table{
+		border-left: 1px solid gainsboro;
+    	border-right: 1px solid gainsboro;
+	}
+	.upload-mobile-border{
+		text-align: center;
+    	margin-top: 20px;
+    	margin-bottom: 20px;
+    	border: 2px dashed #4caf50;
+	}
+	.padding-right-table-0{
+		padding-right:0;
+	}
+	.upload-description *{
+		display:inline-block;
+		height: 100%;
+	}
+	#table-upload-file td{
+		text-align: center;
+		vertical-align: middle;
+	}
+	.ipos-table-xs > div{
+		display: -webkit-box;
+	}	
+	.col-centered{
+		float: none !important;
+		margin: 0 auto !important;
+	}
+	.td-check-fileUpload{		
+/* 		padding-right: 0px !important; */
+/* 		padding-left: 0px !important;  */
+/* 		display:unset !important;" */
+	}	
+	.make-md-column-check{
+		position: relative;
+		min-height: 1px;		
+		@media (min-width: 20px) {
+			float: left;
+			width: 30px !important;
+		}
+	}
+</style>
+
+<!-- <div class="hidden-xs container-fluid v3-padding-left-0 border-table">
+	<div class="row ipos_portlet_table_header_item v3-margin-right-0">
+		<div class="col-xs-4">Description</div>
+		<div class="col-xs-2">File Name</div>
+		<div class="col-xs-2">Created Date</div>
+		<div class="col-xs-2">File Size</div>
+		<div class="col-xs-2">Action</div>
+	</div>
+	<div class="row ipos_portlet_table_listRow v3-margin-right-0" ng-repeat="data in moduleService.convertToArray(moduleService.findElementInDetail_V3(['Attachment'])) track by $index" ng-if="data.FileUid.$ != null">			
+		<div class="col-xs-4 v3-padding-0" title="{{data.Name.$}}">{{data.Name.$| trimtext:false:15:'...'}}</div>
+		<div class="col-xs-2 v3-padding-0" title="{{data.FileName.$}}">{{data.FileName.$| trimtext:false:15:'...'}}</div>
+		<div class="col-xs-2 v3-padding-0" title="{{data.CreateDate.$}}">{{data.CreateDate.$ | datetimeFilter:"DD/MM/YYYY"| trimtext:false:10:' '}}</div>
+		<div class="col-xs-2 v3-padding-0">{{data.FileSize.$}}</div>
+		<div class="col-xs-2 v3-padding-0">
+			<i ng-click="fileReaderService.openFileReader('view',data,moduleService.convertToArray(moduleService.findElementInDetail_V3(['Attachment'])),'uploadMode')" class="fa fa-search-plus fa-lg pointer" tooltips  tooltip-title="View" tooltip-side="bottom" tooltip-size="medium"></i> &nbsp;
+			<i ng-click="fileReaderService.openFileReader('download',data,null,'uploadMode')" class="fa fa-download fa-lg pointer" tooltips  tooltip-title="Download" tooltip-side="bottom" tooltip-size="medium"></i> &nbsp; 
+			<i ng-if="!(moduleService.detail.IposDocument.Header.DocStatus.DocumentStatus == 'READY FOR SUBMISSION'
+			 || moduleService.detail.IposDocument.Header.DocStatus.DocumentStatus == 'SUBMITTED'
+			 || moduleService.detail.IposDocument.Header.DocStatus.BusinessStatus == 'SUBMITTED')" 			 
+			 ng-click="multiUploadService.removeFile(moduleService,$index)" class="fa fa-trash-o fa-lg pointer" tooltips  tooltip-title="Remove" tooltip-side="bottom" tooltip-size="medium" ></i>
+		</div>
+	</div>
+</div> -->	
+<br/>
+<div class="hidden-xs" layout-margin layout="column" id="attachmentSection" 
+ng-if="!(moduleService.findElementInDetail_V3(['DocumentStatus']) == 'READY FOR SUBMISSION' 
+	|| moduleService.findElementInDetail_V3(['DocumentStatus']) == 'SUBMITTED'
+	|| moduleService.findElementInDetail_V3(['BusinessStatus']) == 'SUBMITTED')">
+	<div class="attachment col-md-12 col-sm-12">
+		<div class="col-centered col-md-10 col-sm-10 no-padding-right">
+			<div class="dot-border-blue zizap" 
+				ng-file-drop="multiUploadService.onFileSelect($files)" drag-over-class="dragover" 
+				ng-multiple="true" allow-dir="true" accept="image/*,application/pdf"  name="file">
+				<div class="col-centered center-align"><h3 style="color: #5858FA"><a class="pointer" ng-multiple="true"
+				 ng-file-select="multiUploadService.onFileSelect($files, moduleService, fileReaderService.portletId)" name="file">
+				 {{"new.v3.mynewworkspace.uploadFile.label.Clicktoselectyourfiles"| translate}}</a></h3></div>
+				<div class="col-centered center-align" ><h4>{{"new.v3.mynewworkspace.uploadFile.label.Ordragdropyourfileshere"| translate}}</h4></div>
+			</div>
+		</div>
+		<div ng-no-file-drop class="noFileDrop col-centered col-md-10 col-sm-10">
+			<div>
+				<i>{{"new.v3.mynewworkspace.uploadFile.label.FileNotSupported"| translate}}</i>
+			</div>
+		</div>
+		<br/>
+	<div id="table-upload-file"  class="hidden-xs col-md-11 col-sm-11 col-md-offset-1 col-sm-offset-1 padding-right-table-0" ng-if="multiUploadService.files.length > 0">
+		<table class="table table-bordered" style="border:unset !important;">
+	      <thead>
+	        <tr>
+	          <th>{{"v3.documentcenter.label.FileType"| translate}}</th>
+	          <th>{{"v3.myworkspace.label.application.motor.Description"| translate}}</th>
+	          <th ng-if="moduleService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK || moduleService.group == commonService.CONSTANTS.PRODUCT_GROUP.ENDOWMENT">{{"v3.mynewworkspace.portlet.label.AttachmentType"| translate}}</th>
+	          <th>{{"v3.myworkspace.label.application.motor.Action"| translate}}</th>
+	          <!-- <th>{{"v3.myworkspace.label.application.motor.Type"| translate}}</th> -->
+<!-- 	          <th style="all:unset !important;"></th> -->
+	        </tr>
+	      </thead>
+	      <tbody>	      	
+	        <tr ng-repeat="file in multiUploadService.files">	                
+	          <td class="col-md-2 col-sm-2"><img ng-if="file.type=='image/jpeg' || file.type=='image/png'"  src="{{file.data}}" style="height:30px;"/>
+					<i ng-if="file.type=='application/pdf'" style="font-size: 2.3vw" class="fa fa-file-pdf-o fa-lg"></i>
+					<i ng-if="file.type!='application/pdf' && file.type!='image/jpeg' && file.type!='image/png'" style="font-size: 2.3vw" class="fa fa-file-excel-o fa-lg"></i></td>
+	          <!-- <td class="form-group form-group-lg has-success col-md-4 col-sm-4"> -->
+	          <td style="width: 300px;" class="form-group form-group-lg has-success col-md-6 col-sm-6">
+	          		<input style="margin:0px;" class="form-control" id="desc" ng-model="file.desc" type="text"/>
+	          </td>
+	          <td ng-if="moduleService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK || moduleService.group == commonService.CONSTANTS.PRODUCT_GROUP.ENDOWMENT" class="center-align">
+					<select class="form-group form-group-lg has-success form-control" ng-disabled="moduleService.freeze == true" ng-model="file.documentType" ng-options="item.value as ('v3.attachmentType.' + item.value | translate)  for item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.product],['AttachmentType','Option']) | filter: { value: '!DOC_08' }">
+					</select>
+              </td>
+	          <td class="col-md-2 col-sm-2"><i ng-click="multiUploadService.files.splice($index,1)" class="fa fa-trash-o pointer fa-lg" tooltips  tooltip-title="{{'v3.mynewworkspace.message.delete' | translate}}" tooltip-side="top" tooltip-size="medium"></td>
+	           
+              <td style="border:unset !important;" class="col-md-1 col-sm-1" >
+	          		<i ng-if="file.validate==''" style="color: #4CAF50	;" class="fa fa-check-circle pointer fa-2x" tooltips  tooltip-title="Good" tooltip-side="top" tooltip-size="medium"></i>
+					<i ng-if="file.validate!=''" style="color: red;" class="fa fa-exclamation-circle pointer fa-2x" tooltips  tooltip-title="{{file.validate | translate}}" tooltip-side="top" tooltip-size="medium"></i>	
+			  </td>
+	        </tr>	      
+	      </tbody>
+    	</table>
+	</div>
+		<div class="col-xs-12" align="center">			
+			<button loading class="btn btn btn-lg v3-btn-primary" ng-disabled="!(multiUploadService.files.length > 0) || multiUploadService.validateFileList(multiUploadService.files)" 
+					loading-action="uploadFiles(card, multiUploadService.files, $event)">{{"new.v3.mynewworkspace.uploadFile.label.AddAttachment" | translate}}</button>		
+		</div>
+	</div>
+</div>
+<!-- <div class="hidden-md hidden-sm hidden-lg col-xs-12  ipos-table-xs"  ng-repeat="data in moduleService.convertToArray(moduleService.findElementInDetail_V3(['Attachment'])) track by $index" ng-if="data.FileUid.$ != null">            
+   		<div class="col-xs-12">
+   			<div class="col-xs-6">Description</div>
+   			<div title="{{data.Name.$}}" class="col-xs-6">{{data.Name.$| trimtext:false:25:'...'}}</div>
+   		</div>
+   		<div class="col-xs-12">
+   			<div class="col-xs-6">File Name</div>
+   			<div class="col-xs-6"title="{{data.FileName.$}}">{{data.FileName.$| trimtext:false:25:'...'}}</div>
+   		</div>
+   		<div class="col-xs-12">
+   			<div class="col-xs-6">Created Date</div>
+   			<div class="col-xs-6" title="{{data.CreateDate.$}}">{{data.CreateDate.$ | datetimeFilter:"DD/MM/YYYY"}}</div>
+   		</div>
+   		<div class="col-xs-12">
+   			<div class="col-xs-6">File Size</div>
+   			<div class="col-xs-6">{{data.FileSize.$}}</div>
+   		</div>
+     	<div class="col-xs-12">
+   			<div class="col-xs-6">Action</div>
+   			<div class="col-xs-6"><i ng-click="fileReaderService.openFileReader('view',data,moduleService.convertToArray(moduleService.findElementInDetail_V3(['Attachment'])),'uploadMode')" class="fa fa-search-plus fa-lg pointer" tooltips  tooltip-title="View" tooltip-side="bottom" tooltip-size="medium"></i> &nbsp;
+			<i ng-click="fileReaderService.openFileReader('download',data,null,'')" class="fa fa-download fa-lg pointer" tooltips  tooltip-title="Download" tooltip-side="bottom" tooltip-size="medium"></i> &nbsp; 
+			<i ng-if="!(moduleService.detail.IposDocument.Header.DocStatus.DocumentStatus == 'READY FOR SUBMISSION'
+			 || moduleService.detail.IposDocument.Header.DocStatus.DocumentStatus == 'SUBMITTED'
+			 || moduleService.detail.IposDocument.Header.DocStatus.BusinessStatus == 'SUBMITTED')" 
+			 ng-click="multiUploadService.removeFile(moduleService,$index)" class="fa fa-trash-o fa-lg pointer" tooltips  tooltip-title="Remove" tooltip-side="bottom" tooltip-size="medium" ></i></div>
+   		</div>
+</div> -->
+<div class="hidden-md hidden-sm hidden-lg col-xs-12">            
+   		<div  class="upload-mobile-border" ng-file-drop="multiUploadService.onFileSelect($files)" drag-over-class="dragover" ng-multiple="true" allow-dir="true" accept="image/*,application/pdf"  name="file">
+			<div flex="">
+				<h3 style="color: #5858FA"><a class="pointer" ng-multiple="true"
+				 ng-file-select="multiUploadService.onFileSelect($files, moduleService, fileReaderService.portletId)" name="file">
+				 {{"new.v3.mynewworkspace.uploadFile.label.Clicktoselectyourfiles"| translate}}</a></h3>
+			</div>				
+		</div>
+		<div class="col-xs-12 ipos-table-xs" ng-repeat="file in multiUploadService.files">
+			<div class="col-xs-12">
+	   			<div class="col-xs-6">{{"v3.myworkspace.label.application.motor.FileName"| translate}}</div>
+	   			<div class="col-xs-6">{{file.name}}</div>
+   			</div>
+   			<div class="col-xs-12">
+	   			<div class="col-xs-6">{{"v3.myworkspace.label.application.motor.Description"| translate}}</div>
+	   			<div class="col-xs-6 form-group form-group-xs has-success">
+	   				<input class="form-control" id="desc" ng-model="file.desc" type="text"/>
+	   			</div>
+   			</div>
+   			<div ng-if="moduleService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK || moduleService.group == commonService.CONSTANTS.PRODUCT_GROUP.ENDOWMENT" class="col-xs-12">
+	   			<div class="col-xs-6">{{"v3.mynewworkspace.portlet.label.AttachmentType"| translate}}</div>
+	   			<div class="col-xs-6 form-group form-group-xs has-success">
+
+					<select class="form-group form-group-lg has-success form-control" ng-disabled="moduleService.freeze == true" ng-model="file.documentType" ng-options="item.value as ('v3.attachmentType.' + item.value | translate)  for item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['AttachmentType','Option'])">
+					</select>
+	   			</div>
+   			</div>
+   			<div class="col-xs-12">
+	   			<div class="col-xs-6">{{"v3.myworkspace.label.application.motor.Action"| translate}}</div>
+	   			<div class="col-xs-6">
+	   				<i ng-click="multiUploadService.files.splice($index,1)" class="fa fa-trash-o pointer"></i>
+	   				<i ng-if="file.validate==''" style="color: #4CAF50	;" class="fa fa-check-circle pointer" tooltips  tooltip-title="Good" tooltip-side="top" tooltip-size="medium"></i>
+					<i ng-if="file.validate!=''" style="color: red;" class="fa fa-exclamation-circle pointer" tooltips  tooltip-title="{{file.validate | translate}}" tooltip-side="top" tooltip-size="medium"></i>
+	   			</div>
+   			</div>
+		</div>
+		<div class="col-xs-12">
+			<div class="col-centered col-xs-6">
+				<button loading style="width:80%"  class="btn v3-btn-info" ng-disabled="!(multiUploadService.files.length > 0) || multiUploadService.validateFileList(multiUploadService.files)" 
+				loading-action="uploadFiles(card, multiUploadService.files, $event)">{{"new.v3.mynewworkspace.uploadFile.label.AddAttachment" | translate}}</button>
+			</div>								
+		</div>		
+</div>

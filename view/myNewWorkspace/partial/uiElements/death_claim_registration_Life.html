@@ -1,0 +1,238 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+	<div fieldId="death-claim-registration:infomationTitle" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 centered summary">
+		<div class="row">			
+				<div class="form-group form-group-lg has-success">
+				    <label style='font-size: 18px'> <b>{{'v3.mynewworkspace.portlet.label.deathclaim.summary-title' | translate}}</b></label>
+			  	</div>			
+		</div>			
+	</div>	
+	<div  fieldId="death-claim-registration:deceasedName" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">    
+		<div class="row">			
+	     <div class="col-xs-offset-1 col-xs-10">   	
+			<div class="form-group form-group-lg has-success">
+			    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.deceasedname' | translate}} :</label>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			    <label ng-bind="uiElement.refDetail.$" ></label>							   
+		  	</div>
+	  	</div>
+	  	</div>
+	</div>	
+	<div fieldId="death-claim-registration:dateOfDeath" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">    
+			
+	     <div class="col-xs-offset-1 col-xs-10">   	
+			<div class="form-group form-group-lg has-success">
+			    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.dateofdeath' | translate}} :</label>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			    <label ng-bind="commonUIService.convertToDateTime(uiElement.refDetail.$,'DD/MM/YYYY')" ></label>							   
+		  	</div>
+	  	</div>
+	  	
+	</div>
+	<div  fieldId="death-claim-registration:linkToDeathClaim" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">    			
+	     <div class="col-xs-offset-1 col-xs-10">   	
+			<div class="form-group form-group-lg has-success">
+				
+					<a href="" ng-click="printPreviewPdf()">{{'v3.mynewworkspace.portlet.label.deathclaim.previewlinkofsummary' | translate}}</a>
+				
+			</div>
+	  	</div>
+	  
+	</div>
+<!-- End Summary -->
+<!-- Death Claim infomation -->
+	<div fieldId="death-claim-registration:deathClaimInfomation" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary ng-scope">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 centered summary">				
+				<div class="form-group form-group-lg has-success">
+				     <label style='font-size: 18px'><b>{{'v3.mynewworkspace.portlet.label.deathclaim.death_claim_infomation' | translate}}</b></label>
+			  	</div>				
+	</div>
+	</div>		
+	
+	<div fieldId="death-claim-registration:deathClaimInfomationleft" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6  v3-padding-0">
+			<div class="col-xs-offset-1 col-xs-10">
+				<div class="form-group form-group-lg has-success">
+				   <label style='font-size: 18px'><b>{{'v3.mynewworkspace.portlet.label.deathclaim.death_claim_infomation' | translate}}</b></label>
+				   </div>
+		 </div>
+	</div>		
+		
+	</div>	
+	<div fieldId="death-claim-registration:ClientNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+   		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{"v3.mynewworkspace.portlet.label.deathclaim.death_claim_clientnumber"| translate}} <span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+					<input class="form-control" ng-disabled="uiElement.refDetail['@editable'] == '0'"   type="text" ng-model="uiElement.refDetail.$"/>	
+				<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>		
+		  	</div>
+  		</div>
+	</div>
+	<div fieldId="death-claim-registration:ReportedDate"   class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content ">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.report_date' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+			     		<input class="form-control" ng-disabled="uiElement.refDetail['@editable'] == '0'"  type="text" ng-model="commonUIService.convertToDateTime(uiElement.refDetail.$,'DD/MM/YYYY')"/>
+			     		<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>			
+				  	</div>
+			  	</div>
+	</div>
+	<div fieldId="death-claim-registration:DeathDate"   class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content ">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.death_date' | translate}} <span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span> </label>
+			     		  	<div style="position:relative"><input ms-datepicker   ng-model="uiElement.refDetail.$" class="ms-calendar"/></div>
+	        				<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+				  	</div>
+			  	</div>
+	</div>
+	<div fieldId="death-claim-registration:DeathCause"   class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content ">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.causedofdeath' | translate}}</label>
+			     		<ng-newDropDown 
+			     				
+			     				ng-disabled="uiElement.refDetail['@editable'] == '0'" model="uiElement.refDetail"
+								list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['DeathCause']).Option" 
+								type="nonFlag" prefix="v3.causeofdeath">
+						</ng-newDropDown>
+				  	</div>
+			  	</div>
+	</div>
+	
+	<div fieldId="death-claim-registration:Information"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">    
+	    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6  v3-padding-0">
+			<div class="col-xs-offset-1 col-xs-10">
+				<div class="form-group form-group-lg has-success">
+				    <label style='font-size: 18px'><b>{{'v3.mynewworkspace.portlet.label.deathclaim.infomant' | translate}} :</b></label>
+		     		
+			  	</div>
+		  	</div>
+	  	</div>	  
+	</div>
+	<br/>
+	<div fieldId="death-claim-registration:InformantName"   class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content ">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.infomationname' | translate}}  <span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>  </label>
+	     		<input class="form-control" ng-disabled="uiElement.refDetail['@editable'] == '0'" type="text" ng-model="uiElement.refDetail.$" />	
+	     		<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		  	</div>
+	  	</div>
+	</div>
+	<div fieldId="death-claim-registration:InformantTel"   class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content ">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.infomanttel' | translate}} <span ng-show="uiElement.refDetail['@mandatory'] == '1'">.*</span>  </label>
+	     			     		
+	     		<input style="padding-left: 40px;" class="form-control" pos-phonenumber phone-Numbers-Only
+			ng-disabled="uiElement.refDetail['@editable'] == '0'" 
+			type="text" maxlength="13" ng-model="uiElement.refDetail.$" />
+		<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		  	</div>
+	  	</div>
+	</div>
+	<div fieldId="death-claim-registration:InformantAddInfo"   class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content ">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.additionalinfomation' | translate}}</label>
+	     		<textarea rows="3" class="v3-fna-textarea" ng-disabled="uiElement.refDetail['@editable'] == '0'"  ng-model="uiElement.refDetail.$"  />
+		  	</div>
+	  	</div>
+	</div>
+	
+	<div fieldId="death-claim-registration:InformantEmail"   class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content ">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.email' | translate}}</label>
+			    <input class="form-control" ng-disabled="uiElement.refDetail['@editable'] == '0'"  type="text" ng-model="uiElement.refDetail.$" />	
+	     	     
+      		   <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span> 
+		  	</div>
+	  	</div>
+	</div>
+	
+<!-- End Death Claim infomation  -->
+
+<!-- Policy Detail -->
+	<div fieldId="death-claim-registration:PoliciDetailTitle" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 centered summary">				
+			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+				<div class="form-group form-group-lg has-success">
+				    <label style='font-size: 18px'><b>{{'v3.mynewworkspace.portlet.label.deathclaim.policydetal' | translate}} </b></label>
+			  	</div>
+			</div>
+			
+		</div>			
+	</div>	
+	<div fieldId="death-claim-registration:PolicyNo"   class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content ">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.policynumber' | translate}}<span >*</span></label>
+			    <input class="form-control" ng-disabled="true" type="text"  ng-model="card.refDetail['death-claim-registration:PolicyNo'].$" />	
+	     		
+		  	</div>
+	  	</div>
+	</div>
+	<div fieldId="death-claim-registration:Product"   class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content ">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.policyproduct' | translate}}<span >*</span></label>
+			    <input class="form-control" ng-disabled="true" type="text" ng-model="card.refDetail['death-claim-registration:Product'].$" />	
+	     		
+		  	</div>
+	  	</div>
+	</div>
+	<div fieldId="death-claim-registration:POName"   class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content ">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.policyowner' | translate}}<span >*</span></label>
+			    <input class="form-control" ng-disabled="true" type="text"  ng-model="card.refDetail['death-claim-registration:POName'].$"/>	
+	     		
+		  	</div>
+	  	</div>
+	</div>
+	<div fieldId="death-claim-registration:LIName"   class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content ">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.lifeinsurence' | translate}}<span >*</span></label>
+			    <input class="form-control" ng-disabled="true" type="text" ng-model="card.refDetail['death-claim-registration:LIName'].$" />	
+	     		
+		  	</div>
+	  	</div>
+	</div>
+	<div fieldId="death-claim-registration:SumInsured"   class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content ">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{'v3.mynewworkspace.portlet.label.deathclaim.sumInsured' | translate}}<span >(ccy)*</span></label>
+			    <input class="form-control" ng-disabled="true" type="text" pos-autonumeric decimal="0" ng-model="card.refDetail['death-claim-registration:SumInsured'].$" />	
+	     		
+		  	</div>
+	  	</div>
+	</div>
+
+<!-- End Policy Detail -->
+
+
+
+<!-- Attachments -->
+<div fieldId="death-claim-registration:Attachment" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div ng-include="initContextPath+'/view/fileAttachment/fileUpload.html'"></div>
+</div>
+<!-- Attachments -->

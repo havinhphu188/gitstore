@@ -1,0 +1,1547 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="person:FullNames" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">    
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"new.v3.mynewworkspace.prospect.label.FullName" | translate}}:</span>
+        <span class="col-md-6 v3-padding-0">{{moduleProspectPersonalService.findElementInDetail_V3(['FullName']).$}}</span>
+    </div>
+</div>
+<div fieldId="person:BirthDates" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"new.v3.mynewworkspace.prospect.label.BirthDate" | translate}}:</span> 
+        <span class="col-md-6 v3-padding-0">{{moduleProspectPersonalService.findElementInDetail_V3(['BirthDate']).$ | datetimeFilter:"DD/MM/YYYY"}}</span>	
+    </div>
+</div>
+<div fieldId="person:Genders" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">    
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"new.v3.mynewworkspace.prospect.label.Gender" | translate}}:</span>
+        <span class="col-md-6 v3-padding-0">{{'v3.gender.enum.' + moduleProspectPersonalService.findElementInDetail_V3(['Gender']).Value | translate}}</span>	
+    </div>
+</div>
+<div fieldId="person:SmokerStatuss" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">    
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"new.v3.mynewworkspace.client.label.SmokingStatus" | translate}}:</span>
+        <span class="col-md-6 v3-padding-0">{{'v3.pnc.smoker.enum.' + moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).Value | translate}}</span>
+    </div>
+</div>
+<div fieldId="person:Networths" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-top-20 summary">    
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6"><b>{{"new.v3.mynewworkspace.prospect.label.Networths" | translate}}:</b></span>
+    </div>
+</div>
+<div fieldId="person:AnnualCashFlow" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-top-20 summary">    
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6"><b>{{"new.v3.mynewworkspace.prospect.label.AnnualCashFlow"| translate}}:</b></span>
+    </div>
+</div>
+<div fieldId="person:TotalAssetss" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">    
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"new.v3.mynewworkspace.prospect.label.TotalAssets"| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}}):</span> 
+        <span class="col-md-6 v3-padding-0">{{moduleProspectPersonalService.findElementInDetail_V3(['TotalAssets']).$ | v3Currency}}</span>	
+    </div>
+</div>
+<div fieldId="person:AnnualIncome" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">    
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"new.v3.mynewworkspace.prospect.label.AnnualIncome"| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}}):</span>
+        <span class="col-md-6 v3-padding-0">{{moduleProspectPersonalService.findElementInDetail_V3(['AnnualIncome']).$ | v3Currency}}</span>
+    </div>
+</div>
+<div fieldId="person:TotalLiabilities" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">    
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"new.v3.mynewworkspace.prospect.label.TotalLiabilities"| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}}):</span>  
+        <span class="col-md-6 v3-padding-0">{{moduleProspectPersonalService.findElementInDetail_V3(['TotalLiabilities']).$ | v3Currency}}</span>	
+    </div>
+</div>
+<div fieldId="person:AnnualExpenses" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">    
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"new.v3.mynewworkspace.prospect.label.AnnualExpenses"| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}}):</span>  
+        <span class="col-md-6 v3-padding-0">{{moduleProspectPersonalService.findElementInDetail_V3(['TotalAnnualExpenses']).$ | v3Currency}}</span>
+    </div>
+</div>
+<div fieldId="person:Networth" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">    
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"new.v3.mynewworkspace.prospect.label.Networths"| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}}):</span>
+        <span class="col-md-6 v3-padding-0">{{moduleProspectPersonalService.findElementInDetail_V3(['NetWorth']).$ | v3Currency}}</span>
+    </div>
+</div>
+<div fieldId="person:ShortageSurplus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">    
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"new.v3.mynewworkspace.prospect.label.ShortageSurplus"| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}}):</span>  
+        <span class="col-md-6 v3-padding-0">{{moduleProspectPersonalService.findElementInDetail_V3(['NetCashFlowOrSurplus']).$ | v3Currency}}</span>	
+    </div>
+</div>
+<div fieldId="person:InvestmentRiskProfiles" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">    
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"v3.mynewworkspace.portlet.label.prospect:InvestmentRiskProfile"| translate}}:</span>
+        <span class="col-md-6 v3-padding-0">{{moduleProspectPersonalService.findElementInDetail_V3(['RiskProfile']).$ | translate}}</span>	
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+    <div class="form-group form-group-lg has-success">
+	    <div class="row">
+		    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+		         <button class="col-sm-offset-4 col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="printPdf()">{{"new.v3.mynewworkspace.corporate.label.ReviewDetails" | translate}}</button> 
+		    </div>
+		</div>
+    </div>
+</div>
+
+<!-- Basic Info -->
+<div fieldId="person:Title" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.Title"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Title'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Title'])"
+				list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Title']).Option" type="nonFlag" prefix="v3.pnc.title.enum"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Title']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:FullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.FullName"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['FullName'])['@mandatory'] == '1'">*</span></label>
+		   	 <input class="form-control" placeholder="Full Name" ng-disabled="moduleProspectPersonalService.findElementInDetail_V3(['FullName'])['@editable'] == '0'"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['FullName']).$" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['FullName']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:BirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.DateofBirth"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['BirthDate'])['@mandatory'] == '1'">*</span></label>
+		   	<div style="position:relative"><input ms-datepicker   ng-model="moduleProspectPersonalService.findElementInDetail_V3(['BirthDate']).$" class="ms-calendar"/></div>
+	        <span class="errorMessage  v3-auto-text-ellipsis-2" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['BirthDate']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:Gender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.Gender"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Gender'])['@mandatory'] == '1'">*</span></label>
+			<v3-switch-new prefix="v3.pnc.gender.enum"
+		    	switch-model="moduleProspectPersonalService.findElementInDetail_V3(['Gender']).Value"
+		    	switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['Gender'])['@editable'] == '0'"
+		    	switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Gender']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Gender']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div> 
+<div fieldId="person:MaritalStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		   	<label>{{"new.v3.mynewworkspace.prospect.label.MaritalStatus"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['MaritalStatus'])['@mandatory'] == '1'">*</span></label>
+			<v3-switch-new 
+				switch-model="moduleProspectPersonalService.findElementInDetail_V3(['MaritalStatus']).Value" prefix="v3.pnc.maritalStatus.enum"
+				switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['MaritalStatus'])['@editable'] == '0'"
+				switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['MaritalStatus']).Option">
+	       </v3-switch-new>
+	       <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['MaritalStatus']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="person:SmokerStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.client.label.SmokingStatus"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus'])['@mandatory'] == '1'">*</span></label>
+			<v3-switch-new 
+		    	switch-model="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).Value" prefix="v3.pnc.smoker.enum"
+		    	switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus'])['@editable'] == '0'"
+		     	switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['SmokerStatus']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="person:Nationality" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	 <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.Nationality"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Nationality'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Nationality'])"   
+				list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Nationality']).Option" type="nonFlag" prefix="v3.pnc.nationality.enum"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Nationality']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:Race" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		   <label>{{"new.v3.mynewworkspace.prospect.label.Race"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Race'])['@mandatory'] == '1'">*</span></label>
+			<v3-switch-new alway-watch="true" prefix="v3.pnc.race.enum"
+				switch-model="moduleProspectPersonalService.findElementInDetail_V3(['Race']).Value" prefix="v3.pnc.race.enum"
+				switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['Race'])['@editable'] == '0'"
+				switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Race']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Race']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<!-- <div fieldId="person:IDType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.IDType"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['IDType'])['@mandatory'] == '1'">*</span></label>
+			<v3-switch-new prefix="v3.pnc.idType.enum"
+		    	switch-model="moduleProspectPersonalService.findElementInDetail_V3(['IDType']).Value" 
+		    	switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['IDType'])['@editable'] == '0'"
+		    	switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['IDType']).Option">
+			</v3-switch-new>
+			<span class="errorMessage v3-auto-text-ellipsis-2" title="{{moduleProspectPersonalService.findElementInDetail_V3(['IDType']).errorMessage | translate}}" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['IDType']).errorMessage | translate"></span>			
+		</div>
+	</div>
+</div> -->
+
+<div fieldId="person:IDType" class="col-xs-12 v3-column-content v3-padding-0">
+	<div class="row v3-margin-auto">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="col-xs-offset-1 col-xs-10">
+				<div class="form-group form-group-lg has-success">
+					<label>{{"new.v3.mynewworkspace.prospect.label.IDType"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['IDType'])['@mandatory'] == '1'">*</span></label>
+					<v3-switch-new prefix="v3.pnc.idType.enum"
+				    	switch-model="moduleProspectPersonalService.findElementInDetail_V3(['IDType']).Value" 
+				    	switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['IDType'])['@editable'] == '0'"
+				    	switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['IDType']).Option">
+					</v3-switch-new>
+					<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['IDType']).errorMessage | translate"></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="col-xs-offset-1 col-xs-10">
+				<div class="form-group form-group-lg has-success">
+					<label>{{"new.v3.mynewworkspace.prospect.label.IDNumber"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['IDs', 'ID', 'IDNumber'])['@mandatory'] == '1'">*</span></label>
+					<input class="form-control" placeholder="ID Number" ng-disabled="moduleProspectPersonalService.findElementInDetail_V3(['IDs', 'ID', 'IDNumber'])['@editable'] == '0'"
+	        			type="text"  maxlength="20" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['IDs', 'ID', 'IDNumber']).$" />
+					<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['IDs', 'ID', 'IDNumber']).errorMessage | translate"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Other Info -->
+<div fieldId="person:Education" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.Education"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Education'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Education'])"
+				list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Education']).Option" type="nonFlag" prefix="v3.pnc.education.enum"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Education']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:BusinessIndustry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.BusinessIndustry"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['BusinessIndustry'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['BusinessIndustry'])"
+				list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['BusinessIndustry']).Option" type="nonFlag" prefix="v3.pnc.industry.enum"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['BusinessIndustry']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:Occupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.Occupation"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:ClientStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.ClientStatus"| translate}}</label><span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['ClientStatus'])['@mandatory'] == '1'">*</span></label>
+		   	 <input class="form-control" ng-disabled="moduleProspectPersonalService.findElementInDetail_V3(['ClientStatus'])['@editable'] == '0'"  
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['ClientStatus']).$" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['ClientStatus']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:EmploymentStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label> {{"new.v3.mynewworkspace.prospect.label.EmploymentStatus"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['EmploymentStatus'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['EmploymentStatus'])"
+				list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['EmploymentStatus']).Option" type="nonFlag" prefix="v3.pnc.employmentStatus.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['EmploymentStatus']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:AnnualEmployeeIncome" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.AnnualEmployeeIncome"| translate}} ({{moduleProspectPersonalService.findElementInDetail_V3(['Currency']).Value}})</label><span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['AnnualIncome'])['@mandatory'] == '1'">*</span>
+		   	 <input class="form-control" type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['AnnualIncome']).$" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['OtherInfomation','AnnualIncome'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['OtherInfomation','AnnualIncome'])['@maxvalue']}}" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['AnnualIncome']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:SourceOfFund" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label> {{"new.v3.mynewworkspace.prospect.label.SourceOfFund"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['SourceOfFund'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['SourceOfFund'])"
+				list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['SourceOfFund']).Option" type="nonFlag" prefix="v3.pnc.sourceOfFund"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['SourceOfFund']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:ClientNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.ClientNumber"| translate}}</label><span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['ClientId'])['@mandatory'] == '1'">*</span></label>
+		   	 <input class="form-control" placeholder="Client Number" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['ClientId']).$" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['ClientId']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:SourceName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.SourceName"| translate}}</label><span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['SourceName'])['@mandatory'] == '1'">*</span></label>
+		   	 <input class="form-control" placeholder="Source Name" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['SourceName']).$" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['SourceName']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:Staff" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.Staff"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Staff'])['@mandatory'] == '1'">*</span></label>
+	   		<v3-switch-new-slide 
+	   			switch-model="moduleProspectPersonalService.findElementInDetail_V3(['Staff']).Value" prefix="v3.yesno.enum"
+	   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['Staff'])['@editable'] == '0'"
+	   			switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Staff']).Option">
+	   		</v3-switch-new-slide>
+	   		<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Staff']).errorMessage | translate"></span>
+	    </div>		
+  	</div>
+</div>
+<div fieldId="person:Vip" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.VIP"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Vip'])['@mandatory'] == '1'">*</span></label>
+	   		<v3-switch-new-slide 
+	   			switch-model="moduleProspectPersonalService.findElementInDetail_V3(['Vip']).Value" prefix="v3.yesno.enum" 
+	   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['Vip'])['@editable'] == '0'"
+	   			switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Vip']).Option">
+	   		</v3-switch-new-slide>
+	   		<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Vip']).errorMessage | translate"></span>
+	    </div>		
+  	</div>
+</div>
+<div fieldId="person:ReferralType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" >	
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label> {{"new.v3.mynewworkspace.prospect.label.ReferralType"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['ReferralType'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['ReferralType'])"
+				list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['ReferralType']).Option" type="nonFlag" prefix="v3.pnc.referralType.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['ReferralType']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="person:CountryOfBirth" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.CountryofBirth"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['CountryOfBirth'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['CountryOfBirth'])"
+				list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['CountryOfBirth']).Option" type="nonFlag" prefix="v3.pnc.country.enum"></ng-newDropDown> 
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['CountryOfBirth']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+
+<!-- Contacts -->
+<!-- <div fieldId="person:Contact" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" style="text-align: right;" ng-if="moduleProspectPersonalService.findElementInDetail_V3(['Contacts'])['@counter'] == 0">
+		<button class="btn btn-lg v3-btn-primary" style="min-width: 10px; margin-right: -10px;" ng-click="addContact()"><i class="fa fa-plus"></i></button>
+		<label style="padding-left: 15px;">{{"new.v3.mynewworkspace.prospect.label.AddNewContact"| translate}}</label>
+	</div>
+</div>
+<div fieldId="person:ContactType" class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-column-content" ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Contacts'])['@counter'] > 0">
+	<div class="col-xs-offset-1 col-xs-12 v3-column-content ng-scope" layout="row" ng-repeat="contact in moduleProspectPersonalService.findElementInDetail_V3(['Contact']) track by $index">
+		<div class="form-group col-md-4 form-group-lg has-success v3-padding-0">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.Contacttype"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['ContactType'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInElement_V3(contact,['ContactType'])"
+				list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['ContactType']).Option" type="nonFlag" prefix="v3.prospect.contact" more-action="clearContactTypeValue($index, contact)"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['ContactType']).errorMessage | translate"></span>
+		</div>		
+  		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3" ng-if="moduleProspectPersonalService.findElementInElement_V3(contact,['ContactType']).Value">
+    		<div class="col-xs-offset-1 col-xs-12 v3-column-content">
+        		<div class="form-group form-group-lg has-success">    
+            		<span>{{'v3.myworkspace.label.application.motor.ContactInformation' | translate}} <span ng-show="moduleProspectPersonalService.findElementInElement_V3(contact,['ContactInformation'])['@mandatory'] == '1'" >*</span></span>
+					<div class="row">
+			    		<div class="col-xs-8 v3-padding-0" ng-if="moduleProspectPersonalService.findElementInElement_V3(contact,['ContactType']).Value=='EMAIL_ADDRESS'">
+			    		<input class="form-control" type="text" ng-disabled="moduleProspectPersonalService.findElementInElement_V3(contact,['ContactInformation'])['@editable'] == '0'"
+							ng-model="moduleProspectPersonalService.findElementInElement_V3(contact,['ContactInformation']).$" />
+			        		<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInElement_V3(contact, ['ContactInformation']).errorMessage | translate"></span>
+			        	</div>
+			        	<div class="col-xs-8 v3-padding-0" ng-if="moduleProspectPersonalService.findElementInElement_V3(contact,['ContactType']).Value!='EMAIL_ADDRESS' && moduleProspectPersonalService.findElementInElement_V3(contact,['ContactType']).Value!=''" >
+			               	<input class="form-control padding-left-40" type="text" ng-disabled="moduleProspectPersonalService.findElementInElement_V3(contact,['ContactInformation'])['@editable'] == '0'" close-text="Close" maxlength="16" pos-phonenumber phone-Numbers-Only
+									ng-model="moduleProspectPersonalService.findElementInElement_V3(contact,['ContactInformation']).$" />
+	    	               	<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInElement_V3(contact, ['ContactInformation']).errorMessage | translate"></span>
+						</div>
+						<div class="col-xs-2"><button style="min-width: 10px;" class="btn btn-lg v3-btn-danger" ng-click="moduleProspectPersonalService.removeElementInElement_V3($index, moduleProspectPersonalService.detail, ['Contacts'], ['Contact'])"><i class="fa fa-times"></i></button></div>
+	            		<div class="col-xs-2"><button ng-if="$index==0 && (moduleProspectPersonalService.findElementInDetail_V3(['Contacts'])['@counter'] < moduleProspectPersonalService.findElementInDetail_V3(['Contacts'])['@maxOccurs'])"
+								class="btn btn-lg v3-btn-primary" style="min-width: 10px; margin-right: -10px;" ng-click="moduleProspectPersonalService.addElementInElement_V3(moduleProspectPersonalService.detail, ['Contacts'], ['Contact'])"><i class="fa fa-plus"></i></button>
+						</div>				        	
+	            	</div>
+	        	</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<div fieldId="person:EmailAddress" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.EmailAddress" | translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['EmailAddress'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="{{'new.v3.mynewworkspace.corporate.label.EmailAddress' | translate}}" ng-disabled="moduleProspectPersonalService.findElementInDetail_V3(['EmailAddress'])['@editable'] == '0'"
+				type="text" maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['EmailAddress']).$" />
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['EmailAddress']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="person:MobilePhone" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.MobilePhone" | translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['MobilePhone'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleProspectPersonalService.findElementInDetail_V3(['MobilePhone'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber preferred-countries="['SG']" select-country="SG" phone-Numbers-Only
+				ng-model="moduleProspectPersonalService.findElementInDetail_V3(['MobilePhone']).$" />
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['MobilePhone']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="person:HomePhone" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.HomePhone" | translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['HomePhone'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleProspectPersonalService.findElementInDetail_V3(['HomePhone'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber preferred-countries="['SG']" select-country="SG" phone-Numbers-Only
+				ng-model="moduleProspectPersonalService.findElementInDetail_V3(['HomePhone']).$" />
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['HomePhone']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="person:OfficePhone" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.OfficePhone" | translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['OfficePhone'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleProspectPersonalService.findElementInDetail_V3(['OfficePhone'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber preferred-countries="['SG']" select-country="SG" phone-Numbers-Only
+				ng-model="moduleProspectPersonalService.findElementInDetail_V3(['OfficePhone']).$" />
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['OfficePhone']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+
+<!-- Primary Addresses -->
+<div fieldId="person:PAddressType" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-padding-left-0">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label> {{"new.v3.mynewworkspace.prospect.label.Addresstype"| translate}}<span ng-show="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['AddressType'])['@mandatory'] == '1'">*</span></label>
+			    <v3-switch-new-slide 
+		   			switch-model="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['AddressType']).Value" prefix="v3.pnc.addressType.enum"
+		   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['AddressType'])['@editable'] == '0'"
+		   			switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['PAddressType']).Option">
+		   		</v3-switch-new-slide>
+		      	<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['AddressType']).errorMessage | translate"></span>			
+		  	</div>
+		</div>
+  	</div>			
+</div>
+<div fieldId="person:PBlkHouseNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <label>{{'new.v3.mynewworkspace.motor.application.label.BlockHouseNumberandStreet' | translate}}<span ng-show="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo'])['@mandatory'] == '1'">*</span>
+        </label>
+        <div class="form-group form-group-lg has-success">
+            <div class="col-xs-12 col-sm-3 col-lg-3 no-left-padding no-right-padding">
+                <input type="text" class="form-control" placeholder="{{(moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo'])['@editable'] == '0') ? '' : ('new.v3.mynewworkspace.motor.application.label.BlockHouseNumberandStreet' | translate) }}" ng-disabled="moduleProspectPersonalService.freeze == true || moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo'])['@editable'] == '0'" maxlength="12" ng-model="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).$" />
+            </div>
+            <div class="col-xs-12 col-sm-9 col-lg-9 no-left-padding no-right-padding">
+                <input type="text" class="form-control" placeholder="{{'new.v3.mynewworkspace.motor.application.label.Street' | translate}}" ng-disabled="moduleProspectPersonalService.freeze == true || moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Street'])['@editable'] == '0'" maxlength="30" ng-model="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Street']).$" />
+            </div>
+            <span class="errorMessage" ng-if="!moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).errorMessage" ng-bind="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage | translate"></span>
+            <span class="errorMessage" ng-if="!moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage" ng-bind="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).errorMessage | translate"></span>
+            <span class="errorMessage" ng-if="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage && moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage" ng-bind="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="person:PCountry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.Country"| translate}}  <span ng-show="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Country'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Country'])"
+				list=" moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['PCountry']).Option" type="nonFlag" prefix="v3.pnc.country.enum"></ng-newDropDown>
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Country']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+
+<!-- Non Primary Addresses -->
+<div fieldId="person:NPAddressType" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-padding-left-0">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label> {{"new.v3.mynewworkspace.prospect.label.Addresstype"| translate}}<span ng-show="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['AddressType'])['@mandatory'] == '1'">*</span></label>
+			    <v3-switch-new-slide 
+		   			switch-model="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['AddressType']).Value" prefix="v3.pnc.addressType.enum"
+		   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['AddressType'])['@editable'] == '0'"
+		   			switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['NPAddressType']).Option">
+		   		</v3-switch-new-slide>
+		      	<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['AddressType']).errorMessage | translate"></span>			
+		  	</div>
+		</div>
+  	</div>			
+</div>
+<div fieldId="person:NPBlkHouseNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <label>{{'new.v3.mynewworkspace.motor.application.label.BlockHouseNumberandStreet' | translate}}<span ng-show="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo'])['@mandatory'] == '1'">*</span>
+        </label>
+        <div class="form-group form-group-lg has-success">
+            <div class="col-xs-12 col-sm-3 col-lg-3 no-left-padding no-right-padding">
+                <input type="text" class="form-control" placeholder="{{(moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo'])['@editable'] == '0') ? '' : ('new.v3.mynewworkspace.motor.application.label.BlockHouseNumberandStreet' | translate) }}" ng-disabled="moduleProspectPersonalService.freeze == true || moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo'])['@editable'] == '0'" maxlength="12" ng-model="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).$" />
+            </div>
+            <div class="col-xs-12 col-sm-9 col-lg-9 no-left-padding no-right-padding">
+                <input type="text" class="form-control" placeholder="{{'new.v3.mynewworkspace.motor.application.label.Street' | translate}}" ng-disabled="moduleProspectPersonalService.freeze == true || moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Street'])['@editable'] == '0'" maxlength="30" ng-model="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Street']).$" />
+            </div>
+            <span class="errorMessage" ng-if="!moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).errorMessage" ng-bind="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage | translate"></span>
+            <span class="errorMessage" ng-if="!moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage" ng-bind="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).errorMessage | translate"></span>
+            <span class="errorMessage" ng-if="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage && moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage" ng-bind="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="person:NPCountry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.Country"| translate}}  <span ng-show="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Country'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Country'])"
+				list=" moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['NPCountry']).Option" type="nonFlag" prefix="v3.pnc.country.enum"></ng-newDropDown>
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInElement_V3(card.refDetail, ['Country']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<!-- <div fieldId="person:PreferredAddress" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.PreferredAddress"| translate}}  <span ng-show="card.refDetail['person:PreferredAddress']['@mandatory'] == '1'">*</span></label>
+	   		<v3-switch-new-slide 
+	   			switch-model="card.refDetail['person:PreferredAddress'].Value" prefix="v3.yesno.enum"
+	   			switch-default-value="" switch-disabled="card.refDetail['person:PreferredAddress']['@editable'] == '0'"
+	   			switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['PreferredAddress']).Option">
+	   		</v3-switch-new-slide>
+	   		<span class="errorMessage" ng-bind="card.refDetail['person:PreferredAddress'].errorMessage | translate"></span>
+	    </div>
+	</div>
+</div> -->
+
+<!-- Current Financial Position -->
+<!-- Current Assets & Liabilities -->
+<div fieldId="prospect:CurrentAssets" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-top-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.CurrentAssets'| translate}}</b></label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:CurrentAssetsTemp1" class="col-xs-12 col-sm-6 col-md-6 col-lg-6  margin-bottom-20 margin-top-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:ResidentialProperty" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.ResidentialProperty'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['ResidentialProperty'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['ResidentialProperty'])['@editable']=='0'"  
+				ng-model="moduleService.findElementInDetail_V3(['ResidentialProperty']).$" pos-autonumeric decimal="0" min="{{uiElement.refDetail['@minvalue']}}" max="{{uiElement.refDetail['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{uiElement.refDetail['@stepped']}}" rz-slider-floor="uiElement.refDetail['@minvalue']" rz-slider-ceil="uiElement.refDetail['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['ResidentialProperty']).$" >
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ResidentialProperty']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:OtherSavingFunds" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content margin-bottom-20">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.OtherSavingFunds'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['OtherSavingFunds'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['OtherSavingFunds'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['OtherSavingFunds']).$" pos-autonumeric decimal="0" min="{{uiElement.refDetail['@minvalue']}}" max="{{uiElement.refDetail['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{uiElement.refDetail['@stepped']}}" rz-slider-floor="uiElement.refDetail['@minvalue']" rz-slider-ceil="uiElement.refDetail['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['OtherSavingFunds']).$" >
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['OtherSavingFunds']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:InvestmentAndSaving" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content-rzslider">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.InvestmentAndSavings'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentAndSavings'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['InvestmentAndSavings'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['InvestmentAndSavings']).$" pos-autonumeric decimal="0" min="{{uiElement.refDetail['@minvalue']}}" max="{{uiElement.refDetail['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{uiElement.refDetail['@stepped']}}" rz-slider-floor="uiElement.refDetail['@minvalue']" rz-slider-ceil="uiElement.refDetail['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['InvestmentAndSavings']).$" >
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['InvestmentAndSavings']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:TotalAssets" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content-rzslider">
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.TotalAssets"| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})</label></label>
+		   	 <input class="form-control" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['TotalAssets']).$" pos-autonumeric decimal="0" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['TotalAssets']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:CurrentLiabilities" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-top-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.CurrentLiabilities'| translate}}</b></label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:CurrentAssetsTemp2" class="col-xs-12 col-sm-6 col-md-6 col-lg-6  margin-top-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:MortageLoan" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content-rzslider">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.MortageLoan'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['MortageLoan'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['MortageLoan'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['MortageLoan']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['MortageLoan'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['MortageLoan'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['MortageLoan'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['MortageLoan'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['MortageLoan'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['MortageLoan']).$" >
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MortageLoan']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:OtherOutstandingDebts" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content-rzslider">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.OtherOutstandingDebts'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['OtherOutstandingDebts'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['OtherOutstandingDebts'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['OtherOutstandingDebts']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['OtherOutstandingDebts'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['OtherOutstandingDebts'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['OtherOutstandingDebts'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['OtherOutstandingDebts'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['OtherOutstandingDebts'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['OtherOutstandingDebts']).$">
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['OtherOutstandingDebts']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:NetWorth" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.NetWorth"| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})</label></label>
+		   	 <input class="form-control" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['NetWorth']).$" pos-autonumeric decimal="0" min="-999999999999999.99" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['NetWorth']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:TotalLiabilities" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.TotalLiabilities"| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})</label></label>
+		   	 <input class="form-control" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['TotalLiabilities']).$" pos-autonumeric decimal="0" min="-999999999999999.99" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['TotalLiabilities']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:CurrentAssetsSignificants" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.CurrentAssetsSignificants'| translate}}</b></label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:CurrentAssetsTemp3" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-top-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:CurrentAssetsSignificant" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.CurrentAssetsSignificant'| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['SignificantChangeCAL'])['@mandatory'] == '1'">*</span></b></label>		
+			<v3-switch-new-slide
+	   			switch-model="moduleProspectPersonalService.findElementInDetail_V3(['SignificantChangeCAL']).Value" prefix="v3.yesno.enum"
+	   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['SignificantChangeCAL'])['@editable'] == '0'"
+				more-action = "refreshTags([['CurrentAssetsAndLiabilities']])"
+				switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['SignificantChangeCAL']).Option">
+			</v3-switch-new-slide>
+	   	<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['SignificantChangeCAL']).errorMessage | translate"></span>
+	   	</div>
+	</div>
+</div>
+<div fieldId="prospect:CurrentAssetsSpecify" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.CurrentAssetsSpecify'| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['SpecifySignificantChangeCAL'])['@mandatory'] == '1'">*</span></b></label>
+			<textarea rows="4" class="v3-fna-textarea" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['SpecifySignificantChangeCAL']).$" />
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['SpecifySignificantChangeCAL']).errorMessage | translate"></span>
+		</div>
+
+	</div>
+</div>
+
+<!-- Annual Cash Flow & Budgeted Funds -->
+<div fieldId="prospect:AnnualIncome" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.AnnualIncome'| translate}}</b></label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:AnnualCashFlowTemp1" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:AnnualEmployeeIncomes" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content margin-bottom-20">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.AnnualEmployeeIncomes'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['OtherInfomation','AnnualIncome'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['OtherInfomation','AnnualIncome'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['OtherInfomation','AnnualIncome']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['OtherInfomation','AnnualIncome'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['OtherInfomation','AnnualIncome'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['OtherInfomation','AnnualIncome'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['OtherInfomation','AnnualIncome'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['OtherInfomation','AnnualIncome'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['OtherInfomation','AnnualIncome']).$">
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['OtherInfomation','AnnualIncome']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:LessCPF" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content margin-bottom-20">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.LessCPF'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['LessCPF'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['LessCPF'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['LessCPF']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['LessCPF'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['LessCPF'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['LessCPF'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['LessCPF'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['LessCPF'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['LessCPF']).$">
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['LessCPF']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:NetAnnualIncome" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.NetAnnualIncome"| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})</label></label>
+		   	 <input class="form-control" placeholder="Net Imployment Income" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['NetAnnualIncome']).$" pos-autonumeric decimal="0" min="-999999999999999.99" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['NetAnnualIncome']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:OtherIncome" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content margin-bottom-20">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.OtherIncome'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['OtherIncome'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['OtherIncome'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['OtherIncome']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['OtherIncome'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['OtherIncome'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['OtherIncome'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['OtherIncome'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['OtherIncome'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['OtherIncome']).$">
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['OtherIncome']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:TotalAnnualIncome" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.TotalAnnualIncome"| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})</label></label>
+		   	 <input class="form-control" placeholder="Total Annual Income" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['TotalAnnualIncome']).$" pos-autonumeric decimal="0" min="-999999999999999.99" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['TotalAnnualIncome']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:AnnualCashFlowTemp2" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:AnnualExpense" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.AnnualExpense'| translate}}</b></label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:AnnualCashFlowTemp3" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-bottom-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:LivingExpenses" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content margin-bottom-20">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.LivingExpenses'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['LivingExpenses'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['LivingExpenses'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['LivingExpenses']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['LivingExpenses'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['LivingExpenses'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['LivingExpenses'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['LivingExpenses'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['LivingExpenses'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['LivingExpenses']).$">
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['LivingExpenses']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:TuitionAndSchoolExpenses" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content margin-bottom-20">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.TuitionAndSchoolExpenses'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['TuitionAndSchoolExpenses'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['TuitionAndSchoolExpenses'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['TuitionAndSchoolExpenses']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['TuitionAndSchoolExpenses'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['TuitionAndSchoolExpenses'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['TuitionAndSchoolExpenses'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['TuitionAndSchoolExpenses'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['TuitionAndSchoolExpenses'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['TuitionAndSchoolExpenses']).$">
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['TuitionAndSchoolExpenses']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:LoanRepayment" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content margin-bottom-20">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.LoanRepayment'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['LoanRepayment'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['LoanRepayment'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['LoanRepayment']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['LoanRepayment'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['LoanRepayment'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['LoanRepayment'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['LoanRepayment'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['LoanRepayment'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['LoanRepayment']).$">
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['LoanRepayment']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:Others" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content margin-bottom-20">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.Others'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Others'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['Others'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['Others']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['Others'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['Others'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['Others'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['Others'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['Others'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['Others']).$">
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Others']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:TotalAnnualExpenses" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.TotalAnnualExpenses"| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})</label></label>
+		   	 <input class="form-control" placeholder="Total Annual Expenses" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['TotalAnnualExpenses']).$" pos-autonumeric decimal="0" min="-999999999999999.99" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['TotalAnnualExpenses']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:NetCashFlowOrSurplus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.NetCashFlowOrSurplus"| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})</label></label>
+		   	 <input class="form-control" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['NetCashFlowOrSurplus']).$" pos-autonumeric decimal="0" min="-999999999999999.99" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['NetCashFlowOrSurplus']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:BudgetedFunds" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.BudgetedFunds'| translate}}</b></label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:AnnualCashFlowTemp4" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:AnnualCashImportantNote" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.AnnualCashImportantNote'| translate}}</b></label>
+			<i class="fa fa-info-circle fa-2x v3-fna-icon-information"></i>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:AnnualCashFlowTemp5" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-top-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:RegularAmount" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content margin-bottom-20">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.RegularAmount'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['RegularAmount'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['RegularAmount'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['RegularAmount']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['RegularAmount'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['RegularAmount'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['RegularAmount'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['RegularAmount'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['RegularAmount'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['RegularAmount']).$">
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['RegularAmount']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:LumpSum" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content margin-bottom-20">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.prospect.label.LumpSum'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['LumpSum'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['LumpSum'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['LumpSum']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['LumpSum'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['LumpSum'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['LumpSum'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['LumpSum'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['LumpSum'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['LumpSum']).$">
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['LumpSum']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:AnnualCashSignificants" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.AnnualCashSignificants'| translate}}</b></label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:AnnualCashFlowTemp6" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-top-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:AnnualCashSignificant" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.AnnualCashSignificant'| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['SignificantChangeACFBF'])['@mandatory'] == '1'">*</span></b></label>		
+			<v3-switch-new-slide
+	   			switch-model="moduleProspectPersonalService.findElementInDetail_V3(['SignificantChangeACFBF']).Value" prefix="v3.yesno.enum"
+	   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['SignificantChangeACFBF'])['@editable'] == '0'"
+				more-action = "refreshTags([['AnnualCashFlowAndBudgetedFunds']])"
+				switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['SignificantChangeACFBF']).Option">
+	    </v3-switch-new-slide>
+	   	<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['SignificantChangeACFBF']).errorMessage | translate"></span>
+	   	</div>
+	</div>
+</div>
+<div fieldId="prospect:AnnualCashSpecify" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.AnnualCashSpecify'| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['SpecifySignificantChangeACFBF'])['@mandatory'] == '1'">*</span></b></label>
+			<textarea rows="4" class="v3-fna-textarea" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['SpecifySignificantChangeACFBF']).$" />
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['SpecifySignificantChangeACFBF']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+
+<!-- Existing Financial Plans -->
+<!-- Existing Financial Declaration -->
+
+<div fieldId="prospect:HaveExistingPlan" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-6 pdpa-column-content">
+		<span>{{"new.v3.mynewworkspace.prospect.label.HaveExistingPlan" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content form-group">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum" more-action="setupExistingPlan(card)"
+   			switch-model="moduleService.findElementInDetail_V3(['HaveExistingPlan']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['HaveExistingPlan', 'Option'])">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['HaveExistingPlan']).errorMessage | translate"></span>
+</div>
+
+<!-- Existing Plan -->
+
+<div fieldId="prospect:InsuranceDetailsAndValue" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.InsuranceDetailsAndValue'| translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})</b></label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:ExistingFinancialPlanTemp1" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-top-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:OwnerName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">    
+     <div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.OwnerName"| translate}}</label>
+			<input class="form-control"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['OwnerName']).$" ng-disabled="true" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['OwnerName']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:Company" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.Company"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Company'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Company'])"
+				list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Company']).Option" type="nonFlag" prefix="v3.pnc.companyName"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Company']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:PolicyType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.PolicyType"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['PolicyType'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['PolicyType'])"
+				list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['PolicyType']).Option" type="nonFlag" prefix="v3.pnc.policyType"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['PolicyType']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:YearOfIssue" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.YearOfIssue"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['YearOfIssue'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['YearOfIssue']).$" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['YearOfIssue']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:PremiumValue" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content-rzslider">
+     <div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.PremiumValue"| translate}}</label> ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['PremiumValue'])['@mandatory'] == '1'">*</span>  
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['PremiumValue'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['PremiumValue']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['PremiumValue'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['PremiumValue'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['PremiumValue'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['PremiumValue'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['PremiumValue'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['PremiumValue']).$" >
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['PremiumValue']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:PremiumType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content-rzslider">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+		   	<label>{{"new.v3.mynewworkspace.prospect.label.PremiumType"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['PremiumType'])['@mandatory'] == '1'">*</span></label>
+			<v3-switch-new 
+				switch-model="moduleProspectPersonalService.findElementInDetail_V3(['PremiumType']).Value" prefix="v3.pnc.premiumType"
+				switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['PremiumType'])['@editable'] == '0'"
+				switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['PremiumType']).Option">
+	       </v3-switch-new>
+	       <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['PremiumType']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="prospect:DeathOfBenefit" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content-rzslider">
+     <div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.DeathOfBenefit"| translate}}</label> ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['DeathOfBenefit'])['@mandatory'] == '1'">*</span>  
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['DeathOfBenefit'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['DeathOfBenefit']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['DeathOfBenefit'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['DeathOfBenefit'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['DeathOfBenefit'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['DeathOfBenefit'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['DeathOfBenefit'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['DeathOfBenefit']).$" >
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['DeathOfBenefit']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:TBD" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content-rzslider">
+     <div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.TPD"| translate}}</label> ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['TBD'])['@mandatory'] == '1'">*</span>  
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['TBD'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['TBD']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['TBD'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['TBD'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['TBD'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['TBD'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['TBD'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['TBD']).$">
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['TBD']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:CriticalIllness" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content-rzslider">
+     <div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.CriticalIllness"| translate}}</label> ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['CriticalIllness'])['@mandatory'] == '1'">*</span>  
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['CriticalIllness'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['CriticalIllness']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['CriticalIllness'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['CriticalIllness'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['CriticalIllness'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['CriticalIllness'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['CriticalIllness'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['CriticalIllness']).$">
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['CriticalIllness']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:HSBenefit" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content-rzslider">
+     <div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.HSBenefit"| translate}}</label> ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['HSBenefit'])['@mandatory'] == '1'">*</span> 
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['HSBenefit'])['@editable']=='0'"
+				ng-model="moduleService.findElementInDetail_V3(['HSBenefit']).$" ng-init="" pos-autonumeric decimal="0" min="{{moduleService.findElementInDetail_V3(['HSBenefit'])['@minvalue']}}" max="{{moduleService.findElementInDetail_V3(['HSBenefit'])['@maxvalue']}}" />
+			<rzslider class="v3-fna-rzslider" rz-slider-step="{{moduleService.findElementInDetail_V3(['HSBenefit'])['@stepped']}}" rz-slider-floor="moduleService.findElementInDetail_V3(['HSBenefit'])['@minvalue']" rz-slider-ceil="moduleService.findElementInDetail_V3(['HSBenefit'])['@maxvalue']" rz-slider-format = "currency" 
+					rz-slider-always-show-bar="true" rz-slider-model="moduleService.findElementInDetail_V3(['HSBenefit']).$">
+			</rzslider>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['HSBenefit']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+
+<!-- Financial Knowledge Qualification -->	        
+
+<div fieldId="prospect:KnowledgeImportantNote1" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.KnowledgeImportantNote1'| translate}}</b></label>
+			<i class="fa fa-info-circle fa-2x v3-fna-icon-information"></i>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:KnowledgeTemp1" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-top-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:KnowledgeEducation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.KnowledgeEducation'| translate}}</b></label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:KnowledgeTemp2" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-top-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="prospect:KnowledgeQ01" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content ">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content margin-bottom-20">
+		<span>{{"new.v3.mynewworkspace.prospect.label.KnowledgeQ01" | translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Q01Value'])['@mandatory'] == '1'">*</span></span>
+		<i class="fa fa-info-circle fa-2x v3-fna-icon-information"></i>
+		<span class="col-xs-12 col-sm-9 col-md-9 col-lg-9 errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Q01Value']).errorMessage | translate"></span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Q01Value']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			more-action="clearDataFromListEle(card.refDetail,moduleService.findElementInDetail_V3(['Q01Value']).Value, 'N', ['Q01TypeOfInstitution', 'Q01NameOfInstitution', 'Q01YearOfGraduation'], [['FinancialKnowledgeAndQualification']])"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Q01Value', 'Option'])">
+   		</v3-switch-new-slide>
+    </div>
+    
+</div>
+<div fieldId="prospect:KnowledgeQ01TypeOfInstitution" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 v3-column-content">
+    <div class="col-xs-12 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.KnowledgeQ01TypeOfInstitution"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Q01TypeOfInstitution'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Q01TypeOfInstitution'])" list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Q01TypeOfInstitution']).Option" type="nonFlag" disable="moduleService.findElementInDetail_V3(['Q01Value']).Value != 'Y'" prefix="v3.pnc.typeOfInstitution"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Q01TypeOfInstitution']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:KnowledgeQ01NameOfInstitution" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 v3-column-content">
+    <div class="col-xs-12 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.KnowledgeQ01NameOfInstitution"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Q01NameOfInstitution'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="Name Of Institution"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['Q01NameOfInstitution']).$" ng-disabled="moduleService.findElementInDetail_V3(['Q01Value']).Value != 'Y'"/>
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Q01NameOfInstitution']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:KnowledgeQ01YearOfGraduation" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 v3-column-content">
+    <div class="col-xs-12 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.KnowledgeQ01YearOfGraduation"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Q01YearOfGraduation'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="Year Of Graduation"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['Q01YearOfGraduation']).$" ng-disabled="moduleService.findElementInDetail_V3(['Q01Value']).Value != 'Y'"/>		
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Q01YearOfGraduation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:KnowledgeQ02" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"new.v3.mynewworkspace.prospect.label.KnowledgeQ02" | translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Q02Value'])['@mandatory'] == '1'">*</span></span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Q02Value']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			more-action="clearDataFromListEle(card.refDetail,moduleService.findElementInDetail_V3(['Q02Value']).Value, 'N', ['Q02NameOfInstitution', 'Q02YearOfGraduation'],[['FinancialKnowledgeAndQualification']])"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Q02Value', 'Option'])">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Q02Value']).errorMessage | translate"></span>
+</div>
+<div fieldId="prospect:KnowledgeQ02NameOfInstitution" class="col-xs-12 col-sm-6 col-md-6 col-lg-5 v3-column-content">
+    <div class="col-xs-12 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.KnowledgeQ02NameOfInstitution"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Q02NameOfInstitution'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="Name Of Institution"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['Q02NameOfInstitution']).$" ng-disabled="moduleService.findElementInDetail_V3(['Q02Value']).Value != 'Y'"/>
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Q02NameOfInstitution']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:KnowledgeQ02YearOfGraduation" class="col-xs-12 col-sm-6 col-md-6 col-lg-5 v3-column-content">
+    <div class="col-xs-12 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.KnowledgeQ02YearOfGraduation"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Q02YearOfGraduation'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="Year Of Institution"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['Q02YearOfGraduation']).$" ng-disabled="moduleService.findElementInDetail_V3(['Q02Value']).Value != 'Y'"/>
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Q02YearOfGraduation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:KnowledgeInvestmentExp" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span><b>{{"new.v3.mynewworkspace.prospect.label.KnowledgeInvestmentExp" | translate}}</b></span>
+	</div>
+</div>
+<div fieldId="prospect:KnowledgeQ03" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"new.v3.mynewworkspace.prospect.label.KnowledgeQ03" | translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Q03Value'])['@mandatory'] == '1'">*</span></span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Q03Value']).Value" 
+   			switch-default-value="" switch-disabled="false"  
+   			more-action="clearDataFromListEle(card.refDetail,moduleService.findElementInDetail_V3(['Q03Value']).Value, 'N', ['Q03NoOfTransaction', 'Q03TypeOfTransaction'],[['FinancialKnowledgeAndQualification']])"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Q03Value', 'Option'])">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="prospect:KnowledgeQ03NoOfTransaction" class="col-xs-12 col-sm-6 col-md-6 col-lg-5 v3-column-content">
+    <div class="col-xs-12 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.KnowledgeQ03NoOfTransaction"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Q03NoOfTransaction'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="No Of Transaction"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['Q03NoOfTransaction']).$" ng-disabled="moduleService.findElementInDetail_V3(['Q03Value']).Value != 'Y'"/>
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Q03NoOfTransaction']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:KnowledgeQ03TypeOfTransaction" class="col-xs-12 col-sm-6 col-md-6 col-lg-5 v3-column-content">
+    <div class="col-xs-12 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.KnowledgeQ03TypeOfTransaction"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Q03TypeOfTransaction'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Q03TypeOfTransaction'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Q03TypeOfTransaction']).Option" type="nonFlag" disable="moduleService.findElementInDetail_V3(['Q03Value']).Value != 'Y'" prefix="v3.pnc.typeOfTransaction"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Q03TypeOfTransaction']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:KnowledgeWorkExp" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span><b>{{"new.v3.mynewworkspace.prospect.label.KnowledgeWorkExp" | translate}}</b></span>
+	</div>
+</div>
+<div fieldId="prospect:KnowledgeQ04" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"new.v3.mynewworkspace.prospect.label.KnowledgeQ04" | translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Q04Value'])['@mandatory'] == '1'">*</span></span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Q04Value']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   				more-action="clearDataFromListEle(card.refDetail,moduleService.findElementInDetail_V3(['Q04Value']).Value, 'N', ['Q04NatureOfWork'],[['FinancialKnowledgeAndQualification']])"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Q04Value', 'Option'])">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Q04Value']).errorMessage | translate"></span>
+</div>
+<div fieldId="prospect:KnowledgeQ04NatureOfWork" class="col-xs-12 col-sm-6 col-md-6 col-lg-5 v3-column-content">
+    <div class="col-xs-12 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.KnowledgeQ04NatureOfWork"| translate}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Q04NatureOfWork'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Q04NatureOfWork'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Q04NatureOfWork']).Option" type="nonFlag" disable="moduleService.findElementInDetail_V3(['Q04Value']).Value != 'Y'" prefix="v3.pnc.natureOfWork"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Q04NatureOfWork']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:KnowledgeOutcome" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-bottom-20">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+		<span><b>{{"new.v3.mynewworkspace.prospect.label.KnowledgeOutcome" | translate}}</b></span>
+	</div>
+</div>
+<div fieldId="prospect:KnowledgeOutcome1" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"new.v3.mynewworkspace.prospect.label.KnowledgeOutcome1" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+		<md-checkbox class="pdpa-checkbox" ng-disabled="true"
+			ng-model="moduleProspectPersonalService.findElementInDetail_V3(['ILPCISKnowledge']).$"
+			ng-true-value="'Y'" ng-false-value="'N'">
+		</md-checkbox>
+    </div>
+    <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['ILPCISKnowledge']).errorMessage | translate"></span>
+</div>
+<div fieldId="prospect:KnowledgeOutcome2" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"new.v3.mynewworkspace.prospect.label.KnowledgeOutcome2" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+		<md-checkbox class="pdpa-checkbox" ng-disabled="true"
+			ng-model="moduleProspectPersonalService.findElementInDetail_V3(['NotILPCISKnowledge']).$"
+			ng-true-value="'Y'" ng-false-value="'N'">
+		</md-checkbox>
+		</div>
+    <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['NotILPCISKnowledge']).errorMessage | translate"></span>
+</div>
+<div fieldId="prospect:KnowledgeImportantNote2" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span><b>{{"new.v3.mynewworkspace.prospect.label.KnowledgeImportantNote2" | translate}}</b></span>
+		<i class="fa fa-info-circle fa-2x v3-fna-icon-information"></i>
+	</div>
+</div>
+
+<!-- Investment Risk Profile -->
+<div fieldId="prospect:InvestmentRiskImportantNote" class="col-xs-12">
+	<div class="row v3-margin-auto">
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-padding-0">
+			<div class="row v3-margin-auto">
+				<div class="col-xs-12 ">				
+					<div class="form-group form-group-lg has-success">
+						<label><b>{{'new.v3.mynewworkspace.prospect.label.InvestmentRiskImportantNote'| translate}}</b></label>
+						<i class="fa fa-info-circle fa-2x v3-fna-icon-information"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <div fieldId="prospect:InvestmentRiskTemp1" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-top-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div> -->
+<div fieldId="prospect:InvestmentRiskChoose" class="col-xs-12">
+	<div class="row v3-margin-auto">
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-padding-0">
+			<div class="row v3-margin-auto">
+				<div class="col-xs-12">				
+					<div class="form-group form-group-lg has-success">
+						<label><b>{{'new.v3.mynewworkspace.prospect.label.InvestmentRiskChoose'| translate}}</b></label>
+						<i class="fa fa-info-circle fa-2x v3-fna-icon-information"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <div fieldId="prospect:InvestmentRiskTemp2" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-top-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div> -->
+<div fieldId="prospect:InvestmentPreference" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.InvestmentPreference'| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentPreference'])['@mandatory'] == '1'">*</span></b></label>
+			<i class="fa fa-info-circle fa-2x v3-fna-icon-information"></i>
+		<v3-switch-new-slide 
+	   			switch-model="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentPreference']).Value"
+	   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentPreference'])['@editable'] == '0'"
+	   			switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['InvestmentPreference']).Option">
+	    </v3-switch-new-slide>
+	    <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentPreference']).errorMessage | translate"></span>
+	   	</div>	
+	</div>
+</div>
+<div fieldId="prospect:ExpectedReturn" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.ExpectedReturn'| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['ExpectedReturn'])['@mandatory'] == '1'">*</span></b></label>
+		<v3-switch-new-slide 
+	   			switch-model="moduleProspectPersonalService.findElementInDetail_V3(['ExpectedReturn']).Value"
+	   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['ExpectedReturn'])['@editable'] == '0'"
+	   			switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['ExpectedReturn']).Option">
+	    </v3-switch-new-slide>
+	    <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['ExpectedReturn']).errorMessage | translate"></span>
+	   	</div>	
+	</div>
+</div>
+<div fieldId="prospect:InvestmentTimePeriod" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.InvestmentTimePeriod'| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentTimePeriod'])['@mandatory'] == '1'">*</span></b></label>
+			<i class="fa fa-info-circle fa-2x v3-fna-icon-information"></i>
+		<v3-switch-new-slide 
+	   			switch-model="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentTimePeriod']).Value"
+	   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentTimePeriod'])['@editable'] == '0'"
+	   			switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['InvestmentTimePeriod']).Option">
+	    </v3-switch-new-slide>
+	    <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentTimePeriod']).errorMessage | translate"></span>
+	   	</div>	
+	</div>
+</div>
+<div fieldId="prospect:DuringSortTermDrop" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-sm-12 col-md-12 v3-column-content">
+	<div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.DuringSortTermDrop'| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['DuringSortTermDrop'])['@mandatory'] == '1'">*</span></b></label>
+			<i class="fa fa-info-circle fa-2x v3-fna-icon-information"></i>
+		<v3-switch-new-slide 
+	   			switch-model="moduleProspectPersonalService.findElementInDetail_V3(['DuringSortTermDrop']).Value"
+	   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['DuringSortTermDrop'])['@editable'] == '0'"
+	   			switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['DuringSortTermDrop']).Option">
+	    </v3-switch-new-slide>
+	    <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['DuringSortTermDrop']).errorMessage | translate"></span>
+	   	</div>	
+	</div>
+</div>
+<div fieldId="prospect:InvestmentGoal" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.InvestmentGoal'| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentGoal'])['@mandatory'] == '1'">*</span></b></label>
+			<i class="fa fa-info-circle fa-2x v3-fna-icon-information"></i>
+		<v3-switch-new-slide 
+	   			switch-model="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentGoal']).Value"
+	   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentGoal'])['@editable'] == '0'"
+	   			switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['InvestmentGoal']).Option">
+	   	</v3-switch-new-slide>
+	   	<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentGoal']).errorMessage | translate"></span>
+	   	</div>	
+	</div>
+</div>
+<div fieldId="prospect:InvestmentPortfolio" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.InvestmentPortfolio'| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentPortfolio'])['@mandatory'] == '1'">*</span></b></label>
+			<i class="fa fa-info-circle fa-2x v3-fna-icon-information"></i>
+		<v3-switch-new-slide 
+	   			switch-model="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentPortfolio']).Value"
+	   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentPortfolio'])['@editable'] == '0'"
+	   			switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['InvestmentPortfolio']).Option">
+	   	</v3-switch-new-slide>
+	   	<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['InvestmentPortfolio']).errorMessage | translate"></span>
+	   	</div>	
+	</div>
+</div>
+<div fieldId="prospect:TotalScore" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-12 col-sm-6 col-md-12">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.TotalScore"| translate}}</label><span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['TotalScore'])['@mandatory'] == '1'">*</span></label>
+		   	 <input class="form-control" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['TotalScore']).$" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['TotalScore']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:RiskProfile" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-12 col-sm-6 col-md-12">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.RiskProfile"| translate}}</label><span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['RiskProfile'])['@mandatory'] == '1'">*</span></label>
+		   	 <input class="form-control" placeholder="Risk Profile" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="moduleProspectPersonalService.findElementInDetail_V3(['RiskProfile']).$" />
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['RiskProfile']).errorMessage | translate"></span>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="prospect:Result" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+	<div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{'new.v3.mynewworkspace.prospect.label.Result'| translate}}</b></label>
+			<i class="fa fa-info-circle fa-2x v3-fna-icon-information"></i>
+		</div>
+	</div>
+</div>
+
+<!-- Attachments -->
+<div fieldId="Attachment" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div ng-include="initContextPath+'/view/fileAttachment/fileUpload.html'"></div>
+</div>
+
+
+
+<!-- Addresses -->
+<div fieldId="person:RAddressType" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-padding-left-0">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label> {{"new.v3.mynewworkspace.prospect.label.Addresstype"| translate}}<span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['AddressType'])['@mandatory'] == '1'">*</span></label>
+			    <v3-switch-new-slide 
+		   			switch-model="moduleProspectPersonalService.findElementInDetail_V3(['AddressType']).Value" prefix="v3.pnc.addressType.enum"
+		   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['PAddressType'])['@editable'] == '0'"
+		   			switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['AddressType']).Option">
+		   		</v3-switch-new-slide>
+		      	<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['AddressType']).errorMessage | translate"></span>			
+		  	</div>
+		</div>
+  	</div>			
+</div>
+<div fieldId="person:RCountry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.Country"| translate}}  <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Country'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Country'])"
+				list=" moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['PCountry']).Option" type="nonFlag" prefix="v3.pnc.country.enum"></ng-newDropDown>
+	        <span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Country']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="person:RPreferredAddress" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.PreferredAddress"| translate}}  <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['PreferredAddress'])['@mandatory'] == '1'">*</span></label>
+	   		<v3-switch-new-slide 
+	   			switch-model="moduleProspectPersonalService.findElementInDetail_V3(['PreferredAddress']).Value" prefix="v3.yesno.enum"
+	   			switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['PreferredAddress'])['@editable'] == '0'"
+	   			switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['PreferredAddress']).Option">
+	   		</v3-switch-new-slide>
+	   		<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['PreferredAddress']).errorMessage | translate"></span>
+	    </div>
+	</div>
+</div>

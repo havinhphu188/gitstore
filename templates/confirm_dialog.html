@@ -1,0 +1,18 @@
+<md-dialog class="dialog-style" aria-label="Settings">
+    <div class="center">
+        {{headerText}}
+    </div>
+    <div class="custom-dialog-content">
+        <p class="margin-text-center">{{contentText}}</p>
+    </div>
+    <div class="custom-dialog-footer">
+        <div layout="row">
+            <div flex>
+                <div ng-click="cancelDialog()"  class="center">Cancel</div>
+            </div>
+            <div flex>
+                <div ng-click="okDialog()" class="center">OK</div>
+            </div>
+        </div>
+    </div>
+</md-dialog>

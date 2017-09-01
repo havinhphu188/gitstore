@@ -1,0 +1,37 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div fieldId="pdpa:ImportantNotes" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="textMessage form-group form-group-lg has-success">
+		<span class="large-font">{{"new.v3.mynewworkspace.prospect.label.ImportantNotes" | translate}}</span>
+	</div>	
+</div>
+<div fieldId="pdpa:TextMessage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content-70">
+	<div class="textMessage form-group form-group-lg has-success">
+		<span>{{"new.v3.mynewworkspace.prospect.label.TextMessages" | translate}}</span>
+	</div>	
+</div>
+<div fieldId="pdpa:ConfirmationBtn" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<v3-switch-new-slide 
+      prefix="v3.yesno.enum"
+      switch-model="uiElement.refDetail.Value" 
+      switch-disabled="moduleService.freeze==true" 
+      switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])">
+    </v3-switch-new-slide>
+</div>

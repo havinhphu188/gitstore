@@ -1,0 +1,82 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div ng-controller="ListImportBeneficiary" class="row">
+	<div class="col-xs-12 col-sm-10 col-lg-10" hide-sm hide-xs>
+		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-4">
+			<div class="form-group form-group-lg has-success" style="margin-left: -2px">
+				<input style="padding-left: 40px" class="form-control" ng-model="searchText" placeholder="Search">
+				<i style="position: absolute; top: 7px; left: 25px;" class="fa fa-search fa-2x"></i>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-10 col-lg-10" hide-lg hide-md hide-gt-lg>
+			<div class="form-group form-group-lg has-success">
+				<input style="padding-left: 40px" class="form-control" ng-model="searchText" placeholder="Search">
+				<i style="position: absolute; top: 7px; left: 25px;" class="fa fa-search fa-2x"></i>
+			</div>
+	</div>
+	
+	<div id="list-import" class="list-import col-xs-12 col-sm-12 col-lg-12 v3-padding-0" scrolled="increase()">
+		<div class="error">{{msg}}</div>
+		
+		<div class="" ng-class="viewProp.historyCtrl[0].uiStructureRoot.layoutStyle == 'step'?'col-xs-6 col-sm-6 col-md-4 col-lg-4':'col-xs-6 col-sm-4 col-md-3 col-lg-3'"
+			ng-repeat="metaData in beneficiaryList | myNewWorkspaceFilter:searchText:'prospect' | orderBy : '-UpdatedDate' | limitTo: listbeneficiaryLimit track by $index"
+			ng-click="importBeneficiary(card, metaData, $event)">
+			<div class="box-item-import v3-box-1 list-card-import">								
+
+				<!-- Card content -->		
+				<div class="col-xs-12 v3-padding-0 card-detail">
+					<div class="row v3-margin-right-0">
+						<div class="col-xs-4 v3-padding-0">
+							<h3 ng-if="!metaData.Photo && metaData.FullName != ''" class="v3-image-name">
+								{{metaData.FullName | formatTitleImage}}
+							</h3>
+							<img ng-if="metaData.Photo"  class="v3-image-name" ng-src="{{initContextPath}}/images/avatar.jpg">
+							<h3 ng-if="metaData.Photo == '' && metaData.FullName == '' " class="v3-image-name">
+								<i class='fa fa-user v3-image-icon'></i>
+							</h3>				
+						</div>
+						<div class="col-xs-8 v3-padding-0">
+							<h5 title="{{metaData.FullName}}" class="left-sidebar-card-list-title">
+								{{metaData.FullName | trimtext:false:16:'..'}}
+							</h5>
+						</div>
+					</div>		     				
+				</div>
+				<div class="col-xs-12 v3-padding-0 v3-margin-top-10 card-detail">
+					<span title="{{metaData.Age}}">
+						{{metaData.Age}}
+					</span >     					
+				</div>
+				<div class="col-xs-12 v3-padding-0 v3-margin-top-10 card-detail">
+					<span title="{{metaData.Gender}}">
+						{{'v3.pnc.gender.enum.' + metaData.Gender | translate}}
+					</span >     					
+				</div>
+				<h5 class="v3-list-card-details">		                    		
+           			<span class="side-icon-left">
+		                <i class="fa fa-clock-o fa-2x"></i>                    
+		            </span>
+           			<span class="side-icon-right">{{moduleService.convertToDateTime(metaData.CreatedDate,'DD/MM/YYYY H:mm')}}</span>
+	         	</h5>
+			</div>
+		</div>	
+	</div>
+</div>

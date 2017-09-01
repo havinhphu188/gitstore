@@ -1,0 +1,99 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- expand or collpase list -->
+<!-- <aside id="sidebar" class="fadeInLeft" ng-show="vars.isShowLeftSidebar && commonService.options.isShowLeftSideBar">
+    <ul class="menu-module">    	
+        <li class="mobile-mode" ng-click="showDocumentList($event)">
+            <span class="side-icon" data-toggle="popover" data-trigger="hover" data-content="{{'new.v3.mynewworkspace.sidebar.label.AttentionDocuments' | translate}}"><i class="fa fa-info-circle fa-2x"></i></span>
+            <span class="txt">{{'new.v3.mynewworkspace.sidebar.label.AttentionDocuments' | translate}}</span>
+        </li>
+        <li class="mobile-mode">
+            <span class="side-icon" data-toggle="popover" data-trigger="hover" data-content="{{'new.v3.mynewworkspace.sidebar.label.RecentDocuments' | translate}}"><i class="fa fa-cubes fa-2x"></i></span>
+            <span class="txt">{{'new.v3.mynewworkspace.sidebar.label.RecentDocuments' | translate}}</span>
+        </li>
+        <li class="mobile-mode">
+            <span class="side-icon" data-toggle="popover" data-trigger="hover" data-content="{{'new.v3.mynewworkspace.sidebar.label.StarredDocuments' | translate}}"><i class="fa fa-star fa-2x"></i></span>
+            <span class="txt">{{'new.v3.mynewworkspace.sidebar.label.StarredDocuments' | translate}}</span>
+        </li>
+        <li class="mobile-mode">
+            <span class="side-icon" data-toggle="popover" data-trigger="hover" data-content="{{'new.v3.mynewworkspace.sidebar.label.PaymentNotification' | translate}}"><i class="fa fa-money fa-2x"></i></span>
+            <span class="txt">{{'new.v3.mynewworkspace.sidebar.label.PaymentNotification' | translate}}</span>
+        </li>
+        <hr class="module-section-separate" />
+        <li class="mobile-mode" ng-click="showDocumentList($event, commonService.CONSTANTS.MODULE_NAME.SALECASE)">
+            <span class="side-icon" data-toggle="popover" data-trigger="hover" data-content="{{'new.v3.mynewworkspace.sidebar.label.BusinessTransaction' | translate}}"><i class="fa fa-briefcase fa-2x"></i></span>
+            <span class="txt">{{'new.v3.mynewworkspace.sidebar.label.BusinessTransaction' | translate}}</span>
+        </li>
+        <li class="mobile-mode" ng-click="showDocumentList($event, commonService.CONSTANTS.MODULE_NAME.CLAIM_NOTIFICATION)">        
+            <span class="side-icon" data-toggle="popover" data-trigger="hover" data-content="{{'new.v3.mynewworkspace.sidebar.label.ClaimNotification' | translate}}"><i class="fa fa-bell fa-2x"></i></span>
+            <span class="txt">{{'new.v3.mynewworkspace.sidebar.label.ClaimNotification' | translate}}</span>
+        </li>
+        <li class="mobile-mode" ng-click="showDocumentList($event, commonService.CONSTANTS.MODULE_NAME.PROSPECT)">
+            <span class="side-icon" data-toggle="popover" data-trigger="hover" data-content="{{'new.v3.mynewworkspace.sidebar.label.Prospect' | translate}}"><i class="fa fa-book fa-2x"></i></span>
+            <span class="txt">{{'new.v3.mynewworkspace.sidebar.label.Prospect' | translate}}</span>
+        </li>
+        <li class="mobile-mode" ng-click="goToState('root.list.detail', {docType: commonService.CONSTANTS.MODULE_NAME.CORPORATE})">
+            <span class="side-icon" data-toggle="popover" data-trigger="hover" data-content="{{'new.v3.mynewworkspace.sidebar.label.Corporate' | translate}}"><i class="fa fa-building fa-2x"></i></span>
+            <span class="txt">{{'new.v3.mynewworkspace.sidebar.label.Corporate' | translate}}</span>
+        </li>
+        <li class="mobile-mode" ng-click="showDocumentList($event, commonService.CONSTANTS.MODULE_NAME.POLICY)">
+            <span class="side-icon" data-toggle="popover" data-trigger="hover" data-content="{{'new.v3.mynewworkspace.sidebar.label.Policy' | translate}}"><i class="fa fa-list-alt fa-2x"></i></span>
+            <span class="txt">{{'new.v3.mynewworkspace.sidebar.label.Policy' | translate}}</span>
+        </li>
+        <li ng-click="initializeObject_V3_Test('case_management_term_life', 'caseManagement')">
+            <span class="side-icon"><i class="fa fa-briefcase fa-2x"></i></span>
+            <span class="txt">Case</span>
+        </li>
+        <li class="mobile-mode" ng-click="showDocumentList($event, commonService.CONSTANTS.MODULE_NAME.CLIENT)">
+            <span class="side-icon" data-toggle="popover" data-trigger="hover" data-content="{{'new.v3.mynewworkspace.sidebar.label.Client' | translate}}"><i class="fa fa-user fa-2x"></i></span>
+            <span class="txt">{{'new.v3.mynewworkspace.sidebar.label.Client' | translate}}</span>
+        </li>
+        <li class="mobile-mode" ng-click="showDocumentList($event, commonService.CONSTANTS.MODULE_NAME.CLAIM)">
+            <span class="side-icon" data-toggle="popover" data-trigger="hover" data-content="{{'new.v3.mynewworkspace.sidebar.label.ClaimStatus' | translate}}"><i class="fa fa-usd fa-2x"></i></span>
+            <span hide-sm class="txt">{{'new.v3.mynewworkspace.sidebar.label.ClaimStatus' | translate}}</span>
+        </li>    
+        <li class="mobile-mode">
+            <span class="side-icon" data-toggle="popover" data-trigger="hover" data-content="{{'new.v3.mynewworkspace.sidebar.label.Configuration' | translate}}"><i class="fa fa-wrench fa-2x"></i></span>
+            <span hide-sm class="txt">{{'new.v3.mynewworkspace.sidebar.label.Configuration' | translate}}</span>
+        </li>
+        <li ng-click="toggleText($event)">
+            <span class="side-icon">
+            	<i ng-if="sideIcon" class="fa fa-angle-double-left fa-2x"></i>
+            	<i ng-if="!sideIcon" class="fa fa-angle-double-right fa-2x"></i>
+            </span>
+            <span class="txt"></span>
+        </li>
+    </ul>
+    <div id="controlbar-container" style="float:left;position:relative">
+    	
+        <div id='controlbar' class="form-group form-group-lg has-success v3-search-box-group">
+        	<span><i class="fa fa fa-search fa-2x v3-search-box-input-search-icon"></i></span>		    
+		   	<input id="nav-search-input" class="form-control v3-search-box-input nav-search-query" placeholder="Search" type="text" ng-model="searchText"/>
+		   	<span ng-click="getDocumentList()"><i class="fa fa-refresh fa-2x pointer v3-search-box-refresh-icon"></i></span>
+		   	<span class="margin-right-10"><i id="left-sidebar-contractile-button" class="fa fa-angle-double-left fa-3x hide pointer"></i></span>
+            <span hide-sm><i id="left-sidebar-expanded-button" class="fa fa-angle-double-right fa-3x pointer"></i></span>	
+	  	</div>
+        <ul class="item-list left-sidebar-list-container" id="left-sidebar" scrolled="increaseLeftSidebarLimit()">
+            <li ng-repeat="metaData in moduleService.moduleList  | myWorkspaceFilter:searchText:moduleService.name | orderBy:sortBy | limitTo: leftSideBarLimit track by $index">                
+                <v3-Card id='v3Card'  meta-data='metaData' card-type='cardType' is-new='isNewss()' ></v3-Card>
+            </li>
+        </ul>
+    </div>
+</aside> -->

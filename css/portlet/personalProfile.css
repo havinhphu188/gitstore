@@ -1,0 +1,85 @@
+/**
+ * //*******************************************************************************
+ * // * Copyright (c) 2011-2014 CSC.
+ * // * Copyright (C) 2010-2016 CSC - All rights reserved.
+ * // *
+ * // * The information contained in this document is the exclusive property of
+ * // * CSC.  This work is protected under USA copyright law
+ * // * and the copyright laws of given countries of origin and international
+ * // * laws, treaties and/or conventions. No part of this document may be
+ * // * reproduced or transmitted in any form or by any means, electronic or
+ * // * mechanical including photocopying or by any informational storage or
+ * // * retrieval system, unless as expressly permitted by CSC.
+ * //
+ * // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+ * // ******************************************************************************
+ */
+
+#personalProfile .create-account-text {
+  font-size: 16px;
+  color: #555; 
+}
+#personalProfile .personal-detail{
+    font-size: 17px;
+    font-weight: bold;
+}
+#personalProfile .login-title{
+    font-size: 17px;
+    color: #4B7E37;
+    font-weight: bold;
+}
+#personalProfile .text-align-center{
+    text-align: center;
+}
+#personalProfile .padding-bottom-1{
+    padding-bottom: 5px;
+}
+#personalProfile .padding-left-0{
+    padding-left: 0px;
+}
+#personalProfile .login-error{
+    font-size: 16px !important;
+    color:red;
+}
+#personalProfile .button-size-level2{
+    width: 150px;
+}
+#personalProfile .button-login-border-none{
+    border: none !important;
+}
+
+#personalProfile .action-title{
+	background-color: #4caf50;
+  	color: white !important;
+  	padding-left: 10%;
+  	margin:0px !important;
+  	line-height:30px !important;
+}
+
+#personalProfile .row{
+	margin-top:-15px !important;
+}
+
+#personalProfile .popup_overlay{
+	position:fixed; top:0; left:0;
+	background:rgba(0,0,0,0.6); 
+	z-index:5; 
+	width:100%; 
+	height:100%; 
+
+} 
+#personalProfile .loginRow{
+	padding-bottom: 10px;
+} 
+.action-ticket {
+	font-size:20px;
+	font-weight: bold;
+	cursor:pointer;
+}
+.action-ticket i{
+	color:#4CAF50;
+/* 	margin-right:10px; */
+}
+.no-minwith{
+	min-width: 0px !important;
+}

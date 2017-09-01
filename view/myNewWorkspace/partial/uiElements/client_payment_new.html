@@ -1,0 +1,475 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div fieldId="transaction:ProductName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.transactioncenter.transactioncenter.label.ProductName" | translate}}</label>
+			<ng-newDropDown model="productName"
+			   list="productList" 
+			   type="nonFlag" prefix="v3.mynewworkspace.portlet.label.ipos-product"></ng-newDropDown>
+			  
+		</div>
+	</div>
+</div>
+<div fieldId="transaction:Currency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+	    
+	        <label>{{"new.v3.transactioncenter.transactioncenter.label.Currency" | translate}}</label>
+	       <!--  <v3-switch-new switch-size="" switch-name="BillingCurrency" prefix="v3.motor.privateCarM.billingCurrency"
+	           	switch-model="abc.currency" 
+	           	switch-default-value="" switch-disabled="false" 
+	           	switch-options="moduleServiceTransaction.findElementInElement_V3(moduleServiceTransaction.lazyChoiceList[productName.Value],['BillingCurrency','Option'])">
+			</v3-switch-new> -->
+			<ng-newDropDown disable="false"
+	        	model="abc.currency"
+	         	list="moduleServiceTransaction.findElementInElement_V3(moduleServiceTransaction.lazyChoiceList[productName.Value],['BillingCurrency','Option'])" 
+	         	type="nonFlag" prefix="v3.motor.privateCarM.billingCurrency"></ng-newDropDown>
+	    </div>
+	</div>
+	
+</div>
+<div fieldId="transaction:DueDateFrom" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+       <div class="form-group form-group-lg has-success">
+           <label>{{"new.v3.transactioncenter.transactioncenter.label.DueDateFrom" | translate}}</label>
+           <div style="position:relative"><input ms-datepicker maxDate="2020-12-31" ng-model="abc.dueDateFrom" class="ms-calendar"/></div>
+       </div>
+   </div>
+</div>
+<div fieldId="transaction:DueDateTo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{"new.v3.transactioncenter.transactioncenter.label.DueDateTo" | translate}}</label>
+            <div style="position:relative"><input ms-datepicker maxDate="2020-12-31" ng-model="abc.dueDateTo" class="ms-calendar"/></div>
+        </div>
+    </div>
+</div>
+<div fieldId="transaction:Search" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+ 	<div class="col-xs-offset-1 col-xs-10"	style="margin-bottom: 20px;">
+        <div class="form-group form-group-lg has-success" style="text-align: center;">
+            <!-- <md-button ng-click="" class="md-raised md-primary ipos_lower_button_letter" style="margin: 0px">Search</md-button> -->
+        	<button class="btn btn-lg v3-btn-primary" style="width: 200px" ng-click="searchPaymentCenter()">{{"new.v3.transactioncenter.transactioncenter.button.Search" | translate}}</button>
+        </div>
+    </div>
+</div> 
+<div fieldId="transaction:PaymentBasic" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{"new.v3.transactioncenter.transactioncenter.label.PaymentBasis" | translate}}<span ng-show="moduleServiceTransaction.findElementInDetail_V3(['PaymentType'])['@mandatory'] == '1'">*</span></label>
+            <v3-switch-new-slide  switch-size="" switch-name="gender" prefix="v3.paymentType"
+		    	switch-model="moduleServiceTransaction.findElementInDetail_V3(['PaymentType']).Value"
+		    	switch-default-value="" switch-disabled="viewMode || moduleProspectPersonalService.findElementInDetail_V3(['Gender'])['@editable'] == '0'"
+		    	switch-options="paymentMethodNoneLife">
+			</v3-switch-new-slide>
+			<span class="errorMessage" ng-if="paymentBasis" ng-bind="'MSG-C01' | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="transaction:PaymentMethod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+           	<label>{{"new.v3.transactioncenter.transactioncenter.label.PaymentMethod" | translate}}</label>
+          	<v3-switch-new  switch-size="" switch-name="gender" prefix="v3.paymentMethod"
+               switch-model="moduleServiceTransaction.findElementInDetail_V3(['PaymentMethod']).Value"
+               switch-default-value="" switch-disabled="viewMode || moduleProspectPersonalService.findElementInDetail_V3(['Gender'])['@editable'] == '0'"
+               switch-options="paymentModeNoneLife">
+           	</v3-switch-new>
+			<span class="errorMessage" ng-if="paymentBasis" ng-bind="'MSG-C01' | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="transaction:Table1" class="hide-md col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div flex layout="row" class="ipos_portlet_table_header_item_transaction" layout-align="center center" style="line-height: 30px">
+		<div flex="5"><md-checkbox style="align: center; line-height: 30px; display: inline-block" ng-model="a.isSelectAll" ng-change="selectAll()"></md-checkbox></div>
+		<div flex="80"></div>
+		<div flex="15"><div class="form-group  form-group-lg has-success"><label></label></div></div>
+		<!-- <div flex="10">Action</div> -->
+	</div>
+
+	<div class="ipos_portlet_table_header_item_transaction_row" ng-class="$index%2==0?'row_odd':'row_even'" dir-paginate="payment in pendingPaymentList | itemsPerPage: pageSize" current-page="currentPage">
+  		<div id="node" flex layout="row" class="" style="text-align: center; line-height: 25px">
+	   		<div flex="5"><md-checkbox style="line-height: 95px; display: inline-block" ng-model="payment.isCheck" ng-change="toggleSelection(payment)"></md-checkbox></div>
+	   		<div class="v3-margin-right-0 v3-live-card-icon-payment">
+			<div flex="10" card-icon="icon" class="v3-card-main-icon-payment v3-product-main-icon-payment fa {{'new.v3.transactioncenter.transactioncenter.productimages.' + payment.Product | translate}}"></div>
+			</div>
+            <div flex="70" style="text-align: left">
+				<div class="container-fluid v3-padding-0">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-10">   
+					   <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 v3-padding-left-0">
+						   <div style="padding-left: 0px;">
+								<div class="form-group  form-group-lg has-success">
+								    <label>{{"new.v3.transactioncenter.transactioncenter.label.TransactionType" | translate}} : {{"v3.payment.transactiontype." + payment.CaseType | translate }}</label> 
+							  	</div>
+						  	</div>
+					   </div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">   
+					   <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 v3-padding-left-0">
+						   <div style="padding-left: 0px;">
+								<div class="form-group  form-group-lg has-success">
+								    <label>{{"new.v3.transactioncenter.transactioncenter.label.ProductName" | translate}} : {{'v3.mynewworkspace.portlet.label.productName.' + payment.Product | translate  | trimtext:false:20:'..'}}</label> 
+							  	</div>
+						  	</div>
+					   </div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">   
+					   <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 v3-padding-left-0">
+						   <div style="padding-left: 0px;">
+								<div class="form-group  form-group-lg has-success">
+								    <label>{{"new.v3.transactioncenter.transactioncenter.label.DueDate" | translate}} : {{moduleServiceTransaction.convertToDateTime(payment.CreatedDate,'DD/MM/YYYY')}}</label> 
+							  	</div>
+						  	</div>
+					   </div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">   
+					   <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 v3-padding-left-0">
+						   <div style="padding-left: 0px;">
+								<div class="form-group  form-group-lg has-success">
+								    <label>{{"new.v3.transactioncenter.transactioncenter.label.ReferenceNo" | translate}} : <a href="" ng-click="openPdfReferenceNo(payment)">{{payment.ReferenceNo}}</a></label><!--  <a href="">eCover Note..</a> -->
+							  	</div>
+						  	</div>
+					   </div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">   
+					   <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 v3-padding-left-0">
+						   <div style="padding-left: 0px;">
+								<div class="form-group form-group-lg has-success">
+								    <label>{{"new.v3.transactioncenter.transactioncenter.label.PolicyOwner" | translate}} : {{payment.POFullName}}</label> 
+							  	</div>
+						  	</div>
+					   </div>
+					</div>
+					
+					
+					<!-- more detail -->
+					<div  class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding:0px">
+						<div id="detail_{{$index}}" class="cssSlideUp2" ng-hide="payment.isShow">
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+								<div class="form-group form-group-lg has-success">
+									<label>{{"new.v3.transactioncenter.transactioncenter.label.TotalSumInsured" | translate}} ({{payment.SICurrency}}) : {{payment.SumInsured | number:0}}</label> 
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+								<div class="form-group form-group-lg has-success">
+									<label>{{"new.v3.transactioncenter.transactioncenter.label.PayableAmount" | translate}} ({{payment.BillingCurrency}}) ({{"v3.paymentType.G" | translate}}) : {{payment.PayableAmount}}</label> 
+									<!-- <input  format="number" ng-disabled="true" style="border: none; width: 80px; background-color: transparent;"  ng-model="payment.Premium"/> -->
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+								<div class="form-group form-group-lg has-success">
+									<div class="row">
+										<label>{{"new.v3.transactioncenter.transactioncenter.label.DatePaidtoAgent" | translate}} : <a href="" ng-click="printPdf('client-payment', payment.DocId)">{{moduleServiceTransaction.convertToDateTime(payment.PaymentDate,'DD/MM/YYYY')}}</a></label>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+								<div class="form-group form-group-lg has-success">
+									<label>{{"new.v3.transactioncenter.transactioncenter.label.PayableAmount" | translate}} ({{payment.SICurrency}}) ({{"v3.paymentType.N" | translate}}) : </label>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					
+					<!-- action list -->
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
+					   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-padding-left-0">
+						   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-left: 0px;">
+						   		<i id="endorse-submenu-caret-{{$index}}"  class="fa fa-angle-down fa-lg icon-action-list" ></i>
+								<div class="form-group form-group-lg has-success action-list">
+								    <a href="" ng-click="showPaymentDetail($index, payment)" ng-show="payment.isShow">{{"new.v3.transactioncenter.transactioncenter.hyperlink.More" | translate}} </a>
+								    <a href="" ng-click="showPaymentDetail($index, payment)" ng-hide="payment.isShow">{{"new.v3.transactioncenter.transactioncenter.hyperlink.Less" | translate}} </a>
+								    
+								    <!-- <span class="carret-button" ng-click="showPaymentDetail($index, payment.DocId)">
+										<i id="endorse-submenu-caret-{{$index}}"  class="fa fa-angle-down fa-2x"></i>Detail
+									</span> -->
+							  	</div>
+							  	<i class="fa fa-star fa-lg icon-action-list" style="color: #f1c40f"></i>
+							  	<div class="form-group form-group-lg has-success action-list">
+								    <a href="">{{"new.v3.transactioncenter.transactioncenter.hyperlink.Star" | translate}} </a>
+							  	</div>
+						  	</div>
+					   </div>
+					</div>
+					
+				</div>
+			</div>
+			<div flex="15" style="text-align: right; padding-right: 10px; " class="margin-top-10">
+				<div class="form-group form-group-lg has-success">
+					<div><label>{{"new.v3.transactioncenter.transactioncenter.label.PayableAmount" | translate}}:</label></div>
+                    <div><span>({{payment.BillingCurrency}}) 
+						<span ng-if="moduleServiceTransaction.findElementInDetail_V3(['PaymentType']).Value == 'G'">
+							({{"v3.paymentType." + moduleServiceTransaction.findElementInDetail_V3(['PaymentType']).Value | translate}}):
+						</span> 
+						<span ng-if="moduleServiceTransaction.findElementInDetail_V3(['PaymentType']).Value == ''">
+							({{"v3.paymentType.G" | translate}}):
+						</span>
+						<span ng-if="moduleServiceTransaction.findElementInDetail_V3(['PaymentType']).Value == 'N'">
+							({{"v3.paymentType." + moduleServiceTransaction.findElementInDetail_V3(['PaymentType']).Value | translate}}):						
+						</span>
+					</div>
+                    <div><label>{{payment.PayableAmount}}</label></div>
+				</div>
+				<!-- <input  format="number" ng-disabled="true" style="border: none; text-align: right; background-color: transparent; width: 100%; padding-right: 10px;"  ng-model="payment.Premium"/> -->
+				<!-- <span>{{payment.SumInsured}}</span> -->
+				<!-- <md-checkbox class="checkbox-align" ng-click="toggleSelection($index)" ng-check="selection.indexOf($index)>-1"></md-checkbox> -->
+			</div>
+			<!-- <div flex="10"><i class="fa fa-eye" ng-click="showPaymentDetail($index, payment.DocId)"></i></div> -->
+  		</div>
+		<md-divider ></md-divider>
+	</div>
+	<div class="ipos_portlet_table_header_item_transaction_row" ng-if="!pendingPaymentList.length" style="text-align: center; height: 100px; line-height: 100px;">
+		No item is displayed
+	</div>
+	<md-divider ng-if="!pendingPaymentList.length"></md-divider>
+    <div flex layout="row" class="container-fluid v3-padding-0" layout-align="center center" style="line-height: 30px">
+  		<div class="container-fluid v3-padding-0" style="width: 100%; margin-top: 10px;">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="col-xs-offset-1 col-xs-10">
+                    <div class="form-group form-group-lg has-success">
+                        <label>{{"new.v3.transactioncenter.transactioncenter.label.PaymentMethod" | translate}}</label>
+                        <v3-switch-new  switch-size="" switch-name="gender" prefix="v3.paymentMethod"
+                            switch-model="moduleServiceTransaction.findElementInDetail_V3(['PaymentMethod']).Value"
+                            switch-default-value="" switch-disabled="viewMode || moduleProspectPersonalService.findElementInDetail_V3(['Gender'])['@editable'] == '0'"
+                            switch-options="paymentModeNoneLife">
+                        </v3-switch-new>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			    <div class="col-xs-offset-1 col-xs-10">
+			        <div class="form-group form-group-lg has-success">
+			            <label>{{"new.v3.transactioncenter.transactioncenter.label.TotalPayableAmount" | translate}}
+			            	<span ng-if="TotalPayableAmountCurrency !== undefined"> ({{TotalPayableAmountCurrency}})</span><span ng-if="moduleServiceTransaction.findElementInDetail_V3(['PaymentType']).Value !== ''"> ({{"v3.paymentType." + moduleServiceTransaction.findElementInDetail_V3(['PaymentType']).Value | translate}})</span>
+                        </label>
+			            <input format="number" class="form-control" placeholder="" ng-model="totalPayableAmount" ng-disabled="true"/>
+			        </div>
+			    </div>
+			</div>
+			<form method="post" id="myForm" style="text-align: center;">
+				<input id='Version' type='hidden' name='Version' value='1.0.0'>
+				<input id='MerID' type='hidden' name='MerID'>				
+				<input id='TypeID' type='hidden' value='1' name='TypeID'>
+				<input id='AcqID' type='hidden' name='AcqID'>
+				<input id='PurchaseCurrency' type='hidden' value='196' name='PurchaseCurrency'>
+				<input id='PurchaseCurrencyExponent' type='hidden' value='2' name='PurchaseCurrencyExponent'>
+				<input id='OrderID' type='hidden' value="{{objectId}}" name='OrderID'>
+				<input id='PolicyEmail' type='hidden' name='PolicyEmail'/>
+				<input id='PolicyOwner' type='hidden'  name='PolicyOwner'>
+				<input id='CardNo' type='hidden' value='4582386964272570' name='CardNo'>
+				<input id='PurchaseAmt' type='hidden' name='PurchaseAmt'/>
+				<input id='TransactionId'  type='hidden' name='TransactionId'/>
+				<input id='RequestSignature' type='hidden' name='RequestSignature'/>
+			</form>
+		</div>
+ 	</div>	
+
+    <div layout-margin flex layout="row" layout-align="end center">	
+		<div class="ipos_paging_margin_top_25" flex layout="row"  layout-align="end center">							
+                           <span>{{'v3.transactioncenter.label.Itemsperpage' | translate}}</span>
+                <select class="form-control ipos_paging_dropdown_70" ng-model="pageSize" ng-options="size as size for size in pageSizes">
+				</select>
+		</div>	
+		<dir-pagination-controls boundary-links="true" max-size="5">
+		</dir-pagination-controls>
+	</div>
+	<div layout-margin flex layout="row" layout-align="end center">	
+	 	<div class="col-xs-12 col-sm-6 col-md-7 col-lg-6 v3-column-content" ng-if="moduleServiceTransaction.findElementInDetail_V3(['PaymentMethod']).Value">
+		    <div class="col-xs-offset-1 v3-column-content">
+		        <div class="form-group form-group-lg has-success" style="line-height: 75px">
+		            <!-- <md-button ng-click="" class="md-raised md-primary ipos_lower_button_letter" style="margin: 0px">Search</md-button> -->
+		        	<button class="btn btn-lg v3-btn-primary" ng-click="processToPayment()">{{"new.v3.transactioncenter.transactioncenter.button.ProceedtoPayment" | translate}}</button>
+		        	<button class="btn btn-lg v3-btn-primary" ng-click="cancel()" style="margin-left: 10px">{{"new.v3.transactioncenter.transactioncenter.button.Cancel" | translate}}</button>
+		        	<button class="btn btn-lg v3-btn-primary" ng-click="">Test Payment Detail</button>
+		        </div>
+		    </div>
+		</div>
+		
+	</div>
+</div>
+
+<div fieldId="transaction:PaymentSubmissionNo"  class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" >
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.transactioncenter.transactioncenter.label.PaymentSubmissionNo" | translate}} </label>
+		   	 <input class="form-control" placeholder="Payment Submission No" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="moduleServiceTransaction.findElementInDetail_V3(['DocInfo']).DocName" />
+	        		
+	  	</div>
+  	</div>
+</div>
+
+<div fieldId="transaction:Basic" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" >
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.transactioncenter.transactioncenter.label.PaymentBasis" | translate}}</label>
+		   	 <!-- <input class="form-control" placeholder="Basis" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="" /> -->
+	        	<span style="background-color: #eee; cursor: not-allowed" class="form-control">{{"v3.paymentType." + moduleServiceTransaction.findElementInDetail_V3(['PaymentType']).Value | translate}}</span>
+	        		
+	  	</div>
+  	</div>
+</div>
+
+<div fieldId="transaction:PaymentDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" >
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.transactioncenter.transactioncenter.label.PaymentDate" | translate}}</label>
+	        <!-- <div style="position:relative"><input ng-disabled="true" ng-model="moduleServiceTransaction.findElementInDetail_V3(['transaction:PaymentDate']).$" class="ms-calendar"/></div> -->
+	        <span style="background-color: #eee; cursor: not-allowed" class="form-control">{{moduleServiceTransaction.findElementInDetail_V3(['PaymentDate']).$ | dateFilter}}</span>		
+	  	</div>
+  	</div>
+</div>
+
+<div fieldId="transaction:PayableAmount" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" >
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.transactioncenter.transactioncenter.label.PayableAmount" | translate}}</label>
+		   	<!--  <input format="number" class="form-control" placeholder="Payable Amount" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="totalPayableAmount" pos-autonumeric /> -->
+	        	
+	        	 <input format="number" class="form-control" placeholder="Payable Amount" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="totalPayableAmount" pos-autonumeric />
+	        		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="transaction:PayableName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" >
+		<div class="form-group form-group-lg has-success">
+            <label>{{"new.v3.transactioncenter.transactioncenter.label.PayorName" | translate}}<span ng-show="moduleServiceTransaction.findElementInDetail_V3(['PayorName'])['@mandatory'] == '1'">*</span></label>
+            <v3-switch-new-slide  switch-size="" switch-name="gender" prefix="v3.payorName"
+		    	switch-model="moduleServiceTransaction.findElementInDetail_V3(['PayorName']).Value"
+		    	switch-default-value="" switch-disabled="viewMode || moduleProspectPersonalService.findElementInDetail_V3(['PayorName'])['@editable'] == '0'"
+		    	switch-options="payorName">
+			</v3-switch-new-slide>
+			<span class="errorMessage" ng-bind="moduleServiceTransaction.findElementInDetail_V3(['PayorName']).errorMessage | translate"></span>
+        </div>
+  	</div>
+  	
+</div>
+<div fieldId="transaction:Remark" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" >
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.transactioncenter.transactioncenter.label.Remark" | translate}}</label>
+		   	 <input class="form-control" placeholder="{{'new.v3.transactioncenter.transactioncenter.label.Remark' | translate}}" ng-disabled="viewMode"
+	        	type="text"  maxlength="120"
+	        	 ng-model="moduleService.findElementInDetail_V3(['Comments','Comment']).RemarkText"/>  
+	        		
+	  	</div>
+  	</div>
+</div>
+
+<!-- <div fieldId="transaction:DepositAdviceReference" ng-if="moduleServiceTransaction.findJsonPathInItem(moduleServiceTransaction.detail, '$..transaction:PaymentMethod').Value == 'CASH'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" >
+		<div class="form-group form-group-lg has-success">
+		    <label>Deposit Advice Reference <span ng-show="moduleServiceTransaction.findElementInDetail_V3(['transaction:DepositAdviceReference'])['@mandatory'] == '1'">*</span></label>
+		   	 <input class="form-control" placeholder="Deposit Advice Reference" ng-disabled="viewMode || moduleServiceTransaction.findElementInDetail_V3(['transaction:DepositAdviceReference'])['@editable'] == '0'"
+	        	type="text"  maxlength="120" ng-model="moduleServiceTransaction.findElementInDetail_V3(['transaction:DepositAdviceReference']).$" />
+	        <span class="errorMessage" ng-bind="moduleServiceTransaction.findElementInDetail_V3(['transaction:DepositAdviceReference']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div> -->
+
+<div fieldId="transaction:ChequeNumber" ng-if="moduleServiceTransaction.findElementInDetail_V3(['PaymentMethod']).Value == 'CHEQUE'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" >
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.transactioncenter.transactioncenter.label.ChequeNumber" | translate}} <span ng-show="moduleServiceTransaction.findElementInDetail_V3(['ChequeNumber'])['@mandatory'] == '1'">*</span></label>
+		   	 <input class="form-control" placeholder="{{'new.v3.transactioncenter.transactioncenter.label.ChequeNumber' | translate}}" ng-disabled="viewMode"
+	        	type="text"  maxlength="120" ng-model="moduleServiceTransaction.findElementInDetail_V3(['ChequeNumber']).$" />
+	        <span class="errorMessage" ng-bind="moduleServiceTransaction.findElementInDetail_V3(['ChequeNumber']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+
+<div fieldId="transaction:ChequeDate" ng-if="moduleServiceTransaction.findElementInDetail_V3(['PaymentMethod']).Value == 'CHEQUE'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" >
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.transactioncenter.transactioncenter.label.ChequeDate" | translate}}<span ng-show="moduleServiceTransaction.findElementInDetail_V3(['ChequeDate'])['@mandatory'] == '1'">*</span></label>
+	        <div style="position:relative"><input ms-datepicker ng-model="moduleServiceTransaction.findElementInDetail_V3(['ChequeDate']).$" class="ms-calendar"/></div>
+	        <span class="errorMessage" ng-bind="moduleServiceTransaction.findElementInDetail_V3(['ChequeDate']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+
+<div fieldId="transaction:BankName" ng-if="moduleServiceTransaction.findElementInDetail_V3(['PaymentMethod']).Value == 'CHEQUE'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" >
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.transactioncenter.transactioncenter.label.BankName" | translate}}<span ng-show="moduleServiceTransaction.findElementInDetail_V3(['BankName'])['@mandatory'] == '1'">*</span></label>
+		   	<!-- <input class="form-control" placeholder="Bank Name" ng-disabled="viewMode"
+	        	type="text"  maxlength="120" ng-model="moduleServiceTransaction.findElementInDetail_V3(['BankName']).Value" /> -->
+	        <ng-newDropDown model="moduleServiceTransaction.findElementInDetail_V3(['BankName'])"
+			   list="bankName" type="nonFlag" prefix="v3.bankName"></ng-newDropDown>
+	        <span class="errorMessage" ng-bind="moduleServiceTransaction.findElementInDetail_V3(['BankName']).errorMessage | translate"></span>		
+
+	  	</div>
+  	</div>
+</div>
+
+<div fieldId="transaction:AdviceNo" ng-if="moduleServiceTransaction.findElementInDetail_V3(['PaymentMethod']).Value == 'BT'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" >
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.transactioncenter.transactioncenter.label.AdviceNo" | translate}} <span ng-show="moduleServiceTransaction.findElementInDetail_V3(['AdviceNo'])['@mandatory'] == '1'">*</span></label>
+		   	 <input class="form-control" placeholder="{{'new.v3.transactioncenter.transactioncenter.label.AdviceNo' | translate}}" ng-disabled="viewMode"
+	        	type="text"  maxlength="120" ng-model="moduleServiceTransaction.findElementInDetail_V3(['AdviceNo']).$" />
+	        <span class="errorMessage" ng-bind="moduleServiceTransaction.findElementInDetail_V3(['AdviceNo']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="transaction:AdviceDate" ng-if="moduleServiceTransaction.findElementInDetail_V3(['PaymentMethod']).Value == 'BT'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" >
+		<div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.transactioncenter.transactioncenter.label.AdviceDate" | translate}}<span ng-show="moduleServiceTransaction.findElementInDetail_V3(['AdviceDate'])['@mandatory'] == '1'">*</span></label>
+	        <div style="position:relative"><input ms-datepicker ng-model="moduleServiceTransaction.findElementInDetail_V3(['AdviceDate']).$" class="ms-calendar"/></div>
+	        <span class="errorMessage" ng-bind="moduleServiceTransaction.findElementInDetail_V3(['AdviceDate']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="transaction:PayButton" ng-if="moduleServiceTransaction.findElementInDetail_V3(['PaymentMethod']).Value" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" >
+		<div class="form-group form-group-lg has-success">
+		   	<button ng-disabled="isDisabled" class="btn btn-lg v3-btn-primary" ng-click="doPayment()">{{"new.v3.transactioncenter.transactioncenter.button.Pay" | translate}}</button>
+		   	<button ng-disabled="isDisabled" class="btn btn-lg v3-btn-primary" ng-click="cancelSecondTile()" style="margin-left: 10px">{{"new.v3.transactioncenter.transactioncenter.button.Cancel" | translate}}</button>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="transaction:PaymentSuccessful" class="col-xs-12 v3-column-content" ng-if="epaymentSuccessful == true">
+	<div class="row text-center v3-card-title">
+		Payment successful
+	</div>
+	<div class="row text-center">
+		Your payment has been processed. Here are the information of this payment for your reference.
+	</div>
+	<div class="row text-center">
+		Payment Document No: {{epaymentSubNo}}
+	</div>	
+	<div class="row text-center">
+		Amount Paid: {{etotalPremium | number:2}} {{paidCurrency}}
+	</div>	
+</div>
+<div fieldId="transaction:PaymentUnsuccessful" class="col-xs-12 v3-column-content" ng-if="epaymentSuccessful == false">
+	<div class="row text-center v3-card-title">
+		Payment unsuccessful
+	</div>
+	<div class="row text-center">
+		Your payment cannot be processed. Please try again later.
+	</div>
+</div>

@@ -1,0 +1,129 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!--Group term life Level UW  -->
+<div fieldId="group-underwriting:title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+		<div class="form-group form-group-lg has-success">
+			<span class="large-font" >Underwriting</span>			
+		</div>
+	</div>	
+</div>
+<div fieldId="group-underwriting:WaitingPeriod" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+	<div class="col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<span class="large-font" >Claim Wating period(days)</span>	
+			<span ng-show="moduleService.findElementInDetail_V3(['WaitingPeriod'])['@mandatory'] == '1'">*:</span>	
+			<input class="form-control" placeholder="" ng-model="moduleService.findElementInDetail_V3(['WaitingPeriod']).$"
+	        	type="text"   />			
+		</div>
+	</div>	
+</div>
+
+<div fieldId="group-underwriting:exclusions" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-left">
+		<div class="form-group form-group-lg has-success">
+			<span class="large-font" >Exclusions:</span>				
+		</div>
+	</div>	
+</div>
+
+<div fieldId="group-underwriting:DeathDueToWarLabel" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left">
+		<div class="form-group form-group-lg has-success">
+			<span >Death Of Member Due To War And War-like Operations</span>			
+			<span ng-show="moduleService.findElementInDetail_V3(['DeathDueToWarLabel'])['@mandatory'] == '1'">*:</span>	
+		</div>
+	</div>	
+</div>
+<div fieldId="group-underwriting:DeathDueToWar" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content ">
+		<div class="form-group form-group-lg has-success">
+			<v3-switch-new-slide 
+	                       	switch-model="moduleService.findElementInDetail_V3(['DeathDueToWar']).Value" 
+	                       	switch-default-value="" switch-disabled="false" 
+	                       	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['DeathDueToWar','Option'])">
+	        <v3-switch-new-slide>
+		</div>
+	</div>	
+</div>
+<div fieldId="group-underwriting:DeathWhenIllegalActLabel" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left">
+		<div class="form-group form-group-lg has-success">
+			<span >Death Ocurs When Menber Was Committing An Illegal Act</span>	
+			<span ng-show="moduleService.findElementInDetail_V3(['DeathWhenIllegalAct'])['@mandatory'] == '1'">*:</span>				
+		</div>
+	</div>	
+</div>
+<div fieldId="group-underwriting:DeathWhenIllegalAct" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<v3-switch-new-slide 
+	                       	switch-model="moduleService.findElementInDetail_V3(['DeathWhenIllegalAct']).Value" 
+	                       	switch-default-value="" switch-disabled="false" 
+	                       	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['DeathWhenIllegalAct','Option'])">
+	        <v3-switch-new-slide>
+		</div>
+	</div>	
+</div>
+<div fieldId="group-underwriting:DeathDueToSuicideLabel" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left ">
+		<div class="form-group form-group-lg has-success">
+			<span >Death Of Member Due To Suicide Or Seft Inflicted Injury</span>		
+			<span ng-show="moduleService.findElementInDetail_V3(['DeathDueToSuicide'])['@mandatory'] == '1'">*:</span>						
+		</div>
+	</div>	
+</div>
+<div fieldId="group-underwriting:DeathDueToSuicide" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<v3-switch-new-slide 
+	                       	switch-model="moduleService.findElementInDetail_V3(['DeathDueToSuicide']).Value" 
+	                       	switch-default-value="" switch-disabled="false" 
+	                       	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['DeathDueToSuicide','Option'])">
+	        <v3-switch-new-slide>
+		</div>
+	</div>	
+</div>
+<div fieldId="group-underwriting:FreeCoverLimitTitle" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-left">
+		<div class="form-group form-group-lg has-success">
+			<span class="large-font" >Free Cover Limit:</span>				
+		</div>
+	</div>	
+</div>
+
+<div fieldId="group-underwriting:FreeCoverLimitLabel" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+		<div class="form-group form-group-lg has-success">
+			<span >The Free Cover Limit propose for the various product is appropriate</span>				
+		</div>
+	</div>	
+</div>
+<div fieldId="group-underwriting:FreeCoverLimit" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<v3-switch-new-slide 
+	                       	switch-model="uiElement.refDetail.Value" 
+	                       	switch-default-value="" switch-disabled="false" 
+	                       	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['FreeCoverLimit','Option'])">
+	        <v3-switch-new-slide>
+		</div>
+	</div>	
+</div>

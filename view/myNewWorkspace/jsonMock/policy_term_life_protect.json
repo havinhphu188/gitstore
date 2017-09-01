@@ -1,0 +1,472 @@
+{
+    "IposDocument": {
+        "Data": {
+            "policy-term-life-protect:PolicyDetail": {
+                "section": "policy-term-life-protect:PolicyDetail",
+                "policy-term-life-protect:PolicyInfo": {
+                    "section": "policy-term-life-protect:PolicyDetail",
+                    "policy-term-life-protect:ActionType": {
+                        "index": "1",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:PolicyNo": {
+                        "index": "2",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:PolicyStatus": {
+                        "index": "3",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:CommencementDate": {
+                        "index": "4",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:ExpiryDate": {
+                        "index": "5",
+                        "type": ""
+                    }
+                },
+                "policy-term-life-protect:ClientInfo": {
+                    "section": "policy-term-life-protect:PolicyDetail",
+                    "policy-term-life-protect:ClientId": {
+                        "index": "0",
+                        "type": ""
+                    }
+                },
+                "policy-term-life-protect:ProductDetails": {
+                    "section": "policy-term-life-protect:PolicyDetail",
+                    "policy-term-life-protect:MainCoverage": {
+                        "index": "1",
+                        "policy-term-life-protect:MainCoverageType": {
+                            "type": ""
+                        },
+                        "policy-term-life-protect:MainSumInsured": {
+                            "type": ""
+                        },
+                        "policy-term-life-protect:MainPremium": {
+                            "type": ""
+                        },
+                        "policy-term-life-protect:GrossMainPremium": {
+                            "type": ""
+                        }
+                    },
+                    "policy-term-life-protect:OptionalCoverages": {
+                        "type": ""
+                    },
+                    "policy-term-life-protect:AnnualPremium": {
+                        "type": ""
+                    },
+                    "policy-term-life-protect:ExcessType": {
+                        "type": ""
+                    },
+                    "policy-term-life-protect:ExcessAmt": {
+                        "index": "5",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:NCDAllowed": {
+                        "index": "6",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:NoOfClaim": {
+                        "index": "7",
+                        "type": ""
+                    }
+                },
+                "policy-term-life-protect:PolicyOwner": {
+                    "section": "policy-term-life-protect:PolicyDetail",
+                    "policy-term-life-protect:Title": {
+                        "index": "0",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:FullName": {
+                        "index": "1",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:BirthDate": {
+                        "index": "2",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:Gender": {
+                        "index": "3",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:MaritalStatus": {
+                        "index": "4",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:SmokeStatus": {
+                        "index": "5",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:POIDs": {
+                        "index": "15",
+                        "policy-term-life-protect:POID": {
+                            "policy-term-life-protect:POIDType": {
+                                "type": ""
+                            },
+                            "policy-term-life-protect:POIDNumber": {
+                                "type": ""
+                            }
+                        }
+                    },
+                    "policy-term-life-protect:Industry": {
+                        "index": "6",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:Occupation": {
+                        "index": "7",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:ReferralType": {
+                        "index": "8",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:Referrer": {
+                        "index": "9",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:Race": {
+                        "index": "10",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:Nationality": {
+                        "index": "11",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:Staff": {
+                        "index": "12",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:VIP": {
+                        "index": "13",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:YearDrivingLicenceObtained": {
+                        "index": "14",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:ContactDetails": {
+                        "index": "16",
+                        "policy-term-life-protect:ContactDetail": {
+                            "policy-term-life-protect:ContactType": {
+                                "type": ""
+                            },
+                            "policy-term-life-protect:ContactInfo": {
+                                "type": ""
+                            }
+                        }
+                    },
+                    "policy-term-life-protect:AddressDetails": {
+                        "index": "17",
+                        "policy-term-life-protect:AddressDetail": {
+                            "policy-term-life-protect:AddressType": {
+
+                                "type": ""
+                            },
+                            "policy-term-life-protect:BlkHouseNo": {
+                                "type": ""
+                            },
+                            "policy-term-life-protect:Street": {
+                                "type": ""
+                            },
+                            "policy-term-life-protect:UnitNo": {
+                                "type": ""
+                            },
+                            "policy-term-life-protect:Building": {
+                                "type": ""
+                            },
+                            "policy-term-life-protect:City": {
+                                "type": ""
+                            },
+                            "policy-term-life-protect:Country": {
+
+                                "type": ""
+                            },
+                            "policy-term-life-protect:Postal": {
+                                "type": ""
+                            }
+                        }
+                    }
+                },
+                "policy-term-life-protect:MainDriver": {
+                    "section": "policy-term-life-protect:PolicyDetail",
+                    "policy-term-life-protect:MDSalutation": {
+                        "index": "0",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:MDFullName": {
+                        "index": "1",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:MDGender": {
+                        "index": "2",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:MDBirthDate": {
+                        "index": "3",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:MDAge": {
+                        "index": "4",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:MDYearDrivingLicenceObtained": {
+                        "index": "5",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:MDIDs": {
+                        "index": "6",
+                        "policy-term-life-protect:MDID": {
+                            "policy-term-life-protect:MDIDType": {
+
+                                "type": ""
+                            },
+                            "policy-term-life-protect:MDIDNumber": {
+                                "type": ""
+                            }
+                        }
+                    },
+                    "policy-term-life-protect:MDMarialStatus": {
+                        "index": "7",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:MDOccupation": {
+                        "index": "8",
+                        "type": ""
+                    }
+                },
+                "policy-term-life-protect:OtherDrivers": {
+
+                    "policy-term-life-protect:OtherDriver": {
+                        "section": "policy-term-life-protect:PolicyDetail",
+                        "policy-term-life-protect:ODSalutation": {
+
+                            "type": ""
+                        },
+                        "policy-term-life-protect:ODFullName": {
+                            "index": "1",
+                            "type": ""
+
+                        },
+                        "policy-term-life-protect:ODGender": {
+                            "index": "2",
+                            "type": ""
+                        },
+                        "policy-term-life-protect:ODBirthDate": {
+                            "index": "3",
+                            "type": ""
+
+                        },
+                        "policy-term-life-protect:ODAge": {
+                            "index": "4",
+                            "type": ""
+
+                        },
+                        "policy-term-life-protect:ODYearDrivingLicenceObtained": {
+                            "index": "5",
+                            "type": ""
+
+                        },
+                        "policy-term-life-protect:ODIDs": {
+                            "index": "6",
+
+
+                            "policy-term-life-protect:ODID": {
+                                "policy-term-life-protect:ODIDType": {
+                                    "type": ""
+                                },
+                                "policy-term-life-protect:ODIDNumber": {
+                                    "type": ""
+                                }
+                            }
+                        },
+                        "policy-term-life-protect:ODMarialStatus": {
+                            "index": "7",
+
+                            "type": ""
+                        },
+                        "policy-term-life-protect:OOccupation": {
+                            "index": "8",
+
+                            "type": ""
+                        }
+                    }
+                },
+                "policy-term-life-protect:VehicleInformation": {
+                    "section": "policy-term-life-protect:PolicyDetail",
+                    "policy-term-life-protect:VehicleClass": {
+                        "index": "0",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:VehicleType": {
+                        "index": "1",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:VehicleTypeRefer": {
+                        "index": "2",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:MasterPolicy": {
+                        "index": "3",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:DocumentType": {
+                        "index": "4",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:Reason": {
+                        "index": "5",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:BillingCurrency": {
+                        "index": "6",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:SICurrency": {
+                        "index": "7",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:GeographicLocation": {
+                        "index": "8",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:Region": {
+                        "index": "9",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:CoverageType": {
+                        "index": "10",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:UseOfVehicle": {
+                        "index": "11",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:CIType": {
+                        "index": "12",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:GoodCarriedByVehicle": {
+                        "index": "13",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:VehicleNo": {
+                        "index": "14",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:MakeOrModel": {
+                        "index": "15",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:ModelDescription": {
+                        "index": "16",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:ModelDescriptionAddition": {
+                        "index": "17",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:EngineCapacity": {
+                        "index": "18",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:Body": {
+                        "index": "19",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:PowerBy": {
+                        "index": "20",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:NoOfSeat": {
+                        "index": "21",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:YearOfMfg": {
+                        "index": "22",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:VarianSeriesTransmission": {
+                        "index": "23",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:Garaged": {
+                        "index": "24",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:SafetyCode": {
+                        "index": "25",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:AntiTheftCode": {
+                        "index": "26",
+                        "type": ""
+                    }
+                },
+                "policy-term-life-protect:AdditionalVehicleInformation": {
+                    "section": "policy-term-life-protect:PolicyDetail",
+                    "policy-term-life-protect:LogBookNo": {
+                        "index": "0",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:EngineMotorNo": {
+                        "index": "1",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:ChasisNo": {
+                        "index": "2",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:OwnershipType": {
+                        "index": "3",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:FinalcialType": {
+                        "index": "4",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:LoanCompany": {
+                        "index": "5",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:PurchaseDate": {
+                        "index": "6",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:PurchasePrice": {
+                        "index": "7",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:TrailerNo": {
+                        "index": "8",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:TrailerMakeModel": {
+                        "index": "9",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:TrailerModelDesc": {
+                        "index": "10",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:TrailerYearMake": {
+                        "index": "11",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:TrailerLogBookNo": {
+                        "index": "12",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:TrailerChasisNo": {
+                        "index": "13",
+                        "type": ""
+                    },
+                    "policy-term-life-protect:PermittedDriver": {
+                        "index": "14",
+                        "type": ""
+                    }
+                }
+            }
+        }
+    }
+}

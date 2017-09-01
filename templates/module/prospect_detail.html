@@ -1,0 +1,442 @@
+<md-toolbar>
+    <h2 class="md-toolbar-tools">
+        <div flex="10">
+            <md-button ng-click="backToPreState()" class="md-primany green-title" style="width: 35px; padding: 5px; z-index: 1;">
+                <md-tooltip>
+                    Back
+                </md-tooltip>
+                <span class="fa fa-arrow-left fa-lg" style="margin-left: 0px;"></span>
+            </md-button>
+        </div>
+        <div flex="70" class="text-center">
+            <span class="fa-lg">Prospect: {{moduleService.prospectHeaderName}}</span>
+        </div>
+        <div class="align-right" flex>
+             <md-button ng-click="popover.show($event)" class="md-primany green-title" style="width: 35px; padding: 5px;">
+                <md-tooltip>
+                    Option
+                </md-tooltip>
+                <span class="fa fa-ellipsis-v " style="margin-left: 0px;"></span>
+            </md-button>
+        </div>
+    </h2>
+</md-toolbar>
+<ion-view>
+    <!-- <ion-content scroll="false" class="has-header"> -->
+    <ion-content class="has-header">
+        <md-select ng-model="carouselIndex" placeholder="Choose language">
+            <md-option ng-value="Page.id" ng-repeat="Page in Pages">
+                <div style="width: 200px" class="row">
+                    {{ Page.name }}
+                </div>
+            </md-option>
+        </md-select>
+        <div rn-carousel-indicators ng-if="slides.length > 1" slides="slides" rn-carousel-index="carouselIndex"></div>
+        <ul id="carouselList" rn-carousel rn-carousel-index="carouselIndex" style="height: 90%;">
+            <li>
+                <div layout="row" layout-md="column" layout-margin>
+                    <div flex style="background-color: rgba(245, 245, 245, 1);" layout-margin>
+                        <div layout="row" layout-sm="column">
+                            <div flex="20">
+                                <div layout-margin style="height: 100px; max-height: 100px;min-height: 100px; max-width: 100px;min-width: 100px; margin-left: auto; margin-right: auto;">
+                                    <img src="img/avatar_generic.png" style="width :100%;">
+                                    <i style="z-index: 1;position: absolute; margin-top:-5%; color: white;" class="fa fa-plus"></i>
+                                </div>
+                            </div>
+                            <div flex="80">
+                                <div layout="row" layout-margin>
+                                    <div flex="35">
+                                        <h3>Title</h3>
+                                    </div>
+                                    <div flex="55">
+                                        <ui-select ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:Title').Value" theme="select2" ng-disabled="visible" style="width: 100%;" title="Choose a person" title="Choose a person">
+                                            <ui-select-match>{{$select.selected}}</ui-select-match>
+                                            <ui-select-choices repeat="person in moduleService.listTitle  | filter : $select.search ">
+                                                <div ng-bind-html="person | highlight: $select.search"></div>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+                                </div>
+                                <div layout="row" layout-margin>
+                                    <div flex="35">
+                                        <h3>Fullname*</h3>
+                                    </div>
+                                    <div flex="55">
+                                        <input type="text" style="width: 100%;" class="" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:FirstName').$ " placeholder="First Name">
+                                        <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:FirstName')"></span>
+                                    </div>
+                                </div>
+                                <div layout="row" layout-margin>
+                                    <div flex="35">
+                                        <h3>Date of Birth*</h3>
+                                    </div>
+                                    <div flex="55">
+                                        <input type="text" style="width:100% !important" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:BirthDate').$" placeholder="Choose Date of Birth" ms-datepicker>
+                                        <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:BirthDate')"></span>
+                                    </div>
+                                </div>
+                                <div layout="row" layout-margin>
+                                    <div flex="35">
+                                        <h3>Gender*</h3>
+                                    </div>
+                                    <div flex="55">
+                                        <ui-select search-enabled="false" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:Gender').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                            <ui-select-match placeholder="Choose Gender">{{$select.selected}}</ui-select-match>
+                                            <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:Gender.Options').Option | filter : $select.search ">
+                                                <div ng-bind-html="item | highlight: $select.search"></div>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                        <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span>
+                                    </div>
+                                </div>
+                                <div layout="row" layout-margin>
+                                    <div flex="35">
+                                        <h3>Marital Status*</h3>
+                                    </div>
+                                    <div flex="55">
+                                        <ui-select search-enabled="false" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:MarStat').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                            <ui-select-match placeholder="choose Marial Status">{{$select.selected}}</ui-select-match>
+                                            <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:MarStat.Options').Option | filter : $select.search ">
+                                                <div ng-bind-html="item | highlight: $select.search"></div>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex style="background-color: rgba(245, 245, 245, 1);" layout-margin>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="50">
+                                <div flex="50">
+                                    <h3>Business/Industry</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select search-enabled="false" ng-model="dis" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in listOccupation| filter : $select.search  | limitTo: 100">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>Occupation*</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:Occupation').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in moduleService.occupationList| filter : $select.search | limitTo: 100">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Occupation')"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="50">
+                                <div flex="50">
+                                    <h3>Referer Type</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select search-enabled="false" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:MarStat').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:MarStat.Options').Option | filter : $select.search ">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>Referrer</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" class="" ng-disabled="visible" ng-model="referer" value="" placeholder="Referrer">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="50">
+                                <div flex="50">
+                                    <h3>Race</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select search-enabled="false" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:BirthCountry').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in listCountry | filter : $select.search ">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>Nationality</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:BirthCountry').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in listCountry | filter : $select.search ">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="50">
+                                <div flex="50">
+                                    <h3>ID Type*</h3>
+                                </div>
+                                <div flex="50">
+                                    <ui-select search-enabled="false" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:IDType').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:IDType.Options').Option | filter : $select.search ">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:IDType')"></span>
+                                </div>
+                            </div>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>ID Number</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" style="width:100%;" ng-disabled="visible" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:IDNum').$" value="" placeholder="ID Number *">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="30">
+                                <div flex="30">
+                                    <h3>Staff</h3>
+                                </div>
+                                <div flex="50">
+                                    <md-switch style="margin-top:-5px !important;" ng-model="data.cb2" class="md-primary" aria-label="Staff">
+                                    </md-switch>
+                                </div>
+                            </div>
+                            <div class="row" flex="35">
+                                <div flex="30">
+                                    <h3>VIP</h3>
+                                </div>
+                                <div flex="50">
+                                    <md-switch style="margin-top:-5px !important;" ng-model="data.cb3" class=" md-primary" aria-label="VIP">
+                                    </md-switch>
+                                </div>
+                            </div>
+                            <div class="row" flex="35">
+                                <div flex="50">
+                                    <h3>Smoke Status*</h3>
+                                </div>
+                                <div flex="50">
+                                    <md-switch style="margin-top:-5px !important;" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:SmokerStat').$" class=" md-primary">
+                                    </md-switch>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div style="background-color: rgba(245, 245, 245, 1);" layout-margin>
+                    <div class="row">
+                        <div class="row">
+                            <div flex="40">
+                                <h3>Blk/House No</h3>
+                            </div>
+                            <div flex="50">
+                                <input type="text" ng-disabled="moduleService.editable" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:BlkHouseNo').$" value="" placeholder="Blk/House No">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div flex="40">
+                                <h3>Street</h3>
+                            </div>
+                            <div flex="50">
+                                <input type="text" ng-disabled="moduleService.editable" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Street').$" value="" placeholder="Street">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            <div flex="40">
+                                <h3>Unit No</h3>
+                            </div>
+                            <div flex="50">
+                                <input type="text" ng-disabled="moduleService.editable" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:UnitNo').$" value="" placeholder="Unit No">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div flex="40">
+                                <h3>Building</h3>
+                            </div>
+                            <div flex="50">
+                                <input type="text" ng-disabled="moduleService.editable" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Building').$" value="" placeholder="Building">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            <div flex="40">
+                                <h3>City</h3>
+                            </div>
+                            <div flex="50">
+                                <input type="text" ng-disabled="moduleService.editable" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:City').$" value="" placeholder="City">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div flex="40">
+                                <h3>Country</h3>
+                            </div>
+                            <div flex="50">
+                                <ui-select search-enabled="false" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Country').$" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                    <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                    <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:IDType.Options').Option | filter : $select.search ">
+                                        <div ng-bind-html="item | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row" flex="50">
+                            <div flex="40">
+                                <h3>Postal Code</h3>
+                            </div>
+                            <div flex="50">
+                                <input type="text" ng-disabled="moduleService.editable" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Postal').$" value="" placeholder="Postal Code">
+                            </div>
+                        </div>
+                        <div class="row" flex="50">
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div style="background-color: rgba(245, 245, 245, 1);" layout-margin>
+                    <div class="row">
+                        <div class="row">
+                            <div flex="40">
+                                <h3>Mobile Tel</h3>
+                            </div>
+                            <div flex="50">
+                                <input type="text" ng-disabled="moduleService.editable" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:BlkHouseNo').$" value="" placeholder="Blk/House No">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div flex="40">
+                                <h3>Office Tel</h3>
+                            </div>
+                            <div flex="50">
+                                <input type="text" ng-disabled="moduleService.editable" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Street').$" value="" placeholder="Street">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            <div flex="40">
+                                <h3>Home Tel</h3>
+                            </div>
+                            <div flex="50">
+                                <input type="text" ng-disabled="moduleService.editable" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:UnitNo').$" value="" placeholder="Unit No">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div flex="40">
+                                <h3>Email Address</h3>
+                            </div>
+                            <div flex="50">
+                                <input type="text" ng-disabled="moduleService.editable" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Building').$" value="" placeholder="Building">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div style="background-color: rgba(245, 245, 245, 1);" layout-margin>
+                    <div class="row">
+                        <div class="row">
+                            <div flex="20">
+                                <h3>Consent</h3>
+                            </div>
+                            <div flex="50">
+                                <md-switch style="margin-top:-5px !important;" ng-model="data.cb2" aria-label="Switch 2" ng-true-value="'yup'" ng-false-value="'nope'" class="md-warn">
+                                </md-switch>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            <div flex="20">
+                                <h3>Comunication Channel</h3>
+                            </div>
+                            <div class="row" flex="50">
+                                <div flex="25">
+                                    <md-checkbox style="margin-top:-10px !important;" ng-model="data.cb1" aria-label="Checkbox 1">
+                                        Phone Call
+                                    </md-checkbox>
+                                </div>
+                                <div flex="25">
+                                    <md-checkbox style="margin-top:-10px !important;" ng-model="data" aria-label="Checkbox 2">
+                                        SMS/MMS
+                                    </md-checkbox>
+                                </div>
+                                <div flex="25">
+                                    <md-checkbox style="margin-top:-10px !important;" ng-model="data.cb1" aria-label="Checkbox 1">
+                                        Phone Call
+                                    </md-checkbox>
+                                </div>
+                                <div flex="25">
+                                    <md-checkbox style="margin-top:-10px !important;" ng-model="data" aria-label="Checkbox 2">
+                                        SMS/MMS
+                                    </md-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" layout-margin>
+                        <div class="row" flex="50">
+                            <div flex="40">
+                                <h3>Witness's Name</h3>
+                            </div>
+                            <div flex="50">
+                                <input type="text" ng-disabled="moduleService.editable" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:City').$" value="" placeholder="">
+                            </div>
+                        </div>
+                        <div class="row" flex="50">
+                            <div flex="40">
+                                <h3>Witness's ID</h3>
+                            </div>
+                            <div flex="50">
+                                <input type="text" ng-disabled="moduleService.editable" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:City').$" value="" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" layout-margin>
+                        <div flex="20">
+                            <h3>Tags</h3>
+                        </div>
+                        <div flex="50">
+                            <input type="text" ng-disabled="moduleService.editable" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Postal').$" value="" placeholder="Postal Code">
+                        </div>
+                    </div>
+                    <div class="row" layout-margin>
+                        <div flex="20">
+                            <h3>Comment</h3>
+                        </div>
+                        <div flex="80">
+                            <md-input-container>
+                                <textarea ng-model="user.biography" columns="3" md-maxlength="150"></textarea>
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>

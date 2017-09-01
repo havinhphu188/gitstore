@@ -1,0 +1,661 @@
+<div layout="column" class="height-inherit">
+  <!--   <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div> -->
+    <md-content class="backgroundColor">
+        <div refresh-on="vars.bIsContentChanged" use-boolean>
+            <!-- carousel No.0 -->
+            <div ng-if="carouSelIndex==0">
+                <div class="white-card">
+                    {{moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:VehicleClass']).Value}}
+                    <div layout="row" class="row breakLine" layout-margin>
+
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:VehicleClass'])" label-value="Vehicle Class">
+                        </div>
+                        <div flex="60">
+                            <!-- <input class="input" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:VehicleClass']).Value"> -->
+
+                            <v3-Select class="input" src-data="moduleService.listVehicleClass" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:VehicleClass']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:VehicleClass')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:VehicleType'])" label-value="Vehicle Type" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="moduleService.listVehicleType" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:VehicleType']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:VehicleType')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:MasterPolicy'])" label-value="Master Policy" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:MasterPolicy']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:CoverNoteType'])" label-value="Cover Note Type" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="moduleService.listCoverNoteType" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:CoverNoteType']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:CoverNoteType')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:IssueDate'])" label-value="Issue Date" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:IssueDate']).$" ms-datepicker>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:InceptionDate'])" label-value="Inception Date" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:InceptionDate']).$" ms-datepicker>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:BillingCurrency'])" label-value="Billing Currency" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="moduleService.listBillingCurrency" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:BillingCurrency']).Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:BillingCurrency'])" label-value="BI Currency" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:BillingCurrency']).Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:GeographicLocation'])" label-value="Geographic Location" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="moduleService.listGeographicLocation" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:GeographicLocation']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:GeographicLocation')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Region'])" label-value="Region" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Region']).$">
+                        </div>
+                    </div>
+                    <!-- part2 -->
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:CoverageType'])" label-value="Coverage Type" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="moduleService.listCoverageType" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:CoverageType']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:CoverageType')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:UseOfVehicle'])" label-value="Use of Vehicle" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="moduleService.listUseOfVehicle" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:UseOfVehicle']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:UseOfVehicle')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:GoodCarriedByVehicle'])" label-value="Good Carried by Vehicle" />
+                        </div>
+                        <div flex="60">
+                          
+                            <v3-Select class="input" src-data="moduleService.listGoodCarriedByVehicle" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:GoodCarriedByVehicle']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:GoodCarriedByVehicle')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:VehicleNo'])" label-value="Vehicle Number" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:VehicleNo']).$">
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:VehicleNo')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:MakeOrModel'])" label-value="Make or Model" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="moduleService.listMakeOrModel" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:MakeOrModel']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:MakeOrModel')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:ModelDescription'])" label-value="Model Description" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:ModelDescription']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:ModelDescriptionAddition'])" label-value="Model Description Addition" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:ModelDescriptionAddition']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:EngineCapacity'])" label-value="Engine Capacity" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:EngineCapacity']).$">
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:EngineCapacity')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Body'])" label-value="Body" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="moduleService.listBody" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Body']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:Body')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:NoOfSeat'])" label-value="No of Seat" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:NoOfSeat']).$">
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:NoOfSeat')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:YearOfManufacture'])" label-value="Year of Manufacture" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:YearOfManufacture']).$">
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:YearOfManufacture')"></span>
+                        </div>
+                    </div>
+                    <!-- part3  -->
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:VarianSeriesTransmission'])" label-value="Varian Series Transmission" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="moduleService.listVarianSeriesTransmission" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:VarianSeriesTransmission']).Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:AntiThefCode'])" label-value="Anti-Thef Code" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="moduleService.listAntiThefCode" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:AntiThefCode']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:AntiThefCode')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Garage'])" label-value="Garage" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="moduleService.listGarage" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Garage']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:Garage')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:SumInsured'])" label-value="Sum Insured" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:SumInsured']).$">
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:VehicleInformation.ipos-illustration-motor-sompo:SumInsured')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:MarketValue'])" label-value="Market Value" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:MarketValue']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Nvic'])" label-value="Nvic" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Nvic']).$">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- carousel No.1 -->
+            <div ng-if="carouSelIndex==1">
+                <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Salutation'])" label-value="Salutation" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="prospectUIService.listTitle" displayText="text" displayValue="value" Prefix="" dialogTitle="Salutation" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Salutation']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:DrivingInformation.ipos-illustration-motor-sompo:Salutation')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:FullName'])" label-value="FullName" />
+                        </div>
+                        <div flex="60">
+                            <div v3-Select class="input" more-action="importDetail(value1)" src-data="listProspect" displayText="FullName" displayValue="DocId" dialogTitle="Prospect List" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:FullName']).$"></div>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:DrivingInformation.ipos-illustration-motor-sompo:FullName')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Gender'])" label-value="Gender" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="prospectUIService.listGenders" displayText="text" displayValue="value" Prefix="" dialogTitle="Salutation" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Gender']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:DrivingInformation.ipos-illustration-motor-sompo:Gender')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:DateOfBirth'])" label-value="Date of Birth" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:DateOfBirth']).$" ms-datepicker>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:DrivingInformation.ipos-illustration-motor-sompo:DateOfBirth')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:YearDrivingLicenseObtained'])" label-value="YearDrivingLicenseObtained" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:YearDrivingLicenseObtained']).$">
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:DrivingInformation.ipos-illustration-motor-sompo:YearDrivingLicenseObtained')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:FullName'])" label-value="New IC No." />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:FullName']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Salutation'])" label-value="Old IC No." />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Salutation']).Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:MaritalStatus'])" label-value="Marital Status" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="prospectUIService.listMartat" displayText="text" displayValue="value" Prefix="" dialogTitle="Salutation" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:MaritalStatus']).Value"></v3-Select>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:DrivingInformation.ipos-illustration-motor-sompo:MaritalStatus')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Occupation'])" label-value="Occupation" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="prospectUIService.listOccupation" displayText="text" displayValue="value" Prefix="" dialogTitle="Salutation" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:Occupation']).Value">
+                                <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration-motor-sompo:IllustrationMotor.ipos-illustration-motor-sompo:Inputs.ipos-illustration-motor-sompo:DrivingInformation.ipos-illustration-motor-sompo:Occupation')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="85">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:SmokerStat'])" label-value="Smoker Status"></v3-Label>
+                        
+                        </div>
+                        <div flex="10">
+                            <md-switch class="custom-md-switch" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Inputs', 'ipos-illustration-motor-sompo:SmokerStat']).Value" class="md-primary" ng-true-value="'{{prospectUIService.listSmokeStat[0].value}}'" ng-false-value="'{{prospectUIService.listSmokeStat[1].value}}'" md-no-ink>
+                            </md-switch>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:BasePremium'])" label-value="Basic Premium(BP)" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:BasePremium']).$">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- carousel No.2 -->
+            <div ng-if="carouSelIndex==2">
+                <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:NCDVehicleNo'])" label-value="NCD Vehicle No." />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:NCDVehicleNo']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:PreviousPolicyNo'])" label-value="Previous Policy No." />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:PreviousPolicyNo']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:PreviousPolicyEffectiveDate'])" label-value="Previous Policy Eff. Date" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:PreviousPolicyEffectiveDate']).$" ms-datepicker>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:PreviousPolicyExpiryDate'])" label-value="Previous Policy Exp. Date" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:PreviousPolicyExpiryDate']).$" ms-datepicker>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:NCDAllowed'])" label-value="NCD Allowed" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="moduleService.listNCDAllowed" displayText="text" displayValue="value" Prefix="" dialogTitle="Salutation" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:NCDAllowed']).Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:NCDEffectivedate'])" label-value="NCD Eff. date" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:NCDEffectivedate']).$" ms-datepicker>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:NoOfClaim'])" label-value="No. of Claim for last 3 years" />
+                        </div>
+                        <div flex="60">
+                            <v3-Select class="input" src-data="moduleService.listNoOfClaim" displayText="text" displayValue="value" Prefix="" dialogTitle="Salutation" ng-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:NoOfClaim']).Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:BasePremiumAfterLoadingAndNCD'])" label-value="Base Premium After Loading and NCD" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:NCDSource', 'ipos-illustration-motor-sompo:BasePremiumAfterLoadingAndNCD']).$">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="carouSelIndex==3">
+                <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:BasePremium'])" label-value="Base Premium" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:BasePremium']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:BasePremiumAfterLoadingAndNCD'])" label-value="Base Premium After Loading & NCD" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:BasePremiumAfterLoadingAndNCD']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:OptionalCoveragePremium'])" label-value="Optional Coverage Premium" />
+                        </div>
+                        <div flex="50">
+                           <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:OptionalCoveragePremium']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:TotalPayablePremium'])" label-value="Total Payable Premium" />
+                        </div>
+                        <div flex="50">
+                          <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:TotalPayablePremium']).$">
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:ActPremium'])" label-value="Act Premium" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:ActPremium']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:AfterLoading'])" label-value="After Loading" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:AfterLoading']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:AllRiderAmt'])" label-value="All Rider Amt" />
+                        </div>
+                        <div flex="50">
+                           <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:AllRiderAmt']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:AnunualPremium'])" label-value="Anunual Premium" />
+                        </div>
+                        <div flex="50">
+                          <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:AnunualPremium']).$">
+                        </div>
+                    </div>
+
+
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:BasicPremium'])" label-value="Base Premium" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:BasicPremium']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:Commission'])" label-value="Commission" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:Commission']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                           <!-- <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:CommissionPercent']).$"> -->
+
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:CommissionPercent'])" label-value="Commission Percent" />
+                        </div>
+                        <div flex="50">
+                           <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:CommissionPercent']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:Excess'])" label-value="Excess" />
+                        </div>
+                        <div flex="50">
+                          <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:Excess']).$">
+                        </div>
+                    </div>
+
+
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:ExtraCov'])" label-value="Extra Cov" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:ExtraCov']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:GST'])" label-value="GST" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:GST']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:GSTCommission'])" label-value="GST Commission" />
+                        </div>
+                        <div flex="50">
+                           <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:GSTCommission']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:GSTCommissionPercent'])" label-value="GST Commission Percent" />
+                        </div>
+                        <div flex="50">
+                          <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:GSTCommissionPercent']).$">
+                        </div>
+                    </div>
+
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:GSTPercent'])" label-value="GST Percent" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:GSTPercent']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:GrossPremium'])" label-value="Gross Premium" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:GrossPremium']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:Loading'])" label-value="Loading" />
+                        </div>
+                        <div flex="50">
+                           <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:Loading']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:NCDAmt'])" label-value="NCD Amt" />
+                        </div>
+                        <div flex="50">
+                          <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:NCDAmt']).$">
+                        </div>
+                    </div>
+
+
+
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:StampDuty'])" label-value="Stamp Duty" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:StampDuty']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:SumInsured'])" label-value="Sum Insured" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:SumInsured']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:TotalBasic'])" label-value="Total Basic" />
+                        </div>
+                        <div flex="50">
+                           <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:TotalBasic']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:TotalPayable'])" label-value="Total Payable" />
+                        </div>
+                        <div flex="50">
+                          <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:TotalPayable']).$">
+                        </div>
+                    </div>
+
+
+
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:TrailerPremium'])" label-value="Trailer Premium" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:TrailerPremium']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:TrailerSum'])" label-value="Trailer Sum" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:TrailerSum']).$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="40">
+                            <v3-Label model="::moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:VehicleMarketValuation'])" label-value="Vehicle Market Valuation" />
+                        </div>
+                        <div flex="50">
+                           <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration-motor-sompo:Outputs', 'ipos-illustration-motor-sompo:VehicleMarketValuation']).$">
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>

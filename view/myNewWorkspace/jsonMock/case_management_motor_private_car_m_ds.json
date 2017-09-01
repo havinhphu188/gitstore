@@ -1,0 +1,112 @@
+{
+  "IposDocument": {
+    "@xmlns": "http://www.csc.com/integral/ipos-common",
+    "@xmlns:case-management-motor": "http://www.csc.com/integral/case-management-motor",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xsi:schemaLocation": "http://www.csc.com/integral/case-management-motor case-management-motor-private-car-m-ds-model.xsd ",
+    "Header": {
+      "DocInfo": {
+        "DocType": "case-management",
+        "Product": "motor-private-car-m-ds",
+        "DefUid": "2c1511e7-9436-45ce-9759-23a78468a6ea",
+        "DocId": "",
+        "DocName": "case-management-DefaultName",
+        "DocVersion": "",
+        "OwnerUid": "",
+        "CreatedDate": "",
+        "UpdatedDate": "",
+        "UpdatedUserUid": "",
+        "Tags": "",
+        "Star": "",
+        "Archived": "",
+        "Comments": ""
+      },
+      "DocAccessControllList": {
+        "User": {
+          "@userid": "",
+          "Permisions": {
+            "Permision": ""
+          }
+        }
+      },
+      "DocStatus": {
+        "DocumentStatus": "",
+        "BusinessStatus": "NEW"
+      }
+    },
+    "Data": {
+      "case-management-motor:CaseManagement": {
+        "@section": "case-management-motor:CaseManagement",
+        "@icon": {
+          "main": "fa fa-car"
+        },
+        "@case-name": "",
+        "@product": "motor-private-car-m-ds",
+        "@vpms-suffix": "CaseManagement",
+        "case-management-motor:NewBusiness": {
+          "case-management-motor:Summary": {
+            "@section": "case-management-motor:CaseManagement",
+            "case-management-motor:CaseInformation": {
+              "@index": "1",
+              "@visible": "1"
+            },
+            "case-management-motor:CurrentStatus": {
+              "@index": "2",
+              "@visible": "1"
+            },
+            "case-management-motor:PendingInformation": {
+              "@index": "3",
+              "@visible": "1"
+            },
+            "case-management-motor:NextRequiredAction": {
+              "@index": "4",
+              "@visible": "1"
+            }
+          },          
+          "case-management-motor:Step1_RequestForQuotation": {
+            "@section": "case-management-motor:CaseManagement",
+            "case-management-motor:Quotation": {
+              "@refDocType": "illustration;product=motor-private-car-m-ds",
+              "@refUid": "",
+              "@section": "case-management-motor:Step1_RequestForQuotation"
+            }
+          },
+          "case-management-motor:Step2_GenerateAndReviewQuotation": {
+            "@section": "case-management-motor:CaseManagement",
+            "case-management-motor:MainDriver": {
+              "@section": "case-management-motor:Step2_GenerateAndReviewQuotation"
+            },
+            "case-management-motor:OtherDriver": {
+              "@section": "case-management-motor:Step2_GenerateAndReviewQuotation"
+            },
+            "case-management-motor:Quotation": {
+              "@section": "case-management-motor:Step2_GenerateAndReviewQuotation"
+            },
+            "case-management-motor:TermAndCondition": {
+              "@section": "case-management-motor:Step2_GenerateAndReviewQuotation"
+            } 
+          },
+          "case-management-motor:Step3_Application": {
+            "@section": "case-management-motor:CaseManagement",
+            "case-management-motor:Application": {
+              "@refDocType": "application;product=motor-private-car-m-ds",
+              "@section": "case-management-motor:Step3_Application"
+            },
+            "case-management-motor:Quotation1": {
+              "@section": "case-management-motor:Step3_Application"
+            }
+          },
+          "case-management-motor:Step4_Attachment": {
+            "@section": "case-management-motor:CaseManagement"
+          },
+          "case-management-motor:Step5_Underwriting": {
+            "@section": "case-management-motor:CaseManagement"
+          },
+          "case-management-motor:Step6_Payment": {
+            "@section": "case-management-motor:CaseManagement"
+          }
+        }
+      }
+    }
+  }
+}

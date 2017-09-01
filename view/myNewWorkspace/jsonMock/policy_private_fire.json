@@ -1,0 +1,364 @@
+{
+    "IposDocument": {
+        "Data": {
+            "policy-private-fire:PolicyDetail": {
+                "section": "policy-private-fire:PolicyDetail",
+                "policy-private-fire:Summary": {
+                    "section": "policy-private-fire:PolicyDetail",
+                    "policy-private-fire:PolicyInformation": {
+                        "index": "1",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:PolicyOwner": {
+                        "index": "2",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:PolicyPeriod": {
+                        "index": "3",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:PolicyStatus": {
+                        "index": "4",
+                        "type": ""
+
+                    }
+                },
+                "policy-private-fire:PolicyOwner": {
+                    "section": "policy-private-fire:PolicyDetail",
+                    "policy-private-fire:Title": {
+                        "type": ""
+                    },
+                    "policy-private-fire:MarialStatus": {
+                        "index": "6",
+                        "type": ""
+                    },
+                    "policy-private-fire:ID": {
+                        "index": "2",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:FullName": {
+                        "index": "1",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:BirthDate": {
+                        "index": "3",
+                        "type": ""
+                    },
+                    "policy-private-fire:Gender": {
+                        "index": "4",
+                        "type": ""
+                    },
+                    "policy-private-fire:SmokeStatus": {
+                        "index": "",
+                        "type": ""
+                    },
+                    "policy-private-fire:POIDs": {
+
+                        "policy-private-fire:POID": {
+                            "policy-private-fire:POIDType": {
+                                "type": ""
+                            },
+                            "policy-private-fire:POIDNumber": {
+                                "type": ""
+                            }
+                        }
+                    },
+                    "policy-private-fire:Occupation": {
+                        "index": "",
+                        "type": ""
+                    },
+                    "policy-private-fire:ReferralType": {
+                        "index": "",
+                        "type": ""
+                    },
+                    "policy-private-fire:Referrer": {
+                        "index": "",
+                        "type": ""
+                    },
+                    "policy-private-fire:Race": {
+                        "index": "",
+                        "type": ""
+                    },
+                    "policy-private-fire:Nationality": {
+                        "index": "5",
+                        "type": ""
+                    },
+                    "policy-private-fire:Mobile": {
+                        "index": "7",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:Home": {
+                        "index": "8",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:Office": {
+                        "index": "9",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:EmailAddress": {
+                        "index": "10",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:Staff": {
+                        "index": "",
+                        "type": ""
+                    },
+                    "policy-private-fire:VIP": {
+                        "index": "",
+                        "type": ""
+                    },
+                    "policy-private-fire:YearDrivingLicenceObtained": {
+                        "index": "",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:ContactDetails": {
+
+                        "policy-private-fire:ContactDetail": {
+                            "policy-private-fire:ContactType": {
+                                "type": ""
+                            },
+                            "policy-private-fire:ContactInfo": {
+                                "type": ""
+                            }
+                        }
+                    },
+                    "policy-private-fire:Addresses": {
+                        "section": "policy-private-fire:PolicyDetail",
+                        "policy-private-fire:Address": {
+                            "section": "policy-private-fire:Addresses",
+                            "policy-private-fire:AddressType": {
+                                "type": ""
+                            },
+                            "policy-private-fire:BlkHouseNo": {
+                                "index": "1",
+                                "type": ""
+
+                            },
+                            "policy-private-fire:Street": {
+                                "index": "2",
+                                "type": ""
+                            },
+                            "policy-private-fire:UnitNo": {
+                                "index": "3",
+                                "type": ""
+
+                            },
+                            "policy-private-fire:Building": {
+                                "index": "4",
+                                "type": ""
+
+                            },
+                            "policy-private-fire:City": {
+                                "index": "5",
+                                "type": ""
+
+                            },
+                            "policy-private-fire:Country": {
+                                "index": "6",
+                                "type": ""
+                            },
+                            "policy-private-fire:Postal": {
+                                "index": "7",
+                                "type": ""
+
+                            },
+                            "policy-private-fire:PreferredAddress": {
+                                "index": "8",
+                                "type": ""
+                            }
+                        }
+                    }
+                },
+                "policy-private-fire:BasicPrivateFire": {
+                    "section": "policy-private-fire:PolicyDetail",
+                    "policy-private-fire:InceptionDate": {
+                        "index": "1",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:ExpiryDate": {
+                        "index": "2",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:IssueDate": {
+                        "index": "3",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:BillingCurrency": {
+                        "index": "4",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:ContactCurrency": {
+                        "index": "5",
+                        "type": ""
+
+                    }
+                },
+                "policy-private-fire:Accumulation": {
+                    "section": "policy-private-fire:PolicyDetail",
+                    "policy-private-fire:State": {
+                        "index": "1",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:Locality": {
+                        "index": "2",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:Register": {
+                        "index": "3",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:PostalCode": {
+                        "index": "4",
+                        "type": ""
+
+                    }
+                },
+                "policy-private-fire:BuildingInfo": {
+                    "section": "policy-private-fire:PolicyDetail",
+                    "policy-private-fire:SituationOfRisk": {
+                        "index": "1",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:Business": {
+                        "index": "2",
+                        "type": ""
+                    },
+                    "policy-private-fire:Occupancy": {
+                        "index": "3",
+                        "type": ""
+                    },
+                    "policy-private-fire:NoOfStorey": {
+                        "index": "4",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:Attached": {
+                        "index": "5",
+                        "type": ""
+                    },
+                    "policy-private-fire:FloorArea": {
+                        "index": "6",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:ProtectedBy": {
+                        "index": "7",
+                        "type": ""
+                    },
+                    "policy-private-fire:ConstructionYear": {
+                        "index": "8",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:Building": {
+                        "index": "9",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:ConstructionType": {
+                        "index": "10",
+                        "type": ""
+                    }
+                },
+                "policy-private-fire:PerilFEAOthers": {
+                    "section": "policy-private-fire:PolicyDetail",
+                    "policy-private-fire:PerilFEAOtherIndicator": {
+                        "index": "1",
+                        "type": ""
+                    },
+                    "policy-private-fire:PerilFEAOtherDescription": {
+                        "index": "2",
+                        "type": ""
+
+                    }
+                },
+                "policy-private-fire:InsuredInterests": {
+                    "section": "policy-private-fire:PolicyDetail",
+
+                    "policy-private-fire:InsuredInterest": {
+                        "policy-private-fire:Interest": {
+                            "type": ""
+                        },
+                        "policy-private-fire:SumInsured": {
+                            "type": ""
+                        },
+                        "policy-private-fire:Premium": {
+                            "type": ""
+                        },
+                        "policy-private-fire:StampDuty": {
+                            "type": ""
+                        },
+                        "policy-private-fire:TotalSumInsured": {
+                            "type": ""
+                        },
+                        "policy-private-fire:TotalPremium": {
+                            "type": ""
+                        },
+                        "policy-private-fire:TotalPayable": {
+                            "type": ""
+                        }
+                    }
+                },
+                "policy-private-fire:Excess": {
+                    "section": "policy-private-fire:PolicyDetail",
+                    "policy-private-fire:ExcessType": {
+                        "index": "1",
+                        "type": ""
+                    },
+                    "policy-private-fire:ExcessRate": {
+                        "index": "2",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:ExcessAmount": {
+                        "index": "3",
+                        "type": ""
+
+                    }
+                },
+                "policy-private-fire:InterestParty": {
+                    "section": "policy-private-fire:PolicyDetail",
+                    "policy-private-fire:FullName": {
+                        "index": "1",
+                        "type": ""
+
+                    },
+                    "policy-private-fire:PartyType": {
+                        "index": "2",
+                        "type": ""
+                    },
+                    "policy-private-fire:Relationship": {
+                        "index": "3",
+                        "type": ""
+                    }
+                },
+                "policy-private-fire:Clause": {
+                    "section": "policy-private-fire:PolicyDetail",
+                    "policy-private-fire:Clause": {
+                        "index": "1",
+                        "type": ""
+
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="application-background">
+	<div ng-if="application != ''" class="card  pointer"  ng-class="moduleService.classForValidStateOfDocument(application) + (isLeftSideBar=='true'?' no-shadow':'')" ng-click="!moduleService.checkActionPermission(application,'view')?'':showApplicationDetail(application.uid)">
+		<div class="card-header overflow-prevent" ng-bind="moduleService.getMetaName(application)">{{application.uid}}</div>
+		<div class="card-data overflow-prevent">
+			<span>{{'workspace.vmenu.label.product'|i18nText}}:</span>		
+			<span ng-bind="moduleService.getMetaProperty(application, 'biProductName')"></span>
+		</div>
+		<div class="card-data overflow-prevent">
+			<span>{{'workspace.label.lifeToBeInsured' | i18nText}}:</span>		
+			<span ng-bind="moduleService.getMetaProperty(application, 'lifeAssured_fullname')"></span>
+		</div>
+		<div ng-if="!moduleService.isInViewMode()">
+			<div class="card-success pull-right pointer" ng-click="controller.archive($event, application)">
+				&nbsp;
+				<i ng-show="isLeftSideBar=='true' && controller.isState('application')" class="icon-briefcase medium-icon archive-color"/>
+			</div>									
+			<div class="card-success pull-right pointer" ng-click="isLeftSideBar=='true'? controller.starApplication($event, application) : ''">
+				<i ng-show="moduleService.isStarredObject(application)" class="icon-star medium-icon yellow-icon"></i> 
+				<i ng-show="isLeftSideBar=='true' && !moduleService.isStarredObject(application)" class="icon-star-empty medium-icon yellow-icon"></i>
+			</div>
+		</div>
+		<div ng-if="moduleService.isInViewMode()">
+			<div class="card-success pull-right pointer">
+				<i ng-show="moduleService.isStarredObject(application)" class="icon-star medium-icon yellow-icon"></i> 
+				<i ng-show="isLeftSideBar=='true' && !moduleService.isStarredObject(application)" class="icon-star-empty medium-icon yellow-icon"></i>
+			</div>
+		</div>
+		<!--	
+		<div class="card-data overflow-prevent">
+			<span>{{'workspace.label.total' | i18nText}}:</span>		
+			<span ng-bind-template="{{moduleService.getMetaProperty(application, 'biTotalPremium')}} $"></span>
+			<span ng-bind="'product.etiqa.premium_frequency.enum.' + moduleService.getMetaProperty(application, 'biFrequency') | i18nText"></span>
+		</div>
+		-->
+		<div class="card-data overflow-prevent">
+			<span>{{'workspace.label.docNum' | i18nText}}:</span>
+			<span>{{application.docNum}}</span>
+		</div>
+		<div class="card-icon"><i class="icon-file"></i></div>
+		<div class="card-date">{{application.updatedDate | momentDate}}</div>
+	</div>
+	
+</div>		

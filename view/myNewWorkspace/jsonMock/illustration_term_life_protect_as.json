@@ -1,0 +1,549 @@
+{
+  "IposDocument": {
+    "@xmlns": "http://www.csc.com/integral/ipos-common",
+    "@xmlns:illustration-term-life": "http://www.csc.com/integral/illustration-term-life",
+    "@xmlns:ipos-exchangerate-information": "http://www.csc.com/integral/ipos-exchangerate-information",
+    "@xmlns:ipos-illustration-common": "http://www.csc.com/integral/ipos-illustration-common",
+    "@xmlns:ipos-product-information": "http://www.csc.com/integral/ipos-product-information",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xsi:schemaLocation": "http://www.csc.com/integral/illustration-term-life illustration-term-life-model.xsd ",
+    "Header": {
+      "DocInfo": {
+        "DocType": "illustration",
+        "Product": "term-life-protect-as",
+        "DefUid": "50fa0e32-37c4-4613-be21-34722fcc6a40",
+        "DocId": "",
+        "DocName": "illustration-DefaultName",
+        "DocVersion": "",
+        "OwnerUid": "",
+        "CreatedDate": "",
+        "UpdatedDate": "",
+        "UpdatedUserUid": "",
+        "Tags": "",
+        "Star": "",
+        "Archived": "",
+        "Comments": ""
+      },
+      "DocAccessControllList": {
+        "User": {
+          "@userid": "",
+          "Permisions": {
+            "Permision": ""
+          }
+        }
+      },
+      "DocStatus": {
+        "DocumentStatus": "",
+        "BusinessStatus": "NEW"
+      }
+    },
+    "Data": {
+      "illustration-term-life:Illustration": {
+        "@vpms-suffix": "Illustration",
+        "@section": "illustration-term-life:Illustration",
+        "ipos-exchangerate-information:ExchangeRateInformation": {
+          "@vpms-suffix": "ExchangeRateInformation",
+          "ipos-exchangerate-information:ForeignExchange": {
+            "@vpms-suffix": "ForeignExchange"
+          },
+          "ipos-exchangerate-information:Rate": {
+            "@vpms-suffix": "Rate"
+          },
+          "ipos-exchangerate-information:CreateDate": {
+            "@vpms-suffix": "CreateDate"
+          }
+        },
+        "illustration-term-life:Product": {
+          "@vpms-suffix": "Product",
+          "ipos-product-information:ProductName": {
+            "@default": "term-life-protect",
+            "@vpms-suffix": "ProductName",
+            "$": "term-life-protect"
+          },
+          "ipos-product-information:ProductCode": {
+            "@default": "WPL1",
+            "@vpms-suffix": "ProductCode",
+            "$": "WPL1"
+          },
+          "ipos-product-information:ProductDescription": {
+            "@default": "Term Life Protect Description",
+            "@vpms-suffix": "ProductDescription",
+            "$": "Term Life Protect Description"
+          },
+          "ipos-product-information:Version": {
+            "@default": "1.0",
+            "@vpms-suffix": "Version",
+            "$": "1.0"
+          },
+          "ipos-product-information:LaunchedDate": {
+            "@default": "",
+            "@vpms-suffix": "StartDate"
+          },
+          "ipos-product-information:ExpiredDate": {
+            "@default": "",
+            "@vpms-suffix": "EndDate"
+          }
+        },
+        "illustration-term-life:Outputs": {
+          "@vpms-suffix": "Outputs",
+          "illustration-term-life:Summary": {
+            "@section": "illustration-term-life:Illustration",
+            "@vpms-suffix": "Summary",
+            "illustration-term-life:BasicSummary": {
+              "@vpms-suffix": "BasicSummary",
+              "ipos-illustration-common:ProductName": {
+                "@vpms-suffix": "O_ProductName"
+              },
+              "illustration-term-life:SumAssured": {
+                "@vpms-suffix": "O_SumAssured"
+              },
+              "illustration-term-life:PolicyTerm": {
+                "@vpms-suffix": "O_PolicyTerm"
+              },
+              "illustration-term-life:Currency": {
+                "@vpms-suffix": "O_Currency"
+              },
+              "illustration-term-life:FrequencyPremium": {
+                "@vpms-suffix": "O_FrequencyPremium"
+              },
+              "illustration-term-life:PaymentMode": {
+                "@vpms-suffix": "O_PaymentMode"
+              },
+              "illustration-term-life:YearlyPremium": {
+                "@vpms-suffix": "O_YearlyPremium"
+              },
+              "illustration-term-life:HalfYearlyPremium": {
+                "@vpms-suffix": "O_HalfYearlyPremium"
+              },
+              "illustration-term-life:QuarterlyPremium": {
+                "@vpms-suffix": "O_QuarterlyPremium"
+              },
+              "illustration-term-life:MonthlyPremium": {
+                "@vpms-suffix": "O_MonthlyPremium"
+              }
+            },
+            "illustration-term-life:PersonalInfo": {
+              "@vpms-suffix": "PersonalInfo",
+              "ipos-illustration-common:FullName": {
+                "@vpms-suffix": "O_FullName"
+              },
+              "ipos-illustration-common:BirthDate": {
+                "@vpms-suffix": "O_BirthDate"
+              },
+              "ipos-illustration-common:Gender": {
+                "@vpms-suffix": "O_Gender"
+              },
+              "ipos-illustration-common:SmokerStat": {
+                "@vpms-suffix": "O_SmokerStat"
+              },
+              "illustration-term-life:AgeNextBirthday": {
+                "@vpms-suffix": "O_AgeNextBirthday"
+              }
+            }
+          },
+          "illustration-term-life:IllustrationTables": {
+            "@vpms-suffix": "IllustrationTables",
+            "illustration-term-life:BaseIllustration": {
+              "@counter": "F_Illustration_Count",
+              "@vpms-suffix": "BaseIllustration",
+              "illustration-term-life:row": {
+                "illustration-term-life:index": {
+                  "@vpms-suffix": "index"
+                },
+                "illustration-term-life:Premium": {
+                  "@vpms-suffix": "O_Premium"
+                },
+                "illustration-term-life:EndOfPolicyYear": {
+                  "@vpms-suffix": "O_EndOfPolicyYear"
+                },
+                "illustration-term-life:Age": {
+                  "@vpms-suffix": "O_Age"
+                },
+                "illustration-term-life:TotalPremPaidToDate": {
+                  "@vpms-suffix": "O_TotalPremPaidToDate"
+                },
+                "illustration-term-life:TotalDistributionCostToDate": {
+                  "@vpms-suffix": "O_TotalDistributionCostToDate"
+                },
+                "illustration-term-life:GuaranteedDeathBenefit": {
+                  "@vpms-suffix": "O_GuaranteedDeathBenefit"
+                }
+              }
+            }
+          },
+          "illustration-term-life:RiderTables": {
+            "@vpms-suffix": "RiderTables",
+            "illustration-term-life:BaseRider": {
+              "@counter": "F_Illustration_Count",
+              "@vpms-suffix": "BaseRider",
+              "illustration-term-life:riderRow": {
+                "illustration-term-life:index": {
+                  "@vpms-suffix": "index"
+                },
+                "illustration-term-life:Premium": {
+                  "@vpms-suffix": "O_Premium"
+                },
+                "illustration-term-life:EndOfPolicyYear": {
+                  "@vpms-suffix": "O_EndOfPolicyYear"
+                },
+                "illustration-term-life:Age": {
+                  "@vpms-suffix": "O_Age"
+                },
+                "illustration-term-life:TotalPremPaidToDate": {
+                  "@vpms-suffix": "O_RiderTotalPremPaidToDate"
+                },
+                "illustration-term-life:TotalDistributionCostToDate": {
+                  "@vpms-suffix": "O_RiderTotalDistributionCostToDate"
+                }
+              }
+            }
+          }
+        },
+        "illustration-term-life:Inputs": {
+          "@vpms-suffix": "Inputs",
+          "illustration-term-life:BasePlan": {
+            "@vpms-suffix": "BasePlan",
+            "@section": "illustration-term-life:Illustration",
+            "illustration-term-life:EffectiveDate": {
+              "@index": "1",
+              "@default": "2015-08-31",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_EffectiveDate",
+              "$": "2015-08-31"
+            },
+            "illustration-term-life:BackdatingDate": {
+              "@index": "2",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "0",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_BackdatingDate"
+            },
+            "illustration-term-life:SumAssured": {
+              "@index": "3",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_SumAssured"
+            },
+            "illustration-term-life:PolicyTerm": {
+              "@index": "4",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_PolicyTerm",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "illustration-term-life:PaymentMode": {
+              "@index": "5",
+              "@default": "01",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_PaymentMode",
+              "Options": {
+                "Option": ""
+              },
+              "Value": "01"
+            },
+            "illustration-term-life:Currency": {
+              "@index": "6",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_Currency",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            }
+          },
+          "illustration-term-life:PolicyOwner": {
+            "@vpms-suffix": "PolicyOwner",
+            "@section": "illustration-term-life:Illustration",
+            "PersonName1": {
+              "@index": "1",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@refStatus": "",
+              "@refVal": "/IposDocument/Data/Prospect/Person/FullName",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_FullName"
+            },
+            "Gender1": {
+              "@index": "2",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@refStatus": "",
+              "@refVal": "/IposDocument/Data/Prospect/Person/Gender",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_Gender",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "BirthDate1": {
+              "@index": "3",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@refStatus": "",
+              "@refVal": "/IposDocument/Data/Prospect/Person/BirthDate",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_BirthDate"
+            },
+            "SmokerStatus1": {
+              "@index": "4",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@refStatus": "",
+              "@refVal": "/IposDocument/Data/Prospect/Person/SmokerStat",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_SmokerStat",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "BusinessIndustry1": {
+              "@index": "5",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@refStatus": "",
+              "@refVal": "/IposDocument/Data/Prospect/Person/BusinessIndustry",
+              "@visible": "1",
+              "@vpms-suffix": "I_Industry",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "Occupation1": {
+              "@index": "6",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@refStatus": "",
+              "@refVal": "/IposDocument/Data/Prospect/Person/Occupation",
+              "@visible": "1",
+              "@vpms-suffix": "I_Occupation",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            }
+          },
+          "illustration-term-life:LifeToBeInsured": {
+            "@section": "illustration-term-life:Illustration",
+            "@vpms-suffix": "LifeToBeInsured",
+            "PersonName2": {
+              "@index": "1",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@refStatus": "",
+              "@refVal": "/IposDocument/Data/Prospect/Person/FullName",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_FullName"
+            },
+            "Gender2": {
+              "@index": "2",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@refStatus": "",
+              "@refVal": "/IposDocument/Data/Prospect/Person/Gender",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_Gender",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "BirthDate2": {
+              "@index": "3",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@refStatus": "",
+              "@refVal": "/IposDocument/Data/Prospect/Person/BirthDate",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_BirthDate"
+            },
+            "SmokerStatus2": {
+              "@index": "4",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@refStatus": "",
+              "@refVal": "/IposDocument/Data/Prospect/Person/SmokerStat",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "I_SmokerStat",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "Relationship2": {
+              "@index": "5",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@visible": "1",
+              "@vpms-suffix": "I_Relationship",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "BusinessIndustry2": {
+              "@index": "6",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@refStatus": "",
+              "@refVal": "/IposDocument/Data/Prospect/Person/BusinessIndustry",
+              "@visible": "1",
+              "@vpms-suffix": "I_Industry",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "Occupation2": {
+              "@index": "7",
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@refStatus": "",
+              "@refVal": "/IposDocument/Data/Prospect/Person/Occupation",
+              "@visible": "1",
+              "@vpms-suffix": "I_Occupation",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            }
+          },
+          "illustration-term-life:Riders": {
+            "@counter": "0",
+            "@maxOccurs": "1",
+            "@minOccurs": "0",
+            "@vpms-suffix": "Riders",
+            "illustration-term-life:Rider": {
+              "@section": "illustration-term-life:Illustration",
+              "@vpms-suffix": "Rider",
+              "RiderType": {
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "I_RiderType",
+                "Options": {
+                  "Option": [
+                    "CCII",
+                    "CCIIW",
+                    "AC",
+                    "DP"
+                  ]
+                },
+                "Value": ""
+              },
+              "RiderSumInsured": {
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@visible": "1",
+                "@vpms-suffix": "I_RiderSumInsured"
+              }
+            }
+          }
+        },
+        "Attachments": {
+          "@counter": "0",
+          "@maxOccurs": "",
+          "@minOccurs": "0",
+          "@vpms-suffix": "Attachments",
+          "Attachment": {
+            "@refResourceDocType": "",
+            "@refResourceUid": "",
+            "@vpms-suffix": "Attachment",
+            "FileUid": {
+              "@default": "",
+              "@editable": "0",
+              "@mandatory": "0",
+              "@refResourceStatus": "",
+              "@refResourceVal": "",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "FileUid"
+            },
+            "Name": {
+              "@default": "",
+              "@editable": "0",
+              "@mandatory": "0",
+              "@refResourceStatus": "",
+              "@refResourceVal": "",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "Name"
+            },
+            "FileName": {
+              "@default": "",
+              "@editable": "0",
+              "@mandatory": "0",
+              "@refResourceStatus": "",
+              "@refResourceVal": "",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "FileName"
+            },
+            "CreateDate": {
+              "@refResourceStatus": "",
+              "@refResourceVal": "",
+              "@vpms-suffix": "CreateDate"
+            },
+            "FileSize": {
+              "@default": "",
+              "@editable": "0",
+              "@mandatory": "0",
+              "@refResourceStatus": "",
+              "@refResourceVal": "",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "FileSize"
+            }
+          }
+        }
+      }
+    }
+  }
+}

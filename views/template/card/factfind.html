@@ -1,0 +1,89 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="need-analysis-background">
+	<div ng-if="factfind != ''" class="card pointer" ng-class="moduleService.classForValidStateOfDocument(factfind) + (isLeftSideBar=='true'?' no-shadow':'')" ng-click="(useDefaultClick ? showFactfindDetail(factfind.uid) : clickFn())">
+		<!-- div class="card-header overflow-prevent">{{factfind.name}}</div>
+		<div class="triangle" ng-click="showErrorMessage()"></div>
+		
+		<div class="card-data overflow-prevent">
+			<div class="pull-left">
+				<span>{{'workspace.vmenu.label.product'|i18nText}}:</span>
+				<span ng-bind="factfind.packageName"></span>
+			</div>
+		</div>
+		<div class="card-success pull-right pointer" ng-click="controller.archive($event, factfind)">
+			&nbsp;
+			<i ng-show="isLeftSideBar=='true' && controller.isState('factfind')" class="icon-archive medium-icon archive-color"/>
+		</div>						
+		<div class="card-success pull-right pointer" ng-click="isLeftSideBar=='true'? controller.toggleStar(factfind) : ''">
+			<i ng-show="moduleService.isStarredObject(factfind)" class="icon-star medium-icon yellow-icon"></i> 
+			<i ng-show="isLeftSideBar=='true' && !moduleService.isStarredObject(factfind)" class="icon-star-empty medium-icon yellow-icon"></i>
+		</div>
+		<div class="card-data overflow-prevent" >
+			<span>{{'workspace.vmenu.label.owner'|i18nText}}</span>
+			<span ng-bind="moduleService.getMetaPolicyOwnerFullName(factfind)"></span>
+		</div>
+		<div class="card-data">
+			<span>{{'workspace.vmenu.label.status'|i18nText}}</span>
+			<span ng-bind="factfind.status"></span>
+		</div>
+		<div class="card-icon" ng-show="isLeftSideBar=='false'"><i class="icon-briefcase"></i></div>
+		<div class="card-date">{{factfind.updatedDate | momentDate}}</div-->
+		<div class="card-header">
+			<span>{{factfind.name}}</span>
+		</div>
+		<div class="card-success pull-right pointer" style="width:7%;">
+			&nbsp;
+		</div>
+		<div ng-if="!moduleService.isInViewMode()">
+			<div class="card-success pull-right pointer" ng-click="isLeftSideBar=='true'? controller.toggleStar(factfind) : ''" >
+				<i ng-show="moduleService.isStarredObject(factfind)" class="icon-star medium-icon yellow-icon"></i>
+				<i ng-show="isLeftSideBar=='true' && !moduleService.isStarredObject(factfind)" class="icon-star-empty medium-icon yellow-icon"></i>
+			</div>
+		</div>
+		<div ng-if="moduleService.isInViewMode()">
+			<div class="card-success pull-right pointer">
+				<i ng-show="moduleService.isStarredObject(factfind)" class="icon-star medium-icon yellow-icon"></i>
+				<i ng-show="isLeftSideBar=='true' && !moduleService.isStarredObject(factfind)" class="icon-star-empty medium-icon yellow-icon"></i>
+			</div>
+		</div>
+		<div class="card-data overflow-prevent">
+			<span>{{'workspace.label.application_type'|i18nText}}:</span>
+			<span ng-bind="'factfind.step2.financialAdvice.enum.' + moduleService.getMetaProperty(factfind, 'typeOfAdvice') | i18nText"></span>
+		</div>
+		<div class="card-data overflow-prevent">
+			<span>{{'workspace.vmenu.label.owner'|i18nText}}:</span>
+			<span>{{moduleService.getMetaProperty(factfind, 'client_fullname')}}</span>
+		</div>		
+		<div class="card-data">
+			<span>{{'workspace.vmenu.label.status'|i18nText}}:</span>
+			<span>{{factfind.status}}</span>
+		</div>
+		<div class="card-icon"><i class="icon-search"></i></div>
+		<div class="card-date" ng-if="showDateType != 'medium'">{{factfind.updatedDate | momentDate}}</div>
+		<div class="card-date" ng-if="showDateType == 'medium'">{{factfind.updatedDate | date:'medium'}}</div>
+	</div>
+	
+	<div ng-if="factfind == ''" align="center" class="card pointer" ng-click="addFactfind()">
+		<!-- <div align="center" class="add-bi-text">ADD BI</div>
+		<div align="center" class="add-new-icon"><i class="icon-plus-sign"></i></div> -->
+		ADD FNA  <i class="icon-plus-sign"></i>
+	</div>
+</div>

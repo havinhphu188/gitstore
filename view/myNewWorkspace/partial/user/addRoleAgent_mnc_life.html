@@ -1,0 +1,129 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div ng-cloak>
+	<div class="ipos_popup_overlay" ng-if="loadedProfile == true">
+		<div style="margin:30% 0 0 50%;">
+<!-- 			<md-progress-circular style="" md-mode="indeterminate"></md-progress-circular> -->
+			<img ng-src="{{contextPathTheme}}/images/loading_ten.gif"/>
+		</div>
+ 	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+		<div class="col-xs-offset-1 col-xs-10">
+			<p style="font-size:20px;">{{::'v3.login.label.PleaseprovideinformationtoverifyyouasAgentofCSCI' | translate}}</p>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+		<div class="col-xs-offset-1 col-xs-10">
+			<div class="loginRow" layout="row" ng-cloak ng-class="errorAgentOther === '' ? 'hidden':'alert alert-danger'">
+				<div class="col-md-12">
+					<div align="center">
+						<span style="color: red;"
+							ng-bind="'v3.user.error.message.'+errorAgentOther|translate"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.login.label.AgentId' | translate}} *</label>
+			   	<input class="form-control" placeholder="Agent Id"
+		        	type="text" ng-model="varsRole.agentNumber" />
+		        <span class="errorMessage" ng-bind="'v3.user.error.message.'+errorAgentNumber|translate"></span>		
+		  	</div>
+	  	</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.login.label.AgentName' | translate}} *</label>
+			   	<input class="form-control" placeholder="Agent Name"
+		        	type="text" ng-model="varsRole.agentName" />
+		        <span class="errorMessage" ng-bind="'v3.user.error.message.'+errorAgentName|translate"></span>		
+		  	</div>
+	  	</div>
+	</div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+        <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+            <div class="form-group form-group-lg has-success">
+                <label>{{::'v3.login.label.AgentType' | translate}}</label>
+                <v3-switch-new
+                    prefix="v3.login.label.AgentType.enum"
+                    switch-model="varsRole.agentType"
+                    switch-disabled="false"
+                    switch-options="listAgentType.AgentType.Option">
+                </v3-switch-new>
+                <span class="errorMessage" ng-bind="'v3.user.error.message.'+errorAgentType|translate"></span>       
+            </div>
+        </div>
+    </div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+        <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+            <div class="form-group form-group-lg has-success">
+                <label>{{::'v3.login.label.NRICID' | translate}}</label>
+                <input class="form-control" placeholder="NRIC of Agent"
+                    type="text" ng-model="varsRole.nric" />
+                <span class="errorMessage" ng-bind="'v3.user.error.message.'+errorNric|translate"></span>		
+            </div>
+        </div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.login.label.Sendverificationcodethrough' | translate}}</label>
+				<v3-switch-new
+					prefix="v3.personalprofile.portlet.label"
+			    	switch-model="varsRole.typeSend.Value"
+			    	switch-default-value="" switch-disabled="false"
+			    	switch-options="listTypeSendOTP.TypeSend.Option">
+				</v3-switch-new>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label ng-if="varsRole.typeSend.Value == 'SMS'">{{::'v3.login.label.Sendverificationcodethrough.SMS' | translate}}</label>
+                <label ng-if="varsRole.typeSend.Value != 'SMS'">{{::'v3.login.label.Sendverificationcodethrough.Email' | translate}}</label>
+				<input class="form-control" type="text" maxlength="120" ng-model="varsRole.typeSendValue" />
+				<span style="color: red;" ng-bind="'v3.user.error.message.'+errorTypeSendValue|translate"></span>
+				</div>
+		  	</div>
+	  	</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-12" style="margin-top: 15px;">
+		<div class="col-xs-offset-1 col-xs-10">
+			<div class="rowStyle" flex layout="row" layout-align="center center">
+				<div flex layout="row" layout-align="center center">
+					<button class="col-md-4 btn btn-lg-new-ui v3-box-4" ng-click="addRoleAgentMNCLife()">
+						{{::'v3.login.action.Submit' | translate}}
+					</button>
+				</div>
+				<!-- <div flex layout="row" layout-align="center center">
+					<button class="col-md-8 btn btn-lg-new-ui v3-box-4" ng-click="closeAddRoleAgent()">
+						{{::'v3.login.action.Cancel' | translate}}
+					</button>
+				</div> -->
+				<span class="errorMessage" ng-bind="'v3.user.error.message.'+errorPolicyOther|translate"></span>
+			</div>
+		</div>
+	</div>
+</div>

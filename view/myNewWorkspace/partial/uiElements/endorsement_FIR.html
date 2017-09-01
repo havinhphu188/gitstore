@@ -1,0 +1,225 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="endorsement-FIR:EndorseStatus"
+	class="col-xs-12 col-sm-6 col-md-12 col-lg-12 summary">
+
+	 <div class="form-group form-group-lg has-success">
+    <span class="col-md-3">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:EndorseStatus'|
+			translate}}:</span>
+    <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.productName.' + moduleService.findElementInDetail_V3(['Product']) | translate}}</span>
+  </div>
+</div>
+<div fieldId="endorsement-FIR:EndorseNo"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:EndorseNo'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['DocName'])}}</span>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:PolicyOwner"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:PolicyOwner'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['CreatedDate'])}}</span>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:ClientID"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:ClientID'
+			| translate}}:</span> <span class="col-md-6">{{moduleIllustrationService.findElementInDetail_V3(['DocName'])}}</span>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:InceptionDate"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:InceptionDate'
+			| translate}}:</span> <span class="col-md-6">{{'v3.document.status.' + moduleService.findElementInDetail_V3(['BusinessStatus']) |translate}}</span>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:ExpireDate"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:ExpireDate'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['PolicyOwnerDetails','FullName']).$}}</span>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:EndorseType"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:EndorseType'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['UpdatedDate'])}}</span>
+	</div>
+</div>
+<div
+	fieldId="endorsement-FIR:EffectiveDate"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:EffectiveDate'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['TotalSumInsured']).$}}</span>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:PreviewEndorse"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:LifeInsured'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['LifeAssuredDetailsDetails','FullName']).$}}</span>
+	</div>
+</div>
+
+<div fieldId="endorsement-FIR:ReasonTextArea" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary v3-column-content"
+    ng-if="modulePolicyService.findElementInDetail_V3(['EndorsementReasonNote'])['@visible']=='1'">
+    <div class="col-xs-12 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label class="">{{"new.v3.mynewworkspace.FIR.endorsement.label.TypeInAReasonOfEndorsement_New"|translate}} <span ng-if="modulePolicyService.findElementInDetail_V3(['EndorsementReasonNote'])['@mandatory'] == 1">*</span></label>
+            <textarea id="endorseReason" class="form-control bottom-25" ng-disabled="moduleService.findElementInDetail_V3(['BusinessStatus']) != 'DRAFT' || viewMode || modulePolicyService.findElementInDetail_V3(['EndorsementReasonNote'])['@editable'] == 0"
+                type="text" ng-model="modulePolicyService.findElementInDetail_V3(['EndorsementReasonNote']).$">
+            </textarea>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Basic Information-->
+<div fieldId="endorsement-FIR:Step1ProductName"
+	class="col-xs-12 col-sm-6 col-md-12 col-lg-12 summary">
+
+	 <div class="form-group form-group-lg has-success">
+    <span class="col-md-3">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:ProductName'|
+			translate}}:</span>
+    <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.productName.' + moduleService.findElementInDetail_V3(['Product']) | translate}}</span>
+  </div>
+</div>
+<div fieldId="endorsement-FIR:Step1PolicyNo"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:PolicyNo'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['DocName'])}}</span>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:Step1PolicyOwner"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:PolicyOwner'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['CreatedDate'])}}</span>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:Step1ClientID"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:ClientID'
+			| translate}}:</span> <span class="col-md-6">{{moduleIllustrationService.findElementInDetail_V3(['DocName'])}}</span>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:Step1InceptionDate"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:InceptionDate'
+			| translate}}:</span> <span class="col-md-6">{{'v3.document.status.' + moduleService.findElementInDetail_V3(['BusinessStatus']) |translate}}</span>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:Step1ExpireDate"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:ExpireDate'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['PolicyOwnerDetails','FullName']).$}}</span>
+	</div>
+</div>
+<div
+	fieldId="endorsement-FIR:Step1EffectiveDate"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:EffectiveDate'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['TotalSumInsured']).$}}</span>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:Step1TypeofReasonEndorse"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:TypeofReasonEndorse'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['UpdatedDate'])}}</span>
+	</div>
+</div>
+
+
+<!-- Interest parties -->
+<div fieldId="endorsement-FIR:Step1Selectclient"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<ng-newDropDown
+				disable="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','Title'])['@editable']=='0'"
+				model="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','Title'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['POTitle','Option'])"
+				type="nonFlag" prefix="v3.pnc.title.enum"></ng-newDropDown>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','Title']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:Step1ClientName"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Step1ClientName' | translate}}<span
+				ng-show="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','FullName'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" ng-disabled="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','FullName'])['@editable']=='0'" type="text"
+				ng-model="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','FullName']).$" />
+		</div>
+		<span class="errorMessage"
+			ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','FullName']).errorMessage | translate"></span>
+	</div>
+</div>
+<div
+	fieldId="endorsement-FIR:Step1ClientID"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Step1ClientID' | translate}}<span
+				ng-show="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','FullName'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" ng-disabled="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','FullName'])['@editable']=='0'" type="text"
+				ng-model="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','FullName']).$" />
+		</div>
+		<span class="errorMessage"
+			ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','FullName']).errorMessage | translate"></span>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:Step1Relationship"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Step1Relationship' |
+				translate}}<span
+				ng-show="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','Title'])['@mandatory'] == '1'">*</span>
+			</label>
+			<ng-newDropDown
+				disable="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','Title'])['@editable']=='0'"
+				model="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','Title'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['POTitle','Option'])"
+				type="nonFlag" prefix="v3.pnc.title.enum"></ng-newDropDown>
+			<span class="errorMessage"
+				ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['PolicyOwner','Title']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+
+            

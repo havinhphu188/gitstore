@@ -1,0 +1,180 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div>
+<div hide-sm flex layout='column' style='margin-left: 20px;'>
+	<!-- <div flex layout='row' layout-margin>
+		<div style="color:red;font-weight: bold" flex='20'>Vehicle Market Valuation (SGD)</div>
+		<div flex='25'><label></label></div>
+		<div flex='20'>After Loading (SGD)</div>
+		<div flex='25'><label></label></div>
+	</div>
+	<div flex layout='row'  layout-margin >
+		<div style="color:red;font-weight: bold" flex='20'>Sum Insured</div>
+		<div flex='25'><input disabled="disabled" type="text" value="{{moduleServicePayment.findElementInDetail_V3(['ipos-payment:SumInsured']).$}}" /></div>
+		<div flex='20'>NCD Amt(SGD)</div>
+		<div flex='25'><label></label></div>
+	</div>
+	<div flex layout='row'  layout-margin >
+		<div flex='20'>All Rider Amt(SGD)</div>
+		<div flex='25'><label></label></div>
+		<div flex='20'>Extra Cov (0)</div>
+		<div flex='25'><label></label></div>
+	</div>
+	<div flex layout='row'  layout-margin>
+		<div flex='20'>Basic Premium(SGD)</div>
+		<div flex='25'><label></label></div>
+		<div flex='20'><hr></div>
+		<div flex='25'><hr></div>
+	</div>
+	<div flex layout='row'  layout-margin >
+		<div flex='20'>Trailer Sum (SGD)</div>
+		<div flex='25'><label></label></div>
+		<div flex='20'>Gross Premium (SGD)</div>
+		<div flex='25'><label></label></div>
+	</div>
+	<div flex layout='row'  layout-margin>
+		<div flex='20'>Trailer Premium</div>
+		<div flex='25'><label></label></div>
+		<div flex='20'>GST(SGD)</div>
+		<div flex='25'><md-checkbox style="margin:0 !important"></md-checkbox><label></label></div>
+	</div>
+	<div flex layout='row'  layout-margin>
+		<div flex='20'>Total Basic(SGD)</div>
+		<div flex='25'><label></label></div>
+		<div flex='20'>Stamp Duty (SGD)</div>
+		<div flex='25'><label></label></div>
+	</div>
+	<div flex layout='row'  layout-margin >
+		<div flex='20'>Loading (SGD)</div>
+		<div flex='25'><label></label> <label> </label></div>
+		<div flex='20'>Commission(SGD)</div>
+		<div flex='25'><label></label></div>
+	</div>
+	<div flex layout='row'>
+		<div flex='45'><hr></div>
+		<div flex='20'></div>
+		<div flex='25'></div>
+	</div>
+	<div flex layout='row'  layout-margin>
+		<div style="font-weight: bold;" flex='20'>Annual Premium (SGD)</div>
+		<div flex='25'><input disabled="disabled" type="text" value="{{moduleServicePayment.findElementInDetail_V3(['ipos-payment:Premium']).$}}" /></div>
+		<div flex='20'>GST Commission (SGD)</div>
+		<div flex='25'><label></label> <label> </label></div>
+	</div>
+	<div flex layout='row'  layout-margin>
+		<div flex='20'></div>
+		<div flex='25'></div>
+		<div flex='20'>Act Premium (SGD)</div>
+		<div flex='25'><label></label></div>
+	</div>
+	<div flex layout='row'  layout-margin>
+		<div flex='20'></div>
+		<div flex='25'></div>
+		<div flex='20'>Excess (SGD)</div>
+		<div flex='25'><label></label></div>
+	</div>
+	<div flex layout='row' layout-margin >
+		<div flex='20'></div>
+		<div flex='25'></div>
+		<div flex='20'>Total Payable(SGD)</div>
+		<div flex='25'><label></label></div>
+	</div>
+	<div flex layout='row'  layout-margin >
+		<div flex='20'></div>
+		<div flex='25'></div>
+		<div flex='20'>Comments</div>
+		<div flex='25'><input type="text"/></div>
+	</div>
+	<div flex layout='row'  layout-margin >
+		<div flex='20'></div>
+		<div flex='25'></div>
+		<div flex='20'></div>
+		<div flex='25'><md-button class="md-raised md-primary ipos_lower_button_letter">Save</md-button></div>
+	</div> -->
+	<div flex layout='row' >
+		<div flex='20'>Policy Owner Name</div>
+		<div flex='30'><input disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['POName']).$}}" /></div>
+		<div flex='20'>Agent Code</div>
+		<div flex='30'><input disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['AgentCode']).$}}" /></div>
+	</div>
+	<div flex layout='row' >
+		<div  flex='20'>Case Type</div>
+		<div flex='30'><input disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['CaseType']).$}}" /></div>
+		<div flex='20'>Case No.</div>
+		<div flex='30'><input disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['CaseName']).$}}" /></div>
+	</div>
+	<div flex layout='row' >
+		<div  flex='20'>Policy Owner Email</div>
+		<div flex='30'><input disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['POEmail']).$}}" /></div>
+		<div flex='20'>Insured</div>
+		<div flex='30'><input disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['Insured']).$}}" /></div>
+	</div>
+	<div flex layout='row'>
+		<div flex='20'>Sum Insured (RM)</div>
+		<div flex='30'><input disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['SumInsured']).$ | number:0}}" /></div>
+		<div flex='20'>Premium</div>
+		<div flex='30'><input disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['Premium']).$ | number:2}}" /></div>
+	</div>
+	<div flex layout='row'>
+		<div flex='20'>Created Date</div>
+		<div flex='30'><input disabled="disabled" type="text" value="{{::moduleServicePayment.convertToDateTime(moduleServicePayment.findElementInDetail_V3(['CreatedDate']),'DD/MM/YYYY H:mm')}}" /></div>
+<!-- 		<div flex='20'>Premium</div> -->
+<!-- 		<div flex='30'><input disabled="disabled" type="text" value="{{moduleServicePayment.findElementInDetail_V3(['ipos-payment:Premium']).$}}" /></div> -->
+	</div>
+</div>
+<div hide-md hide-gt-md hide-lg hide-gt-lg flex layout='column'>
+	<div flex layout='row' >
+		<div flex='35'>Policy Owner Name</div>
+		<div flex='65'><input style='text-align: center;width: 75% !important;' disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['POName']).$}}" /></div>
+	</div>
+	<div flex layout='row' >
+		<div flex='35'>Agent Code</div>
+		<div flex='65'><input style='text-align: center;width: 75% !important;' disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['AgentCode']).$}}" /></div>
+	</div>
+	<div flex layout='row' >
+		<div  flex='35'>Case Type</div>
+		<div flex='65'><input style='text-align: center;width: 75% !important;' disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['CaseType']).$}}" /></div>
+	</div>
+	<div flex layout='row' >
+		<div flex='35'>Case No.</div>
+		<div flex='65'><input style='text-align: center;width: 75% !important;' disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['CaseName']).$}}" /></div>
+	</div>
+	<div flex layout='row' >
+		<div  flex='35'>Policy Owner Email</div>
+		<div flex='65'><input style='text-align: center;width: 75% !important;' disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['POEmail']).$}}" /></div>
+	</div>
+	<div flex layout='row' >
+		<div flex='35'>Insured</div>
+		<div flex='65'><input style='text-align: center;width: 75% !important;' disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['Insured']).$}}" /></div>
+	</div>
+	<div flex layout='row'>
+		<div flex='35'>Sum Insured (RM)</div>
+		<div flex='65'><input style='text-align: center;width: 75% !important;' disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['SumInsured']).$ | number:0}}" /></div>
+	</div>
+	<div flex layout='row' >
+		<div flex='35'>Premium</div>
+		<div flex='65'><input style='text-align: center;width: 75% !important;' disabled="disabled" type="text" value="{{::moduleServicePayment.findElementInDetail_V3(['Premium']).$ | number:2}}" /></div>
+	</div>
+	<div flex layout='row'>
+		<div flex='35'>Created Date</div>
+		<div flex='65'><input style='text-align: center;width: 75% !important;' disabled="disabled" type="text" value="{{::moduleServicePayment.convertToDateTime(moduleServicePayment.findElementInDetail_V3(['CreatedDate']),'DD/MM/YYYY H:mm')}}" /></div>
+	</div>
+</div>
+</div>

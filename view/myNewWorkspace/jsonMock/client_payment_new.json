@@ -1,0 +1,112 @@
+{
+  "IposDocument": {
+    "@xmlns": "http://www.csc.com/integral/ipos-common",
+    "@xmlns:transaction": "http://www.csc.com/integral/transaction",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xsi:schemaLocation": "http://www.csc.com/integral/transaction transaction-model.xsd ",
+    "Data": {
+      "transaction:Transaction": {
+	      "@section": "transaction:Transaction",
+	      "transaction:PaymentSubmissionNo": {
+	        "@key": [
+	          "PaymentSubmissionNo"
+	        ],
+	        "@icon": "fa fa-bar-chart",
+	        "@cssClass": "v3-box-1"
+	      },
+	      "transaction:PaymentDate": {
+	        "@key": [
+	          "PaymentDate"
+	        ],
+	        "@icon": "fa fa-bar-chart",
+	        "@cssClass": "v3-box-1"
+	      },
+	      "transaction:Basic": {
+	        "@key": [
+	          "Basic"
+	        ],
+	        "@icon": "fa fa-bar-chart",
+	        "@cssClass": "v3-box-1"
+	      },
+	      "transaction:DepositAdviceReference": {
+	        "@key": [
+	          "DepositAdviceReference"
+	        ],
+	        "@icon": "fa fa-bar-chart",
+	        "@cssClass": "v3-box-1"
+	      },
+	      "transaction:ChequeNumber": {
+	        "@key": [
+	          "ChequeNumber"
+	        ],
+	        "@icon": "fa fa-bar-chart",
+	        "@cssClass": "v3-box-1"
+	      },
+	      "transaction:ChequeDate": {
+	        "@key": [
+	          "ChequeDate"
+	        ],
+	        "@icon": "fa fa-bar-chart",
+	        "@cssClass": "v3-box-1"
+	      },
+	      "transaction:BankName": {
+	        "@key": [
+	          "BankName"
+	        ],
+	        "@icon": "fa fa-bar-chart",
+	        "@cssClass": "v3-box-1"
+	      },
+	      "transaction:AdviceNo": {
+	        "@key": [
+	          "AdviceNo"
+	        ],
+	        "@icon": "fa fa-bar-chart",
+	        "@cssClass": "v3-box-1"
+	      },
+	      "transaction:AdviceDate": {
+	        "@key": [
+	          "AdviceDate"
+	        ],
+	        "@icon": "fa fa-bar-chart",
+	        "@cssClass": "v3-box-1"
+	      },
+	      "transaction:Remark": {
+	        "@key": [
+	          "Remark"
+	        ],
+	        "@icon": "fa fa-bar-chart",
+	        "@cssClass": "v3-box-1"
+	      },
+	      "transaction:PayableName": {
+	        "@key": [
+	          "PayableName"
+	        ],
+	        "@icon": "fa fa-bar-chart",
+	        "@cssClass": "v3-box-1"
+	      },
+	      "transaction:PaymentBasic": {},
+	      "transaction:PaymentMethod": {},
+	       "transaction:PayableAmount": {
+	        "@key": [
+	          "PayableAmount"
+	        ],
+	        "@icon": "fa fa-bar-chart",
+	        "@cssClass": "v3-box-1"
+	      },
+	      "transaction:PayButton": {
+	
+	      }
+	    },
+	    "transaction:Step3_Finish": {
+	      "@section": "transaction:Transaction",
+	      "@isVisible": false,
+	      "transaction:PaymentSuccessful": {
+	       
+	      },
+	      "transaction:PaymentUnsuccessful": {
+	       
+	      }
+      }
+    }
+  }
+}

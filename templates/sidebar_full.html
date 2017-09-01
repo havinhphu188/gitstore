@@ -1,0 +1,66 @@
+
+<div align="left" ng-init="autoSelect()" style="color:white;margin-top:70px;">
+
+    <div id="prospect"   layout="row" class="listModule" ng-click="openView(CONSTANTS.MODULE_NAME.PROSPECT)">
+        <div flex="30">
+            <i align="left" class="fa fa-book fa-lg"></i>
+        </div>
+        <div flex="70">
+            Prospect
+        </div>
+    </div>
+    <div id="illustration" class="listModule" layout="row" ng-click="openView(CONSTANTS.MODULE_NAME.ILLUSTRATION)">
+        <div flex="30">
+            <i align="left" class="fa fa-bar-chart fa-lg"></i>
+        </div>
+        <div flex="70">
+            Illustration
+        </div>
+    </div>
+    <div id="pdpa" class="listModule" layout="row" ng-click="openView(CONSTANTS.MODULE_NAME.PDPA)">
+        <div flex="30">
+            <i align="left" class="fa fa-file-o fa-lg"></i>
+        </div>
+        <div flex="70">
+            PDPA
+        </div>
+    </div>
+    <!--  <div id="{{::CONSTANTS.MODULE_NAME.APPLICATION}}" class="listModule selected" ng-click="openView(CONSTANTS.MODULE_NAME.APPLICATION)">
+        <i align="center" class="fa fa-file-text fa-lg"></i>
+    </div> -->
+    <div id="sync" class="listModule" layout="row" ng-click="openView(CONSTANTS.MODULE_NAME.SYNC)">
+        <div flex="30">
+            <i align="left" class="fa fa-refresh fa-lg"></i>
+        </div>
+        <div flex="70">
+            Sync
+        </div>
+    </div>
+    <div class="listModule" layout="row" ng-click="showSetting()">
+        <div flex="30">
+            <i align="center" class="fa fa-cog fa-lg"></i>
+        </div>
+        <div flex="70">
+            Settings
+        </div>
+    </div>
+    <div class="listModule" layout="row" ng-click="showAboutUs()">
+        <div flex="30" style="padding-left: 6px">
+            <i align="left" class="fa fa-info fa-lg"></i>
+        </div>
+        <div flex="70">
+            About Us
+        </div>
+    </div>
+    <div class="listModule" layout="row" ng-click="confirmLogOut()">
+        <div flex="30">
+            <i align="left" class="fa fa-sign-out fa-lg"></i>
+        </div>
+        <div flex="70">
+            Log Out
+        </div>
+    </div>
+</div>
+
+
+

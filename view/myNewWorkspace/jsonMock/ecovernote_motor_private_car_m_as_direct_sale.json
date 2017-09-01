@@ -1,0 +1,102 @@
+{
+  "IposDocument": {
+    "Data": {
+      "ecover-note-motor:ECoverNote": {
+        "@key": [
+          "eCoverNote"
+        ],
+        "@icon": "fa fa-spinner",
+        "@cssClass": "v3-box-2",
+        "@section": "ecover-note-motor:ECoverNote",
+        "ecover-note-motor:ECoverNote": {},
+        "ecover-note-motor:ECoverNoteNo_New": {
+        	"@key": [
+          		"ECoverNoteNumber"
+        	]
+        },
+        "ecover-note-motor:ECoverNoteStatus_New": {
+        	"@key": [
+          		"DocStatus", "BusinessStatus"
+        	]
+        },       
+        "ecover-note-motor:JPJSubmission_New": {},
+        "ecover-note-motor:DocumentType": {
+        	"@key": [
+          		"DocumentType","Option"
+        	]
+        },
+        "ecover-note-motor:Reason": {
+        	"@key": [
+          		"Reason","Option"
+        	]
+        },
+         "ecover-note-motor:SubmittedDate_New": {
+        	"@key": [
+          		"SubmittedDate"
+        	]
+        },
+         "ecover-note-motor:ResponseDate_New": {
+        	"@key": [
+          		"JPJResponseDate"
+        	]
+        },		
+         "ecover-note-motor:JPJResult_New": {
+        	"@key": [
+          		"JPJResult"
+        	]
+        },
+		 "ecover-note-motor:JPJErrorDescription_New": {
+        	"@key": [
+          		"JPJErrorDescription"
+        	]
+        },
+         "ecover-note-motor:BasicInformation": {},
+         "ecover-note-motor:ProductName": {
+        	"@key": [
+          		"Product"
+        	]
+        },
+         "ecover-note-motor:PolicyNo": {
+        	"@key": [
+          		"PolicyNo"
+        	]
+        },
+         "ecover-note-motor:PolicyOwnerName_New": {
+        	"@key": [
+          		"FullName"
+        	]
+        },
+         "ecover-note-motor:IDNo_New": {
+        	"@key": [
+          		"IDNumber"
+        	]
+        },
+         "ecover-note-motor:InceptionDate": {
+        	"@key": [
+          		"InceptionDate"
+        	]
+        },
+         "ecover-note-motor:ExpiryDate": {
+        	"@key": [
+          		"ExpiryDate"
+        	]
+        },
+         "ecover-note-motor:RegistrationNo_New": {
+        	"@key": [
+          		"RegistrationNo"
+        	]
+        },
+         "ecover-note-motor:EngineMotoNo_New": {
+        	"@key": [
+          		"EngineMotorNo"
+        	]
+        },
+         "ecover-note-motor:ChassisNo_New": {
+        	"@key": [
+          		"ChassisNo"
+        	]
+        }
+      }
+    }
+  }
+} 

@@ -1,0 +1,56 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<style>
+	.searchButton{
+		color: #4B7E37;
+		margin-left: 5px !important;
+		position: relative;
+		right: 40px;
+		/* margin: auto;
+		font-size: 1.5em; */
+	};
+	.searchButton:HOVER, .searchButton:FOCUS, .searchButton:ACTIVE, .searchButton:VISITED {
+		color: #4caf50 !important;
+		font-size: 2em !important;
+	};
+	
+</style>
+
+<div flex>
+	<div layout-align="start center" layout="row" flex>
+		<div layout="row">
+			<select class="ipos_paging_dropdown_80" ng-model="search.searchType" ng-change="search.searchText=''">
+				<option ng-repeat="search in searchOption" value="{{search}}">{{search}}</option>
+			</select>
+		</div>
+		<div style="margin-left: 10px">
+			<div layout="row" layout-align="start center" class="form-group-lg has-success">
+				<input class="form-control" ng-model="search.searchText" placeholder="{{'v3.contactcenter.label.Search' | translate}}" /> 
+				<i class="fa fa-search fa-2x ng-scope pointer searchButton" ng-click="doSearch()"></i>
+			</div>
+		</div>
+		<!-- <div layout="row" ng-if="showOption==true" style="margin-left: 20px">
+			<md-select id="searchText" ng-model="option" ng-change="onChanged(itemSelected)">
+	        		<md-option ng-repeat="option in options" ng-value="option.key">{{option.key}}</md-option>
+			</md-select> 
+			<i class="fa fa-search fa-2x ng-scope pointer searchButton" ng-click="doSearch(option)"></i>
+		</div> -->
+	</div>						
+</div>

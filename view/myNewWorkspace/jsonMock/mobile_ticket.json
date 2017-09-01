@@ -1,0 +1,36 @@
+{
+  "IposDocument": {
+    "Data": {
+      "ipos-mobile-ticket:MobileTicketModule": {
+        "@section": "ipos-mobile-ticket:MobileTicketModule",
+        "ipos-mobile-ticket:OneDay": {
+          "@icon": "fa fa-ticket",
+          "@cssClass": "v3-box-0",
+          "@section": "ipos-mobile-ticket:MobileTicketModule",
+          "@key": "ipos-mobile-ticket:OneDay",
+          "ipos-mobile-ticket:OneDay_Table": {
+            "@key": ""
+          }
+        },
+        "ipos-mobile-ticket:OneWeek": {
+          "@icon": "fa fa-ticket",
+          "@cssClass": "v3-box-0",
+          "@section": "ipos-mobile-ticket:MobileTicketModule",
+          "@key": "ipos-mobile-ticket:OneWeek",
+          "ipos-mobile-ticket:OneWeek_Table": {
+            "@key": ""
+          }
+        },
+        "ipos-mobile-ticket:OneYear": {
+          "@icon": "fa fa-ticket",
+          "@cssClass": "v3-box-0",
+          "@section": "ipos-mobile-ticket:MobileTicketModule",
+          "@key": "ipos-mobile-ticket:OneYear",
+          "ipos-mobile-ticket:OneYear_Table": {
+            "@key": ""
+          }
+        }
+      }
+    }
+  }
+}

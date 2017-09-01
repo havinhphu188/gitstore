@@ -1,0 +1,60 @@
+{
+  "IposDocument": {
+    "Data": {
+      "underwriting:Underwriting": {
+        "section": "underwriting:Underwriting",
+        "icon": "fa fa-pencil-square-o",
+        "cssClass": "v3-box-6",
+        "underwriting:Summary": {
+          "icon": "fa fa-pencil-square-o",
+          "cssClass": "v3-box-4",
+          "section": "underwriting:Underwriting",
+          "underwriting:UWDecision": {
+            "type": "",
+            "key": ["UnderwritingDecisionCd"]
+          },
+          "underwriting:UWLoadingApplied": {
+            "type": "",
+            "key": [],
+            "preview": ["underwriting:Summary"]
+          },
+          "underwriting:UWRevisedPremiums": {
+            "type": "",
+            "key": [],
+            "preview": ["underwriting:Summary"]
+          }
+        },
+        "underwriting:Findings": {
+          "icon": "fa fa-pencil-square-o",
+          "cssClass": "v3-box-4",
+          "section": "underwriting:Underwriting",
+          "Findings": {
+            "type": "",
+            "key": ["UnderwritingRulesInfo"]
+          }
+        },
+        "underwriting:Comments": {
+          "permission": {
+            "AGENT": {
+              "editable": true,
+              "viewable": false
+            },
+            "UW": {
+              "editable": true,
+              "viewable": true
+            }
+          },
+          "icon": "fa fa-pencil-square-o",
+          "cssClass": "v3-box-4",
+          "section": "underwriting:Underwriting",
+          "Comments": {
+			"type": "",
+            "key": [
+              "Comments"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

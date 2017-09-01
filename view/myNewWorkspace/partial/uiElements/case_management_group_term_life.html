@@ -1,0 +1,145 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Review And Approval -->
+
+
+<!-- Sale Manager Assessment  -->
+<div fieldId="case-management-gtl:assessmentChecklist" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="form-group form-group-lg has-success large-font text-center">
+		{{"v3.mynewworkspace.portlet.label.case-management-gtl:assessmentChecklist" | translate}}
+	</div>
+</div>
+<div fieldId="case-management-gtl:reviewedCase" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="form-group form-group-lg has-success">
+		<b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:reviewedCase" | translate}}</b>
+	</div>
+</div>
+<div fieldId="case-management-gtl:minimumGroupSize" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:minimumGroupSize" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:minimumParticipationPercentage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:minimumParticipationPercentage" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:minimumAge" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:minimumAge" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:maximumAge" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:maximumAge" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:minimumSI" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:minimumSI" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:maximumSI" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:maximumSI" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:noAdverse" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:noAdverse" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:properDisclosures" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:properDisclosures" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>

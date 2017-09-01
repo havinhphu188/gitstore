@@ -1,0 +1,789 @@
+{
+  "IposDocument": {
+    "Data": {
+      "illustration-motor:QuotationMotor": {
+        "@key": [
+          "QuotationMotor"
+        ],
+        "@section": "illustration-motor:QuotationMotor",
+        "illustration-motor:DocumentRelation": {
+          "@key": [
+            "DocumentRelation"
+          ],
+          "illustration-motor:ActionType": {
+            "@key": [
+              "ActionType"
+            ]
+          },
+          "illustration-motor:CaseID": {
+            "@key": [
+              "CaseID"
+            ]
+          }
+        },
+        "illustration-motor:Summary": {
+          "@key": [
+            "Summary"
+          ],
+          "@section": "illustration-motor:QuotationMotor",
+          "@isShowValidationIcon": "false",
+          "@icon": "fa fa-bar-chart",
+          "@cssClass": "v3-box-2",
+          "illustration-motor:quotation-information": {
+            "@key": [
+              "DocName"
+            ],
+            "@preview": [
+              "illustration-motor:Summary"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.illustration:QuotationInformation"
+          },
+          "illustration-motor:current-status": {
+            "@key": [
+              "BusinessStatus"
+            ],
+            "@preview": [
+              "illustration-motor:QuotationMotor",
+              "illustration-motor:Summary"
+            ],
+            "@valuePrefix": "v3.document.status.",           
+            "@labelKey": "v3.mynewworkspace.portlet.label.illustration:CurrentStatus"
+          },
+          "illustration-motor:pending-information": {},
+          "illustration-motor:next-required-action": {}
+        },
+        "illustration-motor:Inputs": {
+          "@key": [
+            "Inputs"
+          ],
+          "illustration-motor:BasicProduct": {
+            "@key": [
+              "BasicProduct"
+            ],
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-motor:QuotationMotor",
+            "illustration-motor:ProductName": {
+              "@key": [
+                "ProductName"
+              ],
+              "@preview": [
+                "illustration-motor:QuotationMotor",
+                "illustration-motor:BasicProduct"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:ProductName",
+              "@valuePrefix": "v3.illustration.product."
+            },
+            "motor:DocumentType": {
+              "@key": [
+                "DocumentType"
+              ],
+              "@defaultValue": "0"
+            },
+            "motor:Reason": {
+              "@key": [
+                "Reason"
+              ],
+              "@defaultValue": "0  1"
+            },
+            "motor:SICurrency": {
+              "@key": [
+                "SICurrency"
+              ]
+            },
+            "motor:BillingCurrency": {
+              "@key": [
+                "BillingCurrency"
+              ],
+              "@preview": [
+                "illustration-motor:BasicProduct"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:BillingCurrency",
+              "@valuePrefix": "v3.motor.privateCarM.billingCurrency."
+            },
+            "motor:InceptionDate": {
+              "@key": [
+                "InceptionDate"
+              ],
+              "@preview": [
+                "illustration-motor:BasicProduct"
+              ],
+              "@format": "datetime",
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:InceptionDate"
+            },
+            "motor:ExpiryDate": {
+              "@key": [
+                "ExpiryDate"
+              ],
+              "@preview": [
+                "illustration-motor:QuotationMotor",
+                "illustration-motor:BasicProduct"
+              ],
+              "@format": "datetime",
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:ExpiryDate"
+            }
+          },
+          "illustration-motor:VehicleDetails": {
+            "@key": [
+              "VehicleDetails"
+            ],
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-motor:QuotationMotor",
+            "illustration-motor:VehicleInformation": {
+              "@key": [
+                "VehicleInformation"
+              ],
+              "@icon": "fa fa-bar-chart",
+              "@cssClass": "v3-box-2",
+              "@section": "illustration-motor:VehicleDetails",
+              "motor:VehicleNo": {
+                "@key": [
+                  "VehicleNo"
+                ],
+                "@preview": [
+                  "illustration-motor:QuotationMotor",
+                  "illustration-motor:VehicleDetails",
+                  "illustration-motor:VehicleInformation"
+                ],
+                "@defaultValue": "415",
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:VehicleNo"
+              },
+              "motor:YearOfManufacture": {
+                "@key": [
+                  "YearOfManufacture"
+                ],
+                "@defaultValue": "2014"
+              },
+              "motor:MakeOrModel": {
+                "@key": [
+                  "MakeOrModel"
+                ],
+                "@defaultValue": "BLJ01",
+                "@preview": [
+                  "illustration-motor:VehicleDetails",
+                  "illustration-motor:VehicleInformation"
+                ],
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:MakeOrModel",
+                "@valuePrefix": "v3.illustration.motor.sompo.makeormodel."
+              },
+              "motor:ModelDescription": {
+                "@defaultValue": "Honda Accord",
+                "@key": [
+                  "ModelDescription"
+                ]
+              },
+              "motor:EngineCapacity": {
+                "@defaultValue": "1500",
+                "@key": [
+                  "EngineCapacity"
+                ]
+              },
+              "motor:EngineMotorNo": {
+                "@defaultValue": "1500",
+                "@key": [
+                  "EngineMotorNo"
+                ]
+              },
+              "motor:NoOfSeat": {
+                "@defaultValue": "5",
+                "@key": [
+                  "NoOfSeat"
+                ]
+              },
+              "motor:ChassisNo": {
+                "@defaultValue": "C123-456",
+                "@key": [
+                  "ChassisNo"
+                ]
+              },
+              "motor:Body": {
+                "@defaultValue": "CABRIO",
+                "@key": [
+                  "Body"
+                ]
+              },
+              "motor:PowerBy": {
+                "@defaultValue": "D",
+                "@key": [
+                  "PowerBy"
+                ]
+              }
+            },
+            "illustration-motor:OtherInformation": {
+              "@key": [
+                "OtherInformation"
+              ],
+              "@icon": "fa fa-bar-chart",
+              "@cssClass": "v3-box-2",
+              "@section": "illustration-motor:VehicleDetails",
+              "motor:VehicleClass": {
+                "@defaultValue": "CO",
+                "@key": [
+                  "VehicleClass"
+                ],
+                "@preview": [
+                  "illustration-motor:VehicleDetails",
+                  "illustration-motor:OtherInformation"
+                ],
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:VehicleClass",
+                "@valuePrefix": "v3.motor.privateCarM.vehicleClass."
+              },
+              "motor:VehicleType": {
+                "@defaultValue": "PVEG",
+                "@key": [
+                  "VehicleType"
+                ]
+              },
+              "motor:SafetyCode": {
+                "@defaultValue": "04",
+                "@key": [
+                  "SafetyCode"
+                ]
+              },
+              "motor:AntiThefCode": {
+                "@defaultValue": "12",
+                "@key": [
+                  "AntiThefCode"
+                ]
+              },
+              "motor:LogBookNo": {
+                "@defaultValue": "Book1",
+                "@key": [
+                  "LogBookNo"
+                ]
+              },
+              "motor:PermittedDriver": {
+                "@defaultValue": "02",
+                "@key": [
+                  "PermittedDriver"
+                ]
+              }
+            },
+            "illustration-motor:Trailer": {
+              "motor:TrailerNo": {},
+              "motor:TrailerMakeModel": {},
+              "motor:TrailerModelDesc": {},
+              "motor:TrailerYearMake": {},
+              "motor:TrailerLogBookNo": {},
+              "motor:TrailerChassisNo": {}
+            }
+          },
+          "illustration-motor:Coverage": {
+            "@key": [
+              "OptionalCoverages"
+            ],
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-motor:QuotationMotor",
+            "illustration-motor:BasicCoverage": {
+              "@key": [
+                "BasicCoverage"
+              ],
+              "@icon": "fa fa-bar-chart",
+              "@cssClass": "v3-box-2",
+              "@section": "illustration-motor:Coverage",
+              "motor:CoverageType": {
+                "@defaultValue": "CO",
+                "@key": [
+                  "CoverageType"
+                ],
+                "@preview": [
+                  "illustration-motor:Coverage",
+                  "illustration-motor:BasicCoverage"
+                ],
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:CoverageType",
+                "@valuePrefix": "v3.motor.privateCarM.CoverageType."
+              },
+              "motor:Garage": {
+                "@defaultValue": "11",
+                "@key": [
+                  "Garage"
+                ]
+              },
+              "motor:GoodCarriedByVehicle": {
+                "@defaultValue": "NOTAPPLICABLE",
+                "@key": [
+                  "GoodCarriedByVehicle"
+                ]
+              },
+              "motor:UseOfVehicle": {
+                "@defaultValue": "VP",
+                "@key": [
+                  "UseOfVehicle"
+                ]
+              },
+              "motor:CIType": {
+                "@defaultValue": "EMY3",
+                "@key": [
+                  "CIType"
+                ]
+              },
+              "motor:SumInsured": {
+                "@defaultValue": "25000",
+                "@key": [
+                  "SumInsured"
+                ],
+                "@format": "currency",
+                "@preview": [
+                  "illustration-motor:Coverage",
+                  "illustration-motor:BasicCoverage"
+                ],
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:SumInsured"
+              },
+              "motor:GeographicLocation": {
+                "@defaultValue": "COCOA1",
+            	  "@key": [
+            	           "GeographicLocation"
+            	           ]
+              },
+              "motor:MarketValue": {
+            	  "@key": [
+            	           "MarketValue"
+            	           ]
+              },
+              "motor:Region": {
+                "@key": [
+                  "Region"
+                ],
+                "@defaultValue": "W"
+              }
+            },
+            "illustration-motor:Excess": {
+              "@key": [
+                "Excess"
+              ],
+              "@icon": "fa fa-bar-chart",
+              "@cssClass": "v3-box-2",
+              "@section": "illustration-motor:Coverage",
+              "motor:ExcessType": {
+                "@key": [
+                  "ExcessType"
+                ],
+                "@preview": [
+                  "illustration-motor:Coverage",
+                  "illustration-motor:Excess"
+                ],
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:ExcessType",
+                "@valuePrefix": "v3.motor.privateCarM.excessType."
+              },
+              "motor:ExcessAmt": {
+                "@key": [
+                  "ExcessAmt"
+                ],
+                "@preview": [
+                  "illustration-motor:Coverage",
+                  "illustration-motor:Excess"
+                ],
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:ExcessAmt"
+              }
+            },
+            "illustration-motor:AddNewOptionalCoverage": {
+              "@key": [
+                "AddNewOptionalCoverage"
+              ],
+              "@icon": {
+                  "main": "fa fa-bar-chart",
+                  "mainAction":"addIcon"
+                },
+              "@cssClass": "v3-box-2",
+              "@section": "illustration-motor:Coverage",
+              "@cardType": "action",
+              "@onClick": "addCard(card)"
+            },
+            "illustration-motor:OptionalCoverage": {
+              "@cardType": "template",
+              "@key": [
+                "OptionalCoverage"
+              ],
+              "@icon": {
+                "main": "fa fa-bar-chart",
+                "subAction": "removeIcon"
+              },
+              "@cssClass": "v3-box-2",
+              "@section": "illustration-motor:Coverage",
+              "illustration-motor:AdditionalBenefitCode": {
+                "@key": [
+                  "AdditionalBenefitCode"
+                ],
+                "@preview": [
+                  "illustration-motor:OptionalCoverage"
+                ],
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:CoverageType",
+                "@valuePrefix": "v3.privateCarM.extraCoverage."
+              },
+              "illustration-motor:AdditionalPremiumClass": {
+                "@key": [
+                  "AdditionalPremiumClass"
+                ]
+              },
+              "illustration-motor:AdditionalBenefitLimit": {
+                "@key": [
+                  "AdditionalBenefitLimit"
+                ],
+                "@preview": [
+                  "illustration-motor:OptionalCoverage"
+                ],
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:SumInsured"
+              },
+              "illustration-motor:OCPremium": {
+                "@key": [
+                  "Premium"
+                ]
+              }
+            }
+          },
+          "illustration-motor:FinancingInformation": {
+            "@key": [
+              "FinancingInformation"
+            ],
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-motor:QuotationMotor",
+            "motor:OwnershipType": {
+              "@key": [
+                "OwnershipType"
+              ]
+            },
+            "motor:VehiclePurchaseDate": {
+              "@key": [
+                "VehiclePurchaseDate"
+              ]
+            },
+            "motor:FinancialType": {
+              "@key": [
+                "FinancialType"
+              ]
+            },
+            "motor:PurchasePrice": {
+              "@key": [
+                "PurchasePrice"
+              ],
+              "@preview": [
+                "illustration-motor:FinancingInformation"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:PurchasePrice"
+            },
+            "motor:LoanCompany": {
+              "@key": [
+                "LoanCompany"
+              ],
+              "@preview": [
+                "illustration-motor:FinancingInformation"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:LoanCompany"
+            }
+          },
+          "illustration-motor:DriverInformation": {
+            "@key": [
+              "OtherDrivers"
+            ],
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-motor:QuotationMotor",
+            "illustration-motor:MainDriver": {
+              "@key": [
+                "MainDriver"
+              ],
+              "@icon": "fa fa-bar-chart",
+              "@cssClass": "v3-box-2",
+              "@section": "illustration-motor:DriverInformation",
+              "person:ImportMD": {},
+              "person:MDFullName": {
+                "@key": [
+                  "MainDriver",
+                  "PersonName",
+                  "FullName"
+                ],
+                "@preview": [
+                  "illustration-motor:DriverInformation",
+                  "illustration-motor:MainDriver"
+                ],
+                "@defaultValue": "Test",
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:FullName"
+              },
+              "person:MDFakeDiv": {},
+              "person:MDBirthDate": {
+                "@key": [
+                  "MainDriver",
+                  "BirthDate"
+                ],
+                "@preview": [
+                  "illustration-motor:DriverInformation",
+                  "illustration-motor:MainDriver"
+                ],
+                "@format":"datetime",
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:BirthDate",
+                "@defaultValue": "1992-02-23"
+              },
+              "person:MDGender": {
+                "@key": [
+                  "MainDriver",
+                  "Gender"
+                ],
+                "@preview": [
+                  "illustration-motor:DriverInformation",
+                  "illustration-motor:MainDriver"
+                ],
+                "@defaultValue": "M",
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:Gender",
+                "@valuePrefix": "v3.gender.enum."
+              },
+              "person:MDIDType": {
+                "@key": [
+                  "MainDriver",
+                  "IDs",
+                  "ID",
+                  "IDType"
+                ],
+                "@defaultValue": "BC"
+              },
+              "person:MDIDNumber": {
+                "@key": [
+                  "MainDriver",
+                  "IDs",
+                  "ID",
+                  "IDNumber"
+                ],
+                "@defaultValue": "101552"
+              },
+              "person:MDOccupation": {
+                "@key": [
+                  "MainDriver",
+                  "Occupation"
+                ],
+                "@defaultValue": "ACCT"
+              },
+              "person:MDYearDrivingLicenseObtained": {
+                "@defaultValue": "2015",
+                "@key": [
+                  "MainDriver",
+                  "YearDrivingLicenseObtained"
+                ]
+              }
+            },
+            "illustration-motor:AddOtherDriver": {
+              "@key": [
+                ""
+              ],
+              "@icon": {
+                  "main": "fa fa-bar-chart",
+                  "mainAction":"addIcon",
+                  "subAction": "removeIcon"
+                },
+              "@cssClass": "v3-box-2",
+              "@section": "illustration-motor:DriverInformation",
+              "@cardType": "action",
+              "@onClick": "addCard(card)"
+            },
+            "illustration-motor:OtherDriver": {
+              "@cardType": "template",
+              "@key": [
+                "OtherDriver"
+              ],
+              "@icon": {
+                "main": "fa fa-bar-chart",
+                "subAction": "removeIcon"
+              },
+              "@cssClass": "v3-box-2",
+              "@section": "illustration-motor:DriverInformation",
+              "person:ImportOD": {},
+              "person:ODFullName": {
+                "@key": [
+                  "OtherDriver",
+                  "PersonName",
+                  "FullName"
+                ],
+                "@preview": [
+                  "illustration-motor:OtherDriver"
+                ],
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:FullName"
+              },
+              "person:ODFakeDiv": {},
+              "person:ODBirthDate": {
+                "@key": [
+                  "OtherDriver",
+                  "BirthDate"
+                ],
+                "@preview": [
+                  "illustration-motor:OtherDriver"
+                ],
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:BirthDate"
+              },
+              "person:ODGender": {
+                "@key": [
+                  "OtherDriver",
+                  "Gender"
+                ],
+                "@preview": [
+                  "illustration-motor:OtherDriver"
+                ],
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:Gender",
+                "@valuePrefix": "v3.gender.enum."
+              },
+              "person:ODIDType": {
+                "@key": [
+                  "OtherDriver",
+                  "IDs",
+                  "ID",
+                  "IDType"
+                ]
+              },
+              "person:ODIDNumber": {
+                "@key": [
+                  "OtherDriver",
+                  "IDs",
+                  "ID",
+                  "IDNumber"
+                ]
+              },
+              "person:ODOccupation": {
+                "@key": [
+                  "OtherDriver",
+                  "Occupation"
+                ]
+              },
+              "person:ODYearDrivingLicenseObtained": {
+                "@key": [
+                  "OtherDriver",
+                  "YearDrivingLicenseObtained"
+                ]
+              }
+            },
+            "illustration-motor:NCDSource": {
+              "@key": [
+                "NCDSource"
+              ],
+              "@icon": "fa fa-bar-chart",
+              "@cssClass": "v3-box-2",
+              "@section": "illustration-motor:DriverInformation",
+              "illustration-motor:NCDFrom": {
+                "@key": [
+                  "NCDFrom"
+                ]
+              },
+              "illustration-motor:NCDEffectivedate": {
+                "@key": [
+                  "NCDEffectivedate"
+                ]
+              },
+              "illustration-motor:NCDVehicleNo": {
+                "@key": [
+                  "NCDVehicleNo"
+                ],
+                "@preview": [
+                  "illustration-motor:NCDSource"
+                ],
+                "@defaultValue": "43434343",
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:NCDVehicleNo"
+              },
+              "illustration-motor:NCDAllowed": {
+                "@key": [
+                  "NCDAllowed"
+                ],
+                "@preview": [
+                  "illustration-motor:NCDSource"
+                ],
+                "@labelKey": "v3.mynewworkspace.portlet.label.illustration:NCDAllowed",
+                "@valuePrefix": "v3.NCDAllowed.",
+                "@defaultValue": "0"
+              },
+              "illustration-motor:PreviousPolicyNo": {
+                "@key": [
+                  "PreviousPolicyNo"
+                ]
+              },
+              "illustration-motor:NoOfClaim": {
+                "@key": [
+                  "NoOfClaim"
+                ]
+              },
+              "illustration-motor:PreviousPolicyEffectiveDate": {
+                "@key": [
+                  "PreviousPolicyEffectiveDate"
+                ]
+              },
+              "illustration-motor:PreviousPolicyExpiryDate": {
+                "@key": [
+                  "PreviousPolicyExpiryDate"
+                ]
+              }
+            }
+          }
+        },
+        "illustration-motor:Outputs": {
+          "illustration-motor:QuotationPremium": {
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-motor:QuotationMotor",
+            "illustration-motor:BasePremium": {
+              "@key": ["BasePremium"]
+            },
+            "illustration-motor:TotalPremium": {
+              "@key": ["TotalPremium"]
+            },
+            "illustration-motor:BasePremiumAfterLoadingAndNCD": {
+              "@key": [
+                "BasePremiumAfterLoadingAndNCD"
+              ],
+              "@preview": [
+                "illustration-motor:QuotationPremium"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:BasePremiumAfterLoadingAndNCD"
+            },
+            "illustration-motor:StampDuty": {
+              "@key": ["StampDuty"]
+            },
+            "illustration-motor:OptionalCoveragePremium": {
+              "@key": [
+                "OptionalCoveragePremium"
+              ],
+              "@preview": [
+                "illustration-motor:QuotationPremium"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:OptionalCoveragePremium"
+            },
+            "illustration-motor:TotalPayablePremium": {
+              "@key": [
+                "TotalPayablePremium"
+              ],
+              "@preview": [
+                "illustration-motor:QuotationPremium"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:TotalPayablePremium"
+            }
+          }
+        },
+        "Attachments": {
+          "@counter": "0",
+          "@maxOccurs": "",
+          "@minOccurs": "0",
+          "Attachment": {
+            "@refResourceDocType": "",
+            "@refResourceUid": "",
+            "FileUid": {
+              "@refResourceStatus": "",
+              "@refResourceVal": ""
+            },
+            "Name": {
+              "@refResourceStatus": "",
+              "@refResourceVal": ""
+            },
+            "FileName": {
+              "@refResourceStatus": "",
+              "@refResourceVal": ""
+            },
+            "CreateDate": {
+              "@refResourceStatus": "",
+              "@refResourceVal": ""
+            },
+            "FileSize": {
+              "@refResourceStatus": "",
+              "@refResourceVal": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}

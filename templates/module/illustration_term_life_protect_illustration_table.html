@@ -1,0 +1,43 @@
+<div layout="column" class="height-inherit" ng-init="vars.isOnSubinSubState = false">
+    <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div style="overflow: scroll;" class="backgroundColor touch">
+        <div refresh-on="vars.bIsContentChanged" use-boolean>
+              <div >
+                    <table cellspacing="0" cellpadding="0">
+                        <thead class="default-color">
+                            <th>
+                                <span t-lazy v3-translate="v3.myworkspace.label.illustration.life.EndofPolicyYearAge" prefix=""></span>
+                            </th>
+                            <th>
+                                <span t-lazy v3-translate="v3.myworkspace.label.illustration.life.TotalPremiumPaidtoDate" prefix=""></span>
+                            </th>
+                            <th>
+                                <span t-lazy v3-translate="v3.myworkspace.label.illustration.life.TotalDistributionCosttoDate" prefix=""></span>
+                            </th>
+                            <th>
+                                <span t-lazy v3-translate="v3.myworkspace.label.illustration.life.GuaranteedDeathBenefit" prefix=""></span>
+                            </th>
+                          <!--   <th>
+                                <span t-lazy v3-translate="v3.myworkspace.label.illustration.life.Premium" prefix=""></span>
+                            </th> -->
+                        </thead>
+                        <tbody ng-if="variables.TableRows.length>0">
+                            <tr ng-repeat="row in variables.TableRows track by $index">
+                                <td>{{::moduleService.findElementInElement_V3(row, ['ipos-illustration:EndOfPolicyYear']).$}}/{{::moduleService.findElementInElement_V3(row, ['ipos-illustration:Age']).$}}</td>
+                                <td>{{::moduleService.findElementInElement_V3(row, ['ipos-illustration:TotalPremPaidToDate']).$}}</td>
+                                <td>{{::moduleService.findElementInElement_V3(row, ['ipos-illustration:TotalDistributionCostToDate']).$}}</td>
+                                <td>{{::moduleService.findElementInElement_V3(row, ['ipos-illustration:GuaranteedDeathBenefit']).$}}</td>
+                                <!-- <td>{{::moduleService.findElementInElement_V3(row, ['ipos-illustration:Premium']).$}}</td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+        
+          <div class="white-card">
+         <div layout="row" style="font-size: 14px;" layout-margin class="row-sub-page" ng-click="gotoSub()"><div flex="90">Rider Table</div><div flex="5"><i class="fa fa-angle-right fa-lg icon-color"></i></div></div>
+        </div>
+    </div>
+</div>

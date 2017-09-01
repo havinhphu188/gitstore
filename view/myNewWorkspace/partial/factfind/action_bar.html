@@ -1,0 +1,119 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<section class="common-action-box pull-right" ng-click='commonUIService.showHideItems()'>
+    <i class="fa fa-list-ul fa-2x"></i></section>
+<section class="common-action-box pull-right"><i class="fa fa-repeat fa-2x"></i></section>
+<section  class="common-action-box pull-right"  ng-class="{'v3-cursor-not-allowed':moduleService.freeze}" loading loading-action="saveDetail()"><i class="fa fa-floppy-o fa-2x"></i></section>
+<div id="showMore">
+    <span class="arrow arrow-action"></span>
+    <div class="common-action-bar-container">
+        <div>        	
+            <div class="common-action-items-back" loading loading-action="compute()">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-paper-plane fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Compute' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            
+            <!-- <div class="common-action-items-back" ng-if="moduleService.findElementInDetail_V3(['BusinessStatus']) == 'DRAFT'">
+                <div class="common-action-items" loading loading-action="acceptQuotation()">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-calculator fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.AcceptQuotation' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            
+            <div class="common-action-items-back" ng-if="moduleService.productName == commonService.CONSTANTS.PRODUCT.PERSONAL_ACCIDENT && moduleService.findElementInDetail_V3(['BusinessStatus']) == 'ACCEPTED' 
+            											&& salecaseService.findElementInDetail_V3(['Application'])['@refUid'] == ''">
+                <div class="common-action-items" loading loading-action="unAcceptQuotation()">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-unlock fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.UnAcceptQuotation' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div> -->
+            
+            <div class="common-action-items-back" loading loading-action="printPdf('inside')">
+                <div class="common-action-items" >
+                    <span class="common-action-items-icon"><i
+            class='fa fa-print fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.PDF' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            
+            <div class="common-action-items-back common-action-disabled">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-share-alt fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Share' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            
+            <div class="common-action-items-back common-action-disabled">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-tag fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Tag' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            
+            <div class="common-action-items-back common-action-disabled">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-clock-o fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.ManageVersions' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            
+            <div class="common-action-items-back common-action-disabled">
+                <div class="common-action-items" loading loading-action="refreshDetail()">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-refresh fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Refresh' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+           <!--  <div class="common-action-items-back">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-archive fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Archive' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            <div class="common-action-items-back">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-star fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Star' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div> -->
+
+        </div>
+    </div>
+</div>

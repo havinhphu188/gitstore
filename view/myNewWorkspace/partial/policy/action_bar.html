@@ -1,0 +1,145 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<section class="common-action-box pull-right" ng-click='commonUIService.showHideItems()'>
+    <i class="fa fa-list-ul fa-2x"></i></section>
+<section class="common-action-box pull-right"><i class="fa fa-repeat fa-2x"></i></section>
+<section class="common-action-box pull-right" ng-class="{'v3-cursor-not-allowed':moduleService.freeze}" loading loading-action="saveDetail()"><i class="fa fa-floppy-o fa-2x"></i></section>
+<div id="showMore">
+    <span class="arrow arrow-action"></span>
+    <div class="common-action-bar-container">
+        <div>
+<!--         	<div class="common-action-items-back" >
+                <div class="common-action-items" loading loading-action='computePolicy()'>
+                    <span class="common-action-items-icon"><i
+            class='fa fa-th fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Compute' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div> -->
+        	
+        	<div class="common-action-items-back" ng-if="!commonService.hasValueNotEmpty(moduleService.findElementInDetail_V3(['ActionType']).$)">
+                <div class="common-action-items" loading loading-action='doAction(commonService.CONSTANTS.ACTIONTYPE.RENEWAL)'>
+                    <span class="common-action-items-icon"><i
+            class='fa fa-th fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.RenewThePolicy' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            <div class="common-action-items-back" ng-if="!commonService.hasValueNotEmpty(moduleService.findElementInDetail_V3(['ActionType']).$)">
+                <div class="common-action-items" loading loading-action='toggleList()'>
+                    <span class="common-action-items-icon"><i
+            class='fa fa-paper-plane fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.EndorseThePolicy' | translate}}</span>
+                    <span class='carret-button'>
+                    	<i id="endorse-submenu-caret"class='fa fa-angle-down fa-2x'></i>
+					</span>
+                </div>
+                <div class="submeu-container">
+						<ul class="submenu-action" id="submuneu-endorse">
+							<li class="sub-action-items" loading loading-action="selectReason(item.value)"
+						ng-repeat="item in moduleService.findElementInElement_V3(moduleService.endorsementReason,['EReason','Option']) track by item.value"><div
+						style="margin-left: 20px;">{{::"caseManagement.endorsement.reason."+
+							item.value|translate |trimtext:false:20:'...'}}</div></li>
+						</ul>
+					</div>
+                <md-divider></md-divider>
+            </div>
+            <div class="common-action-items-back" ng-if="!commonService.hasValueNotEmpty(moduleService.findElementInDetail_V3(['ActionType']).$) && moduleService.findElementInDetail_V3(['DocStatus']).BusinessStatus == 'IF'">
+                <div class="common-action-items" loading loading-action="doClaimNotification()"
+			>
+                    <span class="common-action-items-icon"><i
+            class='fa fa-paper-plane fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.ClaimNotification' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            <div class="common-action-items-back common-action-disabled">
+                <div class="common-action-items" loading loading-action="refreshDetail()">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-refresh fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Refresh' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+			<!-- <div class="common-action-items-back" ng-if="commonService.hasValueNotEmpty(moduleService.findElementInDetail_V3(['ActionType']).$)">
+                <div class="common-action-items" loading ng-click='computePolicy()'>
+                    <span class="common-action-items-icon"><i class='fa fa-th fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.compute' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div> -->
+
+         
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="common-action-box pull-right"
+	ng-click='commonUIService.showHideItems()'>
+	<i class="fa fa-list-ul fa-2x"></i>
+</div>
+<div class="common-action-box pull-right">
+	<i class="fa fa-repeat fa-2x"></i>
+</div>
+<div class="common-action-box pull-right">
+	<i class="fa fa-floppy-o fa-2x"></i>
+</div>
+<div id="showMore"
+	style="margin-top: 40px; width: 200px; overflow-x: hidden;">
+	<ul class='show-more'>
+		<li ng-click='doAction(commonService.CONSTANTS.ACTIONTYPE.RENEWAL)'>
+			<span class='show-more-icon'> <i class='fa fa-th fa-2x'></i>
+		</span> <span class='show-more-text'> Renew the Policy </span>
+		</li>
+		<li id="endorse-menu-item" ng-click='toggleList()'><span
+			class='show-more-icon'> <i class='fa fa-th fa-2x'></i>
+		</span> <span class='show-more-text'> Endorse the Policy </span> <span
+			class='carret-button'> <i id="endorse-submenu-caret"
+				class='fa fa-angle-down fa-2x'></i>
+		</span>
+			<div class="submeu-container">
+				<ul class="submenu-action" id="submuneu-endorse">
+					<li ng-click="selectReason(item.value)"
+						ng-repeat="item in moduleService.findElementInElement_V3(moduleService.endorsementReason,['EReason','Option']) track by item.value"><div
+							class="submenu-item">{{::"caseManagement.endorsement.reason."+
+							item.value|translate |trimtext:false:20:'...'}}</div></li>
+				</ul>
+			</div></li>
+		<li ng-click="doClaimNotification()"
+			ng-if="moduleService.findElementInDetail_V3(['DocStatus']).BusinessStatus == 'IF'"><span
+			class='show-more-icon'><i class='fa fa-paper-plane fa-2x'></i></span>
+			<span class='show-more-text'>Claim Notification </span></li>
+		<li><span class='show-more-icon'><i
+				class='fa fa-tag fa-2x'></i></span> <span class='show-more-text'>Tag
+		</span></li>
+		<li><span class='show-more-icon'><i
+				class='fa fa-clock-o fa-2x'></i></span> <span class='show-more-text'>Manage
+				Versions </span></li>
+		<li><span class='show-more-icon'><i
+				class='fa fa-archive fa-2x'></i></span> <span class='show-more-text'>Archive
+		</span></li>
+		<li><span class='show-more-icon'><i
+				class='fa fa-star fa-2x'></i></span> <span class='show-more-text'>Star
+		</span></li>
+	</ul>
+</div>
+ -->

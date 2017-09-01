@@ -1,0 +1,383 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="illustration-group-travel-express:ProductNameSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6"><b>{{'v3.mynewworkspace.group-travel-express.illustration.label.ProductName' | translate}}:</b></span> <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.productName.' + moduleService.findElementInDetail_V3(['Product']) | translate}}</span>
+    </div>
+</div>
+<div fieldId="illustration-group-travel-express:QuotationNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6"><b>{{'v3.mynewworkspace.portlet.label.illustration-travel-express.QuotationNo' | translate}}:</b></span> <span class="col-md-6">{{uiElement.refDetail}}</span>
+    </div>
+</div>
+<div fieldId="illustration-group-travel-express:TripType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6"><b>{{'v3.mynewworkspace.portlet.label.illustration-travel-express.TripType' | translate}}:</b></span> <span class="col-md-6">{{'v3.travel-express.typeoftravel.enum.' + uiElement.refDetail.Value |translate}}</span>
+    </div>
+</div>
+<div fieldId="illustration-group-travel-express:PlanType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6"><b>{{'v3.mynewworkspace.portlet.label.illustration-travel-express.PlanType' | translate}}:</b></span> <span class="col-md-6">{{'v3.travel-express.plan.enum.' + uiElement.refDetail.Value |translate}}</span>
+    </div>
+</div>
+<div fieldId="illustration-group-travel-express:TravelPeriod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6"><b>{{'v3.mynewworkspace.portlet.label.illustration-travel-express.TravelPeriod' | translate}}:</b></span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['InceptionDate']).$ | dateFilter}} to {{moduleService.findElementInDetail_V3(['ExpiryDate']).$ |dateFilter}}</span>
+    </div>
+</div>
+<div fieldId="illustration-group-travel-express:PayableAmountContract" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6"><b>{{'v3.mynewworkspace.portlet.label.illustration-travel-express.PayableAmountContract' | translate}} ({{moduleService.findElementInDetail_V3(['BillingCurrency']).Value}}):</b></span> <span class="col-md-6">{{uiElement.refDetail.$}}</span>
+    </div>
+</div>
+<div fieldId="illustration-group-travel-express:ExchangeRate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6"><b>{{'v3.mynewworkspace.portlet.label.illustration-travel-express.ExchangeRate' | translate}}:</b></span> <span class="col-md-6">{{uiElement.refDetail.$ | number:0}}</span>
+    </div>
+</div>
+<div fieldId="illustration-group-travel-express:PayableAmountBilling" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6"><b>{{'v3.mynewworkspace.portlet.label.illustration-travel-express.PayableAmountBilling' | translate}} (IDR):</b></span> <span class="col-md-6">{{uiElement.refDetail.$}}</span>
+    </div>
+</div>
+<div fieldId="illustration-group-travel-express:Preview" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-top-10">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <button class="col-sm-offset-4 col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="printPdf('abridge')">{{'v3.mynewworkspace.portlet.label.illustration-travel-express.PreviewIllustrationDetails' | translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Summary -->
+<!-- ProductInformation -->
+<div fieldId="illustration-group-travel-express:ProductName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.group-travel-express.illustration.label.ProductName' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.freeze || true" value="{{'v3.mynewworkspace.portlet.label.productName.' + moduleService.findElementInDetail_V3(['Product']) | translate}}" />
+			<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-group-travel-express:InceptionDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.group-travel-express.illustration.label.InceptionDate' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+			<div class="ms-calendar-wrapper"><input ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" ng-model="uiElement.refDetail.$" class="ms-calendar" maxdate="01/01/2100" ms-datepicker/></div> 
+     		<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-group-travel-express:ExpiryDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.group-travel-express.illustration.label.ExpiryDate' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+			<div class="ms-calendar-wrapper"><input ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" ng-model="uiElement.refDetail.$" class="ms-calendar" maxdate="01/01/2100" ms-datepicker/></div> 
+     		<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-group-travel-express:Region" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.group-travel-express.illustration.label.Region' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown disable="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+				model="uiElement.refDetail"
+			   list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['Region']).Option"
+			   more-action="refreshTravelPlanList(uiElement.refDetail.Value, 'PlanCd')"
+			   type="nonFlag" prefix="v3.travel-express.region.enum"></ng-newDropDown>
+     		<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-group-travel-express:SICurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.SICurrency' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown model="uiElement.refDetail"  disable="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+					list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['SICurrency', 'Option'])" 
+					type="full-flag" prefix="v3.travel-express.sicurrency.enum"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-group-travel-express:BillingCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.BillingCurrency' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown model="uiElement.refDetail"  disable="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+					list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['BillingCurrency', 'Option'])" 
+					type="nonFlag" prefix="v3.travel-express.billingcurrency.enum"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<!-- End ProductInformation -->
+<!-- Travel Information -->
+<div fieldId="illustration-group-travel-express:TravelInformations">
+	<div ng-repeat="info in uiElement.refDetail['illustration:Travel'] track by $index" ng-if="uiElement.refDetail['@counter'] > 0">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 v3-column-content v3-padding-left-right-10">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-padding-0">
+				<div class="form-group form-group-lg has-success v3-auto-text-ellipsis">
+					<label ng-if="$index===0" >{{'v3.mynewworkspace.group-travel-express.illustration.label.Destination' | translate}}<span 
+					  ng-show="info['illustration:Destination']['@mandatory'] == '1'">*</span></label>
+					<label ng-if="$index!==0" >&nbsp;</label>
+					<ng-newDropDown 
+			            model="info['illustration:Destination']"
+			            disable="moduleService.freeze || info['illustration:Destination']['@editable']=='0'" 
+			            list="moduleService.destinationTravel"
+			            type="nonFlag" prefix="v3.travel-express.destination.enum">
+			        </ng-newDropDown>
+					<span class="errorMessage" ng-bind="info['illustration:Destination'].errorMessage | translate"></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 v3-column-content v3-padding-left-right-10">
+			<div class="form-group form-group-lg has-success v3-auto-text-ellipsis">
+				<label ng-if="$index===0" >{{'v3.mynewworkspace.group-travel-express.illustration.label.Conveyance' | translate}}<span
+				  ng-show="info['illustration:Conveyance']['@mandatory'] == '1'">*</span></label>
+				<label ng-if="$index!==0" >&nbsp;</label>
+				<input click-when-keydown class="form-control" type="text" ng-disabled="moduleService.freeze || info['illustration:Conveyance']['@editable']=='0'" ng-model="info['illustration:Conveyance'].$"/>
+				<span class="errorMessage" ng-bind="info['illustration:Conveyance'].errorMessage | translate"></span>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 v3-column-content v3-padding-left-right-10">
+			<div class="form-group form-group-lg has-success v3-auto-text-ellipsis">
+				<label ng-if="$index===0" >{{'v3.mynewworkspace.group-travel-express.illustration.label.DepartDate' | translate}}<span
+				  ng-show="info['illustration:DepartDate']['@mandatory'] == '1'">*</span></label>
+				<label ng-if="$index!==0" >&nbsp;</label>
+				<div class="ms-calendar-wrapper"><input click-when-keydown ng-disabled="moduleService.freeze || info['illustration:DepartDate']['@editable']=='0'" ng-model="info['illustration:DepartDate'].$" class="ms-calendar" mindate="{{expiryDateMin}}" maxdate="{{expiryDateMax}}" ms-datepicker/></div>
+				<span class="errorMessage" ng-bind="info['illustration:DepartDate'].errorMessage | translate"></span>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 v3-column-content v3-padding-left-right-10">
+			<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 v3-padding-0">
+			  <div class="form-group form-group-lg has-success v3-auto-text-ellipsis">
+				<label ng-if="$index===0" >{{'v3.mynewworkspace.group-travel-express.illustration.label.Reason' | translate}}<span
+				  ng-show="info['illustration:Reason']['@mandatory'] == '1'">*</span></label>
+				<label ng-if="$index!==0" >&nbsp;</label>
+				<ng-newDropDown 
+		            model="info['illustration:Reason']"
+		            disable="moduleService.freeze || info['illustration:Reason']['@editable']=='0'"
+		            list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName], ['Reason']).Option"
+		            type="nonFlag" prefix="v3.travel-express.reason.enum" >
+		        </ng-newDropDown>
+				<span class="errorMessage" ng-bind="info['illustration:Reason'].errorMessage | translate"></span>
+			  </div>
+			</div>
+			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 v3-padding-0">
+		      <div class="form-group form-group-lg has-success v3-auto-text-ellipsis">
+				<label>&nbsp;</label>
+				<div style="padding-left: 8px">
+	          		<button class="btn btn-lg v3-btn-danger" style="min-width: 10px; padding: 11px 13px" ng-disabled="moduleService.freeze"
+	            		ng-click="uiElement.refDetail['@counter'] == 1 ? removeTravelInformationsGroup() : moduleService.removeElementInElement_V3($index, moduleService.detail, ['Travels'], ['Travel'])"><i class="fa fa-times"></i>
+	            	</button>
+	        	</div>
+			  </div>
+		    </div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<button class="btn btn-lg v3-btn-primary" style="min-width: 10px; padding: 11px 13px"
+            ng-disabled ="moduleService.freeze" ng-click="moduleService.addElementInElement_V3(moduleService.detail, ['Travels'], ['Travel'])"><i class="fa fa-plus"></i>
+        </button>
+	</div>
+</div>
+<!-- End Travel Information  -->
+<!-- Insured -->
+<div fieldId="illustration-group-travel-express:Plan" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content v3-padding-left-right-10">
+	<div class="col-xs-10 v3-column-content no-padding-left">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.group-travel-express.illustration.label.Plan' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown disable="moduleService.freeze || uiElement.refDetail['@editable']=='0' || uiElement.refDetail.Value!=''" 
+				model="uiElement.refDetail"
+			   list="travelPlanList" 
+			   type="nonFlag" prefix="v3.travel-express.plan.enum"
+			   more-action="moduleService.addElementInElement_V3(card.refDetail, ['Insureds'], ['Insured'])">
+			 </ng-newDropDown>
+     	 <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>
+	</div>
+	<div class="col-xs-1 v3-column-content" style="padding-top: 35px;">
+		<div class="form-group form-group-lg has-success">
+	        <i class="fa fa-2x fa-pencil-square-o icon-detail" title="Details" ng-click="fileReaderService.openFileReader('view',contextPathTheme+'/documents/CoverageforTravelExpress.pdf',[],'uploadMode')"></i>
+		</div>
+    </div>
+</div>
+<div fieldId="illustration-group-travel-express:FakePlan" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"></div>
+
+<div fieldId="illustration-group-travel-express:BeInsureds">
+  <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+  <div ng-repeat="insured in uiElement.refDetail['illustration:Insured'] track by $index" ng-if="uiElement.refDetail['@counter'] > 0">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 v3-padding-left-right-10 v3-column-content" ng-class="$index !== 0 ? 'insured-row-height' : ''">
+		<div class="form-group form-group-lg has-success v3-auto-text-ellipsis">
+			<label ng-if="$index === 0">{{'v3.mynewworkspace.group-travel-express.illustration.label.FirstName' | translate}}<span ng-show="moduleService.findElementInElement_V3(insured,['FirstName'])['@mandatory'] == '1'">*</span></label>
+			<input click-when-keydown class="form-control" type="text" ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(insured,['FirstName'])['@editable']=='0'" ng-model="moduleService.findElementInElement_V3(insured,['FirstName']).$"/>
+			<span class="errorMessage" style="font-size:13px !important;" ng-bind="moduleService.findElementInElement_V3(insured,['FirstName']).errorMessage | translate"></span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 v3-padding-left-right-10 v3-column-content" ng-class="$index !== 0 ? 'insured-row-height' : ''">
+		<div class="form-group form-group-lg has-success v3-auto-text-ellipsis">
+			<label ng-if="$index === 0">{{'v3.mynewworkspace.group-travel-express.illustration.label.LastName' | translate}}<span ng-show="moduleService.findElementInElement_V3(insured,['LastName'])['@mandatory'] == '1'">*</span></label>
+			<input click-when-keydown class="form-control" type="text" ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(insured,['LastName'])['@editable']=='0'" ng-model="moduleService.findElementInElement_V3(insured,['LastName']).$"/>
+			<span class="errorMessage"  style="font-size:13px !important;" ng-bind="moduleService.findElementInElement_V3(insured,['LastName']).errorMessage | translate"></span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 v3-padding-left-right-10 v3-column-content" ng-class="$index !== 0 ? 'insured-row-height' : ''">
+		<div class="form-group form-group-lg has-success v3-auto-text-ellipsis">
+			<label ng-if="$index === 0">{{'v3.mynewworkspace.group-travel-express.illustration.label.DateOfBirth' | translate}}<span ng-show="moduleService.findElementInElement_V3(insured,['BirthDate'])['@mandatory'] == '1'">*</span></label>
+			<div class="ms-calendar-wrapper"><input click-when-keydown ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(insured,['BirthDate'])['@editable']=='0'" ng-model="moduleService.findElementInElement_V3(insured,['BirthDate']).$" class="ms-calendar" ms-datepicker/></div>
+			<span class="errorMessage"  style="font-size:13px !important;" ng-bind="moduleService.findElementInElement_V3(insured,['BirthDate']).errorMessage | translate"></span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 v3-padding-left-right-10 v3-column-content" ng-class="$index !== 0 ? 'insured-row-height' : ''">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-padding-0">
+			<div class="form-group form-group-lg has-success v3-auto-text-ellipsis">
+				<label ng-if="$index === 0">{{'v3.mynewworkspace.group-travel-express.illustration.label.Gender' | translate}}<span ng-show="moduleService.findElementInElement_V3(insured,['Gender'])['@mandatory'] == '1'">*</span></label>
+				<ng-newDropDown model="moduleService.findElementInElement_V3(insured,['Gender'])"  disable="moduleService.freeze || moduleService.findElementInElement_V3(insured,['Gender'])['@editable']=='0'" 
+					list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['Gender', 'Option'])" 
+					type="nonFlag" prefix="v3.gender.enum" ></ng-newDropDown>
+				<span class="errorMessage"  style="font-size:13px !important;" ng-bind="moduleService.findElementInElement_V3(insured,['Gender']).errorMessage | translate"></span>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 v3-padding-left-right-10 v3-column-content" ng-class="$index !== 0 ? 'insured-row-height' : ''">
+		<div class="form-group form-group-lg has-success">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 v3-padding-0 v3-auto-text-ellipsis">
+				<label ng-if="$index === 0">{{'v3.mynewworkspace.group-travel-express.illustration.label.IDNumber' | translate}}<span ng-show="moduleService.findElementInElement_V3(insured,['IDNumber'])['@mandatory'] == '1'">*</span></label>
+				<input click-when-keydown class="form-control" type="text" ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(insured,['IDNumber'])['@editable']=='0'" ng-model="moduleService.findElementInElement_V3(insured,['IDNumber']).$"/>
+				<span class="errorMessage"  style="font-size:13px !important;" ng-bind="moduleService.findElementInElement_V3(insured,['IDNumber']).errorMessage | translate"></span>
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 v3-padding-0 v3-auto-text-ellipsis">
+				<label ng-if="$index === 0">{{'v3.mynewworkspace.group-travel-express.illustration.label.Beneficiary' | translate}}<span
+				  ng-show="moduleService.findElementInElement_V3(insured,['NameOfBeneficiary'])['@mandatory'] == '1'">*</span></label>
+				<div style="padding-left: 8px">
+					<i class="fa fa-arrow-circle-down fa-3x" 
+							ng-disabled="moduleService.freeze"
+							ng-if="!isTravelFamilyPlan(moduleService.findElementInElement_V3(uiElement.parent.refDetail,['PlanCd']).Value) || (isTravelFamilyPlan(moduleService.findElementInElement_V3(uiElement.parent.refDetail,['PlanCd']).Value) && $index ==0)"
+							ng-click="toggleBeneficiaryByIndex($index, uiElement.parent.refDetail)">			
+					</i>
+				</div>
+				<!--<span class="errorMessage"  style="font-size:13px !important;" ng-bind="moduleService.findElementInElement_V3(insured,['IDNumber']).errorMessage | translate"></span>-->
+			</div>
+		</div>
+	 	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 v3-padding-0">
+				<div style="padding-left: 8px; {{$index === 0 ? 'padding-top: 25px' : ''}}">
+					<button class="btn btn-lg v3-btn-danger" style="min-width: 10px; padding: 11px 13px" ng-disabled="moduleService.freeze"
+					  ng-if="uiElement.refDetail['@counter'] > 1"
+					  ng-click="removeInsuredInformationsGroup(uiElement.parent.refDetail, $index)"><i class="fa fa-times"></i>
+					</button>
+			  </div>
+		</div>
+    </div>
+    <!-- Beneficiary -->
+    <div class="beneficiary{{$index}}" style="display:none">
+	  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+				<div class="form-group form-group-lg has-success">
+					<label>{{'v3.mynewworkspace.group-travel-express.illustration.label.BeneficiaryName' | translate}}<span ng-show="moduleService.findElementInElement_V3(insured,['NameOfBeneficiary'])['@mandatory'] == '1'">*</span></label>
+					<input click-when-keydown class="form-control" type="text" ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(insured,['NameOfBeneficiary'])['@editable']=='0'" ng-model="moduleService.findElementInElement_V3(insured,['NameOfBeneficiary']).$"/>
+					<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(insured,['NameOfBeneficiary']).errorMessage | translate"></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+				<div class="form-group form-group-lg has-success">
+					<label>{{'v3.mynewworkspace.group-travel-express.illustration.label.RelationshipWithMainInsured' | translate}}<span ng-show="moduleService.findElementInElement_V3(insured,['RelationshipWithMainInsured'])['@mandatory'] == '1'">*</span></label>
+					<ng-newDropDown disable="moduleService.freeze || moduleService.findElementInElement_V3(insured,['RelationshipWithMainInsured'])['@editable']=='0'" 
+						model="moduleService.findElementInElement_V3(insured,['RelationshipWithMainInsured'])"
+					   list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['BeRelationship']).Option" 
+					   type="nonFlag" prefix="v3.travel-express.relationship.enum" "></ng-newDropDown>
+		     		<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(insured,['RelationshipWithMainInsured']).errorMessage | translate"></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+				<div class="col-xs-offset-1 col-xs-10 v3-column-content v3-padding-left-0">
+					<div class="form-group form-group-lg has-success">
+						<label>{{'v3.mynewworkspace.group-travel-express.illustration.label.ContactNumber' | translate}}<span ng-show="moduleService.findElementInElement_V3(insured,['ContactNumberOfBeneficiary'])['@mandatory'] == '1'">*</span></label>
+						<input click-when-keydown class="form-control" type="text" ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(insured,['ContactNumberOfBeneficiary'])['@editable']=='0'" ng-model="moduleService.findElementInElement_V3(insured,['ContactNumberOfBeneficiary']).$" maxlength="16" numbers-only/>
+						<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(insured,['ContactNumberOfBeneficiary']).errorMessage | translate"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+				<div class="col-xs-offset-1 col-xs-10 v3-column-content v3-padding-left-0">
+					<div class="form-group form-group-lg has-success">
+						<label>{{'v3.mynewworkspace.group-travel-express.illustration.label.EmergencyContact' | translate}}<span ng-show="moduleService.findElementInElement_V3(insured,['EmergencySameBeneficiary'])['@mandatory'] == '1'">*</span></label>
+						<md-checkbox class="pdpa-checkbox" ng-change="isSameBenificiaryGroup(insured)" ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(insured,['EmergencySameBeneficiary'])['@editable']=='0'"
+						ng-model="moduleService.findElementInElement_V3(insured,['EmergencySameBeneficiary']).Value"				
+						ng-true-value="'Y'" ng-false-value="'N'">
+						{{"v3.mynewworkspace.portlet.label.illustration-travel-express.SameAsBeneficiary" | translate}}
+						</md-checkbox>
+						<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(insured,['EmergencySameBeneficiary']).errorMessage | translate"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+				<div class="form-group form-group-lg has-success">
+					<label>{{'v3.mynewworkspace.group-travel-express.illustration.label.EmergencyName' | translate}}<span ng-show="moduleService.findElementInElement_V3(insured,['EmergencyContactName'])['@mandatory'] == '1'">*</span></label>
+					<input click-when-keydown class="form-control" type="text" ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(insured,['EmergencyContactName'])['@editable']=='0'" ng-model="moduleService.findElementInElement_V3(insured,['EmergencyContactName']).$"/>
+					<span class="errorMessage" ng-bind="insured.errorMessage | translate"></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+				<div class="form-group form-group-lg has-success">
+					<label>{{'v3.mynewworkspace.group-travel-express.illustration.label.EmergencyContactNumber' | translate}}<span ng-show="moduleService.findElementInElement_V3(insured,['EmergencyContactNumber'])['@mandatory'] == '1'">*</span></label>
+					<input click-when-keydown class="form-control" type="text" ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(insured,['EmergencyContactNumber'])['@editable']=='0'" ng-model="moduleService.findElementInElement_V3(insured,['EmergencyContactNumber']).$" maxlength="16" numbers-only/>
+					<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(insured,['EmergencyContactNumber']).errorMessage | translate"></span>
+				</div>
+			</div>
+		</div>
+	  </div>
+	 </div>
+	  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+	    ng-if="moduleService.findElementInElement_V3(card.refDetail, ['PlanCd']).Value != undefined
+	           && moduleService.findElementInElement_V3(card.refDetail, ['PlanCd']).Value != ''
+	           && ((isTravelFamilyPlan(moduleService.findElementInElement_V3(card.refDetail, ['PlanCd']).Value) && uiElement.refDetail['@counter'] < 4)
+	           || !isTravelFamilyPlan(moduleService.findElementInElement_V3(card.refDetail, ['PlanCd']).Value))">
+			<button class="btn btn-lg v3-btn-primary" style="min-width: 10px; padding: 11px 13px"
+	      ng-disabled="moduleService.freeze"
+	      ng-click="moduleService.addElementInElement_V3(uiElement.parent.refDetail, ['Insureds'], ['Insured']);
+	        toggleBeneficiaryByIndex(uiElement.refDetail['@counter'], uiElement.parent.refDetail);
+	        addDummyDataForBeneficiary(uiElement.parent.refDetail, uiElement.refDetail['@counter'] - 1)"><i class="fa fa-plus"></i>
+	    </button> 
+	  </div>
+</div>
+<!-- End Insured -->
+
+<!-- Insured Upload -->
+<div fieldId="illustration-group-travel-express:AttachmentInsured" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="attachment" ng-include="initContextPath+'/view/fileAttachment/fileAttach_Insured_Group_travel.html'"></div>
+</div>
+<!-- <div fieldId="illustration-group-travel-express:AttachmentInsured" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content"> -->
+<!-- 	<div class="attachment" ng-include="initContextPath+'/view/fileAttachment/fileAttachmentIllustration.html'"></div> -->
+<!-- </div> -->
+<!-- End of Insured Upload -->

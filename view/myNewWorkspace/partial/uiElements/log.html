@@ -1,0 +1,211 @@
+<!-- getting Started -->
+<div fieldid="log:Information"
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary ng-scope">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-12">You are going to apply for a Letter of Guarantee.</span>
+		<span class="col-md-12">Please follow 3 easy steps:</span>
+		<div class="col-md-offset-1">
+			<span class="col-md-12">1. Select Insured Person</span>
+			<span class="col-md-12">2. Fill in Letter of Guaranteed and submit</span>
+			<span class="col-md-12">3. View LOG Outcome</span>
+		</div>
+		<span class="col-md-12">Please read the important notes below:</span>
+		<div class="col-md-offset-1">
+			<span class="col-md-12">1. The information given are true and complete to the best of any knowledge</span>
+			<span class="col-md-12">2. LOG will not be Insured for:</span>
+			<div class="col-md-offset-1">
+				<span class="col-md-12">* Condition that existed prior to the effective date if insurance coverage.</span>
+				<span class="col-md-12">* Condition related to cosmetic treatment or surgery.</span>
+				<span class="col-md-12">* Condition related to drug addiction or alcoholism.</span>
+				<span class="col-md-12">* Condition related to congenital abnormalities.</span>
+				<span class="col-md-12">* View LOG Outcome</span>
+			</div>
+			<span class="col-md-12">3. When hospital charges exceed the amount approved, a subsequent Letter of Guarantee must be arranged.</span>
+		</div>
+	</div>
+</div>
+
+<!-- provide Policy Details -->
+<div fieldId="log:step1Label1"
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary ng-scope">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-12"><b>Please provide the policy information:</b></span>
+	</div>
+</div>
+<div fieldId="log:policyNumber" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success col-md-4 v3-margin-top-label">
+			<label>Policy Number
+			<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+		</div>
+		<div class="form-group form-group-lg has-success col-md-8">
+			<input class="form-control" ng-disabled="false" type="text"
+				ng-model="uiElement.refDetail.$" />
+			<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>		
+	</div>
+</div>
+<div fieldId="log:policyOwner" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success col-md-4 v3-margin-top-label">
+			<label>Policy Owner
+			<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+		</div>
+		<div class="form-group form-group-lg has-success col-md-8">
+			<input class="form-control" ng-disabled="false" type="text"
+				ng-model=uiElement.refDetail.$ />
+			<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>		
+	</div>
+</div>
+<div fieldId="log:productName" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success col-md-4 v3-margin-top-label">
+			<label>Product Name
+			<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+		</div>
+		<div class="form-group form-group-lg has-success col-md-8">
+			<input class="form-control" ng-disabled="false" type="text"
+				ng-model="uiElement.refDetail.$" />
+			<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>		
+	</div>
+</div>
+
+<!-- provide Insured Person Details -->
+<div fieldId="log:step2Label1"
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary ng-scope">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-12"><b>Please provide the insured person:</b></span>
+	</div>
+</div>
+<div fieldId="log:insuredPerson" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success col-md-4 v3-margin-top-label">
+			<label>Insured Person
+			<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+		</div>
+		<div class="form-group form-group-lg has-success col-md-8">
+			<input class="form-control" ng-disabled="false" type="text"
+				ng-model="uiElement.refDetail.$" />
+			<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>		
+	</div>
+</div>
+<div fieldId="log:NRICNo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success col-md-4 v3-margin-top-label">
+			<label>NRIC Number
+			<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+		</div>
+		<div class="form-group form-group-lg has-success col-md-8">
+			<input class="form-control" ng-disabled="false" type="text"
+				ng-model="uiElement.refDetail.$" />
+			<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>		
+	</div>
+</div>
+
+<!-- apply Letter Of Guarantee -->
+<div fieldId="log:step3Label1"
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary ng-scope">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-12"><b>Please provide your diagnosis & hospital information:</b></span>
+	</div>
+</div>
+<div fieldId="log:dateOfVisit" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success col-md-4 v3-margin-top-label">
+			<label>Day of Visit
+			<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+		</div>
+		<div class="form-group form-group-lg has-success col-md-8">
+			<input class="ms-calendar" style="padding-left:50px" 
+				ng-disabled="false"
+				ms-datepicker
+				ng-model="uiElement.refDetail.$"/>
+			<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>		
+	</div>
+</div>
+<div fieldId="log:diagnosis" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success col-md-4 v3-margin-top-label">
+			<label>Diagnosis
+			<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+		</div>
+		<div class="form-group form-group-lg has-success col-md-8">
+			<ng-newDropDown
+			disable="false"
+			model="uiElement.refDetail"
+			list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['Diagnosis','Option'])"
+			type="nonFlag" prefix="v3.pnc.policyTerm"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>		
+	</div>
+</div>
+<div fieldId="log:Hospital" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success col-md-4 v3-margin-top-label">
+			<label>Hospital
+			<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+		</div>
+		<div class="form-group form-group-lg has-success col-md-8">
+			<ng-newDropDown
+			disable="false"
+			model="uiElement.refDetail"
+			list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['Hospital','Option'])"
+			type="nonFlag" prefix="v3.pnc.policyTerm"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>		
+	</div>
+</div>
+
+<!-- letter Of Guarantee Outcome -->
+<div fieldid="log:step4preAccepted"
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary ng-scope">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-12">Your request is submitted successfully!</span>
+		<span class="col-md-12">Your Claim Number is CN0002303.</span>
+		<span class="col-md-12">Your request is under review.</span>
+		<span class="col-md-12">We will notify you the outcome vie email/sms within 2 working days.</span>
+	</div>
+</div>
+<div fieldid="log:step4ManualRejected"
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary ng-scope">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-12">Your Claim Number is CN0002303.</span>
+		<span class="col-md-12">We are sorry for your inconvenience. We cannot approve your request as the:</span>
+		<div class="col-md-offset-1"><b>
+			<span class="col-md-12">- Expected cost of treatment more than 10.000 : 25.000.</span>
+			<span class="col-md-12">- Expected stay in the hospital more than 90 days: 100 days.</span>
+			<span class="col-md-12">- Diagnosis under restricted class: X1519-CARCINOMA STOMACH.</span>
+			<span class="col-md-12">- Request for Letter Of Guarantee within 30 days after joined: 14 days.</span>
+			<span class="col-md-12">- Hospital is a non network hospiital: St Louis Hospital.</span></b>
+		</div>
+		<span class="col-md-12">If you have additional information and want us to reconsider again, please contact us at: 1234-5575 (Monday to Friday, 8:45am - 6:45pm)</span>
+	</div>
+</div>
+<div fieldid="log:step4OutrightRejected"
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary ng-scope">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-12">Your Claim Number is CN0002303.</span>
+		<span class="col-md-12">We are sorry for your inconvenience. We cannot approve your request as the:</span>
+		<div class="col-md-offset-1"><b>
+			<span class="col-md-12">- Claim Date is earlier then the member join date.</span>
+			<span class="col-md-12">- Member status is terminated in the policy.</span>
+			<span class="col-md-12">- Claim is within waiting period.</span>
+			<span class="col-md-12">- Claimed medical condition is a pre-existing condition.</span>
+			<span class="col-md-12">- Maximum allowed benefit limit or the year has already been.</span></b>
+		</div>
+		<span class="col-md-12">If you have additional information and want us to reconsider again, please contact us at: 1234-5575 (Monday to Friday, 8:45am - 6:45pm)</span>
+	</div>
+</div>
+<div fieldid="log:step4Approved"
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary ng-scope">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-12">Your Claim Number is CN0002303.</span>
+		<span class="col-md-12">Your Letter Of Guarantee is approved.</span>
+		<span class="col-md-12">Please <a>click here</a> to download/print Letter of Guarantee.</span>
+	</div>
+</div>

@@ -1,0 +1,231 @@
+{
+  "IposDocument": {
+    "Data": {
+      "application-income-protection:ApplicationIncomeProtection": {
+        "@section": "application-income-protection:ApplicationIncomeProtection",
+        "application-income-protection:Summary": {
+          "@key": [
+            "Summary"
+          ],
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-2",
+          "@section": "application-income-protection:ApplicationIncomeProtection",
+          "application-income-protection:Summary": {}
+        },
+        "application-income-protection:DocumentPreview": {
+          "@key": [
+            "DocumentPreview"
+          ],
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-2",
+          "@section": "application-income-protection:ApplicationIncomeProtection",
+          "@onOpen": "showPreviewButton()",
+          "@onClose": "hidePreviewButton()",
+          "application-income-protection:ProposerName": {},
+          "application-income-protection:NumberOfInsuredPerson": {},
+          "application-income-protection:Currency": {}
+        },
+        "application-income-protection:ChannelAndPolicyDelivery": {
+          "@key": [
+            "Summary"
+          ],
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-2",
+          "@section": "application-income-protection:ApplicationIncomeProtection",
+          "application-income-protection:ReferralCode": {},
+          "application-income-protection:PolicyDelivery": {}
+        },
+        "application-income-protection:PaymentDetails": {
+          "@key": [
+            "Summary"
+          ],
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-2",
+          "@section": "application-income-protection:ApplicationIncomeProtection",
+          "application-income-protection:PremiumFrequency": {},
+          "application-income-protection:PremiumFrequencyTemp": {},
+          "application-income-protection:MethodFirstPremium": {},
+          "application-income-protection:MethodRenewalPremium": {},
+          "application-income-protection:PayorVsProposer": {},
+          "application-income-protection:PayorVsProposerTemp": {},
+          "application-income-protection:PayorName": {},
+          "application-income-protection:PayorRelationship": {},
+          "application-income-protection:PayorIDNumber": {}
+        },
+        "application-income-protection:FirstInsured": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-2",
+          "@section": "application-income-protection:ApplicationIncomeProtection",
+          "application-income-protection:FIResindencyDetails ": {
+            "@icon": "fa fa-file-o",
+            "@cssClass": "v3-box-2",
+            "@section": "application-income-protection:FirstInsured",
+            "first-insured:FIResindencyDetails": {}
+          },
+          "application-income-protection:FIMailingAddress": {
+            "@icon": "fa fa-file-o",
+            "@cssClass": "v3-box-2",
+            "@section": "application-income-protection:FirstInsured",
+            "first-insured:SelectAddress": {
+              "@key": [
+                ""
+              ]
+            },
+            "first-insured:AddressTemp": {},
+            "first-insured:BlkHouseNoAndStreet": {
+              "@key": [
+                "first-insured",
+                "BlkHouseNoAndStreet"
+              ]
+            },
+            "first-insured:UnitNo": {
+              "@key": [
+                "first-insured",
+                "UnitNo"
+              ]
+            },
+            "first-insured:Building": {
+              "@key": [
+                "first-insured",
+                "Building"
+              ]
+            },
+            "first-insured:City": {
+              "@key": [
+                "first-insured",
+                "City"
+              ]
+            },
+            "first-insured:Country": {
+              "@key": [
+                "first-insured",
+                "Country"
+              ]
+            },
+            "first-insured:Postal": {
+              "@key": [
+                "first-insured",
+                "Postal"
+              ]
+            }
+          },
+          "application-income-protection:FIPlanDetails": {
+            "@icon": {
+              "main": "fa fa-file-o"
+            },
+            "@section": "application-income-protection:FirstInsured",
+            "first-insured:FIPlanDetails": {}
+          },
+          "application-income-protection:FIReplacement": {
+            "@section": "application-income-protection:FirstInsured",
+            "@icon": {
+              "main": "fa fa-file-o"
+            },
+            "first-insured:FIReplacement": {}
+          },
+          "application-income-protection:FILifestyleDetails": {
+            "@icon": {
+              "main": "fa fa-file-o",
+              "subAction": "removeIcon"
+            },
+            "@section": "application-income-protection:FirstInsured",
+            "first-insured:FILifestyleDetails": {}
+          },
+          "application-income-protection:FIRegularDoctorDetails": {
+            "@icon": {
+              "main": "fa fa-file-o",
+              "subAction": "removeIcon"
+            },
+            "@section": "application-income-protection:FirstInsured",
+            "first-insured:FIRegularDoctorDetails": {}
+          },
+          "application-income-protection:FIHealthDetails": {
+            "@icon": {
+              "main": "fa fa-file-o",
+              "subAction": "removeIcon"
+            },
+            "@section": "application-income-protection:FirstInsured",
+            "first-insured:FIHealthDetails": {}
+          }
+        },
+        "application-income-protection:SecondInsured": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-2",
+          "@section": "application-income-protection:ApplicationIncomeProtection",
+          "application-income-protection:SIResindencyDetails ": {
+            "@icon": "fa fa-file-o",
+            "@cssClass": "v3-box-2",
+            "@section": "application-income-protection:SecondInsured",
+            "second-insured:SIResindencyDetails": {}
+          },
+          "application-income-protection:SIPlanDetails": {
+            "@icon": {
+              "main": "fa fa-file-o"
+            },
+            "@section": "application-income-protection:SecondInsured",
+            "second-insured:SIPlanDetails": {}
+          },
+          "application-income-protection:SIReplacement": {
+            "@section": "application-income-protection:SecondInsured",
+            "@icon": {
+              "main": "fa fa-file-o"
+            },
+            "second-insured:SIReplacement": {}
+          },
+          "application-income-protection:SILifestyleDetails": {
+            "@icon": {
+              "main": "fa fa-file-o",
+              "subAction": "removeIcon"
+            },
+            "@section": "application-income-protection:SecondInsured",
+            "second-insured:SILifestyleDetails": {}
+          },
+          "application-income-protection:SIRegularDoctorDetails": {
+            "@icon": {
+              "main": "fa fa-file-o",
+              "subAction": "removeIcon"
+            },
+            "@section": "application-income-protection:SecondInsured",
+            "second-insured:SIRegularDoctorDetails": {}
+          },
+          "application-income-protection:SIHealthDetails": {
+            "@icon": {
+              "main": "fa fa-file-o",
+              "subAction": "removeIcon"
+            },
+            "@section": "application-income-protection:SecondInsured",
+            "second-insured:SIHealthDetails": {}
+          }
+        },
+        "application-income-protection:USTaxDeclaration": {
+          "@key": [
+            "Summary"
+          ],
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-2",
+          "@section": "application-income-protection:ApplicationIncomeProtection",
+          "application-income-protection:USTaxDeclaration": {}
+        },
+        "application-income-protection:PrivacyPolicyAndDeclaration": {
+          "@key": [
+            "Summary"
+          ],
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-2",
+          "@section": "application-income-protection:ApplicationIncomeProtection",
+          "application-income-protection:PrivacyPolicy": {
+            "@section": "application-income-protection:PrivacyPolicyAndDeclaration",
+            "@icon": "fa fa-file-o",
+            "application-income-protection:PrivacyPolicy": {}
+          },
+          "application-income-protection:WitnessForApplication": {
+            "@icon": "fa fa-file-o",
+            "@section": "application-income-protection:PrivacyPolicyAndDeclaration",
+            "application-income-protection:NameOfWitness": {},
+            "application-income-protection:NRICOfWitness": {}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<section ng-if="isRunOnTablet()" class="common-action-box pull-right" ng-click="commonUIService.showHideItems()">
+	<i class="fa fa-list-ul fa-2x"></i>
+</section>
+<div id="showMore">
+	<span class="arrow arrow-action"></span>
+	<div class="common-action-bar-container">
+		<div>
+			<div class="common-action-items-back" ng-class="card.refDetail['@vpms-suffix']=='Attachment'?'common-action-disabled':''">
+				<div class="common-action-items" loading loading-action="signDocument(fileReaderService, card, getParentCtrlInCharge())">
+					<span class="common-action-items-icon"><i class='fa fa-pencil-square-o fa-2x'></i></span>
+					<span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Sign' | translate}}</span>
+				</div>
+				<md-divider></md-divider>
+			</div>
+			<div class="common-action-items-back">
+				<div class="common-action-items" loading loading-action="fileReaderService.download()">
+					<span class="common-action-items-icon"><i class='fa fa-download fa-2x'></i></span>
+					<span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Download' | translate}}</span>
+				</div>
+				<md-divider></md-divider>
+			</div>
+			<div class="common-action-items-back">
+				<div class="common-action-items" loading loading-action="fileReaderService.send()">
+					<span class="common-action-items-icon"><i class='fa fa-envelope fa-2x'></i></span>
+					<span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Email' | translate}}</span>
+				</div>
+				<md-divider></md-divider>
+			</div>
+		</div>
+	</div>
+</div>

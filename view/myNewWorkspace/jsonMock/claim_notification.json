@@ -1,0 +1,160 @@
+{
+  "IposDocument": {
+    "Data": {
+      "claim-notification:ClaimNotification": {
+        "@key": [
+          "ClaimNotification"
+        ],
+        "@section": "claim-notification:ClaimNotification",
+        "claim-notification:Summary": {
+          "@icon": "fa fa-pencil",
+          "@section": "claim-notification:ClaimNotification",
+          "claim-notification:ClaimNotificationMotorInformation": {
+            "@preview": "claim-notification:Summary",
+            "@key": [
+              ""
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-notification:ClaimNotificationMotorInformation"
+          },
+          "claim-notification:CurrentStatus": {
+            "@preview": [
+              "claim-notification:Summary"
+            ],
+            "@valuePrefix": "v3.document.status.",
+            "@key": [
+              "BusinessStatus"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-notification:CurrentStatus"
+          },
+          "claim-notification:PendingInformation": {},
+          "claim-notification:NextAction": {}
+        },
+        "claim-notification:ClaimInformation": {
+          "@icon": "fa fa-bell",
+          "@section": "claim-notification:ClaimNotification",
+          "claim-notification:ClaimDetails": {
+            "@icon": "fa fa-bell",
+            "@section": "claim-notification:ClaimInformation",
+            "claim-notification:ClaimNo": {
+              "@preview": [
+                "claim-notification:ClaimDetails"
+              ],
+              "@key": [
+                "ClaimNo"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.claim-notification:ClaimNo"
+            },
+            "claim-notification:PolicyOwner": {
+              "@key": [
+                "PolicyOwner"
+              ]
+            },
+            "claim-notification:PolicyType": {
+              "@key": [
+                "PolicyType"
+              ]
+            },
+            "claim-notification:PolicyNumber": {
+              "@key": [
+                "PolicyNumber"
+              ]
+            },
+            "claim-notification:Insured": {
+              "@key": [
+                "Insured"
+              ]
+            },
+            "claim-notification:ServiceBranch": {
+              "@key": [
+                "ServiceBranch"
+              ]
+            },
+            "claim-notification:NotifiedBy": {
+              "@key": [
+                "NotifiedBy"
+              ]
+            },
+            "claim-notification:DateOfLoss": {
+              "@preview": [
+                "claim-notification:ClaimDetails"
+              ],
+              "@key": [
+                "DateOfLoss"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.claim-notification:DateOfLoss",
+              "@format": "datetime"
+            },
+            "claim-notification:ReportDate": {
+              "@preview": [
+                "claim-notification:ClaimDetails"
+              ],
+              "@key": [
+                "ReportDate"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.claim-notification:ReportDate",
+              "@format": "datetime"
+            }
+          },
+          "claim-notification:LossInformation": {
+            "@icon": "fa fa-bell",
+            "@section": "claim-notification:ClaimInformation",
+            "@vpms-suffix": "LossInformation",
+            "claim-notification:RiskNumber": {
+              "@key": [
+                "RiskNumber"
+              ]
+            },
+            "claim-notification:EstimatedLoss": {
+              "@key": [
+                "EstimatedLoss"
+              ]
+            },
+            "claim-notification:LossDescription": {
+              "@key": [
+                "LossDescription"
+              ]
+            },
+            "claim-notification:Remarks": {
+              "@key": [
+                "Remarks"
+              ]
+            }
+          }
+        },
+        "Attachments": {
+          "@key": [
+            "Attachments"
+          ],
+          "@section": "claim-notification:ClaimNotification",
+          "@icon": "fa fa-paperclip",
+          "@cssClass": "v3-box-1",
+          "@previewHtml": "v3-summary-static-attachment.html",
+          "Attachment": {
+            "@key": [
+              "Attachment"
+            ],
+            "@section": "Attachments",
+            "@icon": {
+              "main": "fa fa-paperclip",
+              "subAction": "removeIcon"
+            },
+            "@cssClass": "v3-box-1",
+            "@previewHtml": "v3-summary-static-attachment-file.html",
+            "@onOpen": "fileReaderService.openFileReader('view',card.refDetail,self.moduleService.convertToArray(self.moduleService.findElementInElement_V3(self.moduleService.detail, ['Attachment'])),'uploadMode')",
+            "@cardType": "template"
+          },
+          "addAttachment": {
+            "@section": "Attachments",
+            "@icon": {
+              "main": "fa fa-paperclip",
+              "mainAction": "addIcon"
+            },
+            "@cardType": "action",
+            "@staticHtml": "fileUpload.html",
+            "@onClick": "importFile()"
+          }
+        }
+      }
+    }
+  }
+}

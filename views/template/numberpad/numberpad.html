@@ -1,0 +1,126 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="numberpad"  ng-class="customClass">
+	<a data-toggle="dropdown" href="javascript:void(0)" class="dropdown-toggle">
+		<i class="icon-keyboard"></i>
+	</a>
+	<div id="numberpad" style="border:none;" class="dropdown-menu dropdown-menu-transparent" dropdown-stay-open>
+		<div class=""  data-stopPropagation="true">
+			<div class="col-md-4 center pointer" ng-click="backSpace()">
+				<i class="icon-arrow-left"></i>
+			</div>
+			<div class="col-md-4 center pointer" ng-click="increaseInterval()" >
+				<i class="icon-plus"></i>
+			</div>
+			<div class="col-md-4 center pointer" ng-click="decreaseInterval()" >
+				<i class="icon-minus"></i>
+			</div>
+		</div>
+		<div class="" data-stopPropagation="true">
+			<div class="col-md-4 center pointer" ng-click="addDigit(7)" >
+				<label for="street" class="control-label">7</label>
+			</div>
+			<div class="col-md-4 center pointer" ng-click="addDigit(8)">
+				<label for="street" class="control-label">8</label>
+			</div>
+			<div class="col-md-4 center pointer" ng-click="addDigit(9)">
+				<label for="street" class="control-label">9</label>
+			</div>
+		</div>
+		<div class=""  data-stopPropagation="true">
+			<div class="col-md-4 center pointer" ng-click="addDigit(4)" >
+				<label for="street" class="control-label">4</label>
+			</div>
+			<div class="col-md-4 center pointer" ng-click="addDigit(5)" >
+				<label for="street" class="control-label">5</label>
+			</div>
+			<div class="col-md-4 center pointer" ng-click="addDigit(6)" >
+				<label for="street" class="control-label">6</label>
+			</div>
+		</div>
+		<div class=""  data-stopPropagation="true">
+			<div class="col-md-4 center pointer" ng-click="addDigit(1)" >
+				<label for="street" class="control-label">1</label>
+			</div>
+			<div class="col-md-4 center pointer" ng-click="addDigit(2)" >
+				<label for="street" class="control-label">2</label>
+			</div>
+			<div class="col-md-4 center pointer" ng-click="addDigit(3)" >
+				<label for="street" class="control-label">3</label>
+			</div>
+		</div>
+		<div class=""  data-stopPropagation="true">
+			<div class="col-md-8 center pointer" ng-click="addDigit(0)" >
+				<label for="street" class="control-label">0</label>
+			</div>
+			<div class="col-md-4 center pointer" ng-click="clear()">
+				<label for="street" class="control-label">C</label>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+<!-- 	<ul style="width:220px" class="dropdown-menu" dropdown-stay-open> -->
+<!-- 	  	<li style="list-style: none; float:left;" > -->
+<!-- 	    	<button type="button" ng-click="increaseInterval()" class="btn btn-default">+</button> -->
+<!-- 	    </li> -->
+<!-- 	    <li style="list-style: none; float:left;" data-stopPropagation="true"> -->
+<!-- 	    	<button type="button" ng-click="decreaseInterval()" class="btn btn-default">-</button> -->
+<!-- 	    </li> -->
+<!-- 	    <li style="list-style: none; float:left;" data-stopPropagation="true"> -->
+<!-- 	    	<button type="button" ng-click="clear()" class="btn btn-default">Clear</button> -->
+<!-- 	    </li> -->
+<!-- 	    <li style="list-style: none; float:left;" data-stopPropagation="true"> -->
+<!-- 	    	<button type="button" ng-click="backSpace()" class="btn btn-default"><-</button> -->
+<!-- 	    </li> -->
+<!-- 	    <li style="list-style: none; float:left;" data-stopPropagation="true"> -->
+<!-- 	    	<button type="button" ng-click="addDigit(0)" class="btn btn-default">0</button> -->
+<!-- 	    </li> -->
+<!-- 	    <li style="list-style: none; float:left;" data-stopPropagation="true"> -->
+<!-- 	    	<button type="button" ng-click="addDigit(1)" class="btn btn-default">1</button> -->
+<!-- 	    </li> -->
+<!-- 	    <li style="list-style: none; float:left;" data-stopPropagation="true"> -->
+<!-- 	    	<button type="button" ng-click="addDigit(2)" class="btn btn-default">2</button> -->
+<!-- 	    </li> -->
+<!-- 	    <li style="list-style: none; float:left;" data-stopPropagation="true"> -->
+<!-- 	    	<button type="button" ng-click="addDigit(3)" class="btn btn-default">3</button> -->
+<!-- 	    </li> -->
+<!-- 	    <li style="list-style: none; float:left;" data-stopPropagation="true"> -->
+<!-- 	    	<button type="button" ng-click="addDigit(4)" class="btn btn-default">4</button> -->
+<!-- 	    </li> -->
+<!-- 	    <li style="list-style: none; float:left;" data-stopPropagation="true"> -->
+<!-- 	    	<button type="button" ng-click="addDigit(5)" class="btn btn-default">5</button> -->
+<!-- 	    </li> -->
+<!-- 	    <li style="list-style: none; float:left;" data-stopPropagation="true"> -->
+<!-- 	    	<button type="button" ng-click="addDigit(6)" class="btn btn-default">6</button> -->
+<!-- 	    </li> -->
+<!-- 	    <li style="list-style: none; float:left;" data-stopPropagation="true"> -->
+<!-- 	    	<button type="button" ng-click="addDigit(7)" class="btn btn-default">7</button> -->
+<!-- 	    </li> -->
+<!-- 	    <li style="list-style: none; float:left;" data-stopPropagation="true"> -->
+<!-- 	    	<button type="button" ng-click="addDigit(8)" class="btn btn-default">8</button> -->
+<!-- 	    </li> -->
+<!-- 	    <li style="list-style: none; float:left;" data-stopPropagation="true"> -->
+<!-- 	    	<button type="button" ng-click="addDigit(9)" class="btn btn-default">9</button> -->
+<!-- 	    </li> -->
+<!-- 	</ul> -->
+</div>

@@ -1,0 +1,199 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="claim-notification:ClaimNotificationMotorInformation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6 no-left-padding">{{::'v3.mynewworkspace.portlet.label.claim-notification:ClaimNotificationMotorInformation' | translate}}:</span>
+		<span class="col-md-6 no-left-padding">
+		{{moduleService.findElementInDetail_V3(['DocName'])}} 
+		<span ng-if="moduleService.findElementInDetail_V3(['ClaimNo']).$!=undefined"> / </span>
+		 {{moduleService.findElementInDetail_V3(['ClaimNo']).$}}
+		 </span>
+	</div>
+</div>
+<div fieldId="claim-notification:CurrentStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6 no-left-padding">{{::'v3.mynewworkspace.portlet.label.claim-notification:CurrentStatus' | translate}}:</span>
+		<span class="col-md-6 no-left-padding">{{moduleService.findElementInDetail_V3(['BusinessStatus'])}}</span>
+	</div>
+</div>
+<div fieldId="claim-notification:PendingInformation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6 no-left-padding">{{::'v3.mynewworkspace.portlet.label.claim-notification:PendingInformation' | translate}}:</span>
+		<span class="col-md-6 no-left-padding">N/A</span>
+	</div>
+</div>
+<div fieldId="claim-notification:NextAction" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6 no-left-padding">{{::'v3.mynewworkspace.portlet.label.claim-notification:NextAction' | translate}}:</span>
+		<span class="col-md-6 no-left-padding">N/A</span>
+	</div>
+</div>
+<!-- Claim Notification Info -->
+	<!-- Claim Detail -->
+	<div fieldId="claim-notification:ClaimNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+					<label>{{::'v3.mynewworkspace.portlet.label.claim-notification:ClaimNo' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ClaimNo'])['@mandatory'] == '1'">*</span></label>
+				
+			    	<!-- <label id="valueId">
+		   	 			<span ng-bind="moduleService.findElementInDetail_V3(['DocName'])"></span>
+		   	 			<span ng-if="moduleService.findElementInDetail_V3(['ClaimNo']).$!=undefined"> / </span>
+		   	 			<span ng-bind="moduleService.findElementInDetail_V3(['ClaimNo']).$"></span>	   	 			
+		   	 		</label> -->
+		   	 		<input class="form-control" ng-disabled="true"
+		        	type="text"  maxlength="120" 
+		        	value="{{(moduleService.findElementInDetail_V3(['ClaimNo']).$!=undefined) ? (moduleService.findElementInDetail_V3(['DocName']) + '/' +  moduleService.findElementInDetail_V3(['ClaimNo']).$) : moduleService.findElementInDetail_V3(['DocName'])}}" />		    			   	
+		  	</div>
+	  	</div>
+	</div>
+	<div fieldId="claim-notification:PolicyOwner" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.mynewworkspace.portlet.label.claim-notification:PolicyOwner' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PolicyOwner'])['@mandatory'] == '1'">*</span></label>
+			   	 <input class="form-control" placeholder="Policy Owner" ng-disabled="true"
+		        	type="text"  maxlength="120" ng-model="moduleService.findElementInDetail_V3(['PolicyOwner']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwner']).errorMessage | translate"></span>		
+		  	</div>
+	  	</div>
+	</div>
+	<div fieldId="claim-notification:PolicyNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	     	<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.mynewworkspace.portlet.label.claim-notification:PolicyNumber' | translate}} :<span ng-show="moduleService.findElementInDetail_V3(['PolicyType'])['@mandatory'] == '1'">*</span></label>
+			   	<!-- <label id="valueId">
+	   	 			<span ng-value=" 'v3.illustration.product.'+  moduleService.findElementInDetail_V3(['PolicyType']).$ |translate"></span>
+	   	 			 {{::'v3.illustration.product.'+  moduleService.findElementInDetail_V3(['PolicyType']).$ |translate}}
+	   	 			(<span ng-bind="moduleService.findElementInDetail_V3(['PolicyNumber']).$"></span>)	   	 			
+	   	 		</label>	 -->	
+	   	 		<input class="form-control" ng-disabled="true"
+		        	type="text"  maxlength="120" value="{{('v3.illustration.product.'+  moduleService.findElementInDetail_V3(['PolicyType']).$ |translate) + ' (' + moduleService.findElementInDetail_V3(['PolicyNumber']).$ + ')'}}" />
+		  	</div>	     	
+	  	</div>
+	</div>
+	<div fieldId="claim-notification:Insured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+	     <div ng-show="moduleService.findElementInDetail_V3(['PolicyType']).$ == 'motor-private-car-m-as'" class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.mynewworkspace.portlet.label.claim-notification:VehicleNumber' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Insured'])['@mandatory'] == '1'">*</span></label>
+			   	 <input class="form-control" placeholder="{{(viewMode || moduleService.findElementInDetail_V3(['Insured'])['@editable'] == '0') ? '' : ('v3.mynewworkspace.portlet.label.claim-notification:VehicleNumber' | translate)}}" 
+			   	 	ng-disabled="viewMode || moduleService.findElementInDetail_V3(['Insured'])['@editable'] == '0'"
+		        	type="text"  maxlength="120" ng-model="moduleService.findElementInDetail_V3(['Insured']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Insured']).errorMessage | translate"></span>		
+		  	</div>
+	  	</div>
+	  	<div ng-show="moduleService.findElementInDetail_V3(['PolicyType']).$ != 'motor-private-car-m-as'" class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.mynewworkspace.portlet.label.claim-notification:Insured' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Insured'])['@mandatory'] == '1'">*</span></label>
+		        	<input class="form-control" placeholder="{{(viewMode || moduleService.findElementInDetail_V3(['Insured'])['@editable'] == '0') ? '' : ('v3.mynewworkspace.portlet.label.claim-notification:Insured' | translate)}}" 
+		        	 ng-disabled="viewMode || moduleService.findElementInDetail_V3(['Insured'])['@editable'] == '0'"
+		        	type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['Insured']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Insured']).errorMessage | translate"></span>		
+		  	</div>
+	  	</div>
+	</div>
+	<div fieldId="claim-notification:ServiceBranch" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.mynewworkspace.portlet.label.claim-notification:ServiceBranch' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ServiceBranch'])['@mandatory'] == '1'">*</span></label>
+		        	 <input class="form-control" placeholder="{{(viewMode || moduleService.findElementInDetail_V3(['ServiceBranch'])['@editable'] == '0') ? '' : ('v3.mynewworkspace.portlet.label.claim-notification:ServiceBranch' | translate)}}" 
+		        	 ng-disabled="viewMode || moduleService.findElementInDetail_V3(['ServiceBranch'])['@editable'] == '0'"
+		        	type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['ServiceBranch']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ServiceBranch']).errorMessage | translate"></span>		
+		  	</div>
+	  	</div>
+	</div>
+	<div fieldId="claim-notification:NotifiedBy" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.mynewworkspace.portlet.label.claim-notification:NotifiedBy' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['NotifiedBy'])['@mandatory'] == '1'">*</span></label>
+		        <input class="form-control" placeholder="{{(viewMode || moduleService.findElementInDetail_V3(['NotifiedBy'])['@editable'] == '0') ? '' : ('v3.mynewworkspace.portlet.label.claim-notification:NotifiedBy' | translate)}}" 
+		        	 ng-disabled="viewMode || moduleService.findElementInDetail_V3(['NotifiedBy'])['@editable'] == '0'"
+		        	type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['NotifiedBy']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['NotifiedBy']).errorMessage | translate"></span>		
+		  	</div>
+	  	</div>
+	</div>		
+	<div fieldId="claim-notification:DateOfLoss" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+    	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.mynewworkspace.portlet.label.claim-notification:DateOfLoss' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['DateOfLoss'])['@mandatory'] == '1'">*</span></label>
+			   	<div class="ms-calendar-wrapper"><input
+			   	ng-disabled="viewMode"
+			   	ms-datepicker-only-past ng-model="::moduleService.findElementInDetail_V3(['DateOfLoss']).$" class="ms-calendar"/></div>
+		        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['DateOfLoss']).errorMessage | translate"></span>		
+		  	</div>
+	  	</div>
+	</div>
+	<div fieldId="claim-notification:ReportDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.portlet.label.claim-notification:ReportDate' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ReportDate'])['@mandatory'] == '1'">*</span></label>
+		   	<div class="ms-calendar-wrapper"><input ms-datepicker-only-past ng-disabled="viewMode" ng-model="::moduleService.findElementInDetail_V3(['ReportDate']).$" class="ms-calendar"/></div>
+	        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ReportDate']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>	
+	<!-- Loss Information -->	
+	<div fieldId="claim-notification:RiskNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.mynewworkspace.portlet.label.claim-notification:RiskNumber' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['RiskNumber'])['@mandatory'] == '1'">*</span></label>
+		        <input class="form-control" placeholder="{{(viewMode || moduleService.findElementInDetail_V3(['RiskNumber'])['@editable'] == '0') ? '' : ('v3.mynewworkspace.portlet.label.claim-notification:RiskNumber' | translate)}}" 
+		        	 ng-disabled="viewMode || moduleService.findElementInDetail_V3(['RiskNumber'])['@editable'] == '0'"
+		        	type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['RiskNumber']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['RiskNumber']).errorMessage | translate"></span>		
+		  	</div>
+	  	</div>
+	</div>	
+	<div fieldId="claim-notification:LossDescription" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.mynewworkspace.portlet.label.claim-notification:LossDescription' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['LossDescription'])['@mandatory'] == '1'">*</span></label>
+			   	<textarea class="form-control" rows="3" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['LossDescription'])['@editable'] == '0'" 
+			   		ng-model="::moduleService.findElementInDetail_V3(['LossDescription']).$"></textarea> 
+		        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['LossDescription']).errorMessage | translate"></span>		
+		  	</div>
+	  	</div>
+	</div>
+	<div fieldId="claim-notification:EstimatedLoss" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+	     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.mynewworkspace.portlet.label.claim-notification:EstimatedLoss' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['EstimatedLoss'])['@mandatory'] == '1'">*</span></label>
+		         <input class="form-control" placeholder="{{(viewMode || moduleService.findElementInDetail_V3(['EstimatedLoss'])['@editable'] == '0') ? '' : ('v3.mynewworkspace.portlet.label.claim-notification:EstimatedLoss' | translate)}}" 
+		        	 ng-disabled="viewMode || moduleService.findElementInDetail_V3(['EstimatedLoss'])['@editable'] == '0'"
+		        	type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['EstimatedLoss']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['EstimatedLoss']).errorMessage | translate"></span>		
+		  	</div>
+	  	</div>
+	</div>
+	<div fieldId="claim-notification:Remarks" style="margin-bottom:20px;" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label>{{::'v3.mynewworkspace.portlet.label.claim-notification:Remarks' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Remarks'])['@mandatory'] == '1'">*</span></label>
+			   	<textarea class="form-control" rows="3" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['Remarks'])['@editable'] == '0'"
+			   		 ng-model="::moduleService.findElementInDetail_V3(['Remarks']).$"></textarea> 
+		        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Remarks']).errorMessage | translate"></span>		
+		  	</div>
+	  	</div>
+	</div>
+<!-- Attachment -->
+<div fieldId="Attachment" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div ng-include="initContextPath+'/view/fileAttachment/fileUpload.html'"></div>
+</div>

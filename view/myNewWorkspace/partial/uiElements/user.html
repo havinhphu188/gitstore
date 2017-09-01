@@ -1,0 +1,840 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Person Info -->
+<div fieldId="user:Title" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+       		<label>{{::'new.v3.userProfile.user.label.Title'| translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown model="uiElement.refDetail" disable="moduleService.freeze == true || uiElement.refDetail['@editable'] == '0'" list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist,['Title']).Option" type="nonFlag" prefix="v3.pnc.title.enum"></ng-newDropDown>
+            <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:FullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.FullName' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['FullName'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" placeholder="Full Name" ng-disabled="moduleService.findElementInDetail_V3(['FullName'])['@editable'] == '0'" type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['FullName']).$" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['FullName']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:BirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.DateofBirth' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['BirthDate'])['@mandatory'] == '1'">*</span></label>
+            <div style="position:relative">
+                <input ms-datepicker ng-model=" moduleService.findElementInDetail_V3(['BirthDate']).$" class="ms-calendar" />
+            </div>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BirthDate']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:Gender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    	<label>{{::'new.v3.userProfile.user.label.Gender'| translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+        <v3-switch-new-slide switch-model="moduleService.findElementInElement_V3(card.refDetail, ['Gender']).Value" 
+             prefix="v3.pnc.gender.enum" switch-default-value="" switch-disabled="moduleService.findElementInElement_V3(card.refDetail, ['Gender'])['@editable'] == '0'" 
+             switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Gender']).Option">
+        <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+</div>
+<div fieldId="user:MaritalStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.MaritalStatus' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MaritalStatus'])['@mandatory'] == '1'">*</span></label>
+            <v3-switch-new switch-model="moduleService.findElementInDetail_V3(['MaritalStatus']).Value" prefix="v3.pnc.maritalStatus.enum" switch-default-value="" switch-disabled="moduleService.findElementInDetail_V3(['MaritalStatus'])['@editable'] == '0'" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['MaritalStatus']).Option">
+            </v3-switch-new>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MaritalStatus']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:SmokerStat" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.SmokingStatus' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['SmokerStatus'])['@mandatory'] == '1'">*</span></label>
+            <v3-switch-new switch-model="moduleService.findElementInDetail_V3(['SmokerStatus']).Value" prefix="v3.pnc.smoker.enum" switch-default-value="" switch-disabled="false" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['SmokerStat']).Option">
+            </v3-switch-new>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['SmokerStatus']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:Nationality" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.Nationality' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Nationality'])['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown model="moduleService.findElementInDetail_V3(['Nationality'])" list=" moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Nationality']).Option" type="nonFlag" prefix="v3.user.nationality"></ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Nationality']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:Race" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.Race' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Race'])['@mandatory'] == '1'">*</span></label>
+            <v3-switch-new alway-watch="true" prefix="v3.pnc.race.enum" switch-model="moduleService.findElementInDetail_V3(['Race']).Value" prefix="v3.pnc.race.enum" switch-default-value="" switch-disabled="moduleService.findElementInDetail_V3(['Race'])['@editable'] == '0'" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Race']).Option">
+            </v3-switch-new>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Race']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<!-- configurationUIService.userIds -->
+<!-- <div fieldId="user:IDType" ng-repeat="id in configurationUIService.userIds track by $index"> -->
+<div fieldId="user:IDType" ng-repeat="id in moduleService.findElementInDetail_V3(['IDs', 'ID']) track by $index">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+        <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+            <div class="form-group form-group-lg has-success">
+                <label>{{::'new.v3.userProfile.user.label.idtype' | translate}}<span ng-show="moduleService.findElementInElement_V3(id, ['IDType'])['@mandatory'] == '1'">*</span></label>
+                <v3-switch-new prefix="v3.pnc.idType.enum" switch-model="moduleService.findElementInElement_V3(id, ['IDType']).Value" switch-default-value="" switch-disabled="moduleService.findElementInElement_V3(id, ['IDType'])['@editable'] == '0'" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['IDType']).Option">
+                </v3-switch-new>
+                <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(id, ['IDType']).errorMessage | translate"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+        <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+            <div class="form-group form-group-lg has-success">
+                <label>{{::'new.v3.userProfile.user.label.idnumber' | translate}}<span ng-show="moduleService.findElementInElement_V3(id, ['IDNumber'])['@mandatory'] == '1'">*</span></label>
+                <input type="text" class="form-control" placeholder="ID Number" ng-disabled="false" maxlength="12" ng-model="moduleService.findElementInElement_V3(id, ['IDNumber']).$" />
+                <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(id, ['IDNumber']).errorMessage | translate"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Other Infor
+<div fieldId="user:Education" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.education' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Education'])['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown model="moduleService.findElementInElement_V3(moduleService.detail,['Education'])" list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Education']).Option" type="nonFlag" prefix="v3.pnc.education.enum">
+            </ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Education']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div> -->
+<div fieldId="user:BusinessIndustry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.BusinessIndustry' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['BusinessIndustry'])['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown model="moduleService.findElementInElement_V3(moduleService.detail,['BusinessIndustry'])" list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['BusinessIndustry']).Option" type="nonFlag" prefix="v3.application.motor.industry">
+            </ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BusinessIndustry']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:Occupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.Occupation' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Occupation'])['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown model="moduleService.findElementInElement_V3(moduleService.detail,['Person','Occupation'])" list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum">
+            </ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="user:EmpStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.employmentStatus' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['EmploymentStatus'])['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown model="moduleService.findElementInElement_V3(moduleService.detail,['EmploymentStatus'])" list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['EmploymentStatus']).Option" type="nonFlag" prefix="v3.pnc.employmentStatus.enum">
+            </ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['EmploymentStatus']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:Staff" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.Staff' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Staff'])['@mandatory'] == '1'">*</span></label>
+            <v3-switch-new-slide prefix="v3.yesno.enum" switch-model="moduleService.findElementInDetail_V3(['Staff']).Value" switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['Staff'])['@editable'] == '0'" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Staff']).Option">
+            </v3-switch-new-slide>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Staff']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:VIP" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.VIP' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['VIP'])['@mandatory'] == '1'">*</span></label>
+            <v3-switch-new-slide prefix="v3.yesno.enum" switch-model="moduleService.findElementInDetail_V3(['VIP']).Value" switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['VIP'])['@editable'] == '0'" switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['VIP']).Option">
+            </v3-switch-new-slide>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['VIP']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:ReferralType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.ReferralType' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ReferralType'])['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown model="moduleService.findElementInElement_V3(moduleService.detail,['ReferralType'])" list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['ReferralType']).Option" type="nonFlag" prefix="v3.pnc.referralType.enum">
+            </ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ReferralType']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:Referrer" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.Referrer' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Referrer'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" placeholder="Referrer" ng-disabled="false" type="text" maxlength="120" ng-model="moduleService.findElementInElement_V3(moduleService.detail,['Referrer']).$" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Referrer']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:CountryOfBirth" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.CountryOfBirth' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['CountryOfBirth'])['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown model="moduleService.findElementInDetail_V3(['CountryOfBirth'])" list=" moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['CountryOfBirth']).Option" type="full-flag" prefix="v3.pnc.country.enum"></ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CountryOfBirth']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>-->
+<!-- Contact Info -->
+<!-- <div fieldId="user:EmailAddress" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+        <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+            <div class="form-group form-group-lg has-success">
+                <label>{{'v3.myworkspace.label.application.motor.ContactType' | translate}}</label>
+                <ng-newDropDown disable="true" model="varsRole.contactType" list="listTypeSendOTP.TypeSend.Option" type="nonFlag" prefix="v3.personalprofile.portlet.label">
+                </ng-newDropDown>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+        <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+            <div class="form-group form-group-lg has-success">
+                <label>{{'v3.myworkspace.label.application.motor.ContactInformation' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['UserName'])['@mandatory'] == '1'">*</span></label>
+                <input class="form-control" placeholder="Username" ng-disabled="true" type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['UserName']).$" />
+            </div>
+        </div>
+    </div>
+</div>
+<div fieldId="user:Contact" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div ng-show="moduleService.findElementInDetail_V3(['Contacts'])['@counter'] > 0">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+            <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+                <div class="form-group form-group-lg has-success" align="center">
+                    <label>{{::'new.v3.userProfile.user.label.addNewContact' | translate}}</label>
+                    <button class="btn btn-lg v3-btn-primary addRemoveButton" ng-click="moduleService.addElementInElement_V3(moduleService.detail, ['Contacts'], ['Contact'])"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+       
+        <div ng-repeat="contact in moduleService.convertToArray(moduleService.findElementInDetail_V3(['Contact'])) track by $index">
+           
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+                        <div class="form-group form-group-lg has-success">
+                            <label>{{'v3.myworkspace.label.application.motor.ContactType' | translate}}<span ng-show="moduleService.findElementInElement_V3(contact,['ContactType'])['@mandatory'] == '1'">*</span></label>
+                            <select class="custom-select-1" ng-model="moduleService.findElementInElement_V3(contact, ['ContactType']).Value" ng-options="obj.value as ('v3.user.contact.'+ obj.value | translate) for obj in moduleService.findElementInElement_V3(moduleService.lazyChoicelist,['ContactType','Option'])"></select>
+                            <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(contact, ['ContactType']).errorMessage | translate"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3">
+                    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+                        <div class="form-group form-group-lg has-success" ng-if="moduleService.findElementInElement_V3(contact,['ContactType']).Value!='EMAIL_ADDRESS' && moduleService.findElementInElement_V3(contact,['ContactType']).Value!=''">
+                            <span>{{'v3.myworkspace.label.application.motor.ContactInformation' | translate}}<span ng-show="moduleService.findElementInElement_V3(contact,['ContactInformation'])['@mandatory'] == '1'" >*</span></span>
+                            <div layout="row" >
+                                <div >
+                                    <input class="form-control" type="text" ng-disabled="moduleService.findElementInElement_V3(contact,['user:ContactValue'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber phone-Numbers-Only ng-model="moduleService.findElementInElement_V3(contact,['user:ContactValue']).$" />
+                                    <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(contact, ['user:ContactValue']).errorMessage | translate"></span>
+                                </div>
+                                <div class="form-group form-group-lg has-success">
+                                    <button class="btn btn-lg v3-btn-danger addRemoveButton" ng-click="moduleService.removeElementInElement_V3($index, moduleService.detail, ['Contacts'], ['Contact'])"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+     
+        </div>
+    </div>
+</div> -->
+<!-- Address -->
+<!-- <div fieldId="user:AddressType" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Address Type <span ng-show="moduleService.findElementInDetail_V3(['AddressType'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInDetail_V3(['AddressType'])"
+				disable="moduleService.findElementInDetail_V3(['AddressType'])['@editable'] == '0'"  
+				list=" moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['AddressType']).Option" 
+				type="nonFlag" prefix="v3.mynewworkspace.portlet.label.application-motor"></ng-newDropDown>
+	      	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['AddressType']).errorMessage | translate"></span>			
+	  	</div>
+  	</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		
+  	</div>
+</div> -->
+<!-- ng-repeat="contact in moduleService.convertToArray(moduleService.findElementInDetail_V3(['Contact'])) track by $index"
+<div fieldId="user:BlkHouseNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.BlockHouseNumber' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['BlkHouseNo'])['@mandatory'] == '1'">*</span></label>
+            <input type="text" class="form-control" placeholder="{{(moduleService.findElementInDetail_V3(['BlkHouseNo'])['@editable'] == '0') ? '' : 'Block/ House Number'}}" ng-disabled="moduleService.findElementInDetail_V3(['BlkHouseNo'])['@editable'] == '0'" maxlength="12" ng-model="moduleService.findElementInElement_V3(card.refDetail,['BlkHouseNo']).$" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BlkHouseNo']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:Street" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Street<span ng-show="moduleService.findElementInDetail_V3(['Street'])['@mandatory'] == '1'">*</span></label>		    
+		    <input type="text" class="form-control" placeholder="Block/ House Number" ng-disabled="moduleService.findElementInDetail_V3(['Street'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInElement_V3(card.refDetail,['Street']).$" />
+        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Street']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="user:UnitNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.unitNumber' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['UnitNo'])['@mandatory'] == '1'">*</span></label>
+            <input type="text" class="form-control" placeholder="{{(moduleService.findElementInDetail_V3(['UnitNo'])['@editable'] == '0') ? '' : 'Unit Number'}}" ng-disabled="moduleService.findElementInDetail_V3(['UnitNo'])['@editable'] == '0'" maxlength="12" ng-model="moduleService.findElementInElement_V3(card.refDetail,['UnitNo']).$" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['UnitNo']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:Building" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.Building' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Building'])['@mandatory'] == '1'">*</span></label>
+            <input type="text" class="form-control" placeholder="Building" ng-disabled="moduleService.findElementInDetail_V3(['Building'])['@editable'] == '0'" maxlength="12" ng-model="moduleService.findElementInElement_V3(card.refDetail,['Building']).$" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Building']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:City" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.City' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['City'])['@mandatory'] == '1'">*</span></label>
+            <input type="text" class="form-control" placeholder="City" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['City'])['@editable'] == '0'" maxlength="12" ng-model="moduleService.findElementInElement_V3(card.refDetail,['City']).$" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['City']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<!-- <div fieldId="user:State" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>State<span ng-show="moduleService.findElementInDetail_V3(['State'])['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control" placeholder="City" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['State'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInElement_V3(card.refDetail,['State']).$" />
+        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['State']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div> -->
+<!-- <div fieldId="user:Country" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>Country <span ng-show="moduleService.findElementInDetail_V3(['Country'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInElement_V3(card.refDetail,['Country'])"
+				disable="moduleService.findElementInDetail_V3(['Country'])['@editable'] == '0'"  
+				list=" moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Country']).Option" type="full-flag" prefix="v3.pnc.country.enum"></ng-newDropDown>
+			
+	        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Country']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="user:Postal" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.PostalCode' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Postal'])['@mandatory'] == '1'">*</span></label>
+            <input type="text" class="form-control" placeholder="Postal Code" ng-disabled="moduleService.findElementInDetail_V3(['Postal'])['@editable'] == '0'" maxlength="12" ng-model="moduleService.findElementInElement_V3(card.refDetail,['Postal']).$" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Postal']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="user:PreferAddress" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'new.v3.userProfile.user.label.State' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PreferAddress'])['@mandatory'] == '1'">*</span></label>
+            <input type="text" class="form-control" placeholder="PreferAddress" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['PreferAddress'])['@editable'] == '0'" maxlength="12" ng-model="moduleService.findElementInElement_V3(card.refDetail,['PreferAddress']).$" />
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PreferAddress']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div> -->
+<div fieldId="person:EmailAddress" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.EmailAddress" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['EmailAddress'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="{{'new.v3.mynewworkspace.corporate.label.EmailAddress' | translate}}" ng-disabled="moduleService.findElementInDetail_V3(['EmailAddress'])['@editable'] == '0'"
+				type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['EmailAddress']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['EmailAddress']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="person:MobilePhone" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.MobilePhone" | translate}} <span ng-show="moduleService.findElementInDetail_V3(['MobilePhone'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['MobilePhone'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber phone-Numbers-Only
+				ng-model="moduleService.findElementInDetail_V3(['MobilePhone']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MobilePhone']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="person:HomePhone" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.HomePhone" | translate}} <span ng-show="moduleService.findElementInDetail_V3(['HomePhone'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['HomePhone'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber phone-Numbers-Only
+				ng-model="moduleService.findElementInDetail_V3(['HomePhone']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['HomePhone']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="person:OfficePhone" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.OfficePhone" | translate}} <span ng-show="moduleService.findElementInDetail_V3(['OfficePhone'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['OfficePhone'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber phone-Numbers-Only
+				ng-model="moduleService.findElementInDetail_V3(['OfficePhone']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['OfficePhone']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+
+<!-- Primary Addresses -->
+<div fieldId="person:PAddressType" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-padding-left-0">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label> {{"new.v3.mynewworkspace.prospect.label.Addresstype"| translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['AddressType'])['@mandatory'] == '1'">*</span></label>
+			    <v3-switch-new-slide 
+		   			switch-model="moduleService.findElementInElement_V3(card.refDetail, ['AddressType']).Value" prefix="v3.pnc.addressType.enum"
+		   			switch-default-value="" switch-disabled="moduleService.findElementInElement_V3(card.refDetail, ['AddressType'])['@editable'] == '0'"
+		   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['PAddressType']).Option">
+		   		</v3-switch-new-slide>
+		      	<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['AddressType']).errorMessage | translate"></span>			
+		  	</div>
+		</div>
+  	</div>			
+</div>
+<div fieldId="person:PBlkHouseNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content form-group">
+        <label>{{'new.v3.mynewworkspace.motor.application.label.BlockHouseNumberandStreet' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo'])['@mandatory'] == '1'">*</span>
+        </label>
+        <div class="form-group form-group-lg has-success">
+            <div class="col-xs-12 col-sm-3 col-lg-3 no-left-padding no-right-padding">
+                <input type="text" class="form-control" placeholder="{{(moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo'])['@editable'] == '0') ? '' : ('new.v3.mynewworkspace.motor.application.label.BlockHouseNumberandStreet' | translate) }}" ng-disabled="moduleService.freeze == true || moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo'])['@editable'] == '0'" maxlength="12" ng-model="moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).$" />
+            </div>
+            <div class="col-xs-12 col-sm-9 col-lg-9 no-left-padding no-right-padding">
+                <input type="text" class="form-control" placeholder="{{'new.v3.mynewworkspace.motor.application.label.Street' | translate}}" ng-disabled="moduleService.freeze == true || moduleService.findElementInElement_V3(card.refDetail, ['Street'])['@editable'] == '0'" maxlength="30" ng-model="moduleService.findElementInElement_V3(card.refDetail, ['Street']).$" />
+            </div>
+            <span class="errorMessage" ng-if="!moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage | translate"></span>
+            <span class="errorMessage" ng-if="!moduleService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).errorMessage | translate"></span>
+            <span class="errorMessage" ng-if="moduleService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage && moduleService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="person:PCountry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.Country"| translate}}  <span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['Country'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInElement_V3(card.refDetail, ['Country'])"
+				list=" moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['PCountry']).Option" type="nonFlag" prefix="v3.pnc.country.enum"></ng-newDropDown>
+	        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Country']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+
+<!-- Non Primary Addresses -->
+<div fieldId="person:NPAddressType" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-padding-left-0">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			    <label> {{"new.v3.mynewworkspace.prospect.label.Addresstype"| translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['AddressType'])['@mandatory'] == '1'">*</span></label>
+			    <v3-switch-new-slide 
+		   			switch-model="moduleService.findElementInElement_V3(card.refDetail, ['AddressType']).Value" prefix="v3.pnc.addressType.enum"
+		   			switch-default-value="" switch-disabled="moduleService.findElementInElement_V3(card.refDetail, ['AddressType'])['@editable'] == '0'"
+		   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['NPAddressType']).Option">
+		   		</v3-switch-new-slide>
+		      	<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['AddressType']).errorMessage | translate"></span>			
+		  	</div>
+		</div>
+  	</div>			
+</div>
+<div fieldId="person:NPBlkHouseNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content form-group">
+        <label>{{'new.v3.mynewworkspace.motor.application.label.BlockHouseNumberandStreet' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo'])['@mandatory'] == '1'">*</span>
+        </label>
+        <div class="form-group form-group-lg has-success">
+            <div class="col-xs-12 col-sm-3 col-lg-3 no-left-padding no-right-padding">
+                <input type="text" class="form-control" placeholder="{{(moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo'])['@editable'] == '0') ? '' : ('new.v3.mynewworkspace.motor.application.label.BlockHouseNumberandStreet' | translate) }}" ng-disabled="moduleService.freeze == true || moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo'])['@editable'] == '0'" maxlength="12" ng-model="moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).$" />
+            </div>
+            <div class="col-xs-12 col-sm-9 col-lg-9 no-left-padding no-right-padding">
+                <input type="text" class="form-control" placeholder="{{'new.v3.mynewworkspace.motor.application.label.Street' | translate}}" ng-disabled="moduleService.freeze == true || moduleService.findElementInElement_V3(card.refDetail, ['Street'])['@editable'] == '0'" maxlength="30" ng-model="moduleService.findElementInElement_V3(card.refDetail, ['Street']).$" />
+            </div>
+            <span class="errorMessage" ng-if="!moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage | translate"></span>
+            <span class="errorMessage" ng-if="!moduleService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).errorMessage | translate"></span>
+            <span class="errorMessage" ng-if="moduleService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage && moduleService.findElementInElement_V3(card.refDetail, ['Street']).errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['BlkHouseNo']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="person:NPCountry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{"new.v3.mynewworkspace.prospect.label.Country"| translate}}  <span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['Country'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInElement_V3(card.refDetail, ['Country'])"
+				list=" moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['NPCountry']).Option" type="nonFlag" prefix="v3.pnc.country.enum"></ng-newDropDown>
+	        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Country']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="user:TicketTime" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label class="col-xs-12 col-sm-12 col-lg-12 no-left-padding no-right-padding">{{::'new.v3.userProfile.user.label.TicketTime' | translate}}*</label>
+			<div class="col-xs-12 col-sm-3 col-lg-3 no-left-padding no-right-padding">
+				<input positive-number class="form-control"	ng-model="moduleService.dropdownTicket.ticketTime" ng-change="calculateExtensionTime()" />
+			</div>
+			<div class="col-xs-12 col-sm-9 col-lg-9 no-left-padding no-right-padding">
+				<select class="form-control" ng-model="moduleService.dropdownTicket.ticketTimeUnit" ng-change="calculateExtensionTime()">
+					<option ng-repeat="item in moduleService.listTimeUnit"	value="{{item.unit_id}}">{{item.unit_id}}</option>
+				</select>
+			</div>
+
+		</div>
+    </div>
+</div>
+<div fieldId="user:Extension" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label class="col-xs-12 col-sm-12 col-lg-12 no-left-padding no-right-padding">{{::'new.v3.userProfile.user.label.Extension' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PreferAddress'])['@mandatory'] == '1'">*</span></label>
+		     <div class="col-xs-12 col-sm-3 col-lg-3 no-left-padding no-right-padding">
+			   <input positive-number class="form-control" ng-model="moduleService.dropdownTicket.extension"/>
+        	</div>
+		    <div class="col-xs-12 col-sm-9 col-lg-9 no-left-padding no-right-padding">
+			    	<select class="form-control" ng-model="moduleService.dropdownTicket.extensionTimeUnit">
+      			<option ng-repeat="item in moduleService.listTimeUnit" value="{{item.unit_id}}">{{item.unit_id}}</option>
+   				 </select>
+        	</div>
+        	
+	  	</div>
+	</div>
+</div>
+<div fieldId="user:Ticket" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <!-- <div ng-if="ticketResultStatus!=undefined" class="col-xs-offset-4 col-xs-8 v3-column-content">
+	    <div ng-if="ticketResultStatus==true" class="form-group form-group-lg has-success">
+		    <label>Your ticket is {{ticketResult}}</label>
+	  	</div>
+	   	<div ng-if="ticketResultStatus==false" class="form-group form-group-lg has-success">
+	    	<h4>Generate Ticket unsuccessfully!</h4>
+		    <label>{{ticketResult}}</label>
+	  	</div> 
+	</div> -->
+</div>
+<div fieldId="user:listTicket" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		        <div class="form-group form-group-lg has-success">
+		            <label>{{::'new.v3.userProfile.user.label.DeviceName' | translate}}</label>
+		            <input type="text" class="form-control" placeholder="Device Name" ng-model="ticketSearch.deviceName"/>
+		        </div>
+		    </div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		        <div class="form-group form-group-lg has-success">
+		            <label>{{::'new.v3.userProfile.user.label.DeviceId' | translate}}</label>
+		            <input type="text" class="form-control" placeholder="Device UDID" ng-model="ticketSearch.deviceId"/>
+		        </div>
+		    </div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		        <div class="form-group form-group-lg has-success">
+		            <label>{{::'new.v3.userProfile.user.label.IDTicket' | translate}}</label>
+		            <input type="text" class="form-control" placeholder="ID Ticket" ng-model="ticketSearch.ticketId"/>
+		        </div>
+		    </div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		        <div class="form-group form-group-lg has-success">
+		            <label>{{::'new.v3.userProfile.user.label.StartedDate' | translate}}</label>
+		            <div style="position:relative">
+                		<input ms-datepicker ng-model="ticketSearch.startedDate" class="ms-calendar" />
+            		</div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	<hr/>
+	<div ng-if="moduleService.ticketList.mapList.length==0" flex layout="row" layou-align="center center">
+		<label>There is no data</label>
+	</div>
+	<div dir-paginate="item in moduleService.ticketList.mapList | filter:searchTicket | orderBy:['-createdDate'] | itemsPerPage: moduleService.pageSize" current-page="moduleService.currentPage"  flex class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ticket-item">
+		<div flex layout="row">
+			<div flex="60">
+				<div layout="row" flex>
+					<div  flex="30"><label>{{::'new.v3.userProfile.user.label.IDTicket' | translate}}</label></div>
+					<div  flex="70"><label>{{item.ticketId}}</label></div>
+				</div>
+			</div>
+			<div flex="40" layout="row">
+				<div flex="30"><label>{{::'new.v3.userProfile.user.label.CreatedDate' | translate}}</label></div>
+				<div flex="70"><label>{{item.createdDate | datetimeFilter:"DD/MM/YYYY HH:mm:ss" }}</label></div>
+			</div>
+		</div>
+		<div flex layout="row">
+			<div flex="60" layout="row">
+					<div  flex="30"><label>{{::'new.v3.userProfile.user.label.DeviceId' | translate}}</label></div>
+					<div  flex="70"><label>{{item.deviceUuid}}</label></div>
+			</div>
+			<div flex="40">
+				<div layout="row" flex>
+					<div  flex="30"><label>{{::'new.v3.userProfile.user.label.DeviceName' | translate}}</label></div>
+					<div  flex="70"><label>{{item.deviceName}}</label></div>
+				</div>
+			</div>	
+		</div>
+		<div flex layout="row">
+			<div flex="60">
+				<div layout="row" flex>
+					<div  flex="30"><label>{{::'new.v3.userProfile.user.label.StartedDate' | translate}}</label></div>
+					<div  flex="70"><label>{{item.startedDate | datetimeFilter:"DD/MM/YYYY HH:mm:ss" }}</label></div>
+				</div>
+			</div>	
+			<div flex="40" layout="row">
+					<div  flex="30"><label>{{::'new.v3.userProfile.user.label.ExpiredDate' | translate}}</label></div>
+					<div  flex="70"><label>{{item.expiredDate | datetimeFilter:"DD/MM/YYYY HH:mm:ss" }}</label></div>
+			</div>			
+		</div>
+		<div flex layout="row">
+			<div flex="60">
+				<div layout="row" flex>
+					<div  flex="30"><label>{{::'new.v3.userProfile.user.label.ExtendedDate' | translate}}</label></div>
+					<div  flex="70"><label>{{item.extendedDate | datetimeFilter:"DD/MM/YYYY HH:mm:ss" }}</label></div>
+				</div>
+			</div>
+			<div flex="40" layout="row">
+					<div  flex="30"><label>{{::'new.v3.userProfile.user.label.TicketStatus' | translate}}</label></div>
+					<div  flex="70"><label>{{item.ticketStatus}}</label></div>
+			</div>			
+		</div>
+		
+		<div ng-if="isAdmin && item.ticketStatus == 'Reserved'" layout="row">
+			<button ng-click="unreserveTicket(item.ticketId)" class="btn btn-lg v3-btn-primary v3-button-top-right-corner">
+            Unreserve</button>
+			 
+		</div>
+		
+		<hr/>
+	</div>
+	<div ng-if="moduleService.ticketList.mapList.length>0" style="clear:both" layout-margin flex layout="row" layout-align="end center">	
+		<div class="ipos_paging_margin_top_25" flex layout="row"  layout-align="end center">							
+                           <span>{{'v3.transactioncenter.label.Itemsperpage' | translate}}</span>
+                <select class="form-control ipos_paging_dropdown_70" ng-model="moduleService.pageSize" ng-options="size as size for size in moduleService.pageSizes">
+				</select>
+		</div>	
+		<dir-pagination-controls boundary-links="true" max-size="5">
+		</dir-pagination-controls>
+	</div>
+</div>
+
+<!-- List device -->
+<div fieldId="user:listDevice" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div ng-if="moduleService.deviceList == 0" flex layout="row" layou-align="center center">
+		<label>There is no data.</label>
+	</div>
+	<div dir-paginate="item in moduleService.deviceList | itemsPerPage: moduleService.pageSize" current-page="moduleService.currentPage"  flex class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ticket-item">
+		<div flex layout="row">
+			<div flex="50" layout="row">
+					<div  flex="30"><label>{{::'new.v3.userProfile.user.label.DeviceId' | translate}}</label></div>
+					<div  flex="70"><label>{{item.deviceId}}</label></div>
+			</div>
+			<div flex="50">
+				<div layout="row" flex>
+					<div  flex="40"><label>{{::'new.v3.userProfile.user.label.DeviceName' | translate}}</label></div>
+					<div  flex="60"><label>{{item.deviceName}}</label></div>
+				</div>
+			</div>	
+		</div>
+		<div flex layout="row">
+			<div flex="50">
+				<div layout="row" flex>
+					<div  flex="30"><label>{{::'new.v3.userProfile.user.label.DeviceStatus' | translate}}</label></div>
+					<div  flex="70"><label>{{item.deviceStatus}}</label></div>
+				</div>
+			</div>
+			<div flex="50" layout="row">
+				<div flex="40"><label>{{::'new.v3.userProfile.user.label.TotalTickets' | translate}}</label></div>
+				<div flex="60"><label>{{item.totalAvailableTicket}}</label></div>
+			</div>
+		</div>
+		<div layout="row">
+			<div flex class="action-ticket">
+            	 <button ng-click="lockOrUnlockDevice(item.deviceId, 'lock')" ng-show="item.deviceStatus=='Active'"  class="btn btn-default no-minwith">
+                	<i class="fa fa-lock fa-lg"></i> 
+            	</button>	
+            	 <button ng-click="lockOrUnlockDevice(item.deviceId, 'unlock')" ng-show="item.deviceStatus=='Locked'" type="submit" class="btn btn-default no-minwith">
+                	<i class="fa fa-unlock fa-lg"></i> 
+            	</button>			
+			</div>			
+		</div>
+		<hr/>
+	</div>
+	<div ng-if="moduleService.deviceList.length>0" style="clear:both" layout-margin flex layout="row" layout-align="end center">	
+		<div class="ipos_paging_margin_top_25" flex layout="row"  layout-align="end center">							
+                           <span>{{'v3.transactioncenter.label.Itemsperpage' | translate}}</span>
+                <select class="form-control ipos_paging_dropdown_70" ng-model="moduleService.pageSize" ng-options="size as size for size in moduleService.pageSizes">
+				</select>
+		</div>	
+		<dir-pagination-controls boundary-links="true" max-size="5">
+		</dir-pagination-controls>
+	</div>
+</div>
+<!-- END list device -->
+
+
+<!-- Add Role Tab admin-->
+<div fieldId="user:ProfileType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'v3.personal.label.user.ProfileType' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+            <ng-newDropDown disable="!card.refDetail['@isRegisterMode'] " more-action="setActiveProfile(card.refDetail, moduleService.findElementInElement_V3(card.refDetail,['user:IsActive']).Value )" 
+            	model="uiElement.refDetail" 
+            	list="moduleService.findElementInElement_V3(userLazyList,['Role','Option'])" type="nonFlag" 
+            	prefix="v3.personalprofile.portlet.label" >
+           	</ng-newDropDown>
+        </div>
+    </div>
+</div>
+
+<div fieldId="user:ActiveProfile" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+           <label>{{::'v3.personal.label.user.ActiveProfile' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+                    <v3-switch-new-slide more-action="setActiveProfile(card.refDetail, uiElement.refDetail.Value )" 
+                    	prefix="v3.yesno.enum" switch-model="uiElement.refDetail.Value" 
+                    	switch-default-value="" switch-disabled="false" 
+                    	switch-options="moduleService.findElementInElement_V3(userLazyList,['IsActive','Option'])">
+                    </v3-switch-new-slide>
+        </div>
+    </div>
+</div>
+<div fieldId="user:LineofBusiness" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+              <label>{{::'v3.personal.label.user.LineofBusiness' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+                    <ng-newDropDown  model="uiElement.refDetail" 
+                    	list="moduleService.findElementInElement_V3(userLazyList,['LineBusiness','Option'])" type="nonFlag" 
+                    	prefix="new.v3.userProfile.user.lineOfBusiness" >
+                    </ng-newDropDown>
+        </div>
+    </div>
+</div>
+<div fieldId="user:ProfileId" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'v3.personal.label.user.ProfileId' | translate}}</label>
+                    <input class="form-control" placeholder="{{::'v3.personal.label.user.ProfileId' | translate}}"
+		        	type="text" ng-model="card.refDetail['@profile-id']" ng-disabled="true"/>
+        </div>
+    </div>
+</div>
+<div fieldId="user:PASID" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'v3.personal.label.user.PASID' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+                    <input class="form-control" placeholder="{{::'v3.personal.label.user.PASID' | translate}}"
+		        	type="text" ng-model="uiElement.refDetail.$" />
+        </div>
+    </div>
+</div>
+<div fieldId="user:PASName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{::'v3.personal.label.user.PASName' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+                    <input class="form-control" placeholder="{{::'v3.personal.label.user.PASName' | translate}}"
+		        	type="text" ng-model="uiElement.refDetail.$" />
+        </div>
+    </div>
+</div>
+<div fieldId="user:UpdateUserProfile" ng-if="card.refDetail['@profile-id']!=''" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+           		<button style="min-width: 250px !important;" ng-click="updateProfileInfo(card.refDetail)" class="col-sm-offset-4 col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding">{{'v3.personal.label.user.UpdatePASInfor' | translate}}</button>
+        </div>
+    </div>
+</div>
+<!-- 
+<div fieldId="user:RegisterNewRole" ng-if= "card.refDetail['@isRegisterMode'] ">
+	<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	  
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	        <div class="form-group form-group-lg has-success">
+	            	<button style="width: 100%; margin-left: 0;" class="btn btn-lg v3-btn-primary addRemoveButton" ng-click="registerNewRoleProfile(card.refDetail)">{{::'v3.personal.label.user.Register' | translate}}</button>
+	        </div>
+	    </div>
+	</div>
+</div> -->
+<!-- Managers -->
+<div fieldId="user:Manager" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-if="moduleService.findElementInElement_V3(card.refDetail, ['Role']).Value=='S'">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" style="text-align: right;" ng-if="moduleService.findElementInElement_V3(card.refDetail, ['Managers'])['@counter'] == 0">
+		<button class="btn btn-lg v3-btn-primary" style="min-width: 10px; margin-right: -10px;" ng-click="addManager(card)"><i class="fa fa-plus"></i></button>
+		<!-- <i style="margin-right:5px; cursor: pointer" class="fa fa-plus-circle fa-3x" ng-click="addContact()"></i> -->
+		<label style="padding-left: 15px;">{{"new.v3.mynewworkspace.user.label.AddNewManager"| translate}}</label>
+	</div>
+	<div ng-show="moduleService.findElementInElement_V3(card.refDetail, ['Managers'])['@counter'] > 0">
+    	<div layout="column" ng-repeat="manager in moduleService.convertToArray(moduleService.findElementInElement_V3(card.refDetail, ['Manager'])) track by $index">
+        	<div layout="row">
+               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px">
+                   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+                   		<div class="form-group form-group-lg has-success">
+                   			<label>{{"new.v3.mynewworkspace.user.label.ManagerCode"| translate}} <span ng-show="moduleService.findElementInElement_V3(manager, ['ManagerCode'])['@mandatory'] == '1'" >*</span></label>
+							<input class="form-control" type="text" ng-disabled="moduleService.findElementInElement_V3(manager, ['ManagerCode'])['@editable'] == '0'"
+								ng-model="moduleService.findElementInElement_V3(manager, ['ManagerCode']).$" />
+						  	<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(manager, ['ManagerCode']).errorMessage | translate"></span> 
+              			</div>
+					</div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+                 		<div class="form-group form-group-lg has-success">    
+                     		<label>{{"new.v3.mynewworkspace.user.label.ManagerName"| translate}} <span ng-show="moduleService.findElementInElement_V3(manager, ['ManagerName'])['@mandatory'] == '1'" >*</span></label>
+		                    <div layout="row">
+			                    <div class="">
+			                      	<input class="form-control" type="text" ng-disabled="moduleService.findElementInElement_V3(manager, ['ManagerName'])['@editable'] == '0'"
+										ng-model="moduleService.findElementInElement_V3(manager, ['ManagerName']).$" />
+			                     	<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(manager, ['ManagerName']).errorMessage | translate"></span>
+			                    </div>
+	                     		<div class="" layout="row" style="padding-left: 10px;">
+	             		  			<button style="min-width: 10px;" class="btn btn-lg v3-btn-danger" ng-click="moduleService.removeElementInElement_V3($index, card.refDetail, ['Managers'], ['Manager'])"><i class="fa fa-times"></i></button>
+	             		  		</div>
+	             		  		<div class="" layout="row" style="padding-left: 10px;">
+		                     		<button ng-if="$index==0" class="btn btn-lg v3-btn-primary" style="min-width: 10px; margin-right: -10px;" ng-click="moduleService.addElementInElement_V3(card.refDetail, ['Managers'], ['Manager'])"><i class="fa fa-plus"></i></button>
+	             		  		</div>
+		                    </div>
+           		  	  	</div>
+           		  	</div>
+               </div>
+        	</div>
+    	</div>
+	</div>
+</div>

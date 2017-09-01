@@ -1,0 +1,89 @@
+{
+  "IposDocument": {
+    "Data": {
+      "endorsement-FIR:EndorsementDetail": {
+        "@section": "endorsement-FIR:EndorsementDetail",
+        "endorsement-FIR:Summary": {
+          "@section": "endorsement-FIR:EndorsementDetail",
+          "endorsement-FIR:EndorseInfor": {},
+          "endorsement-FIR:EndorseStatus": {},
+          "endorsement-FIR:EndorseNo": {},
+          "endorsement-FIR:ProductName": {},
+          "endorsement-FIR:PolicyNo": {},
+          "endorsement-FIR:PolicyOwner": {},
+          "endorsement-FIR:ClientID": {},
+          "endorsement-FIR:InceptionDate": {},
+          "endorsement-FIR:ExpireDate": {},
+          "endorsement-FIR:EndorseType": {},
+          "endorsement-FIR:EffectiveDate": {},
+          "endorsement-FIR:PreviewEndorse": {}
+        },
+        "endorsement-FIR:Step1": {
+          "@section": "endorsement-FIR:EndorsementDetail",
+          "endorsement-FIR:BasicInfo": {
+            "@section": "endorsement-FIR:Step1",
+                "endorsement-FIR:Step1ProductName": {},
+            "endorsement-FIR:Step1PolicyNo": {},
+            "endorsement-FIR:Step1PolicyOwner": {},
+            "endorsement-FIR:Step1ClientID": {},
+            "endorsement-FIR:Step1ExcptionDate": {},
+            "endorsement-FIR:Step1ExpiryDate": {},
+            "endorsement-FIR:Step1EffectiveDate": {},
+            "endorsement-FIR:Step1TypeofReasonEndorse": {}
+        
+          },
+          "endorsement-FIR:InterestParties": {
+            "@section": "endorsement-FIR:Step1",
+            "@key": [
+              "Quotations"
+            ],
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "step": "3"
+            },
+            "@cssClass": "v3-box-2",
+            "endorsement-FIR:NewInsuredInterest": {
+              "@key": [
+                "NewQuotation"
+              ],
+              "@section": "endorsement-FIR:InterestParties",
+              "@icon": {
+                "main": "fa fa-bar-chart",
+                "mainAction": "addIcon"
+              },
+              "@cssClass": "v3-box-2",
+              "@cardType": "action",
+              "@onClick": "addCard(card)"
+            },
+            "endorsement-FIR:InterestParties": {
+              "@key": [
+                "Quotation"
+              ],
+              "@icon": {
+                "main": "fa fa-bar-chart",
+                "subAction": "removeIcon"
+              },
+              "@cssClass": "v3-box-2",
+              "@section": "endorsement-FIR:InterestParties",
+              "@cardType": "template",
+              "endorsement-FIR:Step1Selectclient": {},
+              "endorsement-FIR:Step1ClientName": {},
+              "endorsement-FIR:Step1ClientID": {},
+              "endorsement-FIR:Step1Relationship": {}
+       
+            }
+          }
+        },
+        "endorsement-FIR:Step2": {
+          "@section": "endorsement-FIR:EndorsementDetail"
+        },
+        "endorsement-FIR:Underwriting": {
+          "@section": "endorsement-FIR:EndorsementDetail"
+        },
+        "endorsement-FIR:Payment": {
+          "@section": "endorsement-FIR:EndorsementDetail"
+        }
+      }
+    }
+  }
+}

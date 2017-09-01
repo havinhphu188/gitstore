@@ -1,0 +1,45 @@
+<div layout="column" class="height-inherit">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button md-no-ink ng-click="toggle()" class="md-icon-button button">
+                <i class="fa fa-bars fa-lg"></i>
+            </md-button>
+            <span flex>
+                    <h2>
+                        <span class="header-text">Cases List</span>
+            </h2>
+            </span>
+            <md-button md-no-ink ng-click="toggleSearch()" class="md-icon-button button" aria-label="Open search bar">
+                <i class="fa fa-search fa-lg"></i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <div class="backgroundColor slide-down" ng-if="vars.showSearchbar" layout="row" use-boolean style="height: 60px;">
+        <div flex="80">
+            <form action=".">
+                <input name="search" type="search" class="searchText" id="searchTextField" placeholder="search..." ng-model="vars.strSearch" ng-change="searchDoc()" aria-label="Search input">
+            </form>
+        </div>
+        <div ng-click="clearText(); " flex="10">
+            <md-button md-no-ink class="md-icon-button button" aria-label="Open search bar">
+                <i style="color: gray" class="fa fa-times-circle fa-lg"></i>
+            </md-button>
+        </div>
+    </div>
+    <div ng-show="vars.bLoadingLeftView" class="mask">
+            <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+        </div>
+    <div style="background-color:white;" class="height-inherit none-horizontal-scroll touch">
+        <p ng-if="vars.errorSearch" align="center" style="color: grey; margin:0 auto; width:90%;">{{vars.errorSearch}}</p>
+        <div refresh-on="vars.bIsListChanged" use-boolean after-refresh="broadcastEvent('finish_render')" class="height-101">
+            <div ng-repeat="card in vars.lsDocDisp track by $index">
+                <case-card module="$scope" moreAction="openFirstDoc" index="::$index" card="::card"></case-card>
+            </div>
+        </div>
+        <div class="empty-card">
+        </div>
+    </div>
+    <md-button ng-click="createNewDoc('term-life-protect');" md-no-ink class="md-primary md-fab md-fab-bottom-right" aria-label="Create Prospect">
+        <img style="margin-top: 10px;" src="img/ic_plus_white_24dp.png">
+    </md-button>
+</div>

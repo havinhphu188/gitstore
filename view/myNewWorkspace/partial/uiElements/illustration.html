@@ -1,0 +1,635 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="illustration-income-protection:SummaryPlanName" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+      <div class="form-group form-group-lg has-success margin-left-20">
+          <span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection.illustration.label.PlanName' | translate}}:&nbsp;</span>
+          <span class="col-md-7 no-left-padding">{{'v3.income-protection.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+      </div>
+</div>
+<div fieldId="illustration-income-protection:SummaryQuotationNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+     <div class="form-group form-group-lg has-success margin-left-20">
+         <span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection.illustration.label.QuotationNo' | translate}}:&nbsp;</span>
+         <span class="col-md-7 no-left-padding">{{'v3.income-protection.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+     </div>
+</div>
+<div fieldId="illustration-income-protection:SummaryStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+     <div class="form-group form-group-lg has-success">
+         <span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection.illustration.label.Status' | translate}}:&nbsp;</span>
+         <span class="col-md-7 no-left-padding">{{'v3.income-protection.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+     </div>
+</div>
+<div fieldId="illustration-income-protection:SummaryCreatedDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+     <div class="form-group form-group-lg has-success margin-left-20">
+         <span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection.illustration.label.CreatedDate' | translate}}:&nbsp;</span>
+         <span class="col-md-7 no-left-padding">{{'v3.income-protection.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+     </div>
+</div>
+<div fieldId="illustration-income-protection:SummaryLastUpdatedDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+     <div class="form-group form-group-lg has-success">
+         <span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection.illustration.label.LastUpdatedDate' | translate}}:&nbsp;</span>
+         <span class="col-md-7 no-left-padding">{{'v3.income-protection.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+     </div>
+</div>
+<div fieldId="illustration-income-protection:SummaryFirstInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+     <div class="form-group form-group-lg has-success margin-left-20">
+         <span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection.illustration.label.Proposer' | translate}}:&nbsp;</span>
+         <span class="col-md-7 no-left-padding">{{'v3.income-protection.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+     </div>
+</div>
+<div fieldId="illustration-income-protection:SummarySecondInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+     <div class="form-group form-group-lg has-success">
+         <span class="col-md-5 no-left-padding">{{::'v3.mynewworkspace.income-protection.illustration.label.SecondIns' | translate}}:&nbsp;</span>
+         <span class="col-md-7 no-left-padding">{{'v3.income-protection.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+     </div>
+</div>
+<div fieldId="illustration-income-protection:SummaryPreviewButton" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+     <div class="form-group form-group-lg has-success margin-left-20">
+      	<span class="col-md-5 no-left-padding"><a href="">{{::'v3.mynewworkspace.income-protection.illustration.label.PreviewQuotationDetails' | translate}}:&nbsp;</a></span>
+     </div>
+</div>
+
+
+
+<!-- FIPersonalParticulars -->
+<div fieldId="first-insured:ImportProspect" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.ProposerFirstInsuredPerson' | translate}}<span>*</span></label>
+			<ng-newDropDown 
+			   model="moduleService.selectedAddress"
+			   list="moduleService.addressList" 
+			   type="irregular" key="person:Street">
+			</ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainDriver','Title']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="first-insured:ImportProspectTemp" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+</div>
+<div fieldId="first-insured:Title" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" >
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.Title' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Country'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInDetail_V3(['Coverage','Country'])"  disable="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['Coverage','Country'])['@editable']=='0'" 
+				list=" moduleProspectPersonalService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName], ['PACountry', 'Option'])" 
+				type="full-flag" prefix="v3.income-protection.country.enum" more-action="updateCurrencyByCountry()"></ng-newDropDown>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Country']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="first-insured:FullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.Name' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="first-insured:BirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.DateOfBirth' | translate}}<span>*</span></label>
+			<div class="ms-calendar-wrapper"><input ng-disabled="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['InceptionDate'])['@editable']=='0'" ms-datepicker more-action="updateExpiryDate()" ng-model="moduleService.findElementInDetail_V3(['InceptionDate']).$" class="ms-calendar"/></div> 
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['InceptionDate']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="first-insured:AgeNextBirthday" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.AgeNextBirthday' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="true"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="first-insured:Gender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.Gender' | translate}}<span>*</span></label>
+			<v3-switch-new switch-size="" switch-name="gender" prefix="v3.gender.enum"
+	           	switch-model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).Value" 
+	           	switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender'])['@editable']=='0'" 
+	           	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['POGender','Option'])">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="first-insured:SmokerStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.SmokingStatus' | translate}}<span>*</span></label>
+			<v3-switch-new 
+		    	switch-model="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).Value" prefix="v3.pnc.smoker.enum"
+		    	switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus'])['@editable'] == '0'"
+		     	switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['SmokerStatus']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="first-insured:Occupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.Occupation' | translate}}<span>*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="first-insured:AnnualIncome" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.AnnualIncome' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+
+<!-- FIBasicPlan -->
+<div fieldId="first-insured:CommencementDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.CommencementDate' | translate}}<span>*</span></label>
+			<div class="ms-calendar-wrapper"><input ng-disabled="true" ms-datepicker ng-model="moduleService.findElementInDetail_V3(['InceptionDate']).$" class="ms-calendar"/></div> 
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['InceptionDate']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="first-insured:ExpiryAge" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.ExpiryAge' | translate}}<span>*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="first-insured:ContractCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.ContractCurrency' | translate}}<span>*</span></label>
+			<v3-switch-new switch-size="" switch-name="gender" prefix="v3.gender.enum"
+	           	switch-model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).Value" 
+	           	switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender'])['@editable']=='0'" 
+	           	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['POGender','Option'])">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="first-insured:BillingCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.BillingCurrency' | translate}}<span>*</span></label>
+			<v3-switch-new 
+		    	switch-model="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).Value" prefix="v3.pnc.smoker.enum"
+		    	switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus'])['@editable'] == '0'"
+		     	switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['SmokerStatus']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="first-insured:BenefitAmount" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.BenefitAmount' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="first-insured:BenefitPeriod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.BenefitPeriod' | translate}}<span>*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="first-insured:WaitingPeriod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.WaitingPeriod' | translate}}<span>*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="first-insured:PremiumFrequency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.PremiumFrequency' | translate}}<span>*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="first-insured:PremiumType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.PremiumType' | translate}}<span>*</span></label>
+			<v3-switch-new switch-size="" switch-name="gender" prefix="v3.gender.enum"
+	           	switch-model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).Value" 
+	           	switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender'])['@editable']=='0'" 
+	           	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['POGender','Option'])">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="first-insured:ConsumerPriceIndexation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.ConsumerPriceIndexation' | translate}}<span>*</span></label>
+			<v3-switch-new 
+		    	switch-model="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).Value" prefix="v3.pnc.smoker.enum"
+		    	switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus'])['@editable'] == '0'"
+		     	switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['SmokerStatus']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="first-insured:OccupationClass" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.OccupationClass' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="true"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="first-insured:PlanType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.PlanType' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="true"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="first-insured:FrequencyBasePremium" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.FrequencyBasePremium' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="true"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+
+<!-- FIRider -->
+<div fieldId="first-insured:SelectRider" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.SelectRider' | translate}}<span>*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="first-insured:SelectRiderTemp" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"></div>
+<div fieldId="first-insured:SumInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.SumInsured' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="first-insured:FrequencyBasePremium" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.FrequencyBasePremium' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="true"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+
+<!-- SIPersonalParticulars -->
+<div fieldId="second-insured:ImportProspect" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.ProposerSecondInsuredPerson' | translate}}<span>*</span></label>
+			<ng-newDropDown 
+			   model="moduleService.selectedAddress"
+			   list="moduleService.addressList" 
+			   type="irregular" key="person:Street">
+			</ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainDriver','Title']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="second-insured:ImportProspectTemp" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+</div>
+<div fieldId="second-insured:Title" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" >
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.Title' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Country'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInDetail_V3(['Coverage','Country'])"  disable="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['Coverage','Country'])['@editable']=='0'" 
+				list=" moduleProspectPersonalService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName], ['PACountry', 'Option'])" 
+				type="full-flag" prefix="v3.income-protection.country.enum" more-action="updateCurrencyByCountry()"></ng-newDropDown>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Country']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="second-insured:FullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.Name' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="second-insured:BirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.DateOfBirth' | translate}}<span>*</span></label>
+			<div class="ms-calendar-wrapper"><input ng-disabled="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['InceptionDate'])['@editable']=='0'" ms-datepicker more-action="updateExpiryDate()" ng-model="moduleService.findElementInDetail_V3(['InceptionDate']).$" class="ms-calendar"/></div> 
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['InceptionDate']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="second-insured:AgeNextBirthday" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.AgeNextBirthday' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="true"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="second-insured:Gender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.Gender' | translate}}<span>*</span></label>
+			<v3-switch-new switch-size="" switch-name="gender" prefix="v3.gender.enum"
+	           	switch-model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).Value" 
+	           	switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender'])['@editable']=='0'" 
+	           	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['POGender','Option'])">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="second-insured:SmokerStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.SmokingStatus' | translate}}<span>*</span></label>
+			<v3-switch-new 
+		    	switch-model="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).Value" prefix="v3.pnc.smoker.enum"
+		    	switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus'])['@editable'] == '0'"
+		     	switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['SmokerStatus']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="second-insured:Occupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.Occupation' | translate}}<span>*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="second-insured:AnnualIncome" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.AnnualIncome' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+
+<!-- SIBasicPlan -->
+<div fieldId="second-insured:CommencementDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.CommencementDate' | translate}}<span>*</span></label>
+			<div class="ms-calendar-wrapper"><input ng-disabled="true" ms-datepicker ng-model="moduleService.findElementInDetail_V3(['InceptionDate']).$" class="ms-calendar"/></div> 
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['InceptionDate']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="second-insured:ExpiryAge" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.ExpiryAge' | translate}}<span>*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="second-insured:ContractCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.ContractCurrency' | translate}}<span>*</span></label>
+			<v3-switch-new switch-size="" switch-name="gender" prefix="v3.gender.enum"
+	           	switch-model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).Value" 
+	           	switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender'])['@editable']=='0'" 
+	           	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['POGender','Option'])">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="second-insured:BillingCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.BillingCurrency' | translate}}<span>*</span></label>
+			<v3-switch-new 
+		    	switch-model="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).Value" prefix="v3.pnc.smoker.enum"
+		    	switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus'])['@editable'] == '0'"
+		     	switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['SmokerStatus']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="second-insured:BenefitAmount" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.BenefitAmount' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="second-insured:BenefitPeriod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.BenefitPeriod' | translate}}<span>*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="second-insured:WaitingPeriod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.WaitingPeriod' | translate}}<span>*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="second-insured:PremiumFrequency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.PremiumFrequency' | translate}}<span>*</span></label>
+			<input type="text" class="form-control"  
+		    	ng-disabled="true"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="second-insured:PremiumType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.PremiumType' | translate}}<span>*</span></label>
+			<v3-switch-new switch-size="" switch-name="gender" prefix="v3.gender.enum"
+	           	switch-model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).Value" 
+	           	switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender'])['@editable']=='0'" 
+	           	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['POGender','Option'])">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="second-insured:ConsumerPriceIndexation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'v3.mynewworkspace.income-protection.illustration.label.ConsumerPriceIndexation' | translate}}<span>*</span></label>
+			<v3-switch-new 
+		    	switch-model="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).Value" prefix="v3.pnc.smoker.enum"
+		    	switch-default-value="" switch-disabled="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus'])['@editable'] == '0'"
+		     	switch-options="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['SmokerStatus']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['SmokerStatus']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="second-insured:OccupationClass" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.OccupationClass' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="true"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="second-insured:PlanType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.PlanType' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="true"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="second-insured:FrequencyBasePremium" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.FrequencyBasePremium' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="true"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+
+<!-- SIRider -->
+<div fieldId="second-insured:SelectRider" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.SelectRider' | translate}}<span>*</span></label>
+			<ng-newDropDown model="moduleProspectPersonalService.findElementInDetail_V3(['Occupation'])"   list="moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Occupation']).Option" type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="moduleProspectPersonalService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="second-insured:SelectRiderTemp" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"></div>
+<div fieldId="second-insured:SumInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.SumInsured' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="second-insured:FrequencyBasePremium" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{::'v3.mynewworkspace.income-protection.illustration.label.FrequencyBasePremium' | translate}}<span>*</span></label>
+		    <input type="text" class="form-control"  
+		    	ng-disabled="true"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>

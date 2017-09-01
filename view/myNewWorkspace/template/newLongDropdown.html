@@ -1,0 +1,222 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<style>
+	.flag-dropdown{
+		/* float:left;
+		margin:5px; */
+		/* list-style-type: none; */
+		/* min-width: 150px;
+		line-height: 18px !important; */
+	}
+	.ipos_flag{
+		position: absolute;
+    	left: 50px;
+    	top: 4px;
+    	font-size: 17px;
+	}
+	/* .ipos_flag:HOVER{
+		background-color: wheat;
+		cursor: pointer;
+		font-weight: bold;
+	} */
+	.flag-box{		
+		border: 1px solid white;
+		transition:border-color 1s ease;		
+	}
+	.flag-box:HOVER{
+		/* background-color: #66c796;
+		cursor: pointer;
+		color: white; */
+		/* font-weight: bold; */
+		border-color:#4CAF50;
+		cursor: pointer;
+	}
+	.ipos_flag_selected{
+		background-color: wheat;
+		font-weight: bold;
+	}
+	.f15 .flag{
+		position: absolute;
+    	top: 9px;
+	}
+	.flag-box{
+		padding:16px 5px;
+	}
+	.flag-layout{
+		min-height: 30px;
+	}
+	@media (max-width: 480px) {
+  		.table-cell {
+    	padding-left: 0%;
+  		}
+	}
+	/* .flag-box:hover{
+		border: 1px solid gray;
+	} */
+	
+	/* SCROLLBAR AREA */
+#common-dropdown::-webkit-scrollbar-track
+{
+/* 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+	background-color: white;
+}
+
+#common-dropdown::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    border: 3px solid rgba(255,255,255,0);
+    background-clip: content-box;
+    background-color: #bfbfbf;
+    background-color: #A0A0A0;
+}
+#common-dropdown::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 8px;
+}
+#common-dropdown::-webkit-scrollbar-corner {
+    background-color: #e6e6e6;
+}
+#common-dropdown::-webkit-scrollbar-button {
+    background-color: #FFFAFA !important;
+    width: 0px !important;
+}
+/* END SCROLLBAR */
+.nonFlag{
+	position:relative;
+	line-height:40px;
+	border: 1px solid white;
+}
+.nonFlag:hover{
+	cursor:pointer;
+	border-color:#4CAF50;
+	font-weight: bold;
+}
+.item-value{
+	font-size:17px;
+	padding-left:5px;
+  	/* margin-left: 10px; */
+}
+.item-icon{
+	/* position: absolute; */
+	/* display:inline-block; */
+}
+</style>
+<!-- <div ng-hide='items.length<20' class="row"> -->
+<div class="row">
+	<div style="position:absolute;z-index:10;background-color:white;padding:0px"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group form-group-lg has-success">
+	   	<div  class="col-xs-12 col-sm-12 col-md-8 col-lg-4">
+	   	<input id="new-dropdown-search-box" style="padding-left:40px" class="form-control" ng-model="search"/>
+	   	<i style="position: absolute;top: 7px; left: 25px;" class="fa fa-search fa-2x"></i>
+	   	</div>
+  	</div>
+</div>
+</br/>
+<!-- <div ng-style="{ 'margin-top' : (items.length>20) ? '30px' : '0px' }"  class="row"> -->
+<div ng-style="{ 'margin-top':'30px' }"  class="row" style="padding-top: 50px;">
+	<div ng-if="type=='full-flag'" class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat=" item in items |filter:search">		
+		 <div class="flag-dropdown f15">
+			<div ng-click="setValue(item.value)" class="flag-box">
+				<div class="flag {{item.value}}">
+					
+				</div>
+				<div class="v3-auto-text-ellipsis">
+					<span title="{{item.translate}}" class="ipos_flag">{{::item.translate}}</span>
+				</div>
+			</div>
+		</div> 			
+	</div>
+	<!-- long dropdown no flag -->
+	<div ng-if="type=='nonFlag' && isLong==true" class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat=" item in items |filter:search">		
+		 <div ng-click="setValue(item.value)" class="nonFlag">
+		 	<div class="item-icon">
+		 		<!-- <i class="fa fa-rocket fa-lg"></i> -->
+		 	</div>
+		 	<div class="v3-auto-text-ellipsis">
+		 		<!-- <span class="item-value" title="{{::(prefix+'.'+item.value  |translate)}}">{{::(prefix+'.'+item.value  |translate | trimtext:false:15:'...')}}</span> -->
+		 		 <span class="item-value" title="{{::item.translate}}">{{::item.translate}}</span>
+		 	</div>
+		 </div>	
+	</div>
+	<!-- end long dropdown no flag -->
+	<!-- short dropdown -->		
+		<div ng-if="type=='nonFlag' && isLong==false" class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-repeat=" item in items |filter:search">		
+			 <div style='padding-left:10%;width:100%' class="col-xs-12 col-sm-12 col-md-12 col-lg-6"  >
+				 <div ng-click="setValue(item.value)" class="nonFlag">
+				 	<div class="item-icon">
+				 	<!-- 	<img src='/ipos-portal-common-portlet/images/sample_short.png'/> -->
+				 	</div>
+				 	<div class="v3-auto-text-ellipsis">
+				 		<span class="item-value" title="{{::item.translate}}">{{::item.translate}}</span>
+				 	</div>
+				 </div>
+			 </div>	
+		</div>
+
+	<!--end short dropdown -->
+	<!-- regular long dropdown -->
+	<div ng-if="type=='regular'" class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat=" item in items |filter:search">		
+		 <div style='padding-left:10%;width:100%' class="col-xs-12 col-sm-12 col-md-12 col-lg-6"  >
+			 <div ng-click="setValue(item)" class="nonFlag">
+			 	<div class="item-icon">
+			 	<!-- 	<img src='/ipos-portal-common-portlet/images/sample_short.png'/> -->
+			 	</div>
+			 	<div class="v3-auto-text-ellipsis">
+			 		<span class="item-value" title="{{::item[key]}}">{{::item[key]}}</span>
+			 	</div>
+			 </div>
+		 </div>	
+	</div>
+	<div ng-if="type=='irregular'" class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat=" item in items track by $index |filter:search">		
+		 <div style='padding-left:10%;width:100%' class="col-xs-12 col-sm-12 col-md-12 col-lg-6"  >
+			 <div ng-click="setValue(item)" class="nonFlag">
+			 	<div class="item-icon">
+			 	<!-- 	<img src='/ipos-portal-common-portlet/images/sample_short.png'/> -->
+			 	</div>
+			 	<div class="v3-auto-text-ellipsis">
+			 		<span class="item-value" title="{{::moduleService.findElementInElement_V3(item,[key]).$}}">{{::moduleService.findElementInElement_V3(item,[key]).$}}</span>
+			 	</div>
+			 </div>
+		 </div>	
+	</div>
+	<!-- regular long dropdown -->
+	<!-- table type dropdown -->		
+		<div ng-if="type=='table' && isLong==false" class="col-xs-12 col-sm-6 col-md-6 col-lg-6"  ng-repeat="item in items |filter:search" >
+			<div style='width:100%' class="col-xs-12 col-sm-12 col-md-12 col-lg-6 table-cell">
+				<div ng-click="setValue(item.value)" class="nonFlag">
+					<div class="item-icon">
+					</div>
+					<div class="v3-auto-text-ellipsis">
+						<span class="item-value" title="{{::item.translate}}">{{::item.translate}}</span>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<div ng-if="type=='table' && isLong==true" class="col-xs-12 col-sm-6 col-md-4 col-lg-3"  ng-repeat="item in items |filter:search" >
+			<div ng-click="setValue(item.value)" class="nonFlag">
+				<div class="item-icon">
+				</div>
+				<div class="v3-auto-text-ellipsis">
+					<span class="item-value" title="{{::item.translate}}">{{::item.translate}}</span>
+				</div>
+			</div>
+		</div>
+
+	<!--end table type dropdown -->
+</div>

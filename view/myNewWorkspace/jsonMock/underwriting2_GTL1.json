@@ -1,0 +1,59 @@
+{
+  "IposDocument": {
+    "Data": {
+      "underwriting:Underwriting": {
+        "section": "underwriting:Underwriting",
+        "icon": "fa fa-pencil-square-o",
+        "cssClass": "v3-box-6",
+        "group-underwriting:title": {
+          "type": "",
+          "key": []
+        },
+        "group-underwriting:WaitingPeriod": {
+          "type": "",
+          "key": ["WaitingPeriod"]
+        },
+        "group-underwriting:exclusions": {
+          "type": "",
+          "key": []
+        },
+        "group-underwriting:DeathDueToWarLabel": {
+          "type": "",
+          "key": []
+        },
+        "group-underwriting:DeathDueToWar": {
+          "type": "",
+          "key": ["DeathDueToWar"]
+        },
+        "group-underwriting:DeathWhenIllegalActLabel": {
+          "type": "",
+          "key": []
+        },
+        "group-underwriting:DeathWhenIllegalAct": {
+          "type": "",
+          "key": ["DeathWhenIllegalAct"]
+        },
+        "group-underwriting:DeathDueToSuicideLabel": {
+          "type": "",
+          "key": []
+        },
+        "group-underwriting:DeathDueToSuicide": {
+          "type": "",
+          "key": ["DeathDueToSuicide"]
+        },
+        "group-underwriting:FreeCoverLimitTitle": {
+          "type": "",
+          "key": []
+        },
+        "group-underwriting:FreeCoverLimitLabel": {
+          "type": "",
+          "key": []
+        },
+        "group-underwriting:FreeCoverLimit": {
+          "type": "",
+          "key": ["FreeCoverLimit"]
+        }
+      }
+    }
+  }
+}

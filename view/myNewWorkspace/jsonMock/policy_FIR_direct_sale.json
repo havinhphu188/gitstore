@@ -1,0 +1,293 @@
+{
+  "IposDocument": {
+    "Data": {
+      "endorsement-FIR:EndorsementDetail": {
+        "@section": "endorsement-FIR:EndorsementDetail",
+        "endorsement-FIR:BasicInfo": {
+          "@section": "endorsement-FIR:EndorsementDetail",
+          "endorsement-FIR:PolicyBasicInformation": {
+            "@key": [
+              ""
+            ]
+          },
+          "endorsement-FIR:Step1ProductName": {
+            "@key": [
+              "BusinessStatus"
+            ],
+            "@preview": [
+              "endorsement-FIR:BasicInfo"
+            ],
+            "@valuePrefix": "v3.document.status."
+          },
+          "endorsement-FIR:Step1PolicyNo": {
+            "@key": [
+              "EOriginalPolicyNumber"
+            ],
+            "@preview": [
+              "endorsement-FIR:BasicInfo"
+            ]
+          },
+          "endorsement-FIR:Step1PolicyOwner": {
+            "@key": [
+              ""
+            ],
+            "@preview": [
+              "endorsement-FIR:BasicInfo"
+            ]
+          },
+          "endorsement-FIR:Step1ClientID": {
+            "@key": [
+              "ClientID"
+            ]
+          },
+          "endorsement-FIR:Step1InceptionDate": {
+            "@key": [
+              "BusinessStatus"
+            ]
+          },
+          "endorsement-FIR:Step1ExpiryDate": {
+            "@key": [
+              "BusinessStatus"
+            ]
+          },
+          "endorsement-FIR:Step1EffectiveDate": {
+            "@key": [
+              "BusinessStatus"
+            ]
+          },
+          "endorsement-FIR:field1": {
+            "@key": [
+              ""
+            ]
+          },
+          "endorsement-FIR:Step1TypeofReasonEndorse": {
+            "@key": [
+              "BusinessStatus"
+            ],
+            "@preview": [
+              "endorsement-FIR:BasicInfo"
+            ],
+            "@valuePrefix": "v3.document.status."
+          }
+        },
+        "endorsement-FIR:InterestParties": {
+          "@isVisible": "getReason('IP')",
+          "@onOpen": "getListClient()",
+          "@section": "endorsement-FIR:EndorsementDetail",
+          "@key": [
+            "InterestedParties"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart"
+          },
+          "@cssClass": "v3-box-2",
+          "endorsement-FIR:NewInsuredInterest": {
+            "@key": [
+              "InterestedParty"
+            ],
+            "@section": "endorsement-FIR:InterestParties",
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "mainAction": "addIcon"
+            },
+            "@cssClass": "v3-box-2",
+            "@cardType": "action",
+            "@onClick": "addCard(card); getProspectList()"
+          },
+          "endorsement-FIR:InterestParty": {
+            "@key": [
+              "InterestedParty"
+            ],
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "subAction": "removeIcon"
+            },
+            "@cssClass": "v3-box-2",
+            "@section": "endorsement-FIR:InterestParties",
+            "@cardType": "template",
+            "endorsement-FIR:Step1Selectclient": {},
+            "endorsement-FIR:Step1Field1": {},
+            "endorsement-FIR:Step1ClientName": {
+              "@key": [
+                "FullName"
+              ]
+            },
+            "endorsement-FIR:Step1ClientIDIP": {
+              "@key": [
+                "ClientNumber"
+              ]
+              
+            },
+            "endorsement-FIR:Step1Relationship": {
+              "@key": [
+                "Relationship"
+              ]
+            }
+          }
+        },
+        "endorsement-FIR:Perils": {
+          "@isVisible": "getReason('CR')",
+          "@section": "endorsement-FIR:EndorsementDetail",
+          "@key": [
+            "PerilFEAOthers"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart"
+          },
+          "@cssClass": "v3-box-2",
+          "endorsement-FIR:NewPeril": {
+            "@key": [],
+            "@section": "endorsement-FIR:Perils",
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "mainAction": "addIcon"
+            },
+            "@cssClass": "v3-box-2",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          },
+          "endorsement-FIR:Peril": {
+            "@key": [
+              "PerilFEAOther"
+            ],
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "subAction": "removeIcon"
+            },
+            "@cssClass": "v3-box-2",
+            "@section": "endorsement-FIR:Perils",
+            "@cardType": "template",
+            "endorsement-FIR:Step1Indicator": {
+              "@key": [
+                "PerilFEAOtherIndicator"
+              ]
+            },
+            "endorsement-FIR:Step1Type": {
+              "@key": [
+                "PerilFEAOtherDescription"
+              ]
+            },
+            "endorsement-FIR:Step1Rate": {
+              "@key": [
+                "PerilFEAOtherRate"
+              ],
+              "@preview": [
+                "endorsement-FIR:InterestParty"
+              ]
+            },
+            "endorsement-FIR:Step1Amount": {
+              "@key": [
+                "PerilFEAOtherAmount"
+              ],
+              "@preview": [
+                "endorsement-FIR:InterestParty"
+              ]
+            },
+            "endorsement-FIR:Step1PremiumClassIP": {
+              "@key": [
+                "PerilFEAOtherPremiumClass"
+              ],
+              "@preview": [
+                "endorsement-FIR:InterestParty"
+              ]
+            }
+          }
+        },
+        "endorsement-FIR:InsuredInterests": {
+          "@isVisible": "getReason('N')",
+          "@section": "endorsement-FIR:EndorsementDetail",
+          "@key": [
+            "InsuredInterests"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart"
+          },
+          "@cssClass": "v3-box-2",
+          "endorsement-FIR:NewInsuredInterest": {
+            "@key": [
+              "InterestedParty"
+            ],
+            "@section": "endorsement-FIR:InsuredInterests",
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "mainAction": "addIcon"
+            },
+            "@cssClass": "v3-box-2",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          },
+          "endorsement-FIR:InsuredInterest": {
+            "@key": [
+              "InsuredInterest"
+            ],
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "subAction": "removeIcon"
+            },
+            "@cssClass": "v3-box-2",
+            "@section": "endorsement-FIR:InsuredInterests",
+            "@cardType": "template",
+            "endorsement-FIR:Step1Interest": {
+              "@key": [
+                "InterestCode"
+              ]
+            },
+            "endorsement-FIR:Step1FOC": {
+              "@key": [
+                "PerilFEAOtherDescription"
+              ]
+            },
+            "endorsement-FIR:Step1SumInsured": {
+              "@key": [
+                "SumInsured"
+              ],
+              "@preview": [
+                "endorsement-FIR:InterestParty"
+              ]
+            },
+            "endorsement-FIR:Step1PremiumClassN": {
+              "@key": [
+                "PremiumClass"
+              ],
+              "@preview": [
+                "endorsement-FIR:InterestParty"
+              ]
+            },
+            "endorsement-FIR:Step1Loading": {
+              "@key": [
+                "Loading"
+              ],
+              "@preview": [
+                "endorsement-FIR:InterestParty"
+              ]
+            },
+            "endorsement-FIR:Step1Multiplier": {
+              "@key": [
+                "Multiply"
+              ],
+              "@preview": [
+                "endorsement-FIR:InterestParty"
+              ]
+            },
+            "endorsement-FIR:Step1Rate": {
+              "@key": [
+                "PremiumRate"
+              ],
+              "@preview": [
+                "endorsement-FIR:InterestParty"
+              ]
+            },
+            "endorsement-FIR:Step1Premium": {
+              "@key": [
+                "Premium"
+              ],
+              "@preview": [
+                "endorsement-FIR:InterestParty"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "IposDocument": {
+    "Data": {
+      "application-personal-accident:Application": {
+        "@key": [
+          "Application"
+        ],
+        "@section": "application-personal-accident:Application",
+        "application-personal-accident:Summary": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "Summary"
+          ],
+          "@section": "application-personal-accident:Application",
+          "application-personal-accident:Summary": {}
+        },
+        "application-personal-accident:ProductInformation": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "ProductInformation"
+          ],
+          "@previewHtml": "v3-application-personal-accident-product_information.html",
+          "@section": "application-personal-accident:Application",
+          "application-personal-accident:ProductInformation": {}
+        },
+        "application-personal-accident:Quotation": {
+          "application-personal-accident:MainCoverage": {
+            "application-personal-accident:MainCoverageType": {},
+            "application-personal-accident:MainSumInsured": {},
+            "application-personal-accident:MainPremium": {}
+          },
+          "application-personal-accident:OptionalCoverages": {
+            "@counter": "0",
+            "@maxOccurs": "",
+            "@minOccurs": "0",
+            "application-personal-accident:OptionalCoverage": {
+              "application-personal-accident:AdditionalBenefitCode": {},
+              "application-personal-accident:AdditionalBenefitLimit": {},
+              "application-personal-accident:AdditionalPremium": {}
+            }
+          },
+          "application-personal-accident:ProposalBegin": {
+            "@key": [
+              "ProposalBegin"
+            ],
+            "@preview": [
+              "application-personal-accident:ProductInformation"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.application-personal-accident:ProposalBegin"
+          },
+          "application-personal-accident:TotalPayablePremium": {
+            "@key": [
+              "TotalPayablePremium"
+            ],
+            "@preview": [
+              "application-personal-accident:ProductInformation"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.application-personal-accident:TotalPayablePremium"
+          },
+          "application-personal-accident:ProposalEnd": {}
+        },
+        "application-personal-accident:PolicyOwner": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "PolicyOwner"
+          ],
+          "@section": "application-personal-accident:Application",
+          "po:Title": {},
+          "po:FullName": {
+            "@key": [
+              "PolicyOwnerInformation",
+              "FullName"
+            ],
+            "@preview": [
+              "application-personal-accident:PolicyOwner"
+            ]
+          },
+          "po:Gender": {
+            "@key": [
+              "PolicyOwnerInformation",
+              "Gender"
+            ],
+            "@preview": [
+              "application-personal-accident:PolicyOwner"
+            ],
+            "@valuePrefix": "v3.gender.enum."
+          },
+          "po:BirthDate": {
+            "@key": [
+              "PolicyOwnerInformation",
+              "BirthDate"
+            ],
+            "@format": "datetime",
+            "@preview": [
+              "application-personal-accident:PolicyOwner"
+            ]
+          },
+          "po:IDType": {},
+          "po:IDNumber": {
+            "@key": [
+              "PolicyOwnerInformation",
+              "IDNumber"
+            ],
+            "@preview": [
+              "application-personal-accident:PolicyOwner"
+            ]
+          },
+          "po:EthnicGroup": {},
+          "po:Occupation": {}
+        },
+        "application-personal-accident:Contact": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "PolicyOwnerInformation",
+            "Contacts"
+          ],
+          "@section": "application-personal-accident:Application",
+          "person:EmailAddress": {
+            "type": "",
+            "key": [
+              "PolicyOwnerInformation",
+              "Contacts",
+              "EmailAddress"
+            ]
+          },
+          "person:MobilePhone": {
+            "type": "",
+            "key": [
+              "PolicyOwnerInformation",
+              "Contacts",
+              "MobilePhone"
+            ],
+            "@defaultValue": "+60 9066612"
+          },
+          "person:HomePhone": {
+            "type": "",
+            "key": [
+              "PolicyOwnerInformation",
+              "Contacts",
+              "HomePhone"
+            ]
+          },
+          "person:OfficePhone": {
+            "type": "",
+            "key": [
+              "PolicyOwnerInformation",
+              "Contacts",
+              "OfficePhone"
+            ]
+          }
+        },
+        "application-personal-accident:CorrespondenceAddress": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "CorrespondenceAddress"
+          ],
+          "@section": "application-personal-accident:Application",
+          "CorrespondenceAddress:SelectAddress": {
+            "@key": [
+              "SelectAddress"
+            ]
+          },
+          "CorrespondenceAddress:AddressType": {
+            "@key": [
+              "CorrespondenceAddress",
+              "AddressType"
+            ]
+          },
+          "CorrespondenceAddress:BlkHouseNoAndStreet": {
+            "@key": [
+              "CorrespondenceAddress",
+              "BlkHouseNoAndStreet"
+            ]
+          },
+          "CorrespondenceAddress:UnitNo": {
+            "@key": [
+              "CorrespondenceAddress",
+              "UnitNo"
+            ]
+          },
+          "CorrespondenceAddress:Building": {
+            "@key": [
+              "CorrespondenceAddress",
+              "Building"
+            ]
+          },
+          "CorrespondenceAddress:City": {
+            "@key": [
+              "CorrespondenceAddress",
+              "City"
+            ]
+          },
+          "CorrespondenceAddress:Country": {
+            "@key": [
+              "CorrespondenceAddress",
+              "Country"
+            ]
+          },
+          "CorrespondenceAddress:Postal": {
+            "@key": [
+              "CorrespondenceAddress",
+              "Postal"
+            ]
+          }
+        },
+        "application-personal-accident:Questionnaires": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "Questionnaires"
+          ],
+          "@previewHtml": "v3-application-personal-accident-questionanaries.html",
+          "@section": "application-personal-accident:Application",
+          "application-personal-accident:Questionnaires": {
+            "@key": [
+              "Questionnaires"
+            ]
+          }
+        },
+        "application-personal-accident:DeclarationByProposer": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "DeclarationByProposer"
+          ],
+          "@section": "application-personal-accident:Application",
+          "application-personal-accident:Declaration1": {},
+          "application-personal-accident:Declaration2": {}
+        },
+        "Attachments": {
+          "@counter": "0",
+          "@maxOccurs": "",
+          "@minOccurs": "0",
+          "Attachment": {
+            "FileUid": {},
+            "Name": {},
+            "FileName": {},
+            "CreateDate": {},
+            "FileSize": {}
+          }
+        }
+      }
+    }
+  }
+}

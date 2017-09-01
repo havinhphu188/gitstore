@@ -1,0 +1,103 @@
+{
+  "IposDocument": {
+    "Data": {
+      "underwriting:Underwriting": {
+        "section": "underwriting:Underwriting",
+        "icon": "fa fa-pencil-square-o",
+        "cssClass": "v3-box-6",
+        "underwriting:Summary": {
+          "icon": "fa fa-pencil-square-o",
+          "cssClass": "v3-box-4",
+          "section": "underwriting:Underwriting",
+          "underwriting:UWDecision": {
+            "type": "",
+            "key": [
+              "UnderwritingDecisionCd"
+            ]
+          },
+          "underwriting:UWLoadingApplied": {
+            "type": "",
+            "key": [],
+            "preview": [
+              "underwriting:Summary"
+            ]
+          },
+          "underwriting:UWRevisedPremiums": {
+            "type": "",
+            "key": [],
+            "preview": [
+              "underwriting:Summary"
+            ]
+          }
+        },
+        "underwriting:Findings": {
+          "icon": "fa fa-pencil-square-o",
+          "cssClass": "v3-box-4",
+          "section": "underwriting:Underwriting",
+          "underwriting:Finding": {
+            "type": "",
+            "key": [
+              "UnderwritingRuleInfo"
+            ]
+          }
+        },
+        "underwriting:Comments": {
+          "icon": "fa fa-pencil-square-o",
+          "cssClass": "v3-box-4",
+          "section": "underwriting:Underwriting",
+          "permission": {
+            "AGENT": {
+              "editable": false,
+              "viewable": false
+            },
+            "POLICY_OWNER": {
+              "editable": false,
+              "viewable": false
+            }
+          },
+          "underwriting:Comment": {
+            "type": "",
+            "key": []
+          }
+        },
+        "underwriting:FormAndLetter": {
+          "icon": "fa fa-pencil-square-o",
+          "cssClass": "v3-box-4",
+          "section": "underwriting:Underwriting",
+          "permission": {
+            "AGENT": {
+              "editable": false,
+              "viewable": false
+            },
+            "POLICY_OWNER": {
+              "editable": false,
+              "viewable": false
+            }
+          },
+          "isVisible": "findElementInDetail(['DocInfo']).Product === commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK || findElementInDetail(['DocInfo']).Product === commonService.CONSTANTS.PRODUCT.ENDOWMENT",
+          "underwriting:Form": {
+            "type": "",
+            "key": [
+              "UWFormAndLetter",
+              "UWForm"
+            ]
+          },
+          "underwriting:LetterType": {
+            "type": "",
+            "key": [
+              "UWFormAndLetter",
+              "UWLetter"
+            ]
+          }
+          ,
+          "underwriting:documentList": {
+            "type": "",
+            "key": [
+              
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+<md-dialog draggable style="height:auto; width:50%; max-height: 100%;" class="md-content-overflow" aria-label="">
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Tags">
+                <md-content class="md-padding">
+                    <div layout="row" class="breakLine" layout-align="start center">
+                        <div flex="90" >
+                            <input type="text" class="input" ng-model="tag" />
+                        </div>
+                        <div flex='10'>
+                            <md-button class="md-icon-button button default-color" style="margin-top: 2%;"  ng-click="addTag(tag)"><i class="fa fa-plus"></i></md-button>
+                        </div>
+                    </div>
+                    <md-chips ng-model="tagList" readonly="ctrl.readonly">
+                        <md-chip-template>
+                            <strong>{{$chip}}</strong>
+                            <!-- <em>(fruit)</em> -->
+                        </md-chip-template>
+                    </md-chips>
+                    <!--  <div class="tag-area" layout="row" layout-align="start center">
+                    <md-button style="margin-right: 10px;" class="md-raised md-primary" ng-repeat="item in tagList track by $index">{{item}}<i style="margin-left: 10px;" ng-click="removeTag($index)" class="fa fa-times fa-lg"></i></md-button>
+                </div> -->
+                </md-content>
+            </md-tab>
+            <md-tab label="Sharing">
+                <md-content class="md-padding">
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+    <!-- 
+
+    <md-content style="height: auto; padding: 0">
+        <md-tabs>
+            <md-tab id="tab1" aria-controls="tab1-content">
+                <md-tab-label>
+                    <h3>Tags</h3>
+                </md-tab-label>
+                
+                <label style="float: left; margin-right: 10px">Tag:</label>
+                <input type="text" style="width: 50%; float: left" ng-model="tag">
+                <md-button style="width:40px; margin-left: 10px; color: green" ng-click="addTag(tag)"><i class="fa fa-plus fa-2x"></i></md-button>
+                <div class="tag-area" layout="row" layout-align="start center">
+                    <md-button style="margin-right: 10px;" class="md-raised md-primary" ng-repeat="item in tagList track by $index">{{item}}<i style="margin-left: 10px;" ng-click="removeTag($index)" class="fa fa-times fa-lg"></i></md-button>
+                </div>
+            </md-tab>
+            <md-tab id="tab2" aria-controls="tab2-content">
+                <md-tab-label>
+                    <h3>Sharing</h3>
+                </md-tab-label>
+            </md-tab>
+        </md-tabs>
+    </md-content> -->
+    <div class="md-actions" style="display: block;" layout="row">
+        <md-button ng-click="saveTag()" style="float: right; margin-right:8px; color: white; width: 100px; background-color: #3D4944">
+            Save
+        </md-button>
+        <md-button ng-click="cancelDialog()" style="float: right; margin-right:8px; color: white; width: 100px; background-color: #3D4944">
+            Cancel
+        </md-button>
+    </div>
+</md-dialog>

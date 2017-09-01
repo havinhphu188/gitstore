@@ -1,0 +1,3547 @@
+{
+  "IposDocument": {
+    "Data": {
+      "application-rul:Application": {
+        "key": [
+          "Application"
+        ],
+        "section": "application-rul:Application",
+        "application-rul:Summary": {
+          "icon": "fa fa-file-o",
+          "key": [],
+          "section": "application-rul:Application",
+          "isShowValidationIcon": "false",
+          "isShowNoOfEmptyField": "false",
+          "application-rul:ProductName": {
+            "key": [
+              "Product"
+            ],
+            "preview": [
+              "application-rul:Application"
+            ],
+            "valuePrefix": "v3.mynewworkspace.portlet.label.productName."
+          },
+          "application-rul:QuotationNo": {},
+          "application-rul:Application": {
+            "key": [
+              "SPAJNo"
+            ],
+            "preview": [
+              {
+                "cardName": "application-rul:Summary",
+                "label": "v3.mynewworkspace.portlet.label.application-rul.Application",
+                "priority": 50
+              }
+            ]
+          },
+          "application-rul:Status": {
+            "key": [
+              "BusinessStatus"
+            ],
+            "preview": [
+              {
+                "cardName": "application-rul:Summary",
+                "label": "v3.mynewworkspace.portlet.label.application-rul.Status",
+                "priority": 50
+              }
+            ],
+            "valuePrefix": "v3.document.status."
+          },
+          "application-rul:CreatedDate": {
+            "key": [
+              "CreatedDate"
+            ],
+            "preview": [
+              "application-rul:Summary"
+            ]
+          },
+          "application-rul:LastUpdatedDate": {  
+	          "key": [
+	            "UpdatedDate"
+	          ]
+          },
+          "application-rul:SinglePremiumTopUp": {
+          	 "key": [
+	            "TotalSingleTopUp"
+	          ]
+          },
+          "application-rul:RegularBasicPremiumRegularTopUp": {
+          	 "key": [
+	            "TotalRegularPremium"
+	          ]
+          },
+          "application-rul:Proposer": {
+            "key": [
+              "PolicyOwnerDetails",
+              "FullName"
+            ]
+          },
+          "application-rul:LifeInsured": {
+            "key": [
+              "LifeAssuredDetails",
+              "FullName"
+            ]
+          },
+          "application-rul:PreviewApplicationDetails": {}
+        },
+        "application-rul:Proposer": {
+          "icon": "fa fa-file-o",
+          "key": [
+            "PolicyOwnerDetails"
+          ],
+          "section": "application-rul:Application",
+          "application-rul:Prospect": {
+            "key": [
+              "ProporserInformation"
+            ],
+            "section": "application-rul:Proposer",
+            "icon": "fa fa-user",
+            "cssClass": "v3-box-1",
+            "person:Summary": {
+              "isShowValidationIcon": "false",
+              "isShowNoOfEmptyField": "false",
+              "section": "application-rul:Prospect",
+              "icon": "fa fa-user",
+              "cssClass": "v3-box-1",
+              "person:ProspectInformation": {
+                "key": [
+                  ""
+                ]
+              },
+              "person:FullNames": {
+                "key": [
+                  ""
+                ]
+              },
+              "person:BirthDates": {
+                "key": [
+                  ""
+                ]
+              },
+              "person:Genders": {
+                "valuePrefix": "v3.pnc.gender.enum.",
+                "key": [
+                  ""
+                ]
+              },
+              "person:SmokerStatuss": {
+                "key": [
+                  ""
+                ]
+              },
+              "person:Networths": {
+                "key": [
+                  ""
+                ]
+              },
+              "person:AnnualCashFlow": {
+                "key": [
+                  ""
+                ]
+              },
+              "person:TotalAssetss": {
+                "key": [
+                  "TotalAssets"
+                ]
+              },
+              "person:AnnualIncome": {
+                "key": [
+                  ""
+                ]
+              },
+              "person:TotalLiabilities": {
+                "key": [
+                  ""
+                ]
+              },
+              "person:AnnualExpenses": {
+                "key": [
+                  ""
+                ]
+              },
+              "person:Networth": {
+                "key": [
+                  ""
+                ]
+              },
+              "person:ShortageSurplus": {
+                "key": [
+                  ""
+                ]
+              },
+              "person:InvestmentRiskProfiles": {
+                "key": [
+                  ""
+                ]
+              }
+            },
+            "person:BasicInformation": {
+              "section": "application-rul:Prospect",
+              "icon": "fa fa-user",
+              "cssClass": "v3-box-1",
+              "person:Photo": {
+                "key": [
+                  "Photo"
+                ]
+              },
+              "application-rul:Title": {
+                "key": [
+                  "ProporserInformation",
+                  "Salutation"
+                ],
+                "@defaultValue": "MR"
+              },
+              "application-rul:NameTitle": {
+                "key": [
+                  "ProporserInformation",
+                  "PersonName"
+                ],
+                "@defaultValue": "MR"
+              },
+              "person:FullName": {
+                "key": [
+                  "ProporserInformation",
+                  "FullName"
+                ],
+                "preview": [
+                  "application-rul:Prospect"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.FullName",
+                "placeholder": "Full Name",
+                "maxlength": 120,
+                "@defaultValue": "Full Name"
+              },
+              "person:BirthDate": {
+                "key": [
+                  "ProporserInformation",
+                  "BirthDate"
+                ],
+                "preview": [
+                  "application-rul:Prospect"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:BirthDate",
+                "valuePrefix": "",
+                "format": "datetime",
+                "@defaultValue": "1975-01-01"
+              },
+              "person:Gender": {
+                "key": [
+                  "ProporserInformation",
+                  "Gender"
+                ],
+                "preview": [
+                  "application-rul:Prospect"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:Gender",
+                "valuePrefix": "v3.pnc.gender.enum.",
+                "@defaultValue": "M"
+              },
+              "person:MaritalStatus": {
+                "key": [
+                  "ProporserInformation",
+                  "MaritalStatus"
+                ],
+                "@defaultValue": "S"
+              },
+              "person:Religion": {
+                "key": [
+                  "ProporserInformation",
+                  "Religion"
+                ],
+                "@defaultValue": "OTH"
+              },
+              "person:SmokerStatus": {
+                "key": [
+                  "ProporserInformation",
+                  "SmokerStatus"
+                ],
+                "@defaultValue": "N"
+              },
+              "person:Nationality": {
+                "key": [
+                  "ProporserInformation",
+                  "Nationality"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:Nationality",
+                "valuePrefix": "v3.application.motor.nationality.",
+                "@defaultValue": "725"
+              },
+              "person:IDType": {
+                "key": [
+                  "ProporserInformation",
+                  "IDs",
+                  "ID",
+                  "IDType"
+                ],
+                "@defaultValue": "PP"
+              },
+              "person:IDNumber": {
+                "key": [
+                  "ProporserInformation",
+                  "IDs",
+                  "ID",
+                  "IDNumber"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.IDNumber",
+                "placeholder": "ID Number",
+                "@defaultValue": "022767712"
+              },
+              "person:BusinessIndustry": {
+                "key": [
+                  "ProporserInformation",
+                  "BusinessIndustry"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:BusinessIndustry",
+                "valuePrefix": "v3.pnc.industry.enum.",
+                "@defaultValue": "ACT"
+              },
+              "person:Occupation": {
+                "key": [
+                  "ProporserInformation",
+                  "Occupation"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:Occupation",
+                "valuePrefix": "v3.pnc.occupation.enum.",
+                "@defaultValue": "ACCT"
+              },
+              "person:ClientStatus": {
+                "key": [
+                  "ProporserInformation",
+                  "ClientStatus"
+                ]
+              }
+            },
+            "person:Contacts": {
+              "key": [
+                "ProporserInformation",
+                "Contacts"
+              ],
+              "section": "application-rul:Prospect",
+              "icon": "fa fa-user",
+              "cssClass": "v3-box-1",
+              "person:EmailAddress": {
+                "key": [
+                  "ProporserInformation",
+                  "EmailAddress"
+                ]
+              },
+              "person:MobilePhone": {
+                "key": [
+                  "ProporserInformation",
+                  "MobilePhone"
+                ],
+                "@defaultValue": "+60 9066612"
+              },
+              "person:HomePhone": {
+                "key": [
+                  "ProporserInformation",
+                  "HomePhone"
+                ]
+              },
+              "person:OfficePhone": {
+                "key": [
+                  "ProporserInformation",
+                  "OfficePhone"
+                ]
+              }
+            },
+            "person:Addresses": {
+              "key": [
+                "ProporserInformation",
+                "NonPrimaryAddresses"
+              ],
+              "section": "application-rul:Prospect",
+              "icon": "fa fa-user",
+              "cssClass": "v3-box-1",
+              "person:PrimaryAddress": {
+                "section": "person:Addresses",
+                "key": [
+                  "ProporserInformation",
+                  "PrimaryAddress"
+                ],
+                "person:PAddressType": {
+                  "key": [
+                    "ProporserInformation",
+                    "AddressType"
+                  ],
+                  "labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+                  "valuePrefix": "v3.pnc.addressType.enum.",
+                  "@defaultValue": "RESIDENTIAL"
+                },
+                "person:Address": {
+                  "key": [
+                    "ProporserInformation",
+                    "AddressComplete"
+                  ],
+                  "@defaultValue": "Block 1"
+                },
+                "person:PCity": {
+                  "key": [
+                    "ProporserInformation",
+                    "City"
+                  ],
+                  "labelKey": "new.v3.mynewworkspace.prospect.label.City",
+                  "maxlength": 120,
+                  "placeholder": "City",
+                  "type": "INPUT",
+                  "@defaultValue": "HCM"
+                },
+                "person:PProvince": {
+                  "key": [
+                    "ProporserInformation",
+                    "Province"
+                  ],
+                  "labelKey": "new.v3.mynewworkspace.prospect.label.Province",
+                  "placeholder": "Province",
+                  "@defaultValue": "HCM"
+                },
+                "person:PCountry": {
+                  "key": [
+                    "ProporserInformation",
+                    "Country"
+                  ],
+                  "@defaultValue": "SGP"
+                },
+                "person:PPostal": {
+                  "key": [
+                    "ProporserInformation",
+                    "Postal"
+                  ],
+                  "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+                  "placeholder": "Postal Code",
+                  "@defaultValue": "01212"
+                }
+              },
+              "person:NewNonPrimaryAddress": {
+                "section": "person:Addresses",
+                "key": [
+                  "NonPrimaryAddress"
+                ],
+                "icons": {
+                  "cardIcon": {
+                    "content": "applicationIcon"
+                  },
+                  "removeCard": {
+                    "onClick": "removeCardAddress(card)"
+                  }
+                },
+                "cssClass": "v3-box-1",
+                "cardType": "template",
+                "person:NPAddressType": {
+                  "key": [
+                    "AddressType"
+                  ],
+                  "labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+                  "valuePrefix": "v3.pnc.addressType.enum."
+                },
+                "person:NPAddress": {
+                  "key": [
+                    "AddressComplete"
+                  ],
+                  "@defaultValue": "Block 1"
+                },
+                "person:NPCity": {
+                  "key": [
+                    "City"
+                  ],
+                  "labelKey": "new.v3.mynewworkspace.prospect.label.City",
+                  "maxlength": 120,
+                  "placeholder": "City",
+                  "type": "INPUT"
+                },
+                "person:NPProvince": {
+                  "key": [
+                    "Province"
+                  ],
+                  "labelKey": "new.v3.mynewworkspace.prospect.label.Province",
+                  "placeholder": "Province",
+                  "@defaultValue": "HCM"
+                },
+                "person:NPCountry": {
+                  "key": [
+                    "Country"
+                  ]
+                },
+                "person:NPPostal": {
+                  "key": [
+                    "Postal"
+                  ],
+                  "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+                  "placeholder": "Postal Code"
+                }
+              },
+              "person:NonPrimaryAddress": {
+                "section": "person:Addresses",
+                "icon": {
+                  "main": "fa fa-user",
+                  "mainAction": "addIcon"
+                },
+                "cardType": "action",
+                "onClick": "addCardAddress(card)"
+              }
+            },
+            "person:OtherInformation": {
+              "section": "application-rul:Prospect",
+              "icon": "fa fa-user",
+              "cssClass": "v3-box-1",
+              "person:CountryOfBirth": {
+                "key": [
+                  "ProporserInformation",
+                  "CityOfBirth"
+                ]
+              },
+              "person:Education": {
+                "key": [
+                  "ProporserInformation",
+                  "Education"
+                ]
+              },
+              "person:Staff": {
+                "key": [
+                  "ProporserInformation",
+                  "Staff"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:Staff",
+                "valuePrefix": "v3.yesno.enum.",
+                "@defaultValue": "N"
+              },
+              "prospect:EmployerName": {
+                "key": [
+                  "ProporserInformation",
+                  "EmployerName"
+                ],
+                "@defaultValue": "CSC"
+              },
+              "person:AnnualEmployeeIncome": {
+                "key": [
+                  "ProporserInformation",
+                  "AnnualIncome"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.person:AnnualEmployeeIncome",
+                "maxlength": 120,
+                "placeholder": "Annual Employee Income"
+              },
+              "person:SourceOfFund": {
+                "key": [
+                  "ProporserInformation",
+                  "SourceOfFund"
+                ],
+                "@defaultValue": "BANK-FINANCING"
+              },
+              "person:ClientNumber": {
+                "key": [
+                  "ProporserInformation",
+                  "ClientId"
+                ]
+              },
+              "person:SourceName": {
+                "key": [
+                  "ProporserInformation",
+                  "SourceName"
+                ]
+              }
+            },
+            "prospect:DocumentRelation": {
+              "key": [
+                "ProporserInformation",
+                "DocumentRelation"
+              ],
+              "prospect:ClientId": {
+                "key": [
+                  "ProporserInformation",
+                  "ClientId"
+                ]
+              }
+            },
+            "prospect:CurrentFinancialPosition": {
+              "section": "application-rul:Prospect",
+              "key": [
+                "ProporserInformation",
+                "CurrentFinancialPosition"
+              ],
+              "prospect:CurrentAssetsLiabilities": {
+                "section": "prospect:CurrentFinancialPosition",
+                "@onOpen": "setSlider()",
+                "key": [
+                  "ProporserInformation",
+                  "CurrentAssetsAndLiabilities"
+                ],
+                "prospect:CurrentAssets": {},
+                "prospect:CurrentAssetsTemp1": {},
+                "prospect:ResidentialProperty": {
+                  "key": [
+                    "ProporserInformation",
+                    "ResidentialProperty"
+                  ]
+                },
+                "prospect:OtherSavingFunds": {
+                  "key": [
+                    "ProporserInformation",
+                    "OtherSavingFunds"
+                  ]
+                },
+                "prospect:InvestmentAndSaving": {
+                  "key": [
+                    "ProporserInformation",
+                    "InvestmentAndSavings"
+                  ]
+                },
+                "prospect:TotalAssets": {
+                  "key": [
+                    "ProporserInformation",
+                    "TotalAssets"
+                  ],
+                  "preview": [
+                    "prospect:CurrentAssetsLiabilities"
+                  ]
+                },
+                "prospect:CurrentLiabilities": {},
+                "prospect:CurrentAssetsTemp2": {},
+                "prospect:MortageLoan": {
+                  "key": [
+                    "ProporserInformation",
+                    "MortageLoan"
+                  ]
+                },
+                "prospect:OtherOutstandingDebts": {
+                  "key": [
+                    "ProporserInformation",
+                    "OtherOutstandingDebts"
+                  ]
+                },
+                "prospect:NetWorth": {
+                  "key": [
+                    "ProporserInformation",
+                    "NetWorth"
+                  ],
+                  "preview": [
+                    "prospect:CurrentFinancialPosition"
+                  ]
+                },
+                "prospect:ATotalLiabilities": {
+                  "key": [
+                    "ProporserInformation",
+                    "TotalLiabilities"
+                  ],
+                  "preview": [
+                    "prospect:CurrentAssetsLiabilities"
+                  ]
+                },
+                "prospect:CurrentAssetsSignificants": {},
+                "prospect:CurrentAssetsTemp3": {},
+                "prospect:CurrentAssetsSignificant": {
+                  "key": [
+                    "ProporserInformation",
+                    "SignificantChangeCAL"
+                  ],
+                  "@defaultValue": "N"
+                },
+                "prospect:CurrentAssetsSpecify": {
+                  "key": [
+                    "ProporserInformation",
+                    "SpecifySignificantChangeCAL"
+                  ]
+                }
+              },
+              "prospect:AnnualCashFlowBudgetedFunds": {
+                "section": "prospect:CurrentFinancialPosition",
+                "onOpen": "setSlider()",
+                "key": [
+                  "ProporserInformation",
+                  "AnnualCashFlowAndBudgetedFunds"
+                ],
+                "prospect:AAnnualIncome": {
+                  "key": [
+                    "ProporserInformation",
+                    "AnnualIncome"
+                  ]
+                },
+                "prospect:AnnualCashFlowTemp1": {},
+                "prospect:AnnualEmployeeIncomes": {
+                  "key": [
+                    "ProporserInformation",
+                    "OtherInfomation",
+                    "AnnualIncome"
+                  ]
+                },
+                "prospect:LessCPF": {
+                  "key": [
+                    "ProporserInformation",
+                    "LessCPF"
+                  ]
+                },
+                "prospect:NetAnnualIncome": {
+                  "key": [
+                    "ProporserInformation",
+                    "NetAnnualIncome"
+                  ],
+                  "preview": [
+                    "prospect:AnnualCashFlowBudgetedFunds"
+                  ]
+                },
+                "prospect:OtherIncome": {
+                  "key": [
+                    "ProporserInformation",
+                    "OtherIncome"
+                  ]
+                },
+                "prospect:TotalAnnualIncome": {
+                  "key": [
+                    "ProporserInformation",
+                    "TotalAnnualIncome"
+                  ]
+                },
+                "prospect:AnnualCashFlowTemp2": {},
+                "prospect:AnnualExpense": {
+                  "key": [
+                    "ProporserInformation",
+                    "TotalAnnualExpenses"
+                  ],
+                  "preview": [
+                    "prospect:AnnualCashFlowBudgetedFunds"
+                  ]
+                },
+                "prospect:AnnualCashFlowTemp3": {},
+                "prospect:LivingExpenses": {
+                  "key": [
+                    "ProporserInformation",
+                    "LivingExpenses"
+                  ]
+                },
+                "prospect:TuitionAndSchoolExpenses": {
+                  "key": [
+                    "ProporserInformation",
+                    "TuitionAndSchoolExpenses"
+                  ]
+                },
+                "prospect:LoanRepayment": {
+                  "key": [
+                    "ProporserInformation",
+                    "LoanRepayment"
+                  ]
+                },
+                "prospect:Others": {
+                  "key": [
+                    "ProporserInformation",
+                    "Others"
+                  ]
+                },
+                "prospect:TotalAnnualExpenses": {
+                  "key": [
+                    "ProporserInformation",
+                    "TotalAnnualExpenses"
+                  ]
+                },
+                "prospect:NetCashFlowOrSurplus": {
+                  "key": [
+                    "ProporserInformation",
+                    "NetCashFlowOrSurplus"
+                  ],
+                  "preview": [
+                    "prospect:CurrentFinancialPosition"
+                  ]
+                },
+                "prospect:BudgetedFunds": {},
+                "prospect:AnnualCashFlowTemp4": {},
+                "prospect:AnnualCashImportantNote": {},
+                "prospect:AnnualCashFlowTemp5": {},
+                "prospect:RegularAmount": {
+                  "key": [
+                    "ProporserInformation",
+                    "RegularAmount"
+                  ]
+                },
+                "prospect:LumpSum": {
+                  "key": [
+                    "ProporserInformation",
+                    "LumpSum"
+                  ]
+                },
+                "prospect:AnnualCashSignificants": {},
+                "prospect:AnnualCashFlowTemp6": {},
+                "prospect:AnnualCashSignificant": {
+                  "key": [
+                    "ProporserInformation",
+                    "SignificantChangeACFBF"
+                  ],
+                  "@defaultValue": "N"
+                },
+                "prospect:AnnualCashSpecify": {
+                  "key": [
+                    "ProporserInformation",
+                    "SpecifySignificantChangeACFBF"
+                  ]
+                }
+              },
+              "prospect:ExistingFinancialPlans": {
+                "section": "prospect:CurrentFinancialPosition",
+                "key": [
+                  "ProporserInformation",
+                  "ExistingFinancialPlans"
+                ],
+                "icon": "fa fa-user",
+                "cssClass": "v3-box-1",
+                "prospect:ExistingFinancialDeclaration": {
+                  "section": "prospect:ExistingFinancialPlans",
+                  "key": [
+                    "ProporserInformation",
+                    "ExistingFinancialPlan"
+                  ],
+                  "prospect:HaveExistingPlan": {
+                    "key": [
+                      "ProporserInformation",
+                      "HaveExistingPlan"
+                    ],
+                    "preview": [
+                      "prospect:ExistingFinancialPlans"
+                    ],
+                    "@valuePrefix": "v3.yesno.enum."
+                  }
+                },
+                "prospect:ExistingFinancialPlan": {
+                  "section": "prospect:ExistingFinancialPlans",
+                  "key": [
+                    "ProporserInformation",
+                    "ExistingFinancialPlan"
+                  ],
+                  "icon": {
+                    "subAction": "removeIcon"
+                  },
+                  "cardType": "template",
+                  "@onOpen": "setSlider()",
+                  "prospect:InsuranceDetailsAndValue": {
+                    "key": [
+                      "ProporserInformation",
+                      "InsuranceDetailsAndValue"
+                    ]
+                  },
+                  "prospect:ExistingFinancialPlanTemp1": {
+                    "key": [
+                      "ProporserInformation",
+                      "ExistingFinancialPlanTemp1"
+                    ]
+                  },
+                  "prospect:OwnerName": {
+                    "key": [
+                      "ProporserInformation",
+                      "OwnerName"
+                    ]
+                  },
+                  "prospect:Company": {
+                    "key": [
+                      "ProporserInformation",
+                      "Company"
+                    ]
+                  },
+                  "prospect:PolicyType": {
+                    "key": [
+                      "ProporserInformation",
+                      "PolicyType"
+                    ]
+                  },
+                  "prospect:YearOfIssue": {
+                    "key": [
+                      "ProporserInformation",
+                      "YearOfIssue"
+                    ]
+                  },
+                  "prospect:PremiumValue": {
+                    "key": [
+                      "ProporserInformation",
+                      "PremiumValue"
+                    ]
+                  },
+                  "prospect:PremiumType": {
+                    "key": [
+                      "ProporserInformation",
+                      "PremiumType"
+                    ]
+                  },
+                  "prospect:DeathOfBenefit": {
+                    "key": [
+                      "ProporserInformation",
+                      "DeathOfBenefit"
+                    ]
+                  },
+                  "prospect:TBD": {
+                    "key": [
+                      "ProporserInformation",
+                      "TBD"
+                    ]
+                  },
+                  "prospect:CriticalIllness": {
+                    "key": [
+                      "ProporserInformation",
+                      "CriticalIllness"
+                    ]
+                  },
+                  "prospect:HSBenefit": {
+                    "key": [
+                      "ProporserInformation",
+                      "HSBenefit"
+                    ]
+                  }
+                },
+                "prospect:NewExistingPlan": {
+                  "section": "prospect:ExistingFinancialPlans",
+                  "isVisible": "findElementInDetail(['HaveExistingPlan']).Value === 'Y'",
+                  "icon": {
+                    "main": "fa fa-user",
+                    "mainAction": "addIcon"
+                  },
+                  "cardType": "action",
+                  "onClick": "addCard(card)"
+                }
+              }
+            },
+            "prospect:FinancialKnowledgeQualification": {
+              "section": "application-rul:Prospect",
+              "key": [
+                "ProporserInformation",
+                "FinancialKnowledgeAndQualification"
+              ],
+              "prospect:KnowledgeImportantNote1": {},
+              "prospect:KnowledgeTemp1": {},
+              "prospect:KnowledgeEducation": {},
+              "prospect:KnowledgeQ01": {
+                "key": [
+                  "ProporserInformation",
+                  "Q01Value"
+                ],
+                "@defaultValue": "N"
+              },
+              "prospect:KnowledgeQ01TypeOfInstitution": {
+                "key": [
+                  "ProporserInformation",
+                  "Q01TypeOfInstitution"
+                ]
+              },
+              "prospect:KnowledgeQ01NameOfInstitution": {
+                "key": [
+                  "ProporserInformation",
+                  "Q01NameOfInstitution"
+                ]
+              },
+              "prospect:KnowledgeQ01YearOfGraduation": {
+                "key": [
+                  "ProporserInformation",
+                  "Q01YearOfGraduation"
+                ]
+              },
+              "prospect:KnowledgeQ02": {
+                "key": [
+                  "ProporserInformation",
+                  "Q02Value"
+                ]
+              },
+              "prospect:KnowledgeQ02NameOfInstitution": {
+                "key": [
+                  "ProporserInformation",
+                  "Q02NameOfInstitution"
+                ]
+              },
+              "prospect:KnowledgeQ02YearOfGraduation": {
+                "key": [
+                  "ProporserInformation",
+                  "Q02YearOfGraduation"
+                ]
+              },
+              "prospect:KnowledgeInvestmentExp": {},
+              "prospect:KnowledgeQ03": {
+                "key": [
+                  "ProporserInformation",
+                  "Q03Value"
+                ],
+                "valuePrefix": "v3.yesno.enum.",
+                "preview": [
+                  "prospect:FinancialKnowledgeQualification"
+                ]
+              },
+              "prospect:KnowledgeQ03NoOfTransaction": {
+                "key": [
+                  "ProporserInformation",
+                  "Q03NoOfTransaction"
+                ]
+              },
+              "prospect:KnowledgeQ03TypeOfTransaction": {
+                "key": [
+                  "ProporserInformation",
+                  "Q03TypeOfTransaction"
+                ]
+              },
+              "prospect:KnowledgeWorkExp": {},
+              "prospect:KnowledgeQ04": {
+                "key": [
+                  "ProporserInformation",
+                  "Q04Value"
+                ]
+              },
+              "prospect:KnowledgeQ04NatureOfWork": {
+                "key": [
+                  "ProporserInformation",
+                  "Q04NatureOfWork"
+                ]
+              },
+              "prospect:KnowledgeTemp2": {},
+              "prospect:KnowledgeOutcome": {},
+              "prospect:KnowledgeOutcome1": {
+                "key": [
+                  "ProporserInformation",
+                  "ILPCISKnowledge"
+                ]
+              },
+              "prospect:KnowledgeOutcome2": {
+                "key": [
+                  "ProporserInformation",
+                  "NotILPCISKnowledge"
+                ]
+              },
+              "prospect:KnowledgeImportantNote2": {}
+            },
+            "prospect:InvestmentRiskProfile": {
+              "section": "application-rul:Prospect",
+              "key": [
+                "ProporserInformation",
+                "InvestmentRiskProfile"
+              ],
+              "prospect:InvestmentRiskImportantNote": {},
+              "prospect:InvestmentRiskTemp1": {},
+              "prospect:InvestmentRiskChoose": {},
+              "prospect:InvestmentRiskTemp2": {},
+              "prospect:InvestmentPreference": {
+                "key": [
+                  "ProporserInformation",
+                  "InvestmentPreference"
+                ],
+                "@defaultValue": "1"
+              },
+              "prospect:ExpectedReturn": {
+                "key": [
+                  "ProporserInformation",
+                  "ExpectedReturn"
+                ],
+                "@defaultValue": "1"
+              },
+              "prospect:InvestmentTimePeriod": {
+                "key": [
+                  "ProporserInformation",
+                  "InvestmentTimePeriod"
+                ],
+                "@defaultValue": "1"
+              },
+              "prospect:DuringSortTermDrop": {
+                "key": [
+                  "ProporserInformation",
+                  "DuringSortTermDrop"
+                ],
+                "@defaultValue": "1"
+              },
+              "prospect:InvestmentGoal": {
+                "key": [
+                  "ProporserInformation",
+                  "InvestmentGoal"
+                ],
+                "@defaultValue": "1"
+              },
+              "prospect:InvestmentPortfolio": {
+                "key": [
+                  "ProporserInformation",
+                  "InvestmentPortfolio"
+                ],
+                "@defaultValue": "1"
+              },
+              "prospect:TotalScore": {
+                "key": [
+                  "ProporserInformation",
+                  "TotalScore"
+                ]
+              },
+              "prospect:RiskProfile": {
+                "key": [
+                  "ProporserInformation",
+                  "RiskProfile"
+                ],
+                "preview": [
+                  "prospect:InvestmentRiskProfile"
+                ]
+              },
+              "prospect:Result": {}
+            }
+          },
+          "application-rul:UWDetailsofProposer": {
+            "onOpen": "checkDetailChange_computeTag_RUL_PO([['PolicyOwnerDetails','Gender'],['LifeAssuredDetails','Gender'],['Riders'], ['IsHasRider'], ['PolicyOwnerDetails','UnderwritingDetailsOfProposer'], ['LAIsTheSameWithPO']])",
+            "key": [
+              "PolicyOwnerDetails",
+              "UnderwritingDetailsOfProposer"
+            ],
+            "icon": "fa fa-user",
+            "section": "application-rul:Proposer",
+            "application-rul:GeneralQuestion": {
+              "key": [
+                "PolicyOwnerDetails",
+                "GeneralQuestion"
+              ],
+              "icon": "fa fa-user",
+              "section": "application-rul:UWDetailsofProposer",
+              "application-rul:GeneralQ1a": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ1a"
+                ]
+              },
+              "application-rul:GeneralQuestion1b": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ1b",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:GeneralQuestion1bDetail": {
+                "isVisible": "poGQ1bVal.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ1b",
+                  "GeneralQ1bItems"
+                ]
+              },
+              "application-rul:GeneralQuestion1c": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ1c",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:GeneralQuestion1cDetail": {
+                "isVisible": "poGQ1cVal.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ1c",
+                  "GeneralQ1cListItems"
+                ]
+              },
+              "application-rul:GeneralQuestion2": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ2",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:GeneralQuestion2Detail": {
+                "isVisible": "poGQ2Val.Value == 'N'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ2",
+                  "GeneralQDetails"
+                ]
+              },
+              "application-rul:GeneralQuestion3": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ3",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:GeneralQuestion3Detail1": {
+                "isVisible": "poGQ3Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ3",
+                  "GeneralQ3Amount"
+                ]
+              },
+              "application-rul:GeneralQuestion3Detail2": {
+                "isVisible": "poGQ3Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ3",
+                  "GeneralQ3BeverageType"
+                ]
+              },
+              "application-rul:GeneralQuestion3Detail3": {
+                "isVisible": "poGQ3Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ3",
+                  "GeneralQ3Howlong"
+                ]
+              },
+              "application-rul:GeneralQuestion4": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ4",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:GeneralQuestion4Detail": {
+                "isVisible": "poGQ4Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ4",
+                  "GeneralQ4Items"
+                ]
+              },
+              "application-rul:GeneralQuestion5": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ5",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:GeneralQuestion5Detaila": {
+                "isVisible": "poGQ5Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ5",
+                  "GeneralQ5CigaretesDay"
+                ]
+              },
+              "application-rul:GeneralQuestion5Detailb": {
+                "isVisible": "poGQ5Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ5",
+                  "GeneralQ5Since"
+                ]
+              },
+              "application-rul:GeneralQuestion5Detailc": {
+                "isVisible": "poGQ5Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ5",
+                  "GeneralQ5Explain"
+                ]
+              },
+              "application-rul:GeneralQuestion6": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ6",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:GeneralQuestion6Detail": {
+                "isVisible": "poGQ6Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ6",
+                  "GeneralQ6Items"
+                ]
+              },
+              "application-rul:GeneralQuestion7": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ7",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:GeneralQuestion7Detail": {
+                "isVisible": "poGQ7Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ7",
+                  "GeneralQ7Items"
+                ]
+              },
+              "application-rul:GeneralQuestion8": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ8",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:GeneralQuestion8Detail": {
+                "isVisible": "poGQ8Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ8",
+                  "GeneralQ8ListItem"
+                ]
+              },
+              "application-rul:GeneralQuestion9": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ9",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:GeneralQuestion9Detail": {
+                "isVisible": "poGQ9Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ9",
+                  "GeneralQ9ListItems"
+                ]
+              },
+              "application-rul:GeneralQuestion10": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ10",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:GeneralQuestion10Detail": {
+                "isVisible": "poGQ10Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ10",
+                  "GeneralQ10ListItems"
+                ]
+              },
+              "application-rul:GeneralQuestion11": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ11",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:GeneralQuestion11Detail": {
+                "isVisible": "poGQ11Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ11",
+                  "GeneralQDetails"
+                ],
+                "defaultValue": "10"
+              },
+              "application-rul:GeneralQuestion12": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ12",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:GeneralQuestion12Detail": {
+                "isVisible": "poGQ12Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "GeneralQ12",
+                  "GeneralQ12ListItems"
+                ],
+                "defaultValue": "N"
+              }
+            },
+            "application-rul:HealthQuestion": {
+              "key": [
+                "PolicyOwnerDetails",
+                "HealthQuestion"
+              ],
+              "isVisible": "LAIsTheSameWithPO.Value != 'N' || IsHasRider.$ != 'N'",
+              "section": "application-rul:UWDetailsofProposer",
+              "application-rul:HQ1": {},
+              "application-rul:HQ1s": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ1"
+                ]
+              },
+              "application-rul:HQ2": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ2",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ3": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ3",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ3Detail": {
+                "isVisible": "poHQ3Val.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ3",
+                  "HealthQ3Items"
+                ]
+              },
+              "application-rul:HQ4": {},
+              "application-rul:HQ4a": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ4a",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ4aDetail": {
+                "isVisible": "poHQ4aVal.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ4a",
+                  "HealthQ4ListDetails"
+                ]
+              },
+              "application-rul:HQ4b": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ4b",
+                  "QValue"
+                ]
+              },
+              "application-rul:HQ4bDetail": {
+                "isVisible": "poHQ4bVal.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ4b",
+                  "HealthQ4ListDetails"
+                ]
+              },
+              "application-rul:HQ4c": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ4c",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ4d": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ4d",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ4e": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ4e",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ5": {},
+              "application-rul:HQ5a": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ5a",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ5b": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ5b",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ5c": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ5c",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ5cDetail": {
+                "isVisible": "poHQ5cVal.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ5c",
+                  "HealthQ5cItems"
+                ]
+              },
+              "application-rul:HQ5d": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ5d",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ5dDetail": {
+                "isVisible": "poHQ5dVal.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ5d",
+                  "HealthQ5dItems"
+                ]
+              },
+              "application-rul:HQ5e": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ5e",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ5eDetail": {
+                "isVisible": "poHQ5eVal.Value == 'Y'",
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ5e",
+                  "TextDateQuestion"
+                ]
+              },
+              "application-rul:HQ5f": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ5f",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ5g": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ5g",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ5h": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ5h",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ6": {},
+              "application-rul:HQ6a": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ6a",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ6b": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ6b",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ6c": {},
+              "application-rul:HQ6c0": {},
+              "application-rul:HQ6d": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ6d",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ6e": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ6e",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ6f": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ6f",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ6g": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ6g",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ6h": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ6h",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ6i": {},
+              "application-rul:HQ6i0": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ6i",
+                  "HealthQNamAddressMaternity"
+                ]
+              },
+              "application-rul:HQ6j": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ6j",
+                  "QKey"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:HQ6jDetail": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "HealthQ6j",
+                  "HealthQ6jItems"
+                ]
+              }
+            },
+            "application-rul:InsuredFamilyInformation": {
+              "isVisible": "LAIsTheSameWithPO.Value == 'Y'",
+              "key": [],
+              "section": "application-rul:UWDetailsofProposer",
+              "application-rul:InsuredFamilyInformationTable": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "InsuredFamilyInformation"
+                ]
+              }
+            },
+            "application-rul:PolicyHolderFamilyDetails": {
+              "isVisible": "LAIsTheSameWithPO.Value == 'N'",
+              "key": [],
+              "section": "application-rul:UWDetailsofProposer",
+              "application-rul:PolicyHolderFamilyDetailsTable": {
+                "key": [
+                  "PolicyOwnerDetails",
+                  "PolicyHolderFamilyDetails"
+                ]
+              }
+            }
+          }
+        },
+        "application-rul:LifeInsured": {
+          "isVisible": "LAIsTheSameWithPO.Value != 'Y'",
+          "icon": "fa fa-file-o",
+          "key": [
+            "LifeAssuredDetails"
+          ],
+          "section": "application-rul:Application",
+          "application-rul:LAProspect": {
+            "key": [
+              "LifeAssuredInformation"
+            ],
+            "section": "application-rul:LifeInsured",
+            "icon": "fa fa-user",
+            "cssClass": "v3-box-1",
+            "LA:Summary": {
+              "isShowValidationIcon": "false",
+              "isShowNoOfEmptyField": "false",
+              "section": "application-rul:LAProspect",
+              "icon": "fa fa-user",
+              "cssClass": "v3-box-1",
+              "application-rul:LAProspectInformation": {
+                "key": [
+                  "LifeAssuredInformation"
+                ]
+              },
+              "LA:FullNames": {
+                "key": [
+                  "LifeAssuredInformation"
+                ]
+              },
+              "LA:BirthDates": {
+                "key": [
+                  "LifeAssuredInformation"
+                ]
+              },
+              "LA:Genders": {
+                "valuePrefix": "v3.pnc.gender.enum.",
+                "key": [
+                  "LifeAssuredInformation"
+                ]
+              },
+              "LA:SmokerStatuss": {
+                "key": [
+                  "LifeAssuredInformation"
+                ]
+              },
+              "LA:Networths": {
+                "key": [
+                  "LifeAssuredInformation"
+                ]
+              },
+              "LA:AnnualCashFlow": {
+                "key": [
+                  "LifeAssuredInformation"
+                ]
+              },
+              "LA:TotalAssetss": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "TotalAssets"
+                ]
+              },
+              "LA:AnnualIncome": {
+                "key": [
+                  "LifeAssuredInformation"
+                ]
+              },
+              "LA:TotalLiabilities": {
+                "key": [
+                  "LifeAssuredInformation"
+                ]
+              },
+              "LA:AnnualExpenses": {
+                "key": [
+                  "LifeAssuredInformation"
+                ]
+              },
+              "LA:Networth": {
+                "key": [
+                  "LifeAssuredInformation"
+                ]
+              },
+              "LA:ShortageSurplus": {
+                "key": [
+                  "LifeAssuredInformation"
+                ]
+              },
+              "LA:InvestmentRiskProfiles": {
+                "key": [
+                  "LifeAssuredInformation"
+                ]
+              }
+            },
+            "LA:BasicInformation": {
+              "section": "application-rul:LAProspect",
+              "icon": "fa fa-user",
+              "cssClass": "v3-box-1",
+              "LA:Photo": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Photo"
+                ]
+              },
+              "LA:Title": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Salutation"
+                ],
+                "@defaultValue": "MR"
+              },
+              "LA:NameTitle": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "PersonName"
+                ],
+                "@defaultValue": "MR"
+              },
+              "LA:FullName": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "FullName"
+                ],
+                "preview": [
+                  "application-rul:LAProspect"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.FullName",
+                "placeholder": "Full Name",
+                "maxlength": 120,
+                "@defaultValue": "Full Name"
+              },
+              "LA:BirthDate": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "BirthDate"
+                ],
+                "preview": [
+                  "application-rul:LAProspect"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:BirthDate",
+                "valuePrefix": "",
+                "format": "datetime",
+                "@defaultValue": "1975-01-01"
+              },
+              "LA:Gender": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Gender"
+                ],
+                "preview": [
+                  "application-rul:LAProspect"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:Gender",
+                "valuePrefix": "v3.pnc.gender.enum.",
+                "@defaultValue": "M"
+              },
+              "LA:MaritalStatus": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "MaritalStatus"
+                ],
+                "@defaultValue": "S"
+              },
+              "LA:Religion": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Religion"
+                ],
+                "@defaultValue": "OTH"
+              },
+              "LA:SmokerStatus": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "SmokerStatus"
+                ],
+                "@defaultValue": "N"
+              },
+              "LA:Nationality": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Nationality"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:Nationality",
+                "valuePrefix": "v3.application.motor.nationality.",
+                "@defaultValue": "725"
+              },
+              "LA:IDType": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "IDs",
+                  "ID",
+                  "IDType"
+                ],
+                "@defaultValue": "PP"
+              },
+              "LA:IDNumber": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "IDs",
+                  "ID",
+                  "IDNumber"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.IDNumber",
+                "placeholder": "ID Number",
+                "@defaultValue": "022767712"
+              },
+              "LA:BusinessIndustry": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "BusinessIndustry"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:BusinessIndustry",
+                "valuePrefix": "v3.pnc.industry.enum.",
+                "@defaultValue": "ACT"
+              },
+              "LA:Occupation": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Occupation"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:Occupation",
+                "valuePrefix": "v3.pnc.occupation.enum.",
+                "@defaultValue": "ACCT"
+              },
+              "LA:ClientStatus": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "ClientStatus"
+                ]
+              }
+            },
+            "LA:Contacts": {
+              "key": [
+                "LifeAssuredInformation",
+                "Contacts"
+              ],
+              "section": "application-rul:LAProspect",
+              "icon": "fa fa-user",
+              "cssClass": "v3-box-1",
+              "LA:EmailAddress": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "EmailAddress"
+                ]
+              },
+              "LA:MobilePhone": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "MobilePhone"
+                ],
+                "@defaultValue": "+60 9066612"
+              },
+              "LA:HomePhone": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "HomePhone"
+                ]
+              },
+              "LA:OfficePhone": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "OfficePhone"
+                ]
+              }
+            },
+            "LA:Addresses": {
+              "key": [
+                "LifeAssuredInformation",
+                "NonPrimaryAddresses"
+              ],
+              "section": "application-rul:LAProspect",
+              "icon": "fa fa-user",
+              "cssClass": "v3-box-1",
+              "LA:PrimaryAddress": {
+                "section": "LA:Addresses",
+                "key": [
+                  "LifeAssuredInformation",
+                  "PrimaryAddress"
+                ],
+                "LA:PAddressType": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "AddressType"
+                  ],
+                  "labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+                  "valuePrefix": "v3.pnc.addressType.enum.",
+                  "@defaultValue": "RESIDENTIAL"
+                },
+                "LA:Address": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "AddressComplete"
+                  ],
+                  "@defaultValue": "Block 1"
+                },
+                "LA:PCity": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "City"
+                  ],
+                  "labelKey": "new.v3.mynewworkspace.prospect.label.City",
+                  "maxlength": 120,
+                  "placeholder": "City",
+                  "type": "INPUT",
+                  "@defaultValue": "HCM"
+                },
+                "LA:PProvince": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "Province"
+                  ],
+                  "labelKey": "new.v3.mynewworkspace.prospect.label.Province",
+                  "placeholder": "Province",
+                  "@defaultValue": "HCM"
+                },
+                "LA:PCountry": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "Country"
+                  ],
+                  "@defaultValue": "SGP"
+                },
+                "LA:PPostal": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "Postal"
+                  ],
+                  "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+                  "maxlength": 120,
+                  "placeholder": "Postal Code",
+                  "@defaultValue": "01212"
+                }
+              },
+              "LA:NewNonPrimaryAddress": {
+                "section": "LA:Addresses",
+                "key": [
+                  "NonPrimaryAddress"
+                ],
+                "icon": {
+                  "subAction": "removeIcon"
+                },
+                "cssClass": "v3-box-1",
+                "cardType": "template",
+                "LA:NPAddressType": {
+                  "key": [
+                    "AddressType"
+                  ],
+                  "labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+                  "valuePrefix": "v3.pnc.addressType.enum."
+                },
+                "LA:NPAddress": {
+                  "key": [
+                    "AddressComplete"
+                  ],
+                  "@defaultValue": "Block 1"
+                },
+                "LA:NPCity": {
+                  "key": [
+                    "City"
+                  ],
+                  "labelKey": "new.v3.mynewworkspace.prospect.label.City",
+                  "maxlength": 120,
+                  "placeholder": "City",
+                  "type": "INPUT"
+                },
+                "LA:NPProvince": {
+                  "key": [
+                    "Province"
+                  ],
+                  "labelKey": "new.v3.mynewworkspace.prospect.label.Province",
+                  "placeholder": "Province",
+                  "@defaultValue": "HCM"
+                },
+                "LA:NPCountry": {
+                  "key": [
+                    "Country"
+                  ]
+                },
+                "LA:NPPostal": {
+                  "key": [
+                    "Postal"
+                  ],
+                  "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+                  "maxlength": 120,
+                  "placeholder": "Postal Code"
+                }
+              },
+              "LA:NonPrimaryAddress": {
+                "section": "LA:Addresses",
+                "icon": {
+                  "main": "fa fa-user",
+                  "mainAction": "addIcon"
+                },
+                "cardType": "action",
+                "onClick": "addCard(card)"
+              }
+            },
+            "LA:OtherInformation": {
+              "section": "application-rul:LAProspect",
+              "icon": "fa fa-user",
+              "cssClass": "v3-box-1",
+              "LA:CountryOfBirth": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "CityOfBirth"
+                ]
+              },
+              "LA:Education": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Education"
+                ]
+              },
+              "LA:Staff": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Staff"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:Staff",
+                "valuePrefix": "v3.yesno.enum.",
+                "@defaultValue": "N"
+              },
+              "LA:EmployerName": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "EmployerName"
+                ],
+                "@defaultValue": "CSC"
+              },
+              "LA:AnnualEmployeeIncome": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "AnnualIncome"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.person:AnnualEmployeeIncome",
+                "maxlength": 120,
+                "placeholder": "Annual Employee Income"
+              },
+              "LA:SourceOfFund": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "SourceOfFund"
+                ],
+                "@defaultValue": "BANK-FINANCING"
+              },
+              "LA:ClientNumber": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "ClientId"
+                ]
+              },
+              "LA:SourceName": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "SourceName"
+                ]
+              }
+            },
+            "LA:DocumentRelation": {
+              "key": [
+                "LifeAssuredInformation",
+                "DocumentRelation"
+              ],
+              "LA:ClientId": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "ClientId"
+                ]
+              }
+            },
+            "LA:CurrentFinancialPosition": {
+              "section": "application-rul:LAProspect",
+              "key": [
+                "LifeAssuredInformation",
+                "CurrentFinancialPosition"
+              ],
+              "LA:CurrentAssetsLiabilities": {
+                "section": "LA:CurrentFinancialPosition",
+                "@onOpen": "setSlider()",
+                "key": [
+                  "LifeAssuredInformation",
+                  "CurrentAssetsAndLiabilities"
+                ],
+                "LA:CurrentAssets": {},
+                "LA:CurrentAssetsTemp1": {},
+                "LA:ResidentialProperty": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "ResidentialProperty"
+                  ]
+                },
+                "LA:OtherSavingFunds": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "OtherSavingFunds"
+                  ]
+                },
+                "LA:InvestmentAndSaving": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "InvestmentAndSavings"
+                  ]
+                },
+                "LA:TotalAssets": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "TotalAssets"
+                  ],
+                  "preview": [
+                    "LA:CurrentAssetsLiabilities"
+                  ]
+                },
+                "LA:CurrentLiabilities": {},
+                "LA:CurrentAssetsTemp2": {},
+                "LA:MortageLoan": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "MortageLoan"
+                  ]
+                },
+                "LA:OtherOutstandingDebts": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "OtherOutstandingDebts"
+                  ]
+                },
+                "LA:NetWorth": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "NetWorth"
+                  ],
+                  "preview": [
+                    "LA:CurrentFinancialPosition"
+                  ]
+                },
+                "LA:ATotalLiabilities": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "TotalLiabilities"
+                  ],
+                  "preview": [
+                    "LA:CurrentAssetsLiabilities"
+                  ]
+                },
+                "LA:CurrentAssetsSignificants": {},
+                "LA:CurrentAssetsTemp3": {},
+                "LA:CurrentAssetsSignificant": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "SignificantChangeCAL"
+                  ],
+                  "@defaultValue": "N"
+                },
+                "LA:CurrentAssetsSpecify": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "SpecifySignificantChangeCAL"
+                  ]
+                }
+              },
+              "LA:AnnualCashFlowBudgetedFunds": {
+                "section": "LA:CurrentFinancialPosition",
+                "onOpen": "setSlider()",
+                "key": [
+                  "LifeAssuredInformation",
+                  "AnnualCashFlowAndBudgetedFunds"
+                ],
+                "LA:AAnnualIncome": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "AnnualIncome"
+                  ]
+                },
+                "LA:AnnualCashFlowTemp1": {},
+                "LA:AnnualEmployeeIncomes": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "OtherInfomation",
+                    "AnnualIncome"
+                  ]
+                },
+                "LA:LessCPF": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "LessCPF"
+                  ]
+                },
+                "LA:NetAnnualIncome": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "NetAnnualIncome"
+                  ],
+                  "preview": [
+                    "LA:AnnualCashFlowBudgetedFunds"
+                  ]
+                },
+                "LA:OtherIncome": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "OtherIncome"
+                  ]
+                },
+                "LA:TotalAnnualIncome": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "TotalAnnualIncome"
+                  ]
+                },
+                "LA:AnnualCashFlowTemp2": {},
+                "LA:AnnualExpense": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "TotalAnnualExpenses"
+                  ],
+                  "preview": [
+                    "LA:AnnualCashFlowBudgetedFunds"
+                  ]
+                },
+                "LA:AnnualCashFlowTemp3": {},
+                "LA:LivingExpenses": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "LivingExpenses"
+                  ]
+                },
+                "LA:TuitionAndSchoolExpenses": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "TuitionAndSchoolExpenses"
+                  ]
+                },
+                "LA:LoanRepayment": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "LoanRepayment"
+                  ]
+                },
+                "LA:Others": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "Others"
+                  ]
+                },
+                "LA:TotalAnnualExpenses": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "TotalAnnualExpenses"
+                  ]
+                },
+                "LA:NetCashFlowOrSurplus": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "NetCashFlowOrSurplus"
+                  ],
+                  "preview": [
+                    "LA:CurrentFinancialPosition"
+                  ]
+                },
+                "LA:BudgetedFunds": {},
+                "LA:AnnualCashFlowTemp4": {},
+                "LA:AnnualCashImportantNote": {},
+                "LA:AnnualCashFlowTemp5": {},
+                "LA:RegularAmount": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "RegularAmount"
+                  ]
+                },
+                "LA:LumpSum": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "LumpSum"
+                  ]
+                },
+                "LA:AnnualCashSignificants": {},
+                "LA:AnnualCashFlowTemp6": {},
+                "LA:AnnualCashSignificant": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "SignificantChangeACFBF"
+                  ],
+                  "@defaultValue": "N"
+                },
+                "LA:AnnualCashSpecify": {
+                  "key": [
+                    "LifeAssuredInformation",
+                    "SpecifySignificantChangeACFBF"
+                  ]
+                }
+              },
+              "LA:ExistingFinancialPlans": {
+                "section": "LA:CurrentFinancialPosition",
+                "key": [
+                  "LifeAssuredInformation",
+                  "ExistingFinancialPlans"
+                ],
+                "icon": "fa fa-user",
+                "cssClass": "v3-box-1",
+                "LA:ExistingFinancialDeclaration": {
+                  "section": "LA:ExistingFinancialPlans",
+                  "key": [
+                    "LifeAssuredInformation",
+                    "ExistingFinancialPlan"
+                  ],
+                  "LA:HaveExistingPlan": {
+                    "key": [
+                      "LifeAssuredInformation",
+                      "HaveExistingPlan"
+                    ],
+                    "preview": [
+                      "LA:ExistingFinancialPlans"
+                    ],
+                    "@valuePrefix": "v3.yesno.enum."
+                  }
+                },
+                "LA:ExistingFinancialPlan": {
+                  "section": "LA:ExistingFinancialPlans",
+                  "key": [
+                    "LifeAssuredInformation",
+                    "ExistingFinancialPlan"
+                  ],
+                  "icon": {
+                    "subAction": "removeIcon"
+                  },
+                  "cardType": "template",
+                  "@onOpen": "setSlider()",
+                  "LA:InsuranceDetailsAndValue": {
+                    "key": [
+                      "LifeAssuredInformation",
+                      "InsuranceDetailsAndValue"
+                    ]
+                  },
+                  "LA:ExistingFinancialPlanTemp1": {
+                    "key": [
+                      "LifeAssuredInformation",
+                      "ExistingFinancialPlanTemp1"
+                    ]
+                  },
+                  "LA:OwnerName": {
+                    "key": [
+                      "LifeAssuredInformation",
+                      "OwnerName"
+                    ]
+                  },
+                  "LA:Company": {
+                    "key": [
+                      "LifeAssuredInformation",
+                      "Company"
+                    ]
+                  },
+                  "LA:PolicyType": {
+                    "key": [
+                      "LifeAssuredInformation",
+                      "PolicyType"
+                    ]
+                  },
+                  "LA:YearOfIssue": {
+                    "key": [
+                      "LifeAssuredInformation",
+                      "YearOfIssue"
+                    ]
+                  },
+                  "LA:PremiumValue": {
+                    "key": [
+                      "LifeAssuredInformation",
+                      "PremiumValue"
+                    ]
+                  },
+                  "LA:PremiumType": {
+                    "key": [
+                      "LifeAssuredInformation",
+                      "PremiumType"
+                    ]
+                  },
+                  "LA:DeathOfBenefit": {
+                    "key": [
+                      "LifeAssuredInformation",
+                      "DeathOfBenefit"
+                    ]
+                  },
+                  "LA:TBD": {
+                    "key": [
+                      "LifeAssuredInformation",
+                      "TBD"
+                    ]
+                  },
+                  "LA:CriticalIllness": {
+                    "key": [
+                      "LifeAssuredInformation",
+                      "CriticalIllness"
+                    ]
+                  },
+                  "LA:HSBenefit": {
+                    "key": [
+                      "LifeAssuredInformation",
+                      "HSBenefit"
+                    ]
+                  }
+                },
+                "LA:NewExistingPlan": {
+                  "section": "LA:ExistingFinancialPlans",
+                  "isVisible": "findElementInDetail(['HaveExistingPlan']).Value === 'Y'",
+                  "icon": {
+                    "main": "fa fa-user",
+                    "mainAction": "addIcon"
+                  },
+                  "cardType": "action",
+                  "onClick": "addCard(card)"
+                }
+              }
+            },
+            "LA:FinancialKnowledgeQualification": {
+              "section": "application-rul:LAProspect",
+              "key": [
+                "LifeAssuredInformation",
+                "FinancialKnowledgeAndQualification"
+              ],
+              "LA:KnowledgeImportantNote1": {},
+              "LA:KnowledgeTemp1": {},
+              "LA:KnowledgeEducation": {},
+              "LA:KnowledgeQ01": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Q01Value"
+                ],
+                "@defaultValue": "N"
+              },
+              "LA:KnowledgeQ01TypeOfInstitution": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Q01TypeOfInstitution"
+                ]
+              },
+              "LA:KnowledgeQ01NameOfInstitution": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Q01NameOfInstitution"
+                ]
+              },
+              "LA:KnowledgeQ01YearOfGraduation": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Q01YearOfGraduation"
+                ]
+              },
+              "LA:KnowledgeQ02": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Q02Value"
+                ]
+              },
+              "LA:KnowledgeQ02NameOfInstitution": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Q02NameOfInstitution"
+                ]
+              },
+              "LA:KnowledgeQ02YearOfGraduation": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Q02YearOfGraduation"
+                ]
+              },
+              "LA:KnowledgeInvestmentExp": {},
+              "LA:KnowledgeQ03": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Q03Value"
+                ],
+                "valuePrefix": "v3.yesno.enum.",
+                "preview": [
+                  "LA:FinancialKnowledgeQualification"
+                ]
+              },
+              "LA:KnowledgeQ03NoOfTransaction": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Q03NoOfTransaction"
+                ]
+              },
+              "LA:KnowledgeQ03TypeOfTransaction": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Q03TypeOfTransaction"
+                ]
+              },
+              "LA:KnowledgeWorkExp": {},
+              "LA:KnowledgeQ04": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Q04Value"
+                ]
+              },
+              "LA:KnowledgeQ04NatureOfWork": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "Q04NatureOfWork"
+                ]
+              },
+              "LA:KnowledgeTemp2": {},
+              "LA:KnowledgeOutcome": {},
+              "LA:KnowledgeOutcome1": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "ILPCISKnowledge"
+                ]
+              },
+              "LA:KnowledgeOutcome2": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "NotILPCISKnowledge"
+                ]
+              },
+              "LA:KnowledgeImportantNote2": {}
+            },
+            "LA:InvestmentRiskProfile": {
+              "section": "application-rul:LAProspect",
+              "key": [
+                "LifeAssuredInformation",
+                "InvestmentRiskProfile"
+              ],
+              "LA:InvestmentRiskImportantNote": {},
+              "LA:InvestmentRiskTemp1": {},
+              "LA:InvestmentRiskChoose": {},
+              "LA:InvestmentRiskTemp2": {},
+              "LA:InvestmentPreference": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "InvestmentPreference"
+                ],
+                "@defaultValue": "1"
+              },
+              "LA:ExpectedReturn": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "ExpectedReturn"
+                ],
+                "@defaultValue": "1"
+              },
+              "LA:InvestmentTimePeriod": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "InvestmentTimePeriod"
+                ],
+                "@defaultValue": "1"
+              },
+              "LA:DuringSortTermDrop": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "DuringSortTermDrop"
+                ],
+                "@defaultValue": "1"
+              },
+              "LA:InvestmentGoal": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "InvestmentGoal"
+                ],
+                "@defaultValue": "1"
+              },
+              "LA:InvestmentPortfolio": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "InvestmentPortfolio"
+                ],
+                "@defaultValue": "1"
+              },
+              "LA:TotalScore": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "TotalScore"
+                ]
+              },
+              "LA:RiskProfile": {
+                "key": [
+                  "LifeAssuredInformation",
+                  "RiskProfile"
+                ],
+                "preview": [
+                  "LA:InvestmentRiskProfile"
+                ]
+              },
+              "LA:Result": {}
+            }
+          },
+          "application-rul:UWDetailsofLifeAssured": {
+            "onOpen": "checkDetailChange_computeTag_RUL_LA([['ActionType'], ['PolicyOwnerDetails','Gender'],['LifeAssuredDetails','BirthDate'], ['LifeAssuredDetails','Gender'],['Riders'], ['IsHasRider'], ['LifeAssuredDetails','UnderwritingDetailsOfLifeAssured'], ['LAIsTheSameWithPO']])",
+            "key": [
+              "LifeAssuredDetails",
+              "UnderwritingDetailsOfLifeAssured"
+            ],
+            "icon": "fa fa-user",
+            "section": "application-rul:LifeInsured",
+            "application-rul:LAGeneralQuestion": {
+              "key": [
+                "LifeAssuredDetails",
+                "GeneralQuestion"
+              ],
+              "icon": "fa fa-user",
+              "section": "application-rul:UWDetailsofLifeAssured",
+              "application-rul:LAGeneralQ1a": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ1a"
+                ]
+              },
+              "application-rul:LAGeneralQuestion1b": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ1b",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAGeneralQuestion1bDetail": {
+                "isVisible": "laGQ1bVal.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ1b",
+                  "GeneralQ1bItems"
+                ]
+              },
+              "application-rul:LAGeneralQuestion1c": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ1c",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAGeneralQuestion1cDetail": {
+                "isVisible": "laGQ1cVal.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ1c",
+                  "GeneralQ1cListItems"
+                ]
+              },
+              "application-rul:LAGeneralQuestion2": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ2",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAGeneralQuestion2Detail": {
+                "isVisible": "laGQ2Val.Value == 'N'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ2",
+                  "GeneralQDetails"
+                ]
+              },
+              "application-rul:LAGeneralQuestion3": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ3",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAGeneralQuestion3Detail1": {
+                "isVisible": "laGQ3Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ3",
+                  "GeneralQ3Amount"
+                ]
+              },
+              "application-rul:LAGeneralQuestion3Detail2": {
+                "isVisible": "laGQ3Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ3",
+                  "GeneralQ3BeverageType"
+                ]
+              },
+              "application-rul:LAGeneralQuestion3Detail3": {
+                "isVisible": "laGQ3Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ3",
+                  "GeneralQ3Howlong"
+                ]
+              },
+              "application-rul:LAGeneralQuestion4": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ4",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAGeneralQuestion4Detail": {
+                "isVisible": "laGQ4Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ4",
+                  "GeneralQ4Items"
+                ]
+              },
+              "application-rul:LAGeneralQuestion5": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ5",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAGeneralQuestion5Detaila": {
+                "isVisible": "laGQ5Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ5",
+                  "GeneralQ5CigaretesDay"
+                ]
+              },
+              "application-rul:LAGeneralQuestion5Detailb": {
+                "isVisible": "laGQ5Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ5",
+                  "GeneralQ5Since"
+                ]
+              },
+              "application-rul:LAGeneralQuestion5Detailc": {
+                "isVisible": "laGQ5Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ5",
+                  "GeneralQ5Explain"
+                ]
+              },
+              "application-rul:LAGeneralQuestion6": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ6",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAGeneralQuestion6Detail": {
+                "isVisible": "laGQ6Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ6",
+                  "GeneralQ6Items"
+                ]
+              },
+              "application-rul:LAGeneralQuestion7": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ7",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAGeneralQuestion7Detail": {
+                "isVisible": "laGQ7Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ7",
+                  "GeneralQ7Items"
+                ]
+              },
+              "application-rul:LAGeneralQuestion8": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ8",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAGeneralQuestion8Detail": {
+                "isVisible": "laGQ8Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ8",
+                  "GeneralQ8ListItem"
+                ]
+              },
+              "application-rul:LAGeneralQuestion9": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ9",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAGeneralQuestion9Detail": {
+                "isVisible": "laGQ9Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ9",
+                  "GeneralQ9ListItems"
+                ]
+              },
+              "application-rul:LAGeneralQuestion10": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ10",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAGeneralQuestion10Detail": {
+                "isVisible": "laGQ10Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ10",
+                  "GeneralQ10ListItems"
+                ]
+              },
+              "application-rul:LAGeneralQuestion11": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ11",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAGeneralQuestion11Detail": {
+                "isVisible": "laGQ11Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ11",
+                  "GeneralQDetails"
+                ],
+                "defaultValue": "10"
+              },
+              "application-rul:LAGeneralQuestion12": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ12",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAGeneralQuestion12Detail": {
+                "isVisible": "laGQ12Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "GeneralQ12",
+                  "GeneralQ12ListItems"
+                ],
+                "defaultValue": "N"
+              }
+            },
+            "application-rul:LAHealthQuestion": {
+              "key": [
+                "LifeAssuredDetails",
+                "HealthQuestion"
+              ],
+              "section": "application-rul:UWDetailsofLifeAssured",
+              "application-rul:LAHQ1": {},
+              "application-rul:LAHQ1s": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ1"
+                ]
+              },
+              "application-rul:LAHQ2": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ2",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ3": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ3",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ3Detail": {
+                "isVisible": "laHQ3Val.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ3",
+                  "HealthQ3Items"
+                ]
+              },
+              "application-rul:LAHQ4": {},
+              "application-rul:LAHQ4a": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ4a",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ4aDetail": {
+                "isVisible": "laHQ4aVal.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ4a",
+                  "HealthQ4ListDetails"
+                ]
+              },
+              "application-rul:LAHQ4b": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ4b",
+                  "QValue"
+                ]
+              },
+              "application-rul:LAHQ4bDetail": {
+                "isVisible": "laHQ4bVal.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ4b",
+                  "HealthQ4ListDetails"
+                ]
+              },
+              "application-rul:LAHQ4c": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ4c",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ4d": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ4d",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ4e": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ4e",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ5": {},
+              "application-rul:LAHQ5a": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ5a",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ5b": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ5b",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ5c": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ5c",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ5cDetail": {
+                "isVisible": "laHQ5cVal.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ5c",
+                  "HealthQ5cItems"
+                ]
+              },
+              "application-rul:LAHQ5d": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ5d",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ5dDetail": {
+                "isVisible": "laHQ5dVal.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ5d",
+                  "HealthQ5dItems"
+                ]
+              },
+              "application-rul:LAHQ5e": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ5e",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ5eDetail": {
+                "isVisible": "laHQ5eVal.Value == 'Y'",
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ5e",
+                  "TextDateQuestion"
+                ]
+              },
+              "application-rul:LAHQ5f": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ5f",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ5g": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ5g",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ5h": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ5h",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ6": {},
+              "application-rul:LAHQ6a": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ6a",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ6b": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ6b",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ6c": {},
+              "application-rul:LAHQ6c0": {},
+              "application-rul:LAHQ6d": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ6d",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ6e": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ6e",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ6f": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ6f",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ6g": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ6g",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ6h": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ6h",
+                  "QValue"
+                ],
+                "defaultValue": "N"
+              },
+              "application-rul:LAHQ6i": {},
+              "application-rul:LAHQ6i0": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ6i",
+                  "HealthQNamAddressMaternity"
+                ]
+              },
+              "application-rul:LAHQ6j": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ6j",
+                  "QKey"
+                ]
+              },
+              "application-rul:LAHQ6jDetail": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "HealthQ6j",
+                  "HealthQ6jItems"
+                ]
+              }
+            },
+            "application-rul:LAInsuredFamilyInformation": {
+              "key": [],
+              "section": "application-rul:UWDetailsofLifeAssured",
+              "application-rul:LAInsuredFamilyInformationTable": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "InsuredFamilyInformation"
+                ]
+              }
+            },
+            "application-rul:LAPolicyHolderFamilyDetails": {
+              "key": [],
+              "isVisible": false,
+              "section": "application-rul:UWDetailsofLifeAssured",
+              "application-rul:LAPolicyHolderFamilyDetailsTable": {
+                "key": [
+                  "LifeAssuredDetails",
+                  "PolicyHolderFamilyDetails"
+                ]
+              }
+            }
+          }
+        },
+        "application-rul:BeneficiaryDetails": {
+          "key": [
+            "BeneficiaryDetails"
+          ],
+          "icon": "fa fa-user",
+          "section": "application-rul:Application",
+          "application-rul:NewBeneficiaryDetails": {
+            "section": "application-rul:BeneficiaryDetails",
+            "cardType": "template",
+            "key": [
+              "BeneficiaryItem"
+            ],
+            "icons": {
+              "cardIcon": {
+                "content": "applicationIcon"
+              },
+              "removeCardInList": {
+                "onClick": "removeCardInList()"
+              }
+            },
+            "application-rul:BenefitName": {
+              "key": [
+                "BeneficiaryDetailsName"
+              ],
+              "preview": [
+                {
+                  "cardName": "application-rul:NewBeneficiaryDetails",
+                  "label": "v3.mynewworkspace.portlet.label.application-rul.BenefitName",
+                  "priority": 50
+                }
+              ]
+            },
+            "application-rul:BenefitGender": {
+              "key": [
+                "BeneficiaryDetailsGender"
+              ]
+            },
+            "application-rul:BenefitDOB": {
+              "key": [
+                "BeneficiaryDetailsDateOfBirth"
+              ]
+            },
+            "application-rul:BenefitRelationship": {
+              "key": [
+                "BeneficiaryDetailsRelationship"
+              ]
+            },
+            "application-rul:BenefitShare": {
+              "key": [
+                "BeneficiaryDetailsShare"
+              ],
+              "preview": [
+                {
+                  "cardName": "application-rul:NewBeneficiaryDetails",
+                  "label": "v3.mynewworkspace.portlet.label.application-rul.BenefitShare",
+                  "priority": 50
+                }
+              ]
+            }
+          },
+          "application-rul:AddBeneficiaryDetails": {
+            "icon": {
+              "main": "fa fa-bar-chart",
+              "mainAction": "addIcon"
+            },
+            "section": "application-rul:BeneficiaryDetails",
+            "key": [],
+            "cardType": "action",
+            "onClick": "addCard(card)"
+          },
+          "application-rul:ImportFromExistingContact": {
+            "key": [
+              ""
+            ],
+            "section": "application-rul:BeneficiaryDetails",
+            "icons": {
+              "cardIcon": {
+                "content": "fa fa-user"
+              }
+            },
+            "cardType": "action",
+            "staticHtml": "list_existing_beneficiary.html"
+          }
+        },
+        "application-rul:MailingAddress": {
+          "key": [
+            "MailingAddress"
+          ],
+          "onOpen": "getUserNonPrimaryAddressListRUL()",
+          "icon": "fa fa-user",
+          "section": "application-rul:Application",
+          "application-rul:SelectAddress": {},
+          "application-rul:AddressType": {
+            "key": [
+              "MailingAddress",
+              "AddressType"
+            ],
+            "labelKey": "v3.mynewworkspace.portlet.label.application-rul.AddressType",
+            "valuePrefix": "v3.pnc.addressType.enum."
+          },
+          "application-rul:Address": {
+            "key": [
+              "MailingAddress",
+              "AddressComplete"
+            ],
+            "defaultValue": "123"
+          },
+          "application-rul:City": {
+            "key": [
+              "MailingAddress",
+              "City"
+            ]
+          },
+          "application-rul:Province": {
+            "key": [
+              "MailingAddress",
+              "Province"
+            ]
+          },
+          "application-rul:Country": {
+            "key": [
+              "MailingAddress",
+              "Country"
+            ],
+            "defaultValue": "DZ"
+          },
+          "application-rul:PostalCode": {
+            "key": [
+              "MailingAddress",
+              "Postal"
+            ],
+            "labelKey": "v3.mynewworkspace.portlet.label.application-rul.PostalCode",
+            "maxlength": 120,
+            "placeholder": "Postal Code"
+          }
+        },
+        "application-rul:PaymentDetails": {
+          "section": "application-rul:Application",
+          "application-rul:BankAccountOwnerName": {
+            "key": [
+              "BankName"
+            ]
+          },
+          "application-rul:AccountNo": {
+            "key": [
+              "SavingCurrentAccountNumber"
+            ]
+          },
+          "application-rul:BankNameBranchCity": {
+            "key": [
+              "Branch"
+            ]
+          },
+          "application-rul:PremiumFrequency": {
+            "key": [
+              "PremiumFrequency"
+            ],
+            "defaultValue": "02"
+          },
+          "application-rul:MethodforPayingFirstPremium": {
+            "key": [
+              "FirstPaymentMethod"
+            ],
+            "defaultValue": "CHEQUE"
+          },
+          "application-rul:MethodforPayingRenewwalPremium": {
+            "key": [
+              "RenewalPaymentMethod"
+            ],
+            "defaultValue": "",
+            "valuePrefix": "v3.pnc.RenewalPaymentMethod.",
+            "preview": [
+              "application-rul:PaymentDetails"
+            ]
+          },
+          "application-rul:isPayorDifferentFromLife": {
+            "key": [
+              "DifferencePayor"
+            ]
+          },
+          "application-rul:PayorName": {
+            "key": [
+              "PayorName"
+            ],
+            "isVisible": "findElementInDetail(['DifferencePayor']).Value == 'Y'"
+          },
+          "application-rul:PayorRelationship": {
+            "key": [
+              "PayorRelationship"
+            ],
+            "isVisible": "findElementInDetail(['DifferencePayor']).Value == 'Y'"
+          },
+          "application-rul:PayorNRICPassport": {
+            "key": [
+              "PayorNRICPassport"
+            ],
+            "isVisible": "findElementInDetail(['DifferencePayor']).Value == 'Y'"
+          }
+        },
+        "application-rul:USTaxDeclaration": {
+          "icon": "fa fa-file-o",
+          "key": [
+            "USTaxDeclaration"
+          ],
+          "section": "application-rul:Application",
+          "application-rul:TaxQuestion1": {
+            "key": [
+              "TaxDeclaration"
+            ]
+          },
+          "application-rul:TaxNumber": {
+            "isVisible": "findElementInDetail(['TaxDeclaration']).Value == 'US'",
+            "key": [
+              "USTaxIDNumber"
+            ]
+          }
+        },
+        "application-rul:PrivacyPolicyAndDeclaration": {
+          "icon": "fa fa-file-o",
+          "key": [
+            "PrivacyPolicyAndDeclaration"
+          ],
+          "section": "application-rul:Application",
+          "application-rul:PdpaInformation": {
+            "key": [
+              "PrivacyPolicy"
+            ],
+            "section": "application-rul:PrivacyPolicyAndDeclaration",
+            "application-rul:ImportantNotes": {
+              "key": [
+                ""
+              ]
+            },
+            "application-rul:TextMessage": {
+              "key": [
+                ""
+              ]
+            },
+            "application-rul:ConfirmationBtn": {
+              "key": [
+                "PrivacyPolicyAndDeclaration",
+                "Consent"
+              ]
+            }
+          },
+          "application-rul:CustomerDeclaration": {
+            "key": [],
+            "icon": "fa fa-file-o",
+            "section": "application-rul:PrivacyPolicyAndDeclaration",
+            "application-rul:CustomerDeclarationDetail": {}
+          }
+        },
+        "application-rul:ChannelandPolicyDelivery": {
+          "icon": "fa fa-file-o",
+          "key": [],
+          "section": "application-rul:Application",
+          "application-rul:ReferralCode": {
+            "key": [
+              "ChannelAndPolicyDelivery",
+              "ReferralCode"
+            ]
+          },
+          "application-rul:PolicyDelivery": {
+            "key": [
+              "PolicyDelivery"
+            ],
+            "defaultValue": "",
+            "valuePrefix": "v3.pnc.PolicyDelivery.",
+            "preview": [
+              "application-rul:ChannelandPolicyDelivery"
+            ]
+          },
+          "application-rul:Email": {
+            "key": [
+              "ChannelAndPolicyDelivery",
+              "Email"
+            ]
+          }
+        },
+        "application-rul:AgentDisclaimer": {
+          "icon": "fa fa-file-o",
+          "key": [],
+          "section": "application-rul:Application",
+          "application-rul:AgentDisclaimer1": {
+            "key": [
+              "AgentDisclaimerQ1",
+              "QValue"
+            ]
+          },
+          "application-rul:AgentDisclaimer2a": {
+            "key": [
+              "AgentDisclaimerQ2",
+              "QuestionA",
+              "QValue"
+            ]
+          },
+          "application-rul:AgentDisclaimer2b": {
+            "key": [
+              "AgentDisclaimerQ2",
+              "QuestionB",
+              "QValue"
+            ]
+          },
+          "application-rul:AgentDisclaimer3": {
+            "key": [
+              "AgentDisclaimerQ3"
+            ]
+          },
+          "application-rul:AgentDisclaimer4": {
+            "key": [
+              "AgentDisclaimerQ4",
+              "QValue"
+            ]
+          },
+          "application-rul:AgentDisclaimer5": {
+            "key": [
+              "AgentDisclaimerQ5",
+              "QValue"
+            ]
+          },
+          "application-rul:AgentDisclaimer5Detail": {
+            "key": [
+              "AgentDisclaimerQ5",
+              "TxtQuestion"
+            ],
+            "isVisible": "AgentDisclaimer5Value.Value == 'Y'"
+          },
+          "application-rul:AgentDisclaimer6": {
+            "key": [
+              "AgentDisclaimerQ6",
+              "QValue"
+            ]
+          },
+          "application-rul:AgentDisclaimer7": {},
+          "application-rul:AgentDisclaimer7TextQuestion": {
+            "key": [
+              "AgentDisclaimerQ7",
+              "AgentDisclaimer7Items"
+            ]
+          },
+          "application-rul:AgentDisclaimer8": {
+            "key": [
+              "AgentDisclaimerQ8",
+              "QValue"
+            ]
+          },
+          "application-rul:AgentDisclaimer8Detail": {
+            "key": [
+              "AgentDisclaimerQ8",
+              "TxtQuestion"
+            ],
+            "isVisible": "AgentDisclaimer8Value.Value == 'Y'"
+          },
+          "application-rul:AgentDisclaimer9": {
+            "key": [
+              "AgentDisclaimerQ9",
+              "QValue"
+            ]
+          },
+          "application-rul:AgentDisclaimer10": {
+            "key": [
+              "AgentDisclaimerQ10",
+              "QValue"
+            ]
+          },
+          "application-rul:AgentDisclaimer11": {
+            "key": [
+              "AgentDisclaimerQ11",
+              "QValue"
+            ]
+          },
+          "application-rul:AgentDisclaimer12": {
+            "key": [
+              "AgentDisclaimerQ12",
+              "QValue"
+            ]
+          },
+          "application-rul:AgentDisclaimer13": {
+            "key": [
+              "AgentDisclaimerQ13",
+              "QValue"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

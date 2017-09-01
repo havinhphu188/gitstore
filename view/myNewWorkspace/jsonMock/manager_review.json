@@ -1,0 +1,43 @@
+{
+  "IposDocument": {
+    "Data": {
+      "@section": "Data",
+      "case-management-guaranteed-cashback-saver:CompleteofClientDetailFake": {},
+      "case-management-guaranteed-cashback-saver:CompleteofClientDetail": {
+        "@key": [
+          "CompletionOfClientPersonalDetail"
+        ]
+      },
+      "case-management-guaranteed-cashback-saver:CompleteofClientDetailRemark": {
+        "@key": [
+          "CompletionOfClientPersonalDetailRemark"
+        ]
+      },
+      "case-management-guaranteed-cashback-saver:ObjectiveandPreferences": {
+        "@key": [
+          "ObjectiveAndPreference"
+        ]
+      },
+      "case-management-guaranteed-cashback-saver:ObjectiveandPreferencesRemark": {
+        "@key": [
+          "ObjectiveAndPreferenceRemark"
+        ]
+      },
+      "case-management-guaranteed-cashback-saver:CompleteodClientInvestment": {
+        "@key": [
+          "CompletionOfClientInvestmentProfile"
+        ]
+      },
+      "case-management-guaranteed-cashback-saver:CompleteodClientInvestmentRemark": {
+        "@key": [
+          "CompletionOfClientInvestmentProfileRemark"
+        ]
+      },
+      "case-management-guaranteed-cashback-saver:SupervisorValidation": {
+        "@key": [
+          "ManagerDecisionDescription"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "IposDocument": {
+    "Data": {
+      "corporate:Corporate": {
+        "key": [
+          "OrganizationContactData"
+        ],
+        "section": "corporate:Corporate",
+        "Summary": {
+          "section": "corporate:Corporate",
+          "isVisible": true,
+          "CorporateNameSummary": {}
+        },
+        "BasicInformation": {
+          "section": "corporate:Corporate",
+          "CorporateName": {
+            "key": [
+              "CorporateName"
+            ],
+            "type": ""
+          },
+          "CompanyRegNo": {
+            "key": [
+              "CompanyRegistrationNumber"
+            ],
+            "type": ""
+          },
+          "PersonInCharge": {
+            "key": [
+              "PersonInCharge"
+            ],
+            "type": ""
+          },
+          "Subsidiaries": {
+            "key": [
+              "Subsidiaries"
+            ],
+            "type": ""
+          },
+          "CountryOfOrigin": {
+            "key": [
+              "CountryOfOrigin"
+            ],
+            "type": ""
+          },
+          "ClientStatus": {
+            "key": [
+              "ClientStatus"
+            ],
+            "type": ""
+          },
+          "Industry": {
+            "key": [
+              "Industry"
+            ],
+            "type": ""
+          },
+          "DateOfIncorporation": {
+            "key": [
+              "DateOfIncorporation"
+            ],
+            "type": ""
+          },
+          "STaxApplicable": {
+            "key": [
+              "STaxApplicable"
+            ],
+            "type": ""
+          }
+        },
+        "Contact": {
+          "section": "corporate:Corporate",
+          "key": [
+            "Contact"
+          ],
+          "CorporateWebsiteURL": {
+            "key": [
+              "CorporateWebsiteURL"
+            ],
+            "type": ""
+          },
+          "EmailAddress": {
+            "key": [
+              "EmailAddress"
+            ],
+            "type": ""
+          },
+          "MainLineTelephone": {
+            "key": [
+              "MainLineTelephone"
+            ],
+            "type": ""
+          },
+          "PersonInChargeTelephone": {
+            "key": [
+              "PersonInChargeTelephone"
+            ],
+            "type": ""
+          },
+          "FacsimileNo": {
+            "key": [
+              "FacsimileNo"
+            ],
+            "type": ""
+          }
+        },
+        "Addresses": {
+          "section": "corporate:Corporate",
+          "key": [
+            "Addresses"
+          ],
+          "BusinessAddress": {
+            "section": "Addresses",
+            "key": [
+              "BusinessAddress"
+            ],
+            "BBlkHouseNo": {
+              "key": [
+              	"BusinessAddress",
+                "BlkHouseNo"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.BlkHouseNo",
+              "maxlength": 120,
+              "placeholder": "Block/ House Number",
+              "type": "INPUT"
+            },
+            "BStreet": {
+              "key": [
+              	"BusinessAddress",
+                "Street"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.Street",
+              "maxlength": 120,
+              "placeholder": "Street",
+              "type": "INPUT"
+            },
+            "BUnitNo": {
+              "key": [
+              	"BusinessAddress",
+                "UnitNo"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.UnitNo",
+              "maxlength": 120,
+              "placeholder": "Unit No",
+              "type": "INPUT"
+            },
+            "BBuilding": {
+              "key": [
+              	"BusinessAddress",
+                "Building"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.Building",
+              "maxlength": 120,
+              "placeholder": "Building",
+              "type": "INPUT"
+            },
+            "BCity": {
+              "key": [
+              	"BusinessAddress",
+                "City"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.City",
+              "maxlength": 120,
+              "placeholder": "City",
+              "type": "INPUT"
+            },
+            "BCountry": {
+              "key": [
+              	"BusinessAddress",
+                "Country"
+              ],
+              "type": ""
+            },
+            "BPostal": {
+              "key": [
+              	"BusinessAddress",
+                "Postal"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.PostalCode",
+              "maxlength": 120,
+              "placeholder": "Postal Code",
+              "type": "INPUT"
+            }
+          },
+          "RegisteredAddress": {
+            "section": "Addresses",
+            "key": [
+              "RegisteredAddress"
+            ],
+            "RBlkHouseNo": {
+              "key": [
+              	"RegisteredAddress",
+                "BlkHouseNo"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.BlkHouseNo",
+              "maxlength": 120,
+              "placeholder": "Block/ House Number",
+              "type": "INPUT"
+            },
+            "RStreet": {
+              "key": [
+              	"RegisteredAddress",
+                "Street"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.Street",
+              "maxlength": 120,
+              "placeholder": "Street",
+              "type": "INPUT"
+            },
+            "RUnitNo": {
+              "key": [
+              	"RegisteredAddress",
+                "UnitNo"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.UnitNo",
+              "maxlength": 120,
+              "placeholder": "Unit No",
+              "type": "INPUT"
+            },
+            "RBuilding": {
+              "key": [
+              	"RegisteredAddress",
+                "Building"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.Building",
+              "maxlength": 120,
+              "placeholder": "Building",
+              "type": "INPUT"
+            },
+            "RCity": {
+              "key": [
+              	"RegisteredAddress",
+                "City"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.City",
+              "maxlength": 120,
+              "placeholder": "City",
+              "type": "INPUT"
+            },
+            "RCountry": {
+              "key": [
+              	"RegisteredAddress",
+                "Country"
+              ],
+              "type": ""
+            },
+            "RPostal": {
+              "key": [
+              	"RegisteredAddress",
+                "Postal"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.PostalCode",
+              "maxlength": 120,
+              "placeholder": "Postal Code",
+              "type": "INPUT"
+            }
+          },
+          "MailingAddress": {
+            "section": "Addresses",
+            "key": [
+              "MailingAddress"
+            ],
+            "MBlkHouseNo": {
+              "key": [
+              	"MailingAddress",
+                "BlkHouseNo"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.BlkHouseNo",
+              "maxlength": 120,
+              "placeholder": "Block/ House Number",
+              "type": "INPUT"
+            },
+            "MStreet": {
+              "key": [
+              	"MailingAddress",
+                "Street"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.Street",
+              "maxlength": 120,
+              "placeholder": "Street",
+              "type": "INPUT"
+            },
+            "MUnitNo": {
+              "key": [
+              	"MailingAddress",
+                "UnitNo"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.UnitNo",
+              "maxlength": 120,
+              "placeholder": "Unit No",
+              "type": "INPUT"
+            },
+            "MBuilding": {
+              "key": [
+              	"MailingAddress",
+                "Building"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.Building",
+              "maxlength": 120,
+              "placeholder": "Building",
+              "type": "INPUT"
+            },
+            "MCity": {
+              "key": [
+              	"MailingAddress",
+                "City"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.City",
+              "maxlength": 120,
+              "placeholder": "City",
+              "type": "INPUT"
+            },
+            "MCountry": {
+              "key": [
+              	"MailingAddress",
+                "Country"
+              ],
+              "type": ""
+            },
+            "MPostal": {
+              "key": [
+              	"MailingAddress",
+                "Postal"
+              ],
+              "labelKey": "new.v3.mynewworkspace.corporate.label.PostalCode",
+              "maxlength": 120,
+              "placeholder": "Postal Code",
+              "type": "INPUT"
+            }
+          }
+        },
+        "OtherInformation": {
+          "section": "corporate:Corporate",
+          "GSTRegNo": {
+            "key": [
+              "GSTNumber"
+            ],
+            "type": ""
+          },
+          "AuthorizedCapital": {
+            "key": [
+              "AuthorizedCapital"
+            ],
+            "type": ""
+          },
+          "Category": {
+            "key": [
+              "Category"
+            ],
+            "type": ""
+          },
+          "FreeTradeZone": {
+            "key": [
+              "FreeTradeZone"
+            ],
+            "type": ""
+          },
+          "ClientNumber": {
+            "key": [
+              "ClientNumber"
+            ],
+            "type": ""
+          },
+          "SourceName": {
+            "key": [
+              "SourceName"
+            ],
+            "type": ""
+          }
+        }
+      }
+    }
+  }
+}

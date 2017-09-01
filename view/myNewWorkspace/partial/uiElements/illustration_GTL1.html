@@ -1,0 +1,1106 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- GTL Quotations -->
+<!-- GTL Quotations Summary -->
+<div fieldId="illustration-gtl:productNameQuoteSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.illustration-gtl:productName" | translate}}:</span>
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.productName."+uiElement.refDetail |translate}}</span>
+	</div>
+</div>
+<div fieldId="illustration-gtl:policyOwnerQuoteSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.illustration-gtl:policyOwner" | translate}}:</span>
+		<span class="col-md-6">{{policyOwner.name}}</span>
+	</div>
+</div>
+<div fieldId="illustration-gtl:quotationNoQuoteSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.illustration-gtl:quotationNo" | translate}}:</span>
+		<span class="col-md-6">{{uiElement.refDetail}}</span>
+	</div>
+</div>
+<div fieldId="illustration-gtl:statusQuoteSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.illustration-gtl:status" | translate}}:</span>
+		<span class="col-md-6">{{uiElement.refDetail}}</span>
+	</div>
+</div>
+<div fieldId="illustration-gtl:createdDateQuoteSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.illustration-gtl:createdDate" | translate}}:</span>
+		<span class="col-md-6">{{uiElement.refDetail.$ |datetimeFilter:"DD/MM/YYYY"}}</span>
+	</div>
+</div>
+<div fieldId="illustration-gtl:quoteEndDateQuoteSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.illustration-gtl:quoteEndDate" | translate}}:</span>
+		<span class="col-md-6">{{uiElement.refDetail.$ |datetimeFilter:"DD/MM/YYYY"}}</span>
+	</div>
+</div>
+<div fieldId="illustration-gtl:frequencyPremiumPayable" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.illustration-gtl:frequencyPremiumPayable" | translate}}({{moduleService.findElementInDetail_V3(['BillingCurrency']).Value}}):</span>
+		<span class="col-md-6">{{uiElement.refDetail.$}}</span>
+	</div>
+</div>
+<div fieldId="illustration-gtl:lastUpdatedDateQuoteSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.illustration-gtl:lastUpdatedDate" | translate}}:</span>
+		<span class="col-md-6">{{uiElement.refDetail |datetimeFilter:"DD/MM/YYYY"}}</span>
+	</div>
+</div>
+	
+<div fieldId="illustration-gtl:PreviewQuotationDetail" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+  <div class="form-group form-group-lg has-success">
+  	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
+  		<button  ng-click="printGTLPDF('abridge')" class="btn btn-lg-new-ui v3-box-4 ng-binding">{{'new.v3.mynewworkspace.endowment.PreviewQuotationDetail' | translate}}</button>
+ 	</div>
+  </div>
+  <div class="form-group form-group-lg has-success">
+  	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
+  		<button ng-click="printGTLPDF('members_listing')" class="btn btn-lg-new-ui v3-box-4 ng-binding">{{'v3.mynewworkspace.portlet.label.illustration-gtl:ProcessedMemberListing' | translate}}</button>
+ 	</div>
+  </div>
+</div>
+
+<!-- End of quoteSummary -->
+
+<!-- GTL Basic Quotation Info -->
+<!-- GTL Quotation Policy Info Policy Details -->
+
+<!-- QuotationNo in 1 line-->
+<!-- <div fieldId="illustration-gtl:quotationNo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding-left no-padding-right">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	  <div class="col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+	      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:quotationNo" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+	      <input class="form-control" type="text" disabled ng-model="moduleService.findElementInDetail_V3(['DocInfo'])['DocName']"/>
+	    </div>
+	  </div>
+	</div>
+</div> -->
+
+<div fieldId="illustration-gtl:quotationNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:quotationNo" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" disabled type="text" maxlength="120" ng-model="uiElement.refDetail"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:policyCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:policyCurrency" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' 
+      				&& moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') 
+      				|| uiElement.refDetail['@editable']=='0'"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['BillingCurrency','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- <div fieldId="illustration-gtl:policyDetailPolicyOwnerName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:policyOwnerName" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PolicyOwnerName'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" disabled type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['PolicyOwnerName']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerName']).errorMessage | translate"></span>
+  </div>
+</div>
+</div> -->
+
+<div fieldId="illustration-gtl:quotationStartDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:quotationStartDate" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper">
+      	<input maxDate='{{illustrationMaxDate}}' minDate='{{illustrationMinDate}}'
+      	ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'"
+      	ms-datepicker ng-model="uiElement.refDetail.$" class="ms-calendar"/>
+      </div> 
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:quotationEndDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:quotationEndDate" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper">
+      	<input maxDate='{{illustrationMaxDate}}' minDate='{{illustrationMinDate}}'
+      	ng-disabled="moduleService.freeze  || uiElement.refDetail['@editable']=='0'"
+      	ms-datepicker ng-model="uiElement.refDetail.$" class="ms-calendar"/>
+      </div> 
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:insuredFromDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:insuredFromDate" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper">
+      	<input maxDate='{{illustrationMaxDate}}' minDate='{{illustrationMinDate}}'
+      	ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'"
+      	ms-datepicker ng-model="uiElement.refDetail.$" class="ms-calendar"/>
+      </div> 
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:insuredToDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:insuredToDate" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper">
+      	<input maxDate='{{illustrationMaxDate}}' minDate='{{illustrationMinDate}}'
+      	ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+      	ms-datepicker ng-model="uiElement.refDetail.$" class="ms-calendar"/>
+      </div> 
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:billingCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>Billing Currency<span ng-show="moduleService.findElementInDetail_V3(['BillingCurrency'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['BillingCurrency','Option'])" 
+         type="nonFlag" prefix=""></ng-newDropDown>
+      <!-- <v3-switch-new switch-size="" switch-name="BillingCurrency" prefix="v3.motor.privateCarM.billingCurrency"
+              switch-model="moduleService.findElementInDetail_V3(['BillingCurrency']).Value" 
+              switch-default-value="" switch-disabled="false" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['BillingCurrency','Option'])">
+      </v3-switch-new> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BillingCurrency']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:billingFrequency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:billingFrequency" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['BillingFrequency'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze"
+        model="moduleService.findElementInDetail_V3(['BillingFrequency'])"
+       	list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['BillingFrequency','Option'])"
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.illustration-gtl.billingFrequency"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BillingFrequency']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:ageBasis" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:ageBasis" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' 
+      				&& moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') 
+      				|| uiElement.refDetail['@editable']=='0'" 
+        model="uiElement.refDetail"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['AgeBasis','Option'])"
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.illustration-gtl.ageBasis"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:BasicDetailFrequencyPremiumPayable" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-fire:PremiumPayable" | translate}}({{moduleService.findElementInDetail_V3(['BillingCurrency']).Value}})<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" disabled type="text" maxlength="120" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+  </div>
+</div>
+<!-- End of Basic Policy Detail -->
+<!-- End of Basic Quotation Info-->
+
+<!-- Product Catalogue -->
+<!-- Term Life -->
+<!-- Basic Product Details -->
+
+<div fieldId="illustration-gtl:product" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:product" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+      <ng-newDropDown disable="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ProductCd','Option'])"
+        more-action="updateMainProduct()" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.illustration-gtl.ProductCd"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:productType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:productType" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+      <ng-newDropDown disable="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ProductType','Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.illustration-gtl.ProductType"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:freeCoverLimit" class="col-xs-12 col-sm-6 col-md-12 col-lg-12 v3-column-content">
+  <div class="col-xs-12 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:freeCoverLimit" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+      <div class="col-xs-12 no-padding-left no-padding-right">
+      <table id="" class="table v3-responsive-table">
+			<thead>
+           		<tr>
+           			<th rowspan="2" style="height: 45px; vertical-align: middle;">{{"v3.mynewworkspace.portlet.label.illustration-gtl:age" | translate}}</th>
+		            <th style="height: 45px; vertical-align: middle;">{{"v3.mynewworkspace.portlet.label.illustration-gtl:uptoAge" | translate}}</th>
+		            <th style="height: 45px; vertical-align: middle;">{{"v3.mynewworkspace.portlet.label.illustration-gtl:uptoAge" | translate}}</th>
+		            <th style="height: 45px; vertical-align: middle;">{{"v3.mynewworkspace.portlet.label.illustration-gtl:uptoAge" | translate}}</th>
+		            <th style="height: 45px; vertical-align: middle;">{{"v3.mynewworkspace.portlet.label.illustration-gtl:uptoAge" | translate}}</th>
+           		</tr>
+           		<tr>
+           			 <td class="form-group-lg has-success center-align  no-padding-left no-padding-right" style="width: 15%;" ng-repeat="item in moduleService.findElementInElement_V3(uiElement.refDetail,['FreeCoverLimit'])">
+           			 	<input class="form-control" 
+           			 	ng-disabled="moduleService.freeze" 
+      				type="text" ng-model="moduleService.findElementInElement_V3(item,['FCLUpToAge']).$">
+           			 </td>
+           		</tr>
+           	</thead>
+           	<tbody>
+           		
+           		<tr>
+           			<td style="height: 45px; vertical-align: middle;">{{"v3.mynewworkspace.portlet.label.illustration-gtl:amount" | translate}}</td>
+           			<td class="form-group-lg has-success center-align  no-padding-left no-padding-right" ng-repeat="item in moduleService.findElementInElement_V3(uiElement.refDetail,['FreeCoverLimit'])">
+           				<input class="form-control" 
+           				ng-disabled="moduleService.freeze "
+      					type="text" ng-model="moduleService.findElementInElement_V3(item,['FCLAmount']).$" pos-autonumeric/>
+      					<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(item,['FCLAmount']).errorMessage | translate"></span>
+           			</td>
+           			
+           		</tr>
+           	</tbody>
+		</table>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:headCount" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:headCount" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new-slide switch-size="" switch-name="HeadCount" prefix="v3.yesno.enum"
+              switch-model="uiElement.refDetail.Value" 
+              switch-default-value="YES" switch-disabled="moduleService.freeze" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Headcount','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:discount" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:discount" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+      <input class="form-control" 
+      ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+      				type="text" ng-model="uiElement.refDetail.$" pos-autonumeric/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- End of Basic Product Details -->
+<!-- Plan Detail -->
+<!-- Plan Main Product -->
+
+<div fieldId="illustration-gtl:planMainProduct" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+  <div class="col-xs-6 v3-column-content">
+  	<div class="col-xs-10 v3-column-content no-padding-left">
+	  	<div class="form-group form-group-lg has-success">
+	      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:mainProduct" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+	      <ng-newDropDown disable="true" 
+	        model="uiElement.refDetail"
+	        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ProductCd','Option'])" 
+	         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.illustration-gtl.ProductCd"></ng-newDropDown>
+	      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+	    </div>
+  	</div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:planNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:planNumber" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="moduleService.freeze" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:planDescription" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:planDescription" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="moduleService.freeze" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:premiumMethod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:premiumMethod" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['PremiumMethod','Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.illustration-gtl.PremiumMethod"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:classOfInsuredPeople" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:classofInsuredPeople" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ClassOfInsuredPeople','Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.illustration-gtl.ClassOfInsuredPeople"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:coverageBasis" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:coverageBasis" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['CoverageBasis','Option'])"
+        more-action="computeTag([['PlanList']], card)"  
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.illustration-gtl.CoverageBasis"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:fixedSumInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:fixedSumInsured" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="moduleService.freeze" type="text" ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:yearlySalaryMultiplier" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:yearlySalaryMultiplier" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="moduleService.freeze" type="text" ng-model="uiElement.refDetail.$" pos-autonumeric/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:monthlySalaryMultiplier" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:monthlySalaryMultiplier" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.freeze"
+      		ng-model="uiElement.refDetail.$" pos-autonumeric/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<!-- End of Plan Main Product -->
+<!-- Benefit Detail -->
+<div fieldId="illustration-gtl:benefitPlanNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:planNumber" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="true" type="text" ng-model="moduleService.findElementInElement_V3(uiElement.parent.parent.parent.refDetail,['PlanNumber']).$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:benefitCd" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:benefit" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze || uiElement.refDetail['@editable']=='0'"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],[uiElement.refDetail['@vpms-suffix'],'Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.illustration-gtl.benefit"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:benefitStartDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:benefitStartDate" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper">
+      	<input maxDate='{{illustrationMaxDate}}' minDate='{{illustrationMinDate}}'
+      	ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'"
+      	ms-datepicker ng-model="uiElement.refDetail.$" class="ms-calendar"/>
+      </div> 
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:benefitEndDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:benefitEndDate" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper">
+      	<input maxDate='{{illustrationMaxDate}}' minDate='{{illustrationMinDate}}'
+      	ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'"
+      	ms-datepicker ng-model="uiElement.refDetail.$" class="ms-calendar"/>
+      </div> 
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:benefitList" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:benefitList" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze || uiElement.refDetail['@editable']=='0'"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],[uiElement.refDetail['@vpms-suffix'],'Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.illustration-gtl.benefitList"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- End of Benefit Detail -->
+<!-- End of Plan Detail -->
+<!-- End of Term Life -->
+<!-- End of Product Catalogue -->
+
+<!-- Product Pricing -->
+<!-- Term Life Pricing -->
+
+<div fieldId="illustration-gtl:productName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:productName" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ProductCd'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="true"
+        model="moduleService.findElementInDetail_V3(['ProductCd'])"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ProductCd','Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.productName"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ProductCd']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:premiumRateType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:premiumRateType" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['PremiumRateType','Option'])"
+        more-action="computeTag([['PremiumRateType'],['Pricing']])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.illustration-gtl.PremiumRateType"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:unitOfRating" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:unitofRating" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control"
+      ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+      				 type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:policySpecificUnitRate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-show="uiElement.refDetail['@visible'] == 1">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:policySpecificUnitRate" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" 
+      ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+      				type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:ratingFactor" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-show="uiElement.refDetail['@visible'] == 1">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.illustration-gtl:ratingFactor" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" 
+      ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+      				type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- End of Term Life Pricing -->
+<!-- End of Product Pricing -->
+
+<!-- Members -->
+<!-- Member Summary -->
+
+<div fieldId="illustration-gtl:TotalNumberOfHeadcount" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.illustration-gtl:TotalNumberOfHeadcount" | translate}}:</span>
+		<span class="col-md-6">{{uiElement.refDetail.$}}</span>
+	</div>
+</div>
+
+<div fieldId="illustration-gtl:TotalNumberOfMember" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.illustration-gtl:TotalNumberOfMember" | translate}}:</span>
+		<span class="col-md-6">{{uiElement.refDetail.$}}</span>
+	</div>
+</div>
+
+<div fieldId="illustration-gtl:DateCreated" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.illustration-gtl:DateCreated" | translate}}:</span>
+		<span class="col-md-6">{{uiElement.refDetail |datetimeFilter:"DD/MM/YYYY"}}</span>
+	</div>
+</div>
+
+<div fieldId="illustration-gtl:TotalGrossPremium" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"v3.mynewworkspace.portlet.label.illustration-gtl:TotalGrossPremium" | translate}}:</span>
+		<span class="col-md-6">{{uiElement.refDetail.$}}</span>
+	</div>
+</div>
+
+<div fieldId="illustration-gtl:PreviewMemberSummary" class="col-xs-12 col-sm-6 col-md-12 col-lg-12 summary">
+  <div class="form-group form-group-lg has-success">
+  	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+  		<button ng-click="printGTLPDF('member_summary')" class="col-sm-offset-4 col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding">{{'v3.mynewworkspace.portlet.label.illustration-gtl:PreviewMemberSummary' | translate}}</button>
+ 	</div>
+  </div>
+</div>
+
+<!-- End of Member Summary -->
+
+<!-- Member Upload -->
+
+<div fieldId="illustration-gtl:attachmentMember" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="attachment" ng-include="initContextPath+'/view/fileAttachment/fileAttachmentIllustration.html'"></div>
+</div>
+
+<div fieldId="illustration-gtl:memberUpload" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="attachment" ng-include="initContextPath+'/view/fileAttachment/fileAttachmentIllustration.html'"></div>
+</div>
+
+<!-- End of Member Upload -->
+<!-- End of Members -->
+
+<!-- Supplementary Policy Detail -->
+<div fieldId="illustration-gtl:sourceOfBusiness" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:sourceOfBusiness" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['SourceOfBusiness','Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.application-gtl:SourceOfBusiness"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:MemberIdentification" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:MemberIdentification" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' 
+      				&& moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') 
+      				|| uiElement.refDetail['@editable']=='0'" 
+        model="uiElement.refDetail"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['MemberIdentification','Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.application-gtl:MemberIdentification"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:TakeOver" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:TakeOver" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new-slide switch-size="" switch-name="TakeOver" prefix="v3.yesno.enum"
+              switch-model="uiElement.refDetail.Value" 
+              switch-default-value="YES" switch-disabled="moduleService.freeze" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['TakeOver','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:Pooling" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:Pooling" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new-slide switch-size="" switch-name="Pooling" prefix="v3.yesno.enum"
+              switch-model="uiElement.refDetail.Value" 
+              switch-default-value="YES" switch-disabled="moduleService.freeze" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['Pooling','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:DefaultDataTemplate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:DefaultDataTemplate" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['DefaultDataTemplate','Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.application-gtl:DefaultDataTemplate"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:labelBilling" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{"v3.mynewworkspace.portlet.label.application-gtl:labelBilling" | translate}} :</b></label>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-gtl:PaymentMethod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:PaymentMethod" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['PaymentMethod','Option'])"
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.application-gtl:PaymentMethod"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:AdjustmentFrequency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:AdjustmentFrequency" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['AdjustmentFrequency','Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.application-gtl:AdjustmentFrequency"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- SupplementaryProductDetails -->
+<div fieldId="illustration-gtl:InitialBasicCommissionRate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:InitialBasicCommissionRate" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+      <input class="form-control" 
+      ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+      				type="text" ng-model="uiElement.refDetail.$" pos-autonumeric/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:RenewalBasicCommissionRate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:RenewalBasicCommissionRate" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+      <input class="form-control" 
+      ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+      				type="text" ng-model="uiElement.refDetail.$" pos-autonumeric/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:InitialOverridingCommissionRate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:InitialOverridingCommissionRate" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+      <input class="form-control" 
+      ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+      				type="text" ng-model="uiElement.refDetail.$" pos-autonumeric/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:RenewalOverridingCommissionRate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:RenewalOverridingCommissionRate" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+      <input class="form-control" 
+      ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+      				type="text" ng-model="uiElement.refDetail.$" pos-autonumeric/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:gstType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:gstType" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+      <ng-newDropDown disable="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['GST','Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.application-gtl:GSTType"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:ExperienceRefundFormula" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:ExperienceRefundFormula" | translate}}:</label>
+      <table border="0">
+      	<tr>
+      		<td width="30%"><input class="form-control" type="text" ng-disabled="moduleService.freeze"
+      						ng-model="uiElement.refDetail['illustration:Param1'].$" pos-autonumeric/></td>
+      		<td width="5%">%(</td>
+      		<td width="30%"><input class="form-control" type="text" ng-disabled="moduleService.freeze"
+      						ng-model="uiElement.refDetail['illustration:Param2'].$" pos-autonumeric/></td>
+      		<td>{{"v3.mynewworkspace.portlet.label.illustration-gtl:premiumClaims" | translate}}</td>
+      	</tr>
+      </table>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:OtherPricingFactors" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+  <div class="form-group form-group-lg has-success">
+  	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
+  		<button  ng-click="printGTLPDF('rating_factor')" class="btn btn-lg-new-ui v3-box-4 ng-binding">{{'v3.mynewworkspace.portlet.label.illustration-gtl:OtherPricingFactors' | translate}}</button>
+ 	</div>
+  </div>
+</div>
+<!-- plan details -->
+<div fieldId="illustration-gtl:SupplementaryPlanNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-if="uiElement.refDetail['@visible']!=='0'">
+</div>
+<div fieldId="illustration-gtl:MinimumSumInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:MinimumSumInsured" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="moduleService.freeze" type="text" ng-model="uiElement.refDetail.$" pos-autonumeric/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:MaximumSumInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:MaximumSumInsured" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="moduleService.freeze" type="text" ng-model="uiElement.refDetail.$" pos-autonumeric/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:MinimumAge" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:MinimumAge" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="moduleService.freeze" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:MaximumAge" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:MaximumAge" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="moduleService.freeze" type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:SalaryFrequency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:SalaryFrequency" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['SalaryFrequency','Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.application-gtl:SalaryFrequency"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="illustration-gtl:BenefitTemplate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:BenefitTemplate" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['BenefitTemplate','Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.application-gtl:BenefitTemplate"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<!-- supplementaryPricingDetails -->
+<div fieldId="illustration-gtl:ExpenseLoading" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-show="uiElement.refDetail['@visible'] == 1">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:ExpenseLoading" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control"
+      ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+      				type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:CommissionLoading" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-show="uiElement.refDetail['@visible'] == 1">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:CommissionLoading" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" 
+      ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+      				type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:ProfitLoading" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-show="uiElement.refDetail['@visible'] == 1">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:ProfitLoading" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" 
+      ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+      				type="text" ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:ExperienceRefund" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-show="uiElement.refDetail['@visible'] == 1">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:ExperienceRefund" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new-slide switch-size="" switch-name="ExperienceRefund" prefix="v3.yesno.enum"
+              switch-model="uiElement.refDetail.Value" 
+              switch-default-value="" switch-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['ExperienceRefund','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<!-- organisation Information -->
+<div fieldId="illustration-gtl:labelOrganisationInfo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+        	<label class=""><b>{{"v3.mynewworkspace.portlet.label.application-gtl:labelOrganisationInfo" | translate}}:</b></label>
+    	</div>
+    </div>
+</div>
+<div fieldId="illustration-gtl:natureOfGroup" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:natureOfGroup" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.freeze"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['NatureOfGroup','Option'])" 
+         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.application-gtl:NatureOfGroup"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:EmpMedicalCheck" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:EmpMedicalCheck" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new-slide switch-size="" switch-name="MedicalTestRequired" prefix="v3.yesno.enum"
+              switch-model="uiElement.refDetail.Value" 
+              switch-default-value="YES" switch-disabled="moduleService.freeze" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['EmpMedicalCheck','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:HazardousEvents" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="row form-group form-group-lg has-success">
+	      <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{"v3.mynewworkspace.portlet.label.application-gtl:HazardousEvents" | translate}} </label>
+	      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" ng-repeat="item in moduleService.findElementInDetail_V3(['HazardousEvent']) track by $index">
+		      	<ng-newDropDown disable="moduleService.freeze"
+		        model="moduleService.findElementInElement_V3(item,['HazardousEventCd'])"
+		         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['HazardousEventCd','Option'])" 
+		         type="nonFlag" prefix="v3.mynewworkspace.portlet.label.application-gtl:HazardousEventCd"
+		         more-action="checkHazardousEvent($index)"></ng-newDropDown>
+		      <span class="errorMessage" ng-bind="item.errorMessage"></span>
+	      </div>
+      </div>
+</div>
+<div fieldId="illustration-gtl:labelEmployeeProfile" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+        	<label class=""><b>{{"v3.mynewworkspace.portlet.label.application-gtl:labelEmployeeProfile" | translate}}:</b></label>
+    	</div>
+    </div>
+</div>
+<div fieldId="illustration-gtl:TotalEmployees" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:TotalEmployees" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.freeze"
+      ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:activelyAtWork" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:activelyAtWork" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.freeze"
+      	ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:NumberOfMale" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:NumberOfMale" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.freeze"
+      	ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:NumberOfFemale" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:NumberOfFemale" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.freeze"
+      		ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:AverageSalary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:AverageSalary" | translate}} ({{moduleService.findElementInDetail_V3(['BillingCurrency']).Value}})<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.freeze"
+      	ng-model="uiElement.refDetail.$" pos-autonumeric/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:AverageAge" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.application-gtl:AverageAge" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.freeze"
+      	ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-gtl:EmpDist" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12">
+		<div class="form-group form-group-lg has-success">
+        	<label class="">{{"v3.mynewworkspace.portlet.label.application-gtl:EmpDist" | translate}}:</label>
+    	</div>
+    </div>
+    <div class="col-xs-12">
+    	<table id="" class="table v3-responsive-table">
+			<thead>
+           		<tr>
+           			<th rowspan="2" style="height: 45px; vertical-align: middle;">{{"v3.mynewworkspace.portlet.label.illustration-gtl:occupationClass" | translate}}</th>
+		            <th style="height: 45px; vertical-align: middle;">{{"v3.mynewworkspace.portlet.label.illustration-gtl:uptoAge" | translate}}</th>
+		            <th style="height: 45px; vertical-align: middle;">{{"v3.mynewworkspace.portlet.label.illustration-gtl:uptoAge" | translate}}</th>
+		            <th style="height: 45px; vertical-align: middle;">{{"v3.mynewworkspace.portlet.label.illustration-gtl:uptoAge" | translate}}</th>
+		            <th style="height: 45px; vertical-align: middle;">{{"v3.mynewworkspace.portlet.label.illustration-gtl:uptoAge" | translate}}</th>
+		            <th style="height: 45px; vertical-align: middle;">{{"v3.mynewworkspace.portlet.label.illustration-gtl:uptoAge" | translate}}</th>
+		            <th ng-if="!moduleService.freeze" style="background: #FFFFFF;"><button class="btn btn-lg v3-btn-primary" style="min-width: 10px; margin-right: -10px;" ng-click="addOccupationClass()"><i class="fa fa-plus"></i></button></th>
+           		</tr>
+           		<tr>
+           			 <td class="form-group-lg has-success center-align  no-padding-left no-padding-right" style="width: 15%;" ng-repeat="item in moduleService.findElementInElement_V3(uiElement.refDetail,['UpToAge'])">
+           			 	<input class="form-control" type="text" maxlength="2" ng-disabled="moduleService.freeze"
+           			 		ng-model="moduleService.findElementInElement_V3(item,['UpToAgeVal']).$">
+           			 </td>
+           		</tr>
+           	</thead>
+           	<tbody>
+           		
+           		<tr ng-repeat="item in organisationDistArray track by $index">
+           			<td class="form-group form-group-lg has-success center-align no-padding-left no-padding-right">
+           				<input class="form-control" type="text" ng-disabled="moduleService.freeze"
+           					ng-model="item.key" ng-change="prepareOrganisationDistToCompute()">
+           			</td>
+           			<td class="form-group-lg has-success center-align  no-padding-left no-padding-right" ng-repeat = "item1 in item.ageListVal">
+           				<input class="form-control" type="text" ng-disabled="moduleService.freeze" ng-model="item1.val" ng-change="prepareOrganisationDistToCompute()">
+           			</td>
+           			<td ng-show="$index>0">
+           				<button ng-show="!moduleService.freeze" class="btn btn-lg v3-btn-primary" style="min-width: 10px; margin-right: -10px;" ng-click="removeOccupationClass($index)"><i class="fa fa-minus"></i></button>
+           			</td>
+           			
+           		</tr>
+           	</tbody>
+		</table>
+    </div>
+    <div class="col-xs-12">
+    	<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(uiElement.refDetail,['errorMessage']) | translate"></span>
+    </div>
+</div>
+<div fieldId="illustration-gtl:AdditionalInformation" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary v3-column-content">
+	<div class="col-xs-11 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label class="">{{"v3.mynewworkspace.portlet.label.application-gtl:AdditionalInformation" | translate}} <span ng-if="uiElement.refDetail['@mandatory'] == 1">*</span></label>
+			<textarea id="additionalInfo" class="form-control bottom-25" ng-disabled="moduleService.freeze"
+     			type="text" ng-model="uiElement.refDetail.$">
+     		</textarea>
+		</div>
+	</div>
+</div>

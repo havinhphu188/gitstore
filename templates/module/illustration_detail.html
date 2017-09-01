@@ -1,0 +1,455 @@
+<md-toolbar>
+
+    <h2 class="md-toolbar-tools">
+        <div flex="10">
+            <md-button ng-click="backToPreState()" class="md-primany green-title" style="width: 35px; padding: 5px; z-index: 1;">
+                <md-tooltip>
+                    Back
+                </md-tooltip>
+                <span class="fa fa-arrow-left fa-lg" style="margin-left: 0px;"></span>
+            </md-button>
+        </div>
+        <div flex="70" class="text-center">
+            <span class="fa-lg">Illustration: {{moduleService.illustrationHeaderName}}</span>
+        </div>
+        <div class="align-right" flex>
+            <md-button ng-click="save()" class="md-primany green-title" style="width: 35px; padding: 5px;">
+                <md-tooltip>
+                    Save Illustration
+                </md-tooltip>
+                <span class="fa fa-floppy-o fa-2x "></span>
+            </md-button>
+            <md-button ng-click="computeIllustration()" class="md-primany green-title" style="width: 35px; padding: 5px;">
+                <md-tooltip>
+                    Compute
+                </md-tooltip>
+                <span class="fa fa-play fa-2x "></span>
+            </md-button>
+            <md-button ng-click="popover.show($event)" class="md-primany green-title" style="width: 35px; padding: 5px;">
+                <md-tooltip>
+                    Option
+                </md-tooltip>
+                <span class="fa fa-ellipsis-v fa-2x "></span>
+            </md-button>
+        </div>
+    </h2>
+</md-toolbar>
+<ion-view>
+    <div ng-hide="moduleService.progressBarOverview" class="mask">
+        <md-progress-circular ng-hide="moduleService.progressBarOverview" style="margin-top:40vh;margin-left:65vh;" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <ul id="carouselList" rn-carousel rn-carousel-index="carouselIndex1" style="height: 90%;">
+        <li>
+            <ion-content class="ion-content-carousel-custom carousel-position">
+                <div style=" margin:0 auto; background-color: white; width: 80%;">
+                    <div layout-margin>
+
+                        <h2 class="clientHeader">Base Plan</h2>
+                        <div class="row">
+                            <div class="row">
+                                <div flex="35">
+                                    <h3> Effective Date</h3>
+                                </div>
+                                <div flex="65">
+                                    <input type="text" style="width:100% !important" ng-disabled="visible" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration:BasePlan', 'ipos-illustration:EffectiveDate']).$" ms-datepicker>
+                                    <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:BirthDate')"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                            
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <div flex="35">
+                                    <h3> Sum Assured</h3>
+                                </div>
+                                <div flex="65">
+                                    <input type="text" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration:BasePlan', 'ipos-illustration:SumAssured']).$" value="" placeholder="Sum Assure">
+                                    <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:SumAssured')"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div flex="35">
+                                    <h3> Policy Term</h3>
+                                </div>
+                                <div flex="65">
+                                    <input type="text" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration:BasePlan', 'ipos-illustration:PolicyTerm']).$" ng-model="user.building" value="" placeholder="Policy Term">
+                                    <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:BasePlan.ipos-illustration:PolicyTerm')"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <div flex="35">
+                                    <h3> Payment Method</h3>
+                                </div>
+                                <div flex="65">
+                                    <ui-select search-enabled="false" ng-model="moduleService.findElementInDetail_V3(['ipos-illustration:BasePlan', 'ipos-illustration:PaymentMode']).Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasePlan.ipos-illustration:PaymentMode.Options').Option | filter : $select.search ">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div flex="35">
+                                    <h3> Currency</h3>
+                                </div>
+                                <div flex="65">
+                                    <ui-select search-enabled="false" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasePlan.ipos-illustration:Currency').Value" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasePlan.ipos-illustration:Currency.Options').Option | filter : $select.search ">
+                                            <div ng-bind-html="item | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <md-divider></md-divider>
+                <div style=" margin:0 auto; background-color: white; width: 80%;">
+                    <div layout-margin>
+                        <h2 class="clientHeader">Party 
+                            <md-button style="height: 38px; width: 38px;" ng-click="moduleService.addElement('$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party', illustrationUIService.emptyTemplate)">
+                                <i class="fa fa-plus fa-lg" style="color:green;"></i>
+                            </md-button>
+                        </h2>
+                        {{moduleService.parties}}
+                        <md-card-content ng-repeat="party in moduleService.parties track by $index">
+                            <md-card>
+                                <div class="row" layout-margin>
+
+
+                                    <div class="row" flex="33">
+                                        <div flex="40">
+                                            <h3>Party Type *</h3>
+                                        </div>
+                                        <div flex="50">
+                                            <ui-select search-enabled="false" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration-common:PartyType').Value" theme="select2" style="width: 100%;" title="Choose a person">
+                                                <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                                <ui-select-choices repeat="item in moduleService.findValueByJsonXPath(party, 'ipos-illustration-common:PartyType.Options').Option | filter : $select.search ">
+                                                    <div ng-bind-html="item | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" flex="33">
+                                    </div>
+                                    <div class="row" flex="33" style="padding-left: 25%;">
+                                        <md-button style="height: 38px; width: 38px;" ng-if="moduleService.parties.length > 1" ng-click="moduleService.removeElement('$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party', $index)">
+                                            <i class="fa fa-remove fa-2x" style="color:green;"></i>
+                                        </md-button>
+                                    </div>
+
+                                </div>
+                                <div class="row" layout-margin>
+                                    <div class="row" flex="33">
+                                        <div flex="40">
+                                            <h3>Prospect *</h3>
+                                        </div>
+                                        <div flex="50">
+                                            <ui-select search-enabled="true" ng-model="moduleService.parties[$index]['@refUid']" theme="select2" ng-disabled="disabled" style="width: 100%;" title="Choose a person">
+                                                <ui-select-match placeholder="">{{prospectUIService.findValueInMapListByKey($select.selected, 'FirstName')}}</ui-select-match>
+                                                <ui-select-choices repeat="item in listProspect track by $index ">
+                                                    <div ng-bind-html="prospectUIService.findValueInMapListByKey(item, 'FirstName')"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row" flex="33">
+                                        <md-button style="height: 38px; width: 38px" ng-click="getDetail(moduleService.parties[$index]['@refUid'], $index)">
+                                            <i class="fa fa-arrow-down fa-lg" style="color:green;"></i>
+                                        </md-button>
+                                    </div>
+                                    <div class="row" flex="33">
+                                    
+                                    </div>
+                                </div>
+
+                                <!-- <md-card ng-if="moduleService.findElementInBaseDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:FirstName').$">
+                            <md-card-content> -->
+                                <div class="row" layout-margin>
+                                    <div class="row" flex="50">
+                                        <div flex="30">
+                                            <h3>First Name *</h3>
+                                        </div>
+                                        <div flex="60">
+                                            <input type="text" style="width:100%;" ng-disabled="true" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration-common:FirstName').$" placeholder="First Name *">
+                                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:IDNum')"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row" flex="50">
+                                        <div flex="30">
+                                            <h3>Birthdate *</h3>
+                                        </div>
+                                        <div flex="60">
+                                            <input type="text" style="width:100% !important" ng-disabled="true" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration-common:BirthDate').$" ms-datepicker>
+                                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:BirthDate')"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" layout-margin>
+                                    <div class="row" flex="33">
+                                        <div flex="40">
+                                            <h3>Gender *</h3>
+                                        </div>
+                                        <div flex="50">
+                                            <ui-select search-enabled="false" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration-common:Gender').Value" theme="select2" ng-disabled="true" style="width: 100%;" title="Choose a person">
+                                                <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                                <ui-select-choices repeat="item in prospectUIService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:Gender.Options').Option | filter : $select.search ">
+                                                    <div ng-bind-html="item | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" flex="33">
+                                        <div flex="40">
+                                            <h3>ID Type *</h3>
+                                        </div>
+                                        <div flex="50">
+                                            <ui-select search-enabled="false" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration-common:IDType').Value" theme="select2" ng-disabled="true" style="width: 100%;" title="Choose a person">
+                                                <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                                <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:Gender.Options').Option | filter : $select.search ">
+                                                    <div ng-bind-html="item | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row" flex="33">
+                                        <div flex="40">
+                                            <h3>Occupation *</h3>
+                                        </div>
+                                        <div flex="50">
+                                            <ui-select search-enabled="false" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration-common:Occupation').Value" theme="select2" ng-disabled="true" style="width: 100%;" title="Choose a person">
+                                                <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                                <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:Gender.Options').Option | filter : $select.search ">
+                                                    <div ng-bind-html="item | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                            <span style="color: red" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                        </md-card-content>
+                        </md-card>
+                    </div>
+                </div>
+            </ion-content>
+        </li>
+        <li>
+            <ion-content class="ion-content-carousel-custom carousel-position">
+                <!--  <md-card style="margin:30px auto; background-color: white; width: 80%;"> -->
+
+                <md-grid-list style="width: 90%; margin:0 auto; margin-top:5%;" md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12x" md-gutter-gt-sm="8px">
+                    <md-grid-tile class="gray" md-rowspan="4" md-colspan="2">
+                        &nbsp;
+                        <div layout-margin style="height: 100px; max-height: 100px;min-height: 100px; max-width: 100px;min-width: 100px; margin-left: auto; margin-right: auto;">
+                            <img src="img/avatar_generic.png" style="width :100%;">
+                            <i style="z-index: 1;position: absolute; margin-top:-5%; color: white;" class="fa fa-plus"></i>
+                        </div>
+                        &nbsp;
+                        <div layout="row" layout-margin>
+                            <div flex="35">
+                                <h3>Full Name</h3>
+                            </div>
+                            <div flex="55">
+                                <input type="text" style="width: 100%;" class="" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:PersonalInfo.ipos-illustration-common:FullName').$" ng-disabled="true">
+                            </div>
+                        </div>
+                        <div layout="row" layout-margin>
+                            <div flex="35">
+                                <h3>BirthDate</h3>
+                            </div>
+                            <div flex="55">
+                                <input type="text" style="width: 100%;" class="" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:PersonalInfo.ipos-illustration-common:BirthDate').$" ng-disabled="true">
+                            </div>
+                        </div>
+                        <div layout="row" layout-margin>
+                            <div flex="35">
+                                <h3>Gender</h3>
+                            </div>
+                            <div flex="55">
+                                <ui-select search-enabled="false" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:PersonalInfo.ipos-illustration-common:Gender').$" theme="select2" ng-disabled="true" style="width: 100%;">
+                                    <ui-select-match>{{$select.selected}}</ui-select-match>
+                                    <ui-select-choices repeat="item in moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:Gender.Options').Option | filter : $select.search ">
+                                        <div ng-bind-html="item | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+                        <div layout="row" layout-margin>
+                            <div flex="35">
+                                <h3>Age Next Birthday</h3>
+                            </div>
+                            <div flex="55">
+                                <input type="text" style="width:100% !important" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:PersonalInfo.ipos-illustration:AgeNextBirthday').$" ng-disabled="true">
+                            </div>
+                        </div>
+                        <div class="row" flex="35">
+                            <div flex="50">
+                                <h3>Smoker Status</h3>
+                            </div>
+                            <div flex="50">
+                                <md-switch style="margin-top:-5px !important;" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:PersonalInfo.ipos-illustration-common:SmokerStat').$" class="md-primary" ng-disabled="true">
+                                </md-switch>
+                            </div>
+                        </div>
+                    </md-grid-tile>
+
+                    <md-grid-tile class="gray" md-rowspan="4" md-colspan="4">
+                        </br>
+                        </br>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>Product Name</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasicSummary.ipos-illustration-common:ProductName').$" ng-disabled="true">
+                                </div>
+                            </div>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>Sum Assured</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" class="" ng-disabled="true" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasicSummary.ipos-illustration:SumAssured').$">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>Policy Term</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" ng-disabled="true" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasicSummary.ipos-illustration:PolicyTerm').$">
+                                </div>
+                            </div>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>Currency</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" ng-disabled="true" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasicSummary.ipos-illustration:Currency').$">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>Frequency Premium</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" ng-disabled="true" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasicSummary.ipos-illustration:FrequencyPremium').$">
+                                </div>
+                            </div>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>Payment Mode</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" ng-disabled="true" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasicSummary.ipos-illustration:PaymentMode').$">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>Yearly Premium</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" ng-disabled="true" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasicSummary.ipos-illustration:YearlyPremium').$">
+                                </div>
+                            </div>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>Halfyearly Premium</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" ng-disabled="true" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasicSummary.ipos-illustration:HalfYearlyPremium').$">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" layout-margin>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>Quarterly Premium</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" ng-disabled="true" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasicSummary.ipos-illustration:QuarterlyPremium').$">
+                                </div>
+                            </div>
+                            <div class="row" flex="50">
+                                <div flex="40">
+                                    <h3>Monthly Premium</h3>
+                                </div>
+                                <div flex="50">
+                                    <input type="text" ng-disabled="true" ng-model="moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BasicSummary.ipos-illustration:MonthlyPremium').$">
+                                </div>
+                            </div>
+                        </div>
+                        <md-grid-tile-footer>
+                            <h2 style="margin-left: 300px; color: white;">Basic Summary</h2>
+                        </md-grid-tile-footer>
+                    </md-grid-tile>
+                </md-grid-list>
+
+                <!--   </md-card> -->
+            </ion-content>
+        </li>
+        <li>
+            <ion-content class="ion-content-carousel-custom carousel-position">
+                <div style="margin:30px auto; background-color: white; width: 80%;">
+                    <table>
+                        <thead class="clientHeader">
+                            <th>End of Policy Year/Age</th>
+                            <th>Total Premium Paid to Date</th>
+                            <th>Total Distribution Cost to Date</th>
+                            <th>Guaranteed Death Benefit</th>
+                            <th>Premium</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="row in moduleService.findElementInDetailByJsonPath('$..ipos-illustration:BaseIllustration.ipos-illustration:row')">
+                                <td style="text-align: center">{{moduleService.findValueByJsonXPath(row, 'ipos-illustration:EndOfPolicyYear').$}}/{{moduleService.findValueByJsonXPath(row, 'ipos-illustration:Age').$}}</td>
+                                <td style="text-align: center">{{moduleService.findValueByJsonXPath(row, 'ipos-illustration:TotalPremPaidToDate').$}}</td>
+                                <td style="text-align: center">{{moduleService.findValueByJsonXPath(row, 'ipos-illustration:TotalDistributionCostToDate').$}}</td>
+                                <td style="text-align: center">{{moduleService.findValueByJsonXPath(row, 'ipos-illustration:GuaranteedDeathBenefit').$}}</td>
+                                <td style="text-align: center">{{moduleService.findValueByJsonXPath(row, 'ipos-illustration:Premium').$}}</td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </ion-content>
+        </li>
+
+        <div class="rn-carousel-control custom-chevron" style="margin-left: 15px; top: 0%;" ng-click="prevSlide()">
+            <span class="fa fa-chevron-left background-chevron"></span>
+            <p style="font-size: 17px">{{slides[getPos($parent.carouselIndex1-1)]}}</p>
+        </div>
+        <div class="rn-carousel-control custom-chevron" style="margin-right: 10px; float: right; position: initial!important; text-align: right" ng-click="nextSlide()">
+            <span class="fa fa-chevron-right background-chevron"></span>
+            <p style="font-size: 17px">{{slides[getPos($parent.carouselIndex1+1)]}}</p>
+        </div>
+
+    </ul>
+    <div class="rn-carousel-indicator custom-indicator">
+        <md-button style="width: 30px; height: 30px; margin-left: 15px" ng-repeat="slide in slides" class="md-fab md-primary" md-theme="cyan" ng-class="{active: $index==$parent.carouselIndex1}" ng-click="$parent.carouselIndex1 = $index">
+        </md-button>
+
+    </div>
+
+
+</ion-view>

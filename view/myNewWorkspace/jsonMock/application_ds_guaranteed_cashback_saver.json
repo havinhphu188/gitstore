@@ -1,0 +1,515 @@
+{
+  "IposDocument": {
+    "Data": {
+      "application-guaranteed-cashback-saver:Application": {
+        "@key": [
+          "Application"
+        ],
+        "@section": "application-guaranteed-cashback-saver:Application",
+        "application-guaranteed-cashback-saver:Summary": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "Summary"
+          ],
+          "@section": "application-guaranteed-cashback-saver:Application",
+          "application-guaranteed-cashback-saver:ProductName": {
+            "@key": [
+              "Product"
+            ],
+            "@preview": [
+              "application-guaranteed-cashback-saver:Application"
+            ],
+            "@valuePrefix": "v3.mynewworkspace.portlet.label.productName."
+          },
+          "application-guaranteed-cashback-saver:ProductNameFake": {
+            "@key": [
+              ""
+            ]
+          },
+          "application-guaranteed-cashback-saver:Application": {
+            "@key": [
+              "DocName"
+            ],
+            "@preview": [
+              "application-guaranteed-cashback-saver:Summary",
+              "application-guaranteed-cashback-saver:Application"
+            ]
+          },
+          "application-guaranteed-cashback-saver:Status": {
+            "@key": [
+              "BusinessStatus"
+            ],
+            "@preview": [
+              "application-guaranteed-cashback-saver:Summary"
+            ],
+            "@valuePrefix": "v3.document.status."
+          },
+          "application-guaranteed-cashback-saver:CreatedDate": {
+            "@key": [
+              "CreatedDate"
+            ],
+            "@preview": [
+              "application-guaranteed-cashback-saver:Summary"
+            ],
+            "@format": "datetime"
+          },
+          "application-guaranteed-cashback-saver:LastUpdatedDate": {},
+          "application-guaranteed-cashback-saver:QuotationNo": {},
+          "application-guaranteed-cashback-saver:TotalFrequencyPremiumPayable": {},
+          "application-guaranteed-cashback-saver:Proposer": {},
+          "application-guaranteed-cashback-saver:LifeInsured": {},
+          "application-guaranteed-cashback-saver:PreviewApplicationDetails": {}
+        },
+        "application-guaranteed-cashback-saver:YourPersonalDetails": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "PolicyOwnerDetails"
+          ],
+          "@section": "application-guaranteed-cashback-saver:Application",
+          "application-guaranteed-cashback-saver:Title": {
+            "@key": [
+              "PolicyOwnerDetails",
+              "Title"
+            ]
+          },
+          "application-guaranteed-cashback-saver:Name": {
+            "@key": [
+              "PolicyOwnerDetails",
+              "FullName"
+            ]
+          },
+          "application-guaranteed-cashback-saver:Gender": {
+            "@key": [
+              "PolicyOwnerDetails",
+              "Gender"
+            ]
+          },
+          "guaranteed-cashback-saver:DateofBirth": {
+            "@key": [
+              "PolicyOwnerDetails",
+              "BirthDate"
+            ],
+            "format": "datetime:DD/MM/YYYY"
+          },
+          "application-guaranteed-cashback-saver:CountryOfBirth": {
+            "@key": [
+              "PolicyOwnerDetails",
+              "CountryOfBirth"
+            ]
+          },
+          "application-guaranteed-cashback-saver:Nationality": {
+            "@key": [
+              "PolicyOwnerDetails",
+              "Nationality"
+            ]
+          },
+          "application-guaranteed-cashback-saver:NRICPassportNo": {
+            "@key": [
+              "PolicyOwnerDetails",
+              "IDNumber"
+            ]
+          },
+          "application-guaranteed-cashback-saver:MaritalStatus": {
+            "@key": [
+              "PolicyOwnerDetails",
+              "MaritalStatus"
+            ]
+          },
+          "application-guaranteed-cashback-saver:Smoking": {
+            "@key": [
+              "PolicyOwnerDetails",
+              "SmokerStatus"
+            ]
+          },
+          "application-guaranteed-cashback-saver:NatureOfBusiness": {
+            "@key": [
+              "PolicyOwnerDetails",
+              "BusinessIndustry"
+            ]
+          },
+          "application-guaranteed-cashback-saver:Occupation": {
+            "@key": [
+              "PolicyOwnerDetails",
+              "Occupation"
+            ]
+          },
+          "application-guaranteed-cashback-saver:EmploymentStatus": {
+            "@key": [
+              "PolicyOwnerDetails",
+              "EmploymentStatus"
+            ]
+          },
+          "application-guaranteed-cashback-saver:NameOfEmployerOrBusiness": {
+            "@key": [
+              "NameOfEmployer"
+            ]
+          },
+          "application-guaranteed-cashback-saver:MobilePhone": {
+            "key": [
+              "PolicyOwnerDetails",
+              "MobilePhone"
+            ],
+            "@defaultValue": "+60 9066612"
+          },
+          "application-guaranteed-cashback-saver:OfficePhone": {
+            "key": [
+              "PolicyOwnerDetails",
+              "OfficePhone"
+            ],
+            "@defaultValue": "+60 9066612"
+          },
+          "application-guaranteed-cashback-saver:HomePhone": {
+            "key": [
+              "PolicyOwnerDetails",
+              "HomePhone"
+            ],
+            "@defaultValue": "+60 9066612"
+          },
+          "application-guaranteed-cashback-saver:Email": {
+            "key": [
+              "PolicyOwnerDetails",
+              "EmailAddress"
+            ]
+          }
+        },
+        "application-guaranteed-cashback-saver:ResidencyInformation": {
+          "@key": [
+            "ResidencyDetails"
+          ],
+          "@icon": "fa fa-user",
+          "@section": "application-guaranteed-cashback-saver:Application",
+          "application-guaranteed-cashback-saver:PresidentialAddress": {},
+          "application-guaranteed-cashback-saver:PPPostalCode": {
+            "key": [
+              "PolicyOwnerInformation",
+              "PrimaryAddress",
+              "Postal"
+            ]
+          },
+          "application-guaranteed-cashback-saver:PPBlockHouseNo": {
+            "@key": [
+              "PolicyOwnerInformation",
+              "PrimaryAddress",
+              "BlkHouseNo"
+            ],
+            "@defaultValue": "123"
+          },
+          "application-guaranteed-cashback-saver:PPStreet": {
+            "@key": [
+              "PolicyOwnerInformation",
+              "PrimaryAddress",
+              "Street"
+            ],
+            "@defaultValue": "123"
+          },
+          "application-guaranteed-cashback-saver:PPUnitNo": {
+            "key": [
+              "PolicyOwnerInformation",
+              "PrimaryAddress",
+              "UnitNo"
+            ]
+          },
+          "application-guaranteed-cashback-saver:PPBuilding": {
+            "key": [
+              "PolicyOwnerInformation",
+              "PrimaryAddress",
+              "Building"
+            ]
+          },
+          "application-guaranteed-cashback-saver:PPCity": {
+            "key": [
+              "PolicyOwnerInformation",
+              "PrimaryAddress",
+              "City"
+            ]
+          },
+          "application-guaranteed-cashback-saver:PPCountry": {
+            "@key": [
+              "PolicyOwnerInformation",
+              "PrimaryAddress",
+              "Country"
+            ]
+          },
+          "application-guaranteed-cashback-saver:ResidencyDetails": {
+            "@key": [
+              "Residency"
+            ]
+          }
+        },
+        "application-guaranteed-cashback-saver:MailingAddress": {
+          "@key": [
+            "MailingAddress"
+          ],
+          "@icon": "fa fa-user",
+          "@section": "application-guaranteed-cashback-saver:Application",
+          "application-guaranteed-cashback-saver:AddressType": {
+            "type": "",
+            "key": [
+              "MailingAddress",
+              "MASameAsResidential"
+            ]
+          },
+          "application-guaranteed-cashback-saver:PostalCode": {
+            "key": [
+              "MailingAddress",
+              "Postal"
+            ]
+          },
+          "application-guaranteed-cashback-saver:BlockHouseNo": {
+            "@key": [
+              "MailingAddress",
+              "BlkHouseNo"
+            ]
+          },
+          "application-guaranteed-cashback-saver:Street": {
+            "@key": [
+              "MailingAddress",
+              "Street"
+            ]
+          },
+          "application-guaranteed-cashback-saver:UnitNo": {
+            "key": [
+              "MailingAddress",
+              "UnitNo"
+            ]
+          },
+          "application-guaranteed-cashback-saver:Building": {
+            "key": [
+              "MailingAddress",
+              "Building"
+            ]
+          },
+          "application-guaranteed-cashback-saver:City": {
+            "key": [
+              "MailingAddress",
+              "City"
+            ]
+          },
+          "application-guaranteed-cashback-saver:Country": {
+            "@key": [
+              "MailingAddress",
+              "Country"
+            ],
+            "type": "",
+            "@defaultValue": "DZ"
+          }
+        },
+        "application-guaranteed-cashback-saver:PaymentFrequencyAndMethod": {
+          "@section": "application-guaranteed-cashback-saver:Application",
+          "application-guaranteed-cashback-saver:PremiumPaymentFrequency": {
+            "@key": [
+              "PaymentDetails",
+              "PremiumFrequency"
+            ]
+          },
+          "application-guaranteed-cashback-saver:InitialPaymentMethod": {
+            "@key": [
+              "PaymentDetails",
+              "FirstPaymentMethod"
+            ]
+          },
+          "application-guaranteed-cashback-saver:MethodforPayingRenewwalPremium": {
+            "@key": [
+              "PaymentDetails",
+              "RenewalPaymentMethod"
+            ]
+          },
+          "application-guaranteed-cashback-saver:CreditCardPaymentNotes": {}
+        },
+        "application-guaranteed-cashback-saver:ReplacementOfPolicyDeclaration": {
+          "@key": "ReplacementAndExistingInsurancePolicyDetails",
+          "@icon": "fa fa-user",
+          "@section": "application-guaranteed-cashback-saver:Application",
+          "application-guaranteed-cashback-saver:ReplaceQuestion": {
+            "@key": [
+              "PolicyOwnerDetails",
+              "ReplacementOfPolicy"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:ReplaceWarning": {
+            "@key": [
+              "ReplacementAndExistingInsurancePolicyDetails",
+              "ReplacementQ1",
+              "ReplacementSubQs"
+            ]
+          }
+        },
+        "application-guaranteed-cashback-saver:HealthDetails": {
+          "@key": "HealthDetails",
+          "@icon": "fa fa-user",
+          "@section": "application-guaranteed-cashback-saver:Application",
+          "application-guaranteed-cashback-saver:HealthQHeight": {
+            "@key": [
+              "HealthQ1",
+              "HealthQHeight"
+            ],
+            "@defaultValue": "180"
+          },
+          "application-guaranteed-cashback-saver:HealthQWeight": {
+            "@key": [
+              "HealthQ1",
+              "HealthQWeight"
+            ],
+            "@defaultValue": "80"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion2": {
+            "@key": [
+              "HealthQ2",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion2A": {
+            "@key": [
+              "HealthQ2A",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion2B": {
+            "@key": [
+              "HealthQ2B",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion2C": {
+            "@key": [
+              "HealthQ2C",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion2D": {
+            "@key": [
+              "HealthQ2D",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion2E": {
+            "@key": [
+              "HealthQ2E",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion2F": {
+            "@key": [
+              "HealthQ2F",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion2G": {
+            "@key": [
+              "HealthQ2G",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion2H": {
+            "@key": [
+              "HealthQ2H",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion2I": {
+            "@key": [
+              "HealthQ2I",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion2J": {
+            "@key": [
+              "HealthQ2J",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion2K": {
+            "@key": [
+              "HealthQ2K",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion2Detail": {
+            "@isVisible": "findElementInDetail(['HealthQ2','HealthQValue']).Value == 'Y'",
+            "@key": [
+              "HealthQ2",
+              "HealthQDetails"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion3": {
+            "@key": [
+              "HealthQ3",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion3A": {
+            "@key": [
+              "HealthQ3A",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion3B": {
+            "@key": [
+              "HealthQ3B",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion3Detail": {
+            "@isVisible": "findElementInDetail(['HealthQ3','HealthQValue']).Value == 'Y'",
+            "@key": [
+              "HealthQ3",
+              "HealthQDetails"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion4": {
+            "@key": [
+              "HealthQ4",
+              "HealthQValue"
+            ],
+            "@defaultValue": "N"
+          },
+          "application-guaranteed-cashback-saver:HealthQuestion4Detail": {
+            "@isVisible": "findElementInDetail(['HealthQ4','HealthQValue']).Value == 'Y'",
+            "@key": [
+              "HealthQ4",
+              "HealthQDetails"
+            ],
+            "@defaultValue": "N"
+          }
+        },
+        "application-guaranteed-cashback-saver:DataProtection": {
+          "@section": "application-guaranteed-cashback-saver:Application",
+          "application-guaranteed-cashback-saver:PrivacyPolicy": {
+            "@onOpen": "getPDPAInfo()",
+            "@key": [
+              "PrivacyPolicyAndDeclaration",
+              "PrivacyPolicy"
+            ]
+          },
+          "application-guaranteed-cashback-saver:PrivacyPolicyDetail": {
+            "@key": [
+              "PrivacyPolicyAndDeclaration",
+              "PrivacyPolicy",
+              "ReceiveInformation"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

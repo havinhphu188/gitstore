@@ -1,0 +1,94 @@
+/**
+ * //*******************************************************************************
+ * // * Copyright (c) 2011-2014 CSC.
+ * // * Copyright (C) 2010-2016 CSC - All rights reserved.
+ * // *
+ * // * The information contained in this document is the exclusive property of
+ * // * CSC.  This work is protected under USA copyright law
+ * // * and the copyright laws of given countries of origin and international
+ * // * laws, treaties and/or conventions. No part of this document may be
+ * // * reproduced or transmitted in any form or by any means, electronic or
+ * // * mechanical including photocopying or by any informational storage or
+ * // * retrieval system, unless as expressly permitted by CSC.
+ * //
+ * // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+ * // ******************************************************************************
+ */
+
+.documentcenter_margin_left_10{
+	margin-left: 10px !important;
+}
+.documentcenter-action{
+  border: 1px solid #43A047;
+}
+.documentcenter-action ul{
+	list-style-type: none;
+	margin:0;
+	
+}
+.documentcenter-action ul li{
+	display: block;
+	line-height: 30px;
+	transition:  background-color 0.1s;
+	padding-left: 10%;
+	color:#4B7E37;
+	border-left:4px solid white;
+}
+.documentcenter-action ul li:hover{
+	background-color: #4caf50;
+	cursor: pointer;
+	border-left:4px solid #43A047;
+	color:white;
+	
+}
+.documentcenter-action ul li span{
+	margin-left:20px;
+}
+.documentcenter-action ul li i{
+	vertical-align: middle;
+}
+.documentcenter-action-title{
+	background-color: #4caf50;
+  	color: white !important;
+  	padding-left: 10%;
+  	margin:0px !important;
+  	line-height:30px !important;
+}
+#documentCenter .documentcente_action_item {
+  cursor: pointer;
+  color: #4A89DC;
+  text-decoration: underline;
+}
+.documentcenter_thumb{
+	width:24%;
+	display:block;
+	float:left;
+	padding:5px;
+	margin:5px;
+}
+.documentcenter-text-center{
+	text-align: center;
+}
+#documentCenter i{
+	cursor:pointer;
+	color: #4B7E37;
+}
+.documentCenter_select_width{
+	width: 120px !important;
+	margin-left:10px !important;
+}
+.documentcenter_thumb_image_icon{
+	width:60px;
+}
+.document_thumb_detail{
+	float:left;
+	margin-left:15px;	
+}
+.documentcenter_datetime{
+	color:#e5e5e5;
+}
+.documentcenter_thumb_title{
+	font-weight:bold;
+	color:#4A89DC;
+	cursor:pointer;
+}

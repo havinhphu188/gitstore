@@ -1,0 +1,288 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Start Summary -->
+<div fieldId="CorporateNameSummary" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{"new.v3.mynewworkspace.corporate.label.CorporateName" | translate}}:</span>
+		<span class="col-md-6">{{::moduleService.findElementInDetail_V3(['CorporateName']).$}}</span>
+	</div>
+	<div class="form-group form-group-lg has-success">
+		<button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="printPdf()">{{"new.v3.mynewworkspace.corporate.label.ViewDetails" | translate}}</button>
+	</div>
+</div>
+<!-- End Summary -->
+
+<!-- Start Basic Information -->
+<div fieldId="CorporateName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content-2">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.CorporateName" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['CorporateName'])['@mandatory'] == '1'">*</span></label>
+			<textarea rows="5" class="form-control inheritTxt" maxlength="120" placeholder="{{'new.v3.mynewworkspace.corporate.label.CorporateName' | translate}}" ng-model="moduleService.findElementInDetail_V3(['CorporateName']).$" ng-disabled="moduleService.findElementInDetail_V3(['CorporateName'])['@editable'] == '0'"/>
+			<!-- <input class="form-control" placeholder="{{'new.v3.mynewworkspace.corporate.label.CorporateName' | translate}}" ng-disabled="moduleService.findElementInDetail_V3(['CorporateName'])['@editable'] == '0'"
+				type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['CorporateName']).$" /> -->
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorporateName']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="CompanyRegNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.CompanyRegNo" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['CompanyRegistrationNumber'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="{{'new.v3.mynewworkspace.corporate.label.CompanyRegNo' | translate}}" ng-disabled="moduleService.findElementInDetail_V3(['CompanyRegistrationNumber'])['@editable'] == '0'"
+				type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['CompanyRegistrationNumber']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CompanyRegistrationNumber']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="PersonInCharge" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.PersonInCharge" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PersonInCharge'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="{{'new.v3.mynewworkspace.corporate.label.PersonInCharge' | translate}}" ng-disabled="moduleService.findElementInDetail_V3(['PersonInCharge'])['@editable'] == '0'"
+				type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['PersonInCharge']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PersonInCharge']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="Subsidiaries" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.Subsidiaries" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Subsidiaries'])['@mandatory'] == '1'">*</span></label>
+			<v3-switch-new prefix="v3.yesno.enum"
+				switch-model="moduleService.findElementInDetail_V3(['Subsidiaries']).Value"
+				switch-default-value="" switch-disabled="moduleService.findElementInDetail_V3(['Subsidiaries'])['@editable'] == '0'"
+				switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Subsidiaries']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Subsidiaries']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="CountryOfOrigin" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.CountryOfOrigin" | translate}} <span ng-show="moduleService.findElementInDetail_V3(['CountryOfOrigin'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInDetail_V3(['CountryOfOrigin'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['CountryOfOrigin']).Option" type="nonFlag" prefix="v3.user.nationality"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CountryOfOrigin']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="ClientStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.ClientStatus" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ClientStatus'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="{{'new.v3.mynewworkspace.corporate.label.ClientStatus' | translate}}" ng-disabled="moduleService.findElementInDetail_V3(['ClientStatus'])['@editable'] == '0'"
+				type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['ClientStatus']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ClientStatus']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="Industry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.Industry" | translate}} <span ng-show="moduleService.findElementInDetail_V3(['Industry'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInDetail_V3(['Industry'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Industry']).Option" type="nonFlag" prefix="v3.common.corporate.industry"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Industry']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="DateOfIncorporation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.DateOfIncorporation" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['DateOfIncorporation'])['@mandatory'] == '1'">*</span></label>
+			<div style="position: relative;"><input ms-datepicker ng-model=" moduleService.findElementInDetail_V3(['DateOfIncorporation']).$" class="ms-calendar"/></div>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['DateOfIncorporation']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="STaxApplicable" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.STaxApplicable" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['STaxApplicable'])['@mandatory'] == '1'">*</span></label>
+			<v3-switch-new prefix="v3.yesno.enum"
+				switch-model="moduleService.findElementInDetail_V3(['STaxApplicable']).Value"
+				switch-default-value="" switch-disabled="moduleService.findElementInDetail_V3(['STaxApplicable'])['@editable'] == '0'"
+				switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['STaxApplicable']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['STaxApplicable']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<!-- End Basic Information -->
+
+<!-- Start Contacts -->
+<div fieldId="CorporateWebsiteURL" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding-left no-padding-right">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>{{"new.v3.mynewworkspace.corporate.label.CorporateWebsiteURL" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['CorporateWebsiteURL'])['@mandatory'] == '1'">*</span></label>
+				<input class="form-control" placeholder="{{'new.v3.mynewworkspace.corporate.label.CorporateWebsiteURL' | translate}}" ng-disabled="moduleService.findElementInDetail_V3(['CorporateWebsiteURL'])['@editable'] == '0'"
+					type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['CorporateWebsiteURL']).$" />
+				<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorporateWebsiteURL']).errorMessage | translate"></span>		
+			</div>
+		</div>
+	</div>
+</div>
+<div fieldId="EmailAddress" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.EmailAddress" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['EmailAddress'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="{{'new.v3.mynewworkspace.corporate.label.EmailAddress' | translate}}" ng-disabled="moduleService.findElementInDetail_V3(['EmailAddress'])['@editable'] == '0'"
+				type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['EmailAddress']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['EmailAddress']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="MainLineTelephone" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.MainLineTelephone" | translate}} <span ng-show="moduleService.findElementInDetail_V3(['MainLineTelephone'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['MainLineTelephone'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber phone-Numbers-Only
+				ng-model="moduleService.findElementInDetail_V3(['MainLineTelephone']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainLineTelephone']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="PersonInChargeTelephone" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.PersonInChargeTelephone" | translate}} <span ng-show="moduleService.findElementInDetail_V3(['PersonInChargeTelephone'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['PersonInChargeTelephone'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber phone-Numbers-Only
+				ng-model="moduleService.findElementInDetail_V3(['PersonInChargeTelephone']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PersonInChargeTelephone']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="FacsimileNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.FacsimileNo" | translate}} <span ng-show="moduleService.findElementInDetail_V3(['FacsimileNo'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['FacsimileNo'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber phone-Numbers-Only
+				ng-model="moduleService.findElementInDetail_V3(['FacsimileNo']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['FacsimileNo']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<!-- End Contacts -->
+
+<!-- Start Addresses -->
+<!-- Start Business Address -->
+<div fieldId="BCountry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.Country" | translate}} <span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['Country'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInElement_V3(card.refDetail, ['Country'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['BCountry']).Option" type="nonFlag" prefix="v3.user.nationality"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Country']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<!-- End Business Address -->
+<!-- Start Registered Address -->
+<div fieldId="RCountry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.Country" | translate}} <span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['Country'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInElement_V3(card.refDetail, ['Country'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['RCountry']).Option" type="nonFlag" prefix="v3.user.nationality"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Country']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<!-- End Registered Address -->
+<!-- Start Mailing Address -->
+<div fieldId="MCountry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.Country" | translate}} <span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['Country'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInElement_V3(card.refDetail, ['Country'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['MCountry']).Option" type="nonFlag" prefix="v3.user.nationality"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Country']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<!-- End Mailing Address -->
+<!-- End Addresses -->
+
+<!-- Other Information -->
+<div fieldId="GSTRegNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.GSTRegNo" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['GSTNumber'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="{{'new.v3.mynewworkspace.corporate.label.GSTRegNo' | translate}}" ng-disabled="moduleService.findElementInDetail_V3(['GSTNumber'])['@editable'] == '0'"
+				type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['GSTNumber']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['GSTNumber']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="AuthorizedCapital" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.AuthorizedCapital" | translate}} ({{moduleService.findElementInDetail_V3(['Currency']).Value}})<span ng-show="moduleService.findElementInDetail_V3(['AuthorizedCapital'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="{{'new.v3.mynewworkspace.corporate.label.AuthorizedCapital' | translate}}" ng-disabled="moduleService.findElementInDetail_V3(['AuthorizedCapital'])['@editable'] == '0'"
+				type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['AuthorizedCapital']).$" pos-autonumeric />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['AuthorizedCapital']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="Category" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.Category" | translate}} <span ng-show="moduleService.findElementInDetail_V3(['Category'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInDetail_V3(['Category'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Category']).Option" type="nonFlag" prefix="v3.common.corporate.category"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Category']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="FreeTradeZone" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.FreeTradeZone" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['FreeTradeZone'])['@mandatory'] == '1'">*</span></label>
+			<v3-switch-new prefix="v3.yesno.enum"
+				switch-model="moduleService.findElementInDetail_V3(['FreeTradeZone']).Value"
+				switch-default-value="" switch-disabled="moduleService.findElementInDetail_V3(['FreeTradeZone'])['@editable'] == '0'"
+				switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['FreeTradeZone']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['FreeTradeZone']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="ClientNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.ClientNumber" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ClientId'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" ng-disabled="moduleService.findElementInDetail_V3(['ClientId'])['@editable'] == '0'"
+				type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['ClientId']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ClientId']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="SourceName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.corporate.label.SourceName" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['SourceName'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" ng-disabled="moduleService.findElementInDetail_V3(['SourceName'])['@editable'] == '0'"
+				type="text" maxlength="120" ng-model="moduleService.findElementInDetail_V3(['SourceName']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['SourceName']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>

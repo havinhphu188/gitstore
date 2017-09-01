@@ -1,0 +1,136 @@
+{
+  "IposDocument": {
+    "Data": {
+      "ipos-admin:BusinessModule": {
+        "@section": "ipos-admin:BusinessModule",
+        "ipos-admin:Prospect": {
+          "@section": "ipos-admin:BusinessModule",
+          "@key": "ipos-admin:Prospect",
+          "@onOpen": "setSelectedIndex(0)",
+          "ipos-admin:Prospect_Table": {
+            "@key": ""
+          }
+        },
+        "ipos-admin:Quotation": {
+          "@section": "ipos-admin:BusinessModule",
+          "@key": "ipos-admin:Quotation",
+          "@onOpen": "setSelectedIndex(1)",
+          "ipos-admin:Quotation_Table": {
+            "@key": ""
+          }
+        },
+        "ipos-admin:Application": {
+          "@section": "ipos-admin:BusinessModule",
+          "@key": "ipos-admin:Application",
+          "@onOpen": "setSelectedIndex(2)",
+          "ipos-admin:Application_Table": {
+            "@key": ""
+          }
+        },
+        "ipos-admin:UIModule": {
+          "@section": "ipos-admin:BusinessModule",
+          "@key": "ipos-admin:Application",        
+          "ipos-admin:commonUIModule": {
+            "@section": "ipos-admin:UIModule",
+            "@key": "",
+            "@onOpen": "setSelectedIndex(3)",
+            "ipos-admin:docType" : {},
+            "ipos-admin:commonDocumentList" : {},
+            "ipos-admin:UiDataModel": {
+            "@key": ""
+          },
+            "ipos-admin:DocType": {
+            "@key": ""
+          },
+          "ipos-admin:ProductName": { 
+            "@key": ""
+          },
+          "ipos-admin:BusinessType": {
+                 "@key": ""
+           }
+          },
+          "ipos-admin:businessUIModule": {
+            "@section": "ipos-admin:UIModule",
+            "@key": "",
+            "@valuePrefix": "v3.adminconfiguration.label.",
+            "ipos-admin:applicationUIModule" : {
+              "@section": "ipos-admin:businessUIModule",
+              "@key": "",
+              "@valuePrefix": "v3.adminconfiguration.label.",
+              "ipos-admin:product" : {},
+              "ipos-admin:businessDocumentList" : {} 
+            },
+            "ipos-admin:illustrationUIModule" : {
+              "@section": "ipos-admin:businessUIModule",
+              "@key": "",
+              "@valuePrefix": "v3.adminconfiguration.label.",
+              "ipos-admin:product" : {},
+              "ipos-admin:businessDocumentList" : {} 
+            },
+            "ipos-admin:caseManagementUIModule" : {
+              "@section": "ipos-admin:businessUIModule",
+              "@key": "",
+              "@valuePrefix": "v3.adminconfiguration.label.",
+              "ipos-admin:newBusinessUIModule" : {
+                "@section": "ipos-admin:caseManagementUIModule",
+                "@key": "",
+                "@valuePrefix": "v3.adminconfiguration.label.",
+                "ipos-admin:product" : {},
+                "ipos-admin:businessDocumentList" : {} 
+              },
+              "ipos-admin:renewalUIModule" : {
+                "@section": "ipos-admin:caseManagementUIModule",
+                "@key": "",
+                "@valuePrefix": "v3.adminconfiguration.label.",
+                "ipos-admin:product" : {},
+                "ipos-admin:businessDocumentList" : {} 
+              },
+              "ipos-admin:policyServicingUIModule" : {
+                "@section": "ipos-admin:caseManagementUIModule",
+                "@key": "",
+                "@valuePrefix": "v3.adminconfiguration.label.",
+                "ipos-admin:product" : {},
+                "ipos-admin:businessDocumentList" : {} 
+              }
+            },
+            "ipos-admin:ecovernoteUIModule" : {
+              "@section": "ipos-admin:businessUIModule",
+              "@key": "",
+              "@valuePrefix": "v3.adminconfiguration.label.",
+              "ipos-admin:product" : {},
+              "ipos-admin:businessDocumentList" : {} 
+            },
+            "ipos-admin:policyUIModule" : {
+              "@section": "ipos-admin:businessUIModule",
+              "@key": "",
+              "@valuePrefix": "v3.adminconfiguration.label.",
+              "ipos-admin:product" : {},
+              "ipos-admin:businessDocumentList" : {} 
+            },
+            "ipos-admin:underwritingUIModule" : {
+              "@section": "ipos-admin:businessUIModule",
+              "@key": "",
+              "@valuePrefix": "v3.adminconfiguration.label.",
+              "ipos-admin:product" : {},
+              "ipos-admin:businessDocumentList" : {} 
+            },
+            "ipos-admin:manager-reviewUIModule" : {
+              "@section": "ipos-admin:businessUIModule",
+              "@key": "",
+              "@valuePrefix": "v3.adminconfiguration.label.",
+              "ipos-admin:product" : {},
+              "ipos-admin:businessDocumentList" : {} 
+            },
+            "ipos-admin:group-departmentUIModule" : {
+              "@section": "ipos-admin:businessUIModule",
+              "@key": "",
+              "@valuePrefix": "v3.adminconfiguration.label.",
+              "ipos-admin:product" : {},
+              "ipos-admin:businessDocumentList" : {} 
+            }
+          }
+        }
+      }
+    }
+  }
+}

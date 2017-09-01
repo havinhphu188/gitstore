@@ -1,0 +1,230 @@
+{
+  "IposDocument": {
+    "Data": {
+      "case-management-personal-accident:CaseManagement": {
+        "@key": [
+          "CaseManagement"
+        ],
+        "@icon": {
+          "main": "fa fa-ambulance"
+        },
+        "@section": "case-management-personal-accident:CaseManagement",
+        "@case-name": "",
+        "@product": "personal-accident",
+        "case-management-personal-accident:Summary": {
+          "@icon": "fa fa-pencil",
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-personal-accident:CaseManagement",
+          "case-management-personal-accident:CaseInformation": {
+            "@key": [
+              "DocName"
+            ],
+            "@preview": [
+              "case-management-personal-accident:Summary"
+            ]
+          },
+          "case-management-personal-accident:CurrentStatus": {
+            "@key": [
+              "BusinessStatus"
+            ],
+            "@preview": [
+              "case-management-personal-accident:Summary"
+            ],
+            "@valuePrefix": "v3.document.status."
+          },
+          "case-management-personal-accident:PendingInformation": {},
+          "case-management-personal-accident:NextRequiredAction": {},
+          "case-management-personal-accident:PolicyNo": {
+            "@key": [
+              "PolicyNumber"
+            ]
+          }
+        },
+        "case-management-personal-accident:Step1_ProspectClient": {
+          "@key": [
+            "Prospects"
+          ],
+          "@icon": {
+            "main": "fa fa-user",
+            "step": "1"
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-personal-accident:CaseManagement",
+          "case-management-personal-accident:ImportFromExistingProspect": {
+            "@key": [
+              "ImportFromExistingProspect"
+            ],
+            "@section": "case-management-personal-accident:Step1_ProspectClient",
+            "@icon": "fa fa-user",
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "importFromExistingProspect(card)",
+            "@staticHtml": "list_existing_prospect.html"
+          },
+          "case-management-personal-accident:NewProspect": {
+            "@key": [
+              "NewProspect"
+            ],
+            "@section": "case-management-personal-accident:Step1_ProspectClient",
+            "@icon": {
+              "main": "fa fa-user",
+              "mainAction": "addIcon"
+            },
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          },
+          "case-management-personal-accident:Prospect": {
+            "@key": [
+              "Prospect"
+            ],
+            "@icon": {
+              "subAction": "removeIcon"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "case-management-personal-accident:Step1_ProspectClient",
+            "@cardType": "template"
+          }
+        },
+        "case-management-personal-accident:Step2_Quotation": {
+          "@key": [
+            "Quotation"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart",
+            "step": "2"
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-personal-accident:CaseManagement"
+        },
+        "case-management-personal-accident:Step3_Application": {
+          "@key": [
+            "Application"
+          ],
+          "@icon": {
+            "main": "fa fa-file-o",
+            "step": "3"
+          },
+          "@onOpen": "checkQuotation()",
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-personal-accident:CaseManagement"
+        },
+        "case-management-personal-accident:Step4_DocumentCenter": {
+          "@key": [
+            ""
+          ],
+          "@icon": {
+            "main": "fa fa-paperclip"
+          },
+          "icons": {
+            "cardIcon": {
+              "content": "attachmentIcon"
+            }
+          },
+          "@section": "case-management-personal-accident:CaseManagement",
+          "case-management-personal-accident:TransactionDocuments": {
+            "@key": [
+              "Prints"
+            ],
+            "@isVisible": "findElementInDetail(['Prints'])['@counter'] != '0'",
+            "@icon": "fa fa-file-text-o",
+            "icons": {
+              "cardIcon": {
+                "content": "transactionIcon"
+              }
+            },
+            "@section": "case-management-personal-accident:Step4_DocumentCenter",
+            "TransactionDocument": {
+              "@key": [
+                "Print"
+              ],
+              "@section": "case-management-personal-accident:TransactionDocuments",
+              "@icon": "attachmentIcon",
+              "icons": {
+                "cardIcon": {
+                  "content": "transactionIcon"
+                }
+              },
+              "@cssClass": "v3-box-1",
+              "@cardType": "template",
+              "@previewHtml": "v3-resource-file-transaction.html",
+              "@onOpen": "fileReaderService.openFileReader('view',card.metadata,[],'')"
+            }
+          },
+          "case-management-personal-accident:Attachments": {
+            "@key": [
+              "Attachments"
+            ],
+            "@section": "case-management-personal-accident:Step4_DocumentCenter",
+            "@icon": "attachmentIcon",
+            "icons": {
+              "cardIcon": {
+                "content": "attachmentIcon"
+              }
+            },
+            "@cssClass": "v3-box-1",
+            "@previewHtml": "v3-summary-static-attachment.html",
+            "Attachment": {
+              "@key": [
+                "Attachment"
+              ],
+              "@section": "case-management-personal-accident:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "subAction": "removeIcon"
+              },
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                },
+                "removeCardInList": {}
+              },
+              "@cssClass": "v3-box-1",
+              "@previewHtml": "v3-summary-static-attachment-file.html",
+              "@cardType": "template",
+              "@onOpen": "fileReaderService.openFileReader('view',card.refDetail,self.moduleService.convertToArray(self.moduleService.findElementInElement_V3(self.moduleService.detail, ['Attachment'])),'uploadMode')"
+            },
+            "addAttachment": {
+              "@section": "case-management-personal-accident:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "mainAction": "addIcon"
+              },
+              "icons": {
+                "cardIcon": {
+                  "content": "fa fa-paperclip"
+                },
+                "cardIconPlus": {}
+              },
+              "@cardType": "action",
+              "@staticHtml": "fileUpload.html",
+              "@onClick": "importFile()"
+            }
+          }
+        },
+        "case-management-personal-accident:Step5_Underwriting": {
+          "@icon": {
+            "main": "fa fa-pencil-square-o",
+            "step": "4"
+          },
+          "@isVisible": false,
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-personal-accident:CaseManagement"
+        },
+        "case-management-personal-accident:Payment": {
+          "@key": [
+            "ClientPayment"
+          ],
+          "@icon": {
+            "main": "fa fa-credit-card"
+          },
+          "@isVisible": false,
+          "@cssClass": "v3-box-4",
+          "@onOpen": "getPaymentLazyList()",
+          "@section": "case-management-personal-accident:CaseManagement",
+          "@isVisible": "findElementInDetail(['ClientPayment'])['@refUid']"
+        }
+      }
+    }
+  }
+}

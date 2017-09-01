@@ -1,0 +1,1397 @@
+{
+  "IposDocument": {
+    "@xmlns": "http://www.csc.com/integral/ipos-common",
+    "@xmlns:needs-analysis": "http://www.csc.com/integral/needs-analysis",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xsi:schemaLocation": "http://www.csc.com/integral/needs-analysis needs-analysis-model.xsd ",
+    "Header": {
+      "DocInfo": {
+        "DocType": "needs-analysis",
+        "Product": "term-life-protect-as",
+        "DefUid": "4ab9bee7-7cce-456d-8aa1-3653113c1145",
+        "DocId": "",
+        "DocName": "needs-analysis-DefaultName",
+        "DocVersion": "",
+        "OwnerUid": "",
+        "CreatedDate": "",
+        "UpdatedDate": "",
+        "UpdatedUserUid": "",
+        "Tags": "",
+        "Star": "",
+        "Archived": "",
+        "Comments": ""
+      },
+      "DocAccessControllList": {
+        "User": {
+          "@userid": "",
+          "Permisions": {
+            "Permision": ""
+          }
+        }
+      },
+      "DocStatus": {
+        "DocumentStatus": "",
+        "BusinessStatus": "NEW"
+      }
+    },
+    "Data": {
+      "needs-analysis:NeedsAnalysis": {
+        "@section": "needs-analysis:NeedsAnalysis",
+        "@vpms-suffix": "NeedsAnalysis",
+        "needs-analysis:NeedsAnalysisInfo": {
+          "@vpms-suffix": "NeedsAnalysisInfo",
+          "needs-analysis:PolicyNumber": {
+            "@vpms-suffix": "PolicyNumber"
+          },
+          "needs-analysis:CaseID": {
+            "@default": "",
+            "@editable": "1",
+            "@mandatory": "0",
+            "@validate": "",
+            "@visible": "0",
+            "@vpms-suffix": "CaseID"
+          },
+          "needs-analysis:ActionType": {
+            "@default": "NEW",
+            "@editable": "1",
+            "@mandatory": "1",
+            "@validate": "",
+            "@visible": "0",
+            "@vpms-suffix": "ActionType",
+            "$": "NEW"
+          }
+        },
+        "needs-analysis:Client": {
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@vpms-suffix": "Client",
+          "needs-analysis:MainApplicant": {
+            "@vpms-suffix": "MainApplicant",
+            "@section": "needs-analysis:Client",
+            "needs-analysis:ClientBasicInfo": {
+              "@section": "needs-analysis:MainApplicant",
+              "@vpms-suffix": "ClientBasicInfo",
+              "needs-analysis:ClientTitle": {
+                "@index": "1",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "Title",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:ClientFullName": {
+                "@index": "2",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@visible": "1",
+                "@preview": "needs-analysis:Prospect",
+                "@vpms-suffix": "FullName"
+              },
+              "needs-analysis:ClientBirthDate": {
+                "@index": "3",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "BirthDate",
+                "@preview": [
+                  "needs-analysis:Prospect",
+                  "needs-analysis:Personal"
+                ]
+              },
+              "needs-analysis:ClientAge": {
+                "@vpms-suffix": "Age"
+              },
+              "needs-analysis:ClientGender": {
+                "@index": "4",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "Gender",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:ClientMarStat": {
+                "@index": "6",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "MarStat",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:ClientSmokerStat": {
+                "@index": "5",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "SmokerStat",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:ClientRace": {
+                "@index": "7",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "Race",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:ClientNationality": {
+                "@index": "8",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "Nationality",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:ClientIDType": {
+                "@index": "9",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "0",
+                "@visible": "1",
+                "@vpms-suffix": "IDType",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:ClientIDNumber": {
+                "@index": "10",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "0",
+                "@visible": "1",
+                "@vpms-suffix": "IDNumber"
+              },
+              "needs-analysis:ClientOccupClass": {
+                "@vpms-suffix": "OccupClass"
+              },
+              "needs-analysis:ClientBusinessIndustry": {
+                "@index": "11",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@refStatus": "",
+                "@visible": "1",
+                "@vpms-suffix": "Industry",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:ClientOccupation": {
+                "@index": "12",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@refStatus": "",
+                "@visible": "1",
+                "@vpms-suffix": "Occupation",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              }
+            },
+            "needs-analysis:ClientAddresses": {
+              "@section": "needs-analysis:MainApplicant",
+              "needs-analysis:ClientAddresses": {
+                "@visible": "1"
+              }
+            },
+            "needs-analysis:ClientEmploymentAndHealth": {
+              "@section": "needs-analysis:MainApplicant",
+              "@vpms-suffix": "ClientEmploymentAndHealth",
+              "needs-analysis:EducationLevelGroup": {
+                "@index": "1",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@validate": "1",
+                "@visible": "1",
+                "@vpms-suffix": "EducationLevelGroup",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:EducationOtherLevel": {
+                "@default": "",
+                "@editable": "0",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "EducationOtherLevel",
+                "$": ""
+              },
+              "needs-analysis:SecondaryIndustry": {
+                "@index": "2",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@validate": "1",
+                "@visible": "1",
+                "@vpms-suffix": "SecondaryIndustry",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:SecondaryOccupation": {
+                "@index": "3",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@validate": "1",
+                "@visible": "1",
+                "@vpms-suffix": "SecondaryOccupation",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:ClientAnnualIncome": {
+                "@index": "4",
+                "@default": "",
+                "@editable": "0",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "ClientAnnualIncome",
+                "$": ""
+              },
+              "needs-analysis:Employer": {
+                "@index": "5",
+                "@default": "",
+                "@editable": "0",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "Employer",
+                "$": ""
+              },
+              "needs-analysis:ClientNeedsRegularHealthCheckup": {
+                "@index": "6",
+                "@default": "",
+                "@editable": "0",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "ClientNeedsRegularHealthCheckup",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:ClientMedicalCondition": {
+                "@index": "7",
+                "@default": "",
+                "@editable": "0",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "ClientMedicalCondition",
+                "$": ""
+              },
+              "needs-analysis:ClientMedicalConditionPeriod": {
+                "@index": "8",
+                "@default": "",
+                "@editable": "0",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "ClientMedicalConditionPeriod",
+                "$": ""
+              }
+            }
+          },
+          "needs-analysis:JointApplicant": {
+            "@vpms-suffix": "JointApplicant",
+            "@section": "needs-analysis:Client",
+            "needs-analysis:JABasicInfo": {
+              "@vpms-suffix": "JABasicInfo",
+              "@section": "needs-analysis:JointApplicant",
+              "needs-analysis:JATitle": {
+                "@index": "1",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "Title",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:JAFullName": {
+                "@index": "2",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@visible": "1",
+                "@preview": "needs-analysis:Prospect",
+                "@vpms-suffix": "FullName"
+              },
+              "needs-analysis:JABirthDate": {
+                "@index": "3",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "BirthDate",
+                "@preview": [
+                  "needs-analysis:Prospect",
+                  "needs-analysis:Personal"
+                ]
+              },
+              "needs-analysis:JAAge": {
+                "@vpms-suffix": "Age"
+              },
+              "needs-analysis:JAGender": {
+                "@index": "4",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "Gender",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:JAMarStat": {
+                "@index": "6",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "MarStat",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:JASmokerStat": {
+                "@index": "5",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "SmokerStat",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:JARace": {
+                "@index": "7",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "Race",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:JANationality": {
+                "@index": "8",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "Nationality",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:JAIDType": {
+                "@index": "9",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "0",
+                "@visible": "1",
+                "@vpms-suffix": "IDType",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:JAIDNumber": {
+                "@index": "10",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "0",
+                "@visible": "1",
+                "@vpms-suffix": "IDNumber"
+              },
+              "needs-analysis:JAOccupClass": {
+                "@vpms-suffix": "OccupClass"
+              },
+              "needs-analysis:JABusinessIndustry": {
+                "@index": "11",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@refStatus": "",
+                "@visible": "1",
+                "@vpms-suffix": "Industry",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:JAOccupation": {
+                "@index": "12",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@refStatus": "",
+                "@visible": "1",
+                "@vpms-suffix": "Occupation",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              }
+            },
+           "needs-analysis:JAAddresses": {
+              "@section": "needs-analysis:JointApplicant",
+              "needs-analysis:JAAddresses": {
+                "@visible": "1"
+              }
+            },
+            "needs-analysis:JAEmploymentAndHealth": {
+              "@section": "needs-analysis:JointApplicant",
+              "@vpms-suffix": "EmploymentAndHealth",
+              "needs-analysis:JAEducationLevelGroup": {
+                "@index": "1",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@validate": "1",
+                "@visible": "1",
+                "@vpms-suffix": "JAEducationLevelGroup",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:JAEducationOtherLevel": {
+                "@index": "2",
+                "@default": "",
+                "@editable": "0",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "JAEducationOtherLevel",
+                "$": ""
+              },
+              "needs-analysis:JASecondaryIndustry": {
+                "@index": "3",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@validate": "1",
+                "@visible": "1",
+                "@vpms-suffix": "JASecondaryIndustry",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:JASecondaryOccupation": {
+                "@index": "4",
+                "@default": "",
+                "@editable": "1",
+                "@mandatory": "1",
+                "@validate": "1",
+                "@visible": "1",
+                "@vpms-suffix": "JASecondaryOccupation",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:JAEmployer": {
+                "@index": "5",
+                "@default": "",
+                "@editable": "0",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "JAEmployer",
+                "$": ""
+              },
+              "needs-analysis:JANeedsRegularHealthCheckup": {
+                "@index": "6",
+                "@default": "",
+                "@editable": "0",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "JAEmployer",
+                "Options": {
+                  "Option": ""
+                },
+                "Value": ""
+              },
+              "needs-analysis:JAMedicalCondition": {
+                "@index": "7",
+                "@default": "",
+                "@editable": "0",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "JAMedicalCondition",
+                "$": ""
+              },
+              "needs-analysis:JAMedicalConditionPeriod": {
+                "@index": "8",
+                "@default": "",
+                "@editable": "0",
+                "@mandatory": "0",
+                "@validate": "",
+                "@visible": "1",
+                "@vpms-suffix": "JAMedicalConditionPeriod",
+                "$": ""
+              }
+            }
+          },
+          "needs-analysis:Dependants": {
+            "@section": "needs-analysis:Client",
+            "@counter": "0",
+            "@maxOccurs": "",
+            "@minOccurs": "0",
+            "@vpms-suffix": "Dependants",
+            "needs-analysis:Dependant": [
+              {
+                "@vpms-suffix": "Dependant",
+                "needs-analysis:DepFullName": {
+                  "@index": "1",
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "DepFullName",
+                  "$": ""
+                },
+                "needs-analysis:DepRelationship": {
+                  "@index": "4",
+                  "@default": "",
+                  "@editable": "1",
+                  "@mandatory": "1",
+                  "@validate": "1",
+                  "@visible": "1",
+                  "@vpms-suffix": "DepRelationship",
+                  "Options": {
+                    "Option": ""
+                  },
+                  "Value": ""
+                },
+                "needs-analysis:DepOtherRelationship": {
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "DepOtherRelationship",
+                  "$": ""
+                },
+                "needs-analysis:DepBirthDate": {
+                  "@index": "2",
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "DepBirthDate",
+                  "$": ""
+                },
+                "needs-analysis:DepGender": {
+                  "@index": "3",
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "DepGender",
+                  "Options": {
+                    "Option": ""
+                  },
+                  "Value": ""
+                },
+                "needs-analysis:DepNumOfYearSupport": {
+                  "@index": "5",
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "DepNumOfYearSupport",
+                  "$": ""
+                },
+                "needs-analysis:DepIDType": {
+                  "@index": "7",
+                  "@default": "",
+                  "@editable": "1",
+                  "@mandatory": "0",
+                  "@visible": "1",
+                  "@vpms-suffix": "IDType",
+                  "Options": {
+                    "Option": ""
+                  },
+                  "Value": ""
+                },
+                "needs-analysis:DepIDNumber": {
+                  "@index": "8",
+                  "@default": "",
+                  "@editable": "1",
+                  "@mandatory": "0",
+                  "@visible": "1",
+                  "@vpms-suffix": "IDNumber"
+                },
+                "needs-analysis:DepBusinessIndustry": {
+                  "@index": "9",
+                  "@default": "",
+                  "@editable": "1",
+                  "@mandatory": "1",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "DepBusinessIndustry",
+                  "Options": {
+                    "Option": ""
+                  },
+                  "Value": ""
+                },
+                "application-term-life-protect:DepOccupation": {
+                  "@index": "10",
+                  "@default": "",
+                  "@editable": "1",
+                  "@mandatory": "1",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "DepOccupation",
+                  "Options": {
+                    "Option": ""
+                  },
+                  "Value": ""
+                },
+                "application-term-life-protect:DepNationality": {
+                  "@index": "6",
+                  "@default": "",
+                  "@editable": "1",
+                  "@mandatory": "1",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "DepNationality",
+                  "Options": {
+                    "Option": ""
+                  },
+                  "Value": ""
+                }
+              }
+            ]
+          }
+        },
+        "needs-analysis:AdviceAndGoals": {
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@vpms-suffix": "AdviceAndGoals",
+          "needs-analysis:FinancialAdvice": {
+            "@section": "needs-analysis:AdviceAndGoals",
+            "@vpms-suffix": "FinancialAdvice",
+            "needs-analysis:ClientChoiceOnLife": {
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@validate": "1",
+              "@visible": "1",
+              "@vpms-suffix": "ClientChoiceOnLife",
+              "@index": "1",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "needs-analysis:ClientChoiceOnAccidentAndHealth": {
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@validate": "1",
+              "@visible": "1",
+              "@vpms-suffix": "ClientChoiceOnAccidentAndHealth",
+              "@index": "2",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "needs-analysis:JAChoiceOnLife": {
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@validate": "1",
+              "@visible": "1",
+              "@vpms-suffix": "JAChoiceOnLife",
+              "@index": "3",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "needs-analysis:JAChoiceOnAccidentAndHealth": {
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "1",
+              "@validate": "1",
+              "@visible": "1",
+              "@vpms-suffix": "JAChoiceOnAccidentAndHealth",
+              "@index": "4",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            }
+          },
+          "needs-analysis:FinancialGoals": {
+            "@section": "needs-analysis:AdviceAndGoals",
+            "@counter": "14",
+            "@maxOccurs": "14",
+            "@minOccurs": "6",
+            "needs-analysis:FinancialGoal": [
+              {
+                "@vpms-suffix": "FinancialGoal",
+                "needs-analysis:Question": {
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "QuestionFG",
+                  "$": ""
+                },
+                "needs-analysis:ClientAnswer": {
+                  "@default": "",
+                  "@editable": "1",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "ClientAnswer",
+                  "Options": {
+                    "Option": ""
+                  },
+                  "Value": ""
+                },
+                "needs-analysis:ClientRank": {
+                  "@default": "",
+                  "@editable": "1",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "ClientRank",
+                  "$": ""
+                },
+                "needs-analysis:JAAnswer": {
+                  "@default": "",
+                  "@editable": "1",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "JAAnswer",
+                  "Options": {
+                    "Option": ""
+                  },
+                  "Value": ""
+                },
+                "needs-analysis:JARank": {
+                  "@default": "",
+                  "@editable": "1",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "JARank",
+                  "$": ""
+                }
+              }
+            ]
+          }
+        },
+        "needs-analysis:RiskProfileAndCKA": {
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@vpms-suffix": "RiskProfileAndCKA",
+          "needs-analysis:RiskProfile": {
+            "@section": "needs-analysis:RiskProfileAndCKA",
+            "needs-analysis:RiskProfile": {
+              "@visible": "1"
+            }
+          },
+          "needs-analysis:CKA": {
+            "@section": "needs-analysis:RiskProfileAndCKA",
+            "needs-analysis:CKA": {
+              "@visible": "1"
+            }
+          }
+        },
+        "needs-analysis:CurrentFinancialPosition": {
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@vpms-suffix": "CurrentFinancialPosition",
+          "needs-analysis:CurrentFinancialPositionSummary": {
+            "@section": "needs-analysis:CurrentFinancialPosition"
+          },
+          "needs-analysis:NetWorthAssets": {
+            "@section": "needs-analysis:CurrentFinancialPosition",
+            "@counter": "8",
+            "@maxOccurs": "",
+            "@minOccurs": "",
+            "@vpms-suffix": "NetWorthAssets",
+            "needs-analysis:NetWorthAsset": [
+              {
+                "@vpms-suffix": "NetWorthAsset",
+                "needs-analysis:Name": {
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "Name",
+                  "$": ""
+                },
+                "needs-analysis:ClientValue": {
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "ClientValue",
+                  "$": ""
+                },
+                "needs-analysis:JAValue": {
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "JAValue",
+                  "$": ""
+                }
+              }
+            ]
+          },
+          "needs-analysis:NetWorthLiabilities": {
+            "@section": "needs-analysis:CurrentFinancialPosition",
+            "@vpms-suffix": "NetWorthLiabilities",
+            "needs-analysis:Liabilities": {
+              "@counter": "4",
+              "@maxOccurs": "",
+              "@minOccurs": "",
+              "@vpms-suffix": "Liabilities",
+              "needs-analysis:Liability": [
+                {
+                  "@vpms-suffix": "Liability",
+                  "needs-analysis:Name": {
+                    "@default": "",
+                    "@editable": "0",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "Name",
+                    "$": ""
+                  },
+                  "needs-analysis:ClientValue": {
+                    "@default": "",
+                    "@editable": "0",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "ClientValue",
+                    "$": ""
+                  },
+                  "needs-analysis:JAValue": {
+                    "@default": "",
+                    "@editable": "0",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "JAValue",
+                    "$": ""
+                  }
+                }
+              ]
+            },
+            "needs-analysis:ClientSignificantChanges": {
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "0",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "ClientSignificantChanges",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "needs-analysis:ClientComment": {
+              "@default": "",
+              "@editable": "0",
+              "@mandatory": "0",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "ClientComment",
+              "$": ""
+            },
+            "needs-analysis:JASignificantChanges": {
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "0",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "JASignificantChanges",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "needs-analysis:JAComment": {
+              "@default": "",
+              "@editable": "0",
+              "@mandatory": "0",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "JAComment",
+              "$": ""
+            }
+          },
+          "needs-analysis:CashFlow": {
+            "@section": "needs-analysis:CurrentFinancialPosition",
+            "@vpms-suffix": "CashFlow",
+            "needs-analysis:AnnualIncome": {
+              "@counter": "3",
+              "@maxOccurs": "",
+              "@minOccurs": "",
+              "@vpms-suffix": "AnnualIncome",
+              "needs-analysis:IncomeItem": [
+                {
+                  "@vpms-suffix": "IncomeItem",
+                  "needs-analysis:Name": {
+                    "@default": "",
+                    "@editable": "0",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "Name",
+                    "$": ""
+                  },
+                  "needs-analysis:ClientValue": {
+                    "@default": "",
+                    "@editable": "0",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "ClientValue",
+                    "$": ""
+                  },
+                  "needs-analysis:JAValue": {
+                    "@default": "",
+                    "@editable": "0",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "JAValue",
+                    "$": ""
+                  }
+                }
+              ]
+            },
+            "needs-analysis:AnnualExpenses": {
+              "@counter": "4",
+              "@maxOccurs": "",
+              "@minOccurs": "",
+              "@vpms-suffix": "AnnualExpenses",
+              "needs-analysis:ExpenseItem": [
+                {
+                  "@vpms-suffix": "ExpenseItem",
+                  "needs-analysis:Name": {
+                    "@default": "",
+                    "@editable": "0",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "Name",
+                    "$": ""
+                  },
+                  "needs-analysis:ClientValue": {
+                    "@default": "",
+                    "@editable": "0",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "ClientValue",
+                    "$": ""
+                  },
+                  "needs-analysis:JAValue": {
+                    "@default": "",
+                    "@editable": "0",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "JAValue",
+                    "$": ""
+                  }
+                }
+              ]
+            },
+            "needs-analysis:ClientSignificantChanges": {
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "0",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "ClientSignificantChanges",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "needs-analysis:ClientComment": {
+              "@default": "",
+              "@editable": "0",
+              "@mandatory": "0",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "ClientComment",
+              "$": ""
+            },
+            "needs-analysis:JASignificantChanges": {
+              "@default": "",
+              "@editable": "1",
+              "@mandatory": "0",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "JASignificantChanges",
+              "Options": {
+                "Option": ""
+              },
+              "Value": ""
+            },
+            "needs-analysis:JAComment": {
+              "@default": "",
+              "@editable": "0",
+              "@mandatory": "0",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "JAComment",
+              "$": ""
+            }
+          },
+          "needs-analysis:BudgetedExpenses": {
+            "@section": "needs-analysis:CurrentFinancialPosition",
+            "@counter": "4",
+            "@maxOccurs": "",
+            "@minOccurs": "",
+            "@vpms-suffix": "BudgetedExpenses",
+            "needs-analysis:BudgetedExpenseItem": [
+              {
+                "@vpms-suffix": "BudgetedExpenseItem",
+                "needs-analysis:Name": {
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "Name",
+                  "$": ""
+                },
+                "needs-analysis:ClientYearlyAmount": {
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "ClientYearlyAmount",
+                  "$": ""
+                },
+                "needs-analysis:ClientLumpSum": {
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "ClientLumpSum",
+                  "$": ""
+                },
+                "needs-analysis:JAYearlyAmount": {
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "JAYearlyAmount",
+                  "$": ""
+                },
+                "needs-analysis:JALumpSum": {
+                  "@default": "",
+                  "@editable": "0",
+                  "@mandatory": "0",
+                  "@validate": "",
+                  "@visible": "1",
+                  "@vpms-suffix": "JALumpSum",
+                  "$": ""
+                }
+              }
+            ]
+          },
+          "needs-analysis:ExistingFinancialPlans": {
+            "@section": "needs-analysis:CurrentFinancialPosition",
+            "@counter": "0",
+            "@maxOccurs": "",
+            "@minOccurs": "0",
+            "@vpms-suffix": "ExistingFinancialPlans",
+            "needs-analysis:Policy": [
+              {
+                "@vpms-suffix": "Policy",
+                "needs-analysis:PolicySummary": {
+                  "@vpms-suffix": "PolicySummary",
+                  "needs-analysis:LifeInsured": {
+                    "@default": "",
+                    "@editable": "0",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "LifeInsured",
+                    "$": ""
+                  },
+                  "needs-analysis:Company": {
+                    "@default": "",
+                    "@editable": "1",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "Company",
+                    "Options": {
+                      "Option": ""
+                    },
+                    "Value": ""
+                  },
+                  "needs-analysis:OtherCompany": {
+                    "@default": "",
+                    "@editable": "1",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "OtherCompany",
+                    "$": ""
+                  },
+                  "needs-analysis:PolicyType": {
+                    "@default": "",
+                    "@editable": "1",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "PolicyType",
+                    "Options": {
+                      "Option": ""
+                    },
+                    "Value": ""
+                  },
+                  "needs-analysis:OtherPolicyType": {
+                    "@default": "",
+                    "@editable": "1",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "OtherPolicyType",
+                    "$": ""
+                  },
+                  "needs-analysis:YearIssued": {
+                    "@default": "",
+                    "@editable": "1",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "YearIssued",
+                    "$": ""
+                  },
+                  "needs-analysis:Premium": {
+                    "@default": "",
+                    "@editable": "1",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "Premium",
+                    "$": ""
+                  },
+                  "needs-analysis:PremiumType": {
+                    "@default": "",
+                    "@editable": "1",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "PremiumType",
+                    "Options": {
+                      "Option": ""
+                    },
+                    "Value": ""
+                  }
+                },
+                "needs-analysis:PolicyDetails": {
+                  "@vpms-suffix": "PolicyDetails",
+                  "needs-analysis:DeathBenefit": {
+                    "@default": "",
+                    "@editable": "1",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "DeathBenefit",
+                    "$": ""
+                  },
+                  "needs-analysis:TotalPermanentDisability": {
+                    "@default": "",
+                    "@editable": "1",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "TotalPermanentDisability",
+                    "$": ""
+                  },
+                  "needs-analysis:CriticalIllness": {
+                    "@default": "",
+                    "@editable": "1",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "CriticalIllness",
+                    "$": ""
+                  },
+                  "needs-analysis:HospitalAndSurgicalBenefit": {
+                    "@default": "",
+                    "@editable": "1",
+                    "@mandatory": "0",
+                    "@validate": "",
+                    "@visible": "1",
+                    "@vpms-suffix": "HospitalAndSurgicalBenefit",
+                    "$": ""
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "needs-analysis:FinancialPlanningAndAnalysis": {
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@vpms-suffix": "FinancialPlanningAndAnalysis",
+          "needs-analysis:CurrentFinancialPositionSummary": {
+            "@section": "needs-analysis:FinancialPlanningAndAnalysis"
+          },
+          "needs-analysis:Assumptions": {
+            "@section": "needs-analysis:FinancialPlanningAndAnalysis"
+          },
+          "needs-analysis:IncomeProtectionUponDeath": {
+            "@section": "needs-analysis:FinancialPlanningAndAnalysis"
+          },
+          "needs-analysis:PermanentDisabilityExpenses": {
+            "@section": "needs-analysis:FinancialPlanningAndAnalysis"
+          },
+          "needs-analysis:CriticalIllnessExpenses": {
+            "@section": "needs-analysis:FinancialPlanningAndAnalysis"
+          },
+          "needs-analysis:HospitalisationExpenses": {
+            "@section": "needs-analysis:FinancialPlanningAndAnalysis"
+          },
+          "needs-analysis:MortgageProtection": {
+            "@section": "needs-analysis:FinancialPlanningAndAnalysis"
+          },
+           "needs-analysis:EducationFund": {
+            "@section": "needs-analysis:FinancialPlanningAndAnalysis"
+          },
+          "needs-analysis:RetirementFund": {
+            "@section": "needs-analysis:FinancialPlanningAndAnalysis"
+          },
+          "needs-analysis:MediumLongTermSaving": {
+            "@section": "needs-analysis:FinancialPlanningAndAnalysis"
+          }
+        },
+        "needs-analysis:Recommendation": {
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@vpms-suffix": "Recommendation",
+          "needs-analysis:BenefitIllustrations": {
+            "@section": "needs-analysis:Recommendation"
+          },
+          "needs-analysis:BasicRecommendation": {
+            "@section": "needs-analysis:Recommendation"
+          },
+          "needs-analysis:AffordabilityClause": {
+            "@section": "needs-analysis:Recommendation"
+          },
+          "needs-analysis:LinkedPolicyRecomendation": {
+            "@section": "needs-analysis:Recommendation"
+          }
+        },
+        "needs-analysis:ChecklistAcknowledgementAndDeclaration": {
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@vpms-suffix": "ChecklistAcknowledgementAndDeclaration",
+          "needs-analysis:ClientDisclosureChecklist": {
+            "@section": "needs-analysis:ChecklistAcknowledgementAndDeclaration"
+          },
+          "needs-analysis:JADisclosureChecklist": {
+            "@section": "needs-analysis:ChecklistAcknowledgementAndDeclaration"
+          },
+          "needs-analysis:ClientAcknowledgement": {
+            "@section": "needs-analysis:ChecklistAcknowledgementAndDeclaration"
+          },
+          "needs-analysis:ILPAndParticipatingPlan": {
+            "@section": "needs-analysis:ChecklistAcknowledgementAndDeclaration"
+          },
+          "needs-analysis:ClientDeclaration": {
+            "@section": "needs-analysis:ChecklistAcknowledgementAndDeclaration"
+          },
+          "needs-analysis:PlannedFollowupActivities": {
+            "@section": "needs-analysis:ChecklistAcknowledgementAndDeclaration"
+          },
+          "needs-analysis:ClientVulnerability": {
+            "@section": "needs-analysis:ChecklistAcknowledgementAndDeclaration"
+          }
+        }
+      }
+    }
+  }
+}

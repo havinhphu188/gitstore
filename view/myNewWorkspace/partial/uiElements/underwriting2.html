@@ -1,0 +1,212 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- UW Summary -->
+<div fieldId="underwriting:UWDecision" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+		<div class="form-group form-group-lg has-success">
+			<span class="col-xs-12 col-sm-6 col-md-6 col-lg-6"><strong>{{"new.v3.mynewworkspace.common.underwriting.label.UnderwritingDecision" | translate}}:</strong></span>
+			<span class="col-xs-12 col-sm-6 col-md-6 col-lg-6">{{moduleService.findElementInDetail_V3(['UnderwritingDecisionCd']).$}}</span>
+		</div>
+	</div>
+</div>
+<div fieldId="underwriting:UWLoadingApplied" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+		<div class="form-group form-group-lg has-success">
+			<span class="col-xs-12 col-sm-6 col-md-6 col-lg-6"><strong>{{"new.v3.mynewworkspace.common.underwriting.label.LoadingApplied" | translate}}:</strong></span>
+			<span class="col-xs-12 col-sm-6 col-md-6 col-lg-6">{{loadingOfUQ}}%</span>
+		</div>
+	</div>
+</div>
+<div fieldId="underwriting:UWRevisedPremiums" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="moduleService.productName == commonService.CONSTANTS.PRODUCT.FIRE || moduleService.productName == commonService.CONSTANTS.PRODUCT.MOTOR">
+		<div class="form-group form-group-lg has-success">
+			<span class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><strong>{{"new.v3.mynewworkspace.pnc.underwriting.label.RevisedPremiums" | translate}} ({{moduleService.findElementInDetail_V3(['Currency']).$}}):</strong></span>
+			<div class="col-xs-12 col-sm-8 col-md-12 col-lg-12 no-padding-left no-padding-right">
+				<div class="table-responsive">
+					<table class="table v3-responsive-table">
+		            	<tbody>
+		            		<tr>
+		            			 <td class="v3-currency-alignment">{{"new.v3.mynewworkspace.pnc.underwriting.label.TotalPremium" | translate}}</td>
+		            			 <td class="v3-currency-alignment">{{totalPremiumOfUQ | number:2}}</td>
+		            		</tr>
+		            		<tr>
+		            			 <td class="v3-currency-alignment">{{"new.v3.mynewworkspace.pnc.underwriting.label.StampDuty" | translate}}</td>
+		            			 <td class="v3-currency-alignment">{{stampDutyOfUQ | number:2}}</td>
+		            		</tr>
+		            		<tr>
+		            			 <td class="v3-currency-alignment"><strong>{{"new.v3.mynewworkspace.pnc.underwriting.label.TotalPayablePremium" | translate}}</strong></td>
+		            			 <td class="v3-currency-alignment">{{revisedPremiumOfUQ}}</td>
+		            		</tr>
+		            	</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="moduleService.productName == commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK || moduleService.productName == commonService.CONSTANTS.PRODUCT.TERM_LIFE_SECURE || moduleService.productName == commonService.CONSTANTS.PRODUCT.DS_GUARANTEED_CASHBACK">
+		<div class="form-group form-group-lg has-success">
+			<span class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><strong>{{"new.v3.mynewworkspace.life.underwriting.label.PremiumWithLoading" | translate}} ({{moduleService.findElementInDetail_V3(['Currency']).$}}):</strong></span>
+			<div class="col-xs-12 col-sm-8 col-md-12 col-lg-12 no-padding-left no-padding-right">
+				<div class="table-responsive">
+					<table class="table v3-responsive-table">
+		            	<tbody>
+		            		<tr ng-if="illustrationService.findElementInDetail_V3(['PremiumFrequency']).Value == '01' && (moduleService.productName != commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK || moduleService.productName != commonService.CONSTANTS.PRODUCT.DS_GUARANTEED_CASHBACK)">
+		            			 <td class="v3-currency-alignment">{{"new.v3.mynewworkspace.life.underwriting.label.YearlyPremium" | translate}}</td>
+		            			 <td class="v3-currency-alignment">{{yearlyPremiumOfUQ}}</td>
+		            		</tr>
+		            		<tr ng-if="illustrationService.findElementInDetail_V3(['PremiumFrequency']).Value == '12' && (moduleService.productName != commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK || moduleService.productName != commonService.CONSTANTS.PRODUCT.DS_GUARANTEED_CASHBACK)">
+		            			 <td class="v3-currency-alignment">{{"new.v3.mynewworkspace.life.underwriting.label.MonthlyPremium" | translate}}</td>
+		            			 <td class="v3-currency-alignment">{{monthlyPremiumOfUQ}}</td>
+		            		</tr>
+		            		<tr ng-if="moduleService.productName == commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK || moduleService.productName == commonService.CONSTANTS.PRODUCT.DS_GUARANTEED_CASHBACK">
+		            			 <td class="v3-currency-alignment">{{"new.v3.mynewworkspace.life.underwriting.label.YearlyPremium" | translate}}</td>
+		            			 <td class="v3-currency-alignment">{{yearlyPremiumOfUQ}}</td>
+		            		</tr>
+		            		<tr>
+		            			 <td class="v3-currency-alignment">{{"new.v3.mynewworkspace.life.underwriting.label.LoadingForFrequency" | translate}}</td>
+		            			 <td class="v3-currency-alignment">{{loadingForFrequencyOfUQ | number:2}}</td>
+		            		</tr>
+		            		<tr>
+		            			 <td class="v3-currency-alignment"><strong>{{"new.v3.mynewworkspace.life.underwriting.label.FrequencyPremiumPayable" | translate}}</strong></td>
+		            			 <td class="v3-currency-alignment">{{premiumFrequencyPayableOfUQ}}</td>
+		            		</tr>
+		            	</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- UW Findings -->
+<div fieldId="underwriting:Finding" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+		<div class="form-group form-group-lg has-success">
+			<span class="large-font">{{"new.v3.mynewworkspace.common.underwriting.label.Findings" | translate}}</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-if="moduleService.productName == commonService.CONSTANTS.PRODUCT.FIRE">
+		<div class="col-md-10 col-xs-offset-2">
+			<span class="col-md-12">Sum insured exceed limit. Current Sum Insured ({{moduleService.findElementInDetail_V3(['Currency']).$}}): {{moduleService.findElementInDetail_V3(['SumInsured']).$ | number:0}}</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-if="moduleService.productName == commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK
+																|| moduleService.productName == commonService.CONSTANTS.PRODUCT.DS_GUARANTEED_CASHBACK 
+																|| moduleService.productName == commonService.CONSTANTS.PRODUCT.TERM_LIFE_SECURE"
+		ng-repeat="uwRuleInfo in moduleService.findElementInDetail_V3(['UnderwritingRuleInfo']) track by $index">
+		<div class="col-md-10 col-xs-offset-2">
+			<span class="">{{moduleService.findElementInElement_V3(uwRuleInfo, ['UnderwritingRuleCd']).$ | translateUWRule}}</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-if="moduleService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK || moduleService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT"
+		ng-repeat="uwRuleInfo in moduleService.findElementInDetail_V3(['UnderwritingRuleInfo']) track by $index">
+		<div class="col-md-10 col-xs-offset-2">
+			<span class="">{{moduleService.findElementInElement_V3(uwRuleInfo, ['UnderwritingRuleCd']).$ | translateUWRule: "v3.underwriting.rul.UnderwritingRuleCd."}}
+			</span>
+		</div>
+	</div>
+</div>
+
+<!-- UW Comments -->
+<div fieldId="underwriting:Comment" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><strong>{{"new.v3.mynewworkspace.common.underwriting.label.UnderwriterComments" | translate}}*:</strong></span>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<textarea rows="5" cols="120" style="width: 500px;" ng-model="moduleService.findElementInDetail_V3(['Comments', 'Comment']).RemarkText"
+				ng-disabled="moduleService.findElementInDetail_V3(['BusinessStatus']) != 'WIP' && moduleService.findElementInDetail_V3(['BusinessStatus']) != 'PENDING'">
+			</textarea>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Comments', 'Comment']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+
+<!-- UW Form And Letter -->
+<div fieldId="underwriting:Form" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.underwriting:UWForm" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['BusinessStatus']) != 'WIP' && moduleService.findElementInDetail_V3(['BusinessStatus']) != 'PENDING')
+      							|| uiElement.refDetail['@editable'] == '0'"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceListByProduct[moduleService.productName],['UWForm','Option'])" 
+         type="nonFlag" prefix="v3.underwriting.rul.UWForm" more-action="addNewUWFormAndLetter(uiElement.refDetail.Value, 'form')"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="underwriting:LetterType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{"v3.mynewworkspace.portlet.label.underwriting:UWLetter" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>:</label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['BusinessStatus']) != 'WIP' && moduleService.findElementInDetail_V3(['BusinessStatus']) != 'PENDING')
+      							|| uiElement.refDetail['@editable'] == '0'"
+        model="uiElement.refDetail" more-action="addNewUWFormAndLetter(uiElement.refDetail.Value, 'letter')"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceListByProduct[moduleService.productName],['UWLetter','Option'])" 
+         type="nonFlag" prefix="v3.underwriting.rul.UWLetter"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<div fieldId="underwriting:documentList" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	  <div class="table-responsive">
+      	 <table class="table v3-responsive-table">
+            <thead>
+                <tr>
+                    <th nowrap class="col-xs-1 col-sm-1 col-md-1 col-lg-1" >{{::'v3.mynewworkspace.portlet.label.underwriting:No' | translate}}</th>
+                    <th nowrap class="col-xs-1 col-sm-1 col-md-1 col-lg-1" >{{::'v3.mynewworkspace.portlet.label.underwriting:Type' | translate}}</th>
+                    <th nowrap class="col-xs-10 col-sm-10 col-md-10 col-lg-10" >{{::'v3.mynewworkspace.portlet.label.underwriting:FormLetterName' | translate}}</th>
+                    <th nowrap  class="col-xs-1 col-sm-1 col-md-1 col-lg-1 v3-button-action-container" >
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            	 <tr ng-if="formLetterList.length == 0">
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    	<div class="error">{{"new.v3.common.message.ThereIsNoData" | translate}}</div>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+				
+                <tr ng-repeat="document in formLetterList track by $index">
+                    <td>
+                    	{{$index + 1}}
+                    </td>
+                    <td>
+                    	{{"v3.mynewworkspace.portlet.label.underwriting:" + document.documentType | translate}}
+                    </td>
+                    <td>
+                    	<div ng-if="document.documentType == 'letter'">{{"v3.underwriting.rul.UWLetter." + document.documentName | translate}}</div>
+                    	<div ng-if="document.documentType == 'form'">{{"v3.underwriting.rul.UWForm." + document.documentName | translate}}</div>
+                    </td>
+                    
+                    <td class="text-center">
+                    	 <button  class="v3-button-action-remove" ng-click="removeUWFormAndLetter($index)"><i class="fa fa-times"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+	</div>
+</div>

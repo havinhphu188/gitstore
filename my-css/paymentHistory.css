@@ -1,0 +1,76 @@
+/**
+ * //*******************************************************************************
+ * // * Copyright (c) 2011-2014 CSC.
+ * // * Copyright (C) 2010-2016 CSC - All rights reserved.
+ * // *
+ * // * The information contained in this document is the exclusive property of
+ * // * CSC.  This work is protected under USA copyright law
+ * // * and the copyright laws of given countries of origin and international
+ * // * laws, treaties and/or conventions. No part of this document may be
+ * // * reproduced or transmitted in any form or by any means, electronic or
+ * // * mechanical including photocopying or by any informational storage or
+ * // * retrieval system, unless as expressly permitted by CSC.
+ * //
+ * // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+ * // ******************************************************************************
+ */
+
+.ipos-mobileApp .paymentHistory .carret-button{
+	display: inline-block;
+    margin-right: 10px;
+}
+
+.ipos-mobileApp .paymentHistory .rotate-caret{
+	-webkit-transform: rotate(180deg);  /* to support Safari and Android browser */
+    -ms-transform: rotate(180deg);      /* to support IE 9 */
+    transform: rotate(180deg);
+    transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.ipos-mobileApp .paymentHistory .action-list{
+	float: left;
+    padding-right: 20px;
+    border-right-width: 1px;
+    border-right-color: rgba(0,0,0,0.12);
+    margin-bottom: 10px;
+	margin-right: 20px;
+    padding-left: 7px;
+}
+.ipos-mobileApp .paymentHistory .icon-action-list{
+	float: left;
+    margin-top: 6px;
+ }
+
+ .ipos-mobileApp .paymentHistory .ng-hide-add, .ng-hide-remove {
+    display: block !important;
+}
+
+.ipos-mobileApp .paymentHistory .form-group{
+	margin-bottom: 0px!important;
+}
+.ipos-mobileApp .form-label {
+    font-weight: normal;
+    font-size: 15px;
+}
+
+.ipos-mobileApp .paymentHistory .cssSlideUp {
+    transition: .5s linear all;
+    height: 80px;
+    overflow: hidden;
+}
+.ipos-mobileApp .paymentHistory .cssSlideUp.ng-hide {
+    height:0;
+}
+.ipos-mobileApp .paymentHistory .cssSlideUp2 {
+    transition: .5s linear all;
+    height: 140px;
+    overflow: hidden;
+}
+.ipos-mobileApp .paymentHistory .cssSlideUp2.ng-hide {
+    height:0;
+}
+.ipos-mobileApp .paymentHistory .rotate-caret{
+	margin-left: 0px!important;
+}

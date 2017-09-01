@@ -1,0 +1,697 @@
+{
+    "IposDocument": {
+        "@xmlns": "http://www.csc.com/integral/ipos-common",
+        "@xmlns:ipos-prospect": "http://www.csc.com/integral/ipos-prospect",
+        "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "@xsi:schemaLocation": "http://www.csc.com/integral/ipos-prospect prospect-model.xsd ",
+        "Data": {
+            "ipos-prospect:Prospect": {
+                "@section": "ipos-prospect:Prospect",
+                "@vpms-suffix": "Prospect",
+                "Attachments": {
+                    "@counter": "0",
+                    "@maxOccurs": "",
+                    "@minOccurs": "0",
+                    "@vpms-suffix": "Attachments",
+                    "Attachment": {
+                        "@refResourceDocType": "",
+                        "@refResourceUid": "",
+                        "@vpms-suffix": "Attachment",
+                        "CreateDate": {
+                            "@default": "",
+                            "@editable": "0",
+                            "@mandatory": "0",
+                            "@refResourceStatus": "",
+                            "@refResourceVal": "",
+                            "@validate": "",
+                            "@visible": "1",
+                            "@vpms-suffix": "CreateDate"
+                        },
+                        "FileName": {
+                            "@default": "",
+                            "@editable": "0",
+                            "@mandatory": "0",
+                            "@refResourceStatus": "",
+                            "@refResourceVal": "",
+                            "@validate": "",
+                            "@visible": "1",
+                            "@vpms-suffix": "FileName"
+                        },
+                        "FileSize": {
+                            "@default": "",
+                            "@editable": "0",
+                            "@mandatory": "0",
+                            "@refResourceStatus": "",
+                            "@refResourceVal": "",
+                            "@validate": "",
+                            "@visible": "1",
+                            "@vpms-suffix": "FileSize"
+                        },
+                        "FileUid": {
+                            "@default": "",
+                            "@editable": "0",
+                            "@mandatory": "0",
+                            "@refResourceStatus": "",
+                            "@refResourceVal": "",
+                            "@validate": "",
+                            "@visible": "1",
+                            "@vpms-suffix": "FileUid"
+                        },
+                        "Name": {
+                            "@default": "",
+                            "@editable": "0",
+                            "@mandatory": "0",
+                            "@refResourceStatus": "",
+                            "@refResourceVal": "",
+                            "@validate": "",
+                            "@visible": "1",
+                            "@vpms-suffix": "Name"
+                        }
+                    }
+                },
+                "ipos-prospect:Addresses": {
+                    "@section": "ipos-prospect:Prospect",
+                    "@counter": "",
+                    "@maxOccurs": "",
+                    "@minOccurs": "",
+                    "@vpms-suffix": "Addresses",
+                    "ipos-prospect:Address": {
+                        "@vpms-suffix": "Address",
+                        "ipos-prospect:AddressType": {
+                            "@default": "",
+                            "@editable": "1",
+                            "@mandatory": "1",
+                            "@validate": "",
+                            "@visible": "1",
+                            "@vpms-suffix": "AddressType",
+                            "Options": {
+                                "Option": ""
+                            },
+                            "Value": ""
+                        },
+                        "ipos-prospect:BlkHouseNo": {
+                            "@default": "",
+                            "@editable": "1",
+                            "@mandatory": "0",
+                            "@visible": "1",
+                            "@vpms-suffix": "BlkHouseNo"
+                        },
+                        "ipos-prospect:Building": {
+                            "@default": "",
+                            "@editable": "1",
+                            "@mandatory": "0",
+                            "@visible": "1",
+                            "@vpms-suffix": "Building"
+                        },
+                        "ipos-prospect:City": {
+                            "@default": "",
+                            "@editable": "1",
+                            "@mandatory": "0",
+                            "@visible": "1",
+                            "@vpms-suffix": "City"
+                        },
+                        "ipos-prospect:Country": {
+                            "@default": "",
+                            "@editable": "1",
+                            "@mandatory": "0",
+                            "@visible": "1",
+                            "@vpms-suffix": "Country",
+                            "Options": {
+                                "Option": ""
+                            },
+                            "Value": ""
+                        },
+                        "ipos-prospect:Postal": {
+                            "@default": "",
+                            "@editable": "1",
+                            "@mandatory": "0",
+                            "@visible": "1",
+                            "@vpms-suffix": "Postal"
+                        },
+                        "ipos-prospect:Street": {
+                            "@default": "",
+                            "@editable": "1",
+                            "@mandatory": "0",
+                            "@visible": "1",
+                            "@vpms-suffix": "Street"
+                        },
+                        "ipos-prospect:UnitNo": {
+                            "@default": "",
+                            "@editable": "1",
+                            "@mandatory": "0",
+                            "@visible": "1",
+                            "@vpms-suffix": "UnitNo"
+                        }
+                    }
+                },
+                "ipos-prospect:Contacts": {
+                    "@section": "ipos-prospect:Prospect",
+                    "@counter": "0",
+                    "@maxOccurs": "4",
+                    "@minOccurs": "0",
+                    "@vpms-suffix": "Contacts",
+                    "ipos-prospect:Contact": {
+                        "@vpms-suffix": "Contact",
+                        "ipos-prospect:ContactInformation": {
+                            "@default": "",
+                            "@editable": "1",
+                            "@mandatory": "0",
+                            "@validate": "",
+                            "@visible": "1",
+                            "@vpms-suffix": "ContactInformation"
+                        },
+                        "ipos-prospect:ContactType": {
+                            "@default": "",
+                            "@editable": "1",
+                            "@mandatory": "1",
+                            "@visible": "1",
+                            "@vpms-suffix": "ContactType",
+                            "Options": {
+                                "Option": ""
+                            },
+                            "Value": ""
+                        }
+                    }
+                },
+                "ipos-prospect:Corporate": {
+                    "@section": "ipos-prospect:Prospect",
+                    "@vpms-suffix": "Corporate",
+                    "ipos-prospect:BusinessType": {
+                        "@default": "",
+                        "@editable": "0",
+                        "@mandatory": "0",
+                        "@visible": "0",
+                        "@vpms-suffix": "BusinessType",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:CapitalAmount": {
+                        "@default": "",
+                        "@editable": "0",
+                        "@mandatory": "0",
+                        "@visible": "0",
+                        "@vpms-suffix": "CapitalAmount"
+                    },
+                    "ipos-prospect:CheckAsApplicables": {
+                        "@counter": "0",
+                        "@maxOccurs": "3",
+                        "@minOccurs": "0",
+                        "@vpms-suffix": "CheckAsApplicables",
+                        "ipos-prospect:CheckAsApplicable": {
+                            "@vpms-suffix": "CheckAsApplicable",
+                            "ipos-prospect:CheckAsApplicableValue": {
+                                "@default": "",
+                                "@editable": "0",
+                                "@mandatory": "0",
+                                "@visible": "0",
+                                "@vpms-suffix": "CheckAsApplicableValue",
+                                "Options": {
+                                    "Option": ""
+                                },
+                                "Value": ""
+                            }
+                        }
+                    },
+                    "ipos-prospect:CountryOfOrigin": {
+                        "@default": "",
+                        "@editable": "0",
+                        "@mandatory": "0",
+                        "@visible": "0",
+                        "@vpms-suffix": "CountryOfOrigin",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:DateOfIncorporation": {
+                        "@default": "",
+                        "@editable": "0",
+                        "@mandatory": "0",
+                        "@visible": "0",
+                        "@vpms-suffix": "DateOfIncorporation"
+                    },
+                    "ipos-prospect:Language": {
+                        "@default": "",
+                        "@editable": "0",
+                        "@mandatory": "0",
+                        "@visible": "0",
+                        "@vpms-suffix": "Language",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:LicenceNumber": {
+                        "@default": "",
+                        "@editable": "0",
+                        "@mandatory": "0",
+                        "@visible": "0",
+                        "@vpms-suffix": "LicenceNumber"
+                    },
+                    "ipos-prospect:NameOfCorporation": {
+                        "@default": "",
+                        "@editable": "0",
+                        "@mandatory": "0",
+                        "@visible": "0",
+                        "@vpms-suffix": "NameOfCorporation"
+                    },
+                    "ipos-prospect:NumberOfEmployee": {
+                        "@default": "",
+                        "@editable": "0",
+                        "@mandatory": "0",
+                        "@visible": "0",
+                        "@vpms-suffix": "NumberOfEmployee"
+                    },
+                    "ipos-prospect:PersonInCharge": {
+                        "@default": "",
+                        "@editable": "0",
+                        "@mandatory": "0",
+                        "@visible": "0",
+                        "@vpms-suffix": "PersonInCharge"
+                    },
+                    "ipos-prospect:STaxApplicable": {
+                        "@default": "",
+                        "@editable": "0",
+                        "@mandatory": "0",
+                        "@visible": "0",
+                        "@vpms-suffix": "STaxApplicable",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:StatisticalClass": {
+                        "@default": "",
+                        "@editable": "0",
+                        "@mandatory": "0",
+                        "@visible": "0",
+                        "@vpms-suffix": "StatisticalClass",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    }
+                },
+                "ipos-prospect:Pdpa": {
+                    "@section": "ipos-prospect:Prospect",
+                    "@coupleUid": "",
+                    "@refDocType": "pdpa",
+                    "@vpms-suffix": "Pdpa",
+                    "ipos-prospect:CommunicationChannels": {
+                        "@counter": "6",
+                        "@maxOccurs": "6",
+                        "@minOccurs": "6",
+                        "@vpms-suffix": "CommunicationChannels",
+                        "ipos-prospect:CommunicationChannel": [
+                            {
+                                "@vpms-suffix": "CommunicationChannel",
+                                "ipos-prospect:CommunicationChannelValue": {
+                                    "@channelType": "PHONE",
+                                    "@default": "",
+                                    "@editable": "0",
+                                    "@mandatory": "0",
+                                    "@refStatus": "",
+                                    "@refVal": "/IposDocument/Data/Pdpa/CommunicationChannels/CommunicationChannel[1]/CommunicationChannelValue",
+                                    "@visible": "1",
+                                    "@vpms-suffix": "CommunicationChannelValue",
+                                    "Options": {
+                                        "Option": ""
+                                    },
+                                    "Value": ""
+                                }
+                            },
+                            {
+                                "@vpms-suffix": "CommunicationChannel",
+                                "ipos-prospect:CommunicationChannelValue": {
+                                    "@channelType": "SMS",
+                                    "@default": "",
+                                    "@editable": "0",
+                                    "@mandatory": "0",
+                                    "@refStatus": "",
+                                    "@refVal": "/IposDocument/Data/Pdpa/CommunicationChannels/CommunicationChannel[2]/CommunicationChannelValue",
+                                    "@visible": "1",
+                                    "@vpms-suffix": "CommunicationChannelValue",
+                                    "Options": {
+                                        "Option": ""
+                                    },
+                                    "Value": ""
+                                }
+                            },
+                            {
+                                "@vpms-suffix": "CommunicationChannel",
+                                "ipos-prospect:CommunicationChannelValue": {
+                                    "@channelType": "FAX",
+                                    "@default": "",
+                                    "@editable": "0",
+                                    "@mandatory": "0",
+                                    "@refStatus": "",
+                                    "@refVal": "/IposDocument/Data/Pdpa/CommunicationChannels/CommunicationChannel[3]/CommunicationChannelValue",
+                                    "@visible": "1",
+                                    "@vpms-suffix": "CommunicationChannelValue",
+                                    "Options": {
+                                        "Option": ""
+                                    },
+                                    "Value": ""
+                                }
+                            },
+                            {
+                                "@vpms-suffix": "CommunicationChannel",
+                                "ipos-prospect:CommunicationChannelValue": {
+                                    "@channelType": "MAIL",
+                                    "@default": "",
+                                    "@editable": "0",
+                                    "@mandatory": "0",
+                                    "@refStatus": "",
+                                    "@refVal": "/IposDocument/Data/Pdpa/CommunicationChannels/CommunicationChannel[4]/CommunicationChannelValue",
+                                    "@visible": "1",
+                                    "@vpms-suffix": "CommunicationChannelValue",
+                                    "Options": {
+                                        "Option": ""
+                                    },
+                                    "Value": ""
+                                }
+                            },
+                            {
+                                "@vpms-suffix": "CommunicationChannel",
+                                "ipos-prospect:CommunicationChannelValue": {
+                                    "@channelType": "EMAIL",
+                                    "@default": "",
+                                    "@editable": "0",
+                                    "@mandatory": "0",
+                                    "@refStatus": "",
+                                    "@refVal": "/IposDocument/Data/Pdpa/CommunicationChannels/CommunicationChannel[5]/CommunicationChannelValue",
+                                    "@visible": "1",
+                                    "@vpms-suffix": "CommunicationChannelValue",
+                                    "Options": {
+                                        "Option": ""
+                                    },
+                                    "Value": ""
+                                }
+                            },
+                            {
+                                "@vpms-suffix": "CommunicationChannel",
+                                "ipos-prospect:CommunicationChannelValue": {
+                                    "@channelType": "ALL",
+                                    "@default": "",
+                                    "@editable": "0",
+                                    "@mandatory": "0",
+                                    "@refStatus": "",
+                                    "@refVal": "/IposDocument/Data/Pdpa/CommunicationChannels/CommunicationChannel[6]/CommunicationChannelValue",
+                                    "@visible": "1",
+                                    "@vpms-suffix": "CommunicationChannelValue",
+                                    "Options": {
+                                        "Option": ""
+                                    },
+                                    "Value": ""
+                                }
+                            }
+                        ]
+                    },
+                    "ipos-prospect:Consent": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@refStatus": "",
+                        "@refVal": "/IposDocument/Data/Pdpa/Consent",
+                        "@visible": "1",
+                        "@vpms-suffix": "Consent",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:WitnessIdNumber": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@refStatus": "",
+                        "@refVal": "/IposDocument/Data/Pdpa/WitnessIdNumber",
+                        "@validate": "",
+                        "@visible": "1",
+                        "@vpms-suffix": "WitnessIdNumber"
+                    },
+                    "ipos-prospect:WitnessName": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@refStatus": "",
+                        "@refVal": "/IposDocument/Data/Pdpa/WitnessName",
+                        "@validate": "",
+                        "@visible": "1",
+                        "@vpms-suffix": "WitnessName"
+                    }
+                },
+                "ipos-prospect:Personal": {
+                    "@section": "ipos-prospect:Prospect",
+                    "@vpms-suffix": "Personal",
+                    "ipos-prospect:Age": {
+                        "@vpms-suffix": "Age"
+                    },
+                    "ipos-prospect:BirthDate": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "1",
+                        "@validate": "",
+                        "@visible": "1",
+                        "@vpms-suffix": "BirthDate",
+                        "@preview": ["ipos-prospect:Prospect", "ipos-prospect:Personal"]
+                    },
+                    "ipos-prospect:BusinessIndustry": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@validate": "",
+                        "@visible": "1",
+                        "@vpms-suffix": "BusinessIndustry",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:FullName": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "1",
+                        "@visible": "1",
+                        "@preview": "ipos-prospect:Prospect",
+                        "@vpms-suffix": "FullName"
+                    },
+                    "ipos-prospect:Gender": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@validate": "",
+                        "@visible": "1",
+                        "@vpms-suffix": "Gender",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:IDs": {
+                        "@counter": "1",
+                        "@maxOccurs": "3",
+                        "@minOccurs": "1",
+                        "@vpms-suffix": "IDs",
+                        "ipos-prospect:ID": {
+                            "@vpms-suffix": "ID",
+                            "ipos-prospect:IDNumber": {
+                                "@default": "",
+                                "@editable": "1",
+                                "@mandatory": "0",
+                                "@visible": "1",
+                                "@vpms-suffix": "IDNumber"
+                            },
+                            "ipos-prospect:IDType": {
+                                "@default": "",
+                                "@editable": "1",
+                                "@mandatory": "0",
+                                "@visible": "1",
+                                "@vpms-suffix": "IDType",
+                                "Options": {
+                                    "Option": ""
+                                },
+                                "Value": ""
+                            }
+                        }
+                    },
+                    "ipos-prospect:MarStat": {
+                        
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "1",
+                        "@validate": "",
+                        "@visible": "1",
+                        "@vpms-suffix": "MarStat",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:Nationality": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@validate": "",
+                        "@visible": "1",
+                        "@vpms-suffix": "Nationality",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:OccupClass": {
+                        "@vpms-suffix": "OccupClass"
+                    },
+                    "ipos-prospect:Occupation": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@validate": "",
+                        "@visible": "1",
+                        "@vpms-suffix": "Occupation",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:Photo": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@visible": "1",
+                        "@vpms-suffix": "Photo"
+                    },
+                    "ipos-prospect:Race": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@validate": "",
+                        "@visible": "1",
+                        "@vpms-suffix": "Race",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:ReferralType": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@validate": "",
+                        "@visible": "1",
+                        "@vpms-suffix": "ReferralType",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:Referrer": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@visible": "1",
+                        "@vpms-suffix": "Referrer"
+                    },
+                    "ipos-prospect:SmokerStat": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@validate": "",
+                        "@visible": "1",
+                        "@vpms-suffix": "SmokerStat",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:Staff": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@visible": "1",
+                        "@vpms-suffix": "Staff",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:Title": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "1",
+                        "@validate": "",
+                        "@visible": "1",
+                        "@vpms-suffix": "Title",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:Vip": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@visible": "1",
+                        "@vpms-suffix": "Vip",
+                        "Options": {
+                            "Option": ""
+                        },
+                        "Value": ""
+                    },
+                    "ipos-prospect:YearDrivingLicenseObtained": {
+                        "@default": "",
+                        "@editable": "1",
+                        "@mandatory": "0",
+                        "@validate": "",
+                        "@visible": "1",
+                        "@vpms-suffix": "YearDrivingLicenseObtained"
+                    }
+                },
+                "ipos-prospect:ProspectType": {
+                    "@default": "PERSONAL",
+                    "@editable": "1",
+                    "@mandatory": "1",
+                    "@validate": "",
+                    "@visible": "0",
+                    "@vpms-suffix": "ProspectType",
+                    "Options": {
+                        "Option": ""
+                    },
+                    "Value": "PERSONAL"
+                }
+            }
+        },
+        "Header": {
+            "DocAccessControllList": {
+                "User": {
+                    "@userid": "",
+                    "Permisions": {
+                        "Permision": ""
+                    }
+                }
+            },
+            "DocInfo": {
+                "Archived": "",
+                "Comments": "",
+                "CreatedDate": "",
+                "DefUid": "59ea41c0-ca04-4512-99d7-2bbb8613f7f8",
+                "DocId": "",
+                "DocName": "prospect-DefaultName",
+                "DocType": "prospect",
+                "DocVersion": "",
+                "OwnerUid": "",
+                "Star": "",
+                "Tags": "",
+                "UpdatedDate": "",
+                "UpdatedUserUid": ""
+            },
+            "DocStatus": {
+                "BusinessStatus": "NEW",
+                "DocumentStatus": ""
+            }
+        }
+    }
+}

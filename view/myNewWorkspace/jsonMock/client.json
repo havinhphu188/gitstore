@@ -1,0 +1,90 @@
+{
+  "IposDocument": {
+    "Data": {
+      "ipos-client:Client": {
+        "@section": "ipos-client:Client",
+        "@icon": "fa fa-users",
+        "@cssClass": "v3-box-2",
+        "ipos-client:ClientDetail": {
+          "@section": "ipos-client:Client",
+          "@icon": "fa fa-users",
+          "@cssClass": "v3-box-2",
+          "ipos-client:Salutation": {
+          },
+          "ipos-client:FullName": {
+          },
+          "ipos-client:BirthDate": {
+          },
+          "ipos-client:Gender": {
+          },
+          "ipos-client:MaritalStatus": {
+          },
+          "ipos-client:Nationality": {
+          },
+          "ipos-client:IdNumber": {
+          },
+          "ipos-client:Race": {
+          }
+        },
+        "ipos-client:OtherInformation": {
+          "@section": "ipos-client:Client",
+          "@icon": "fa fa-users",
+          "@cssClass": "v3-box-2",
+          "ipos-client:CountryOfBirth": {
+          },
+          "ipos-client:Occupation": {
+          },
+          "ipos-client:Staff": {
+          },
+          "ipos-client:VIP": {
+          }
+        },
+        "ipos-client:Contacts": {
+          "@section": "ipos-client:Client",
+          "@icon": "fa fa-users",
+          "@cssClass": "v3-box-2",
+          "ipos-client:Contact": {
+          }
+        },
+        "ipos-client:Addresses": {
+          "@section": "ipos-client:Client",
+          "@counter": "",
+          "@maxOccurs": "",
+          "@minOccurs": "",
+          "@icon": "fa fa-users",
+          "ipos-client:Address": {
+            "@section": "ipos-client:Addresses",
+            "ipos-client:AddressType": {
+            },
+            "ipos-client:BlkHouseNo": {
+            },
+            "ipos-client:Street": {
+            },
+            "ipos-client:UnitNo": {
+            },
+            "ipos-client:Building": {
+            },
+            "ipos-client:City": {
+            },
+            "ipos-client:Country": {
+            },
+            "ipos-client:Postal": {
+            },
+            "ipos-client:PreferredAddress": {
+            }
+          }
+        },
+        "ipos-client:PolicyByClient": {
+          "@key": [
+            "getPolicyByClient"
+          ],
+          "@section": "ipos-client:Client",
+          "@icon": "fa fa-users",
+          "@cssClass": "v3-box-2",
+          "@onOpen": "getPolicyListByClient()",
+          "@staticHtml": "list_policies_client.html"
+        }
+      }
+    }
+  }
+}

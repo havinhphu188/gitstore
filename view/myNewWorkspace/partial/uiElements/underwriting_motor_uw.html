@@ -1,0 +1,200 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div fieldId="underwriting-motor:labelUnderwritingReview" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 centered summary">
+         <div class="form-group form-group-lg has-success">
+             <span style="font-size: xx-large;">{{'new.v3.mynewworkspace.motor.underwriting.label.UnderwritingReview' | translate}}</span>
+         </div>
+     </div>
+</div>
+<div fieldId="underwriting-motor:Product" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-20 summary">
+     <div class="form-group form-group-lg has-success">
+         <span style="font-weight: bold">{{'new.v3.mynewworkspace.motor.underwriting.label.Product' | translate}}:&nbsp;</span>
+     </div>
+     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+         <div class="form-group form-group-lg has-success">
+             <span class="col-md-7 ">{{'new.v3.mynewworkspace.motor.underwriting.label.SaleCaseNo' | translate}}:&nbsp;</span>
+             <span class="col-md-5 "><a ng-click="gotoCase()">{{::moduleService.findElementInDetail_V3(['CaseName']).$}}</a></span>
+         </div>
+         <div class="form-group form-group-lg has-success">
+             <span class="col-md-7 ">{{'new.v3.mynewworkspace.motor.underwriting.label.ProductName' | translate}}:&nbsp;</span>
+             <span class="col-md-5 ">{{::'v3.illustration.product.'+ moduleService.findElementInDetail_V3(['DocInfo']).Product | translate}}</span>
+         </div>
+         <div class="form-group form-group-lg has-success">
+             <span class="col-md-7 ">{{'new.v3.mynewworkspace.motor.underwriting.label.InceptionDate' | translate}}:&nbsp;</span>
+             <span class="col-md-5 ">{{::moduleService.findElementInDetail_V3(['InceptionDate']).$  | dateFilter }}</span>
+         </div>
+         <div class="form-group form-group-lg has-success">
+             <span class="col-md-7 ">{{'new.v3.mynewworkspace.motor.underwriting.label.SumInsured' | translate}}&nbsp;({{moduleService.findElementInDetail_V3(['BillingCurrency']).Value}}):</span>
+             <span class="col-md-5 ">{{::moduleService.findElementInDetail_V3(['SumInsured']).$ | number:0}}</span>
+         </div>
+     </div>
+     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+         <div class="form-group form-group-lg has-success">
+             <span class="col-md-7 ">{{'new.v3.mynewworkspace.motor.underwriting.label.AgentName' | translate}}:&nbsp;</span>
+             <span class="col-md-5 ">{{::moduleService.findElementInDetail_V3(['AgentName']).$}}</span>
+         </div>
+         <div class="form-group form-group-lg has-success">
+             <span class="col-md-7 ">{{'new.v3.mynewworkspace.motor.underwriting.label.EffectiveDate' | translate}}:&nbsp;</span>
+             <span class="col-md-5 ">{{::moduleService.findElementInDetail_V3(['EffectiveDate']).$  | dateFilter }}</span>
+         </div>
+         <div class="form-group form-group-lg has-success">
+             <span class="col-md-7 ">{{'new.v3.mynewworkspace.motor.underwriting.label.ExpiryDate' | translate}}:&nbsp;</span>
+             <span class="col-md-5 ">{{::moduleService.findElementInDetail_V3(['ExpiryDate']).$  | dateFilter }}</span>
+         </div>
+         <div class="form-group form-group-lg has-success">
+             <span class="col-md-7 ">{{'new.v3.mynewworkspace.motor.underwriting.label.CurrentPayablePremium' | translate}}&nbsp;({{moduleService.findElementInDetail_V3(['BillingCurrency']).Value}}):</span>
+             <span class="col-md-5 ">{{::moduleService.findElementInDetail_V3(['TotalPayablePremium']).$}}</span>
+         </div>
+     </div>
+</div>
+<div fieldId="underwriting-motor:VehicleInformation" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="form-group form-group-lg has-success">
+         <span style="font-weight: bold">{{'new.v3.mynewworkspace.motor.underwriting.label.VehicleInformation' | translate}}:&nbsp;</span>
+     </div>
+     <div class="row">
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 ">{{'new.v3.mynewworkspace.motor.underwriting.label.VehicleNumber' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 ">{{::moduleService.findElementInDetail_V3(['VehicleNumber']).$}}</span>
+	         </div>
+	     </div>
+     </div>
+     <div class="row">
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 ">{{'new.v3.mynewworkspace.motor.underwriting.label.MakeOrModel' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 ">{{::'v3.illustration.motor.sompo.makeormodel.' + moduleService.findElementInDetail_V3(['MakeOrModel']).$ | translate}}</span>
+	         </div>
+	     </div>
+	 </div>
+	 <div class="row">
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 ">{{'new.v3.mynewworkspace.motor.underwriting.label.YearManufacture' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 ">{{::moduleService.findElementInDetail_V3(['YearOfManufacture']).$}}</span>
+	         </div>
+	     </div>
+	  </div>
+</div>
+<div fieldId="underwriting-motor:UnderwritingFindings" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="form-group form-group-lg has-success">
+         <span style="font-weight: bold">{{'new.v3.mynewworkspace.motor.underwriting.label.UnderwritingFindings' | translate}}:&nbsp;</span>
+     </div>
+     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " ng-repeat="item in moduleService.findElementInDetail_V3(['Details','Detail']) track by $index">
+         <div class="form-group form-group-lg has-success" ng-show="moduleService.findElementInElement_V3(item,['Error']).$ != undefined">
+             <span class="col-md-12">{{::($index+1) +". "+ ('new.v3.mynewworkspace.motor.underwriting.label.'+moduleService.findElementInElement_V3(item,['Error']).$ |translate)}}</span>
+         </div>
+     </div>
+</div>
+<div fieldId="underwriting-motor:UnderwriterDecision" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 no-left-padding  margin-bottom-10">
+		<div class="form-group form-group-lg has-success">
+	         <span style="font-weight: bold">{{'new.v3.mynewworkspace.motor.underwriting.label.UnderwriterDecision' | translate}}:&nbsp;</span>
+	     </div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div class="form-group form-group-lg has-success">
+			<span class="col-md-3 ">{{'new.v3.mynewworkspace.motor.underwriting.label.Underwriter' | translate}}:&nbsp;</span>
+			<span class="col-md-9 ">{{moduleService.findElementInDetail_V3(['UnderwriterName']).$ + " (" + moduleService.findElementInDetail_V3(['UnderwriterId']).$ +")"}}</span>
+	     </div>
+	</div>
+     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content" style="min-height: 50px !important;">
+         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	    	 <div class="form-group form-group-lg has-success">
+		        <v3-switch-new switch-size="" switch-name="UnderwritingDecisionCd" prefix="v3.pnc.underwriter.decision.enum"
+			          	switch-model="moduleService.findElementInDetail_V3(['UnderwritingDecisionCd']).Value" 
+			          	switch-default-value="" 
+			          	switch-disabled="moduleService.freeze 
+			          					|| moduleService.findElementInDetail_V3(['UnderwritingDecisionCd'])['@editable']=='0' 
+			          					|| (moduleService.findElementInDetail_V3(['BusinessStatus'])!= 'WIP' 
+			          						&& moduleService.findElementInDetail_V3(['BusinessStatus'])!= 'PENDING')" 
+			          	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['UnderwritingDecisionCd','Option'])">
+				</v3-switch-new>
+			 </div>
+		</div>
+     </div>
+     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  margin-top-15  margin-bottom-10" ng-if="moduleService.findElementInDetail_V3(['UnderwritingDecisionCd']).Value == 'COUNTER-OFFER'">
+     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  summary">
+	        <div class="form-group form-group-lg has-success">
+	            <span class="col-md-5 no-left-padding">{{'new.v3.mynewworkspace.motor.underwriting.label.Loading' | translate}}:&nbsp;</span>
+	        </div>
+	    </div>
+     	<div class="col-xs-11 col-sm-6 col-md-3 col-lg-3">
+		     <div class="form-group form-group-lg has-success">
+			   	 <input class="form-control" type="text" maxlength="120" numbers-only ng-disabled = "moduleService.findElementInDetail_V3(['BusinessStatus'])!= 'WIP' 
+			   	 																					&& moduleService.findElementInDetail_V3(['BusinessStatus'])!= 'PENDING'"
+			   	 ng-model="moduleService.findElementInDetail_V3(['Loading']).$"/>
+			 </div>
+		 </div>
+		 <div class="col-xs-1 col-sm-6 col-md-6 col-lg-6 ">
+		 	<div class="form-group form-group-lg has-success">	
+		 		<label>%</label>
+		 	</div>
+		 </div>
+     </div>
+</div>
+<div fieldId="underwriting-motor:Premium" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary" ng-show="isCompute.click 
+																											|| (moduleService.findElementInDetail_V3(['BusinessStatus'])== 'PENDING' && moduleService.findElementInDetail_V3(['UnderwritingDecisionCd']).Value == 'COUNTER-OFFER')
+																											|| (moduleService.findElementInDetail_V3(['BusinessStatus']) == 'OFFERED')
+																											|| (moduleService.findElementInDetail_V3(['BusinessStatus']) == 'ACCEPTED' && moduleService.findElementInDetail_V3(['UnderwritingDecisionCd']).Value == 'COUNTER-OFFER') ">
+	<div class="form-group form-group-lg has-success">
+         <span style="font-weight: bold">{{'new.v3.mynewworkspace.motor.underwriting.label.Premium' | translate}}&nbsp;({{moduleService.findElementInDetail_V3(['BillingCurrency']).Value}}):</span>
+     </div>
+     <div class="row">
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 ">{{'new.v3.mynewworkspace.motor.underwriting.label.GrossPremium' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 right-align">{{moduleService.findElementInDetail_V3(['GrossPremium']).$}}</span>
+	         </div>
+	     </div>
+     </div>
+     <div class="row">
+     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+         <div class="form-group form-group-lg has-success">
+             <span class="col-md-5 ">{{'new.v3.mynewworkspace.motor.underwriting.label.StampDuty' | translate}}:&nbsp;</span>
+             <span class="col-md-7 right-align" ng-show="(moduleService.findElementInDetail_V3(['GrossPremium']).$ !==undefined) && (moduleService.findElementInDetail_V3(['RevisedTotalPayablePremium']).$ !==undefined)">{{moduleService.findElementInDetail_V3(['StampDuty']).$}}</span>
+         </div>
+     </div>
+     </div>
+     <div class="row">
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 ">{{'new.v3.mynewworkspace.motor.underwriting.label.RevisedPayablePremium' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 right-align">{{moduleService.findElementInDetail_V3(['RevisedTotalPayablePremium']).$}}</span>
+	         </div>
+	     </div>
+     </div>
+</div>
+<div fieldId="underwriting-motor:UnderwritingRemark" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  summary">
+         <div class="form-group form-group-lg has-success">
+             <span class="col-md-5 ">{{'new.v3.mynewworkspace.motor.underwriting.label.UnderwritingRemark' | translate}}:&nbsp;</span>
+         </div>
+     </div>
+     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  summary" style="min-height: 130px;">
+     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+	    	 <div class="form-group form-group-lg has-success">
+	        	<textarea class="form-control" rows="3" ng-model="moduleService.findElementInDetail_V3(['UnderwriterRemark']).$"
+	        	ng-disabled = "moduleService.findElementInDetail_V3(['BusinessStatus'])!= 'WIP' && moduleService.findElementInDetail_V3(['BusinessStatus'])!= 'PENDING'"></textarea>
+	         </div>
+	    </div>
+     </div>
+</div>

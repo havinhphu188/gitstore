@@ -1,0 +1,390 @@
+{
+  "IposDocument": {
+    "Data": {
+      "case-management:CaseManagement": {
+        "@section": "case-management:CaseManagement",
+        "@vpms-suffix": "admin",
+        "@cssClass": "v3-box-1",
+        "@icon": "fa fa fa-umbrella",
+        "icons": {
+          "cardIcon": {
+            "content": "fa fa-money"
+          }
+        },
+        "case-management-guaranteed-cashback-saver:Summary": {
+          "@icon": "fa fa-pencil",
+          "icons": {
+            "cardIcon": {
+              "content": "fa fa-pencil"
+            }
+          },
+          "@section": "case-management:CaseManagement",
+          "case-management-guaranteed-cashback-saver:CaseInformation": {},
+          "case-management-guaranteed-cashback-saver:Status": {},
+          "case-management-guaranteed-cashback-saver:CreatedDate": {},
+          "case-management-guaranteed-cashback-saver:UpdatedDate": {},
+          "case-management-guaranteed-cashback-saver:ProductName": {},
+          "case-management-guaranteed-cashback-saver:PolicyOwner": {},
+          "case-management-guaranteed-cashback-saver:PolicyNumber": {}
+        },
+        "case-management-guaranteed-cashback-saver:PolicyOwner": {
+          "@key": [
+            "Prospects"
+          ],
+          "@section": "case-management:CaseManagement",
+          "@icon": {
+            "main": "fa fa-user",
+            "step": "1"
+          },
+          "icons": {
+            "step": {
+              "content": "1"
+            },
+            "cardIcon": {
+              "content": "fa fa-user"
+            }
+          },
+          "@cssClass": "v3-box-4",
+          "case-management-motor:ImportFromExistingProspect": {
+            "@key": [
+              "ImportFromExistingProspect"
+            ],
+            "@section": "case-management-guaranteed-cashback-saver:PolicyOwner",
+            "@icon": "fa fa-user",
+            "icons": {
+              "cardIcon": {
+                "content": "fa fa-user"
+              }
+            },
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "importFromExistingProspect(card)",
+            "@staticHtml": "list_existing_prospect.html"
+          },
+          "case-management-motor:NewProspect": {
+            "@key": [
+              "NewProspect"
+            ],
+            "@section": "case-management-guaranteed-cashback-saver:PolicyOwner",
+            "@icon": {
+              "main": "fa fa-user",
+              "mainAction": "addIcon"
+            },
+            "icons": {
+              "cardIcon": {
+                "content": "fa fa-user"
+              },
+              "cardIconPlus": {}
+            },
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          },
+          "case-management-guaranteed-cashback-saver:Prospect": {
+            "@key": [
+              "Prospect"
+            ],
+            "@icon": {
+              "subAction": "removeIcon"
+            },
+            "icons": {
+              "cardIcon": {
+                "content": "fa fa-user"
+              },
+              "removeCardInList": {
+                "isVisible": "findElementInDetail(['Quotations'])['@counter'] == '0'",
+                "onClick": "removeCardInList()"
+              }
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "case-management-guaranteed-cashback-saver:PolicyOwner",
+            "@cardType": "template"
+          }
+        },
+        "case-management-guaranteed-cashback-saver:NeedFNA": {
+          "@section": "case-management:CaseManagement",
+          "@icon": {
+            "main": "fa fa-search",
+            "step": "2"
+          },
+          "icons": {
+            "step": {
+              "content": "2"
+            },
+            "cardIcon": {
+              "content": "bulleye-icon"
+            }
+          },
+          "case-management-guaranteed-cashback-saver:FNA": {
+            "@isVisible": "hasValueNotEmpty(findElementInDetail(['NeedFNA'])['@refUid'])",
+            "@key": [
+              "NeedFNA"
+            ],
+            "@icon": {
+              "subAction": "removeIcon"
+            },
+            "icons": {
+              "cardIcon": {
+                "content": "fa fa-search"
+              },
+              "removeCard": {
+                "onClick": "removeCard_New('v3.mynewworkspace.portlet.label.case-management-guaranteed-cashback-saver:RemoveFNAConfirm')"
+              }
+            },
+            "@cssClass": "v3-box-1",
+            "@previewHtml":"v3-preview-static-fna-inside-sumary.html",
+            "@section": "case-management-guaranteed-cashback-saver:NeedFNA"
+          },
+          "case-management-guaranteed-cashback-saver:ImportFromExistingFNA": {
+            "@isVisible": "!findElementInDetail(['NeedFNA'])['@refUid']",
+            "@icon": {
+              "main": "fa fa-search"
+            },
+            "icons": {
+              "cardIcon": {
+                "content": "fa fa-search"
+              }
+            },
+            "@section": "case-management-guaranteed-cashback-saver:NeedFNA",
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "importFromExistingProspect(card)",
+            "@staticHtml": "list_existing_factfind.html"
+          }
+        },
+        "case-management-guaranteed-cashback-saver:Step2_Quotation": {
+          "@key": [
+            "Quotations"
+          ],
+          "@onOpen": "changeNameUnderwriterQuotation('case-management-guaranteed-cashback-saver:Step2_Quotation')",
+          "@icon": {
+            "main": "fa fa-bar-chart",
+            "step": "3"
+          },
+          "icons": {
+            "step": {
+              "content": "3"
+            },
+            "cardIcon": {
+              "content": "quotationIcon"
+            }
+          },
+          "@cssClass": "v3-box-2",
+          "@section": "case-management:CaseManagement",
+          "case-management-guaranteed-cashback-saver:NewQuotation": {
+            "@key": [
+              "NewQuotation"
+            ],
+            "@section": "case-management-guaranteed-cashback-saver:Step2_Quotation",
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "mainAction": "addIcon"
+            },
+            "icons": {
+              "cardIcon": {
+                "content": "quotationIcon"
+              },
+              "cardIconPlus": {}
+            },
+            "@cssClass": "v3-box-2",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          },
+          "case-management-guaranteed-cashback-saver:Quotation": {
+            "@key": [
+              "Quotation"
+            ],
+            "icons": {
+              "cardIcon": {
+                "content": "quotationIcon"
+              },
+              "removeCardInList": {
+              	"isVisible": "card.metadata.BusinessStatus != 'ACCEPTED'",
+                "onClick": "removeCardInList()"
+              }
+            },
+            "@cssClass": "v3-box-2",
+            "@section": "case-management-guaranteed-cashback-saver:Step2_Quotation",
+            "@cardType": "template"
+          }
+        },
+        "case-management-guaranteed-cashback-saver:application": {
+          "@key": [
+            "Application"
+          ],
+          "@onOpen": "isQuotationValid('case-management-guaranteed-cashback-saver:Step2_Quotation', true)",
+          "@icon": {
+            "main": "fa fa-file-o",
+            "step": "4"
+          },
+          "icons": {
+            "step": {
+              "content": "4"
+            },
+            "cardIcon": {
+              "content": "applicationIcon"
+            }
+          },
+          "@cssClass": "v3-box-2",
+          "@section": "case-management:CaseManagement"
+        },
+        "case-management-guaranteed-cashback-saver:DocumentCenter": {
+          "@section": "case-management:CaseManagement",
+          "@key": [
+            "DocumentCenter"
+          ],
+          "icons": {
+            "cardIcon": {
+              "content": "attachmentIcon"
+            }
+          },
+          "case-management-guaranteed-cashback-saver:TransactionDocuments": {
+            "@key": [
+              "Prints"
+            ],
+            "@isVisible": true,
+            "@icon": "fa fa-file-text-o",
+            "icons": {
+              "cardIcon": {
+                "content": "transactionIcon"
+              }
+            },
+            "@section": "case-management-guaranteed-cashback-saver:DocumentCenter",
+            "TransactionDocument": {
+              "@key": [
+                "Print"
+              ],
+              "@section": "case-management-guaranteed-cashback-saver:TransactionDocuments",
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                }
+              },
+              "@cssClass": "v3-box-1",
+              "@cardType": "template",
+              "@previewHtml": "v3-resource-file-transaction.html",
+              "@onOpen": "fileReaderService.openFileReader('view',card.metadata,[],'')"
+            }
+          },
+          "case-management-guaranteed-cashback-saver:Attachments": {
+            "@key": [
+              "Attachments"
+            ],
+            "@section": "case-management-guaranteed-cashback-saver:DocumentCenter",
+            "icons": {
+              "cardIcon": {
+                "content": "attachmentIcon"
+              }
+            },
+            "@cssClass": "v3-box-1",
+            "@previewHtml": "v3-summary-static-attachment.html",
+            "Attachment": {
+              "@key": [
+                "Attachment"
+              ],
+              "@section": "case-management-guaranteed-cashback-saver:Attachments",
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                },
+                "removeCardInList": {}
+              },
+              "@cssClass": "v3-box-1",
+              "@previewHtml": "v3-summary-static-attachment-file.html",
+              "@cardType": "template",
+              "@onOpen": "fileReaderService.openFileReader('view',card.refDetail,self.moduleService.convertToArray(self.moduleService.findElementInElement_V3(self.moduleService.detail, ['Attachment'])),'uploadMode')"
+            },
+            "addAttachment": {
+              "@section": "case-management-guaranteed-cashback-saver:Attachments",
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                },
+                "cardIconPlus": {}
+              },
+              "@cardType": "action",
+              "@staticHtml": "fileUpload.html",
+              "@onClick": "importFile()"
+            }
+          }
+        },
+        "case-management-guaranteed-cashback-saver:ReviewAndApproval": {
+          "@section": "case-management:CaseManagement",
+          "icons": {
+            "step": {
+              "content": "5"
+            },
+            "cardIcon": {
+              "content": "review-icon"
+            }
+          },
+          "@isVisible": "findElementInDetail(['ManagerReview'])['@refUid'] || findElementInDetail(['Underwriting'])['@refUid']",
+          "case-management-guaranteed-cashback-saver:ManagerReview": {
+            "@key": [
+              "ManagerReview"
+            ],
+            "permission": {
+              "AGENT": {
+                "openable": false,
+                "editable": false
+              },
+              "PROSPECT": {
+                "openable": false,
+                "editable": false
+              },
+              "GUEST": {
+                "openable": false,
+                "editable": false
+              },
+              "UW": {
+                "openable": false,
+                "editable": false
+              },
+              "CSO": {
+                "openable": false,
+                "editable": false
+              },
+              "POLICY_OWNER": {
+                "openable": false,
+                "editable": false
+              }
+            },
+            "@previewHtml": "v3-manager-review-gcs.html",
+            "@onOpen": "checkManager()",
+            "@section": "case-management-guaranteed-cashback-saver:ReviewAndApproval"
+          },
+          "case-management-guaranteed-cashback-saver:Underwriting": {
+            "@key": [
+              "Underwriting"
+            ],
+            "@isVisible": "findElementInDetail(['Underwriting'])['@refUid']",
+            "@section": "case-management-guaranteed-cashback-saver:ReviewAndApproval",
+            "@icon": "fa fa-pencil-square-o",
+            "icons": {
+              "cardIcon": {
+                "content": "uWIcon"
+              }
+            },
+            "@onOpen": "getUnderwritingLazyList()"
+          }
+        },
+        "case-management-guaranteed-cashback-saver:Payment": {
+          "@key": [
+            "ClientPayment"
+          ],
+          "@icon": {
+            "main": "fa fa-credit-card"
+          },
+          "icons": {
+            "cardIcon": {
+              "content": "fa fa-credit-card"
+            }
+          },
+          "@onOpen": "getPaymentLazyList()",
+          "@section": "case-management:CaseManagement",
+          "@isVisible": "findElementInDetail(['ClientPayment'])['@refUid']"
+        }
+      }
+    }
+  }
+}

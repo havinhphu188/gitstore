@@ -1,0 +1,28 @@
+<md-dialog class="popup"  aria-label="">
+    <div class="breakLine">
+
+        <div layout="row" class="popup-header" layout-margin>
+            <div flex="10">
+                <div ng-click="cancelDialog()" class="center default-color">Cancel</div>
+            </div>
+            <div flex>
+                <div class="center">{{::selectTitle}}</div>
+            </div>
+            <div flex="10">
+                <div ng-click="doneSelect()" class="center default-color">Done</div>
+            </div>
+        </div>
+    </div>
+    <div layout="row" class="breakLine" ng-if="!enableSearch"  ng-click="document.getElementById('myInput').focus();" layout-margin>
+        <div flex="5"> <i class="fa fa-search popup-header"></i></div>
+        <div flex="90">
+            <input  class="popup-search-text" ng-model="vars.strSearch" ng-change="searchDocSelect()">
+        </div>
+    </div>
+    <div refresh-on="bIsListChanged" use-boolean  style="max-height:500px !important;" class="popupSelectContainer touch" id="select-list">
+
+     <p ng-if="dispData.length==0" align="center" style="color: grey; margin:0 auto; width:90%;">Nothing to Dispay</p>
+        <replace-html content="selectItemTemplate"> </replace-html>
+    </div>
+</md-dialog>
+<!--  -->

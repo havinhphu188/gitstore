@@ -1,0 +1,670 @@
+/**
+ * //*******************************************************************************
+ * // * Copyright (c) 2011-2014 CSC.
+ * // * Copyright (C) 2010-2016 CSC - All rights reserved.
+ * // *
+ * // * The information contained in this document is the exclusive property of
+ * // * CSC.  This work is protected under USA copyright law
+ * // * and the copyright laws of given countries of origin and international
+ * // * laws, treaties and/or conventions. No part of this document may be
+ * // * reproduced or transmitted in any form or by any means, electronic or
+ * // * mechanical including photocopying or by any informational storage or
+ * // * retrieval system, unless as expressly permitted by CSC.
+ * //
+ * // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+ * // ******************************************************************************
+ */
+
+/*************Medium Mobile******************/
+
+.ipos-mobileApp #newWorkspace{
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 85px;
+}
+
+.ipos-mobileApp .navbar .nav {
+    margin: 0px;
+}
+
+.ipos-mobileApp div.mask {
+    position: fixed;
+    z-index: 1031;/*hide other layout*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+.ipos-mobileApp .ipos-mobileApp-loading-bar {
+	display: table;
+}
+
+.ipos-mobileApp .ipos-mobileApp-loading-bar .icon-loading-bar {
+	color: white;
+	vertical-align: middle;
+	display: table-cell; 
+	font-size: 2em;
+	text-align: center;
+}
+/**--Navigation--**/
+
+.ipos-mobileApp #navigationApp {
+	background-color: white;
+	border-bottom: 1px solid #66C796;
+}
+
+.ipos-mobileApp #navigationApp ul li {
+	border-left: 1px solid #66c796;
+}
+
+.ipos-mobileApp #navigationApp ul li:HOVER {
+	color: white !important;
+    background-color: #667A96 !important;
+}
+
+.ipos-mobileApp #navigationApp .navbar-brand {
+	padding: 5px;
+	margin: 0px;
+	outline: none;
+}
+.ipos-mobileApp #navigationApp .navbar-brand img {
+	height: 100%;
+}
+
+.ipos-mobileApp #navigationApp ul li a {
+	font-weight: bold;
+   	color: black;
+   	height: 50px;
+   	outline: none; 
+}
+.ipos-mobileApp #navigationApp .search{
+	padding-top: 12px;
+   	padding-bottom: 11px;
+}
+.ipos-mobileApp #navigationApp .extension{
+	padding-top: 5px;
+   	padding-bottom: 0px;
+}
+.ipos-mobileApp #navigationApp .extension h5 {
+	font-weight: bold;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	color: red;
+}
+
+.ipos-mobileApp #navigationApp .shoppingCart {
+	padding-top: 5px;
+    color: #4B7E37;
+}
+
+.ipos-mobileApp .navigation-side {
+	position:fixed;
+	background-color: #34495E;
+	color:white;
+    top: 50px;
+    z-index: 1030;
+    height: 99%;
+    transition: transform 0.5s, width 0.5s;
+ 	overflow-y: auto;
+}
+   
+.ipos-mobileApp .navigation-side ul {
+   	padding: 5px; 
+   	margin-bottom: 50px;
+}
+   
+.ipos-mobileApp .navigation-side li{
+   	list-style-type: none;
+}
+   
+.ipos-mobileApp .navigation-side ul li > div{
+   	margin-left: auto; 
+   	margin-right: auto;
+   	line-height: 16px;
+}
+   
+.ipos-mobileApp .navigation-side-left {
+   	left: 0px;
+   	border-right: 1px solid #66C796;
+}
+   
+.ipos-mobileApp .navigation-side-right {
+   	right: 0px;
+   	border-left: 1px solid #66C796;
+}
+   
+.ipos-mobileApp .navigation-side-left-hide{
+   	transform: translateX(-160px);
+}
+
+.ipos-mobileApp .navigation-side-right-hide{
+   	transform: translateX(160px);
+}
+
+.ipos-mobileApp .navigation-side-show{
+    transform: translateX(0px);
+	
+}
+
+.ipos-mobileApp .navigation-side-mask{
+	position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.ipos-mobileApp .ipos-mobile-navbar-toggle-icon{
+	font-size: 2.5em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 50px;
+    background-color: white;
+    border: 0px;
+    color: #4B7E37;
+    padding: 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px; 
+    text-align: center;
+}
+
+/**--Thumb view in sale-hub--**/
+
+.ipos-mobileApp #listViewContainer{
+		margin-top: 70px;
+}
+
+.ipos-mobileApp .listViewContainer-right{
+	margin-left: 50px;
+}
+
+.ipos-mobileApp .v3-margin-auto {
+	margin-left: auto !important;
+	margin-right: auto !important;	
+}
+
+.ipos-mobileApp .ipos-card-mobile {
+	background-color: white; 
+	color: black;
+	height: 200px;
+	width: 200px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+    transition: all 0.5s;
+    position: relative;
+    padding: 5px;
+}
+
+.ipos-mobileApp .ipos-card-mobile:HOVER {
+	background-color: #e8f5e9 !important;
+	box-shadow: 0px 0px 0px 1px #4CAF50;
+}
+
+.ipos-mobileApp .ipos-card-mobile-footer {
+	position: absolute;
+    bottom: 2px;
+    line-height: 25px;
+    margin-top: 0px;
+    padding-left: 1px;
+    padding-right: 5px;
+/*     right: 0; */
+}
+
+/**--List view in sale-hub--**/
+
+.ipos-mobileApp document-list-view {
+    display: -webkit-box;
+    padding: 10px;
+}
+
+.ipos-mobileApp .document-list-view-header {
+	background: rgba(229, 229, 229, 1);
+    box-sizing: border-box;
+}
+
+.ipos-mobileApp .document-list-view-header .title{
+	display: flex;
+}
+
+.ipos-mobileApp .document-list-view-header .title div{
+	height: 46px;
+    font-size: 14px;
+    color: #4B7E37;
+    font-weight: bold;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 5px;
+}
+
+.ipos-mobileApp .document-list-view-Error-Message {
+	text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: red;
+    font-style: italic;
+}
+
+.ipos-mobileApp .ipos_small_mobile_table {
+	margin-top: 50px;	
+}
+
+.ipos-mobileApp .ipos_mobile_table_table_header {
+	color: white;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 32px;
+    margin-bottom: 2px;
+    text-align: left;
+    align-items: center;
+    margin-top: 20px;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.ipos-mobileApp .ipos_even_row {
+	background-color: white;
+}
+
+.ipos-mobileApp .ipos-box-prospect-background {
+	background-color: rgb(41, 182, 216);
+}
+
+.ipos-mobileApp .ipos-box-prospect-boder {
+	border: 2px solid rgb(41, 182, 216);
+	color: rgb(41, 182, 216);
+}
+
+.ipos-mobileApp .ipos-box-prospect-opacity-3 {
+	background-color: rgba(41,182,216,0.3);
+}
+
+.ipos-mobileApp .ipos-box-fna-background {
+	background-color: #4CAF50;
+}
+
+.ipos-mobileApp .ipos-box-fna-boder {
+	border: 2px solid #4CAF50;
+	color: #4CAF50;
+}
+
+.ipos-mobileApp .ipos-box-fna-opacity-3 {
+	background-color: rgba(76, 175, 80, 0.3);
+}
+
+.ipos-mobileApp .ipos-box-claim-notification-background {
+	background-color: #df6a78;
+}
+
+.ipos-mobileApp .ipos-box-claim-notification-boder {
+	border: 2px solid #df6a78;
+	color: #df6a78;
+}
+
+.ipos-mobileApp .ipos-box-claim-notification-opacity-3 {
+	background-color: rgba(223, 106, 120, 0.3);
+}
+
+.ipos-mobileApp .ipos-box-case-management-background {
+	background-color: #f38231;
+}
+
+.ipos-mobileApp .ipos-box-case-management-boder {
+	border: 2px solid #f38231;
+	color: #f38231;
+}
+
+.ipos-mobileApp .ipos-box-case-management-opacity-3 {
+	background-color: rgba(243, 130, 49, 0.3);
+}
+
+.ipos-mobileApp .mdCheckbox-container{
+	position: absolute; 
+	top: 100px; 
+	left: 15px;
+}
+
+.ipos-mobileApp .ipos_medium_mobile_table .mobileApp-mdCheckbox{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.ipos-mobileApp .ipos_medium_mobile_table_table_listRow {
+	text-align: left;
+    word-break: break-word;
+    word-wrap: break-word;
+    line-height: 30px;
+    display: -webkit-flex;
+    display: flex;
+}
+.ipos-mobileApp .ipos_medium_mobile_table_table_listRow div, .ipos_mobile_table_table_header div{
+	-webkit-flex: 1; 
+    -ms-flex: 1; 
+    flex: 1;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.ipos-mobileApp .ipos_medium_mobile_table_table_listRow div.col-icon-star, .ipos_mobile_table_table_header div.col-icon-star{
+	-webkit-flex: 0 30px; 
+    -ms-flex: 0 30px; 
+    flex: 0 30px;
+    font-size: 1.5em;
+}
+
+.ipos-mobileApp .v3-fna-card-datetime{
+	position: absolute;
+    bottom: 10px;
+}
+
+.ipos-mobileApp .sync-by-case .sync-by-case-icon{
+	color: #4B7E37;
+	font-size: 40px;
+	margin-left: 10px;
+}
+.ipos-mobileApp .sync-by-case .sync-by-case-icon:ACTIVE{
+	color: black !important;
+}
+
+/**--Carousel--**/
+.ipos-mobileApp #carousel-list-view-sale-hub {
+	height: 100vh;
+}
+
+.ipos-mobileApp #carousel-list-view-sale-hub .carousel-indicators {
+	position: fixed;
+	bottom: 5px;
+}
+
+.ipos-mobileApp #carousel-list-view-sale-hub .carousel-indicators li{
+	color: #4B7E37;
+	background-color:  rgba(75,126,55,0.3);;
+	border: 1px solid #4B7E37;
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+}
+
+.ipos-mobileApp #carousel-list-view-sale-hub .carousel-indicators .active {
+	background-color: #4B7E37;
+	border: 1px solid #4B7E37;
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+}
+
+.ipos-mobileApp #carousel-list-view-sale-hub .carousel-control{
+	background: transparent;
+    width: 50px;
+}
+
+/**--Search--**/
+.ipos-mobileApp .ipos-mobile-icon-control-group {
+	float: right; 
+	overflow: hidden;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.ipos-mobileApp .ipos-mobile-icon-control-group i{
+	color: #4B7E37;
+	margin-left: 5px;
+}
+
+.ipos-mobileApp .ipos-mobile-icon-control-group .icon-active {
+	color: #4B7E37;
+}
+
+.ipos-mobileApp .ipos-mobile-icon-control-group .icon-inactive {
+	color: #C8E6C9;
+}
+
+.ipos-mobileApp .ipos-mobile-search {
+	float: right;
+	overflow: hidden;
+}
+
+.ipos-mobileApp .ipos-mobile-search .isHideTransform {
+	transform: translateX(500px);
+	transition: transform 0.5s, width 0.5s;
+}
+
+.ipos-mobileApp .ipos-mobile-search .isShowTransform {
+	transform: translateX(0px);
+	transition: transform 0.5s, width 0.5s;
+}
+
+.ipos-mobileApp .ipos-mobile-icon-control-group .isHideTransform {
+	transition: transform 0.5s, width 0.5s;
+	transform: translateX(-50px);
+}
+
+.ipos-mobileApp .ipos-mobile-icon-control-group .isShowTransform {
+	transition: transform 0.5s, width 0.5s;
+	transform: translateX(0px);
+}
+
+.ipos-mobileApp .ipos-mobile-search #searchBox{
+	padding-left: 40px;
+    border-radius: 40px;
+    height: 40px;
+    margin-top: 3px;
+    padding-right: 40px;
+}
+
+.ipos-mobileApp .ipos-mobile-search .searchIcon{
+	position: absolute; 
+	top: 8px; 
+	left: 10px;
+	color: #4B7E37;
+}
+
+.ipos-mobileApp .ipos-mobile-search .cleanIcon{
+	position: absolute; 
+	top: 8px; 
+	right: 10px;
+	color: red;
+	cursor: pointer;
+}
+
+/**--Pagination--**/
+.ipos-mobileApp .v3-pagination .v3-pagination-container {
+	margin-top: 20px; 
+	margin-bottom: 20px; 
+	float: right;
+}
+.ipos-mobileApp .v3-pagination .v3-pagination-container .itemsPerPage {
+	width: 140px; 
+	float: left;
+	margin-top: 39px;
+}
+
+.ipos-mobileApp .v3-pagination .v3-pagination-container .itemsPerPage select {
+	max-width: 50px; 
+	height: 33px; 
+	margin: 0px; 
+	padding: 0px; 
+	border: 2px solid #ddd;
+	border-radius: 4px;
+	padding-left: 7px;
+	text-align: center;	
+}
+
+.ipos-mobileApp .v3-pagination .v3-pagination-container .dirPpaginationControls {
+	display: block; 
+	float: right;
+}
+
+/**--Login--**/
+/* Login screen */
+.ipos-mobileApp .app-login-form{
+	background-image: url('../img/backgroundLogin.jpg');
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-top: 50px;
+}
+
+.ipos-mobileApp .app-Login-Container {
+	margin-top: 70px;
+}
+
+.ipos-mobileApp .app-Login-Container > div{
+	margin-left: auto;
+	margin-right: auto; 
+	float: none; 
+	padding-top: 20px; 
+	padding-bottom: 20px;
+}
+
+.ipos-mobileApp .app-Forgot-Password{
+	color:#259b24; 
+	font-style:oblique;
+	font-size:17px;
+}
+
+/*progress bar mask*/
+
+.ipos-mobileApp .progressBar {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 40vh;
+}
+
+/*custom popup select*/
+
+.ipos-mobileApp .popupSelect {
+    /*text-align: center;*/
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+.ipos-mobileApp .popup-search-text {
+    border: 0;
+    height: 35px;
+    width: 100%;
+    margin-top: -10px;
+}
+
+.ipos-mobileApp .popupSelectList {
+    margin-top: 0;
+    margin-left: 5%;
+  
+}
+
+.ipos-mobileApp .popupSelectBeakeline {
+    /*width: 100%;*/
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.ipos-mobileApp .popupSelectContainer {
+    /*height: 80%;*/
+    /*width: 100%;*/
+    overflow: scroll;
+    padding: 0;
+}
+
+.ipos-mobileApp .popup {
+    height: auto;
+    /*min-height: 300px;*/
+    width: 400px;
+    position: fixed;
+    left: 0;
+    top: 100px;
+    right: 0;
+    margin: 0 auto;
+}
+.ipos-mobileApp .popup-header {
+    margin-top: -5px !important;
+    font-size: 110%;
+}
+
+/*default color*/
+.ipos-mobileApp .default-color{
+    color: green;
+}
+
+
+/*leftbar list module name*/
+
+.ipos-mobileApp .listModule {
+    padding: 20px 15px 20px;
+}
+
+/*table action icon*/
+.ipos-mobileApp .listModule.table-action {
+    display: inline-block;
+}
+
+/*************Sync******************/
+.ipos-mobile-sync-text-success{
+	color: cadetblue;
+    font-size: 16px;
+}
+.ipos-mobile-sync-text-error{
+	color: red;
+    font-size: 16px;
+}
+ 
+.ipos-mobile-sync-message{  
+      height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(29, 109, 19, 0.25);
+}
+
+.ipos-mobileApp .md-dialog-container {
+	top: 0px !important;
+}
+.current-nav-language{
+    line-height: 0px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+/*************Override Other Class******************/
+.v3-small-live-card-item:hover .v3-live-card-info,.v3-small-live-card-item:hover .v3-padding-0,.v3-small-live-card-item:hover .v3-card-icon-remove{
+	visibility:hidden;
+}
+/*************Small Mobile******************/
+
+@media  (max-width: 480px) {
+	/**--Thumb view in sale-hub--**/
+	.ipos-mobileApp .ipos-card-mobile{
+		height: 150px;
+		width: 150px;
+		margin-top: 10px;
+	}
+	
+	.ipos-mobileApp .v3-pagination .v3-pagination-container .itemsPerPage {
+		float: right;
+	}	
+}
+
+@media screen and (orientation:landscape)
+{
+  .ipos-mobileApp .app-login-form {
+	    background-size: 100% 100%;
+	    background-repeat: no-repeat;
+	}
+}
+
+@media screen and (orientation:portrait)
+{
+  .ipos-mobileApp .app-login-form {
+	    background-size: 100% 50%;
+	    background-repeat: repeat;
+	}
+}

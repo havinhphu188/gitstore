@@ -1,0 +1,33 @@
+{
+  "IposDocument": {
+    "Data": {
+      "underwriting-motor:Underwriting": {
+        "section": "underwriting-motor:Underwriting",
+        "vpms-suffix": "Underwriting",
+        "icon": "fa fa-pencil-square-o",
+        "cssClass": "v3-box-6",
+        "underwriting-motor:labelUnderwritingReview":{
+          "type": ""
+        },
+        "underwriting-motor:Product": {
+          "type": ""
+        },
+        "underwriting-motor:VehicleInformation": {
+          "type": ""
+        },
+        "underwriting-motor:UnderwritingFindings": {
+          "type": ""
+        },
+        "underwriting-motor:UnderwriterDecision": {
+          "type": ""
+        },
+        "underwriting-motor:Premium": {
+          "type": ""
+        },
+        "underwriting-motor:UnderwritingRemark": {
+          "type": ""
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "IposDocument": {
+    "Data": {
+      "illustration-personal-accident:QuotationPersonalAccident": {
+        "@key": [
+          "QuotationPersonalAccident"
+        ],
+        "@section": "illustration-personal-accident:QuotationPersonalAccident",
+        "illustration-personal-accident:DocumentRelation": {
+          "@key": [
+            "DocumentRelation"
+          ],
+          "illustration-personal-accident:ActionType": {
+            "@key": [
+              "ActionType"
+            ]
+          },
+          "illustration-personal-accident:CaseID": {
+            "@key": [
+              "CaseID"
+            ]
+          }
+        },
+        "illustration-personal-accident:Summary": {
+          "@key": [
+            "Summary"
+          ],
+          "@icon": "fa fa-bar-chart",
+          "@cssClass": "v3-box-2",
+          "@section": "illustration-personal-accident:QuotationPersonalAccident",
+          "@previewHtml": "v3-summary-static-personal-accident.html",
+          "illustration-personal-accident:SummaryStatus": {
+            "@section": "illustration-personal-accident:Summary",
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "illustration-personal-accident:quotation-information": {
+              "@key": [
+                "DocName"
+              ],
+              "@preview": [
+                "illustration-personal-accident:SummaryStatus"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:QuotationInformation"
+            },
+            "illustration-personal-accident:current-status": {
+              "@key": [
+                "BusinessStatus"
+              ],
+              "@preview": [
+                "illustration-personal-accident:QuotationPersonalAccident",
+                "illustration-personal-accident:SummaryStatus"
+              ],
+              "@valuePrefix": "v3.document.status.",
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:CurrentStatus"             
+            },
+            "illustration-personal-accident:pending-information": {},
+            "illustration-personal-accident:next-required-action": {}
+          },
+          "illustration-personal-accident:SummaryQuotation": {
+            "@section": "illustration-personal-accident:Summary",
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "@onOpen": "getMainInsured()",
+            "@previewHtml": "v3-summary-quotation-personal-accident.html",
+            "illustration-personal-accident:SummaryQuotation": {}
+          }
+        },
+        "illustration-personal-accident:Inputs": {
+          "@key": [
+            "Inputs"
+          ],
+          "illustration-personal-accident:ProductInformation": {
+            "@key": [
+              "ProductInformation"
+            ],
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-personal-accident:QuotationPersonalAccident",
+            "illustration-personal-accident:ProductName": {
+              "@key": [
+                "ProductName"
+              ],
+              "@preview": [
+                "illustration-personal-accident:QuotationPersonalAccident",
+                "illustration-personal-accident:ProductInformation"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:ProductName",
+              "@valuePrefix": "v3.illustration.product."
+            },
+            "illustration-personal-accident:InceptionDate": {
+              "@key": [
+                "InceptionDate"
+              ],
+              "@format": "datetime",
+              "@preview": [
+                "illustration-personal-accident:ProductInformation"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:InceptionDate"
+            },
+            "illustration-personal-accident:ExpiryDate": {
+              "@key": [
+                "ExpiryDate"
+              ],
+              "@format": "datetime",
+              "@preview": [
+                "illustration-personal-accident:QuotationPersonalAccident",
+                "illustration-personal-accident:ProductInformation"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.illustration:ExpiryDate"
+            }
+          },
+          "illustration-personal-accident:Coverage": {
+            "@key": [
+              "Coverage"
+            ],
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-personal-accident:QuotationPersonalAccident",
+            "@previewHtml": "v3-static-personal-accident-coverage.html",
+            "@onOpen": "getMainInsured()",
+            "illustration-personal-accident:Benefits": {
+              "@key": [
+                "BasicCoverage"
+              ],
+              "@icon": "fa fa-bar-chart",
+              "@cssClass": "v3-box-2",
+              "@section": "illustration-personal-accident:Coverage",
+              "illustration-personal-accident:Plan": {
+                "@key": [
+                  "Plan"
+                ],
+                "@preview": [
+                  "illustration-personal-accident:Benefits"
+                ],
+                "@valuePrefix": "v3.personal-accident.plan.enum."
+              },
+              "illustration-personal-accident:Country": {
+                "@key": [
+                  "Country"
+                ],
+                "@preview": [
+                  "illustration-personal-accident:Benefits"
+                ],
+                "@valuePrefix": "v3.personal-accident.country.enum."
+              },
+              "illustration-personal-accident:Benefits": {
+                "@key": [
+                  "Benefits"
+                ]
+              },
+              "illustration-personal-accident:GeographicCoverage": {
+                "@key": [
+                  "GeographicCoverage"
+                ],
+                "@preview": [
+                  "illustration-personal-accident:Benefits"
+                ],
+                "@valuePrefix": "v3.personal-accident.geographic-coverage.enum."
+              },
+              "illustration-personal-accident:PolicyDeductible": {
+                "@key": [
+                  "PolicyDeductible"
+                ],
+                "@preview": [
+                  "illustration-personal-accident:Benefits"
+                ]
+              }
+            },
+            "illustration-personal-accident:InsuredPersons": {
+              "@key": [
+                "OtherInsuredPersons"
+              ],
+              "@icon": "fa fa-bar-chart",
+              "@cssClass": "v3-box-2",
+              "@section": "illustration-personal-accident:Coverage",
+              "@previewHtml": "v3-summary-static-number-of-person.html",
+              "illustration-personal-accident:MainInsured": {
+                "@section": "illustration-personal-accident:InsuredPersons",
+                "@key": [
+                  ""
+                ],
+                "illustration-personal-accident:MIFullName": {
+                  "@key": [
+                    "MainInsured",
+                    "PersonName",
+                    "FullName"
+                  ],
+                  "@preview": [
+                    "illustration-personal-accident:MainInsured"
+                  ],
+                  "@labelKey": "v3.mynewworkspace.portlet.label.illustration:FullName"
+                },
+                "illustration-personal-accident:MIIDNumber": {
+                  "@key": [
+                    "MainInsured",
+                    "IDs",
+                    "ID",
+                    "IDNumber"
+                  ],
+                  "@preview": [
+                    "illustration-personal-accident:MainInsured"
+                  ],
+                  "@labelKey": "v3.mynewworkspace.portlet.label.illustration:BirthDate"
+                },
+                "illustration-personal-accident:MIBirthDate": {
+                  "@key": [
+                    "MainInsured",
+                    "BirthDate"
+                  ],
+                  "@preview": [
+                    "illustration-personal-accident:MainInsured"
+                  ],
+                  "@format": "datetime",
+                  "@labelKey": "v3.mynewworkspace.portlet.label.illustration:BirthDate"
+                },
+                "illustration-personal-accident:MIOccupation": {
+                  "@key": [
+                    "MainInsured",
+                    "Occupation"
+                  ],
+                  "@preview": [
+                    "illustration-personal-accident:MainInsured"
+                  ],
+                  "@labelKey": "v3.mynewworkspace.portlet.label.illustration:Occupation",
+                  "@valuePrefix": "v3.personal-accident.occupation.enum."
+                },
+                "illustration-personal-accident:MIOccupationClass": {
+                  "@key": [
+                    "MIOccupationClass",
+                    "OccupationClass"
+                  ],
+                  "@preview": [],
+                  "@labelKey": "v3.mynewworkspace.portlet.label.illustration:OccupationClass"
+                }
+              },
+              "illustration-personal-accident:AddOtherInsuredPersons": {
+                "@key": [
+                  "AddOtherInsuredPersons"
+                ],
+                "@icon": {
+                  "main": "fa fa-bar-chart",
+                  "mainAction": "addIcon"
+                },
+                "@cssClass": "v3-box-2",
+                "@section": "illustration-personal-accident:InsuredPersons",
+                "@cardType": "action",
+                "@onClick": "addCard(card)"
+              },
+              "illustration-personal-accident:OtherInsuredPersons": {
+                "@section": "illustration-personal-accident:InsuredPersons",
+                "@cardType": "template",
+                "@key": [
+                  "OtherInsuredPerson"
+                ],
+                "@icon": {
+                  "main": "fa fa-bar-chart",
+                  "subAction": "removeIcon"
+                },
+                "illustration-personal-accident:OIFullName": {
+                  "@key": [
+                    "OtherInsuredPerson",
+                    "PersonName",
+                    "FullName"
+                  ],
+                  "@preview": [
+                    "illustration-personal-accident:OtherInsuredPersons"
+                  ]
+                },
+                "illustration-personal-accident:OIIDNumber": {
+                  "@key": [
+                    "OtherInsuredPerson",
+                    "IDs",
+                    "ID",
+                    "IDNumber"
+                  ],
+                  "@preview": [
+                    "illustration-personal-accident:OtherInsuredPersons"
+                  ]
+                },
+                "illustration-personal-accident:OIBirthDate": {
+                  "@key": [
+                    "OtherInsuredPerson",
+                    "BirthDate"
+                  ],
+                  "@preview": [
+                    "illustration-personal-accident:OtherInsuredPersons"
+                  ],
+                  "@format": "datetime"
+                }
+              }
+            }
+          }
+        },
+        "Attachments": {
+          "@counter": "0",
+          "@maxOccurs": "",
+          "@minOccurs": "0",
+          "Attachment": {
+            "@refResourceDocType": "",
+            "@refResourceUid": "",
+            "FileUid": {
+              "@refResourceStatus": "",
+              "@refResourceVal": ""
+            },
+            "Name": {
+              "@refResourceStatus": "",
+              "@refResourceVal": ""
+            },
+            "FileName": {
+              "@refResourceStatus": "",
+              "@refResourceVal": ""
+            },
+            "CreateDate": {
+              "@refResourceStatus": "",
+              "@refResourceVal": ""
+            },
+            "FileSize": {
+              "@refResourceStatus": "",
+              "@refResourceVal": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}

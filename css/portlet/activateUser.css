@@ -1,0 +1,164 @@
+/**
+ * //*******************************************************************************
+ * // * Copyright (c) 2011-2014 CSC.
+ * // * Copyright (C) 2010-2016 CSC - All rights reserved.
+ * // *
+ * // * The information contained in this document is the exclusive property of
+ * // * CSC.  This work is protected under USA copyright law
+ * // * and the copyright laws of given countries of origin and international
+ * // * laws, treaties and/or conventions. No part of this document may be
+ * // * reproduced or transmitted in any form or by any means, electronic or
+ * // * mechanical including photocopying or by any informational storage or
+ * // * retrieval system, unless as expressly permitted by CSC.
+ * //
+ * // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+ * // ******************************************************************************
+ */
+
+/*--------------- Title Bar --------------*/
+/*-------------- activate Portlet --------------*/
+#ipos_activate .makeDisableInput {
+  min-width: 150px;
+  background-color: #eeeeee;
+  line-height: 30px;
+  border-bottom: 2px solid #dce4ec;
+  font-family: "Lato",sans-serif;
+  font-size: 14px;
+  cursor: not-allowed;
+  min-height:30px; 
+}
+#ipos_activate .ipos_portlet_title_activate{
+	color: #FFFFFF !important;
+ 	background: rgba(229, 229, 229, 1) !important;
+	height: 30px !important;
+	padding-top: 4px;
+	font-weight: normal;
+	text-align: center;
+}
+
+.ipos_portlet_activate_form{
+	background-color: #ffffff;
+}
+  
+.ipos_portlet_activate_content{
+ 	background-color: rgba(255, 255, 255, 0.01)
+}
+
+#ipos_activate .inputTextStyle{
+	font-size: 14px !important;
+}
+#ipos_activate .activateRow{
+	padding-bottom: 10px;
+} 
+#ipos_activate md-content{
+	padding-top: 10px;
+}
+#ipos_activate label{
+	font-size: 13px !important;
+	font-family:Tahoma;
+	color: #000000 !important;
+}
+/* #ipos_activate .titlePP{
+	color: #FFFFFF;
+	background:  #0099CC;
+	min-height: 30px !important;
+ 	padding-left: 10px;
+ 	padding-top: 5px; 
+	border: 0px solid black;
+	font-size: 16px;
+	font-weight: bold;
+} */
+#ipos_activate .title{
+	color: #FFFFFF;
+	min-height: 40px !important;
+	background: rgb(76,175,80);
+	padding-top: 10px;
+	border: 0px solid black;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;	
+}
+#ipos_activate .rowStyle{
+	padding-bottom: 10px;
+}
+#timeRegister{
+	color: red;	
+}
+.taglib-captcha{
+	margin: 0px !important;
+}
+#ipos_activate .control-group{
+	margin-bottom: 0px !important;
+}
+/* #ipos_activate .popup_overlay{
+	position:fixed; top:0; left:0;
+	background:rgba(0,0,0,0.6); 
+	z-index:5; 
+	width:100%; 
+	height:100%; 
+
+}  */
+/*-------------- End activate Portlet --------------*/
+#ipos_activate .navbarMyClient{
+	color: #FFFFFF !important;
+	background: rgb(76,175,80) !important;
+	height: 30px !important;
+	padding-top: 4px;
+	font-weight: bold;
+}
+#ipos_activate .navbarMyClient > a {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.dropdown-menu{
+	/* top: 20% !important;
+	margin-top: 24px !important; */
+}
+
+#ipos_activate .navbarMyClientDropdown > li{
+	line-height: 24px !important;
+}
+
+#ipos_activate .brand{
+	color: #FFFFFF !important;
+}
+
+#ipos_activate .iconStyle{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	color: #FFFFFF !important;
+}
+
+#ipos_activate .iconStyle > span > i{
+	font-size: 19px;
+}
+
+#ipos_activate .iconStyle:FOCUS, .iconStyle:VISITED {
+	color: #FFFFFF !important;
+	background: rgb(76,175,80) !important;
+}
+
+#ipos_activate .iconStyle > span:FOCUS, .iconStyle > span:VISITED, .iconStyle > span:HOVER {
+	color: rgb(51, 102, 0);
+}
+#ipos_activate ul {
+    list-style: none;
+}
+
+  
+#ipos_activate md-tooltip{
+	margin-top: 110px !important;
+}
+#ipos_activate .rowActivate{
+	margin-bottom: 5px;
+	margin-top:10px;
+}
+.normal-icon{
+	font-size:20px;
+}
+
+.inner-icon{
+	margin-left: -25px;
+	margin-top: 5px;
+}

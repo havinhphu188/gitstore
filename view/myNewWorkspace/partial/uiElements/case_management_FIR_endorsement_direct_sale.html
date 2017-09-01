@@ -1,0 +1,187 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="endorsement-FIR:EndorseInfor" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+    <div class="col-xs-12">
+        <div class="form-group form-group-lg has-success">
+            <label class=""><b>{{"v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:EndorseInfor"|translate}}</b></label>
+        </div>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:EndorseStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:EndorseStatus'|
+			translate}}:</span>
+        <span class="col-md-6">{{moduleService.findElementInDetail_V3(['DocStatus']).BusinessStatus}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:EndorseNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:EndorseNo'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['DocName'])}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:ProductName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+        <div class="form-group form-group-lg has-success">
+            <label class="col-md-6">{{"new.v3.mynewworkspace.motor.endorsement.label.ProductName"|translate}} :</label>
+            <label class="col-md-6">{{::"v3.mynewworkspace.portlet.label.productName."+moduleService.findElementInDetail_V3(['DocInfo']).Product | translate}}</label>
+        </div>
+</div>
+<div fieldId="endorsement-FIR:PolicyOwner" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:PolicyOwner'
+            | translate}}:</span> <span class="col-md-6">{{::modulePolicyService.findElementInDetail_V3(['PolicyOwner', 'FullName']).$}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:PolicyNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <label class="col-md-6">{{"new.v3.mynewworkspace.motor.endorsement.label.PolicyNumber"|translate}} :</label>
+        <label class="col-md-6"> {{::modulePolicyService.findElementInDetail_V3(['PolicyNo']).$}}</label>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:ClientID" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:ClientID'
+			| translate}}:</span> <span class="col-md-6">{{modulePolicyService.findElementInDetail_V3(['ClientId']).$}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:InceptionDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:InceptionDate'
+			| translate}}:</span> <span class="col-md-6">{{modulePolicyService.findElementInDetail_V3(['InceptionDate']).$}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:ExpireDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:ExpireDate'
+			| translate}}:</span> <span class="col-md-6">{{modulePolicyService.findElementInDetail_V3(['ExpiryDate']).$}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:EndorseType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:EndorseType'
+			| translate}}:</span> <span class="col-md-6">{{'caseManagement.endorsement.reason.' + moduleService.findElementInDetail_V3(['EReason']).Value | translate}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:EffectiveDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:EffectiveDate'
+			| translate}}:</span> <span class="col-md-6">{{modulePolicyService.findElementInDetail_V3(['EffectiveDate']).$}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:PreviewEndorse" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6"><a style="font-style: italic" class="pointer" ng-click="printPreviewPdf()">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:PreviewEndorse'
+			| translate}}</a></span>
+    </div>
+</div>
+
+<!--Step 1 -->
+<!-- Section: Policy Information -->
+<div fieldId="endorsement-FIR:PolicyBasicInformation" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+    <div class="col-xs-12">
+        <div class="form-group form-group-lg has-success">
+            <label class=""><b>{{"new.v3.mynewworkspace.FIR.endorsement.label.PolicyBasicInformation"|translate}}</b></label>
+        </div>
+    </div>
+</div>
+
+<div fieldId="endorsement-FIR:Step1ProductName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+        <div class="form-group form-group-lg has-success">
+            <label class="col-md-5">{{"new.v3.mynewworkspace.FIR.endorsement.label.ProductName"|translate}} :</label>
+            <label class="col-md-7">{{::"v3.mynewworkspace.portlet.label.productName."+modulePolicyService.findElementInDetail_V3(['DocInfo']).Product | translate}}</label>
+        </div>
+</div>
+
+<div fieldId="endorsement-FIR:Step1PolicyNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+        <div class="form-group form-group-lg has-success">
+            <label class="col-md-5">{{"new.v3.mynewworkspace.FIR.endorsement.label.PolicyNumber"|translate}} :</label>
+            <label class="col-md-7"> {{::modulePolicyService.findElementInDetail_V3(['EOriginalPolicyNumber']).$}}</label>
+        </div>
+</div>
+
+<div fieldId="endorsement-FIR:Step1PolicyOwner" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+        <div class="form-group form-group-lg has-success">
+            <label class="col-md-5">{{"new.v3.mynewworkspace.FIR.endorsement.label.PolicyOwnerName"|translate}} :</label>
+            <label class="col-md-7">{{::modulePolicyService.findElementInDetail_V3(['PolicyOwner','PersonName','FullName']).$}}</label>
+        </div>
+</div>
+
+<div fieldId="endorsement-FIR:Step1ClientID" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary"
+    ng-if="modulePolicyService.findElementInDetail_V3(['ClientId'])['@visible']=='1'">
+        <div class="form-group form-group-lg has-success">
+            <label class="col-md-5">{{"new.v3.mynewworkspace.FIR.endorsement.label.ClientID"|translate}} :</label>
+            <label class="col-md-7"> {{::modulePolicyService.findElementInDetail_V3(['ClientId']).$}}</label>
+        </div>
+</div>
+
+<div fieldId="endorsement-FIR:Step1InceptionDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+        <div class="form-group form-group-lg has-success">
+            <label class="col-md-5">{{"new.v3.mynewworkspace.FIR.endorsement.label.InceptionDate"|translate}} : </label>
+            <label class="col-md-7">{{::modulePolicyService.findElementInDetail_V3(['InceptionDate']).$ | dateFilter}}</label>
+        </div>
+</div>
+
+<div fieldId="endorsement-FIR:Step1ExpiryDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+        <div class="form-group form-group-lg has-success">
+            <label class="col-md-5">{{"new.v3.mynewworkspace.FIR.endorsement.label.ExpiryDate"|translate}} :</label>
+            <label class="col-md-7">{{::modulePolicyService.findElementInDetail_V3(['ExpiryDate']).$ | dateFilter}}</label>
+        </div>
+</div>
+
+<div fieldId="endorsement-FIR:Step1EffectiveDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+        <div class="form-group fosrm-group-lg has-success">
+            <label class="col-md-5">{{"new.v3.mynewworkspace.FIR.endorsement.label.EffectiveDate"|translate}} :</label>
+            <label class="col-md-7">{{::modulePolicyService.findElementInDetail_V3(['EffectiveDate']).$ | dateFilter}}</label>
+        </div>
+</div>
+
+<div fieldId="endorsement-FIR:Step1EffectiveDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6  summary v3-column-content">
+    <div class="col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{"new.v3.mynewworkspace.FIR.endorsement.label.EffectiveDate"|translate}}*</label>
+            <div class="ms-calendar-wrapper">
+                <input maxDate='{{effectiveMaxDate}}' minDate='{{effectiveMinDate}}' 
+                    ms-datepicker ng-disabled= "moduleService.findElementInDetail_V3(['BusinessStatus']) != 'DRAFT'"
+            ng-model="modulePolicyService.findElementInDetail_V3(['EffectiveDate']).$" class="ms-calendar"/></div> 
+            <span class="errorMessage" ng-bind="modulePolicyService.findElementInDetail_V3(['EffectiveDate']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+
+<div fieldId="endorsement-FIR:Step1TypeofReasonEndorse" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-12">
+        <div class="form-group form-group-lg has-success">
+            <label class=""><b>{{"new.v3.mynewworkspace.FIR.endorsement.label.EnterChangeRequest_New"|translate}}</b></label>
+        </div>
+    </div>
+</div>
+
+<div fieldId="endorsement-FIR:ReasonTextArea" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary v3-column-content"
+    ng-if="modulePolicyService.findElementInDetail_V3(['EndorsementReasonNote'])['@visible']=='1'">
+    <div class="col-xs-12 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label class="">{{"new.v3.mynewworkspace.FIR.endorsement.label.TypeInAReasonOfEndorsement_New"|translate}} <span ng-if="modulePolicyService.findElementInDetail_V3(['EndorsementReasonNote'])['@mandatory'] == 1">*</span></label>
+            <textarea id="endorseReason" class="form-control bottom-25" ng-disabled="moduleService.findElementInDetail_V3(['BusinessStatus']) != 'DRAFT' || viewMode || modulePolicyService.findElementInDetail_V3(['EndorsementReasonNote'])['@editable'] == 0"
+                type="text" ng-model="modulePolicyService.findElementInDetail_V3(['EndorsementReasonNote']).$">
+            </textarea>
+        </div>
+    </div>
+</div>

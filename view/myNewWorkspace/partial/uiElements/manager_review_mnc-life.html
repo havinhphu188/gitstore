@@ -1,0 +1,173 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Manager review -->
+<div fieldId="case-management-rul:CompleteofClientDetailFake" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="form-group form-group-lg has-success">
+        <b>{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:KnowYourClient'
+				| translate}} </b>
+    </div>
+</div>
+<div fieldId="case-management-rul:CompleteofClientDetail" class="col-xs-12 col-sm-7 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label style="font-size: 13px;">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:CompleteofClientDetail' | translate}}
+            <span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>
+            </label>
+            <v3-switch-new-slide prefix="v3.yesno.enum" 
+            switch-model="uiElement.refDetail.Value" 
+            switch-default-value="" switch-disabled="uiElement.refDetail['@editable'] == '0' 
+            || freeze == true" 
+            switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['CompletionOfClientPersonalDetail']).Option">
+            </v3-switch-new-slide>
+            
+        </div>
+        <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+</div>
+<div fieldId="case-management-rul:CompleteofClientDetailRemark" class="col-xs-12 col-sm-5 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 col-sm-12 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label style="font-size: 13px;">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:remark' | translate}}</label> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button style="min-width: 7px; width: 50px; display: block; height: 46px" class="btn btn-lg v3-btn-primary" ng-click="remarkManagerGCS('Complettion')">
+                <i ng-if="remarkManagerGCSComplettion == false" class="fa fa-pencil-square-o"></i>
+                <i ng-if="remarkManagerGCSComplettion == true" class="fa fa-eraser"></i>
+            </button>
+            <div ng-if="remarkManagerGCSComplettion == true" style="padding: 0;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+                <div style="margin-bottom: 50px;margin-top: 20px;">
+                    <div class="form-group form-group-lg has-success">
+                        <textarea rows="5" cols="120" maxlength="100" class="form-control" 
+                        ng-disabled="uiElement.refDetail['@editable'] == '0' 
+                        || freeze == true" type="text" 
+                        ng-model="uiElement.refDetail.$" />
+                        <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div fieldId="case-management-rul:ObjectiveandPreferences" class="col-xs-12 col-sm-7 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 col-lg-9 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label style="font-size: 13px;">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:ObjectiveandPreferences' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>
+            </label>
+            <v3-switch-new-slide prefix="v3.yesno.enum" 
+            switch-model="uiElement.refDetail.Value"
+             switch-default-value="" switch-disabled="uiElement.refDetail['@editable'] == '0'
+              || freeze == true" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['ObjectiveAndPreference']).Option">
+            </v3-switch-new-slide>
+           
+        </div>
+         <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+</div>
+
+<div fieldId="case-management-rul:ObjectiveandPreferencesRemark" class="col-xs-12 col-sm-5 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 col-sm-12 v3-column-content">
+        <div class="form-group form-group-lg has-success"><br>        	
+            <label style="font-size: 13px;">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:remark' | translate}} 
+            </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button style="min-width: 7px; width: 50px; display: block; height: 46px" class="btn btn-lg v3-btn-primary" ng-click="remarkManagerGCS('Objective')">
+                <i ng-if="remarkManagerGCSObjective == false" class="fa fa-pencil-square-o"></i>
+                <i ng-if="remarkManagerGCSObjective == true" class="fa fa-eraser"></i>
+            </button>
+            <div ng-if="remarkManagerGCSObjective == true" style="padding: 0;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+                <div style="margin-bottom: 50px;margin-top: 20px;">
+                    <div class="form-group form-group-lg has-success">
+                        <textarea rows="5" cols="120" maxlength="100" class="form-control" 
+                        ng-disabled="uiElement.refDetail['@editable'] == '0' 
+                        || freeze == true" type="text" 
+                        ng-model="uiElement.refDetail.$" />
+                        <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div fieldId="case-management-rul:CompleteodClientInvestment" class="col-xs-12 col-sm-7 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 col-lg-9 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label style="font-size: 13px;">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:CompleteodClientInvestment' | translate}}
+            <span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>
+            </label>
+            <v3-switch-new-slide prefix="v3.yesno.enum" 
+            switch-model="uiElement.refDetail.Value" 
+            switch-default-value="" 
+            switch-disabled="uiElement.refDetail['@editable'] == '0' 
+            || freeze == true" 
+            switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist,['CompletionOfClientInvestmentProfile']).Option">
+            </v3-switch-new-slide>
+            
+        </div>
+        <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+</div>
+<div fieldId="case-management-rul:CompleteodClientInvestmentRemark" class="col-xs-12 col-sm-5 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 col-sm-12 v3-column-content">
+        <div class="form-group form-group-lg has-success"><br>
+            <label style="font-size: 13px;">{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:remark' | translate}}</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button style="min-width: 7px; width: 50px; display: block; height: 46px" class="btn btn-lg v3-btn-primary" ng-click="remarkManagerGCS('ComplettionInvestment')">
+                <i ng-if="remarkManagerGCSComplettionInvestment == false" class="fa fa-pencil-square-o"></i>
+                <i ng-if="remarkManagerGCSComplettionInvestment == true" class="fa fa-eraser"></i>
+            </button>
+            <div ng-if="remarkManagerGCSComplettionInvestment == true" style="padding: 0;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+                <div style="margin-bottom: 50px;margin-top: 20px;">
+                    <div class="form-group form-group-lg has-success">
+                        <textarea rows="5" cols="120" maxlength="100" class="form-control" 
+                        ng-disabled="uiElement.refDetail['@editable'] == '0' 
+                        || freeze == true" type="text" 
+                        ng-model="uiElement.refDetail.$" />
+                        <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div fieldId="case-management-rul:SupervisorValidation" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+    <div style="
+    margin-left: 0;
+" class="col-xs-offset-1 col-xs-12">
+        <div class="form-group form-group-lg has-success">
+            <b>{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:SupervisorValidation'
+				| translate}} </b><span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span>
+            <br>
+            <label>{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:SupervisorValidation1' | translate}} </label>
+            <br>
+            <label>{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:SupervisorValidation2' | translate}} </label>
+            <br>
+            <label>{{'v3.mynewworkspace.portlet.label.application-guaranteed-cashback-saver:SupervisorValidation3' | translate}} </label>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+                <div style="margin-bottom: 50px;">
+                    <div class="form-group form-group-lg has-success">
+                        <textarea rows="5" cols="120" maxlength="300" class="form-control" 
+                        ng-disabled="uiElement.refDetail['@editable'] == '0' || freeze == true" 
+                        type="text" ng-model="uiElement.refDetail.$" />
+                        <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

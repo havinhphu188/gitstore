@@ -1,0 +1,38 @@
+{
+  "IposDocument": {
+    "Data": {
+      "ipos-agent:Agent": {
+        "section": "ipos-agent:Agent",
+        "vpms-suffix": "Agent",
+        "ipos-agent:PasswordNote": {
+          "section": "ipos-agent:Agent",
+          "vpms-suffix": "PasswordNote",
+          "ipos-agent:Occupation": {
+            "type": "",
+            "index": "8",
+            "visible": "1"
+          },
+          "ipos-agent:Nationality": {
+            "type": "",
+            "index": "9",
+            "visible": "1"
+          }
+        },
+        "ipos-agent:SecurityNode": {
+          "section": "ipos-agent:Agent",
+          "vpms-suffix": "PasswordNote",
+          "ipos-agent:Agent_ID": {
+            "type": "",
+            "index": "13",
+            "visible": "1"
+          },
+          "ipos-agent:First_Name": {
+            "type": "",
+            "index": "2",
+            "visible": "1"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+<md-toolbar class="bar-style">
+    <h2 class="md-toolbar-tools" >
+        <div class = "text-center" flex="90">
+             <span class="fa-lg">Quotation List</span>
+        </div>
+        <div flex class="align-right">
+            <md-button ng-click="showSearch()" class="md-primany green-title" style="padding: 4px;" aria-label="Show Search">
+                <md-tooltip>
+                    Search
+                </md-tooltip>
+                <span class="fa fa-search fa-lg"></span>
+            </md-button>
+        </div>
+    </h2>
+</md-toolbar>
+<md-toolbar class="searchBar">
+    <div layout="row">
+        <div flex="80" layout-margin>
+            <div style="margin-left:10%; width:300px; height:40px ">
+                <input type="text" class="searchText" style="background-color: #3D4944; color:white;" ng-model="searchText" ng-change="searchQuotation(searchText)" placeholder="">
+            </div>
+        </div>
+        <div flex="10" layout-margin>
+            <md-button ng-click="hideSearch()" class="md-primany green-title" aria-label="Hide Search">
+                <md-tooltip>
+                    Hide search
+                </md-tooltip>
+                <img style=" color:white; width:24px;" src="img/ic_arrow_up_white_24dp.png">
+            </md-button>
+        </div>
+    </div>
+</md-toolbar>
+<ion-view class="has-border-right">
+    <ion-content class="has-header">
+        <!-- masked while loading document list -->
+        <ion-refresher on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list>
+            <div ng-hide="progressBar" style="height:100vh;" class="mask">
+                <md-progress-circular style=" margin-right:auto;margin-left:auto;margin-top:40vh;"></md-progress-circular>
+            </div>
+            <div ng-hide="PullToRefreshBar" style="height:100vh;" class="mask">
+                <div style="position:absolute;margin-top:-90px;margin-left:47%; width:50%; zoom: 50% !important;" layout="row" layout-sm="column">
+                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                </div>
+            </div>
+            <md-item ng-hide="!progressBar" ng-repeat="card in listQuotation | orderBy:customSort | filter: searchBox.abc track by $index ">
+                <!-- star icon -->
+                <i style="color:#FFCC00; z-index: 1;position: absolute; margin-top:5%; margin-left:90%" ng-hide="$index == selectedStarCard && !showStar" ng-click="toggleStar($index)" class="fa fa-star fa-lg"></i>
+                <i style="color:#FFCC00; z-index: 1;position: absolute; margin-top:5%; margin-left:90%" ng-show="!showStar && $index==selectedStarCard" ng-click="toggleStar()" class="fa fa-star-o fa-lg"></i>
+                <!-- attach icon -->
+                <i style="z-index: 1;position: absolute; margin-top:5%; margin-left:85%" class="fa fa-paperclip fa-lg"></i>
+                <md-item-content class="docList" ng-class="{sel: $index == selected}">
+                    <!-- md-ink-ripple="#bbb"  -->
+                    <div layout="row"  ng-click="getDetail(moduleService.findValueInMapListByKey(card,'DocId'),$index); " id="docList" md-ink-ripple="#300" style="cursor: pointer; z-index:0;" class="md-tile-content">
+                       
+                            <div flex="20"  layout-margin>
+                                <img src="img/avatar_generic.png" class="avatar">
+                            </div>
+                            <div flex="75" >
+                                <p style="float: left; width: 80%">
+                                    <b style = "font-size: 90%;">Product:  {{moduleService.findValueInMapListByKey(card,'DocName')}} </b>
+                                    <br>
+                                    <span class="info-style"> Policy Owner: {{moduleService.findValueInMapListByKey(card,'POFirstName')}} {{ moduleService.findValueInMapListByKey(card,'POLastName')}}  </span>
+                                    <br>
+                                    <span class="info-style"> Status:  {{moduleService.findValueInMapListByKey(card,'DocumentStatus')}} </span>
+                                </p>
+                                <!--  <i style="color:#FFCC00;" class="fa fa-star-o"></i> -->
+                                <div align="right" style="float: right; width: 100%">
+                                    <a>Tag 1</a>
+                                    <a>Tag 2</a> &nbsp
+                                    <span class="info-style"> {{moduleService.getUpdatedDate(moduleService.findValueInMapListByKey(card,'CreatedDate'), 'YYYY-MM-DD-hh-mm-ss')}} </span>
+                                </div>
+                            </div>
+                      
+                    </div>
+                </md-item-content>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-item>
+            <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
+            </ion-infinite-scroll>
+        </ion-list>
+        </md-content>
+    </ion-content>
+    <!-- showAdvanced() -->
+    <md-button ng-click="createIllustrationMotor()" class="md-primary md-fab md-fab-bottom-right" aria-label="create New">
+        <md-tooltip>
+            Create Illustration
+        </md-tooltip>
+        <!-- <span class="fa fa-plus"></span> -->
+        <img style="margin-top:4px; color:white;" src="img/ic_plus_white_24dp.png">
+    </md-button>
+</ion-view>

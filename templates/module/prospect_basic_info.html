@@ -1,0 +1,497 @@
+<div layout="column" class="height-inherit">
+    <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div style="overflow: scroll;" class="backgroundColor touch">
+
+
+        <div ng-if="variables.ProspectType.Value == 'PERSONAL'" refresh-on="vars.bIsContentChanged" use-boolean>
+            <div class="white-card">
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.Title" label-value="v3.myworkspace.label.prospect.Title" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('Title')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:Title')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="Title" style="display:none;" class="triangle-right">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:Title')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <v3-Select class="input-select" src-data="moduleService.listTitle" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" select-disabled="::!moduleService.isEditMode" model="variables.Title.Value"></v3-Select>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.FullName" label-value="v3.myworkspace.label.prospect.FullName">
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('FullName')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:FullName')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="FullName" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:FullName')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <input class="input" ng-focus="openErrorMsg('FullName')" ng-blur="closeErrorMsg('FullName');" maxlength="120" ng-model="variables.FullName.$" ng-disabled="::!moduleService.isEditMode" />
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.BirthDate" label-value="v3.myworkspace.label.prospect.DateofBirth">
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('BirthDate')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:BirthDate')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="BirthDate" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:BirthDate')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <input class="input" ng-blur="closeErrorMsg('BirthDate');" ng-disabled="::!moduleService.isEditMode" ng-model="variables.BirthDate.$" placeholder="Choose Date of Birth" max-Date="today" ms-datepicker>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.Gender" label-value="v3.myworkspace.label.prospect.Gender">
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('Gender')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:Gender')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="Gender" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:Gender')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <!-- ng-click="openErrorMsg('Gender');" -->
+                        <!-- <v3-Select hide-error-msg="closeErrorMsg('Gender');"  class="input" src-data="moduleService.listGenders" displayText="text" displayValue="value" Prefix="" dialogTitle="Gender" ng-disabled="::!moduleService.isEditMode" model="variables.Gender.Value"></v3-Select> -->
+                        <!--  <v3-switch style="float:right;" switch-size="" switch-name="gender" switch-disabled="::!moduleService.isEditMode" switch-model="variables.Gender.Value" switch-default-value="" switch-options="{{::moduleService.listGenders}}">
+                        <v3-switch> -->
+                        <v3-switch-new alway-watch="false" style="float:right;" switch-name="gender" switch-disabled="::!moduleService.isEditMode" switch-model="variables.Gender.Value" switch-options="::moduleService.listGenders">
+                        </v3-switch-new>
+                    </div>
+                </div>
+                <div layout="row" class="row" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.MarStat" label-value="v3.myworkspace.label.prospect.MaritalStatus">
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('MarStat')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:MarStat')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="MarStat" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:MarStat')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="65">
+                        <!-- <v3-Select class="input-select" src-data="moduleService.listMartat" displayText="text" displayValue="value" Prefix="" dialogTitle="Marital Status" select-disabled="::!moduleService.isEditMode" model="variables.MarStat.Value"> -->
+                        <v3-switch-new alway-watch="false" style="float:right;" switch-name="MaritalStatus" switch-disabled="::!moduleService.isEditMode" switch-model="variables.MarStat.Value" switch-options="::moduleService.listMartat">
+                        </v3-switch-new>
+                    </div>
+                </div>
+            </div>
+            <div class="white-card">
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.BusinessIndustry" label-value="v3.myworkspace.label.prospect.BusinessIndustry">
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="65">
+                        <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+                        <v3-Select class="input-select" src-data="moduleService.listBussinessIndustry" displayText="text" displayValue="value" Prefix="" dialogTitle="Business Industry" select-disabled="::!moduleService.isEditMode" model="variables.BusinessIndustry.Value" child-Model="variables.Occupation"></v3-Select>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.Occupation" label-value="v3.myworkspace.label.prospect.Occupation">
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="65">
+                        <v3-Select class="input-select" src-data="moduleService.listOccupation" displayText="text" displayValue="value" Prefix="" dialogTitle="Occupation" select-disabled="::!moduleService.isEditMode" filter-by="{filterName: 'filterByGroup', paras: variables.BusinessIndustry.Value}" model="variables.Occupation.Value"></v3-Select>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.ReferralType" label-value="v3.myworkspace.label.prospect.ReferralType">
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="65">
+                        <v3-Select class="input-select" src-data="moduleService.listRefType" displayText="text" displayValue="value" Prefix="" dialogTitle="Referral Type" select-disabled="::!moduleService.isEditMode" model="variables.ReferralType.Value"></v3-Select>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.Referrer" label-value="v3.myworkspace.label.prospect.Referrer">
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="65">
+                        <fieldset ng-disabled="!variables.ReferralType.Value">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.Referrer.$" value="">
+                        </fieldset>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.Race" label-value="v3.myworkspace.label.prospect.Race" />
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="65">
+                        <v3-Select class="input-select" src-data="moduleService.listRace" displayText="text" displayValue="value" Prefix="" dialogTitle="Race" select-disabled="::!moduleService.isEditMode" model="variables.Race.Value">
+                    </div>
+                </div>
+                <div layout="row" class="row" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.Nationality" label-value="v3.myworkspace.label.prospect.Nationality" />
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="65">
+                        <!-- <v3-Select class="input-select" src-data="moduleService.listNationality" displayText="text" displayValue="value" Prefix="" dialogTitle="Nationality" select-disabled="::!moduleService.isEditMode" model="variables.Nationality.Value"> -->
+                        <v3-select-new src-data="::moduleService.listNationality" displayText="text" displayValue="value" Prefix="" dialogTitle="Nationality" select-disabled="::!moduleService.isEditMode" model="variables.Nationality.Value">
+                            <div layout="row" v3-when-done="highLightSelected()" ng-click="selectedValue(item.value, $index)" class="popupSelectBeakeline popupSelect f32" select-item-repeat="item in dispData">
+                                <div flex="10" class="flag {{::item.value}} rounded-flag"></div>
+                                <div flex="76">
+                                    <h class="popupSelectList">{{::item.text}}</h>
+                                </div>
+                                <div flex="10" id="select-{{::$index}}"></div>
+                            </div>
+                        </v3-select-new>
+                    </div>
+                </div>
+            </div>
+            <div layout="row" class="header-repeat-bar">
+                <div flex="75" layout-margin>
+                    <h class="repeat-toobar-text">
+                        <span t-lazy v3-translate="v3.myworkspace.label.prospect.IDs-C" prefix=""></span>
+                    </h>
+                </div>
+                <div flex="10">
+                    <!-- <md-button ng-disabled="::!moduleService.isEditMode" md-no-ink ng-click="addNewID()" class="md-icon-button button" aria-label="Edit Prospect">
+                        <i class="fa fa-plus-circle fa-lg repeat-toobar-icon"></i>
+                    </md-button> -->
+                </div>
+                <div flex="10">
+                    <!-- <md-button ng-disabled="::!moduleService.isEditMode" md-no-ink ng-click="hideParties()" class="md-icon-button button" aria-label="Edit Prospect">
+                        <i class="fa fa-caret-up fa-lg repeat-toobar-icon"></i>
+                    </md-button> -->
+                </div>
+            </div>
+            <div class="white-card" ng-repeat="id in moduleService.iDs track by $index">
+                <div layout-margin>
+                    <i class="fa fa-times fa-lg" ng-if="moduleService.iDs.length > 1" style=" float: right; margin top: 0px; color: grey;" ng-click="removeID($index)" ng-disabled="::!moduleService.isEditMode"></i>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="" label-value="v3.myworkspace.label.prospect.IDType" />
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="65">
+                        <v3-Select class="input-select" more-action="clearAllIdData(value1, $index)" src-data="moduleService.listiDType" displayText="text" displayValue="value" Prefix="" dialogTitle="ID Type" select-disabled="::!moduleService.isEditMode" model="moduleService.findElementInElement_V3(id, ['ipos-prospect:IDType']).Value">
+                    </div>
+                </div>
+                <fieldset ng-disabled="!moduleService.findElementInElement_V3(id, ['ipos-prospect:IDType']).Value">
+                    <div layout="row" class="row" layout-margin>
+                        <div flex="20">
+                            <v3-label label-prop="" label-value="v3.myworkspace.label.prospect.IDNumber" />
+                        </div>
+                        <div flex="5">
+                        </div>
+                        <div flex="65">
+                            <input class="input" maxlength="12" ng-model="moduleService.findElementInElement_V3(id, ['ipos-prospect:IDNumber']).$" ng-disabled="::!moduleService.isEditMode" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="white-card">
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.Staff" label-value="v3.myworkspace.label.prospect.Staff" />
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="65">
+                        <!-- <md-switch class="custom-md-switch" ng-disabled="::!moduleService.isEditMode" ng-model="variables.Staff.Value" ng-true-value="'{{::moduleService.listStaff[0].value}}'" ng-false-value="'{{::moduleService.listStaff[1].value}}'" class="md-primary" md-no-ink aria-label="Staff"></md-switch> -->
+                        <!-- <v3-switch style="float:right;" switch-size="" switch-disabled="::!moduleService.isEditMode" switch-model="variables.Staff.Value" switch-name="staff" switch-options="{{::moduleService.listStaff}}"> -->
+
+                         <v3-switch-new alway-watch="false" style="float:right;" switch-name="staff" switch-disabled="::!moduleService.isEditMode" switch-model="variables.Staff.Value" switch-options="::moduleService.listStaff">
+                        </v3-switch-new>
+                        
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.Vip" label-value="v3.myworkspace.label.prospect.VIP" />
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="65">
+                        <!--  <md-switch class="custom-md-switch" ng-disabled="::!moduleService.isEditMode" ng-model="variables.Vip.Value" ng-true-value="'{{::moduleService.listVip[0].value}}'" ng-false-value="'{{::moduleService.listVip[1].value}}'" class="md-primary" md-no-ink aria-label="VIP">
+                            </md-switch> -->
+                        <!-- <v3-switch style="float:right;" switch-size="" switch-name="vip" switch-disabled="::!moduleService.isEditMode" switch-model="variables.Vip.Value" switch-default-value="" switch-options="{{::moduleService.listVip}}">
+                         -->
+
+                         <v3-switch-new alway-watch="false" style="float:right;" switch-name="vip" switch-disabled="::!moduleService.isEditMode" switch-model="variables.Vip.Value" switch-options="::moduleService.listVip">
+                        </v3-switch-new>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.SmokerStat" label-value="v3.myworkspace.label.prospect.SmokerStatus" />
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+                    <div flex="65">
+                        <!--  <md-switch class="custom-md-switch" ng-disabled="::!moduleService.isEditMode" ng-model="variables.SmokerStat.Value" class="md-primary" ng-true-value="'{{::moduleService.listSmokeStat[0].value}}'" ng-false-value="'{{::moduleService.listSmokeStat[1].value}}'" md-no-ink aria-label="Smoking Status">
+                            </md-switch> -->
+                       <!--  <v3-switch style="float:right;" switch-size="" switch-name="smoker" switch-disabled="::!moduleService.isEditMode" switch-model="variables.SmokerStat.Value" switch-default-value="" switch-options="{{::moduleService.listSmokeStat}}"> -->
+                        <v3-switch-new alway-watch="false" style="float:right;" switch-name="smoker" switch-disabled="::!moduleService.isEditMode" switch-model="variables.SmokerStat.Value" switch-options="::moduleService.listSmokeStat">
+                        </v3-switch-new>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="40">
+                        <v3-label label-prop="variables.YearDrivingLicenseObtained" label-value="v3.myworkspace.label.prospect.YearDrivingLicenseObtained" />
+                    </div>
+                    <div flex="5">
+                        <div ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:YearDrivingLicenseObtained')">
+                            <i style="color:red;" ng-click="toggleErrorMsg('YearDriving')" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="YearDriving" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:YearDrivingLicenseObtained')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="45">
+                        <input ng-focus="openErrorMsg('YearDriving');" ng-blur="closeErrorMsg('YearDriving');" class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.YearDrivingLicenseObtained.$" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    </div>
+                </div>
+                <div>
+                    <div layout="row" layout-margin ng-if="moduleService.tagList && moduleService.isEditMode">
+                        <div flex="5" style="margin-top:8px;">
+                            <v3-label label-prop="" label-value="v3.myworkspace.label.prospect.Tag" />
+                        </div>
+                        <div flex="85" style="margin-top:-8px;">
+                            <md-chips ng-model="moduleService.tagList" md-on-append="validateTag($chip)" placeholder="Enter a tag" readonly="!moduleService.isEditMode">
+                                <md-chip-template>
+                                    <strong>{{$chip}}</strong>
+                                </md-chip-template>
+                            </md-chips>
+                            <span ng-if="tagCharError" class="error">{{tagCharError}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div ng-if="variables.ProspectType.Value == 'CORPORATE'" refresh-on="vars.bIsContentChanged" use-boolean>
+            <div class="white-card">
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="30">
+                        <v3-label label-prop="variables.NameOfCorporation" label-value="v3.myworkspace.label.prospect.NameofCorporation" />
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('NameOfCorporation')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:NameOfCorporation')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="NameOfCorporation" style="display:none;" class="triangle-right">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:NameOfCorporation')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="55">
+                        <input class="input" ng-focus="openErrorMsg('NameOfCorporation')" ng-blur="closeErrorMsg('NameOfCorporation');" maxlength="120" ng-model="variables.NameOfCorporation.$" ng-disabled="::!moduleService.isEditMode" />
+
+                        
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="30">
+                        <v3-label label-prop="variables.PersonInCharge" label-value="v3.myworkspace.label.prospect.PersonIncharge">
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('PersonInCharge')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:PersonInCharge')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="PersonInCharge" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:PersonInCharge')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="55">
+                        <input class="input" ng-focus="openErrorMsg('PersonInCharge')" ng-blur="closeErrorMsg('PersonInCharge');" maxlength="120" ng-model="variables.PersonInCharge.$" ng-disabled="::!moduleService.isEditMode" />
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="30">
+                        <v3-label label-prop="variables.CountryOfOrigin" label-value="v3.myworkspace.label.prospect.CountryofOrigin">
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('CountryOfOrigin')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:CountryOfOrigin')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="CountryOfOrigin" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:CountryOfOrigin')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="55">
+                        <!-- <v3-Select class="input-select" src-data="moduleService.listCountryOfOrigin" displayText="text" displayValue="value" Prefix="" dialogTitle="Country of Origin" select-disabled="::!moduleService.isEditMode" model="variables.CountryOfOrigin.Value"></v3-Select> -->
+                        
+                        <v3-select-new src-data="::moduleService.listCountryOfOrigin" displayText="text" displayValue="value" Prefix="" dialogTitle="Country of Origin" select-disabled="::!moduleService.isEditMode" model="variables.CountryOfOrigin.Value">
+                            <div layout="row" v3-when-done="highLightSelected()" ng-click="selectedValue(item.value, $index)" class="popupSelectBeakeline popupSelect f32" select-item-repeat="item in dispData">
+                                <div flex="10" class="flag {{::item.value}} rounded-flag"></div>
+                                <div flex="76">
+                                    <h class="popupSelectList">{{::item.text}}</h>
+                                </div>
+                                <div flex="10" id="select-{{::$index}}"></div>
+                            </div>
+                        </v3-select-new>
+                        
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="30">
+                        <v3-label label-prop="variables.DateOfIncorporation" label-value="v3.myworkspace.label.prospect.DateofIncorporation">
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('DateOfIncorporation')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:DateOfIncorporation')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="DateOfIncorporation" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:DateOfIncorporation')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="55">     
+                        <input class="input" ng-blur="closeErrorMsg('DateOfIncorporation');" ng-disabled="::!moduleService.isEditMode" ng-model="variables.DateOfIncorporation.$" placeholder="Choose Date of Incorporation" max-Date="today" ms-datepicker>
+
+                        
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="30">
+                        <v3-label label-prop="variables.BusinessType" label-value="v3.myworkspace.label.prospect.BusinessorIndustry">
+                    </div>
+                    <div flex="5">
+                        <div ng-click="toggleErrorMsg('BusinessType')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:BusinessType')">
+                            <i style="color:red;" class="fa fa-exclamation-circle">
+                            </i>
+                            <div id="BusinessType" style="display:none;" class="triangle-isosceles">
+                                <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Personal.ipos-prospect:BusinessType')"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="55">
+                       
+                        <v3-Select class="input-select" src-data="moduleService.listBusinessType" displayText="text" displayValue="value" Prefix="" dialogTitle="Business Industry" select-disabled="::!moduleService.isEditMode" model="variables.BusinessType.Value" child-Model="variables.BusinessType"></v3-Select>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="30">
+                        <v3-label label-prop="variables.NumberOfEmployee" label-value="v3.myworkspace.label.prospect.NumberofEmployee">
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="55">
+
+                        <input class="input" ng-focus="openErrorMsg('NumberOfEmployee')" ng-blur="closeErrorMsg('NumberOfEmployee');" maxlength="120" ng-model="variables.NumberOfEmployee.$" ng-disabled="::!moduleService.isEditMode" />
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="30">
+                        <v3-label label-prop="variables.LicenceNumber" label-value="v3.myworkspace.label.prospect.LicenceNumber">
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="55">
+                        <input class="input" ng-focus="openErrorMsg('LicenceNumber')" ng-blur="closeErrorMsg('LicenceNumber');" maxlength="120" ng-model="variables.LicenceNumber.$" ng-disabled="::!moduleService.isEditMode" />
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="30">
+                        <v3-label label-prop="variables.Language" label-value="v3.myworkspace.label.prospect.Language">
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="55">
+                        <v3-Select class="input-select" src-data="moduleService.listLanguage" displayText="text" displayValue="value" Prefix="" dialogTitle="Language" select-disabled="::!moduleService.isEditMode" model="variables.Language.Value"></v3-Select>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="30">
+                        <v3-label label-prop="variables.StatisticalClass" label-value="v3.myworkspace.label.prospect.StatisticalClass">
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="55">
+                        <v3-Select class="input-select" src-data="moduleService.listStatisticalClass" displayText="text" displayValue="value" Prefix="" dialogTitle="Statistical Class" select-disabled="::!moduleService.isEditMode" model="variables.StatisticalClass.Value"></v3-Select>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="30">
+                        <v3-label label-prop="variables.CapitalAmount" label-value="v3.myworkspace.label.prospect.CapitalAmount" />
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="55">
+                        <input class="input" ng-focus="openErrorMsg('CapitalAmount')" ng-blur="closeErrorMsg('CapitalAmount');" maxlength="120" ng-model="variables.CapitalAmount.$" ng-disabled="::!moduleService.isEditMode" />
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="30">
+                        <v3-label label-prop="variables.STaxApplicable" label-value="v3.myworkspace.label.prospect.STaxApplicable" />
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="55">
+                        <v3-switch-new alway-watch="false" style="float:right;" switch-name="staff" switch-disabled="::!moduleService.isEditMode" switch-model="variables.STaxApplicable.Value" switch-options="::moduleService.listSTaxApplicable">
+                        </v3-switch-new>
+
+                        
+                    </div>
+                </div>
+                <div layout="row" class="row" layout-margin>
+                    <div flex="30">
+                        <v3-label label-prop="variables.Staff" label-value="v3.myworkspace.label.prospect.CheckasApplicables" />
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="55">
+
+                         <v3-switch-new alway-watch="false" style="float:right;" switch-name="staff" switch-disabled="::!moduleService.isEditMode" switch-model="variables.Staff.Value" switch-options="::moduleService.listCheckAsApplicableValue">
+                        </v3-switch-new>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

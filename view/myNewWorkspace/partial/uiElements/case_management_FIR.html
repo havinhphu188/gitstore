@@ -1,0 +1,355 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="case-management-fire:CaseInformation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">Case Information:</span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['DocName'])}}</span>
+	</div>
+</div>
+<div fieldId="case-management-fire:CurrentStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">Current Status:</span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['BusinessStatus'])}}</span>
+	</div>
+</div>
+<div fieldId="case-management-fire:PendingInformation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">Pending Information:</span>
+		<span class="col-md-6">N/A</span>
+	</div>
+</div>
+<div fieldId="case-management-fire:NextRequiredAction" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">Next Required Action:</span>
+		<span class="col-md-6">N/A</span>
+	</div>
+</div>
+<div fieldId="case-management-fire:PolicyNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'new.v3.mynewworkspace.motor.casemanagement.label.PolicyNo' | translate}}:</span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['PolicyNumber']).$}}</span>
+	</div>
+</div>
+
+<!-- Review Quotation -->
+<div fieldId="case-management-fire:ReviewQuotation" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 20px;">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="form-group form-group-lg has-success">
+				<span style="font-weight: bold">1. Accumulation&nbsp;</span>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">State:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{'v3.illustration.fire.state.' + moduleService.findElementInElement_V3(illustrationService.detail, ['State']).Value | translate}}</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Register:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['Register']).Value}}</span>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Locality:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{'v3.illustration.fire.locality.' + moduleService.findElementInElement_V3(illustrationService.detail, ['Locality']).Value | translate}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 20px;">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="form-group form-group-lg has-success">
+				<span style="font-weight: bold">2. Building Information&nbsp;</span>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Situation:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['SituationOfRisk']).$}}</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Protected By:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{'v3.illustration.fire.protectedBy.' + moduleService.findElementInElement_V3(illustrationService.detail, ['ProtectedBy']).Value | translate}}</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Stories:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['NoOfStorey']).$}}&nbsp;</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Floor Area:&nbsp;</span>
+					<span>{{moduleService.findElementInElement_V3(illustrationService.detail, ['FloorArea']).$}} - </span>
+					<span ng-if="moduleService.findElementInElement_V3(illustrationService.detail, ['Attached']).Value == 'Y'">Attached</span>
+					<span ng-if="moduleService.findElementInElement_V3(illustrationService.detail, ['Attached']).Value == 'N'">Not Attached</span>
+				</div>				
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Building:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{'v3.illustration.fire.riskRatingCode.' + moduleService.findElementInElement_V3(illustrationService.detail, ['RiskRatingCode']).Value | translate}}</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Hazard Grade:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['HazardGrade']).$}}</span>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Business:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{'v3.illustration.fire.business.' + moduleService.findElementInElement_V3(illustrationService.detail, ['Business']).Value | translate}}</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Occupied As:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{'v3.illustration.fire.occupiedAs.' + moduleService.findElementInElement_V3(illustrationService.detail, ['OccupiedAs']).Value | translate}}</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Postal Code:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['PostalCode']).$}}&nbsp;</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Construction Year:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['ConstructionYear']).$}}</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Construction Type:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{'v3.illustration.fire.constructionType.' + moduleService.findElementInElement_V3(illustrationService.detail, ['ConstructionType']).Value | translate}}</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Basic Rate (%):&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['BasicRate']).$}}&nbsp;</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Rate Basis:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{'v3.illustration.fire.rateBasis.' + moduleService. findElementInElement_V3(illustrationService.detail, ['RateBasis']).Value | translate}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 20px;">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="form-group form-group-lg has-success">
+				<span style="font-weight: bold">3. Perils/Fire Extinguisher Appliance/Other&nbsp;</span>
+			</div>
+			<!-- <div flex layout="row" class="ipos_portlet_table_header_item md-whiteframe-z1" layout-align="center center" style="line-height: 30px">
+				<div flex="30">Indicator</div>
+				<div flex="30">Type</div>
+				<div flex="20">Rate (%)</div>
+				<div flex="20">Amount</div>
+			</div>
+			<div ng-if="moduleService.findElementInElement_V3(illustrationService.detail, ['PerilFEAOthers'])['@counter']>0"
+				ng-repeat="item in moduleService.convertToArray(moduleService.findElementInElement_V3(illustrationService.detail, ['PerilFEAOthers'])) track by $index"
+				flex layout="row" class="ipos_portlet_table_listRow">
+				<div flex="30">{{'v3.illustration.fire.perilFEAOtherIndicator.' + moduleService.findElementInElement_V3(item, ['PerilFEAOtherIndicator']).Value | translate}}</div>
+				<div flex="30">{{'v3.illustration.fire.perilFEAOtherDescription.' + moduleService.findElementInElement_V3(item, ['PerilFEAOtherType']).Value | translate}}</div>
+				<div flex="20">{{moduleService.findElementInElement_V3(item, ['PerilFEAOtherRate']).$}}</div>
+				<div flex="20">{{moduleService.findElementInElement_V3(item, ['PerilFEAOtherAmount']).$ | number:2}}</div>
+			</div> -->
+			
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-left-padding" style="min-height: 100%;">
+				<div class="table-responsive">
+					<table class="table v3-responsive-table">
+						<thead>
+		            		<tr>
+		            			 <th style="height: 45px; vertical-align: middle;" class="center-align"><b>Indicator</b></th>
+		            			 <th style="height: 45px; vertical-align: middle;" class="center-align"><b>Type</b></th>
+		            			 <th style="height: 45px; vertical-align: middle;" class="center-align"><b>Rate (%)</b></th>
+		            			 <th style="height: 45px; vertical-align: middle;" class="center-align"><b>Amount</b></th>
+		            		</tr>
+		            	</thead>
+		            	<tbody>
+		            		<tr ng-if="moduleService.findElementInElement_V3(illustrationService.detail, ['PerilFEAOthers'])['@counter']>0"
+								ng-repeat="item in moduleService.convertToArray(moduleService.findElementInElement_V3(illustrationService.detail, ['PerilFEAOthers'])) track by $index">
+								<td>{{'v3.illustration.fire.perilFEAOtherIndicator.' + moduleService.findElementInElement_V3(item, ['PerilFEAOtherIndicator']).Value | translate}}</td>
+								<td>{{'v3.illustration.fire.perilFEAOtherDescription.' + moduleService.findElementInElement_V3(item, ['PerilFEAOtherType']).Value | translate}}</td>
+								<td>{{moduleService.findElementInElement_V3(item, ['PerilFEAOtherRate']).$}}</td>
+								<td>{{moduleService.findElementInElement_V3(item, ['PerilFEAOtherAmount']).$ | number:2}}</td>
+							</tr>
+		            	</tbody>
+		          	</table>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 20px;">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="form-group form-group-lg has-success">
+				<span style="font-weight: bold">4. Excess&nbsp;</span>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding" style="font-weight: bold">Excess:&nbsp;</span>
+					<span class="col-md-5 no-left-padding"></span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Type:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{'v3.illustration.fire.excessType.' + moduleService.findElementInElement_V3(illustrationService.detail, ['ExcessType']).Value | translate}}</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Rate (%):&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['ExcessRate']).$}}</span>
+				</div>	
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding" style="font-weight: bold">Voluntary Excess:&nbsp;</span>
+					<span class="col-md-5 no-left-padding"></span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Rate (%):&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['VoluntaryExcessRate']).$}}</span>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">&nbsp;</span>
+					<span class="col-md-5 no-left-padding">&nbsp;</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Description:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['ExcessDescription']).$}}</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Amount:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['ExcessAmount']).$ | number:2}}</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">&nbsp;</span>
+					<span class="col-md-5 no-left-padding">&nbsp;</span>
+				</div>
+				<div class="form-group form-group-lg has-success">
+					<span class="col-md-7 no-left-padding">Amount:&nbsp;</span>
+					<span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['VoluntaryExcessAmount']).$ | number:2}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 20px;">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="form-group form-group-lg has-success">
+				<span style="font-weight: bold">5. Premiums&nbsp;</span>
+			</div>
+			<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+				<div flex layout="row" class="ipos_portlet_table_header_item md-whiteframe-z1" layout-align="center center" style="line-height: 30px">
+					<div flex="10">Order</div>
+					<div flex="40">Insured Interest</div>
+					<div flex="20">Sum Insured ({{moduleService.findElementInElement_V3(illustrationService.detail, ['SICurrency']).Value}})</div>
+					<div flex="30">Premium ({{moduleService.findElementInElement_V3(illustrationService.detail, ['SICurrency']).Value}})</div>
+				</div>
+				<div flex layout="row" class="ipos_portlet_table_listRow">
+					<div flex="10">1</div>
+					<div flex="40">Additional Sum Insured</div>
+					<div flex="20">{{moduleService.findElementInElement_V3(illustrationService.detail, ['AdditionalSumInsured']).$ | number:2}}</div>
+					<div flex="30">{{moduleService.findElementInElement_V3(illustrationService.detail, ['AdditionalPremium']).$ | number:2}}</div>
+				</div>
+				<div flex layout="row" class="ipos_portlet_table_listRow">
+					<div flex="10">2</div>
+					<div flex="40">LTA Discount</div>
+					<div flex="20"></div>
+					<div flex="30">{{moduleService.findElementInElement_V3(illustrationService.detail, ['LTADiscountAmount']).$ | number:2}}</div>
+				</div>				
+				<div ng-if="moduleService.findElementInElement_V3(illustrationService.detail, ['InsuredInterests'])['@counter']>0"
+					ng-repeat="interest in moduleService.convertToArray(moduleService.findElementInElement_V3(illustrationService.detail, ['InsuredInterest'])) track by $index"
+					flex layout="row" class="ipos_portlet_table_listRow">
+					<div flex="10">{{$index + 3}}</div>
+					<div flex="40">{{'v3.illustration.fire.interestCode.' + moduleService.findElementInElement_V3(interest, ['InterestCode']).Value | translate}}</div>
+					<div flex="20">{{moduleService.findElementInElement_V3(interest, ['SumInsured']).$ | number:2}}</div>
+					<div flex="30">{{moduleService.findElementInElement_V3(interest, ['Premium']).$ | number:2}}</div>
+				</div>
+				<div flex layout="row" class="col-xs-offset-0 col-lg-7 pull-right" >
+					<div class="col-lg-offset-2 col-lg-6" style="text-align: left" layout="column">
+						<div class="">
+							<label>Total Premium ({{moduleService.findElementInElement_V3(illustrationService.detail, ['SICurrency']).Value}})</label>
+						</div>			
+						<div class="">
+							<label>Stamp Duty ({{moduleService.findElementInElement_V3(illustrationService.detail, ['SICurrency']).Value}})</label>
+						</div>
+						<div class="">
+							<label>GST (6%) ({{moduleService.findElementInElement_V3(illustrationService.detail, ['SICurrency']).Value}})</label>
+						</div>
+						<div class="">
+							<label>Total Payable ({{moduleService.findElementInElement_V3(illustrationService.detail, ['SICurrency']).Value}})</label>
+						</div>							
+					</div>
+					<div class="col-lg-2 margin-left-3" layout="column">
+						<div class="">
+							<label>&nbsp;{{moduleService.findElementInElement_V3(illustrationService.detail, ['TotalPremium']).$ | number:2}}</label>
+						</div>
+						<div class="">
+							<label>&nbsp;{{moduleService.findElementInElement_V3(illustrationService.detail, ['StampDuty']).$ | number:2}}</label>
+						</div>
+						<div class="">
+							<label>&nbsp;{{moduleService.findElementInElement_V3(illustrationService.detail, ['GST']).$ | number:2}}</label>
+						</div>
+						<div class="">
+							<label>&nbsp;{{moduleService.findElementInElement_V3(illustrationService.detail, ['TotalPayable']).$ | number:2}}</label>
+						</div>											
+					</div>
+				</div>
+			</div> -->
+			
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-left-padding" style="min-height: 100%;">
+				<div class="table-responsive">
+					<table class="table v3-responsive-table">
+						<thead>
+		            		<tr>
+		            			 <th style="height: 45px; vertical-align: middle;" class="center-align"><b>Order</b></th>
+		            			 <th style="height: 45px; vertical-align: middle;" class="center-align"><b>Insured Interest</b></th>
+		            			 <th style="height: 45px; vertical-align: middle;" class="center-align"><b>Sum Insured ({{moduleService.findElementInElement_V3(illustrationService.detail, ['SICurrency']).Value}})</b></th>
+		            			 <th style="height: 45px; vertical-align: middle;" class="center-align"><b>Premium ({{moduleService.findElementInElement_V3(illustrationService.detail, ['SICurrency']).Value}})</b></th>
+		            		</tr>
+		            	</thead>
+		            	<tbody>
+		            		<tr>
+		            			 <td class="center-align">1</td>
+		            			 <td class="center-align">Additional Sum Insured</td>
+								 <td class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['AdditionalSumInsured']).$ | number:0}}</td>
+								 <td class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['AdditionalPremium']).$ | number:2}}</td>
+		            		</tr>
+		            		<tr>
+								<td class="center-align">2</td>
+								<td class="center-align">LTA Discount</td>
+								<td class="v3-currency-alignment"></td>
+								<td class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['LTADiscountAmount']).$ | number:2}}</td>
+							</tr>				
+							<tr ng-if="moduleService.findElementInElement_V3(illustrationService.detail, ['InsuredInterests'])['@counter']>0"
+								ng-repeat="interest in moduleService.convertToArray(moduleService.findElementInElement_V3(illustrationService.detail, ['InsuredInterest'])) track by $index">
+								<td class="center-align">{{$index + 3}}</td>
+								<td class="v3-currency-alignment">{{'v3.illustration.fire.interestCode.' + moduleService.findElementInElement_V3(interest, ['InterestCode']).Value | translate}}</td>
+								<td class="v3-currency-alignment">{{moduleService.findElementInElement_V3(interest, ['SumInsured']).$ | number:0}}</td>
+								<td class="v3-currency-alignment">{{moduleService.findElementInElement_V3(interest, ['Premium']).$ | number:2}}</td>
+							</tr>
+							<tr>
+		            			<td colspan="3" class="table-alignment-right"><b>Total Premium ({{moduleService.findElementInElement_V3(illustrationService.detail, ['SICurrency']).Value}})</b></td>
+		            			<td class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['TotalPremium']).$ | number:2}}</td>
+		            		</tr>
+		            		<tr>
+		            			<td colspan="3" class="table-alignment-right"><b>Stamp Duty ({{moduleService.findElementInElement_V3(illustrationService.detail, ['SICurrency']).Value}})</b></td>
+		            			<td class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['StampDuty']).$ | number:2}}</td>
+		            		</tr>
+		            		<tr>
+		            			<td colspan="3" class="table-alignment-right"><b>GST (6%) ({{moduleService.findElementInElement_V3(illustrationService.detail, ['SICurrency']).Value}})</b></td>
+		            			<td class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['GST']).$ | number:2}}</td>
+		            		</tr>
+		            		<tr>
+		            			<td colspan="3" class="table-alignment-right"><b>Total Payable ({{moduleService.findElementInElement_V3(illustrationService.detail, ['SICurrency']).Value}})</b></td>
+		            			<td class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['TotalPayable']).$ | number:2}}</td>
+		            		</tr>
+		            	</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

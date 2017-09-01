@@ -1,0 +1,31 @@
+<md-dialog aria-label="Mango (Fruit)" >
+  <md-content class="sticky-container">
+    <md-subheader class="md-sticky-no-effect">Select Vehicle</md-subheader>
+    <div  >
+<!-- 	 <div class="flag-dropdown f16">
+		<div class="selected-flag">
+			<div  class="flag gr"></div>
+		</div>
+	</div> -->
+	<ul>
+		<div class="flag-dropdown f16">
+			<li class="vehicle" ng-click="setVehicleValue(item.data)" ng-repeat="item in itemList">
+			<div class="selected-flag">
+				<div  class={{item.data}}></div>
+			</div>
+		 	<i class="{{item.iconClass}}"></i>{{prefix+item.data|translate}}</li>
+		 </div>
+	</ul>
+    </div>
+  </md-content>
+<!-- <div class="md-actions" layout="row">
+    <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" hide show-md>
+      More on Wikipedia
+    </md-button>
+    <span flex></span>
+    <md-button ng-click="closeDialog()">
+     Close
+    </md-button>
+  </div> --> 
+</md-dialog>
+

@@ -1,0 +1,45 @@
+<div layout="column" class="height-inherit">
+    <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div style="overflow: scroll;" class="backgroundColor touch">
+        <div class="white-card">
+            <v3-sub-pages sub-name='v3.myworkspace.label.illustration.life.pages.Product' sub-id='term_life_protect_product'></v3-sub-pages>
+            <div class="breakLine"></div>
+            <v3-sub-pages sub-name='v3.myworkspace.label.illustration.life.pages.Summary' sub-id='term_life_protect_summary'></v3-sub-pages>
+            <div class="breakLine"></div>
+            <v3-sub-pages more-action="computeIllustration()" sub-name='v3.myworkspace.label.illustration.life.pages.IllustrationTable' sub-id='term_life_protect_illustration_table'></v3-sub-pages>
+           
+           
+        </div>
+
+
+        <div layout="row" class="header-repeat-bar">
+                <div flex layout-margin>
+                    <h class="repeat-toobar-text">ATTACHMENTS</h>
+                </div>
+            </div>
+            <div class="white-card">
+                <div ng-if="moduleService.findElementInDetail_V3(['Attachments'])['@counter'] > 0">
+                    <div layout="row" class="row breakLine" layout-margin ng-repeat="attachment in moduleService.attachments track by $index" class="tag-card">
+                        <div flex="5">
+                            <i align="left" class="fa fa-paperclip fa-lg"></i>
+                        </div>
+                        <div flex="60" ng-click="moduleService.attachmentPreview(attachment['@refResourceUid'])" style="text-align:left; color:gray;">
+                            {{attachment.FileName.$}}
+                        </div>
+                        <div flex >
+                            <div layout="row" ng-if="moduleService.isEditMode">
+                                <div flex="40" style="text-align: right" >
+                                    <i class="fa fa-edit fa-lg fa-style" ng-click="_showImgPickerEdit(attachment['@refResourceUid'])"></i>
+                                </div>
+                                <div flex="40" style="text-align: right">
+                                    <i class="fa fa-trash fa-lg fa-style" ng-click="_markRemoveFile(attachment['@refResourceUid'])"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

@@ -1,0 +1,458 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Person Info -->
+<div fieldId="ipos-agent:Salutation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'new.v3.userProfile.user.label.Title' | translate}}</label>
+		    <!-- model="moduleService.agentDetail.Salutation"  -->
+			<ng-newDropDown
+                disable="true"
+				model="moduleService.findElementInElement_V3(moduleService.detail,['user:Person','user:Salutation'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Salutation']).Option" 
+				type="nonFlag" prefix="v3.pnc.title.enum">
+			</ng-newDropDown>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:FullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'new.v3.userProfile.user.label.FullName' | translate}}</label>
+		   	 <input class="form-control" placeholder="Full Name"
+		   	 	ng-disabled="true"
+	        	type="text" maxlength="120" ng-model="moduleService.agentDetail.agntname" />
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:BirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+   	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'new.v3.userProfile.user.label.DateofBirth' | translate}}</label>
+		   	<div class="ms-calendar-wrapper">
+		   		<!-- <input ms-datepicker ng-disabled="false" ng-model="moduleService.agentDetail.Birth_Date" class="ms-calendar"/> -->
+		   		<div class="ms-calendar-wrapper">
+		   			<input ms-datepicker ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['user:BirthDate']).$" class="ms-calendar"/>
+	   			</div>
+		   	</div>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:Gender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'new.v3.userProfile.user.label.Gender' | translate}}</label>
+		    
+		    	<!-- switch-model="moduleService.agentDetail.Gender" -->
+				<v3-switch-new  prefix="v3.pnc.gender.enum"
+			    	switch-model="moduleService.findElementInDetail_V3(['Gender']).Value"
+			    	switch-default-value="" switch-disabled="true"
+                    switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Gender']).Option">
+				</v3-switch-new>
+		
+		</div>
+	</div>	
+</div>
+<div fieldId="ipos-agent:MaritalStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		   <label>{{::'new.v3.userProfile.user.label.MaritalStatus' | translate}}</label>
+		   <!-- switch-model="moduleService.agentDetail.Married"  -->
+			<v3-switch-new
+				switch-model="moduleService.findElementInDetail_V3(['MaritalStatus']).Value"
+				prefix="v3.pnc.maritalStatus.enum"
+				switch-default-value="" switch-disabled="true"
+                switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['MaritalStatus']).Option">
+		    </v3-switch-new>
+	  	</div>
+	</div>
+</div>
+<div fieldId="ipos-agent:Nationality" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	 <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'new.v3.userProfile.user.label.Nationality' | translate}}</label>
+			<ng-newDropDown 
+                model="moduleService.findElementInDetail_V3(['Nationality'])"   
+                disable="true"
+                list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Nationality']).Option" type="full-flag" prefix="v3.application.motor.nationality"></ng-newDropDown>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:IDNum" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'new.v3.userProfile.user.label.idnumber' | translate}}</label>
+			<input type="text" class="form-control" placeholder="ID Number" ng-disabled="true" ng-model="moduleService.agentDetail.securitynumber" />
+	        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['IDNumber']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-agent:Race" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		   <label>{{::'new.v3.userProfile.user.label.Race' | translate}}</label>
+		   <!-- moduleService.agentDetail.Race -->
+			<v3-switch-new alway-watch="true" prefix="v3.pnc.race.enum"
+				switch-model="moduleService.findElementInDetail_V3(['Race']).Value"
+				prefix="v3.pnc.race.enum"
+				switch-default-value="" switch-disabled="true"
+                switch-options="fakeList">
+                <!-- switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Race']).Option"> -->
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['user:Race']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<!-- Other Information -->
+<div fieldId="ipos-agent:CountryOfBirth" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'new.v3.userProfile.user.label.CountryOfBirth' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['user:CountryOfBirth'])['@mandatory'] == '1'">*</span></label>
+		   	<ng-newDropDown 
+                model="moduleService.findElementInDetail_V3(['Nationality'])"   
+                disable="true"
+                list=" moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Nationality']).Option" type="full-flag" prefix="v3.application.motor.nationality"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['user:CountryOfBirth']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:Occupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'new.v3.userProfile.user.label.Occupation' | translate}}</label>
+		     <!-- model="moduleService.agentDetail.Occupation" -->
+			<ng-newDropDown       
+				model="moduleService.findElementInElement_V3(moduleService.detail,['Person', 'Occupation'])"
+                disable="true"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Occupation']).Option"
+				type="nonFlag" prefix="v3.pnc.occupation.enum">
+			</ng-newDropDown>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:Staff" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'new.v3.userProfile.user.label.Staff' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Gender'])['@mandatory'] == '1'">*</span></label>
+				<v3-switch-new prefix="v3.pnc.gender.enum"
+			    	switch-model="moduleService.findElementInDetail_V3(['Staff']).Value"
+			    	switch-default-value="" switch-disabled="true"
+                    switch-options="fakeList">
+			    	<!-- switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Staff']).Option"> -->
+				</v3-switch-new>
+				<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Gender']).errorMessage | translate"></span>
+		
+		</div>
+	</div>	
+</div>
+
+<div fieldId="ipos-agent:VIP" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{::'new.v3.userProfile.user.label.VIP' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Gender'])['@mandatory'] == '1'">*</span></label>
+				<v3-switch-new  prefix="v3.pnc.gender.enum"
+			    	switch-model="moduleService.findElementInDetail_V3(['Gender']).Value"
+			    	switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['Gender'])['@editable'] == '0' || true"
+                    switch-options="fakeList">
+                    <!-- switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Gender']).Option"> -->
+				</v3-switch-new>
+				<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Gender']).errorMessage | translate"></span>
+
+		</div>
+	</div>	
+</div>
+<!-- Contact Information -->
+<div fieldId="ipos-agent:MobileTel" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{'v3.myworkspace.label.application.motor.ContactType' | translate}}</label>
+		   	<ng-newDropDown model="moduleService.agentDetail.Salutation" 
+                disable="true"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Salutation']).Option" 
+				type="nonFlag" prefix="v3.pnc.title.enum">
+			</ng-newDropDown>			
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:MobileTelValue" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{'v3.myworkspace.label.application.motor.ContactInformation' | translate}}</label>
+		   	 <input class="form-control" placeholder="Mobile Tel"
+                ng-disabled="true"
+	        	type="text" maxlength="120" ng-model="moduleService.agentDetail.phone" />
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:HomeTel" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{'v3.myworkspace.label.application.motor.ContactType' | translate}}</label>
+		   	<ng-newDropDown model="moduleService.agentDetail.Salutation" 
+                disable="true"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Salutation']).Option" 
+				type="nonFlag" prefix="v3.pnc.title.enum">
+			</ng-newDropDown>			
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:HomeTelValue" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{'v3.myworkspace.label.application.motor.ContactInformation' | translate}}</label>
+            <input class="form-control" placeholder="Home Tel"
+                ng-disabled="true"
+                type="text" maxlength="120" ng-model="moduleService.agentDetail.Agent_Name" />
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:OfficeTel" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{'v3.myworkspace.label.application.motor.ContactType' | translate}}</label>
+		   	<ng-newDropDown model="moduleService.agentDetail.Salutation" 
+                disable="true"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Salutation']).Option" 
+				type="nonFlag" prefix="v3.pnc.title.enum">
+			</ng-newDropDown>			
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:OfficeTelValue" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{'v3.myworkspace.label.application.motor.ContactInformation' | translate}}</label>
+            <input class="form-control" placeholder="Office Tel"
+                ng-disabled="true"
+	        	type="text" maxlength="120" ng-model="moduleService.agentDetail.Agent_Name" />
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:EmailAddress" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{'v3.myworkspace.label.application.motor.ContactType' | translate}}</label>
+		   	<ng-newDropDown model="moduleService.agentDetail.Salutation" 
+                disable="true"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Salutation']).Option" 
+				type="nonFlag" prefix="v3.pnc.title.enum">
+			</ng-newDropDown>			
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:EmailAddressValue" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{'v3.myworkspace.label.application.motor.ContactInformation' | translate}}</label>
+		   	<input class="form-control" placeholder="Username" ng-disabled="true"
+	        	type="text"  maxlength="120" ng-model="moduleService.agentDetail.email" />	
+	  	</div>
+  	</div>
+</div>
+<!-- Address Information -->
+<div fieldId="ipos-agent:Address">
+	<div layout="column" flex="100">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+				<div class="form-group form-group-lg has-success">
+				    <label>{{::'new.v3.userProfile.user.label.AddressType' | translate}}</label>
+					<ng-newDropDown 
+                        disable="true"
+						model="selectAddTypeAgent" 
+						list="listAddTypeAgent.Address.Option" 
+						type="nonFlag" prefix="v3.personalprofile.portlet.label">
+					</ng-newDropDown>
+			  	</div>
+		  	</div>	
+		</div>
+	</div>
+</div>
+<div fieldId="ipos-agent:AddressDetail">
+	<!-- BusinessAddress -->
+   <div ng-show="selectAddTypeAgent.Value == 'BusinessAddress'">
+   		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+   			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+   				<div class="form-group form-group-lg has-success">
+   					<label>{{::'new.v3.userProfile.user.label.BlockHouseNumber' | translate}}</label>
+   					<input class="form-control" placeholder="Block/ House Number and Street" ng-disabled="true" 
+   						type="text" maxlength="120" ng-model="moduleService.agentDetail.Agent_Name" />
+ 				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+   			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+   				<div class="form-group form-group-lg has-success">
+   					<label>{{::'new.v3.userProfile.user.label.unitNumber' | translate}}</label>
+   					<input class="form-control" ng-disabled="true" 
+   						type="text" maxlength="120" ng-model="moduleService.agentDetail.Agent_Name" />
+ 				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+   			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+   				<div class="form-group form-group-lg has-success">
+   					<label>{{::'new.v3.userProfile.user.label.Building' | translate}}</label>
+   					<input class="form-control" placeholder="Building" ng-disabled="true" 
+   						type="text" maxlength="120" ng-model="moduleService.agentDetail.Agent_Name" />
+ 				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+   			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+   				<div class="form-group form-group-lg has-success">
+   					<label>{{::'new.v3.userProfile.user.label.City' | translate}}</label>
+   					<input class="form-control" placeholder="City" ng-disabled="true" 
+   						type="text" maxlength="120" ng-model="moduleService.agentDetail.Agent_Name" />
+ 				</div>
+			</div>
+		</div>
+   		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+   			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+				<div class="form-group form-group-lg has-success">
+				    <label>{{::'new.v3.userProfile.user.label.Country' | translate}}</label>
+					<ng-newDropDown 
+                        disable="true"
+						model="selectAddTypeAgent" 
+						list="listAddTypeAgent.Address.Option" 
+						type="nonFlag" prefix="v3.personalprofile.portlet.label">
+					</ng-newDropDown>
+			  	</div>
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+   			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+   				<div class="form-group form-group-lg has-success">
+   					<label>{{::'new.v3.userProfile.user.label.PostalCode' | translate}}</label>
+   					<input class="form-control" placeholder="Postal Code" ng-disabled="true" 
+   						type="text" maxlength="120" ng-model="moduleService.agentDetail.Agent_Name" />
+ 				</div>
+			</div>
+		</div>
+   </div>
+   <!-- ResidentialAddress -->
+   <div ng-show="selectAddTypeAgent.Value == 'ResidentialAddress'">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+   			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+   				<div class="form-group form-group-lg has-success">
+   					<label>{{::'new.v3.userProfile.user.label.BlockHouseNumber' | translate}}</label>
+   					<input class="form-control" placeholder="Block/ House Number and Street" ng-disabled="true" 
+   						type="text" maxlength="120" ng-model="moduleService.agentDetail.Agent_Name" />
+ 				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+   			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+   				<div class="form-group form-group-lg has-success">
+   					<label>{{::'new.v3.userProfile.user.label.unitNumber' | translate}}</label>
+   					<input class="form-control" ng-disabled="true" 
+   						type="text" maxlength="120" ng-model="moduleService.agentDetail.Agent_Name" />
+ 				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+   			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+   				<div class="form-group form-group-lg has-success">
+   					<label>{{::'new.v3.userProfile.user.label.Building' | translate}}</label>
+   					<input class="form-control" placeholder="Building" ng-disabled="true" 
+   						type="text" maxlength="120" ng-model="moduleService.agentDetail.Agent_Name" />
+ 				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+   			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+   				<div class="form-group form-group-lg has-success">
+   					<label>{{::'new.v3.userProfile.user.label.City' | translate}}</label>
+   					<input class="form-control" placeholder="City" ng-disabled="true" 
+   						type="text" maxlength="120" ng-model="moduleService.agentDetail.Agent_Name" />
+ 				</div>
+			</div>
+		</div>
+   		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+   			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+				<div class="form-group form-group-lg has-success">
+				    <label>{{::'new.v3.userProfile.user.label.Country' | translate}}</label>
+					<ng-newDropDown 
+                        disable="true"
+						model="selectAddTypeAgent" 
+						list="listAddTypeAgent.Address.Option" 
+						type="nonFlag" prefix="v3.personalprofile.portlet.label">
+					</ng-newDropDown>
+			  	</div>
+		  	</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+   			<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+   				<div class="form-group form-group-lg has-success">
+   					<label>{{::'new.v3.userProfile.user.label.PostalCode' | translate}}</label>
+   					<input class="form-control" placeholder="Postal Code" ng-disabled="true" 
+   						type="text" maxlength="120" ng-model="moduleService.agentDetail.Agent_Name" />
+ 				</div>
+			</div>
+		</div>
+   </div>
+</div>
+
+<!-- Agent Information -->
+<div fieldId="ipos-agent:BrachCode" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'new.v3.userProfile.user.label.BrachCode' | translate}}</label>
+		   	 <input class="form-control" placeholder="Brach Code"
+		   	 	 ng-disabled="true"
+	        	type="text" maxlength="120" ng-model="moduleService.agentDetail.Brach_Code" />
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:AgentID" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'new.v3.userProfile.user.label.AgentCode' | translate}}</label>
+		   	 <input class="form-control" placeholder="Agent Code"
+		   	 	 ng-disabled="true"
+	        	type="text" maxlength="120" ng-model="moduleService.agentDetail.agntnum" />
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:IssuedDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+   	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'new.v3.userProfile.user.label.IssuedDate' | translate}}</label>
+		   	<div class="ms-calendar-wrapper">
+		   		<!-- <input ms-datepicker ng-disabled="true" ng-model="moduleService.agentDetail.Date_Appointed" class="ms-calendar"/> -->
+		   		<div class="ms-calendar-wrapper">
+		   			<input ms-datepicker ng-disabled="true" ng-model="::moduleService.findElementInDetail_V3(['user:BirthDate']).$" class="ms-calendar"/>
+	   			</div>
+		   	</div>
+	  	</div>
+  	</div>
+</div>
+<div fieldId="ipos-agent:ExpiryDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+   	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{::'new.v3.userProfile.user.label.ExpiryDate' | translate}}</label>
+		   	<div class="ms-calendar-wrapper">
+		   		<!-- <input ms-datepicker ng-disabled="true" ng-model="" class="ms-calendar"/> -->
+		   		<div class="ms-calendar-wrapper">
+		   			<input ms-datepicker ng-disabled="true" ng-model="::moduleService.findElementInDetail_V3(['user:BirthDate']).$" class="ms-calendar"/>
+	   			</div>
+		   	</div>
+	  	</div>
+  	</div>
+</div>

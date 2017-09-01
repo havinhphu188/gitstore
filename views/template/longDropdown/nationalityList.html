@@ -1,0 +1,96 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<style>
+	.item ul li{
+		float:left;
+		margin:5px;
+		list-style-type: none;
+		min-width: 150px;
+		line-height: 18px !important;
+	}
+	.ipos_flag{
+		margin-left: 20px;
+		
+	}
+	.ipos_flag:HOVER{
+		background-color: wheat;
+		cursor: pointer;
+		font-weight: bold;
+	}
+	.ipos_flag_selected{
+		background-color: wheat;
+		font-weight: bold;
+	}
+	.f15 .flag{
+		width:auto; 
+	}
+</style>
+<md-dialog class="marginTop_nationality" flex="100">
+<div style="background-color: #4CAF50; color: white;" class="portlet_header md-whiteframe-z1">
+	Nationality List
+</div>
+<div flex layout="row" layout-margin>
+	<md-input-container flex="40" class="md-default-theme">
+         <input placeholder="Search" ng-model="nationalityValue">
+    </md-input-container>
+</div>
+  <div ng-if="moduleService.findElementInDetail_V3(['DocType'])!='application' && moduleApplicationUIService.findElementInDetail_V3(['DocType'])!='application'" class="item">
+	<ul>
+		<li ng-repeat=" item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist,['Nationality']).Option |filter:nationalityValue">		
+			 <div class="flag-dropdown f15">
+				<div class="selected-flag">
+					<div style="width:auto !important" class="flag {{item.value}}">
+						<span  ng-click="setValue(item.value)" class="ipos_flag">{{'v3.application.motor.nationality.'+item.value |translate| trimtext:true:20:' '}}</span>
+					</div>
+				</div>
+			</div> 			
+		</li>
+	</ul>
+  </div>
+  <div ng-if="moduleService.findElementInDetail_V3(['DocType'])=='application' || moduleApplicationUIService.findElementInDetail_V3(['DocType'])=='application'" class="item">
+	<ul>
+		<li ng-repeat=" item in moduleService.findElementInElement_V3(moduleService.lazyChoiceListMotor,['PONationality']).Option |filter:nationalityValue">		
+			 <div class="flag-dropdown f15">
+				<div class="selected-flag">
+					<div style="width:auto !important" class="flag {{item.value}}">
+						<span  ng-click="setValue(item.value)" class="ipos_flag">{{'v3.application.motor.nationality.'+item.value |translate| trimtext:true:20:' '}}</span>
+					</div>
+				</div>
+			</div> 			
+		</li>
+	</ul>
+  </div>  
+<div flex layout="row" layout-align="center center" layout-margin>
+	<md-button ng-click="closeNationality()"  class="md-raised md-primary ipos_lower_button_letter ">Close</md-button>
+</div>
+</md-dialog>
+<script>
+
+function setSelected(){
+	var itemSelected=$('#myWorkspaceNationality').text();
+	$('.item span').each(function(){
+		$(this).removeClass('ipos_flag_selected');
+			if($(this).text()==itemSelected){
+				$(this).addClass('ipos_flag_selected');
+			}
+	});	
+}
+setTimeout(setSelected, 3000);
+</script>

@@ -1,0 +1,26 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div  style='border: 2px solid #d9d7d5;line-height: 40px;font-size:17px; height: 41px;cursor: pointer; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);'  class='md-select-Style md-select md-select-label'> 
+	<any title="{{prefix+'.'+model.Value|translate}}" class="v3-auto-text-ellipsis" style="margin-top:-7px;padding-left:14px; max-width: 90%;" ng-if='type=="full-flag" || type=="nonFlag" || type=="table"'>{{prefix+'.'+model.Value|translate}}</any>
+	<any title="{{model[key]}}" class="v3-auto-text-ellipsis" style="margin-top:-7px;padding-left:14px; max-width: 90%;" ng-if='type=="regular"'>{{model[key]}}</any>
+	<any style="margin-top:-7px;padding-left:14px" ng-if='type=="irregular"'>{{moduleService.findElementInElement_V3(model,[key]).$}}</any>
+	<span ng-if='type!="table"' style=" position: absolute;right: -10px;color: #4CAF50;width: 45px;"><i  class="fa fa-caret-down fa-3x" style="line-height: 36px;"></i></span>
+	<span ng-if='type=="table"' style=" position: absolute;right: -10px;color: #4CAF50;width: 45px;"><i  class="fa fa-caret-down fa-2x" style="line-height: 36px;"></i></span> 
+</div>

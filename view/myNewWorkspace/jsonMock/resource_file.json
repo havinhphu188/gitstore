@@ -1,0 +1,30 @@
+{
+  "IposDocument": {
+    "Data": {
+      "resource-file:ResourceFile": {
+        "key": [
+          "ResourceFile"
+        ],
+        "section": "resource-file:ResourceFile",
+        "resource-file:FileName": {
+          "type": "",
+          "key": [
+            "FileName"
+          ]
+        },
+        "resource-file:FileSize": {
+          "type": "",
+          "key": [
+            "FileSize"
+          ]
+        },
+        "resource-file:DateTime": {
+          "type": "",
+          "key": [
+            "DateTime"
+          ]
+        }
+      }
+    }
+  }
+}

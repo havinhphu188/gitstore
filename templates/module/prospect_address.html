@@ -1,0 +1,122 @@
+<div layout="column" class="height-inherit">
+    <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div style="overflow: scroll;" class="backgroundColor touch">        
+        <div refresh-on="vars.bIsContentChanged" use-boolean>
+             <div class="full-height">
+                    <div layout="row" class="header-repeat-bar">
+                        <div flex="80" layout-margin>
+                            <h class="repeat-toobar-text"><span t-lazy v3-translate="v3.myworkspace.label.prospect.Addresses-C" prefix=""></span></h>
+                        </div>
+                        <div flex="10">
+                            <!-- <div class="rotateCounterwise" ng-disabled="::!moduleService.isEditMode" id="arrow1" align="center" ng-click="hideParties()">
+                                <i class="fa fa-caret-up fa-lg repeat-toobar-icon"></i>
+                            </div> -->
+                        </div>
+                        <div flex="10">
+                            <div ng-click="addNewAddress()" ng-disabled="::!moduleService.isEditMode">
+                                <i class="fa fa-plus-circle fa-lg repeat-toobar-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="variables.Addresses['@counter']>0" class="animate-hide white-card" ng-hide="hideParty" ng-repeat="address in moduleService.addresses track by $index">
+                        <div layout-margin>
+                            <i class="fa fa-times fa-lg" ng-if="variables.Addresses['@minOccurs']==0" style=" float: right; margin top: 0px; color: grey;" ng-click="removeAddress($index)" ng-disabled="::!moduleService.isEditMode"></i>
+                        </div>
+                        <div layout="row" class="row breakLine" layout-margin>
+                            <div flex="20">
+                                <v3-label label-prop="variables.AddressType" label-value="v3.myworkspace.label.prospect.Addresstype" />
+                            </div>
+                            <div flex="5">
+                                <div ng-click="toggleErrorMsg('AddressType')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Addresses.ipos-prospect:Address.ipos-prospect:AddressType')">
+
+                                    <i style="color:red;"  class="fa fa-exclamation-circle">
+                                </i>
+                                    <div id="AddressType" style="display:none;" class="triangle-right">
+                                        <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Addresses.ipos-prospect:Address.ipos-prospect:AddressType')"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div flex="65">
+                                <!-- more-action="clearAddress($index)" -->
+                                <v3-Select class="input-select" more-action="clearAllAddressData(value1, $index)" hide-error-msg="closeErrorMsg('AddressType');" src-data="moduleService.listAddressType" displayText="text" displayValue="value" Prefix="" dialogTitle="Address Type" select-disabled="::!moduleService.isEditMode" model="moduleService.findElementInElement_V3(address, ['ipos-prospect:AddressType']).Value">
+                            </div>
+                        </div>
+                        <fieldset ng-disabled="!moduleService.findElementInElement_V3(address, ['ipos-prospect:AddressType']).Value">
+                            <div layout="row" class="row breakLine" layout-margin>
+                                <div flex="20">
+                                    <v3-label label-prop="variables.BlkHouseNo" label-value="v3.myworkspace.label.prospect.BKHouseNo" />
+                                </div>
+                                <div flex="30">
+                                </div>
+                                <div flex="40">
+                                    <input class="input" placeholder="Input Blk / House No." ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInElement_V3(address, ['ipos-prospect:BlkHouseNo']).$" >
+                                </div>
+                            </div>
+                            <div layout="row" class="row breakLine" layout-margin>
+                                <div flex="20">
+                                    <v3-label label-prop="variables.Street" label-value="v3.myworkspace.label.prospect.Street" />
+                                </div>
+                                <div flex="30">
+                                </div>
+                                <div flex="40">
+                                    <input class="input" maxlength="30" placeholder="Input street name" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInElement_V3(address, ['ipos-prospect:Street']).$">
+                                </div>
+                            </div>
+                            <div layout="row" class="row breakLine" layout-margin>
+                                <div flex="20">
+                                    <v3-label label-prop="variables.UnitNo" label-value="v3.myworkspace.label.prospect.UnitNo" />
+                                </div>
+                                <div flex="30">
+                                </div>
+                                <div flex="40">
+                                    <input class="input" maxlength="30" placeholder="Input Unit No." ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInElement_V3(address, ['ipos-prospect:UnitNo']).$" >
+                                </div>
+                            </div>
+                            <div layout="row" class="row breakLine" layout-margin>
+                                <div flex="20">
+                                    <v3-label label-prop="variables.Building" label-value="v3.myworkspace.label.prospect.Building" />
+                                </div>
+                                <div flex="30">
+                                </div>
+                                <div flex="40">
+                                    <input class="input" maxlength="30" placeholder="Input building name" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInElement_V3(address, ['ipos-prospect:Building']).$">
+                                </div>
+                            </div>
+                            <div layout="row" class="row breakLine" layout-margin>
+                                <div flex="20">
+                                    <v3-label label-prop="variables.City" label-value="v3.myworkspace.label.prospect.City" />
+                                </div>
+                                <div flex="30">
+                                </div>
+                                <div flex="40">
+                                    <input class="input" maxlength="15" placeholder="Input city name" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInElement_V3(address, ['ipos-prospect:City']).$">
+                                </div>
+                            </div>
+                            <div layout="row" class="row breakLine" layout-margin>
+                                <div flex="20">
+                                    <v3-label label-prop="variables.Country" label-value="v3.myworkspace.label.prospect.Country" />
+                                </div>
+                                <div flex="30">
+                                </div>
+                                <div flex="40">
+                                    <input class="input-select" v3-Select src-data="moduleService.listCountrys" displayText="text" displayValue="value" Prefix="" dialogTitle="Country" select-disabled="isFieldEmpty(   moduleService.findElementInElement_V3(address, ['ipos-prospect:AddressType']).Value)" model="moduleService.findElementInElement_V3(address, ['ipos-prospect:Country']).Value">
+                                </div>
+                            </div>
+                            <div layout="row" layout-margin>
+                                <div flex="20">
+                                    <v3-label label-prop="variables.Postal" label-value="v3.myworkspace.label.prospect.PostalCode" />
+                                </div>
+                                <div flex="30">
+                                </div>
+                                <div flex="40">
+                                    <input class="input" maxlength="15" placeholder="Input number please" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInElement_V3(address, ['ipos-prospect:Postal']).$" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

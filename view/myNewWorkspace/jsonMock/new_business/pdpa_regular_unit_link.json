@@ -1,0 +1,33 @@
+{
+	"IposDocument": {        
+		"Data": {
+			"pdpa:Pdpa": {
+				"@key": ["pdpa:Pdpa"],
+				"@section": "pdpa:Pdpa",
+				"pdpa:PersonalDataProtectionConsent": {
+					"@key": []
+				},
+				"pdpa:Consent": {
+					"@key": ["pdpa:Consent"],
+					"@preview": ["pdpa:Pdpa"],
+					"@valuePrefix": "v3.yesno.enum.",
+              		"@defaultValue": "N"
+				},
+				"pdpa:CommunicationChannels": {
+					"@key": ["pdpa:CommunicationChannels"]
+				},
+				"pdpa:TextMessage": {
+					"@key": []
+				},
+				"pdpa:ImportantNotes": {
+					"@key": []
+				},
+				"pdpa:ConsentDate": {
+					"@key": ["CreatedDate"],
+					"@preview": ["pdpa:Pdpa"],
+					"@format": "datetime"
+				}
+			}
+		}
+	}
+}

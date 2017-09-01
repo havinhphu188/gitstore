@@ -1,0 +1,12 @@
+<div layout="row" class="height-100">
+    <!-- <ui-view ng-show="false" name="left-view" flex="30" class="height-100" style="position: relative; z-index:1;"></ui-view> -->
+    <ui-view flex style="position: relative;" class="height-100 backgroundColor">
+        <ui-view name="right-header"></ui-view>
+        <div content-panel>
+            <ui-view name="right-content" class="height-100"></ui-view>
+        </div>
+    </ui-view>
+</div>
+<!-- <md-sidenav class="md-sidenav-left md-whiteframe-z2" style="width: 30%; max-width: 30%" md-component-id="left">
+        <ui-view name="left-view" flex="30" class="height-100" style="position: relative; z-index:1;"></ui-view>
+</md-sidenav> -->

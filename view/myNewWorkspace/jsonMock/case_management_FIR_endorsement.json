@@ -1,0 +1,150 @@
+{
+  "IposDocument": {
+    "Data": {
+      "endorsement-FIR:EndorsementDetail": {
+        "@key": [
+          "Policy"
+        ],
+        "@section": "endorsement-FIR:EndorsementDetail",
+        "endorsement-FIR:Summary": {
+          "@section": "endorsement-FIR:EndorsementDetail",
+          "endorsement-FIR:EndorseInfor": {},
+          "endorsement-FIR:EndorseStatus": {
+            "@key": [
+              "BusinessStatus"
+            ]
+          },
+          "endorsement-FIR:EndorseNo": {
+            "@key": [
+              "DocName"
+            ]
+          },
+          "endorsement-FIR:ProductName": {
+            "@key": [
+              "Product"
+            ]
+          },
+          "endorsement-FIR:PolicyNo": {
+            "@key": [
+              "PolicyNo"
+            ]
+          },
+          "endorsement-FIR:PolicyOwner": {
+            "@key": [
+              "FullName"
+            ]
+          },
+          "endorsement-FIR:ClientID": {
+            "@key": [
+              "ClientId"
+            ]
+          },
+          "endorsement-FIR:InceptionDate": {
+            "@key": [
+              "BusinessStatus"
+            ]
+          },
+          "endorsement-FIR:ExpireDate": {
+            "@key": [
+              "ExpiryDate"
+            ]
+          },
+          "endorsement-FIR:EndorseType": {
+            "@key": [
+              "BusinessStatus"
+            ]
+          },
+          "endorsement-FIR:EffectiveDate": {
+            "@key": [
+              "EffectiveDate"
+            ]
+          },
+          "endorsement-FIR:PreviewEndorse": {
+            "@key": [
+              ""
+            ]
+          }
+        },
+        "endorsement-FIR:Step1": {
+          "@key": [
+            "Policy"
+          ],
+          "@section": "endorsement-FIR:EndorsementDetail"
+        },
+        "endorsement-FIR:Step2": {
+          "@icon": "fa fa-paperclip",
+          "@cssClass": "v3-box-7",
+          "@section": "endorsement-FIR:EndorsementDetail",
+          "@onOpen": "getDocumentCenterList()",
+          "endorsement-FIR:TransactionDocuments": {
+            "@key": [
+              "Prints"
+            ],
+            "@icon": "fa fa-file-text-o",
+            "@section": "endorsement-FIR:Step2",
+            "@isVisible": "findElementInDetail(['Prints'])['@counter'] !== '0'",
+            "TransactionDocument": {
+              "@key": [
+                "Print"
+              ],
+              "@section": "endorsement-FIR:TransactionDocuments",
+              "@icon": "fa fa-paperclip",
+              "@cssClass": "v3-box-1",
+              "@onOpen": "fileReaderService.openFileReader('view',card.metadata,[],'')",
+              "@cardType": "template"
+            }
+          },
+          "endorsement-FIR:Attachments": {
+            "@key": [
+              "Attachments"
+            ],
+            "@section": "endorsement-FIR:Step2",
+            "@icon": "fa fa-paperclip",
+            "@cssClass": "v3-box-1",
+            "@previewHtml": "v3-summary-static-attachment.html",
+            "Attachment": {
+              "@key": [
+                "Attachment"
+              ],
+              "@section": "endorsement-FIR:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "subAction": "removeIcon"
+              },
+              "@cssClass": "v3-box-1",
+              "@previewHtml": "v3-summary-static-attachment-file.html",
+              "@cardType": "template",
+              "@onOpen": "fileReaderService.openFileReader('view',card.refDetail,self.moduleService.convertToArray(self.moduleService.findElementInElement_V3(self.moduleService.detail, ['Attachment'])),'uploadMode')"
+            },
+            "addAttachment": {
+              "@section": "endorsement-FIR:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "mainAction": "addIcon"
+              },
+              "@cardType": "action",
+              "@isVisible": "findElementInDetail(['BusinessStatus']) === 'DRAFT' || findElementInDetail(['BusinessStatus']) === 'NEW'",
+              "@staticHtml": "fileUpload.html",
+              "@onClick": "importFile()"
+            }
+          }
+        },
+        "endorsement-FIR:Underwriting": {
+          "@key": [
+            "Underwriting"
+          ],
+          "@isVisible": "hasValueNotEmpty(findElementInDetail(['Underwriting'])['@refUid'])",
+          "@section": "endorsement-FIR:EndorsementDetail"
+        },
+        "endorsement-FIR:Payment": {
+          "@key": [
+            "ClientPayment"
+          ],
+          "@isVisible": "hasValueNotEmpty(findElementInDetail(['ClientPayment'])['@refUid'])",
+          "@onOpen": "getPaymentLazyList()",
+          "@section": "endorsement-FIR:EndorsementDetail"
+        }
+      }
+    }
+  }
+}

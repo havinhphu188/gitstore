@@ -1,0 +1,2817 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<style>
+#header, #body, #footer > * {
+    font-family: monospace;
+}
+#body {
+	font-size: 11px;
+}
+#footer {
+	font-size: 9px;
+	text-align: left;
+}
+.cbox {
+	height: 17px;
+}
+#title-name {
+	font-weight: bold;
+}
+#legend {
+	font-size: 10px;
+    border: 2px solid;
+}
+#legend > ul {
+	padding-left: 20px;
+	margin-bottom: 0px;
+}
+#legend > ul > li {
+	line-height: 15px;
+}
+#legend > ul > li > img {
+	height: 10px;
+}
+.no-padding {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.section {
+	border: 2px black solid;
+	margin-left: 15px !important;
+	margin-right: 15px !important;
+	padding: 0px !important;
+}
+.section > .title {
+	background: black;
+	color: white;
+	height: 20px;
+	padding-left: 10px !important;
+	padding-top: 2px;
+}
+.section > div:nth-child(2) {
+	display: inline-block;
+	padding-top: 10px;
+}
+.section > div:nth-child(2) > div.col-xs-12 {
+	padding-bottom: 5px;
+}
+.section div.col-xs-8 {
+    padding-left: 15px;
+    text-indent: -15px;
+}
+.text-indent-s {
+	text-indent: -27px !important;
+}
+.padding-left-s {
+	padding-left: 30px !important;
+}
+#section-C-body,
+#section-G-body,
+#section-H-body {
+	display: inherit !important;
+}
+#section-C-body,
+#section-E-body,
+#section-F-body,
+#section-G-body,
+#section-H-body {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+#title-info {
+	text-align: left;
+    margin: 20px;
+    margin-bottom: 0px;
+    width: 100%;
+}
+#title-info > tbody > tr {
+	line-height: 25px;
+}
+.padding-q {
+    padding-left: 31px !important;
+    text-indent: -20px;
+}
+.padding-hq {
+    padding-left: 51px !important;
+    text-indent: -21px;
+}
+#section-Expand-title {
+	text-align: justify;
+}
+#section-I-body {
+	font-size: 11px;
+}
+#section-I-body > div {
+	padding-left: 18px;
+}
+#section-I-body > ol > li {
+	line-height: inherit;
+    text-align: justify;
+    padding-right: 20px;
+}
+#section-I-body > ol > li > ol > li {
+	line-height: inherit;
+	padding-right: 25px;
+}
+#section-C-body > table * {
+    text-align: center;
+}
+#section-G-body > table * ,
+#section-H-body > table * {
+    font-size: 11px;
+    text-align: center;
+}
+#section-G-body > table > tbody > tr > th:nth-child(1) ,
+#section-H-body > table > tbody > tr > th:nth-child(1) {
+	text-align: left !important;
+}
+#section-G-body > table > tbody > tr > td:nth-child(2) ,
+#section-H-body > table > tbody > tr > td:nth-child(2) {
+	text-align: right !important;
+}
+#sign-place * {
+	text-align: center;
+}
+#sign-place > div > div:nth-child(1) {
+	border: 1px black solid;
+    background: blue;
+    color: white;
+    height: 20px;
+}
+#sign-place > div > div:nth-child(2) {
+	border: 1px solid;
+    height: 45px;
+}
+.bd-bt{
+	 border-bottom: 1px solid black;
+}
+.bd-top{
+	 border-top: 1px solid black;
+}
+.bd-lf{
+	 border-left: 1px solid black;
+}
+.bd-ri{
+	 border-right: 1px solid black;
+}
+.bd-full{
+	 border: 1px solid black;
+	 text-align: center;
+}
+table{
+	 text-align: center;
+}
+
+#sign-place > div:nth-child(6) > div:nth-child(1) {
+    border: none !important;
+    background: white !important;
+    color: black !important;
+    text-align: left !important;
+    margin-top: 25px !important;
+}
+#sign-place > div:nth-child(6) > div:nth-child(2) {
+	height: 20px !important;
+}
+#section-signature > div:nth-child(1) {
+	text-align: center;
+    font-size: 14px;
+    //border: 1px solid;
+}
+#section-signature > div:nth-child(2) {
+	padding-left: 10%;
+    padding-right: 10%;
+}
+#section-signature > div:nth-child(2) > div:nth-child(1) {
+	text-align: center;
+    border: 1px black solid;
+    background: #ad3939;
+    color: white;
+}
+#section-E-header > div > div.col-xs-3.no-padding,
+#section-F-header > div > div.col-xs-3.no-padding {
+	text-align: center;
+}
+
+#section-E-body > div > div.col-xs-12,
+#section-F-body > div > div.col-xs-12 {
+	display: flex;
+}
+#section-E-body > div > div > div.col-xs-3.no-padding,
+#section-F-body > div > div > div.col-xs-3.no-padding {
+	display: flex;
+	text-align: center;
+}
+#section-E-body > div > div > div.col-xs-3.no-padding > span:nth-child(odd),
+#section-F-body > div > div > div.col-xs-3.no-padding > span:nth-child(odd) {
+	border-left: 1px solid;
+}
+#section-E-header > div > div.col-xs-3.no-padding,
+#section-F-header > div > div.col-xs-3.no-padding {
+	text-align: center;
+}
+#section-E-header > div > div.col-xs-3.no-padding > span,
+#section-F-header > div > div.col-xs-3.no-padding > span {
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+}
+#section-Expand-table > table > tbody > tr > th,
+#section-Expand-table > table > tbody > tr > td:nth-child(2) {
+	padding-left: 10px;
+	text-align: left;
+}
+</style>
+<br/>
+<div id="header">
+	<div class="col-xs-7"></div>
+	<div class="col-xs-5">
+		<span class="col-xs-6">&nbsp;</span>
+		<span class="col-xs-6">&nbsp;</span>
+	</div>
+</div>
+<div id="body">
+	<div id="section-title">
+		<div id="image-legend" class="col-xs-12">
+			<div id="image" class="col-xs-6 no-padding-left">
+				<img src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/mnc-logo.jpeg'}}" width="230" />
+			</div>
+			<div id="legend" class="col-xs-6 no-padding-left no-padding-right">
+				<ul>
+					<li>Isi/lengkapi/coret apabila perlu.</li>
+					<li>Beri tanda <img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /> dalam kotak pertanyaan pilihan.</li>
+					<li>Jika pengisian salah, harap dicoret dan ditandatangani (jangan menggunakan tip ex).</li>
+					<li>Data WAJIB diisi dengan benar dan lengkap.</li>
+				</ul>
+			</div>
+		</div>
+		<div id="title-name" class="col-xs-12"><h3>SURAT PERMOHONAN ASURANSI JIWA (SPAJ)</h3></div>
+		<table id="title-info">
+			<tbody>
+				<tr id="title-info-row1">
+					<td>
+						<span class="col-xs-6 no-padding">Kode Agen:</span>
+						<span class="col-xs-6 no-padding">{{::agentId}}</span>
+					</td>
+					<td>
+						<span class="col-xs-6 no-padding" style="white-space: nowrap;">Sales Office:</span>
+						<span class="col-xs-6 no-padding">&nbsp;</span>
+					</td>
+					<td>
+						<span class="col-xs-6 no-padding">No. SPAJ:</span>
+						<span class="col-xs-6 no-padding">{{::applicationUIService.findElementInDetail_V3(['SPAJNo']).$}}</span>
+					</td>
+				</tr>
+				<tr id="title-info-row2">
+					<td>
+						<span class="col-xs-6 no-padding">Nama Agen:</span>
+						<span class="col-xs-6 no-padding">{{::agentName}}</span>
+					</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="title-info-row3">
+					<td>
+						<span class="col-xs-6 no-padding">Group:</span>
+						<span class="col-xs-6 no-padding">&nbsp;</span>
+					</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="container-fluid" style="margin-bottom: 20px;">
+			<div class="col-xs-7">
+				<div class="col-xs-6 no-padding">
+					<img ng-if="(agentType == 'EA')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="!(agentType == 'EA')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Agen Executive Club</span>
+				</div>
+				<div class="col-xs-6 no-padding" style="white-space: nowrap;">
+					<img ng-if="(agentType == 'RA')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="!(agentType == 'RA')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Agen Non Executive Club</span>
+				</div>
+			</div>
+			<div class="col-xs-5">
+				<div class="col-xs-6 no-padding">
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Non Medis</span>
+				</div>
+				<div class="col-xs-6 no-padding">
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Medis</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="section-A" class="section container-fluid">
+		<div id="section-A-title" class="title">
+			<div class="col-xs-6 no-padding-left">A. DATA PEMEGANG POLIS</div>
+			<div class="col-xs-6" style="text-align: right;"><i>Harap gunakan HURUF CETAK</i></div>
+		</div>
+		<div id="section-A-body">
+			<div id="section-A-Q01" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">1. Nama Lengkap <i>(sesuai identitas)</i></div>
+				</div>
+				<div class="col-xs-8">
+					<span>: {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'FullName']).$}}</span>
+				</div>
+			</div>
+			<div id="section-A-Q02" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">2. No. Identitas <i>(KTP/PASPOR/KIMS/KITAS/Akte Lahir/SIM)</i></div>
+				</div>
+				<div class="col-xs-8">
+					<span>: {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'IDs', 'ID', 'IDNumber']).$}}</span>
+				</div>
+			</div>
+			<div id="section-A-Q03" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">3. Kewarganegaraan</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Nationality']).Value=='78' || applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Nationality']).Value=='734')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::!(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Nationality']).Value=='78' || applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Nationality']).Value=='734')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Indonesia</span>
+					<img ng-if="::!(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Nationality']).Value=='78' || applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Nationality']).Value=='734')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Nationality']).Value=='78' || applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Nationality']).Value=='734')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Lainnya</span>
+					<span ng-if="::!(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Nationality']).Value=='78' || applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Nationality']).Value=='734')" class="bd-bt">{{::'v3.pnc.nationality.enum.' + applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Nationality']).Value | translate}}</span>
+				</div>
+			</div>
+			<div id="section-A-Q04" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">4. Jenis Kelamin</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Gender']).Value=='M')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::!(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Gender']).Value=='M')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Laki-laki</span>
+					<img ng-if="::!(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Gender']).Value=='M')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Gender']).Value=='M')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Perempuan</span>
+				</div>
+			</div>
+			<div id="section-A-Q05" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">5. Agama</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value=='AG1')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value!='AG1')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Islam</span>
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value=='AG2')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value!='AG2')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Kristen</span>
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value=='AG3')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value!='AG3')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Katolik</span>
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value=='AG4')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value!='AG4')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Hindu</span>
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value=='AG5')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value!='AG5')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Budha</span>
+					<img ng-if="::('AG1AG2AG3AG4AG5'.indexOf(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value)==-1)" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::!('AG1AG2AG3AG4AG5'.indexOf(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value)==-1)" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Lainnya</span>
+					<span ng-if="::('AG1AG2AG3AG4AG5'.indexOf(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value)==-1)" class="bd-bt">{{::'v3.religion.enum.' + applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Religion']).Value | translate}}</span>
+				</div>
+			</div>
+			<div id="section-A-Q06" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">6. Status Perkawinan</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'MaritalStatus']).Value=='MS1')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'MaritalStatus']).Value!='MS1')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Menikah</span>
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'MaritalStatus']).Value=='MS2')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'MaritalStatus']).Value!='MS2')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Belum Menikah</span>
+					<img ng-if="::('MS3MS4'.indexOf(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'MaritalStatus']).Value)!=-1)" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::!('MS3MS4'.indexOf(applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'MaritalStatus']).Value)!=-1)" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Janda/Duda</span>
+					<span>Jumlah Tanggungan</span>
+					<span class="bd-bt">&nbsp;&nbsp;&nbsp;</span>
+				</div>
+			</div>
+			<div id="section-A-Q07" class="col-xs-12 no-padding">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-4 no-padding-left">
+						<div class="padding-q">7. Alamat Korespondensi</div>
+					</div>
+					<div class="col-xs-8">
+						<div class="col-xs-12 no-padding">
+							<span>: {{::applicationUIService.findElementInDetail_V3(['MailingAddress', 'AddressComplete']).$}}</span>
+						</div>
+						<div class="col-xs-12 no-padding">
+							<span>&nbsp;&nbsp;{{::'v3.pnc.country.enum.' + applicationUIService.findElementInDetail_V3(['MailingAddress', 'Country']).Value | translate}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-4 no-padding-left">
+						<div class="padding-left-s">Kota/Propinsi</div>
+					</div>
+					<div class="col-xs-4 no-padding">
+						<span>: {{::applicationUIService.findElementInDetail_V3(['MailingAddress', 'City']).$}}</span>
+						<span>/ {{::'v3.province.mnc.enum.' + applicationUIService.findElementInDetail_V3(['MailingAddress', 'Province']).Value | translate}}</span>
+					</div>
+					<div class="col-xs-4 no-padding">
+							<div class="col-xs-6 text-right">
+								<span>Kode Pos</span>
+							</div>
+							<div class="col-xs-6 no-padding">
+								<span>: {{::applicationUIService.findElementInDetail_V3(['MailingAddress', 'Postal']).$}}</span>
+							</div>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-4 no-padding-left">
+						<div class="padding-left-s">Telepon Rumah <i>(termasuk kode area)</i></div>
+					</div>
+					<div class="col-xs-8 ">
+						<span>: {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'HomePhone']).$}}</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-4 no-padding-left">
+						<div class="padding-left-s">Telepon Selular</div>
+					</div>
+					<div class="col-xs-8 ">
+						<span>: {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'MobilePhone']).$}}</span>
+					</div>
+				</div>
+			</div>
+			<div id="section-A-Q08" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">8. Tempat & Tanggal Lahir <i>(dd-mm-yyyy)</i></div>
+				</div>
+				<div class="col-xs-8 no-padding">
+					<span class="col-xs-8">: {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'CityOfBirth']).$ }} {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'BirthDate']).$ | datetimeFilter:"DD-MM-YYYY"}}</span>
+					<span class="col-xs-2">Usia</span>
+					<span class="col-xs-2">: {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Age']).$}}</span>
+				</div>
+			</div>
+			<div id="section-A-Q09" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">9. Pekerjaan</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Karyawan</span>
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Wirausaha</span>
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>PNS/TNI/Polisi/Pejabat Negara</span>
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Lainnya</span>
+				</div>
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-hq">Jabatan/Detil Pekerjaan</div>
+				</div>
+				<div class="col-xs-8">
+					<span>: {{::'v3.mnc.endowment.occupation.enum.' + applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Occupation']).Value | translate}}</span>
+				</div>
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-hq">Bidang Usaha</div>
+				</div>
+				<div class="col-xs-8">
+					<span>: {{::'v3.mnc.endowment.industry.enum.' + applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'BusinessIndustry']).Value | translate}}</span>
+				</div>
+			</div>
+			<div id="section-A-Q10" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q text-indent-s">10. No. Pokok Wajib Pajak (NPWP)</div>
+				</div>
+				<div class="col-xs-8">
+					<span>: {{::applicationUIService.findElementInDetail_V3(['USTaxIDNumber']).$}}</span>
+				</div>
+			</div>
+			<div id="section-A-Q11" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q text-indent-s">11. Penghasilan Kotor/tahun</div>
+				</div>
+				<div class="col-xs-8">
+					<span>: {{::applicationUIService.findElementInDetail_V3(['AnnualIncome']).$ | number:0}}</span>
+				</div>
+			</div>
+			<div id="section-A-Q12" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q text-indent-s">12. Sumber Dana untuk Pembayaran Premi</div>
+				</div>
+				<div class="col-xs-8">
+					<span>: {{::'v3.pnc.sourceOfFund.' + applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'SourceOfFund']).Value | translate}}</span>
+				</div>
+			</div>
+			<div id="section-A-Q13" class="col-xs-12 no-padding">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-4 no-padding-left">
+						<div class="padding-q text-indent-s">13. Nama & Alamat Kantor <i>(Perusahaan/Instansi)</i></div>
+					</div>
+					<div class="col-xs-8">
+						<span class="col-xs-12 no-padding">: {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'EmployerName']).$}}</span>
+						<span class="col-xs-12 no-padding">&nbsp;&nbsp;{{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'PrimaryAddress', 'AddressComplete']).$}}</span>
+						<span class="col-xs-12 no-padding">&nbsp;&nbsp;{{::'v3.pnc.country.enum.' + applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'PrimaryAddress', 'Country']).Value | translate}}</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-4 no-padding-left">
+						<div class="padding-left-s">Kota/Propinsi</div>
+					</div>
+					<div class="col-xs-4 no-padding">
+						<span>: {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'PrimaryAddress', 'City']).$}}</span>
+						<span>/ {{::'v3.province.mnc.enum.' + applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'PrimaryAddress', 'Province']).Value | translate}}</span>
+					</div>
+					<div class="col-xs-4 no-padding">
+						<div class="col-xs-6 text-right">
+							<span>Kode Pos</span>
+						</div>
+						<div class="col-xs-6 no-padding">
+							<span>: {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'PrimaryAddress', 'Postal']).$}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-4 no-padding-left">
+						<div class="padding-left-s">Telepon Kantor <i>(termasuk kode area)</i></div>
+					</div>
+					<div class="col-xs-8">
+						<span>: {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'OfficePhone']).$}}</span>
+					</div>
+				</div>	
+			</div>
+			<div id="section-A-Q14" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q text-indent-s">14. Alamat Email</div>
+				</div>
+				<div class="col-xs-8">
+					<span>: {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'EmailAddress']).$}}</span>
+				</div>
+			</div>
+			<div id="section-A-Q15" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q text-indent-s">15. Pendidikan Formal Terakhir</div>
+				</div>
+				<div class="col-xs-8">
+					<span>: {{::'v3.pdf.mnc.education.enum.' + applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'Education']).Value | translate}}</span>
+					<span>&nbsp;<i>*) Mohon dilingkari</i></span>
+				</div>
+			</div>
+			<div id="section-A-Q16" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q text-indent-s">16. Apakah Anda Pembayar Premi</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img class="cbox" ng-if="::(applicationUIService.findElementInDetail_V3(['DifferencePayor']).Value == 'N')" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img class="cbox" ng-if="::!(applicationUIService.findElementInDetail_V3(['DifferencePayor']).Value == 'N')" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Ya</span>
+					<img class="cbox" ng-if="::!(applicationUIService.findElementInDetail_V3(['DifferencePayor']).Value == 'N')" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img class="cbox" ng-if="::(applicationUIService.findElementInDetail_V3(['DifferencePayor']).Value == 'N')" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Tidak</span>
+				</div>
+			</div>
+			<div id="section-A-Q17" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q text-indent-s">17. Alamat Surat-menyurat</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Rumah Tinggal</span>
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Kantor</span>
+				</div>
+			</div>
+			<div id="section-A-Q18" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q text-indent-s">18. Tujuan Membeli Asuransi</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['AgentDisclaimer','AgentDisclaimerQ3','CoverProtection']).Value == 'Y')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::!(applicationUIService.findElementInDetail_V3(['AgentDisclaimer','AgentDisclaimerQ3','CoverProtection']).Value == 'Y')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Investasi</span>
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['AgentDisclaimer','AgentDisclaimerQ3','CostOfEducation']).Value == 'Y')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::!(applicationUIService.findElementInDetail_V3(['AgentDisclaimer','AgentDisclaimerQ3','CostOfEducation']).Value == 'Y')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Pendidikan</span>
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['AgentDisclaimer','AgentDisclaimerQ3','SavingOfCidRetirement']).Value == 'Y')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::!(applicationUIService.findElementInDetail_V3(['AgentDisclaimer','AgentDisclaimerQ3','SavingOfCidRetirement']).Value == 'Y')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Simpanan Hari Tua</span>
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['AgentDisclaimer','AgentDisclaimerQ3','Other']).Value == 'Y')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::!(applicationUIService.findElementInDetail_V3(['AgentDisclaimer','AgentDisclaimerQ3','Other']).Value == 'Y')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Lainnya</span>
+					<span class="bd-bt">&nbsp;{{::applicationUIService.findElementInDetail_V3(['AgentDisclaimerQ3', 'AnswerOfOther']).$}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="section-B" class="section container-fluid">
+		<div id="section-B-title" class="title">
+			<div class="col-xs-6 no-padding-left">B. DATA TERTANGGUNG</div>
+			<div class="col-xs-6" style="text-align: right;"><i>Harap gunakan HURUF CETAK</i></div>
+		</div>
+		<div id="section-B-body">
+			<div id="section-B-Q01" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">1. Nama Lengkap <i>(sesuai identitas)</i></div>
+				</div>
+				<div class="col-xs-8">
+					<span ng-if="::!moduleService.isPOSameLI()">: {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'FullName']).$}}</span>
+					<span ng-if="::moduleService.isPOSameLI()">:&nbsp;</span>
+				</div>
+			</div>
+			<div id="section-B-Q02" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">2. No. Identitas <i>(KTP/PASPOR/KIMS/KITAS/Akte Lahir/SIM)</i></div>
+				</div>
+				<div class="col-xs-8">
+					<span ng-if="::!moduleService.isPOSameLI()">: {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'IDs', 'ID', 'IDNumber']).$}}</span>
+					<span ng-if="::moduleService.isPOSameLI()">:&nbsp;</span>
+				</div>
+			</div>
+			<div id="section-B-Q03" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">3. Kewarganegaraan</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img ng-if="::!moduleService.isPOSameLI() && ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Nationality']).Value=='78' || applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Nationality']).Value=='734'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::moduleService.isPOSameLI() || (!(applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Nationality']).Value=='78' || applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Nationality']).Value=='734'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Indonesia</span>
+					<img ng-if="::!moduleService.isPOSameLI() && (!(applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Nationality']).Value=='78' || applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Nationality']).Value=='734'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::moduleService.isPOSameLI() || ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Nationality']).Value=='78' || applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Nationality']).Value=='734'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Lainnya</span>
+					<span ng-if="::!moduleService.isPOSameLI() &&  (!(applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Nationality']).Value=='78' || applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Nationality']).Value=='734'))" class="bd-bt">{{::'v3.pnc.nationality.enum.' + applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Nationality']).Value | translate}}</span>
+				</div>
+			</div>
+			<div id="section-B-Q04" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">4. Jenis Kelamin</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img ng-if="::!moduleService.isPOSameLI() && ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Gender']).Value=='M'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::moduleService.isPOSameLI() ||(!(applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Gender']).Value=='M'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Laki-laki</span>
+					<img ng-if="::!moduleService.isPOSameLI() && (!(applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Gender']).Value=='M'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::moduleService.isPOSameLI() || ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Gender']).Value=='M'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Perempuan</span>
+				</div>
+			</div>
+			<div id="section-B-Q05" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">5. Agama</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img ng-if="::!moduleService.isPOSameLI() && ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value=='AG1'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::moduleService.isPOSameLI() || ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value!='AG1'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Islam</span>
+					<img ng-if="::!moduleService.isPOSameLI() && ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value=='AG2'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::moduleService.isPOSameLI() || ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value!='AG2'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Kristen</span>
+					<img ng-if="::!moduleService.isPOSameLI() && ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value=='AG3'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::moduleService.isPOSameLI() || ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value!='AG3'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Katolik</span>
+					<img ng-if="::!moduleService.isPOSameLI() && ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value=='AG4'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::moduleService.isPOSameLI() || ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value!='AG4'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Hindu</span>
+					<img ng-if="::!moduleService.isPOSameLI() && ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value=='AG5'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::moduleService.isPOSameLI() || ((applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value!='AG5'))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Budha</span>
+					<img ng-if="::!moduleService.isPOSameLI() && (('AG1AG2AG3AG4AG5'.indexOf(applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value)==-1))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::moduleService.isPOSameLI() || (!('AG1AG2AG3AG4AG5'.indexOf(applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value)==-1))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Lainnya</span>
+					<span ng-if="::!moduleService.isPOSameLI() && (('AG1AG2AG3AG4AG5'.indexOf(applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value)==-1))" class="bd-bt">{{::'v3.religion.enum.' + applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Religion']).Value | translate}}</span>
+				</div>
+			</div>
+			<div id="section-B-Q06" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">6. Status Perkawinan</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img ng-if="::!moduleService.isPOSameLI() && (applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'MaritalStatus']).Value=='MS1')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::moduleService.isPOSameLI() || (applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'MaritalStatus']).Value!='MS1')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Menikah</span>
+					<img ng-if="::!moduleService.isPOSameLI() && (applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'MaritalStatus']).Value=='MS2')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::moduleService.isPOSameLI() || (applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'MaritalStatus']).Value!='MS2')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Belum Menikah</span>
+					<img ng-if="::!moduleService.isPOSameLI() && ('MS3MS4'.indexOf(applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'MaritalStatus']).Value)!=-1)" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::moduleService.isPOSameLI() || (!('MS3MS4'.indexOf(applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'MaritalStatus']).Value)!=-1))" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Janda/Duda</span>
+					<span>Jumlah Tanggungan</span>
+					<span class="bd-bt">&nbsp;&nbsp;&nbsp;</span>
+				</div>
+			</div>
+			<div id="section-B-Q07" class="col-xs-12 no-padding">
+				<div id="section-B-Q07-not-empty" ng-if="::!moduleService.isPOSameLI()">
+					<div class="col-xs-12 no-padding">
+						<div class="col-xs-4 no-padding-left">
+							<div class="padding-q">7. Alamat Rumah Tinggal Saat Ini</div>
+						</div>
+						<div class="col-xs-8">
+							<div class="col-xs-12 no-padding">
+								<span>: {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','PrimaryAddress', 'AddressComplete']).$}}</span>
+							</div>
+							<div class="col-xs-12 no-padding">
+								<span>&nbsp;&nbsp;{{::'v3.pnc.country.enum.' + applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','PrimaryAddress', 'Country']).Value | translate}}</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding">
+						<div class="col-xs-4 no-padding-left">
+							<div class="padding-left-s">Kota/Propinsi</div>
+						</div>
+						<div class="col-xs-4 no-padding">
+							<span>: {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','PrimaryAddress', 'City']).$}}</span>
+							<span>/ {{::'v3.province.mnc.enum.' + applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','PrimaryAddress', 'Province']).Value | translate}}</span>
+						</div>
+						<div class="col-xs-4 no-padding">
+							<div class="col-xs-6 text-right">
+								<span>Kode Pos</span>
+							</div>
+							<div class="col-xs-6 no-padding">
+								<span>: {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','PrimaryAddress', 'Postal']).$}}</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding">
+						<div class="col-xs-4 no-padding-left">
+							<div class="padding-left-s">Telepon Rumah <i>(termasuk kode area)</i></div>
+						</div>
+						<div class="col-xs-8">
+							<span>: {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'HomePhone']).$}}</span>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding">
+						<div class="col-xs-4 no-padding-left">
+							<div class="padding-left-s">Telepon Selular</div>
+						</div>
+						<div class="col-xs-8">
+							<span>: {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'MobilePhone']).$}}</span>
+						</div>
+					</div>
+				</div>
+				<div id="section-B-Q07-empty" ng-if="::moduleService.isPOSameLI()">
+					<div class="col-xs-12 no-padding">
+						<div class="col-xs-4 no-padding-left">
+							<div class="padding-q">7. Alamat Rumah Tinggal Saat Ini</div>
+						</div>
+						<div class="col-xs-8 no-padding">
+							<div class="col-xs-12">
+								<span>:</span>
+							</div>
+							<div class="col-xs-12">
+								<span>&nbsp;</span>
+							</div>
+							<div class="col-xs-12">
+								<span>&nbsp;</span>
+								<span>&nbsp;</span>
+								<span></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding">
+						<div class="col-xs-4 no-padding-left">
+							<div class="padding-left-s">Kota/Propinsi</div>
+						</div>
+						<div class="col-xs-4 no-padding">
+							<span>: </span>
+						</div>
+						<div class="col-xs-4 no-padding">
+							<div class="col-xs-6 text-right">
+								<span>Kode Pos</span>
+							</div>
+							<div class="col-xs-6 no-padding">
+								<span>: </span>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding">
+						<div class="col-xs-4 no-padding-left">
+							<div class="padding-left-s">Telepon Rumah <i>(termasuk kode area)</i></div>
+						</div>
+						<div class="col-xs-8">
+							<span>:</span>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding">
+						<div class="col-xs-4 no-padding-left">
+							<div class="padding-left-s">Telepon Selular</div>
+						</div>
+						<div class="col-xs-8">
+							<span>:</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="section-B-Q08" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">8. Tempat & Tanggal Lahir <i>(dd-mm-yyyy)</i></div>
+				</div>
+				<div class="col-xs-8 no-padding">
+					<span ng-if="::!moduleService.isPOSameLI()" class="col-xs-8">: {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'CityOfBirth']).$ }} {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'BirthDate']).$ | datetimeFilter:"DD-MM-YYYY"}}</span>
+					<span ng-if="::moduleService.isPOSameLI()" class="col-xs-8">:</span>
+					
+					<span class="col-xs-2">Usia</span>
+					<span ng-if="::!moduleService.isPOSameLI()" class="col-xs-2">: {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Age']).$}}</span>
+					<span ng-if="::moduleService.isPOSameLI()" class="col-xs-2">:</span>
+				</div>
+			</div>
+			<div id="section-B-Q09" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">9. Pekerjaan</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Karyawan</span>
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Wirausaha</span>
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>PNS/TNI/Polisi/Pejabat Negara</span>
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Lainnya</span>
+				</div>
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-hq">Jabatan/Detil Pekerjaan</div>
+				</div>
+				<div class="col-xs-8">
+					<span ng-if="::!moduleService.isPOSameLI()">: {{::'v3.mnc.endowment.occupation.enum.' + applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Occupation']).Value | translate}}</span>
+					<span ng-if="::moduleService.isPOSameLI()">:</span>
+				</div>
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-hq">Bidang Usaha</div>
+				</div>
+				<div class="col-xs-8">
+					<span  ng-if="::!moduleService.isPOSameLI()">: {{::'v3.mnc.endowment.industry.enum.' + applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'BusinessIndustry']).Value | translate}}</span>
+					<span  ng-if="::moduleService.isPOSameLI()">:</span>
+				</div>
+			</div>
+			<div id="section-B-Q10" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q text-indent-s">10. No. Pokok Wajib Pajak (NPWP)</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+				</div>
+			</div>
+			<div id="section-B-Q11" class="col-xs-12 no-padding">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-4 no-padding-left">
+						<div class="padding-q text-indent-s">11. Nama & Alamat Kantor <i>(Perusahaan/Instansi)</i></div>
+					</div>
+					<div class="col-xs-8 no-padding">
+						<span  ng-if="::!moduleService.isPOSameLI()" class="col-xs-12">: {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'EmployerName']).$}}</span>
+						<span  ng-if="::moduleService.isPOSameLI()" class="col-xs-12">:</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-4 no-padding-left">
+						<div class="padding-left-s">Kota/Propinsi</div>
+					</div>
+					<div class="col-xs-4 no-padding">
+						<span>: </span>
+					</div>
+					<div class="col-xs-4 no-padding">
+						<div class="col-xs-6 text-right">
+							<span>Kode Pos</span>
+						</div>
+						<div class="col-xs-6 no-padding">
+							<span>: </span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-4 no-padding-left">
+						<div class="padding-left-s">Telepon Kantor <i>(termasuk kode area)</i></div>
+					</div>
+					<div class="col-xs-8">
+						<span ng-if="::!moduleService.isPOSameLI()">: {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'OfficePhone']).$}}</span>
+						<span ng-if="::moduleService.isPOSameLI()">:</span>	
+					</div>
+				</div>
+			</div>
+			<div id="section-B-Q12" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q text-indent-s">12. Alamat Email</div>
+				</div>
+				<div class="col-xs-8">
+					<span  ng-if="::!moduleService.isPOSameLI()">: {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'EmailAddress']).$}}</span>
+					<span  ng-if="::moduleService.isPOSameLI()">:</span>
+				</div>
+			</div>
+			<div id="section-B-Q13" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q text-indent-s">13. Pendidikan Formal Terakhir</div>
+				</div>
+				<div class="col-xs-8">
+					<span ng-if="::!moduleService.isPOSameLI()">: {{::'v3.pdf.mnc.education.enum.' + applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'Education']).Value | translate}} <i>*) Mohon dilingkari</i></span>
+					<span ng-if="::moduleService.isPOSameLI()">:</span>
+				</div>
+			</div>
+			<div id="section-B-Q14" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q text-indent-s">14. Hubungan dengan Pemegang Polis</div>
+				</div>
+				<div class="col-xs-8">
+					<span  ng-if="::!moduleService.isPOSameLI()">: {{::'v3.mnc.relationship.enum.' + applicationUIService.findElementInDetail_V3(['LARelationship']).Value | translate}}</span>
+					<span  ng-if="::moduleService.isPOSameLI()">:</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="section-C" class="section container-fluid">
+		<div id="section-C-title" class="title">C. AHLI WARIS</div>
+		<div id="section-C-body">
+			<table border="1" width="100%">
+				<tbody>
+					<tr>
+						<th>No.</th>
+						<th>Nama Lengkap (sesuai identitas)</th>
+						<th>L/P</th>
+						<th>Tanggal Lahir<br/>(dd-mm-yy)</th>
+						<th>Hubungan dengan<br/>Tertanggung</th>
+						<th>Besarnya bagian (%) *</th>
+					</tr>
+					<tr ng-repeat="member in ::applicationUIService.findElementInDetail_V3(['BeneficiaryItem'])">
+						<td>{{::$index + 1}}</td>
+						<td>{{::applicationUIService.findElementInElement_V3(member, ['BeneficiaryDetailsName']).$}}</td>
+						<td>{{::'v3.pnc.gender.enum.' + applicationUIService.findElementInElement_V3(member, ['BeneficiaryDetailsGender']).Value | translate}}</td>
+						<td>{{::applicationUIService.findElementInElement_V3(member, ['BeneficiaryDetailsDateOfBirth']).$ | datetimeFilter:"DD-MM-YY"}}</td>
+						<td>{{::'v3.mnc.relationship.enum.' + applicationUIService.findElementInElement_V3(member, ['BeneficiaryDetailsRelationship']).Value | translate}}</td>
+						<td>{{::applicationUIService.findElementInElement_V3(member, ['BeneficiaryDetailsShare']).$}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<div style="text-align: right;">* Jika tidak dilengkapi, masing-masing akan mendapat bagian yang sama</div>
+		</div>
+	</div>
+	<div id="section-D" class="section container-fluid">
+		<div id="section-D-title" class="title">D. KETERANGAN MENGENAI ASURANSI YANG DIMOHONKAN</div>
+		<div id="section-D-body">
+			<div id="section-D-Q01" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">1. Mata Uang</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img class="cbox" ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredInformation','Currency']).Value == 'IDR'"
+						src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img class="cbox" ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredInformation','Currency']).Value != 'IDR'"
+						src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Rupiah</span>
+					<img class="cbox" ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredInformation','Currency']).Value != 'IDR'"
+						src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img class="cbox" ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredInformation','Currency']).Value == 'IDR'"
+						src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Lainnya</span>
+					<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredInformation','Currency']).Value != 'IDR'">
+						{{::applicationUIService.findElementInDetail_V3(['LifeAssuredInformation','Currency']).Value}}
+					</span>
+				</div>
+			</div>
+			<div id="section-D-Q02" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">2. Nama Produk</div>
+				</div>
+				<div class="col-xs-8">
+					<span>: MNC UDS</span>
+				</div>
+			</div>
+			<div id="section-D-Q03" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">3. Uang Pertanggungan Dasar</div>
+				</div>
+				<div class="col-xs-8">
+					<span>: {{::applicationUIService.findElementInDetail_V3(['SumInsured']).$}}</span>
+				</div>
+			</div>
+			<div id="section-D-Q04" class="col-xs-12 no-padding">
+				<div class="col-xs-1 no-padding-left">
+					<div class="padding-q">4.</div>
+				</div>
+				<div class="col-xs-11">
+					<div class="col-xs-10 no-padding">
+						<table style="width:100%" border="1">
+							<tbody>
+								<tr>
+									<td>
+										<img class="cbox" ng-if="::applicationUIService.findElementInDetail_V3(['Riders'])['@counter'] == 0" 
+											src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+										<img class="cbox" ng-if="::applicationUIService.findElementInDetail_V3(['Riders'])['@counter'] > 0" 
+											src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+									</td>
+									<td>Manfaat Tambahan (Rider)</td>
+									<td>Tipe</td>
+									<td>Uang Pertangungan Tambahan</td>
+								</tr>
+								<tr ng-repeat="rider in ::applicationUIService.findElementInDetail_V3(['Riders','Rider'])"
+									ng-if="::applicationUIService.findElementInDetail_V3(['Riders'])['@counter'] > 0">
+									<td></td>
+									<td>{{::'v3.mnc.endowment.rider-plan.enum.' + applicationUIService.findElementInElement_V3(rider, ['RiderPlan']).Value | translate}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(rider, ['RiderType']).Value}}</td>
+									<td style="text-align: right;padding-right: 15px;">{{::applicationUIService.findElementInElement_V3(rider, ['RiderSumInsured']).$ | formatNumberPreviewPdf : patternNumber}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="col-xs-3 no-padding"></div>
+				</div>
+			</div>
+			<div id="section-D-Q05" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">5. Nama Pemilik Rekening</div>
+				</div>
+				<div class="col-xs-8">
+					<span>: {{::applicationUIService.findElementInDetail_V3(['BankName']).$}}</span>
+				</div>
+			</div>
+			<div id="section-D-Q06" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">6. Nomor Rekening</div>
+				</div>
+				<div class="col-xs-8">
+					<span>: {{::applicationUIService.findElementInDetail_V3(['SavingCurrentAccountNumber']).$}}</span>
+				</div>
+			</div>
+			<div id="section-D-Q07" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">7. Nama Bank/Cabang/Kota</div>
+				</div>
+				<div class="col-xs-8">
+					<span>: {{::applicationUIService.findElementInDetail_V3(['Branch']).$}}</span>
+				</div>
+			</div>
+			<div id="section-D-Q08" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">8. Metode Pembayaran Premi Lanjutan</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img class="cbox" src="{{::moduleService.getCheckboxIcon(['PaymentDetails', 'FirstPaymentMethod'], 'AP1')}}">
+					<span>Transfer</span>
+					<img class="cbox" src="{{::moduleService.getCheckboxIcon(['PaymentDetails', 'FirstPaymentMethod'], 'ACC')}}">
+					<span>Kartu Kredit *</span>
+					<img class="cbox" src="{{::moduleService.getCheckboxIcon(['PaymentDetails', 'FirstPaymentMethod'], 'ARK')}}">
+					<span>Auto Debet Rekening**</span>
+				</div>
+			</div>
+			<div id="section-D-Q09" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q">9. Cara Bayar</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img class="cbox" ng-if="::applicationUIService.findElementInDetail_V3(['PaymentDetails', 'PremiumFrequency']).$ == '01'"
+						src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img class="cbox" ng-if="::applicationUIService.findElementInDetail_V3(['PaymentDetails', 'PremiumFrequency']).$ != '01'"
+						src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />					
+					<span>Tahunan</span>
+					<img class="cbox" ng-if="::applicationUIService.findElementInDetail_V3(['PaymentDetails', 'PremiumFrequency']).$ == '02'"
+						src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img class="cbox" ng-if="::applicationUIService.findElementInDetail_V3(['PaymentDetails', 'PremiumFrequency']).$ != '02'"
+						src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>6 bulanan</span>
+					<img class="cbox" ng-if="::applicationUIService.findElementInDetail_V3(['PaymentDetails', 'PremiumFrequency']).$ == '04'"
+						src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img class="cbox" ng-if="::applicationUIService.findElementInDetail_V3(['PaymentDetails', 'PremiumFrequency']).$ != '04'"
+						src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>3 bulanan</span>
+				</div>
+			</div>
+			<div id="section-D-Q10" class="col-xs-12 no-padding">
+				<div class="col-xs-4 no-padding-left">
+					<div class="padding-q text-indent-s">10. Apakah pembayaran manfaat Polis menggunakan rekening yang sama?</div>
+				</div>
+				<div class="col-xs-8">
+					<span>:</span>
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Ya ***</span>
+					<img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Tidak</span>
+				</div>
+			</div>
+			<div id="section-D-footer" class="col-xs-12 no-padding">
+				<div class="col-xs-8 no-padding col-xs-offset-4" style="text-indent: 0px;">
+					&nbsp;&nbsp;* Wajib lampirkan SKDKK atau SKDR & fotokopi kartu kredit
+					<br/>&nbsp;** Wajib lampirkan SKDR dan fotokopi buku tabungan halaman pertama
+					<br/>*** Wajib lampirkan fotokopi buku tabungan halaman pertama
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="section-E" class="section container-fluid">
+		<div id="section-E-title" class="title">E. DATA LAIN</div>
+		<div id="section-E-body">
+			<div id="section-E-header">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding"></div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-6 no-padding" style="border-right: 1px solid;">Tertanggung</span>
+						<span class="col-xs-6 no-padding" style="border-left: 0px;">Pemegang</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding"></div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">Ya</span>
+						<span class="col-xs-3 no-padding">Tidak</span>
+						<span class="col-xs-3 no-padding">Ya</span>
+						<span class="col-xs-3 no-padding">Tidak</span>
+					</div>
+				</div>
+			</div>
+			<div id="section-E-Q01">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-6 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding bd-full">Tertanggung</span>
+						<span class="col-xs-3 no-padding bd-full">Pemegang Polis</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-6 no-padding padding-q">1. a. Tinggi Badan</span>
+						<span class="col-xs-3 no-padding bd-full">{{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'GeneralQ1aHeight']).$}} cm</span>
+						<span class="col-xs-3 no-padding bd-full">{{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'GeneralQ1aHeight']).$}} cm</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-6 no-padding padding-hq">b. Berat Badan</span>
+						<span class="col-xs-3 no-padding bd-full">{{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'GeneralQ1aWeight']).$}} kg</span>
+						<span class="col-xs-3 no-padding bd-full">{{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'GeneralQ1aWeight']).$}} kg</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">c. Apakah ada perubahan berat badan dalam 12 bulan terakhir?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<!--start Insured -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ1b','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ1b','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ1b','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ1b','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+						<!--end Insured -->
+						<!--start Holder -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ1b','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ1b','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ1b','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ1b','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+						<!--end Holder -->
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding bd-full">Berkurang</span>
+						<span class="col-xs-3 no-padding bd-full">Bertambah</span>
+						<span class="col-xs-3 no-padding bd-full">Sebab Perubahan</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-3 no-padding bd-full">Tertanggung</span>
+<!-- Berkurang -->		<span class="col-xs-3 no-padding bd-full" ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'GeneralQ1bIncreaseOrDecrease']).Value == 'D'">&nbsp;{{::moduleService.getValueGQ1c(['LifeAssuredDetails', 'GeneralQ1bKG'])}}</span>
+<!-- Berkurang -->		<span class="col-xs-3 no-padding bd-full" ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'GeneralQ1bIncreaseOrDecrease']).Value != 'D'">&nbsp;</span>
+<!-- Bertambah -->		<span class="col-xs-3 no-padding bd-full" ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'GeneralQ1bIncreaseOrDecrease']).Value == 'I'">&nbsp;{{::moduleService.getValueGQ1c(['LifeAssuredDetails', 'GeneralQ1bKG'])}}</span>
+<!-- Bertambah -->		<span class="col-xs-3 no-padding bd-full" ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'GeneralQ1bIncreaseOrDecrease']).Value != 'I'">&nbsp;</span>
+<!-- Sebab Perubahan --><span class="col-xs-3 no-padding bd-full">&nbsp;{{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'GeneralQ1bReason']).$}}</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-3 no-padding bd-full">Pemegang Polis</span>
+<!-- Berkurang -->		<span class="col-xs-3 no-padding bd-full" ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'GeneralQ1bIncreaseOrDecrease']).Value == 'D'">&nbsp;{{::moduleService.getValueGQ1c(['PolicyOwnerDetails', 'GeneralQ1bKG'])}}</span>
+<!-- Berkurang -->		<span class="col-xs-3 no-padding bd-full" ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'GeneralQ1bIncreaseOrDecrease']).Value != 'D'">&nbsp;</span>
+<!-- Bertambah -->		<span class="col-xs-3 no-padding bd-full" ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'GeneralQ1bIncreaseOrDecrease']).Value == 'I'">&nbsp;{{::moduleService.getValueGQ1c(['PolicyOwnerDetails', 'GeneralQ1bKG'])}}</span>
+<!-- Bertambah -->		<span class="col-xs-3 no-padding bd-full" ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'GeneralQ1bIncreaseOrDecrease']).Value != 'I'">&nbsp;</span>
+<!-- Sebab Perubahan --><span class="col-xs-3 no-padding bd-full">&nbsp;{{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'GeneralQ1bReason']).$}}</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">d. Apakah Anda mempunyai dokter keluarga? Jika YA, sebutkan</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<!--start Insured -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ1c','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ1c','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ1c','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ1c','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+						<!--end Insured -->
+						<!--start Holder -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ1c','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ1c','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ1c','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ1c','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+						<!--end Holder -->
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<table border="1">
+							<tr>
+								<td>Nama dan Alamat Dokter Keluarga Anda</td>
+								<td>Sebutkan Tanggal, Alasan dan Hasil Konsultasi Terakhir</td>
+							</tr>
+							<tr>
+								<td>&nbsp;{{::moduleService.getLAGQ1cNameAddress()}}</td>
+								<td>&nbsp;{{::moduleService.getPOGQ1cNameAddress()}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			<div id="section-E-Q02">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<div class="col-xs-7 padding-q">2. Apakah Anda dalam keadaan sehat? Jika Tidak, jelaskan:</div>
+						<div class="col-xs-5 no-padding bd-full">&nbsp;{{::moduleService.getLAGQ2GeneralQDetails()}}</div>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<!--start Insured -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ2','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ2','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ2','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ2','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+						<!--end Insured -->
+						<!--start Holder -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ2','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ2','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ2','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ2','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+						<!--end Holder -->
+					</div>
+				</div>
+			</div>
+			<div id="section-E-Q03">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 padding-q">
+						3. Apakah Anda mempunyai kebiasaan mengkonsumsi minuman keras/alkohol dan sejenisnya? Jika YA sebutkan konsumsi rata-rata dan jenis minuman (misalnya bir, anggur dll) :
+						</div>
+						<div class="col-xs-3 no-padding">
+						<!--start Insured -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ3','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ3','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ3','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ3','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+						<!--end Insured -->
+						<!--start Holder -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ3','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ3','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ3','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ3','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+						<!--end Holder -->
+						</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<div class="col-xs-5 no-padding padding-left-s">
+							Banyaknya (perhari/minggu):
+						</div>
+						<div class="col-xs-2 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGQ3GeneralQ3Amount()}}
+						</div>
+						<div class="col-xs-2 no-padding">
+							Jenis Minuman:
+						</div>
+						<div class="col-xs-3 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGQ3GeneralQ3BeverageType()}}
+						</div>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<div class="col-xs-5 no-padding padding-left-s">
+							Sejak kapan dan berapa lama?
+						</div>
+						<div class="col-xs-7 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGQ3GeneralQ3Howlong()}}
+						</div>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			<div id="section-E-Q04">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 padding-q">
+					4. Apakah Anda pernah menggunakan obat-obatan terlarang, narkotika, morfin, obat penenang, psikotropika atau pernah dirawat karena kecanduan narkotika/psikotropika/bahan adiktif lainnya? Jika YA, sebutkan :
+					</div>
+					<div class="col-xs-3 no-padding">
+					<!--start Insured -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ4','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ4','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ4','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ4','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Insured -->
+					<!--start Holder -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ4','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ4','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ4','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ4','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Holder -->
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<div class="col-xs-5 no-padding padding-left-s">
+							Jenis obat terlarang/narkoba:
+						</div>
+						<div class="col-xs-7 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGeneralQ4KindOfDrugs()}}
+						</div>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<div class="col-xs-3 no-padding padding-left-s">
+							Sejak kapan? 
+						</div>
+						<div class="col-xs-3 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGeneralQ4SinceDate()}}
+						</div>
+						<div class="col-xs-3 no-padding text-center">
+							Tanggal Terakhir:
+						</div>
+						<div class="col-xs-3 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGeneralQ4LastDate()}}
+						</div>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			<div id="section-E-Q05">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 padding-q">
+					5. Dalam 12 bulan terakhir ini apakah Anda menggunakan atau pernah menggunakan produk dari
+tembakau(termasuk namun tidak terbatas pada rokok, cerutu, pipa dan tembakau kunyah)?
+					</div>
+					<div class="col-xs-3 no-padding">
+					<!--start Insured -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ5','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ5','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ5','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ5','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Insured -->
+					<!--start Holder -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ5','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ5','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ5','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ5','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Holder -->
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<div class="col-xs-4 no-padding padding-left-s">
+							Jika YA, banyaknya: 
+						</div>
+						<div class="col-xs-2 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGeneralQ5CigaretesDay()}}
+						</div>
+						<div class="col-xs-3 no-padding text-center">
+							batang/hari sejak:
+						</div>
+						<div class="col-xs-3 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGeneralQ5Since()}}
+						</div>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<div class="col-xs-12 no-padding padding-left-s">
+							Jika Anda telah berhenti menggunakan produk dari tembakau , jelaskan kapan dan alasannya:
+						</div>
+						<div class="col-xs-12 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGeneralQ5Explain()}}
+						</div>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			<div id="section-E-Q06">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 padding-q">
+					6. Apakah terlibat hobi/kegiatan berisiko tinggi? (sebagai awak pesawat, terjun payung, mendaki gunung, menyelam, balap, dll)? Jika Ya, Sebutkan
+					</div>
+					<div class="col-xs-3 no-padding">
+					<!--start Insured -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ6','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ6','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ6','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ6','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Insured -->
+					<!--start Holder -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ6','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ6','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ6','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ6','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Holder -->
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<div class="col-xs-4 no-padding padding-left-s">
+							Frekuensi/jangka waktu: 
+						</div>
+						<div class="col-xs-2 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGeneralQ6FrequencyOrPeriod()}}
+						</div>
+						<div class="col-xs-3 no-padding text-center">
+							Lokasi:
+						</div>
+						<div class="col-xs-3 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGeneralQ6Location()}}
+						</div>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			<div id="section-E-Q07">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 padding-q">
+					7. Apakah Anda pernah tinggal di tempat/negara lain selama lebih dari 3 bulan? Jika YA, sebutkan :
+					</div>
+					<div class="col-xs-3 no-padding">
+					<!--start Insured -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ7','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ7','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ7','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ7','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Insured -->
+					<!--start Holder -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ7','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ7','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ7','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ7','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Holder -->
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<div class="col-xs-2 no-padding padding-left-s">
+							Kapan:
+						</div>
+						<div class="col-xs-2 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGeneralQ7When()}}
+						</div>
+						<div class="col-xs-2 no-padding text-center">
+							Di mana:
+						</div>
+						<div class="col-xs-2 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGeneralQ7Where()}}
+						</div>
+						<div class="col-xs-2 no-padding">
+							Lama Tinggal:
+						</div>
+						<div class="col-xs-2 no-padding bd-full">
+							&nbsp;{{::moduleService.getLAGeneralQ6Location()}}
+						</div>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			<div id="section-E-Q08">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 padding-q">
+					8. Apakah Anda saat ini sudah memiliki atau sedang mengajukan permohonan asuransi lainnya atas diri Anda? Jika YA harap berikan keterangan terperinci (sebutkan nomor polis jika ada) :
+					</div>
+					<div class="col-xs-3 no-padding">
+					<!--start Insured -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ8','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ8','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ8','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ8','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Insured -->
+					<!--start Holder -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ8','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ8','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ8','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ8','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Holder -->
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<table style="width:100%" border="1">
+							<tr>
+								<td rowspan="2">
+									Nama Perusahaan Asuransi
+								</td>
+								<td rowspan="2">
+									Tanggal Polis
+								</td>
+								<td rowspan="2">
+									Nomor Polis
+								</td>
+								<td colspan="3">
+									Jumlah Uang Pertanggungan
+								</td>
+							</tr>
+							<tr>
+								<td>Jiwa</td>
+								<td>Penyakit Kritis</td>
+								<td>Kecelakaan</td>
+							</tr>
+							<tr>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ8CompanyName']).$}}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ8Date']).$ | datetimeFilter:"DD MMM YYYY"}}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ8PolicyNumber']).$ }}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ8Death']).$ }}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ8CriticalIllness']).$ }}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ8Accident']).$ }}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			<div id="section-E-Q09">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 padding-q">
+					9. Apakah Anda saat ini sudah memiliki polis asuransi di MNC Life atas diri Anda? Jika YA harap berikan keterangan terperinci (sebutkan nomor polis jika ada) :
+					</div>
+					<div class="col-xs-3 no-padding">
+					<!--start Insured -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ9','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ9','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ9','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ9','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Insured -->
+					<!--start Holder -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ9','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ9','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ9','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ9','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Holder -->
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<table style="width:100%" border="1">
+							<tr>
+								<td rowspan="2">
+									Nama Produk
+								</td>
+								<td rowspan="2">
+									Tanggal Polis
+								</td>
+								<td rowspan="2">
+									Nomor Polis
+								</td>
+								<td colspan="3">
+									Jumlah Uang Pertanggungan
+								</td>
+							</tr>
+							<tr>
+								<td>Jiwa</td>
+								<td>Penyakit Kritis</td>
+								<td>Kecelakaan</td>
+							</tr>
+							<tr>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ9ProductName']).$}}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ9Date']).$ | datetimeFilter:"DD MMM YYYY"}}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ9PolicyNumber']).$ }}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ9Death']).$ }}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ9CriticalIllness']).$ }}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ9Accident']).$ }}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			<div id="section-E-Q10">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 padding-q text-indent-s">
+					10. Apakah asuransi Anda pernah ditolak, ditunda, dikenakan tambahan/ekstra premi atau diubah/dihentikan oleh perusahaan asuransi lainnya? Jika YA harap berikan keterangan terperinci
+					</div>
+					<div class="col-xs-3 no-padding">
+					<!--start Insured -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ10','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ10','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ10','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ10','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Insured -->
+					<!--start Holder -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ10','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ10','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ10','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ10','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Holder -->
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-12 no-padding">
+						<table style="width:100%" border="1">
+							<tr>
+								<td rowspan="2">
+									Nama Produk
+								</td>
+								<td rowspan="2">
+									Tanggal Polis
+								</td>
+								<td rowspan="2">
+									Nomor Polis
+								</td>
+								<td colspan="3">
+									Jumlah Uang Pertanggungan
+								</td>
+								<td rowspan="2" class="col-xs-3 no-padding">
+									Alasan
+								</td>
+							</tr>
+							<tr>
+								<td>Jiwa</td>
+								<td>Penyakit Kritis</td>
+								<td>Kecelakaan</td>
+							</tr>
+							<tr>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ10CompanyName']).$}}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ10Date']).$ | datetimeFilter:"DD MMM YYYY"}}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ10PolicyNumber']).$ }}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ10Death']).$ }}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ10CriticalIllness']).$ }}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ10Accident']).$ }}</td>
+								<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ10','Reason']).$ }}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div id="section-E-Q11">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 padding-q text-indent-s">
+					11. Apakah Surat Permohonan ini sebagai pengganti dari Aplikasi/Polis lain? Jika Ya, Jelaskan & lampirkan Surat Pernyataan Nasabah mengenai penggantian Surat Permohonan/Polis lain:
+					</div>
+					<div class="col-xs-3 no-padding">
+					<!--start Insured -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ11','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ11','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ11','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ11','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Insured -->
+					<!--start Holder -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ11','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ11','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ11','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ11','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Holder -->
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding bd-full">
+						&nbsp;{{::moduleService.getLAGQ11GeneralQDetails()}}
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			<div id="section-E-Q12">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 padding-q text-indent-s">
+						12. Apakah keluarga Anda (orang tua/suami/istri/anak/adik/kakak) sudah memiliki asuransi? Jika Ya, sebutkan :
+					</div>
+					<div class="col-xs-3 no-padding">
+						<!--start Insured -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ12','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ12','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ12','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','GeneralQ12','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Insured -->
+					<!--start Holder -->
+<!-- yes-checked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ12','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- yes-unchecked  -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ12','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+<!-- no-checked -->		<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ12','QValue']).Value == 'N'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" /></span>
+<!-- no-unchecked -->	<span ng-if="::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ12','QValue']).Value == 'Y'" class="col-xs-3 no-padding"><img class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" /></span>
+					<!--end Holder -->
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<table style="width:100%" border="1">
+							<tbody>
+								<tr>
+									<td>Nama Tertanggung Pada Polis</td>
+									<td>Tanggal Lahir</td>
+									<td>Nama Perusahaan </td>
+									<td>Hubungan</td>
+								</tr>
+								<tr>
+									<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ12InsuredName']).$}}</td>
+									<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ12Date']).$}}</td>
+									<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ12InsuranceCompany']).$}}</td>
+									<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','GeneralQ12Relationship']).$}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="section-F" class="section container-fluid">
+		<div id="section-F-title" class="title">F. DATA KESEHATAN</div>
+		<div id="section-F-body">
+			<div id="section-F-header">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding"></div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-6 no-padding" style="border-right: 1px solid;">Tertanggung</span>
+						<span class="col-xs-6 no-padding" style="border-left: 0px;">Pemegang</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding"></div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">Ya</span>
+						<span class="col-xs-3 no-padding">Tidak</span>
+						<span class="col-xs-3 no-padding">Ya</span>
+						<span class="col-xs-3 no-padding">Tidak</span>
+					</div>
+				</div>
+			</div>
+			<div id="section-F-Q01">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-q">1. Apakah Anda pernah /sedang menderita penyakit / kelainan :</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">a. Gejala penyakit jiwa seperti psikosa, skizofrenia dan lainnya?</span>
+					</div>
+					<div class="col-xs-3 no-padding">						
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 0, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 0, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 0, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 0, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">b. Penyakit syaraf seperti pusing berputar (vertigo), hilang kesadaran, ayan, kelumpuhan, stroke, kejang, sering sakit kepala dan lainnya?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 1, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 1, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 1, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 1, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">c. Mata, telinga,hidung dan tenggorokan termasuk kelainan penglihatan, penciuman dan pendengaran?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 2, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 2, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 2, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 2, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">d. Paru-paru termasuk asma, bronchitis, pneumonia, radang selaput paru, batuk darah, batuk yang kronis, tuberculosis dan lainnya?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 3, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 3, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 3, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 3, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">e. Jantung dan pembuluh darah termasuk jantung berdebar, nyeri dada, lemah jantung, gangguan lain pada katup jantung, irama jantung tidak teratur atau cepat, varises, angina pectoris, tekanan darah tinggi/rendah?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 4, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 4, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 4, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 4, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">f. Gangguan pencernaan, sakit maag (gastritis), tukak lambung, penyakit pada usus, ambeien, hernia, penyakit hati (liver), penyakit kandung/saluran empedu, hepatitis, penyakit limpa dan penyakit pankreas?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 5, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 5, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 5, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 5, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">g. Sistem saluran kemih dan kelamin termasuk penyakit ginjal, kencing batu, penyakit kelamin (misal: siphilis, kencing nanah), prostat atau penyakit apapun pada ginjal dan saluran kemih?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 6, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 6, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 6, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 6, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">h. Sistem kelenjar getah bening, endokrin dan darah termasuk kencing manis, kolesterol tinggi, tiroid atau penyakit endokrin lainnya, anemia, thalassemia, hemofilia, leukimia dan kelainan darah lainnya?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 7, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 7, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 7, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 7, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">i. Infeksi seperti malaria, disentri atau lainnya?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 8, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 8, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 8, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 8, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">j. Sistem kekebalan tubuh dan kelainan imunologi seperti AIDS, kompleks gejala yang berhubungan dengan AIDS(ARC), HIV(+), alergi, lupus?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 9, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 9, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 9, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 9, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">k. Pertumbuhan sel abnormal seperti tumor, kanker, kista dan lainnya?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 10, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 10, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 10, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 10, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">l. Lain-lain yang belum disebutkan seperti kelainan bentuk tubuh atau jenis luka apapun, cacat fisik, cacat bawaan, trauma kepala?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 11, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 11, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 11, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 11, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">m. Kelainan pada tulang belakang seperti nyeri punggung bawah (LBP), syaraf kejepit (HNP), scoliosis dan lainnya?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 12, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 12, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 12, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 12, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">n. Kelainan kulit yang tak lazim, kusta, tahi lalat yang membesar dengan cepat?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 13, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 13, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 13, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 13, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">o. Kelainan pada tulang (misal: patah tulang, amputasi, polio, perubahan bentuk/deformitas)</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 14, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 14, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 14, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 14, 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">p. Menderita sakit/penyakit/kelainan yang tidak disebutkan di atas?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 15, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['LifeAssuredDetails', 'HealthQ1Items'], 15, 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 15, 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIconWithIndex(['PolicyOwnerDetails', 'HealthQ1Items'], 15, 'N')}}"></span>
+					</div>
+				</div>
+			</div>
+			<div id="section-F-Q02">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-q">2. Apakah suami/isteri Anda pernah menderita penyakit hubungan seksual, infeksi HIV, AIDS atau berkonsultasi dengan dokter sehubungan dengan AIDS atau infeksi HIV?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ2', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ2', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ2', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ2', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+			</div>
+			<div id="section-F-Q03">
+				<div class="col-xs-12 no-padding">		
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-q">3. Apakah Anda pernah diperiksa untuk virus HIV? Jika Ya sebutkan kapan, alasan dan hasilnya</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ3', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ3', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ3', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ3', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<table style="width:100%" border="1">
+							<tbody>
+								<tr>
+									<td>Tanggal</td>
+									<td>Alasan</td>
+									<td>Hasil</td>
+								</tr>
+								<tr ng-repeat="questionItem in ::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','HealthQ3','HealthQ3Item'])">
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQ3Date']).$}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQ3Reason']).$}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQ3Result']).$}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			<div id="section-F-Q04">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-q">4. Selama lima tahun terakhir ini, apakah Anda pernah:</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">a. Menderita sakit, menjalani rawat inap, operasi, biopsi, endoskopi? Jika Ya berikan penjelasan sebagaimana ditunjukkan dibawah ini:</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ4a', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ4a', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ4a', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ4a', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<table style="width:100%" border="1">
+							<tbody>
+								<tr>
+									<td>Keadaan</td>
+									<td>Tanggal</td>
+									<td>Klinik/Rumah Sakit</td>
+									<td>Pengobatan</td>
+									<td>Hasil</td>
+								</tr>
+								<tr ng-repeat="questionItem in ::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','HealthQ4','HealthQ4a','HealthQ4Details'])">
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HospitalCondition']).$}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HospitalDate']).$ | datetimeFilter:'DD/MM/YYYY'}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HospitalClinic']).$}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HospitalTreatment']).$}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HospitalResults']).$}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">b. Menjalani pemeriksaan diagnostik seperti sinar X (rontgen) atau yang khusus seperti elektrokardiogram (EKG), MRI, ultrasonografi (USG), CT-Scan, pemeriksaan genetik, pemeriksaan darah (kolesterol, gula darah, hepatitis, anemia atau pemeriksaan lainnya)? Jika Ya berikan penjelasan sebagaimana ditunjukkan dibawah ini:</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ4b', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ4b', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ4b', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ4b', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<table style="width:100%" border="1">
+							<thead>
+								<tr>
+									<td>Jenis Pemeriksaan</td>
+									<td>Tanggal</td>
+									<td>Klinik/Rumah Sakit</td>
+									<td>Alasan</td>
+									<td>Hasil</td>
+								</tr>
+								<tr ng-repeat="questionItem in ::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','HealthQ4','HealthQ4b','HealthQ4Details'])">
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HospitalCondition']).$}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HospitalDate']).$ | datetimeFilter:'DD/MM/YYYY'}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HospitalClinic']).$}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HospitalTreatment']).$}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HospitalResults']).$}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>	
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">c. Menjalani pemeriksaan/pengobatan ke dokter umum/spesialis, ahli jiwa, radiasi, kemoterapi, pengobatan tradisional/alternatif?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ4c', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ4c', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ4c', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ4c', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">d. Mengalami keracunan, kecelakaan atau mencoba bunuh diri?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ4d', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ4d', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ4d', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ4d', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">e. Menerima tranfusi darah, ditolak sebagai donor darah, melakukan cuci darah?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ4e', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ4e', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ4e', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ4e', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+			</div>
+			<div id="section-F-Q05">				
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-q">5. Hanya untuk Wanita:</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">a. Apakah Anda pernah menderita atau menemukan adanya benjolan pada payudara atau kelainan lainnya pada payudara?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5a', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5a', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5a', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5a', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>				
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">b. Apakah ada anggota keluarga Anda yang pernah menderita kanker payudara atau leher rahim (termasuk pada nenek, ibu, bibi, kakak atau adik)?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5b', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5b', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5b', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5b', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">c. Pernah hamil? Jika YA, sebutkan:</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5c', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5c', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5c', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5c', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<table style="width:100%" border="1">
+							<tbody>
+								<tr>
+									<td>&nbsp; </td>
+									<td>Kapan (Bln/Thn)</td>
+									<td>Kondisi Kehamilan</td>
+								</tr>
+								<tr ng-repeat="questionItem in ::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','HealthQ5','HealthQ5c','HealthQ5cItem']) track by $index">
+									<td><span ng-if="::$index==0">Tertanggung</span></td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQ5cMonthYear']).$}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQ5cCondition']).$}}</td>
+								</tr>
+								<tr ng-repeat="questionItem in ::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','HealthQ5','HealthQ5c','HealthQ5cItem'])">
+									<td><span ng-if="::$index==0">Pemegang Polis</span></td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQ5cMonthYear']).$}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQ5cCondition']).$}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">d. Sedang Hamil? Jika YA, sebutkan:</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5d', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5d', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5d', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5d', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<table style="width:100%" border="1">
+							<thead>
+								<tr>
+									<td>Usia Kehamilan saat ini (bulan atau minggu)</td>
+								</tr>
+								<tr ng-repeat="questionItem in ::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','HealthQ5','HealthQ5d','HealthQ5dItem'])">
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQAgeOfPregnancy']).$}} {{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQDate']).$}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>	
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">e. Kapan tanggal haid terakhir?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5e', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5e', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5e', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5e', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">					
+					<div class="col-xs-9 no-padding">
+						<table style="width:100%" border="1">
+							<tbody>
+								<tr>
+									<td width="30%">Tertanggung</td>
+									<td>{{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','HealthQ5e','TextDateQuestion']).$}}</td>
+								</tr>
+								<tr>
+									<td>Pemegang Polis</td>
+									<td>{{::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','HealthQ5e','TextDateQuestion']).$}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>				
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">f. Pernahkah Anda mengalami keguguran, menderita komplikasi selama kehamilan atau kelainan pada waktu melahirkan?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5f', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5f', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5f', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5f', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">g. Pernahkah Anda mengalami haid yang tidak teratur, nyeri dan berlebihan banyaknya, menderita fibroid/ myoma, kista atau kelainan lainnya pada organ reproduksi?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5g', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5g', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5g', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5g', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">h. Pernahkah Anda disarankan untuk melakukan pemeriksaan mammografi, papsmear atau pemeriksaan kandungan lainnya?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5h', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ5h', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5h', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ5h', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+			</div>
+			<div id="section-F-Q06">
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-q">6. Hanya untuk Calon Tertanggung Anak usia kurang dari 5 tahun:</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+						<span class="col-xs-3 no-padding">&nbsp;</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">a. Apakah ada penyulit/penyakit/kelainan pada saat kehamilan atau kelahiran?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6a', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6a', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6a', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6a', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">b. Apakah kehamilan Premature/Postmature?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6b', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6b', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6b', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6b', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-3 no-padding padding-hq">
+						<span style="border-left: 0px;">c. Kelahiran secara</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span style="border-left: 0px;">
+							<img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQNormalOrSpontan'], 'Y')}}">						
+							Normal/Spontan
+						</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span style="border-left: 0px;">
+							<img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQOperasiOrCaesar'], 'Y')}}">						
+							Operasi/Caesar
+						</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-3 no-padding" style="padding-left: 51px !important;">
+						<span style="border-left: 0px;">Bantuan Alat</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span style="border-left: 0px;">
+							<img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQVacum'], 'Y')}}">						
+							Vacum
+						</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span style="border-left: 0px;">
+							<img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQForceps'], 'Y')}}">						
+							Forceps
+						</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span style="border-left: 0px;">
+							<img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQForceps'], 'Y')}}"> 						
+							Lainnya___________
+						</span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">d. Apakah saat lahir mengalami badan kuning/Ikterus dan atau memerlukan perawatan dengan Inkubator?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6d', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6d', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6d', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6d', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">e. Apakah berat badan waktu lahir kurang dari 2500 gram?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6e', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6e', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6e', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6e', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">f. Apakah dalam 2 tahun terakhir pernah mendapat perawatan medis atau pengobatan oleh Dokter akibat sakit atau cedera?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6f', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6f', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6f', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6f', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">g. Apakah ada pemeriksaan lanjutan, tindakan pembedahan dan atau diet khusus yang dianjurkan/dijalankan?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6g', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6g', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6g', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6g', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-9 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">h. Apakah ada kelainan genetik atau cacat bawaan yang didapat sejak lahir?</span>
+					</div>
+					<div class="col-xs-3 no-padding">
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6h', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['LifeAssuredDetails', 'HealthQ6h', 'application:QValue'], 'N')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6h', 'application:QValue'], 'Y')}}"></span>
+						<span class="col-xs-3 no-padding"><img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQ6h', 'application:QValue'], 'N')}}"></span>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding">
+					<div class="col-xs-3 no-padding padding-hq">
+						<span style="border-left: 0px;">i. Dilahirkan di</span>
+					</div>
+					<div class="col-xs-3 no-padding" style="display: initial;text-align: left;">
+						<span class="col-xs-12 no-padding" style="border-left: 0px;">
+							<img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQForceps'], 'Y')}}">						
+							Rumah Bersalin
+						</span>
+						<span class="col-xs-12 no-padding" style="border-left: 0px;">
+							<img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQForceps'], 'Y')}}">						
+							Rumah Sakit
+						</span>
+						<span class="col-xs-12 no-padding" style="border-left: 0px;">
+							<img class="cbox" src="{{::moduleService.getCheckboxIcon(['PolicyOwnerDetails', 'HealthQForceps'], 'Y')}}">						
+							Lainnya___________
+						</span>
+					</div>
+					<div class="col-xs-6 no-padding">
+						<table style="width:100%" border="1">
+							<tbody>
+								<tr>
+									<td>&nbsp; Nama & Alamat Tempat Bersalin</td>																																	
+								</tr>
+								<tr>
+									<td>&nbsp; {{::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','HealthQNamAddressMaternity']).$}}</td>																																	
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-xs-12 no-padding" style="display: initial;">
+					<div class="col-xs-10 no-padding">
+						<span class="col-xs-12 no-padding padding-hq">j. Jika kelahiran dilakukan selain normal.spontan, sebutkan:</span>
+					</div>
+					<div class="col-xs-12 no-padding">
+						<table style="width:100%" border="1">
+							<tbody>
+								<tr>
+									<td>&nbsp; Nama Dokter & RS yang melakukan tindakan</td>
+									<td>&nbsp; Alasan</td>
+									<td colspan="4">&nbsp; Lama Kehamilan</td>
+									<td colspan="4">&nbsp; Panjang/Berat saat lahir</td>
+								</tr>
+								<tr ng-repeat="questionItem in ::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','HealthQ6','HealthQ6j','HealthQ6jItem'])">
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQ6jDoctorHospital']).$}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQ6jReason']).$}}</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQ6jDurationOfPregnancyMonth']).$}}</td>
+									<td>Bulan</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQ6jDurationOfPregnancyWeek']).$}}</td>
+									<td>Minggu</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQ6jLengthWeightCM']).$}}</td>
+									<td>cm</td>
+									<td>{{::applicationUIService.findElementInElement_V3(questionItem, ['HealthQ6jLengthWeightKG']).$}}</td>
+									<td>kg</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="section-G" class="section container-fluid">
+		<div id="section-G-title" class="title">G. DATA KELUARGA TERTANGGUNG</div>
+		<div id="section-G-body">
+			<table border="1" width="100%">
+				<thead>
+					<tr>
+						<th colspan="2"></th>
+						<th colspan="6">MASIH HIDUP</th>
+						<th colspan="2">SUDAH MENINGGAL</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th colspan="2"></th>
+						<th style="text-align: center !important;">Usia<br/>(tahun)</th>
+						<th>Diabetes<br/>(&#10003;)</th>
+						<th>Hipertensi<br/>(&#10003;)</th>
+						<th>Jantung/<br/>Stroke<br/>(&#10003;)</th>
+						<th>Tumor/<br/>Kanker<br/>(&#10003;)</th>
+						<th>Kondisi Kesehatan</th>
+						<th>Usia<br/>(tahun)</th>
+						<th>Sebab Meninggal</th>
+					</tr>
+					<tr ng-repeat="member in ::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails', 'InsuredFamilyInformationItem'])">
+						<th width="20%" style="padding-left: 10px;">{{::"v3.mynewworkspace.portlet.label.application-endowment.FamilyDetail.application:InsuredFamilyInformation." + applicationUIService.findElementInElement_V3(member, ['FamilyQKey']).$ | translate}}</th>
+						<th width="10%">
+							<div ng-if="::applicationUIService.findElementInElement_V3(member, ['Amount'])['@visible'] == '1'">
+								{{::applicationUIService.findElementInElement_V3(member, ['Amount']).$ + ' orang'}}
+							</div>
+						</th>
+						<th>{{::applicationUIService.findElementInElement_V3(member, ['AliveAge']).$}}</th>
+						<th><img class="cbox" src="{{::moduleService.getCheckboxIconInElement(member, ['AliveDiabetes'], 'Y')}}"></th>
+						<th><img class="cbox" src="{{::moduleService.getCheckboxIconInElement(member, ['AliveHypertension'], 'Y')}}"></th>
+						<th><img class="cbox" src="{{::moduleService.getCheckboxIconInElement(member, ['AliveHeartOrStroke'], 'Y')}}"></th>
+						<th><img class="cbox" src="{{::moduleService.getCheckboxIconInElement(member, ['AliveTumorOrCancer'], 'Y')}}"></th>
+						<th>{{::applicationUIService.findElementInElement_V3(member, ['AliveHealthCondition']).$}}</th>
+						<th>{{::applicationUIService.findElementInElement_V3(member, ['DeathAge']).$}}</th>
+						<th>{{::applicationUIService.findElementInElement_V3(member, ['DeathCauseOfDeath']).$}}</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div id="section-H" class="section container-fluid">
+		<div id="section-H-title" class="title">H. DATA KELUARGA PEMEGANG POLIS</div>
+		<div id="section-H-body">
+			<table border="1" width="100%">
+				<thead>
+					<tr>
+						<th colspan="2"></th>
+						<th colspan="6">MASIH HIDUP</th>
+						<th colspan="2">SUDAH MENINGGAL</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th colspan="2"></th>
+						<th style="text-align: center !important;">Usia<br/>(tahun)</th>
+						<th>Diabetes<br/>(&#10003;)</th>
+						<th>Hipertensi<br/>(&#10003;)</th>
+						<th>Jantung/<br/>Stroke<br/>(&#10003;)</th>
+						<th>Tumor/<br/>Kanker<br/>(&#10003;)</th>
+						<th>Kondisi Kesehatan</th>
+						<th>Usia<br/>(tahun)</th>
+						<th>Sebab Meninggal</th>
+					</tr>
+					<tr ng-repeat="member in ::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'PolicyHolderFamilyItem'])">
+						<th width="20%" style="padding-left: 10px;">{{::"v3.mynewworkspace.portlet.label.application-endowment.FamilyDetail.application:InsuredFamilyInformation." + applicationUIService.findElementInElement_V3(member, ['FamilyQKey']).$ | translate}}</th>
+						<th width="10%">
+							<div ng-if="::applicationUIService.findElementInElement_V3(member, ['Amount'])['@visible'] == '1'">
+								{{::applicationUIService.findElementInElement_V3(member, ['Amount']).$ + ' orang'}}
+							</div>
+						</th>
+						<th>{{::applicationUIService.findElementInElement_V3(member, ['AliveAge']).$}}</th>
+						<th><img class="cbox" src="{{::moduleService.getCheckboxIconInElement(member, ['AliveDiabetes'], 'Y')}}"></th>
+						<th><img class="cbox" src="{{::moduleService.getCheckboxIconInElement(member, ['AliveHypertension'], 'Y')}}"></th>
+						<th><img class="cbox" src="{{::moduleService.getCheckboxIconInElement(member, ['AliveHeartOrStroke'], 'Y')}}"></th>
+						<th><img class="cbox" src="{{::moduleService.getCheckboxIconInElement(member, ['AliveTumorOrCancer'], 'Y')}}"></th>
+						<th>{{::applicationUIService.findElementInElement_V3(member, ['AliveHealthCondition']).$}}</th>
+						<th>{{::applicationUIService.findElementInElement_V3(member, ['DeathAge']).$}}</th>
+						<th>{{::applicationUIService.findElementInElement_V3(member, ['DeathCauseOfDeath']).$}}</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div id="section-Expand" class="container-fluid">
+		<div id="section-Expand-title"><b>Jika dijawab YA</b> pada <b>G.Data Kesehatan</b> dan/atau terdapat keterangan tambahan pada <b>H. Data Keluarga Tertanggung/I. Data Keluarga Pemegang Polis</b>, jelaskan dengan lengkap diagnosanya, lama dialami, tanggal konsultasi (rawat), nama dan alamat Dokter/Rumah Sakit/ rawat inap/tempat konsultasi, serta kondisi saat ini.</div>
+		<div id="section-Expand-table">
+			<table width="100%" border="1">
+				<tbody>
+					<tr>
+						<th width="20%">Pertanyaan No.</th>
+						<th>&nbsp;</th>
+					</tr>
+					<tr ng-repeat="answer in ::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails','HealthQ1Items'])" ng-if="::!moduleService.isPOSameLI()">
+						<td ng-if="::answer['application:QValue']['Value'] == 'Y'">PO-{{::"v3.mnc.application-rul.label." + answer['application:QKey'].$ | translate}}</td>
+						<td ng-if="::answer['application:QValue']['Value'] == 'Y'">{{::answer['application:GeneralQDetails'].$}}</td>
+					</tr>
+					<tr ng-repeat="answer in ::applicationUIService.findElementInDetail_V3(['LifeAssuredDetails','HealthQ1Items'])" ng-if="::!moduleService.isPOSameLI()">
+						<td ng-if="::answer['application:QValue']['Value'] == 'Y'">LA-{{::"v3.mnc.application-rul.label." + answer['application:QKey'].$ | translate}}</td>
+						<td ng-if="::answer['application:QValue']['Value'] == 'Y'">{{::answer['application:GeneralQDetails'].$}}</td>
+					</tr>
+					<tr ng-repeat="answer in ::applicationUIService.findElementInDetail_V3(['PolicyOwnerDetails', 'HealthQ1Items'])" ng-if="::moduleService.isPOSameLI()">
+						<td ng-if="::answer['application:QValue']['Value'] == 'Y'">LA-{{::"v3.mnc.application-rul.label." + answer['application:QKey'].$ | translate}}</td>
+						<td ng-if="::answer['application:QValue']['Value'] == 'Y'">{{::answer['application:GeneralQDetails'].$}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div id="section-I" class="section container-fluid">
+		<div id="section-I-title" class="title">I. PERNYATAAN & SURAT KUASA</div>
+		<div id="section-I-body">
+			<div>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration0' | translate}}</div>
+			<ol type="1">
+				<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration1' | translate}}</li>
+				<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration2' | translate}}</li>
+				<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration3' | translate}}</li>
+				<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration4' | translate}}</li>
+				<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration5' | translate}}</li>
+				<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration6' | translate}}
+					<ol type="A">
+						<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration6a' | translate}}</li>
+						<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration6b' | translate}}</li>
+						<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration6c' | translate}}</li>
+					</ol>
+				</li>
+				<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration7' | translate}}
+					<ol type="A">
+						<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration7a' | translate}}</li>
+						<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration7b' | translate}}</li>
+					</ol>
+				</li>
+				<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration8' | translate}}</li>
+				<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration9' | translate}}</li>
+				<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration10' | translate}}</li>
+				<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration11' | translate}}</li>
+				<li>{{::'v3.mynewworkspace.portlet.label.application-endowment.CustomerDeclaration12' | translate}}</li>
+			</ol>
+		</div>
+	</div>
+	<div id="section-signature" class="container-fluid">
+		<div></div>
+		<div>
+			<div>WAJIB DIISI!</div>
+			<div>&#8226; Dengan ini Saya/Kami memilih Polis disampaikan dalam bentuk (pilih salah satu):</div>
+			<div class="col-xs-12">
+				<div class="col-xs-3">&nbsp;</div>
+				<div class="col-xs-3">
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyDelivery']).Value=='EMAIL')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyDelivery']).Value!='EMAIL')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Digital</span>
+				</div>
+				<div class="col-xs-3">
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyDelivery']).Value=='COUR' || applicationUIService.findElementInDetail_V3(['PolicyDelivery']).Value=='MAIL')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PolicyDelivery']).Value!='COUR' && applicationUIService.findElementInDetail_V3(['PolicyDelivery']).Value!='MAIL')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Non Digital</span>
+				</div>
+				<div class="col-xs-3">&nbsp;</div>
+			</div>
+			<div>&#8226; Dengan ini Saya/Kami bersedia dihubungi oleh MNC Group & partner untuk mendapatkan informasi terbaru mengenai produk-produk lainnya</div>
+			<div class="col-xs-12">
+				<div class="col-xs-3">&nbsp;</div>
+				<div class="col-xs-3">
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PrivacyPolicyAndDeclaration', 'Consent']).Value=='Y')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PrivacyPolicyAndDeclaration', 'Consent']).Value!='Y')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Ya</span>
+				</div>
+				<div class="col-xs-3">
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PrivacyPolicyAndDeclaration', 'Consent']).Value=='N')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/checked.png'}}" />
+					<img ng-if="::(applicationUIService.findElementInDetail_V3(['PrivacyPolicyAndDeclaration', 'Consent']).Value!='N')" class="cbox" src="{{::contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/application_endowment/images/unchecked.png'}}" />
+					<span>Tidak</span>
+				</div>
+				<div class="col-xs-3">&nbsp;</div>
+			</div>
+		</div>
+		<div class="col-xs-12 no-padding" style="font-size: 11px;">Jika Agen membantu dalam pengisian Surat Permohonan ini, pastikan Anda telah memeriksa dan menyetujui isi Surat Permohonan sebelum Anda menandatanganinya. Agen dilarang menandatangani Surat Permohonan ini atas nama Tertanggung/Pemilik Polis.</div>
+		<div class="col-xs-12 no-padding" style="font-size: 11px;margin-bottom: 30px;">
+			<div class="col-xs-2 no-padding-left">Ditandatangani di:</div>
+			<div class="col-xs-3" style="border: 1px solid;height: 17px;"></div>
+			<div class="col-xs-2" style="text-align: right;">Tanggal</div>
+			<div class="col-xs-3" style="border: 1px solid;height: 17px;"></div>
+			<div class="col-xs-2"><i>dd-mm-yyyy</i></div>
+		</div>
+		<div id="sign-place" class="container-fluid no-padding">
+			<div class="col-xs-4 no-padding-left">
+				<div>Pemegang Polis</div>
+				<div></div>
+				<div><i>(Tanda tangan & nama jelas)</i></div>
+			</div>
+			<div class="col-xs-4 no-padding-left">
+				<div>Tertanggung</div>
+				<div></div>
+				<div><i>(Tanda tangan & nama jelas)</i></div>
+			</div>
+			<div class="col-xs-4 no-padding">
+				<div style="font-size: 9px;">Orang Tua/Wali bila usia Tertanggung < 17 thn</div>
+				<div></div>
+				<div><i>(Tanda tangan & nama jelas)</i></div>
+			</div>
+			<div class="col-xs-4 no-padding-left">
+				<div>Saksi (Agen)</div>
+				<div></div>
+				<div><i>(Tanda tangan & nama jelas)</i></div>
+			</div>
+			<div class="col-xs-4 no-padding-left">
+				<div>Saksi (Leader)</div>
+				<div></div>
+				<div><i>(Tanda tangan & nama jelas)</i></div>
+			</div>
+			<div class="col-xs-4 no-padding">
+				<div>Kode Leader</div>
+				<div></div>
+			</div>
+		</div>
+		<div style="text-align: center;margin-bottom: 50px;"><b>Bila tidak bisa tanda tangan, gunakan cap jempol/ibu jari tangan</b></div>
+	</div>
+</div>
+<div id="footer">
+	<div>PT MNC Life Assurance | MNC Financial Center 18th floor, Jl. Kebon Sirih Kav. 21-27, Jakarta 10340, Indonesia | T. +6221 2970 4288 | F. +6221 3983 7011 | Customer Service : 1500 899 | www.mnclife.com</div>
+	<div>UW/NB/SPAJLINK/08/10/14/Rev.05</div>
+</div>

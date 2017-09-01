@@ -1,0 +1,250 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- <div class="common-action-box pull-right" ng-click='commonUIService.showHideItems()'><i class="fa fa-list-ul fa-2x"></i></div>
+<div class="common-action-box pull-right"><i class="fa fa-repeat fa-2x"></i></div>
+<div class="common-action-box pull-right" ng-click="saveDetail()"><i class="fa fa-floppy-o fa-2x"></i></div>
+<div id="showMore" style="margin-top:40px; width: 154px;">
+	<ul class='show-more'>
+		<li ng-if="!isInSaleCase" ng-class="disabled == true?'my_new_workspace_disabled':'' " ng-click="submitUnderwriting()"><span class='show-more-icon'><i
+				class='fa fa-paper-plane fa-2x'></i></span> <span class='show-more-text'>Submit
+				</span></li>
+		<li ng-if="isInSaleCase && moduleService.findElementInDetail_V3(['UnderwritingDecisionCd']).Value == 'COUNTER-OFFER' && (moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'ACCEPTED' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'REJECTED')" ng-class="disabled == true?'my_new_workspace_disabled':'' " ng-click="submitUnderwritingForAgent()"><span class='show-more-icon'><i
+				class='fa fa-paper-plane fa-2x'></i></span> <span class='show-more-text'>Submit
+				</span></li>
+		<li ng-if="isInSaleCase && (moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'ACCEPTED' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'REJECTED')" ng-class="disabled == true?'my_new_workspace_disabled':'' " ng-click="refreshDetail()"><span class='show-more-icon'><i
+				class='fa fa-refresh fa-2x'></i></span> <span class='show-more-text'>Refresh
+				</span></li>
+		<li ng-if="!isInSaleCase" ng-class="disabled == true?'my_new_workspace_disabled':'' " ng-click="pend()"><span class='show-more-icon'><i
+				class='fa fa-pause fa-2x'></i></span> <span class='show-more-text'>Pend
+				</span></li>
+		<li ng-if="!isInSaleCase && moduleService.findElementInDetail_V3(['UnderwritingDecisionCd']).Value=='COUNTER-OFFER'" ng-class="disabled == true?'my_new_workspace_disabled':'' " ng-click="compute()"><span class='show-more-icon'><i 
+				class='fa fa-calculator fa-2x'></i></span> <span class='show-more-text'>Compute
+				</span></li>
+		<li ng-if="!isInSaleCase" ng-class="disabled == true?'my_new_workspace_disabled':'' "><span class='show-more-icon'><i
+				class='fa fa-share-alt fa-2x'></i></span> <span class='show-more-text'>Cancel
+				</span></li>
+		<li ng-class="disabled == true?'my_new_workspace_disabled':'' "><span class='show-more-icon'><i
+				class='fa fa-share-alt fa-2x'></i></span> <span class='show-more-text'>Share
+				</span></li>
+		<li ng-class="disabled == true?'my_new_workspace_disabled':'' "><span class='show-more-icon'><i
+				class='fa fa-archive fa-2x'></i></span> <span class='show-more-text'>Archive
+				</span></li>
+		<li ng-class="disabled == true?'my_new_workspace_disabled':'' "><span class='show-more-icon'><i
+				class='fa fa-star fa-2x'></i></span> <span class='show-more-text'>Star
+				</span></li>
+	</ul>
+</div> -->
+
+<section class="common-action-box pull-right" ng-click='commonUIService.showHideItems()'>
+    <i class="fa fa-ellipsis-v fa-2x"></i></section>
+
+<div id="showMore">
+    <span class="arrow arrow-action"></span>
+    <div class=" common-action-bar-container ">
+        <div ng-if="expiredStatus == null">
+            <div class="common-action-items-back" ng-if="moduleService.findElementInDetail_V3(['Product'])!= 'FIR' 
+            											&& moduleService.findElementInDetail_V3(['Product'])!= commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK
+            											&& moduleService.findElementInDetail_V3(['Product'])!= 'term-life-secure'
+            											&& moduleService.findElementInDetail_V3(['Product'])!= 'GTL1' && !uiFrameworkService.isInSaleCase
+            											&& (moduleService.findElementInDetail_V3(['BusinessStatus'])== 'WIP' || moduleService.findElementInDetail_V3(['BusinessStatus'])== 'PENDING')
+            											&& commonService.hasValueNotEmpty(moduleService.findElementInDetail_V3(['UnderwritingDecisionCd']).Value)">
+                <div class="common-action-items" loading loading-action="submitUnderwriting()">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-paper-plane fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Submit' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            <div class="common-action-items-back" ng-if="moduleService.findElementInDetail_V3(['Product'])!= 'FIR'
+            											&& moduleService.findElementInDetail_V3(['Product'])!= commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK
+            											&& moduleService.findElementInDetail_V3(['Product'])!= 'term-life-secure' 
+            											&& moduleService.findElementInDetail_V3(['Product'])!= 'GTL1' && uiFrameworkService.isInSaleCase
+            											&& moduleService.findElementInDetail_V3(['UnderwritingDecisionCd']).Value == 'COUNTER-OFFER' 
+            											&& moduleService.findElementInDetail_V3(['BusinessStatus']) != 'PENDING' 
+            											&& (moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'ACCEPTED' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'OFFER REJECTED'  && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'REJECTED')"
+            	loading loading-action="submitUnderwritingForAgent()">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-paper-plane fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Submit' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            
+            <div class="common-action-items-back" ng-if="(commonUIService.getActiveUserRole() == commonService.CONSTANTS.USER_ROLES.UW) &&
+			            								(moduleService.findElementInDetail_V3(['Product'])== 'FIR' || moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK
+			            								|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.DS_GUARANTEED_CASHBACK
+			            								|| moduleService.findElementInDetail_V3(['Product'])== 'term-life-secure' || moduleService.findElementInDetail_V3(['Product'])== 'GTL1'
+			            								|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+			            								|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.ENDOWMENT) 
+			            								&& (moduleService.findElementInDetail_V3(['BusinessStatus'])== 'WIP' || moduleService.findElementInDetail_V3(['BusinessStatus'])== 'PENDING')"
+            	loading loading-action="acceptUnderwritingForUnderwriter()">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-check-circle fa-2x'></i></span>
+                    <span class='common-action-items-text' ng-if="moduleService.findElementInDetail_V3(['Product'])!= 'GTL1'">{{'new.v3.mynewworkspace.actionbar.label.Accept' | translate}}</span>
+                    <span class='common-action-items-text' ng-if="moduleService.findElementInDetail_V3(['Product'])== 'GTL1'">{{'new.v3.mynewworkspace.actionbar.label.Submit' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            
+            <div class="common-action-items-back" ng-if="(commonUIService.getActiveUserRole() == commonService.CONSTANTS.USER_ROLES.UW) &&
+            											(moduleService.findElementInDetail_V3(['Product'])== 'FIR' 
+            											|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK
+            											|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.DS_GUARANTEED_CASHBACK
+            											|| moduleService.findElementInDetail_V3(['Product'])== 'term-life-secure' 
+            											|| moduleService.findElementInDetail_V3(['Product'])== 'GTL1'
+            											|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+            											|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.ENDOWMENT)
+            											&& (moduleService.findElementInDetail_V3(['BusinessStatus'])== 'WIP' || moduleService.findElementInDetail_V3(['BusinessStatus'])== 'PENDING')"
+            	loading loading-action="rejectUnderwritingForUnderwriter()">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-ban fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Reject' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            
+            <div class="common-action-items-back" ng-if="(commonUIService.getActiveUserRole() == commonService.CONSTANTS.USER_ROLES.UW) 
+            											&& (moduleService.findElementInDetail_V3(['Product'])== 'FIR' 
+            												|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK
+            												|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.DS_GUARANTEED_CASHBACK
+            												|| moduleService.findElementInDetail_V3(['Product'])== 'term-life-secure'
+            												|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+            												|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.ENDOWMENT) 
+            											&& (moduleService.findElementInDetail_V3(['BusinessStatus'])== 'WIP' 
+            												|| moduleService.findElementInDetail_V3(['BusinessStatus'])== 'PENDING')" 
+            											loading loading-action="counterOfferUnderwritingForUnderwriter()">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-reply fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.CounterOffer' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            
+            <div class="common-action-items-back" ng-if="(moduleService.findElementInDetail_V3(['Product'])== 'FIR' 
+            												|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK
+            												|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.DS_GUARANTEED_CASHBACK
+            												|| moduleService.findElementInDetail_V3(['Product'])== 'term-life-secure'
+            												|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+            												|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.ENDOWMENT)
+            											&& commonUIService.getActiveUserRole() != commonService.CONSTANTS.USER_ROLES.UW 
+            											&& moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] == 'COUNTER-OFFERED' 
+            											&& moduleService.findElementInDetail_V3(['BusinessStatus']) != 'PENDING' 
+            											&& (moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'ACCEPTED'
+            											&& moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'ACCEPT-COUNTER-OFFERED'
+            											&& moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'REJECT-COUNTER-OFFERED'
+            											&& moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'REJECTED')"
+                 loading loading-action="counterOfferUnderwritingForAgent('accept-offer')"
+                 ng-hide="alreadyAcOrReCO">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-check-circle fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'v3.pnc.customer.decision.enum.ACCEPT' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            
+            <div class="common-action-items-back" ng-if="(moduleService.findElementInDetail_V3(['Product'])== 'FIR' 
+            												|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK
+            												|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.DS_GUARANTEED_CASHBACK
+            												|| moduleService.findElementInDetail_V3(['Product'])== 'term-life-secure'
+            												|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+            												|| moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.ENDOWMENT)
+            											&& commonUIService.getActiveUserRole() != commonService.CONSTANTS.USER_ROLES.UW 
+            											&& moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] == 'COUNTER-OFFERED' 
+            											&& moduleService.findElementInDetail_V3(['BusinessStatus']) != 'PENDING' 
+            											&& (moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'ACCEPTED'
+            											&& moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'ACCEPT-COUNTER-OFFERED'
+            											&& moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'REJECT-COUNTER-OFFERED'
+            											&& moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] != 'REJECTED')"
+                 loading loading-action="counterOfferUnderwritingForAgent('reject-offer')"
+                 ng-hide="alreadyAcOrReCO">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-ban fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'v3.pnc.customer.decision.enum.REJECT' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            
+              <div ng-if="(moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK ||
+              			   moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.ENDOWMENT)
+              			  && commonUIService.getActiveUserRole() == commonService.CONSTANTS.USER_ROLES.UW && (moduleService.findElementInDetail_V3(['BusinessStatus'])== 'WIP' || moduleService.findElementInDetail_V3(['BusinessStatus'])== 'PENDING')" class="common-action-items-back"  loading loading-action="attachUWDocument()">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-paperclip fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'v3.pnc.customer.decision.enum.AttachLetter' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            
+       <!--      <div  ng-if="!uiFrameworkService.isInSaleCase && (moduleService.findElementInDetail_V3(['BusinessStatus'])== 'WIP' 
+            				|| moduleService.findElementInDetail_V3(['BusinessStatus'])== 'PENDING')" class="common-action-items-back" loading loading-action="pend()">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-pause fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Pend' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div> -->
+            <div  ng-if="!uiFrameworkService.isInSaleCase && moduleService.findElementInDetail_V3(['UnderwritingDecisionCd']).Value=='COUNTER-OFFER' && (moduleService.findElementInDetail_V3(['BusinessStatus'])== 'WIP' || moduleService.findElementInDetail_V3(['BusinessStatus'])== 'PENDING')" class="common-action-items-back" loading loading-action="compute()">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-paper-plane fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Compute' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+             <div ng-if="!uiFrameworkService.isInSaleCase" class="common-action-items-back common-action-disabled" loading loading-action="cancelUnderwriting()">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-arrow-left fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Back' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+           
+           <!-- <div ng-if="isInSaleCase && (moduleService.findElementInDetail_V3(['BusinessStatus'])== 'NEW' || moduleService.findElementInDetail_V3(['BusinessStatus'])== 'WIP' || moduleService.findElementInDetail_V3(['BusinessStatus'])== 'PENDING' || moduleService.findElementInDetail_V3(['BusinessStatus'])== 'COUNTER-OFFERED')"  class="common-action-items-back" loading loading-action="refreshDetail()"> -->
+           <div ng-if="uiFrameworkService.isInSaleCase" class="common-action-items-back common-action-disabled" loading loading-action="refreshDetail()">
+                <div class="common-action-items">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-refresh fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.Refresh' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+        </div>
+        <div ng-if="(expiredStatus == 'true') && (
+        			moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK ||
+        			moduleService.findElementInDetail_V3(['Product'])== commonService.CONSTANTS.PRODUCT.ENDOWMENT)">
+        	<div class="common-action-items-back">
+                <div class="common-action-items" loading loading-action="expiryAndWithdrawn()">
+                    <span class="common-action-items-icon"><i
+            class='fa fa-paper-plane fa-2x'></i></span>
+                    <span class='common-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.expiryAndWithdrawn' | translate}}</span>
+                </div>
+                <md-divider></md-divider>
+            </div>
+        </div>
+    </div>
+</div>

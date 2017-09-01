@@ -1,0 +1,350 @@
+{
+  "IposDocument": {
+    "Data": {
+      "claim-status-motor:Claim": {
+        "@section": "claim-status-motor:Claim",
+        "@key": "Claim",
+        "@vpms-suffix": "Claim",
+        "claim-status-motor:Summary": {
+          "@section": "claim-status-motor:Claim",
+          "@key": "",
+          "@icon": "fa fa-usd",
+          "@cssClass": "v3-box-5",
+          "claim-status-motor:Claim": {
+            "@preview": [
+              "claim-status-motor:Summary"
+            ],
+            "@key": [
+              "ClaimNo"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:Claim",
+            "@valuePrefix": ""
+          },
+          "claim-status-motor:Policy": {
+            "@preview": [
+              "claim-status-motor:Summary"
+            ],
+            "@key": [
+              "PolicyNo"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:Policy",
+            "@valuePrefix": ""
+          },
+          "claim-status-motor:ClaimStatus": {
+            "@preview": [
+              "claim-status-motor:Summary"
+            ],
+            "@key": [
+              "BusinessStatus"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:ClaimStatus",
+            "@valuePrefix": "v3.document.status."
+          },
+          "claim-status-motor:SummaryAgent": {
+            "@preview": [
+              "claim-status-motor:Summary"
+            ],
+            "@key": [
+              "Agent"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:Agent",
+            "@valuePrefix": ""
+          }
+        },
+        "claim-status-motor:PolicyInformation": {
+          "@section": "claim-status-motor:Claim",
+          "@key": "",
+          "@icon": "fa fa-usd",
+          "@cssClass": "v3-box-5",
+          "claim-status-motor:ProductName": {
+            "@preview": [
+              "claim-status-motor:PolicyInformation"
+            ],
+            "@key": [
+              "ProductName"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:ProductName",
+            "@valuePrefix": "v3.mynewworkspace.portlet.label.productName."
+          },
+          "claim-status-motor:PolicyNo": {
+            "@preview": [
+              "claim-status-motor:PolicyInformation"
+            ],
+            "@key": [
+              "PolicyNo"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:PolicyNo",
+            "@valuePrefix": ""
+          },
+          "claim-status-motor:InceptionDate": {
+            "@preview": [
+              "claim-status-motor:PolicyInformation"
+            ],
+            "@key": [
+              "InceptionDate"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:InceptionDate",
+            "@valuePrefix": "",
+            "@format": "datetime"
+          },
+          "claim-status-motor:ExpiryDate": {
+            "@preview": [
+              "claim-status-motor:PolicyInformation"
+            ],
+            "@key": [
+              "ExpiryDate"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:ExpiryDate",
+            "@valuePrefix": "",
+            "@format": "datetime"
+          },
+          "claim-status-motor:EffectiveDate": {
+            "@key": "",
+            "@format": "datetime"
+          },
+          "claim-status-motor:ServicingStaff": {
+            "@key": ""
+          },
+          "claim-status-motor:PolicyOwner": {
+            "@key": ""
+          },
+          "claim-status-motor:ClientId": {
+            "@key": ""
+          },
+          "claim-status-motor:Agent": {
+            "@key": ""
+          },
+          "claim-status-motor:AgentID": {
+            "@key": ""
+          }
+        },
+        "claim-status-motor:ClaimInformation": {
+          "@section": "claim-status-motor:Claim",
+          "@key": "",
+          "@icon": "fa fa-usd",
+          "@cssClass": "v3-box-5",
+          "claim-status-motor:Claimant": {
+            "@preview": [
+              "claim-status-motor:ClaimInformation"
+            ],
+            "@key": [
+              "Claimant"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:Claimant",
+            "@valuePrefix": ""
+          },
+          "claim-status-motor:ClaimNo": {
+            "@preview": [
+              "claim-status-motor:ClaimInformation"
+            ],
+            "@key": [
+              "ClaimNo"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:ClaimNo",
+            "@valuePrefix": ""
+          },
+          "claim-status-motor:DateOfLoss": {
+            "@preview": [
+              "claim-status-motor:ClaimInformation"
+            ],
+            "@key": [
+              "DateOfLoss"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:DateOfLoss",
+            "@valuePrefix": "",
+            "@format": "datetime"
+          },
+          "claim-status-motor:ReportDate": {
+            "@preview": [
+              "claim-status-motor:ClaimInformation"
+            ],
+            "@key": [
+              "ReportDate"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:ReportDate",
+            "@valuePrefix": "",
+            "@format": "datetime"
+          },
+          "claim-status-motor:Incurred": {
+            "@key": ""
+          },
+          "claim-status-motor:Currency": {
+            "@key": ""
+          },
+          "claim-status-motor:LossDesc": {
+            "@key": ""
+          }
+        },
+        "claim-status-motor:VehicleInformation": {
+          "@section": "claim-status-motor:Claim",
+          "@key": "",
+          "@icon": "fa fa-usd",
+          "@cssClass": "v3-box-5",
+          "claim-status-motor:VehicleNo": {
+            "@preview": [
+              "claim-status-motor:VehicleInformation"
+            ],
+            "@key": [
+              "VehicleRegNo"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:VehicleNo",
+            "@valuePrefix": ""
+          },
+          "claim-status-motor:VehicleClass": {
+            "@preview": [
+              "claim-status-motor:VehicleInformation"
+            ],
+            "@key": [
+              "VehicleClass"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:VehicleClass",
+            "@valuePrefix": "v3.motor.privateCarM.vehicleClass."
+          },
+          "claim-status-motor:EngineCapacity": {
+            "@key": ""
+          },
+          "claim-status-motor:ChassisNo": {
+            "@key": ""
+          },
+          "claim-status-motor:CoverType": {
+            "@preview": [
+              "claim-status-motor:VehicleInformation"
+            ],
+            "@key": [
+              "CoverType"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:CoverType",
+            "@valuePrefix": "v3.motor.privateCarM.CoverageType."
+          },
+          "claim-status-motor:NCDPercent": {
+            "@preview": [
+              "claim-status-motor:VehicleInformation"
+            ],
+            "@key": [
+              "NCDPercent"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:NCDPercent",
+            "@valuePrefix": ""
+          }
+        },
+        "claim-status-motor:Driver": {
+          "@section": "claim-status-motor:Claim",
+          "@key": "",
+          "@icon": "fa fa-usd",
+          "@cssClass": "v3-box-5",
+          "claim-status-motor:DriverName": {
+            "@preview": [
+              "claim-status-motor:Driver"
+            ],
+            "@key": [
+              "DriverName"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:DriverName",
+            "@valuePrefix": ""
+          },
+          "claim-status-motor:DriverID": {
+            "@preview": [
+              "claim-status-motor:Driver"
+            ],
+            "@key": [
+              "DriverID"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:DriverID",
+            "@valuePrefix": ""
+          },
+          "claim-status-motor:DriverDOB": {
+            "@preview": [
+              "claim-status-motor:Driver"
+            ],
+            "@key": [
+              "DriverDOB"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:DriverDOB",
+            "@valuePrefix": ""
+          },
+          "claim-status-motor:DriverGender": {
+            "@preview": [
+              "claim-status-motor:Driver"
+            ],
+            "@key": [
+              "DriverGender"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:DriverGender",
+            "@valuePrefix": "v3.gender.enum."
+          },
+          "claim-status-motor:ExcessType": {
+            "@key": "",
+            "@valuePrefix": "v3.motor.privateCarM.excessType"
+          },
+          "claim-status-motor:ExcessAmt": {
+            "@key": ""
+          }
+        },
+        "claim-status-motor:Accident": {
+          "@section": "claim-status-motor:Claim",
+          "@key": "",
+          "@icon": "fa fa-usd",
+          "@cssClass": "v3-box-5",
+          "claim-status-motor:Location": {
+            "@preview": [
+              "claim-status-motor:Accident"
+            ],
+            "@key": [
+              "Location"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:Location",
+            "@valuePrefix": "v3.pnc.nationality.enum."
+          },
+          "claim-status-motor:TypeOfLoss": {
+            "@preview": [
+              "claim-status-motor:Accident"
+            ],
+            "@key": [
+              "TypeOfLoss"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:TypeOfLoss",
+            "@valuePrefix": ""
+          },
+          "claim-status-motor:Place": {
+            "@key": ""
+          },
+          "claim-status-motor:CauseType": {
+            "@preview": [
+              "claim-status-motor:Accident"
+            ],
+            "@key": [
+              "CauseType"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:CauseType",
+            "@valuePrefix": ""
+          },
+          "claim-status-motor:Province": {
+            "@key": ""
+          },
+          "claim-status-motor:PoliceReport": {
+            "@key": ""
+          },
+          "claim-status-motor:District": {
+            "@key": ""
+          },
+          "claim-status-motor:Agreement": {
+            "@key": ""
+          },
+          "claim-status-motor:PostalCode": {
+            "@key": ""
+          },
+          "claim-status-motor:Repairer": {
+            "@preview": [
+              "claim-status-motor:Accident"
+            ],
+            "@key": [
+              "Repairer"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.claim-status-motor:Repairer",
+            "@valuePrefix": ""
+          }
+        }
+      }
+    }
+  }
+}

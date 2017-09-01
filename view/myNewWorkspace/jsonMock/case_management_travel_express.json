@@ -1,0 +1,258 @@
+{
+  "IposDocument": {
+    "Data": {
+      "case-management-travel-express:CaseManagement": {
+        "key": [
+          "CaseManagement"
+        ],
+        "icon": {
+          "main": "fa fa-plane"
+        },
+        "section": "case-management-travel-express:CaseManagement",
+        "case-management-travel-express:Summary": {
+          "isShowValidationIcon": "false",
+          "isShowNoOfEmptyField": "false",
+          "icons": {
+            "cardIcon": {
+              "content": "fa fa-pencil"
+            }
+          },
+          "section": "case-management-travel-express:CaseManagement",
+          "case-management-travel-express:CaseInformation": {
+            "key": [
+              "DocName"
+            ],
+            "preview": [
+              {
+                "cardName": "case-management-travel-express:Summary",
+                "label": "v3.mynewworkspace.portlet.previewlabel.case-management-travel-express.CaseInformation",
+                "priority": 50
+              }
+            ]
+          },
+          "case-management-travel-express:CurrentStatus": {
+            "key": [
+              "BusinessStatus"
+            ],
+            "preview": [
+              {
+                "cardName": "case-management-travel-express:Summary",
+                "label": "v3.mynewworkspace.portlet.previewlabel.case-management-travel-express.CurrentStatus",
+                "priority": 50
+              }
+            ],
+            "valuePrefix": "v3.document.status."
+          },
+          "case-management-travel-express:PendingInformation": {},
+          "case-management-travel-express:NextRequiredAction": {},
+          "case-management-travel-express:PolicyNo": {
+            "key": [
+              "PolicyNumber"
+            ]
+          }
+        },
+        "case-management-travel-express:Step1_ProspectClient": {
+          "key": [
+            "Prospects"
+          ],
+          "icons": {
+            "step": {
+              "content": "1"
+            },
+            "cardIcon": {
+              "content": "fa fa-user"
+            }
+          },
+          "section": "case-management-travel-express:CaseManagement",
+          "case-management-travel-express:ImportFromExistingProspect": {
+            "section": "case-management-travel-express:Step1_ProspectClient",
+            "icon": "fa fa-user",
+            "cardType": "action",
+            "onClick": "importFromExistingProspect(card)",
+            "staticHtml": "list_existing_prospect.html"
+          },
+          "case-management-travel-express:NewProspect": {
+            "section": "case-management-travel-express:Step1_ProspectClient",
+            "icons": {
+              "cardIcon": {
+                "content": "fa fa-user"
+              },
+              "cardIconPlus": {}
+            },
+            "cardType": "action",
+            "onClick": "addCard(card)"
+          },
+          "case-management-travel-express:Prospect": {
+            "key": [
+              "Prospect"
+            ],
+            "icons": {
+              "cardIcon": {
+                "content": "fa fa-user"
+              },
+              "removeCardInList": {}
+            },
+            "section": "case-management-travel-express:Step1_ProspectClient",
+            "cardType": "template"
+          }
+        },
+        "case-management-travel-express:Step2_Quotation": {
+          "key": [
+            "Quotation"
+          ],
+          "icons": {
+            "step": {
+              "content": "2"
+            },
+            "cardIcon": {
+              "content": "quotationIcon"
+            }
+          },
+          "section": "case-management-travel-express:CaseManagement"
+        },
+        "case-management-travel-express:Step3_Application": {
+          "key": [
+            "Application"
+          ],
+          "icons": {
+            "step": {
+              "content": "3"
+            },
+            "cardIcon": {
+              "content": "applicationIcon"
+            }
+          },
+          "section": "case-management-travel-express:CaseManagement",
+          "onOpen": "isQuotationValid('case-management-travel-express:Step2_Quotation', false)"
+        },
+        "case-management-travel-express:Step4_DocumentCenter": {
+          "section": "case-management-travel-express:CaseManagement",
+          "key": [
+            "DocumentCenter"
+          ],
+          "icons": {
+            "step": {
+              "content": "4"
+            },
+            "cardIcon": {
+              "content": "attachmentIcon"
+            }
+          },
+          "case-management-travel-express:TransactionDocuments": {
+            "key": [
+              "Prints"
+            ],
+            "isVisible": true,
+            "icons": {
+              "cardIcon": {
+                "content": "transactionIcon"
+              }
+            },
+            "section": "case-management-travel-express:Step4_DocumentCenter",
+            "TransactionDocument": {
+              "key": [
+                "Print"
+              ],
+              "section": "case-management-travel-express:TransactionDocuments",
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                }
+              },
+              "cardType": "template",
+              "previewHtml": "v3-resource-file-transaction.html",
+              "onOpen": "openResource(card)"
+            }
+          },
+          "case-management-travel-express:Attachments": {
+            "key": [
+              "Attachments"
+            ],
+            "section": "case-management-travel-express:Step4_DocumentCenter",
+            "icons": {
+              "cardIcon": {
+                "content": "attachmentIcon"
+              }
+            },
+            "previewHtml": "v3-summary-static-attachment.html",
+            "attachment": {
+              "key": [
+                "Attachment"
+              ],
+              "section": "case-management-travel-express:Attachments",
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                },
+                "removeCardInList": {}
+              },
+              "previewHtml": "v3-summary-static-attachment-file.html",
+              "cardType": "template",
+              "onOpen": "fileReaderService.openFileReader('view',card.refDetail,self.moduleService.convertToArray(self.moduleService.findElementInElement_V3(self.moduleService.detail, ['Attachment'])),'uploadMode')"
+            },
+            "addAttachment": {
+              "section": "case-management-travel-express:Attachments",
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                },
+                "cardIconPlus": {}
+              },
+              "cardType": "action",
+              "staticHtml": "fileUpload.html",
+              "onClick": "importFile()"
+            }
+          }
+        },
+        "case-management-travel-express:Step5_Underwriting": {
+          "key": [
+            "Underwriting"
+          ],
+          "icons": {
+            "step": {
+              "content": "5"
+            },
+            "cardIcon": {
+              "content": "uWIcon"
+            }
+          },
+          "permission": {
+            "AGENT": {
+              "openable": true,
+              "editable": false,
+              "viewable": true
+            },
+            "POLICY_OWNER": {
+              "openable": false,
+              "editable": false,
+              "viewable": true
+            },
+            "UW": {
+              "openable": true,
+              "editable": true,
+              "viewable": true
+            },
+            "GROUP_DPMT_MNGR": {
+              "openable": false,
+              "editable": false,
+              "viewable": false
+            },
+            "MANAGER_REVIEW": {
+              "openable": false,
+              "editable": false,
+              "viewable": false
+            },
+            "CSO": {
+              "openable": false,
+              "editable": false,
+              "viewable": false
+            }
+          },
+          "isVisible": false,
+          "onOpen": "getUnderwritingLazyList()",
+          "section": "case-management-travel-express:CaseManagement"
+        }
+      }
+    }
+  }
+}

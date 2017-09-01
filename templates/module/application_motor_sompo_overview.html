@@ -1,0 +1,735 @@
+<div layout="column" class="height-inherit">
+    <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <md-content class="backgroundColor">
+        <div refresh-on="vars.bIsContentChanged" use-boolean>
+            <div ng-if="carouSelIndex==0">
+                <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label label-value="Product Details" />
+                        </div>
+                        <div flex="50">
+                            <v3-Select class="input" src-data="listIllustration" displayText="POProductInfo" displayValue="DocId" dialogTitle="Quotation List" ng-disabled="::!moduleService.isEditMode" model="illuRefUid"></v3-Select>
+                        </div>
+                        <div flex="10">
+                            <md-button ng-click="getIlluDetail(illuRefUid)">Import</md-button>
+                        </div>
+                    </div>
+                    <div>
+                        <table cellspacing="0" cellpadding="0">
+                            <thead class="default-color">
+                                <th>No.</th>
+                                <th>BENEFIT</th>
+                                <th>AMOUNT OF COVERAGE (RM)</th>
+                                <th>PREMIUM (RM)</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>{{variables.CoverageType.Value}}</td>
+                                    <td>{{variables.SumInsured.$}}</td>
+                                    <td>{{variables.Premium.$}}</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>{{variables.OptionalExtraCoverage.Value}}</td>
+                                    <td>{{variables.OptionalSumInsured.$}}</td>
+                                    <td>{{variables.OptionalPremium.$}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-label label-value="ANNUAL PREMIUM (RM)" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.AnnualPremium.$">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="carouSelIndex==1">
+                <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.LogBookNo" label-value="Log Book No." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.LogBookNo.$">
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-application-motor-sompo:ApplicationMotor.ipos-application-motor-sompo:AdditionalVehicleInfo.ipos-application-motor-sompo:LogBookNo')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.EngineMotorNo" label-value="Engine Motor No." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.EngineMotorNo.$">
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-application-motor-sompo:ApplicationMotor.ipos-application-motor-sompo:AdditionalVehicleInfo.ipos-application-motor-sompo:EngineMotorNo')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.ChassisNo" label-value="Chassis No." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.ChassisNo.$">
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-application-motor-sompo:ApplicationMotor.ipos-application-motor-sompo:AdditionalVehicleInfo.ipos-application-motor-sompo:ChassisNo')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.SafetyCode" label-value="Safety Code" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" v3-Select src-data="moduleService.listSafetyCode" displayText="text" displayValue="value" Prefix="" dialogTitle="Safety Code" ng-disabled="::!moduleService.isEditMode" model="variables.SafetyCode.Value">
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-application-motor-sompo:ApplicationMotor.ipos-application-motor-sompo:AdditionalVehicleInfo.ipos-application-motor-sompo:SafetyCode')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.OwnershipType" label-value="Ownership Type" />
+                        </div>
+                        <div flex="70">
+                            <!-- <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.OwnershipType.Value"> -->
+                            <input class="input" v3-Select src-data="moduleService.listOwnershipType" displayText="text" displayValue="value" Prefix="" dialogTitle="Ownership Type" ng-disabled="::!moduleService.isEditMode" model="variables.OwnershipType.Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.PermittedDriver" label-value="Permitted Driver" />
+                        </div>
+                        <div flex="70">
+                            <md-checkbox ng-disabled="::!moduleService.isEditMode" ng-model="variables.PermittedDriver.$" ng-true-value="'Y'" ng-false-value="'N'" style="margin:0px">
+                                All Rider / Driver
+                            </md-checkbox>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.FinancialType" label-value="Financial Type" />
+                        </div>
+                        <div flex="70">
+                            <!-- <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.FinancialType.Value"> -->
+                            <input class="input" v3-Select src-data="moduleService.listFinancialType" displayText="text" displayValue="value" Prefix="" dialogTitle="Financial Type" ng-disabled="::!moduleService.isEditMode" model="variables.FinancialType.Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.LoanCompany" label-value="Loan Company" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.LoanCompany.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.VehiclePurchaseDate" label-value="Vehicle Purchase Date" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.VehiclePurchaseDate.$" ms-datepicker>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.PurchasePrice" label-value="Purchase Price" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.PurchasePrice.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.TrailerNo" label-value="Trailer No." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.TrailerNo.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.TrailerMakeModel" label-value="Trailer Make Model" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" v3-Select src-data="moduleService.listTrailerMakeModel" displayText="text" displayValue="value" Prefix="" dialogTitle="Trailer Make / Model" ng-disabled="::!moduleService.isEditMode" model="variables.TrailerMakeModel.Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.TrailerModelDesc" label-value="Trailer Model Desc." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.TrailerModelDesc.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.TrailerYearMake" label-value="Trailer Year Make" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.TrailerYearMake.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.TrailerLogBookNo" label-value="Trailer Log Book No." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.TrailerLogBookNo.$">
+                        </div>
+                    </div>
+                    <div layout="row" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.TrailerChassisNo" label-value="Trailer Chassis No." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.TrailerChassisNo.$">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="carouSelIndex==2">
+                <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label field="variables.FullName" label-value="Policy Owner" />
+                        </div>
+                        <div flex="70">
+                            <v3-Select class="input" more-action="getDetail(value1)" src-data="listProspect" displayText="FullName" displayValue="DocId" dialogTitle="Prospect List" ng-disabled="::!moduleService.isEditMode" model="PORefUid"></v3-Select>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.Title" label-value="Title" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" v3-Select src-data="moduleService.listTitle" displayText="text" displayValue="value" Prefix="" dialogTitle="Title" ng-disabled="::!moduleService.isEditMode" model="variables.Title.Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.FullName" label-value="FullName" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.FullName.$">
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-application-motor-sompo:ApplicationMotor.ipos-application-motor-sompo:PolicyOwnerInfo.ipos-application-motor-sompo:PersonalInfo.ipos-application-motor-sompo:FullName')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.BirthDate" label-value="Date of Birth" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.BirthDate.$" ms-datepicker>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-application-motor-sompo:ApplicationMotor.ipos-application-motor-sompo:PolicyOwnerInfo.ipos-application-motor-sompo:PersonalInfo.ipos-application-motor-sompo:BirthDate')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.Gender" label-value="Gender" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" v3-Select src-data="moduleService.listGenders" displayText="text" displayValue="value" Prefix="" dialogTitle="Gender" ng-disabled="::!moduleService.isEditMode" model="variables.Gender.Value">
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-application-motor-sompo:ApplicationMotor.ipos-application-motor-sompo:PolicyOwnerInfo.ipos-application-motor-sompo:PersonalInfo.ipos-application-motor-sompo:Gender')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.MarStat" label-value="Marital Status" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" v3-Select src-data="moduleService.listMarStat" displayText="text" displayValue="value" Prefix="" dialogTitle="Marital Status" ng-disabled="::!moduleService.isEditMode" model="variables.MarStat.Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.Industry" label-value="Business/Industry" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" v3-Select src-data="moduleService.listIndustry" displayText="text" displayValue="value" Prefix="" dialogTitle="Business/Industry" ng-disabled="::!moduleService.isEditMode" model="variables.Industry.Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.Occupation" label-value="Occupation" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" v3-Select src-data="moduleService.listOccupation" displayText="text" displayValue="value" Prefix="" dialogTitle="Occupation" ng-disabled="::!moduleService.isEditMode" model="variables.Occupation.Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.ReferralType" label-value="Referral Type" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" v3-Select src-data="moduleService.listReferralType" displayText="text" displayValue="value" Prefix="" dialogTitle="Referral Type" ng-disabled="::!moduleService.isEditMode" model="variables.ReferralType.Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.Referrer" label-value="Referrer" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.Referrer.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.Race" label-value="Race" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" v3-Select src-data="moduleService.listRace" displayText="text" displayValue="value" Prefix="" dialogTitle="Race" ng-disabled="::!moduleService.isEditMode" model="variables.Race.Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.Nationality" label-value="Nationality" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" v3-Select src-data="moduleService.listNationality" displayText="text" displayValue="value" Prefix="" dialogTitle="Nationality" ng-disabled="::!moduleService.isEditMode" model="variables.Nationality.Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.NewICNo" label-value="New IC No." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.NewICNo.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.OldICNo" label-value="Old IC No." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.OldICNo.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-label model="variables.YearDrivingLicenceObtained" label-value="Year Driving Licence Obtained" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.YearDrivingLicenceObtained.$">
+                        </div>
+                    </div>
+                    <div layout="row" layout-margin>
+                        <div layout="row" flex="30">
+                            <div flex="70">
+                                <v3-label model="variables.Staff" label-value="Staff" />
+                            </div>
+                            <div flex="70">
+                                <md-switch class="custom-md-switch" ng-disabled="::!moduleService.isEditMode" ng-model="variables.Staff.Value" class="md-primary" md-no-ink aria-label="Staff">
+                                </md-switch>
+                            </div>
+                        </div>
+                        <div layout="row" flex="30">
+                            <div flex="70">
+                                <v3-label model="variables.Vip" label-value="VIP" />
+                            </div>
+                            <div flex="70">
+                                <md-switch class="custom-md-switch" ng-disabled="::!moduleService.isEditMode" ng-model="variables.Vip.Value" class="md-primary" md-no-ink aria-label="VIP">
+                                </md-switch>
+                            </div>
+                        </div>
+                        <div layout="row" flex="30">
+                            <div flex="70">
+                                <v3-label model="variables.SmokerStat" label-value="Smoking Status" />
+                            </div>
+                            <div flex="70">
+                                <md-switch class="custom-md-switch" ng-disabled="::!moduleService.isEditMode" ng-model="variables.SmokerStat.Value" class="md-primary" ng-true-value="'S'" ng-true-value="'N'" md-no-ink>
+                                </md-switch>
+                                <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-application-motor-sompo:ApplicationMotor.ipos-application-motor-sompo:PolicyOwnerInfo.ipos-application-motor-sompo:PersonalInfo.ipos-application-motor-sompo:SmokerStat')"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div layout="row" class="header-repeat-bar">
+                    <div flex="90">
+                        <h class="repeat-toobar-text">Contact</h>
+                    </div>
+                    <div flex class="collapse">
+                        <div class="rotateCounterwise" ng-disabled="::!moduleService.isEditMode" id="arrow1" align="center" ng-click="hideParties()">
+                            <i class="fa fa-caret-up fa-2x"></i>
+                        </div>
+                    </div>
+                    <div flex>
+                        <div ng-click="addNewContact()" ng-disabled="::!moduleService.isEditMode">
+                            <i class="fa fa-plus-circle fa-lg repeat-toobar-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-hide white-card" ng-hide="hideParty" ng-repeat="contact in moduleService.contacts track by $index">
+                    <div layout-margin>
+                        <i class="fa fa-times fa-lg" ng-if="moduleService.contacts.length > 1" style=" float: right; margin top: 0px; color: grey;" ng-click="removeContact($index)" ng-disabled="::!moduleService.isEditMode"></i>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.ContactType" label-value="Contact Type" />
+                        </div>
+                        <div flex="70">
+                            <!-- <input class="input" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration:Industry').Value"> -->
+                            <input class="input" v3-Select src-data="moduleService.listContactType" displayText="text" displayValue="value" Prefix="" dialogTitle="Contact Type" ng-disabled="::!moduleService.isEditMode" model="moduleService.findValueByJsonXPath(contact, 'ipos-application-motor-sompo:ContactType').Value">
+                        </div>
+                    </div>
+                    <div layout="row" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.ContactInformation" label-value="Contact Information" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(contact, 'ipos-application-motor-sompo:ContactInformation').$">
+                        </div>
+                    </div>
+                </div>
+                <div layout="row" class="header-repeat-bar">
+                    <div flex="90">
+                        <h class="repeat-toobar-text">Address</h>
+                    </div>
+                    <div flex class="collapse">
+                        <div class="rotateCounterwise" ng-disabled="::!moduleService.isEditMode" id="arrow1" align="center" ng-click="hideParties()">
+                            <i class="fa fa-caret-up fa-2x"></i>
+                        </div>
+                    </div>
+                    <div flex>
+                        <div ng-click="addNewAddress()" ng-disabled="::!moduleService.isEditMode">
+                            <i class="fa fa-plus-circle fa-lg repeat-toobar-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-hide white-card" ng-hide="hideParty" ng-repeat="address in moduleService.addresses track by $index">
+                    <div layout-margin>
+                        <i class="fa fa-times fa-lg" ng-if="moduleService.addresses.length > 1" style=" float: right; margin top: 0px; color: grey;" ng-click="removeAddress($index)" ng-disabled="::!moduleService.isEditMode"></i>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.AddressType" label-value="Address Type" />
+                        </div>
+                        <div flex="70">
+                            <!-- <input class="input" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration:Industry').Value"> -->
+                            <input class="input" v3-Select src-data="moduleService.listAddressType" displayText="text" displayValue="value" Prefix="" dialogTitle="Contact Type" ng-disabled="::!moduleService.isEditMode" model="moduleService.findValueByJsonXPath(address, 'ipos-application-motor-sompo:AddressType').Value">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.BlkHouseNo" label-value="Blk / House No." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(address, 'ipos-application-motor-sompo:BlkHouseNo').$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.Street" label-value="Street" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(address, 'ipos-application-motor-sompo:Street').$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.UnitNo" label-value="Unit No." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(address, 'ipos-application-motor-sompo:UnitNo').$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.Building" label-value="Building" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(address, 'ipos-application-motor-sompo:Building').$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.City" label-value="City" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(address, 'ipos-application-motor-sompo:City').$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.Country" label-value="Country" />
+                        </div>
+                        <div flex="70">
+                            <!-- <input class="input" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration:Industry').Value"> -->
+                            <input class="input" v3-Select src-data="moduleService.listCountry" displayText="text" displayValue="value" Prefix="" dialogTitle="Contact Type" ng-disabled="::!moduleService.isEditMode" model="moduleService.findValueByJsonXPath(address, 'ipos-application-motor-sompo:Country').Value">
+                        </div>
+                    </div>
+                    <div layout="row" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.Postal" label-value="Postal Code" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(address, 'ipos-application-motor-sompo:Postal').$">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="carouSelIndex==3">
+            <div layout="row" class="header-repeat-bar">
+                <div flex="90">
+                    <h class="repeat-toobar-text">Other Drivers</h>
+                </div>
+                <div flex class="collapse">
+                    <div class="rotateCounterwise" ng-disabled="::!moduleService.isEditMode" id="arrow1" align="center" ng-click="hideParties()">
+                        <i class="fa fa-caret-up fa-2x"></i>
+                    </div>
+                </div>
+                <div flex>
+                    <div ng-click="addNewDriver()" ng-disabled="::!moduleService.isEditMode">
+                        <i class="fa fa-plus-circle fa-lg repeat-toobar-icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="animate-hide white-card" ng-hide="hideParty" ng-repeat="driver in moduleService.drivers track by $index">
+                <div layout-margin>
+                    <i class="fa fa-times fa-lg" ng-if="moduleService.drivers.length > 1" style=" float: right; margin top: 0px; color: grey;" ng-click="removeDriver($index)" ng-disabled="::!moduleService.isEditMode"></i>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label field="variables.FullName" label-value="Driver" />
+                    </div>
+                    <div flex="70">
+                        <v3-Select class="input" more-action="getDriverDetail(value1, $index)" src-data="listProspect" displayText="FullName" displayValue="DocId" dialogTitle="Prospect List" ng-disabled="::!moduleService.isEditMode" model="driver['@refUid']"></v3-Select>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label model="variables.DriverSalutation" label-value="Salutation" />
+                    </div>
+                    <div flex="70">
+                        <!-- <input class="input" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration:Industry').Value"> -->
+                        <input class="input" v3-Select src-data="moduleService.listTitle" displayText="text" displayValue="value" Prefix="" dialogTitle="Salutation" ng-disabled="::!moduleService.isEditMode" model="moduleService.findValueByJsonXPath(driver, 'ipos-application-motor-sompo:Salutation').Value">
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label model="variables.DriverFullName" label-value="FullName" />
+                    </div>
+                    <div flex="70">
+                        <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findValueByJsonXPath(driver, 'ipos-application-motor-sompo:FullName').$">
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label model="variables.DriverBirthDate" label-value="Date of Birth" />
+                    </div>
+                    <div flex="70">
+                        <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findValueByJsonXPath(driver, 'ipos-application-motor-sompo:BirthDate').$" ms-datepicker>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="30">
+                        <v3-label model="variables.DriverYearDrivingLicenceObtained" label-value="Year Driving Licence Obtained" />
+                    </div>
+                    <div flex="60">
+                        <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findValueByJsonXPath(driver, 'ipos-application-motor-sompo:YearDrivingLicenceObtained').$">
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label model="variables.DriverNewICNo" label-value="New IC No." />
+                    </div>
+                    <div flex="70">
+                        <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findValueByJsonXPath(driver, 'ipos-application-motor-sompo:NewICNo').$">
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label model="variables.DriverOldICNo" label-value="Old IC No." />
+                    </div>
+                    <div flex="70">
+                        <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findValueByJsonXPath(driver, 'ipos-application-motor-sompo:OldICNo').$">
+                    </div>
+                </div>
+                <div layout="row" layout-margin>
+                    <div flex="20">
+                        <v3-label model="variables.DriverOccupation" label-value="Occupation" />
+                    </div>
+                    <div flex="70">
+                        <input class="input" v3-Select src-data="moduleService.listOccupation" displayText="text" displayValue="value" Prefix="" dialogTitle="Occupation" ng-disabled="::!moduleService.isEditMode" model="moduleService.findValueByJsonXPath(driver, 'ipos-application-motor-sompo:Occupation').Value">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="carouSelIndex==4">
+            <div class="white-card">
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-value="Period of Insurance:" />
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label model="variables.ProposalBegin" label-value="From the" />
+                    </div>
+                    <div flex="70">
+                        <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.ProposalBegin.$" ms-datepicker>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label model="variables.ProposalEnd" label-value="To the" />
+                    </div>
+                    <div flex="70">
+                        <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.ProposalEnd.$" ms-datepicker>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="carouSelIndex==5">
+            <div class="white-card">
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="70">
+                        <v3-label label-value="1. Modification/Alteration and Accessories" />
+                    </div>
+                </div>
+                <div layout="row" class="breakLine" layout-margin>
+                    <div flex="70">
+                        <h3>
+                            The policy only covers for standard factory-fitted accessories. Are the any other additional accessories/spare parts added or alteration/modification make from the original specification?
+                            <span ng-if="::mandatory" class="mandatory">*</span>
+                        </h3>
+                    </div>
+                    <div flex="20">
+                        <md-switch ng-disabled="::!moduleService.isEditMode" ng-model="variables.Section1Question1.Value" class="md-primary" md-no-ink aria-label="Section1Question1">
+                        </md-switch>
+                    </div>
+                </div>
+                <div layout="row" class="breakLine" layout-margin>
+                    <div flex="70">
+                        <h3>
+                            If yes, please specify with details and if such accessories added / modification / alteration is approved by JPJ.
+                            <span ng-if="::mandatory" class="mandatory">*</span>
+                            <br>
+                            <br>
+                            (If this is not specified, no cover is provided in respect of such modification and additional accessories and we may repudiate a claim arising from an accident directly relating to any such modification/alterations having made.)
+                        </h3>
+                    </div>
+                    <div flex="25">
+                        <textarea class="" rows="3" ng-disabled="::!moduleService.isEditMode" ng-model="variables.Section1Question2.$"></textarea>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="70">
+                        <v3-label label-value="2. Traffic Offences" />
+                    </div>
+                </div>
+                <div layout="row" class="breakLine" layout-margin>
+                    <div flex="70">
+                        <h3>
+                            Have you or your authorized driver(s) been jailed or fined for more than RM1,000 over the last 24 months for traffic related offenses?
+                            <span ng-if="::mandatory" class="mandatory">*</span>
+                        </h3>
+                    </div>
+                    <div flex="20">
+                        <md-switch ng-disabled="::!moduleService.isEditMode" ng-model="variables.Section2Question1.Value" class="md-primary" md-no-ink aria-label="Section2Question1">
+                        </md-switch>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="70">
+                        <v3-label label-value="3. Location of Use" />
+                    </div>
+                </div>
+                <div layout="row" class="breakLine" layout-margin>
+                    <div flex="70">
+                        <h3>
+                            Is the vehicle used within the confines of airport?
+                            <span ng-if="::mandatory" class="mandatory">*</span>
+                        </h3>
+                    </div>
+                    <div flex="20">
+                        <md-switch ng-disabled="::!moduleService.isEditMode" ng-model="variables.Section3Question1.Value" class="md-primary" md-no-ink aria-label="Section3Question1" ng-true-value="'Y'" ng-false-value="'N'">
+                        </md-switch>
+                    </div>
+                </div>
+                <div layout="row" class="breakLine" layout-margin>
+                    <div flex="70">
+                        <h3>
+                            Is the vehicle license for road use?
+                            <span ng-if="::mandatory" class="mandatory">*</span>
+                        </h3>
+                    </div>
+                    <div flex="20">
+                        <md-switch ng-disabled="::!moduleService.isEditMode" ng-model="variables.Section3Question2.Value" class="md-primary" md-no-ink aria-label="Section3Question2" ng-true-value="'Y'" ng-false-value="'N'">
+                        </md-switch>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="70">
+                        <v3-label label-value="4. Claim History" />
+                    </div>
+                </div>
+                <div layout="row" class="breakLine" layout-margin>
+                    <div flex="70">
+                        <h3>
+                            Have you had or caused any accidents, claims or damage involving any motor vehicle (including car, motorcycle, van or others)during the past 5 years?
+                            <span ng-if="::mandatory" class="mandatory">*</span>
+                        </h3>
+                    </div>
+                    <div flex="20">
+                        <md-switch ng-disabled="::!moduleService.isEditMode" ng-model="variables.Section4Question1.Value" class="md-primary" md-no-ink aria-label="Section4Question1">
+                        </md-switch>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="70">
+                        <v3-label label-value="If yes, please state:" />
+                    </div>
+                </div>
+                <div layout="row" class="breakLine" layout-margin>
+                    <div flex="30">
+                        <h3>
+                            Date of Accident
+                            <span ng-if="::mandatory" class="mandatory">*</span>
+                        </h3>
+                    </div>
+                    <div flex="60">
+                        <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.Section4Question2.$">
+                    </div>
+                </div>
+                <div layout="row" class="breakLine" layout-margin>
+                    <div flex="30">
+                        <h3>
+                            Nature of Loss or Injury
+                            <span ng-if="::mandatory" class="mandatory">*</span>
+                        </h3>
+                    </div>
+                    <div flex="60">
+                        <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.Section4Question3.$">
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="70">
+                        <v3-label label-value="Declaration by Proposer" />
+                    </div>
+                </div>
+                <div layout="row" class="breakLine" layout-margin>
+                    <div flex="90">
+                        <h3>
+                            I/We hereby declare that all the information given in the proposal form and any attachment to it is true and correct and all information know to me/us which may be relevant to the decision to insure and the terms of the insurance has been given
+                            
+                        </h3>
+                    </div>
+                </div>
+                <div layout="row" class="breakLine" layout-margin>
+                    <div flex="90">
+                        <h3>
+                            I/We hereby declare that all the information given in the proposal form and any attachment to it is true and correct and all information know to me/us which may be relevant to the decision to insure and the terms of the insurance has been givenI/We further declare and agree to be bound by the terms, conditions, exceptions and operational warranties of the Policy which have been brought to my/our specific attention and the statements and declarations in this proposal from shall be the basic of the contract of insurance in the Company and are deemed to be incorporated in the contract.
+                            
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</md-content>
+</div>

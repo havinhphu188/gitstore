@@ -1,0 +1,698 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- eCover Note Detail -->
+
+<div fieldId="ecover-note-motor:ECoverNoteDetail" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content summary">
+	<div fieldId="ecover-note-motor:ECoverNote">
+     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           <div class="form-group form-group-lg has-success">
+               <label style="font-weight: bold">{{"new.v3.mynewworkspace.motor.ecover-note.label.ECoverNote"|translate}}&nbsp;</label>
+           </div>
+     </div>
+     </div>
+     <div fieldId="ecover-note-motor:ECoverNoteNo_New">
+     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+               <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.ECoverNoteNo_New"|translate}}&nbsp;</label>
+               <input class="form-control" type="text" ng-disabled="true" 
+					 	ng-model="moduleService.findElementInDetail_V3(['ECoverNoteNumber']).$"/>                 
+          	   </div>
+          </div>
+      </div>
+      </div>
+      <div fieldId="ecover-note-motor:ECoverNoteStatus_New">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+           <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+           	   <div class="form-group form-group-lg has-success">
+                <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.ECoverNoteStatus_New"|translate}}&nbsp;</label>
+                <input class="form-control" type="text" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']"/>
+           	   </div>
+           </div>
+       </div>
+       </div>       
+    <div fieldId="ecover-note-motor:JPJSubmission_New">   
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           <div class="form-group form-group-lg has-success">
+               <label style="font-weight: bold">{{"new.v3.mynewworkspace.motor.ecover-note.label.JPJSubmission_New"|translate}}&nbsp;</label>
+           </div>
+	</div>
+	</div>
+	<div fieldId="ecover-note-motor:DocumentType">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+            <div class="form-group form-group-lg has-success">
+            <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.DocumentType"|translate}}&nbsp;</label>
+            <ng-newDropDown disable="moduleService.findElementInDetail_V3(['DocumentType'])['@editable']=='0'"
+ 			model="moduleService.findElementInDetail_V3(['DocumentType'])"
+ 			list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['DocumentType','Option'])" 
+ 			type="nonFlag" prefix="v3.motor.privateCarM.documentType"></ng-newDropDown>
+            </div>
+        </div>
+	</div>
+	</div>
+	<div fieldId="ecover-note-motor:Reason">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"">
+        <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        	   <div class="form-group form-group-lg has-success">
+	             <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.Reason"|translate}}&nbsp;</label>
+				<ng-newDropDown disable="moduleService.findElementInDetail_V3(['Reason'])['@editable']=='0'"
+				model="moduleService.findElementInDetail_V3(['Reason'])"
+				list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['Reason','Option'])" 
+				type="nonFlag" prefix="v3.motor.privateCarM.reason"></ng-newDropDown>                  
+        	   </div>
+        </div>
+    </div>
+    </div>
+    <div fieldId="ecover-note-motor:SubmittedDate_New">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+               <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.SubmittedDate_New"|translate}}&nbsp;</label>
+               		
+				 <div class="ms-calendar-wrapper"><input ng-disabled="moduleService.findElementInDetail_V3(['SubmittedDate'])['@editable']=='0'" ms-datepicker ng-model="moduleService.findElementInDetail_V3(['SubmittedDate']).$" class="ms-calendar"/></div>
+          	   </div>
+          </div>
+      </div>
+      </div>
+      <div fieldId="ecover-note-motor:ResponseDate_New">
+     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+	                   <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.ResponseDate_New"|translate}}&nbsp;</label>
+                  
+	                   <div class="ms-calendar-wrapper"><input ng-disabled="moduleService.findElementInDetail_V3(['JPJResponseDate'])['@editable']=='0'" ms-datepicker ng-model="moduleService.findElementInDetail_V3(['JPJResponseDate']).$" class="ms-calendar"/></div>
+                   </div>
+               </div>        
+           </div>
+      </div>
+    <div fieldId="ecover-note-motor:JPJResult_New">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+	                   <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.JPJResult_New"|translate}}&nbsp;</label>
+                   
+					   <input class="form-control" type="text" 
+						ng-disabled="moduleService.findElementInDetail_V3(['JPJResult'])['@editable']=='0'" 
+					 	ng-model="moduleService.findElementInDetail_V3(['JPJResult']).$"/>
+                   </div>
+               </div>          
+           </div>
+    <div fieldId="ecover-note-motor:JPJErrorDescription_New">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+	                   <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.JPJErrorDescription_New"|translate}}&nbsp;</label>
+                  
+					   <input class="form-control" type="text" 
+						ng-disabled="moduleService.findElementInDetail_V3(['JPJErrorDescription'])['@editable']=='0'" 
+					 	ng-model="moduleService.findElementInDetail_V3(['JPJErrorDescription']).$"/>
+                   </div>
+               </div>          
+           </div>
+	</div>
+	 <div fieldId="ecover-note-motor:BasicInformation">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           <div class="form-group form-group-lg has-success">
+               <label style="font-weight: bold">{{"new.v3.mynewworkspace.motor.ecover-note.label.BasicInformation"|translate}}&nbsp;</label>
+           </div>
+	</div>
+	</div>
+	<div fieldId="ecover-note-motor:ProductName">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+                   	   <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.ProductName"|translate}}&nbsp;</label>
+					   	<span style='background-color: #eee;cursor: not-allowed;' class="form-control">{{'v3.mynewworkspace.portlet.label.productName.'+ moduleService.findElementInDetail_V3(['Product']) | translate | trimtext:false:23:'..'}}</span>
+                   </div>
+               </div>
+           </div>
+    </div>
+    <div fieldId="ecover-note-motor:PolicyNo">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+	                   <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.PolicyNo"|translate}}&nbsp;</label>
+               	   
+					   <input class="form-control" type="text" 
+						ng-disabled="moduleService.findElementInDetail_V3(['PolicyNo'])['@editable']=='0'" 
+					 	ng-model="moduleService.findElementInDetail_V3(['PolicyNo']).$"/>                 
+               	   </div>
+               </div>
+           </div>
+    </div>
+     <div fieldId="ecover-note-motor:PolicyOwnerName_New">    
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+	                   	 <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.PolicyOwnerName_New"|translate}}&nbsp;</label>
+               		
+					   	<input class="form-control" type="text" 
+						 ng-disabled="moduleService.findElementInDetail_V3(['FullName'])['@editable']=='0'" 
+					 	 ng-model="moduleService.findElementInDetail_V3(['FullName']).$"/>                		
+               		</div>
+               </div>           
+           </div>
+         </div>
+     <div fieldId="ecover-note-motor:IDNo_New">    
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+	                   <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.IDNo_New"|translate}}.&nbsp;</label>
+                  
+					   <input class="form-control" type="text" 
+						 ng-disabled="moduleService.findElementInDetail_V3(['IDNumber'])['@editable']=='0'" 
+					 	 ng-model="moduleService.findElementInDetail_V3(['IDNumber']).$"/>                    
+                   </div>
+               </div>        
+           </div>
+     </div>
+    <div fieldId="ecover-note-motor:InceptionDate">         
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+	                   <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.InceptionDate"|translate}}&nbsp;</label>
+                
+						<div class="ms-calendar-wrapper"><input ng-disabled="moduleService.findElementInDetail_V3(['InceptionDate'])['@editable']=='0'" ms-datepicker ng-model="moduleService.findElementInDetail_V3(['InceptionDate']).$" class="ms-calendar"/></div>
+                   </div>
+               </div>          
+           </div>
+            </div>
+    <div fieldId="ecover-note-motor:ExpiryDate">             
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+	                    <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.ExpiryDate"|translate}}&nbsp;</label>
+                 
+					    <div class="ms-calendar-wrapper"><input ng-disabled="moduleService.findElementInDetail_V3(['ExpiryDate'])['@editable']=='0'" ms-datepicker ng-model="moduleService.findElementInDetail_V3(['ExpiryDate']).$" class="ms-calendar"/></div>
+                   </div>
+               </div>          
+           </div>
+          </div>
+    <div fieldId="ecover-note-motor:RegistrationNo_New">         
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+	                   	 <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.RegistrationNo_New"|translate}}&nbsp;</label>
+               		
+					   	<input class="form-control" type="text" 
+						 ng-disabled="moduleService.findElementInDetail_V3(['RegistrationNo'])['@editable']=='0'" 
+					 	 ng-model="moduleService.findElementInDetail_V3(['RegistrationNo']).$"/>                		
+               		</div>
+               </div>           
+           </div>
+          </div>
+    <div fieldId="ecover-note-motor:EngineMotoNo_New">            
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+	                   	 <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.EngineMotoNo_New"|translate}}&nbsp;</label>
+               		
+					   	<input class="form-control" type="text" 
+						 ng-disabled="moduleService.findElementInDetail_V3(['EngineMotorNo'])['@editable']=='0'" 
+					 	 ng-model="moduleService.findElementInDetail_V3(['EngineMotorNo']).$"/>                		
+               		</div>
+               </div>           
+           </div>
+           </div>
+    <div fieldId="ecover-note-motor:ChassisNo_New">            
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+          <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+          	   <div class="form-group form-group-lg has-success">
+	                   	 <label>{{"new.v3.mynewworkspace.motor.ecover-note.label.ChassisNo_New"|translate}}&nbsp;</label>
+               		
+					   	<input class="form-control" type="text" 
+						 ng-disabled="moduleService.findElementInDetail_V3(['ChassisNo'])['@editable']=='0'" 
+					 	 ng-model="moduleService.findElementInDetail_V3(['ChassisNo']).$"/>                		
+               		</div>
+               </div>           
+           </div>          
+	</div>
+</div>
+
+
+
+
+
+
+<!-- HistoryTable -->
+<!-- <div fieldId="ecover-note-motor:HistoryTable" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-table-content">
+        <div flex layout="row" class="ipos_portlet_table_header_item" layout-align="center center">
+            <div flex="5">No.</div>
+            <div flex="15">Submit Date</div>
+            <div flex="15">JPJ Result's Date</div>
+            <div flex="30">JPJ Result</div>
+            <div flex="35">JPJ Result Description</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_listRow">
+            <div flex="5">1</div>
+            <div flex="15">20/09/2015</div>
+            <div flex="15">20/10/2015</div>
+            <div flex="30">Rejected with changes</div>
+            <div flex="35">Engine No Not Valid</div>
+        </div>
+    </div>
+</div>
+
+Basic Information
+<div fieldId="ecover-note-motor:ECoverNoteNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>eCover Note No.</label>
+			<input class="form-control" type="text" 
+				ng-disabled="true" 
+			 	ng-model="moduleService.findElementInDetail_V3(['DocInfo'])['DocName']"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:AddendumNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Addendum No.</label>
+			<input class="form-control" type="text" 
+				ng-disabled="true" 
+			 	ng-model="moduleService.findElementInDetail_V3(['DocInfo'])['DocName']"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:Status" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Status</label>
+			<input class="form-control" type="text" 
+				ng-disabled="true" 
+			 	ng-model="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:SubmittedDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Submitted Date</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['SubmittedDate'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['SubmittedDate']).$"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:JPJResult" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>JPJ Result</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['JPJResult'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['JPJResult']).$"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:JPJResponseDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>JPJ's Response Date</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['JPJResponseDate'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['JPJResponseDate']).$"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:DocumentType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Document Type</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['DocumentType'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['DocumentType']).Value"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:Reason" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Reason</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['Reason'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['Reason']).Value"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:PolicyNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Policy No.</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['PolicyNo'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['PolicyNo']).$"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:RegistrationNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Registration No.</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['RegistrationNo'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['RegistrationNo']).$"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:SubmittedDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Submitted Date</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['SubmittedDate'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['SubmittedDate']).$"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:SubmittedDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Submitted Date</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['SubmittedDate'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['SubmittedDate']).$"/>
+		</div>
+	</div>
+</div>
+
+Policy Owner
+<div fieldId="ecover-note-motor:Title" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Title</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['Title'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['Title']).Value"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:FullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Full Name</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['FullName'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['FullName']).$"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:TitleAndFullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="" layout="row">
+			<div class="form-group form-group-lg has-success" flex="20">
+				<label>Title</label>
+				<input class="form-control" type="text" 
+					ng-disabled="moduleService.findElementInDetail_V3(['Title'])['@editable']=='0'" 
+				 	ng-model="moduleService.findElementInDetail_V3(['Title']).Value"/>
+			</div>
+			<div flex="5"></div>
+			<div class="form-group form-group-lg has-success" flex="75">
+				<label>Full Name</label>
+				<input class="form-control" type="text" 
+					ng-disabled="moduleService.findElementInDetail_V3(['FullName'])['@editable']=='0'" 
+				 	ng-model="moduleService.findElementInDetail_V3(['FullName']).$"/>
+			</div>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:BirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Date of Birth</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['BirthDate'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['BirthDate']).$"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:Gender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Gender</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['Gender'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['Gender']).Value"/>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:IDNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>ID Number</label>
+			<input class="form-control" type="text" 
+				ng-disabled="moduleService.findElementInDetail_V3(['IDNumber'])['@editable']=='0'" 
+			 	ng-model="moduleService.findElementInDetail_V3(['IDNumber']).Value"/>
+		</div>
+	</div>
+</div>
+
+Basic product
+<div fieldId="illustration-motor:ProductName" class="v3-column-content">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Product Name<span ng-show="moduleService.findElementInDetail_V3(['ProductName'])['@mandatory'] == '1'">*</span></label>
+			<span style='background-color: #eee;cursor: not-allowed;' class="form-control">{{'v3.illustration.product.'+ moduleService.findElementInDetail_V3(['ProductName']).$ | translate}}</span>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ProductName']).errorMessage | translate"></span>
+		</div>
+	</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" hide-sm>
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content"></div>
+	</div>
+</div>
+<div fieldId="motor:InceptionDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Inception Date<span ng-show="moduleService.findElementInDetail_V3(['InceptionDate'])['@mandatory'] == '1'">*</span></label>
+			<div class="ms-calendar-wrapper"><input ng-disabled="moduleService.freeze || moduleService.findElementInDetail_V3(['InceptionDate'])['@editable']=='0'" ms-datepicker ng-model="moduleService.findElementInDetail_V3(['InceptionDate']).$" class="ms-calendar"/></div> 
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['InceptionDate']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="motor:ExpiryDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Expiry Date<span ng-show="moduleService.findElementInDetail_V3(['ExpiryDate'])['@mandatory'] == '1'">*</span></label>
+			<div class="ms-calendar-wrapper"><input ng-disabled="moduleService.freeze || moduleService.findElementInDetail_V3(['ExpiryDate'])['@editable']=='0'" ms-datepicker ng-model="moduleService.findElementInDetail_V3(['ExpiryDate']).$" class="ms-calendar"/></div>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ExpiryDate']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="ecover-note-motor:TableOfDetails" class="col-xs-12 col-sm-12 col-md-11 col-lg-12 v3-column-content">
+	<div class="hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-table-content">
+        <div flex layout="row" class="ipos_portlet_table_header_item" layout-align="center center">
+            <div flex="10">Order</div>
+            <div flex="40">Coverage Name</div>
+            <div flex="30">Sum Insured ({{moduleIllustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+            <div flex="20">Premium ({{moduleIllustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_listRow">
+            <div flex="10">1</div>
+            <div flex="40">{{'v3.motor.privateCarM.CoverageType.' + moduleService.findElementInDetail_V3(['MainCoverageType']).$ | translate}}</div>
+            <div flex="30" class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['MainSumInsured']).$ | number: 2}}</div>
+            <div flex="20" class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['MainPremium']).$ | number: 2}}</div>
+        </div>
+        <div ng-if="moduleService.findElementInDetail_V3(['OptionalCoverages'])['@counter']>0"
+			ng-repeat="optionalCover in moduleService.convertToArray(moduleService.findElementInDetail_V3(['OptionalCoverage'])) track by $index" flex layout="row" class="ipos_portlet_table_listRow">
+            <div flex="10">{{$index+2}}</div>
+            <div flex="40">{{'v3.privateCarM.extraCoverage.' + moduleService.findElementInElement_V3(optionalCover, ['AdditionalBenefitCode']).$ | translate}}</div>
+            <div flex="30" class="v3-currency-alignment">{{moduleService.findElementInElement_V3(optionalCover, ['AdditionalBenefitLimit']).$  | number: 2}}</div>
+            <div flex="20" class="v3-currency-alignment">{{moduleService.findElementInElement_V3(optionalCover, ['AdditionalPremium']).$}}</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="80">Total Premium ({{moduleIllustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+            <div flex="20" class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['TotalPremium']).$}}</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="80">Extra Charges ({{moduleIllustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+            <div flex="20" class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['StampDuty']).$}}</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="80">Total Payable Premium ({{moduleIllustrationService.findElementInDetail_V3(['SICurrency']).Value}}) </div>
+            <div flex="20" class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['TotalPayablePremium']).$}}</div>
+        </div>
+    </div>
+    <div  class="hidden-md hidden-sm hidden-lg col-xs-12">
+          <div class="col-xs-12 ipos-table-xs">             
+        		<div class="col-xs-12">
+        			<div class="col-xs-6">Order:</div>
+        			<div class="col-xs-6">1</div>
+        		</div>
+        		<div class="col-xs-12">
+        			<div class="col-xs-6">Coverage Name:</div>
+        			<div class="col-xs-6">{{'v3.motor.privateCarM.CoverageType.' + moduleService.findElementInDetail_V3(['MainCoverageType']).$ | translate}}</div>
+        		</div>
+        		<div class="col-xs-12">
+        			<div class="col-xs-6">Sum Insured ({{moduleIllustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+        			<div class="col-xs-6">{{moduleService.findElementInDetail_V3(['MainSumInsured']).$}}</div>
+        		</div>
+        		<div class="col-xs-12">
+        			<div class="col-xs-6">Premium ({{moduleIllustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+        			<div class="col-xs-6">{{moduleService.findElementInDetail_V3(['MainPremium']).$}}</div>
+        		</div>
+
+         </div>
+         <div class="col-xs-12 ipos-table-xs"  ng-if="moduleService.findElementInDetail_V3(['OptionalCoverages'])['@counter']>0"
+			ng-repeat="optionalCover in moduleService.convertToArray(moduleService.findElementInDetail_V3(['OptionalCoverage'])) track by $index">            
+           		<div class="col-xs-12">
+           			<div class="col-xs-6">Order:</div>
+           			<div class="col-xs-6">{{$index+2}}</div>
+           		</div>
+           		<div class="col-xs-12">
+           			<div class="col-xs-6">Coverage Name:</div>
+           			<div class="col-xs-6">{{'v3.privateCarM.extraCoverage.' + moduleService.findElementInElement_V3(optionalCover, ['AdditionalBenefitCode']).$ | translate}}</div>
+           		</div>
+           		<div class="col-xs-12">
+           			<div class="col-xs-6">Sum Insured ({{moduleIllustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+           			<div class="col-xs-6">{{moduleService.findElementInElement_V3(optionalCover, ['AdditionalBenefitLimit']).$}}</div>
+           		</div>
+           		<div class="col-xs-12">
+           			<div class="col-xs-6">Premium ({{moduleIllustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+           			<div class="col-xs-6">{{moduleService.findElementInElement_V3(optionalCover, ['AdditionalPremium']).$}}</div>
+           		</div>
+     
+         </div>		
+   		<div class="col-xs-12 ipos-table-xs">
+       		<div class="col-xs-12">
+       			<div class="col-xs-6">Total Premium ({{moduleIllustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+       			<div class="col-xs-6">{{moduleService.findElementInDetail_V3(['TotalPremium']).$}}</div>
+       		</div>
+       		<div class="col-xs-12">
+       			<div class="col-xs-6">Extra Charges ({{moduleIllustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+       			<div class="col-xs-6">{{moduleService.findElementInElement_V3(illustrationService.detail, ['StampDuty']).$}}</div>
+       		</div>
+       		<div class="col-xs-12">
+       			<div class="col-xs-6">Total Payable Premium ({{moduleIllustrationService.findElementInDetail_V3(['SICurrency']).Value}})</div>
+       			<div class="col-xs-6">{{moduleService.findElementInElement_V3(illustrationService.detail, ['TotalPayablePremium']).$}}</div>
+       		</div>
+         </div>            	
+       </div>
+</div>
+Vehicle details
+<div fieldId="motor:VehicleNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Vehicle No.<span ng-show="moduleService.findElementInDetail_V3(['VehicleNo'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" ng-disabled="moduleService.freeze || moduleService.findElementInDetail_V3(['VehicleNo'])['@editable'] == '0'"
+     			type="text" ng-model="moduleService.findElementInDetail_V3(['VehicleNo']).$"/>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['VehicleNo']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="motor:MakeOrModel" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Make/Model<span ng-show="moduleService.findElementInDetail_V3(['MakeOrModel'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown disable="moduleService.freeze || moduleService.findElementInDetail_V3(['MakeOrModel'])['@editable']=='0'"
+				model="moduleService.findElementInDetail_V3(['MakeOrModel'])"
+			   list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['MakeOrModel','Option'])" 
+			   type="nonFlag" prefix="v3.illustration.motor.sompo.makeormodel" more-action="selectMakeOrModel()"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MakeOrModel']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="motor:VehicleRegistrationCardNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Vehicle Registration Card No.<span ng-show="moduleService.findElementInDetail_V3(['VehicleRegistrationCardNo'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.freeze || moduleService.findElementInDetail_V3(['VehicleRegistrationCardNo'])['@editable']=='0'"
+		 		ng-model="moduleService.findElementInDetail_V3(['VehicleRegistrationCardNo']).$"/>
+		 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['VehicleRegistrationCardNo']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="motor:YearOfManufacture" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Year Of Manufacture<span ng-show="moduleService.findElementInDetail_V3(['YearOfManufacture'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" ng-disabled="moduleService.freeze || moduleService.findElementInDetail_V3(['YearOfManufacture'])['@editable'] == '0'"
+     			type="text" ng-model="moduleService.findElementInDetail_V3(['YearOfManufacture']).$"/>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['YearOfManufacture']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="motor:EngineCapacity" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Engine Capacity(CC)<span ng-show="moduleService.findElementInDetail_V3(['EngineCapacity'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" ng-disabled="moduleService.freeze || moduleService.findElementInDetail_V3(['EngineCapacity'])['@editable'] == '0'"
+     			type="text" ng-model="moduleService.findElementInDetail_V3(['EngineCapacity']).$"/>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['EngineCapacity']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="motor:Body" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Body<span ng-show="moduleService.findElementInDetail_V3(['Body'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown disable="moduleService.freeze || moduleService.findElementInDetail_V3(['Body'])['@editable']=='0'"
+				model="moduleService.findElementInDetail_V3(['Body'])"
+			   list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['Body','Option'])" 
+			   type="nonFlag" prefix="v3.motor.privateCarM.body"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Body']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="motor:PowerBy" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Powered By<span ng-show="moduleService.findElementInDetail_V3(['PowerBy'])['@mandatory'] == '1'">*</span></label>
+			<v3-switch-new switch-size="" switch-name="PowerBy" prefix="v3.motor.privateCarM.powerBy"
+	           	switch-model="moduleService.findElementInDetail_V3(['PowerBy']).Value" 
+	           	switch-default-value="" switch-disabled="moduleService.freeze || moduleService.findElementInDetail_V3(['PowerBy'])['@editable']=='0'" 
+	           	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['PowerBy','Option'])">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PowerBy']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="motor:NoOfSeat" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Number of Seats<span ng-show="moduleService.findElementInDetail_V3(['NoOfSeat'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" ng-disabled="moduleService.freeze || moduleService.findElementInDetail_V3(['NoOfSeat'])['@editable'] == '0'"
+     			type="text" ng-model="moduleService.findElementInDetail_V3(['NoOfSeat']).$"/>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['NoOfSeat']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="motor:EngineMotorNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Engine/Motor No.<span ng-show="moduleService.findElementInDetail_V3(['EngineMotorNo'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" ng-disabled="moduleService.freeze || moduleService.findElementInDetail_V3(['EngineMotorNo'])['@editable'] == '0'"
+     			type="text" ng-model="moduleService.findElementInDetail_V3(['EngineMotorNo']).$"/>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['EngineMotorNo']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="motor:ChassisNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Chassis No.<span ng-show="moduleService.findElementInDetail_V3(['ChassisNo'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" ng-disabled="moduleService.freeze || moduleService.findElementInDetail_V3(['ChassisNo'])['@editable'] == '0'"
+     			type="text" ng-model="moduleService.findElementInDetail_V3(['ChassisNo']).$"/>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ChassisNo']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div> -->

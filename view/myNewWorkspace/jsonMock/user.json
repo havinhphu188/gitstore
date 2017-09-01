@@ -1,0 +1,337 @@
+{
+  "IposDocument": {
+    "Data": {
+      "user:User": {
+        "section": "user:User",
+        "vpms-suffix": "User",
+        "icon": "fa fa-user",
+        "cssClass": "v3-box-1",
+        "key": [
+            "Data", "User"
+          ],
+        "user:PersonInformation": {
+          "section": "user:User",
+          "key": ["Person"],
+          "user:Title": {
+            
+            "key":["Title"]
+          },
+          "user:FullName": {
+            
+            "key": ["PersonName", "FullName"]
+          },
+          "user:BirthDate": {
+            
+            "key":["BirthDate"]
+          },
+          "user:Gender": {
+            
+            "key":["Gender"]
+          },
+          "user:MaritalStatus": {
+            
+            "key":["MaritalStatus"]
+          },
+          "user:SmokerStat": {
+            
+            "key":["SmokerStatus"]
+          },
+          "user:Nationality": {
+            
+            "key":["Nationality"]
+          },
+          "user:Race": {
+            
+            "key":["Race"]
+          },
+          "user:BusinessIndustry": {
+            
+            "key":["BusinessIndustry"]
+          },
+          "user:Occupation": {
+            
+            "key":["Occupation"]
+          },
+          "user:IDType": {
+            
+            "key":["IDs", "IDType"]
+          },
+          "user:IDNum": {
+            
+            "key":["IDs", "IDNumber"]
+          }
+        },
+        "user:Contacts": {
+          "key": [
+            "Contacts"
+          ],
+          "section": "user:User",
+          "icon": "fa fa-user",
+          "cssClass": "v3-box-1",
+          "person:EmailAddress": {
+            
+            "key": ["EmailAddress"]
+          },
+          "person:MobilePhone": {
+            
+            "key": ["MobilePhone"]
+          },
+          "person:HomePhone": {
+            
+            "key": ["HomePhone"]
+          },
+          "person:OfficePhone": {
+            
+            "key": ["OfficePhone"]
+          }
+        },
+        "person:Addresses": {
+          "onOpen": "convertNPAddressesToArray()",
+          "section": "user:User",
+          "icon": "fa fa-user",
+          "cssClass": "v3-box-1",
+          "person:PrimaryAddress": {
+            "section": "person:Addresses",
+            "key": [
+              "PrimaryAddress"
+            ],
+            "person:PAddressType": {
+              
+              "key": ["PAddressType"],
+              "labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+              "valuePrefix": "v3.pnc.addressType.enum.",
+              "@defaultValue": "RESIDENTIAL"
+            },
+            "person:PBlkHouseNo": {
+              "key": ["BlkHouseNo"]
+            },
+            "person:PStreet": {
+              "key": ["Street"]
+            },
+            "person:PUnitNo": {
+              "key": ["UnitNo"],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.UnitNo",
+              "maxlength": 120,
+              "placeholder": "Unit No",
+              "type": "INPUT"
+            },
+            "person:PBuilding": {
+              "key": ["Building"],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.Building",
+              "maxlength": 120,
+              "placeholder": "Building",
+              "type": "INPUT"
+            },
+            "person:PCity": {
+              "key": ["City"],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.City",
+              "maxlength": 120,
+              "placeholder": "City",
+              "type": "INPUT"
+            },
+            "person:PCountry": {
+              
+              "key": ["Country"]
+            },
+            "person:PPostal": {
+              "key": ["Postal"],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+              "maxlength": 120,
+              "placeholder": "Postal Code",
+              "type": "INPUT"
+            }
+          },
+          "person:NewNonPrimaryAddress": {
+            "section": "person:Addresses",
+            "key": [
+              "NonPrimaryAddress"
+            ],
+            "icon": {
+              "subAction": "removeIcon"
+            },
+            "cssClass": "v3-box-1",
+            "cardType": "template",
+            "person:NPAddressType": {
+              
+              "key": [
+                "AddressType"
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+              "valuePrefix": "v3.pnc.addressType.enum."
+            },
+            "person:NPBlkHouseNo": {
+              "key": [
+                "BlkHouseNo"
+              ]
+            },
+            "person:NPUnitNo": {
+              "key": [
+                "UnitNo"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.UnitNo",
+              "maxlength": 120,
+              "placeholder": "Unit No",
+              "type": "INPUT"
+            },
+            "person:NPBuilding": {
+              "key": [
+                "Building"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.Building",
+              "maxlength": 120,
+              "placeholder": "Building",
+              "type": "INPUT"
+            },
+            "person:NPCity": {
+              "key": [
+                "City"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.City",
+              "maxlength": 120,
+              "placeholder": "City",
+              "type": "INPUT"
+            },
+            "person:NPCountry": {
+              
+              "key": [
+                "Country"
+              ]
+            },
+            "person:NPPostal": {
+              "key": [
+                "Postal"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+              "maxlength": 120,
+              "placeholder": "Postal Code",
+              "type": "INPUT"
+            }
+          },
+          "person:NonPrimaryAddress": {
+            "section": "person:Addresses",
+            "icon": {
+              "main": "fa fa-user",
+              "mainAction": "addIcon"
+            },
+            "cardType": "action",
+            "onClick": "addCard(card)"
+          }
+        },
+        "user:UnderwriterConfigurations": {
+         "key": [
+            "UnderwriterConfigurations"
+          ],
+        
+          "section": "user:User",
+          "icon": "fa fa-user",
+          "cssClass": "v3-box-1",
+          "isVisible": true,
+          "staticHtml": "underwriter_limit_setting.html"
+        },
+        "user:Genticket": {
+          "section": "user:User",
+          "user:TicketTime": {
+            
+          },
+          "user:Extension": {
+            
+          }
+        },
+        "user:ManageTicket": {
+          "section": "user:User",
+          "user:listTicket": {
+            
+          }
+        },
+        "user:ManageDevice": {
+          "section": "user:User",
+          "user:listDevice": {
+            
+          }
+        },
+        "user:AddRoleTabAdmin": {
+          "section": "user:User",
+          "key": [
+            "Profiles"
+          ],
+          "icon": "fa fa-user",
+          "cssClass": "v3-box-1",
+          "user:AddNewRole": {
+            "section": "user:AddRoleTabAdmin",
+            "icon": {
+              "main": "fa fa-user",
+              "mainAction": "addIcon"
+            },
+            "cardType": "action",
+            "onClick": "addNewRole(card)"
+          },
+          "user:Profile": {
+            "section": "user:AddRoleTabAdmin",
+            "key": [
+              "Profile"
+            ],
+            "icon": {
+              "main": "fa fa-user",
+              "subAction": "removeIcon"
+            },
+            "cardType": "template",
+            "onOpen": "convertManagersToArray(card)",
+            "user:ProfileType": {
+              
+              "key": [
+                "Role"
+              ],
+              "preview": [
+                "user:Profile"
+              ],
+              "valuePrefix": "v3.personalprofile.portlet.label."
+            },
+            "user:ActiveProfile": {
+              
+              "key": [
+                "IsActive"
+              ],
+              "preview": [
+                "user:Profile"
+              ],
+              "valuePrefix": "v3.yesno.enum."
+            },
+            "user:LineofBusiness": {
+               "key": [
+                "LineBusiness"
+              ]
+            },
+            "user:ProfileId": {
+              
+            },
+            "user:PASID": {
+              
+              "key": [
+                "PASID"
+              ],
+              "preview": [
+                "user:Profile"
+              ]
+            },
+            "user:PASName": {
+              "key": [
+                "PASName"
+              ]
+            },
+            "user:UpdateUserProfile": {
+              "key": [
+                ""
+              ]
+            },
+            "user:Manager": {
+              
+              "key": [
+                "Managers"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

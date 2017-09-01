@@ -1,0 +1,64 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="illustration-background">
+	<div ng-if="illustration != ''" class="card pointer" ng-class="moduleService.classForValidStateOfDocument(illustration) + (isLeftSideBar=='true'?' no-shadow':'')" ng-click="!moduleService.checkActionPermission(illustration,'view')?'':showIllustrationDetail(illustration.uid)">
+		<div class="card-header overflow-prevent">{{illustration.name}}</div>
+		<div class="triangle"></div>
+		
+		<div class="card-data overflow-prevent">
+			<div class="pull-left">
+				<span>{{'workspace.vmenu.label.product'|i18nText}}:</span>
+				<span ng-bind="illustration.packageName"></span>
+			</div>
+		</div>
+		<div ng-if="!moduleService.isInViewMode()">
+			<div class="card-success pull-right pointer" ng-click="controller.archive($event, illustration)">
+				&nbsp;
+				<i ng-if="isLeftSideBar=='true' && controller.isState('illustration')" class="icon-briefcase medium-icon archive-color"/>
+			</div>						
+			<div class="card-success pull-right pointer" ng-click="isLeftSideBar=='true'? controller.toggleStar(illustration) : ''">
+				<i ng-if="moduleService.isStarredObject(illustration)" class="icon-star medium-icon yellow-icon"></i> 
+				<i ng-if="isLeftSideBar=='true' && !moduleService.isStarredObject(illustration)" class="icon-star-empty medium-icon yellow-icon"></i>
+			</div>
+		</div>
+		<div ng-if="moduleService.isInViewMode()">
+			<div class="card-success pull-right pointer">
+				<i ng-if="moduleService.isStarredObject(illustration)" class="icon-star medium-icon yellow-icon"></i> 
+				<i ng-if="isLeftSideBar=='true' && !moduleService.isStarredObject(illustration)" class="icon-star-empty medium-icon yellow-icon"></i>
+			</div>
+		</div>
+		<div class="card-data overflow-prevent" >
+			<span>{{'workspace.vmenu.label.owner'|i18nText}}:</span>
+			<span ng-bind="moduleService.getMetaPolicyOwnerFullName(illustration)"></span>
+		</div>
+		<div class="card-data">
+			<span>{{'workspace.vmenu.label.status'|i18nText}}:</span>
+			<span ng-bind="'document.status.bi.' + illustration.status|i18nText"></span>
+		</div>
+		<div class="card-icon" ng-show="isLeftSideBar=='false'"><i class="icon-bar-chart"></i></div>
+		<div class="card-date">{{illustration.updatedDate | momentDate}}</div>
+	</div>
+	
+	<div ng-if="illustration == ''" align="center" class="card pointer" ng-click="addIllustration()">
+		<!-- <div align="center" class="add-bi-text">ADD BI</div>
+		<div align="center" class="add-new-icon"><i class="icon-plus-sign"></i></div> -->
+		ADD BI  <i class="icon-plus-sign"></i>
+	</div>
+</div>

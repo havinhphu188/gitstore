@@ -1,0 +1,31 @@
+<div class="row v3-margin-auto app-Login-Container">
+    <div class="col-xs-12">
+        <h2 ng-if="lastSyncTime == undefined">	
+        	<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+			{{'v3.mobileApp.sync.Lastsync' | translate}}: {{'v3.mobileApp.sync.never' | translate}}
+		</h2>
+		<h2 ng-if="lastSyncTime != undefined">	
+        	<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+			{{'v3.mobileApp.sync.Lastsync' | translate}}: {{lastSyncTime}}
+		</h2>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{syncBarProgress}}">
+                {{'v3.mobileApp.sync.syncing' | translate}}...
+            </div>
+        </div>
+        <button type="button" class="btn-lg v3-btn-primary button-size-level2 button-login-border-none" ng-click="syncDocumentByCaseID()">
+            {{'v3.mobileApp.sync.syncNow' | translate}}
+        </button>
+    </div>
+</div>
+
+<document-list-view datalist="syncDeviceCases" doctype="case-management" title="my_drafted_cases_to_sync"
+                    reloadlist="syncListCase()" isloadlist="isLoadList" action="sync" datalistsync="datalistSync" moreaction="syncDocumentByCaseID()">
+</document-list-view>
+<document-list-view datalist="syncServerCases" doctype="case-management" title="my_business_cases_on_server"
+					reloadlist="syncListCase()" isloadlist="isLoadList" action="sync" datalistsync="datalistSync" moreaction="syncDocumentByCaseID()">
+</document-list-view>
+<document-list-view datalist="liseCaseFail" doctype="case-management" title="case_need_retry"
+                    reloadlist="syncListCaseFail()" isloadlist="isLoadList" action="retry" datalistsync="datalistCaseFailSync" moreaction="syncDocumentFailByCaseID()"
+                    is-show-button-sync="true">
+</document-list-view>

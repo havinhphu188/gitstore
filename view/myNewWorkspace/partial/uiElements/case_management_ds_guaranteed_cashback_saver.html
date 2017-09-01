@@ -1,0 +1,139 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Getting Started -->
+<div fieldid="case-management-guaranteed-cashback-saver:GuideToPurchase"
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary ng-scope">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-12"><b>{{'v3.mynewworkspace.portlet.label.case-management-ds:GuideToPurchase'|translate}}</b></span>
+		<div class="col-md-offset-1">
+			<span class="col-md-12">{{'v3.mynewworkspace.portlet.label.case-management-ds:GuideToPurchase1'|translate}}</span> <span
+				class="col-md-12">{{'v3.mynewworkspace.portlet.label.case-management-ds:GuideToPurchase2'|translate}}</span> <span
+				class="col-md-12">{{'v3.mynewworkspace.portlet.label.case-management-ds:GuideToPurchase3'|translate}}</span>
+		</div>
+	</div>
+</div>
+<div fieldId="case-management-guaranteed-cashback-saver:GettingStartedAgreeTitle"
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+	style="padding-top: 10px">
+	<div class="card-element section-card-item">
+		<!-- Card Title -->
+		<h5 class="v3-card-title v3-auto-text-ellipsis-2">
+			<span class="section-card-detail">
+				{{'v3.mynewworkspace.portlet.label.case-management-ds:GettingStartedAgreeInformation'|translate}} </span>
+		</h5>
+	</div>
+</div>
+<div fieldId="case-management-guaranteed-cashback-saver:GettingStartedAgree1"
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+	style="padding-top: 10px">
+	<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		<md-checkbox class="in-line" type="checkbox" ng-checked="true">&nbsp;</md-checkbox>
+	</div>
+	<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11" style="padding-top: 10px">
+		<div class="form-group form-group-lg has-success"
+			style="text-align: justify">
+			<div style="font-size: 15px">{{'v3.mynewworkspace.portlet.label.case-management-ds:GettingStartedAgree1'|translate}}</div>
+			<span class="errorMessage"
+				ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="case-management-guaranteed-cashback-saver:GettingStartedAgree2"
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+	style="padding-top: 10px">
+	<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		<md-checkbox class="in-line" type="checkbox" ng-checked="true">&nbsp;</md-checkbox>
+	</div>
+	<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11" style="padding-top: 10px">
+		<div class="form-group form-group-lg has-success"
+			style="text-align: justify">
+			<div style="font-size: 15px">{{'v3.mynewworkspace.portlet.label.case-management-ds:GettingStartedAgree2'|translate}}</div>
+			<span class="errorMessage"
+				ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<!-- Summary -->
+<div fieldId="case-management-guaranteed-cashback-saver:CaseInformation"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6"
+			title="{{'new.v3.mynewworkspace.GCS.casemanagement.label.BusinessTransactionInformation' | translate}}">
+			{{'new.v3.mynewworkspace.GCS.casemanagement.label.BusinessTransactionInformation'
+			| translate | trimtext:false:25:'...'}} : </span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['DocName'])}}</span>
+	</div>
+</div>
+
+<div fieldId="case-management-guaranteed-cashback-saver:CreatedDate"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6"
+			title="{{'new.v3.mynewworkspace.GCS.casemanagement.label.CreatedDate' | translate}}">
+			{{'new.v3.mynewworkspace.GCS.casemanagement.label.CreatedDate'
+			| translate | trimtext:false:25:'...'}} : </span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['CreatedDate']) | datetimeFilter:"MMMM DD, YYYY" }}</span>
+	</div>
+</div>
+<div fieldId="case-management-guaranteed-cashback-saver:UpdatedDate"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6"
+			title="{{'new.v3.mynewworkspace.GCS.casemanagement.label.UpdatedDate' | translate}}">
+			{{'new.v3.mynewworkspace.GCS.casemanagement.label.UpdatedDate'
+			| translate | trimtext:false:25:'...'}} : </span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['UpdatedDate']) | datetimeFilter:"MMMM DD, YYYY"}}</span>
+	</div>
+</div>
+<div fieldId="case-management-guaranteed-cashback-saver:ProductName"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6"
+			title="{{'new.v3.mynewworkspace.GCS.casemanagement.label.ProductName' | translate}}">
+			{{'new.v3.mynewworkspace.GCS.casemanagement.label.ProductName'
+			| translate | trimtext:false:25:'...'}} : </span> <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.productName.'
+			+ moduleService.findElementInDetail_V3(['Product']) | translate}}</span>
+	</div>
+</div>
+<div fieldId="case-management-guaranteed-cashback-saver:PolicyOwner"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6"
+			title="{{'new.v3.mynewworkspace.GCS.casemanagement.label.label.PolicyOwner' | translate}}">
+				{{'new.v3.mynewworkspace.GCS.casemanagement.label.label.PolicyOwner'
+			| translate | trimtext:false:25:'...'}} :</span>
+			<span class="col-md-6">{{moduleService.findElementInDetail_V3(['ProspectName']).$}}</span>
+	</div>
+</div>
+
+<div fieldId="case-management-guaranteed-cashback-saver:Status"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6"
+			title="{{'new.v3.mynewworkspace.GCS.casemanagement.label.label.Status' | translate}}">
+			{{'new.v3.mynewworkspace.GCS.casemanagement.label.label.Status'
+			| translate | trimtext:false:25:'...'}} : </span>
+			<span class="col-md-6">{{'v3.document.status.' + moduleService.findElementInDetail_V3(['BusinessStatus']) |translate}}</span>
+	</div>
+</div>
+<div fieldId="case-management-guaranteed-cashback-saver:PolicyNumber"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'new.v3.mynewworkspace.motor.casemanagement.label.PolicyNo' | translate}}:</span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['PolicyNumber']).$}}</span>
+	</div>
+</div>

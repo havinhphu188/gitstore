@@ -1,0 +1,12 @@
+{
+  "IposDocument": {
+    "Data": {
+        "ipos-admin:GlobalSetup": {
+          "@section": "ipos-admin:GlobalSetup",
+          "ipos-admin:GlobalSetup_Table": {
+            "@key": ""
+        }
+      }
+    }
+  }
+}

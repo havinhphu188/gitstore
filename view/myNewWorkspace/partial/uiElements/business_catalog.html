@@ -1,0 +1,283 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div fieldId="ipos-product:term_life_protect_as_Table" class="col-xs-12 v3-column-content">
+	<div class="row">
+		<h4>Is Term Life insurance right for you?</h4>
+		<span>Term life insurance provides you with protection to cover a specified period of time. It generally provides the most coverage for the lowest cost. With Term Life insurance, you can have peace of mind knowing your loved ones are protected if something happens to you during the term period.</span>
+	</div>
+	<div>&nbsp;</div>
+	<div class="row">
+	    <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" disabled ng-click="gotoCase('term-life-protect-as')">Buy Now</button> 
+	    </div>
+	</div>
+	<div>&nbsp;</div>	
+</div>
+<div fieldId="ipos-product:personal_accident_as_Table" class="col-xs-12 v3-column-content">
+	<div class="row">
+		<h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.personal-accident' | translate}}</h4>
+		<span>{{'v3.mynewworkspace.portlet.label.businesscatalog.personalaccident.context' | translate}}</span>
+	</div>
+	<div>&nbsp;</div>
+	<div class="row">
+	    <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="gotoCase('personal-accident')" 
+	         	ng-if="commonUIService.getActiveSaleChannel() == 'DS'" ng-disabled="true" >{{'v3.mynewworkspace.portlet.label.businesscatalog.button.buynow' | translate}}</button>
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+	         	ng-click="gotoCase('personal-accident')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button> 
+	    </div>
+	</div>
+	<div>&nbsp;</div>	
+</div>
+<div fieldId="ipos-product:guaranteed_cashback_saver_Table" class="col-xs-12 v3-column-content">
+	<div class="row">
+		<h4 class="cardTitle">{{'v3.illustration.product.guaranteed-cashback-saver' | translate}}</h4>
+		<span>{{'v3.mynewworkspace.portlet.label.businesscatalog.guaranteedcashbacksaver' | translate}}</span>
+	</div>
+	<div>&nbsp;</div>
+	<div class="row">
+	    <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="gotoCase('ds-guaranteed-cashback-saver')" 
+	         	ng-if="commonUIService.getActiveSaleChannel() == 'DS'" ng-disabled="true" >{{'v3.mynewworkspace.portlet.label.businesscatalog.button.buynow' | translate}}</button>
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+	         	ng-click="gotoCase('guaranteed-cashback-saver')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button>
+	    </div>
+	</div>
+	<div>&nbsp;</div>	
+</div>
+<div fieldId="ipos-product:term-life-secure_Table" class="col-xs-12 v3-column-content">
+	<div class="row">
+		<h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.ipos-product:term-life-secure' | translate}}</h4>
+		<span><b>{{'v3.mynewworkspace.portlet.label.ipos-product:term-life-secure' | translate}}</b>{{'v3.mynewworkspace.portlet.label.businesscatalog.termlifesecure.content1' | translate}}<br/>{{'v3.mynewworkspace.portlet.label.businesscatalog.termlifesecure.content2' | translate}}</span>
+	</div>
+	<div>&nbsp;</div>
+	<div class="row">
+	    <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="gotoCase('term-life-secure')" 
+	         	ng-if="commonUIService.getActiveSaleChannel() == 'DS'" ng-disabled="true" >{{'v3.mynewworkspace.portlet.label.businesscatalog.button.buynow' | translate}}</button>
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+	         	ng-click="gotoCase('term-life-secure')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button> 
+	    </div>
+	</div>
+	<div>&nbsp;</div>	
+</div>
+<div fieldId="ipos-product:regular-unit-link_as_Table" class="col-xs-12 v3-column-content">
+  <div class="row">
+    <h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.businesscatalog.regularunitlink.content1' | translate}}</h4>
+    <span>
+    <!-- <b>{{'v3.mynewworkspace.portlet.label.ipos-product:regular-unit-link' | translate}}</b> -->
+    <br/>{{'v3.mynewworkspace.portlet.label.businesscatalog.regularunitlink.content2' | translate}}
+    <br/>
+    <br/>{{'v3.mynewworkspace.portlet.label.businesscatalog.regularunitlink.content3' | translate}}
+    <br/>{{'v3.mynewworkspace.portlet.label.businesscatalog.regularunitlink.content4' | translate}}
+     <br/>
+    <br/>{{'v3.mynewworkspace.portlet.label.businesscatalog.regularunitlink.content5' | translate}}
+
+    </span>
+  </div>
+  <div>&nbsp;</div>
+  <div class="row">
+      <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+           <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="gotoCase('regular-unit-link')" 
+            ng-if="commonUIService.getActiveSaleChannel() == 'DS'" ng-disabled="true" >{{'v3.mynewworkspace.portlet.label.businesscatalog.button.buynow' | translate}}</button>
+           <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+            ng-click="gotoCase('regular-unit-link')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button> 
+      </div>
+  </div>
+  <div>&nbsp;</div> 
+</div>
+
+<div fieldId="ipos-product:endowment_as_Table" class="col-xs-12 v3-column-content">
+  <div class="row">
+    <h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.businesscatalog.endowment.content1' | translate}}</h4>
+    <span>
+    	<br/>{{'v3.mynewworkspace.portlet.label.businesscatalog.endowment.content2' | translate}}
+    </span>
+  </div>
+  <div>&nbsp;</div>
+  <div class="row">
+  	<div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+  		<button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+  			ng-click="gotoCase('endowment')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button> 
+      </div>
+  </div>
+  <div>&nbsp;</div> 
+</div>
+<div fieldId="ipos-product:fire_houseowner_as_Table" class="col-xs-12 v3-column-content">
+	<div class="row">
+		<h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.businesscatalog.fire' | translate}}</h4>
+		<span>{{'v3.mynewworkspace.portlet.label.businesscatalog.fire.context' | translate}}</span>
+	</div>
+	<div>&nbsp;</div>
+	<div class="row">
+	    <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="gotoCase('FIR')" 
+	         	ng-if="commonUIService.getActiveSaleChannel() == 'DS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.buynow' | translate}}</button>
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+	         	ng-click="gotoCase('FIR')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button> 
+	    </div>
+	</div>
+	<div>&nbsp;</div>	
+</div>
+<div fieldId="ipos-product:motor_private_car_m_as_Table" class="col-xs-12 v3-column-content">
+	<div class="row">
+		<h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.businesscatalog.privatemotor' | translate}}</h4>
+		<span>{{'v3.mynewworkspace.portlet.label.businesscatalog.privatemotor.context' | translate}}</span>
+	</div>
+	<div>&nbsp;</div>
+	<div class="row">
+	    <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="gotoCase('motor-private-car-m-as')" 
+	         	ng-if="commonUIService.getActiveSaleChannel() == 'DS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.buynow' | translate}}</button>
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+	         	ng-click="gotoCase('motor-private-car-m-as')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button> 
+	    </div>
+	</div>
+	<div>&nbsp;</div>	
+</div>
+<div fieldId="ipos-product:travel_express_Table" class="col-xs-12 v3-column-content">
+  <div class="row">
+    <h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.productName.travel-express' | translate}}</h4>
+    <span>{{'v3.mynewworkspace.portlet.label.businesscatalog.travelexpress.context' | translate}}</span>
+  </div>
+  <div>&nbsp;</div>
+  <a ng-click="fileReaderService.openFileReader('view',contextPathTheme+'/documents/Travel-ProductInfo.pdf',[],'uploadMode')"><i>{{'v3.mynewworkspace.portlet.label.businesscatalog.travelexpress.preview' | translate}}</i></a>
+  <div class="row">
+      <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+           <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="gotoCase('travel-express')" 
+            ng-if="commonUIService.getActiveSaleChannel() == 'DS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.buynow' | translate}}</button>
+           <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+            ng-click="gotoCase('travel-express')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button> 
+      </div>
+  </div>
+  <div>&nbsp;</div> 
+</div>
+<div fieldId="ipos-product:income_protection_plan_as_Table" class="col-xs-12 v3-column-content">
+	<div class="row">
+		<h4 class="cardTitle">{{'v3.mynewworkspace.income-protection.illustration.label.IncomeProtectionPlan' | translate}}</h4>
+		<span>{{'v3.mynewworkspace.portlet.label.businesscatalog.incomeprotectionplan.content1' | translate}}<br/>{{'v3.mynewworkspace.portlet.label.businesscatalog.incomeprotectionplan.content2' | translate}}<br/>{{'v3.mynewworkspace.portlet.label.businesscatalog.incomeprotectionplan.content3' | translate}}<br/>{{'v3.mynewworkspace.portlet.label.businesscatalog.incomeprotectionplan.content4' | translate}}</span>
+	</div>
+	<div>&nbsp;</div>
+	<div class="row">
+	    <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="gotoCase('income-protection')" 
+	         	ng-if="commonUIService.getActiveSaleChannel() == 'DS'" ng-disabled="true" >{{'v3.mynewworkspace.portlet.label.businesscatalog.button.buynow' | translate}}</button>
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+	         	ng-click="gotoCase('income-protection')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'" ng-disabled="true" >{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button> 
+	    </div>
+	</div>
+	<div>&nbsp;</div>	
+</div>
+<div fieldId="ipos-product:group_term_life_Table" class="col-xs-12 v3-column-content">
+	<div class="row">
+		<h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.productName.group-term-life' | translate}}</h4>
+		<span>{{'v3.mynewworkspace.portlet.label.businesscatalog.grouptermlife.context' | translate}}</span>
+	</div>
+	<div>&nbsp;</div>
+	<div class="row">
+	    <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+	    	<button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="gotoCase('GTL1')" 
+	         	ng-if="commonUIService.getActiveSaleChannel() == 'DS'" ng-disabled="true" >{{'v3.mynewworkspace.portlet.label.businesscatalog.button.buynow' | translate}}</button>
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+	         	ng-click="gotoCase('GTL1')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button> 
+	    </div>
+	</div>
+	<div>&nbsp;</div>	
+</div>
+<div fieldId="ipos-product:group_travel_Table" class="col-xs-12 v3-column-content">
+	<div class="row">
+		<h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.productName.group-travel-express' | translate}}</h4>
+		<span>{{'v3.mynewworkspace.portlet.label.businesscatalog.group-travel-express.context' | translate}}</span>
+	</div>
+	<div>&nbsp;</div>
+	<a ng-click="fileReaderService.openFileReader('view',contextPathTheme+'/documents/Travel-ProductInfo.pdf',[],'uploadMode')"><i>{{'v3.mynewworkspace.portlet.label.businesscatalog.travelexpress.preview' | translate}}</i></a>
+	<div class="row">
+	    <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+	    	<button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="gotoCase('group-travel-express')" 
+	         	ng-if="commonUIService.getActiveSaleChannel() == 'DS'" ng-disabled="true" >{{'v3.mynewworkspace.portlet.label.businesscatalog.button.buynow' | translate}}</button>
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+	         	ng-click="gotoCase('group-travel-express')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button> 
+	    </div>
+	</div>
+	<div>&nbsp;</div>	
+</div>
+<!-- Direct PA starts -->
+<div fieldId="ipos-product:direct_sale_pa_table" class="col-xs-12 v3-column-content">
+  <div class="row">
+    <h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.productName.direct-sale-pa' | translate}}</h4>
+    <span>{{'v3.mynewworkspace.portlet.label.businesscatalog.directpa.context' | translate}}</span>
+  </div>
+  <div>&nbsp;</div>
+  <div class="row">
+      <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+           <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="gotoCase('direct-sale-pa')" 
+            ng-if="commonUIService.getActiveSaleChannel() == 'DS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.buynow' | translate}}</button>
+           <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+            ng-click="gotoCase('direct-sale-pa')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button> 
+      </div>
+  </div>
+  <div>&nbsp;</div> 
+</div>
+<!-- Direct PA ends -->
+<!-- Direct Travel -->
+<div fieldId="ipos-product:direct_sale_travel_express_table" class="col-xs-12 v3-column-content">
+  <div class="row">
+    <h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.productName.direct-sale-travel-express' | translate}}</h4>
+    <span>{{'v3.mynewworkspace.portlet.label.businesscatalog.travelexpress.context' | translate}}</span>
+  </div>
+  <div>&nbsp;</div>
+  <!-- <a ng-click="fileReaderService.openFileReader('view',contextPathTheme+'/documents/Travel-ProductInfo.pdf',[],'uploadMode')"><i>{{'v3.mynewworkspace.portlet.label.businesscatalog.travelexpress.preview' | translate}}</i></a> -->
+  <div class="row">
+      <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+           <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="gotoCase('direct-sale-travel-express')" 
+            ng-if="commonUIService.getActiveSaleChannel() == 'DS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.buynow' | translate}}</button>
+           <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+            ng-click="gotoCase('direct-sale-travel-express')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button> 
+      </div>
+  </div>
+  <div>&nbsp;</div> 
+</div>
+<!-- End -->
+<div fieldId="ipos-product:notice_of_loss_Table" class="col-xs-12 v3-column-content">
+	<div class="row">
+		<h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.ipos-product:notice-of-loss' | translate}}</h4>
+		<span>{{'v3.mynewworkspace.portlet.label.businesscatalog.noticeofloss' | translate}}</span>
+	</div>
+	<div>&nbsp;</div>
+	<div class="row">
+	   <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+	        <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-disabled="true" ng-click='commonUIService.goToPortlet("NEW_MY_WORKSPACE", {"action": "createContact"})'>Notify Now</button> 
+	   </div>
+	</div>
+	<div>&nbsp;</div>	
+</div>
+<div fieldId="ipos-product:notice_of_death_Table" class="col-xs-12 v3-column-content">
+	<div class="row">
+		<h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.ipos-product:notice-of-death' | translate}}</h4>
+		<span>{{'v3.mynewworkspace.portlet.label.businesscatalog.noticeofdeath' | translate}}</span>
+	</div>
+	<div>&nbsp;</div>
+	<div class="row">
+	    <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+	         <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-disabled="false" ng-click='commonUIService.goToPortlet("NEW_MY_WORKSPACE", {"action": "deathClaimRegistration"})'>Notify Now</button> 
+	    </div>
+	</div>
+	<div>&nbsp;</div>	
+</div>

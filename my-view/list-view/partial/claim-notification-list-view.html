@@ -1,0 +1,103 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="row v3-margin-auto" ng-if="!isListView">
+	<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 pointer v3-padding-0" ng-cloak 
+		dir-paginate="item in datalist | orderBy:'-UpdatedDate' | filter:searchText | itemsPerPage: pageSize.size" current-page="currentPage" ng-click="goToDocumentDetails(item)">
+		<div class="ipos-card-mobile ipos-box-claim-notification-boder">
+            <div class="col-xs-11 v3-padding-0 center-align font-bold margin-bottom-10">
+                <span>{{item.DocName}}</span>
+            </div>
+             <div class="col-xs-1 v3-padding-0">
+                <span class="card-status">
+                 <i class="fa fa-check" ng-if="item.BusinessStatus == 'SUBMITTED'"></i>
+                 <i class="fa fa-exclamation" ng-if="item.BusinessStatus != 'SUBMITTED'"></i>
+              </span>
+            </div>
+            <div class="col-xs-12 v3-padding-0 v3-auto-text-ellipsis">
+                <span>{{item.ClaimNo}}</span>
+            </div>
+            <div class="col-xs-12 v3-padding-0 v3-auto-text-ellipsis">
+                <span>{{item.NotifiedBy}}</span>
+            </div>
+             <div class="col-xs-12 v3-padding-0 v3-auto-text-ellipsis">
+                <span>{{item.CreatedDate | datetimeFilter:'MMM DD, YYYY'}}</span>
+            </div>
+            <div class="col-xs-11 v3-padding-0 menu-item-text-right-align v3-fna-card-datetime">
+                <span>{{item.UpdatedDate | datetimeFilter:'MMM DD, YYYY'}}</span>
+            </div>
+		</div>
+	</div>
+</div>
+<div class="row v3-margin-auto" ng-if="isListView">		
+	<div class="col-xs-12 ipos_medium_mobile_table" hide-xs hide-sm>
+		<div class="ipos_mobile_table_table_header ipos-box-claim-notification-background md-whiteframe-z1 row v3-margin-auto" ng-if="datalist != undefined && datalist.length > 0">													
+			<div class="v3-auto-text-ellipsis">{{'v3.mynewworkspace.portlet.label.claim-notification:ClaimNo' | translate}}</div>
+            <div class="v3-auto-text-ellipsis">{{'v3.mynewworkspace.portlet.label.claim-status-motor:PolicyNo' | translate}}</div>
+            <div class="v3-auto-text-ellipsis">{{'v3.mynewworkspace.portlet.label.claim-notification:NotifiedBy' | translate}}</div>
+            <div class="v3-auto-text-ellipsis">{{'v3.mynewworkspace.portlet.label.claim-notification:CurrentStatus' | translate}}</div>
+            <div class="v3-auto-text-ellipsis">{{'new.v3.mynewworkspace.prospect.label.CreatedDate' | translate}}</div>
+            <div class="v3-auto-text-ellipsis">{{'new.v3.mynewworkspace.GCS.casemanagement.label.UpdatedDate' | translate}}</div>
+		</div>							
+		<div class="ipos_medium_mobile_table_table_listRow row v3-margin-auto" ng-cloak 
+			 dir-paginate="item in datalist | orderBy:'-UpdatedDate' | filter:searchText | itemsPerPage: pageSize.size" current-page="currentPage" 
+			 ng-class-even="'ipos-box-claim-notification-opacity-3'" ng-class-odd="'ipos_even_row'" ng-click="goToDocumentDetails(item)">
+            <div  class="v3-auto-text-ellipsis">{{item.DocName}}</span></div>
+            <div  class="v3-auto-text-ellipsis">{{item.ClaimNo}}</div>
+            <div  class="v3-auto-text-ellipsis">{{item.NotifiedBy}}</div>
+            <div  class="v3-auto-text-ellipsis">{{'v3.dashboardportlet.my_pending_business_transaction.BusinessStatus.' + item.BusinessStatus | translate}}</div>
+            <div  class="v3-auto-text-ellipsis">{{item.CreatedDate | datetimeFilter:'MMM DD, YYYY'}}</div>
+            <div  class="v3-auto-text-ellipsis">{{item.UpdatedDate | datetimeFilter:'MMM DD, YYYY'}}</div>
+		</div>
+	</div>
+				
+	
+	<div class="col-xs-12 ipos_small_mobile_table" hide-lg hide-gt-lg hide-md>
+		<div class="row v3-margin-auto" ng-cloak 
+			 dir-paginate="item in datalist | orderBy:'-UpdatedDate' | filter:searchText | itemsPerPage: pageSize.size" current-page="currentPage" 
+			 ng-class-even="'ipos_even_row'" ng-class-odd="'ipos-box-claim-notification-opacity-3'" ng-click="goToDocumentDetails(item)">
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'v3.mynewworkspace.portlet.label.claim-notification:ClaimNo' | translate}}</b></div> 
+				<div>{{item.DocName}}</div>
+			</div>
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'v3.mynewworkspace.portlet.label.claim-status-motor:PolicyNo' | translate}}</b></div> 
+				<div>{{item.ClaimNo}}</div>
+			</div>
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'v3.mynewworkspace.portlet.label.claim-notification:NotifiedBy' | translate}}</b></div> 
+				<div>{{item.NotifiedBy}}</div>
+			</div>
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'v3.mynewworkspace.portlet.label.claim-notification:CurrentStatus' | translate}}</b></div> 
+				<div>{{'v3.dashboardportlet.my_pending_business_transaction.BusinessStatus.' + item.BusinessStatus | translate}}</div>
+			</div>
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'new.v3.mynewworkspace.prospect.label.CreatedDate' | translate}}</b></div> 
+				<div>{{item.CreatedDate | datetimeFilter:'MMM DD, YYYY'}}</div>
+			</div>
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'new.v3.mynewworkspace.GCS.casemanagement.label.UpdatedDate' | translate}}</b></div> 
+				<div>{{item.UpdatedDate | datetimeFilter:'MMM DD, YYYY'}}</div>
+			</div>
+			
+		</div>
+	</div>
+</div>				
+	

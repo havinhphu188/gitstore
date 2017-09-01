@@ -1,0 +1,98 @@
+{
+  "IposDocument": {
+    "Data": {
+      "log:logDetail": {
+        "@key": [
+          "Letterguarantee"
+        ],
+        "@section": "log:logDetail",
+        "@icon": "",
+        "@cssClass": "v3-box-7",
+        "log:gettingStarted": {
+          "@section": "log:logDetail",
+          "@icon": "fa fa-info",
+          "@cssClass": "v3-box-7",
+          "log:Information": {}
+        },
+        "log:providePolicyDetails": {
+          "@key": [
+            "PolicyDetail"
+          ],
+          "@icon": "fa fa-pencil",
+          "@section": "log:logDetail",
+          "log:step1Label1": {},
+          "log:policyNumber": {
+            "@key": [
+              "PolicyNumber"
+            ]
+          },
+          "log:policyOwner": {
+            "@key": [
+              "CompanyName"
+            ]
+          },
+          "log:productName": {
+            "@key": [
+              "ProductName"
+            ]
+          }
+        },
+        "log:provideInsuredPersonDetails": {
+          "@key": [
+            "InsuredPersonDetails"
+          ],
+          "$icon": "fa fa-check",
+          "$cssClass": "v3-box-7",
+          "@section": "log:logDetail",
+          "log:step2Label1": {},
+          "log:insuredPerson": {
+            "@key": [
+              "InsuredPerson"
+            ]
+          },
+          "log:NRICNo": {
+            "@key": [
+              "NRICNumber"
+            ]
+          }
+        },
+        "log:applyLetterOfGuarantee": {
+          "@key": [
+            "ApplyLetterGuarantee"
+          ],
+          "@icon": "fa fa-paperclip",
+          "@cssClass": "v3-box-7",
+          "@section": "log:logDetail",
+          "log:step3Label1": {},
+          "log:dateOfVisit": {
+            "@key": [
+              "DateOfVisit"
+            ]
+          },
+          "log:diagnosis": {
+            "@key": [
+              "Diagnosis"
+            ]
+          },
+          "log:Hospital": {
+            "@key": [
+              "Hospital"
+            ]
+          }
+        },
+        "log:letterOfGuaranteeOutcome": {
+          "@key": [
+            "LetterGuaranteeOutcome"
+          ],
+          "@icon": "fa fa-pencil-square-o",
+          "@cssClass": "v3-box-7",
+          "@section": "log:logDetail",
+          "log:step4preAccepted": {},
+          "log:step4ManualRejected": {},
+          "log:step4OutrightRejected": {},
+          "log:step4Approved": {}
+        }
+      }
+    }
+  }
+}

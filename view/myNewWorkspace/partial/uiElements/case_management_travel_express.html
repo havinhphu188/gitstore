@@ -1,0 +1,52 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="case-management-travel-express:CaseInformation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6" title="{{'new.v3.mynewworkspace.travel-express.casemanagement.label.BusinessTransactionInformation' | translate}}">
+			<b>{{'v3.mynewworkspace.travel-express.casemanagement.label.BusinessTransactionInformation' | translate | trimtext:false:25:'...'}}:</b>
+		</span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['DocName'])}}</span>
+	</div>
+</div>
+<div fieldId="case-management-travel-express:CurrentStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6"><b>{{'v3.mynewworkspace.travel-express.casemanagement.label.CurrentStatus' | translate}}:</b></span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['BusinessStatus'])}}</span>
+	</div>
+</div>
+<div fieldId="case-management-travel-express:PendingInformation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6"><b>{{'v3.mynewworkspace.travel-express.casemanagement.label.PendingInformation' | translate}}:</b></span>
+		<span class="col-md-6">N/A</span>
+	</div>
+</div>
+<div fieldId="case-management-travel-express:NextRequiredAction" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6"><b>{{'v3.mynewworkspace.travel-express.casemanagement.label.NextRequiredAction' | translate}}:</b></span>
+		<span class="col-md-6">N/A</span>
+	</div>
+</div>
+<div fieldId="case-management-travel-express:PolicyNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6"><b>{{'v3.mynewworkspace.travel-express.casemanagement.label.PolicyNo' | translate}}:</b></span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['PolicyNumber']).$}}</span>
+	</div>
+</div>

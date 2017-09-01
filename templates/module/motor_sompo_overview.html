@@ -1,0 +1,418 @@
+<div layout="column" class="height-inherit">
+    <md-content class="backgroundColor">
+        <div class="mask" ng-show="vars.bLoadingRightView">
+            <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div refresh-on="vars.bIsContentChanged" use-boolean>
+            <div ng-if="carouSelIndex==0">
+                <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.LogBookNo" label-value="Log Book No" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.LogBookNo.$" ms-datepicker>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.ChassisNo" label-value="Chassis No" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.ChassisNo.$" ms-datepicker>
+                            <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:FullName')"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.SafetyCode" label-value="Safety Code" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.SafetyCode.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.OwnershipType" label-value="Ownership Type" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.OwnershipType.Value.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.FinancialType" label-value="Financial Type" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.FinancialType.Value.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.VehiclePurchaseDate" label-value="Vehicle Purchase Date" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.VehiclePurchaseDate.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.TrailerNo" label-value="Trailer No" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.TrailerNo.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.TrailerModelDesc" label-value="Trailer Model Desc." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.TrailerModelDesc.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.TrailerYearMake" label-value="Trailer Year Make" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.TrailerYearMake.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.TrailerChassisNo" label-value="Trailer Chassis No." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.TrailerChassisNo.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.EngineMotorNo" label-value="Engine Motor No." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.EngineMotorNo.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.PermittedDriver" label-value="Permitted Driver" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.PermittedDriver.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.LoanCompany" label-value="Loan Company" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.LoanCompany.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.PurchasePrice" label-value="Purchase Price" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.PurchasePrice.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.TrailerMakeModel" label-value="Trailer Make Model" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.TrailerMakeModel.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.TrailerLogBookNo" label-value="Trailer Log Book No." />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.TrailerLogBookNo.$">
+                        </div>
+                    </div>
+                </div>
+                <div layout="row" class="header-repeat-bar">
+                    <div flex="90">
+                        <h class="repeat-toobar-text">Parties</h>
+                    </div>
+                    <div flex class="collapse">
+                        <div class="rotateCounterwise" ng-disabled="::!moduleService.isEditMode" id="arrow1" align="center" ng-click="hideParties()">
+                            <i class="fa fa-caret-up fa-2x"></i>
+                        </div>
+                    </div>
+                    <div flex>
+                        <div ng-click="addNewParty()" ng-disabled="::!moduleService.isEditMode">
+                            <i class="fa fa-plus-circle fa-lg repeat-toobar-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-hide white-card" ng-hide="hideParty" ng-repeat="party in moduleService.parties track by $index">
+                    <div layout-margin>
+                        <i class="fa fa-times fa-lg" ng-if="moduleService.parties.length > 1" style=" float: right; margin top: 0px; color: grey;" ng-click="moduleService.removeElement('$..ipos-illustration:Illustration.ipos-illustration:Inputs.ipos-illustration:Parties.ipos-illustration:Party', $index)" ng-disabled="::!moduleService.isEditMode"></i>
+                    </div>
+                    <!-- ssssssssssssssssssssssssssssssssssssss -->
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.PartyType" label-value="Party Type" />
+                        </div>
+                        <div flex="25">
+                            <md-checkbox ng-if="moduleService.findValueByJsonXPath(party, 'PartyType').Value.$ == 'LIFEASSURED'" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration:MainInsured').$" ng-true-value="'Y'" ng-false-value="'N'" ng-change="onCheck($index)" ng-disabled="moduleService.listCheckbox[$index]" style="margin:0px">
+                                Main Assured <span style="color: red;" ng-if="variables.MainInsured['@mandatory'] === '1'">*</span>
+                            </md-checkbox>
+                        </div>
+                        <div flex="45">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(party, 'PartyType').Value.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.FullName" label-value="Prospect" />
+                        </div>
+                        <div flex="50">
+                            <input class="input" com-Select select-variable="listProspect" displayText="FullName" displayValue="DocId" title="Prospect List" ng-disabled="::!moduleService.isEditMode" pro-id="prospectId" displayvariable="{{moduleService.findValueByJsonXPath(party, 'FullName').$}}" display-id="::moduleService.findValueByJsonXPath(party, '@refUid')">
+                        </div>
+                        <div flex="10">
+                            <md-button ng-click="getDetail($index,prospectId)">Import</md-button>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.Relationship" label-value="Relationship" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration:Relationship').Value.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.FullName" label-value="FullName" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(party, 'FullName').$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.BirthDate" label-value="BirthDate" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(party, 'BirthDate').$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.Gender" label-value="Gender" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(party, 'Gender').Value.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.SmokerStat" label-value="Smoking Status" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(party, 'SmokerStat').Value.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.Industry" label-value="Business Industry" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration:Industry').Value.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.Occupation" label-value="Occupation" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="moduleService.findValueByJsonXPath(party, 'ipos-illustration:Occupation').Value.$">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="carouSelIndex==1">
+                <div layout="row">
+                    <div flex="20">
+                        <output id="pic">
+                            <img class="edit-avatar" src="img/avatar_generic.png">
+                        </output>
+                    </div>
+                    <div flex="70">
+                        <br>
+                        <span class="main-info">{{::variables.FullName.$}}</span>
+                        <br>
+                        <span class="sub-info">Age: {{::variables.Age.$}}</span>
+                        <br>
+                        <span class="sub-info">Gender: {{::variables.Gender.Value.$.$}}</span>
+                        <br>
+                    </div>
+                </div>
+                <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.PersonalInfoFullName" label-value="Fullname" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.PersonalInfoFullName.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.PersonalInfoBirthDate" label-value="Birth Date" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.editMode" ng-model="variables.PersonalInfoBirthDate.$" ms-datepicker>
+                            <!--  <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:FullName')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.PersonalInfoAgeNextBirthday" label-value="Age Next Birthdate" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.PersonalInfoAgeNextBirthday.$" ms-datepicker>
+                            <!--   <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:BirthDate')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.PersonalInfoGender" label-value="Gender" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="variables.PersonalInfoGender.$">
+                            <!--  <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.PersonalInfoSmokerStat" label-value="Smoking status" />
+                        </div>
+                        <div flex="70">
+                            <md-switch class="input" md-no-ink style="margin-top:-5px !important; margin-right: 10px;" ng-model="variables.PersonalInfoSmokerStat.$" ng-true-value="'S'" ng-false-value="'N'" class="md-primary" ng-disabled="true">
+                            </md-switch>
+                        </div>
+                    </div>
+                </div>
+                <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.BasicSummaryProductName" label-value="Product Name" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.BasicSummaryProductName.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.BasicSummarySumAssured" label-value="Sum Assured" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.editMode" ng-model="variables.BasicSummarySumAssured.$" ms-datepicker>
+                            <!--  <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:FullName')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.BasicSummaryPolicyTerm" label-value="Policy Term" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="variables.BasicSummaryPolicyTerm.$" ms-datepicker>
+                            <!--   <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:BirthDate')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.BasicSummaryCurrency" label-value="Currency" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="variables.BasicSummaryCurrency.$">
+                            <!--  <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.BasicSummaryFrequencyPremium" label-value="Frequency Premium" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="variables.BasicSummaryFrequencyPremium.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.BasicSummaryPaymentMode" label-value="Payment Method" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="variables.BasicSummaryPaymentMode.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.BasicSummaryYearlyPremium" label-value="Yearly Premium" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="variables.BasicSummaryYearlyPremium.$">
+                            <!--  <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.BasicSummaryHalfYearlyPremium" label-value="HalfYearly Premium" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="variables.BasicSummaryHalfYearlyPremium.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.BasicSummaryQuarterlyPremium" label-value="Quarterly Premium" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="variables.BasicSummaryQuarterlyPremium.$">
+                            <!--  <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <ng-label field="variables.BasicSummaryMonthlyPremium" label-value="Monthly Premium" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-model="variables.BasicSummaryMonthlyPremium.$">
+                            <!--  <span class="error-message" ng-bind="moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="carouSelIndex==2">
+            <div>
+                <table cellspacing="0" cellpadding="0">
+                    <thead class="default-color">
+                        <th>End of Policy Year/Age</th>
+                        <th>Total Premium Paid to Date</th>
+                        <th>Total Distribution Cost to Date</th>
+                        <th>Guaranteed Death Benefit</th>
+                        <th>Premium</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in variables.TableRows track by $index">
+                            <td>{{::moduleService.findElementInElement_V3(row, ['ipos-illustration:EndOfPolicyYear']).$}}/{{::moduleService.findElementInElement_V3(row, ['ipos-illustration:Age']).$}}</td>
+                            <td>{{::moduleService.findElementInElement_V3(row, ['ipos-illustration:TotalPremPaidToDate']).$}}</td>
+                            <td>{{::moduleService.findElementInElement_V3(row, ['ipos-illustration:TotalDistributionCostToDate']).$}}</td>
+                            <td>{{::moduleService.findElementInElement_V3(row, ['ipos-illustration:GuaranteedDeathBenefit']).$}}</td>
+                            <td>{{::moduleService.findElementInElement_V3(row, ['ipos-illustration:Premium']).$}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+</md-content>
+</div>

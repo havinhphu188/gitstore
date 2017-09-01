@@ -1,0 +1,35 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="switch switch-2 alert-success" style="width:150px">
+	<input
+		id="{{componentY}}" type="radio" 
+		name="{{componentCode}}" value="Y"
+		ng-model="moduleService.findPropertyInElement(item,['Component_Option'],'value').value"
+		ng-disabled="moduleService.isSubmittedStatus() || isInViewMode()">
+	<label for="{{componentY}}" onclick="">{{'workspace.value.yes' | i18nText}}</label>
+	<input
+		id="{{componentN}}" type="radio" 
+		name="{{componentCode}}" value="N"
+		ng-model="moduleService.findPropertyInElement(item,['Component_Option'],'value').value"
+		ng-disabled="moduleService.isSubmittedStatus() || isInViewMode()">
+	<label for="{{componentN}}" onclick="">{{'workspace.value.no' | i18nText}}</label>
+	<span class="slide-button btn btn-info disabled"
+		ng-show="moduleService.commonService.hasValueNotEmpty(moduleService.findPropertyInElement(item,['Component_Option'],'value').value)"></span>
+</div>

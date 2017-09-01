@@ -1,0 +1,38 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <span ng-click="goToState('.^')" ng-if="vars.isOnSubStateL1">
+            <i class="fa fa-angle-left fa-lg"></i>
+            Main menu
+        </span>  
+        <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+
+         <div back-button class="slide-header" ng-if="vars.isOnSubStateL1">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span >
+                <i class="fa fa-angle-left fa-lg"></i>
+                <span >back</span>
+            </span> 
+        </div>
+
+        
+        <!-- <span flex></span>
+        <span flex ng-if="vars.isOnSubStateL1">{{::vars.subPageTitle}}</span> -->
+        <span flex></span>
+        <span ng-if="!moduleService.isEditMode">
+            <md-button md-no-ink ng-click="getComputedDetail()" class="md-icon-button button" aria-label="Edit Prospect">
+                <i class="fa fa-pencil fa-2x button-padding-10 "></i>
+            </md-button>
+        </span>
+        <span ng-if="moduleService.isEditMode">
+            <md-button md-no-ink ng-click="reset()" class="md-icon-button button" aria-label="Reset content">
+                <i class="fa fa-undo  fa-2x button-padding-10 "></i>
+            </md-button>
+             <md-button md-no-ink ng-click="showAttachment('attach')" class="md-icon-button button">
+            <i class="fa fa-paperclip fa-2x button-padding-10" aria-label="Attach files"></i>
+        </md-button>
+            <md-button md-no-ink ng-click="saveDoc()" class="md-icon-button button" aria-label="Save content">
+                <i class="fa fa-floppy-o fa-2x button-padding-10 "></i>
+            </md-button>    
+        </span>
+    </div>
+</md-toolbar>

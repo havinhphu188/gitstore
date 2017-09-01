@@ -1,0 +1,132 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div fieldId="pdpa:PersonalDataProtectionConsent" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="form-group form-group-lg has-success large-font text-center">
+		{{"v3.mynewworkspace.portlet.label.PersonalDataProtectionConsent" | translate}}
+	</div>
+</div>
+<div fieldId="pdpa:CSCInsurancePrivacyPolicy" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="form-group form-group-lg has-success large-font">
+		{{"v3.mynewworkspace.portlet.label.CSCInsurancePrivacyPolicy" | translate}}
+	</div>
+</div>
+<div fieldId="pdpa:Consent" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+<div class="form-group form-group-lg has-success">
+<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.Consent" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+	
+</div>
+<div fieldId="pdpa:CommunicationChannels" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 form-group form-group-lg has-success">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<md-checkbox class="pdpa-checkbox" ng-disabled="moduleService.findElementInDetail_V3(['Consent']).Value=='' || moduleService.findElementInDetail_V3(['Consent']).Value=='N'"
+					ng-model="moduleService.findElementInDetail_V3(['CommunicationChannel'])[0]['pdpa:CommunicationChannelValue'].Value"
+					ng-true-value="'Y'" ng-false-value="'N'" ng-change="click(0)">
+					{{"v3.mynewworkspace.portlet.label.CommunicationChannel.VoiceCalls" | translate}}
+				</md-checkbox>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<md-checkbox class="pdpa-checkbox" ng-disabled="moduleService.findElementInDetail_V3(['Consent']).Value=='' || moduleService.findElementInDetail_V3(['Consent']).Value=='N'"
+					ng-model="moduleService.findElementInDetail_V3(['CommunicationChannel'])[1]['pdpa:CommunicationChannelValue'].Value"
+					ng-true-value="'Y'" ng-false-value="'N'" ng-change="click(1)">
+					{{"v3.mynewworkspace.portlet.label.CommunicationChannel.TextMessage" | translate}}
+				</md-checkbox>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<md-checkbox class="pdpa-checkbox" ng-disabled="moduleService.findElementInDetail_V3(['Consent']).Value=='' || moduleService.findElementInDetail_V3(['Consent']).Value=='N'"
+					ng-model="moduleService.findElementInDetail_V3(['CommunicationChannel'])[2]['pdpa:CommunicationChannelValue'].Value"
+					ng-true-value="'Y'" ng-false-value="'N'" ng-change="click(2)">
+					{{"v3.mynewworkspace.portlet.label.CommunicationChannel.FaxMessages" | translate}}
+				</md-checkbox>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<md-checkbox class="pdpa-checkbox" ng-disabled="moduleService.findElementInDetail_V3(['Consent']).Value=='' || moduleService.findElementInDetail_V3(['Consent']).Value=='N'"
+					ng-model="moduleService.findElementInDetail_V3(['CommunicationChannel'])[3]['pdpa:CommunicationChannelValue'].Value"
+					ng-true-value="'Y'" ng-false-value="'N'" ng-change="click(3)">
+					{{"v3.mynewworkspace.portlet.label.CommunicationChannel.DirectMail" | translate}}
+				</md-checkbox>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<md-checkbox class="pdpa-checkbox" ng-disabled="moduleService.findElementInDetail_V3(['Consent']).Value=='' || moduleService.findElementInDetail_V3(['Consent']).Value=='N'"
+					ng-model="moduleService.findElementInDetail_V3(['CommunicationChannel'])[4]['pdpa:CommunicationChannelValue'].Value"
+					ng-true-value="'Y'" ng-false-value="'N'" ng-change="click(4)">
+					{{"v3.mynewworkspace.portlet.label.CommunicationChannel.Email" | translate}}
+				</md-checkbox>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<md-checkbox class="pdpa-checkbox" ng-disabled="moduleService.findElementInDetail_V3(['Consent']).Value=='' || moduleService.findElementInDetail_V3(['Consent']).Value=='N'"
+					ng-model="moduleService.findElementInDetail_V3(['CommunicationChannel'])[5]['pdpa:CommunicationChannelValue'].Value"
+					ng-true-value="'Y'" ng-false-value="'N'" ng-change="allClick()">
+					{{"v3.mynewworkspace.portlet.label.CommunicationChannel.All" | translate}}
+				</md-checkbox>
+			</div>
+		</div>
+	</div>
+</div>
+<div fieldId="pdpa:TextMessage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="form-group form-group-lg has-success">
+		<div class="">
+			<span class="large-font">* {{"v3.mynewworkspace.portlet.label.TextMessage" | translate}}</span>
+			<span class="textMessageToggle v3-float-icon-right-hide-show" ng-click="toogleElement('textMessage', 'textMessageToggle')">
+				<i class="fa fa-chevron-down fa-lg"></i>
+			</span>
+		</div>
+	</div>
+	<div class="textMessage form-group form-group-lg has-success">
+		<span>*{{"v3.mynewworkspace.portlet.label.TextMessageContent" | translate}}</span>
+	</div>
+</div>
+<div fieldId="pdpa:ImportantNotes" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="form-group form-group-lg has-success">
+		<div class="">
+			<span class="large-font">* {{"v3.mynewworkspace.portlet.label.ImportantNotes" | translate}}</span>
+			<span class="importantNotesToggle v3-float-icon-right-hide-show" ng-click="toogleElement('importantNotes', 'importantNotesToggle')">
+				<i class="fa fa-chevron-down fa-lg"></i>
+			</span>
+		</div>
+	</div>
+	<div class="importantNotes form-group form-group-lg has-success">
+		<div class="">
+			<span>{{"v3.mynewworkspace.portlet.label.SignAndSubmit" | translate}}</span>
+		</div>
+		<div class="">
+			<span>(a) {{"v3.mynewworkspace.portlet.label.ImportantNotesA" | translate}}</span>
+		</div>
+		<div class="">
+			<span>(b) {{"v3.mynewworkspace.portlet.label.ImportantNotesB" | translate}}</span>
+		</div>
+	</div>
+</div>

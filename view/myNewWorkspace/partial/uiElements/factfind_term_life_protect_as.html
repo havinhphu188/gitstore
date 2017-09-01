@@ -1,0 +1,1238 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Section: ClientBasicInfo -->
+<div fieldId="needs-analysis:ClientTitle" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Title</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<md-select ng-change="" ng-disabled="" ng-model="moduleService.findElementInDetail_V3(['Title']).Value" class="md-select-Style">
+      		<md-option>MR</md-option>
+      		<md-option>Miss</md-option>
+      		<md-option>Dr</md-option>
+       	</md-select>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Title']).errorMessage | translate"></span>
+   </div>			
+</div>
+<div fieldId="needs-analysis:ClientFullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Full Name</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+        <input ng-change="" ng-disabled="" type="text"  maxlength="120" ng-model="moduleService.findElementInDetail_V3(['FullName']).$" />
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['FullName']).errorMessage | translate"></span>
+    </div>           
+</div>
+<div fieldId="needs-analysis:ClientBirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Birth Date</span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+     	<div layout="row">
+     		<input type="text" ms-datepicker="{mode: 'scroller', theme:'android-holo light',dateFormat:'dd/mm/yy'}" ng-model="moduleService.findElementInDetail_V3(['BirthDate']).$" "/>
+       	</div>
+       	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BirthDate']).errorMessage | translate"></span>
+     </div>
+</div>
+<div fieldId="needs-analysis:ClientGender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+	    <span>Gender</span>
+	</div>
+	 <div flex-sm="100"  flex-md="100" layout="column" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="gender1" 
+	           switch-model="moduleService.findElementInDetail_V3(['Gender']).Value" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="gender">
+		</v3-switch-new>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Gender']).errorMessage | translate"></span>
+	</div>                 
+</div>
+<div fieldId="needs-analysis:ClientMarStat" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex-md="100"  flex="15" layout="row" layout-align="start center">
+		<span>Marital Status</span>
+	</div>
+	<div flex-sm="100" flex-md="100"  layout="row" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="MarStat1" 
+                   switch-model="moduleService.findElementInDetail_V3(['MarStat']).Value" switch-default-value="" switch-disabled="false" switch-options="MarStat">
+        </v3-switch-new>
+	</div>           
+</div>
+<div fieldId="needs-analysis:ClientSmokerStat" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex-md="100"  flex="30" layout="row" layout-align="start center">
+	    <span>Smoking Status</span>
+	</div>
+	<div flex-sm="100" flex-md="100"  layout="column" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="SmokerStatus1" 
+	           switch-model="moduleService.findElementInDetail_V3(['SmokerStat']).Value" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="SmokerStatus">
+		</v3-switch-new>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['SmokerStat']).errorMessage | translate"></span>
+	</div>           
+</div>
+<div fieldId="needs-analysis:ClientRace" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="15" layout="row" layout-align="start center">
+		<span>Race</span>
+	</div>
+	<div  flex-md="100" flex-sm="100" layout="row" layout-align="start center" flex>
+		<v3-switch-new alway-watch="true" style="float:right;" switch-name="race" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['Race'])['@editable']=='0'"
+			switch-model="race" 
+			switch-default-value="" switch-options="race"></v3-switch-new>                      
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Race']).errorMessage | translate"></span>
+	</div>			
+</div>
+<div fieldId="needs-analysis:ClientNationality" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Nationality</span>
+    </div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+	    <md-select ng-model="moduleService.findElementInDetail_V3(['Nationality']).Value" class="md-select-Style">
+          <md-option>Singapore</md-option>
+          <md-option>Japan</md-option>
+          <md-option>Viet Nam</md-option>
+        </md-select>
+	    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Nationality']).errorMessage | translate"></span>
+	</div>           
+</div>
+<div fieldId="needs-analysis:ClientIDType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		<span>ID Type</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="column" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="idtype" 
+	           switch-model="idtype" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="idtype">
+		</v3-switch-new>
+      	<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(num,['IDType']).errorMessage | translate"></span>
+	</div>			
+</div>
+<div fieldId="needs-analysis:ClientIDNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+    	<span>ID Number</span>
+    </div>
+    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(num,['IDNumber'])['@editable']=='0'"  
+        maxlength="12" ng-model="moduleService.findElementInElement_V3(num,['IDNumber']).$" />
+        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(num,['IDNumber']).errorMessage | translate"></span>
+    </div>		
+</div>
+<div fieldId="needs-analysis:ClientBusinessIndustry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Business / Industry</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start center" flex>
+		<md-select ng-model="moduleService.findElementInDetail_V3(['BusinessIndustry']).Value" class="md-select-Style">
+	          <md-option>Singapore</md-option>
+	          <md-option>Japan</md-option>
+	          <md-option>Viet Nam</md-option>
+        </md-select>
+	    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BusinessIndustry']).errorMessage | translate"></span>
+	</div>			
+</div>
+<div fieldId="needs-analysis:ClientOccupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Occupation</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<md-select ng-change="" ng-disabled="" ng-model="moduleService.findElementInDetail_V3(['Occupation']).Value" class="md-select-Style">
+      		<md-option>MR</md-option>
+      		<md-option>Miss</md-option>
+      		<md-option>Dr</md-option>
+		</md-select>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>
+     </div>         
+</div>
+<!-- ClientAddresses -->
+<div fieldId="needs-analysis:ClientAddresses" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<!-- Residential Address -->
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 10px;"><b>Residential Address</b></div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Block/ House Number</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['BlkHouseNo'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['BlkHouseNo']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['BlkHouseNo']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Building</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['Building'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['Building']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Building']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>City</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['City'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['City']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['City']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Country</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <md-select ng-model="moduleService.findElementInElement_V3(address, ['Country']).Value" class="md-select-Style">
+			          <md-option>Singapore</md-option>
+			          <md-option>Japan</md-option>
+			          <md-option>Viet Nam</md-option>
+		        </md-select>
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Country']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Postal Code</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['Postal'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['Postal']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Postal']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Street</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['Street'])['@editable']=='0'"  
+		        maxlength="30" ng-model="moduleService.findElementInElement_V3(address,['Street']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Street']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Unit Number</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['UnitNo'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['UnitNo']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['UnitNo']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+	</div>
+	<!--Correspondence Address-->
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 10px;"><b>Correspondence Address</b></div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Block/ House Number</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['BlkHouseNo'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['BlkHouseNo']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['BlkHouseNo']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Building</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['Building'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['Building']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Building']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>City</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['City'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['City']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['City']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Country</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <md-select ng-model="moduleService.findElementInElement_V3(address, ['Country']).Value" class="md-select-Style">
+			          <md-option>Singapore</md-option>
+			          <md-option>Japan</md-option>
+			          <md-option>Viet Nam</md-option>
+		        </md-select>
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Country']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Postal Code</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['Postal'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['Postal']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Postal']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Street</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['Street'])['@editable']=='0'"  
+		        maxlength="30" ng-model="moduleService.findElementInElement_V3(address,['Street']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Street']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Unit Number</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['UnitNo'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['UnitNo']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['UnitNo']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+	</div>
+</div>
+
+<!-- ClientEmploymentAndHealth -->
+<div fieldId="needs-analysis:EducationLevelGroup" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <b>Employment</b>
+	</div>
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Education</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<md-select ng-change="" ng-disabled="" ng-model="moduleService.findElementInDetail_V3(['EducationLevelGroup']).Value" class="md-select-Style">
+      		<md-option>Below Secondary</md-option>
+      		<md-option>Secondary</md-option>
+      		<md-option>Diploma</md-option>
+      		<md-option>Degree</md-option>
+      		<md-option>Master</md-option>
+      		<md-option>Diploma</md-option>
+      		<md-option>Doctorate (Ph.D.)</md-option>
+      		<md-option>Others</md-option>
+		</md-select>
+     </div>         
+</div>
+<div fieldId="needs-analysis:SecondaryIndustry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    &nbsp;
+	</div>
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Business/Industry - Part Time</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<md-select ng-change="" ng-disabled="" ng-model="moduleService.findElementInDetail_V3(['SecondaryIndustry']).Value" class="md-select-Style">
+      		<md-option>Abattoir (beef/poultry/other meats)</md-option>
+      		<md-option>Acetylene chemical making</md-option>
+      		<md-option>Actuary</md-option>
+		</md-select>
+     </div>         
+</div>
+<div fieldId="needs-analysis:SecondaryOccupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Occupation - Part time</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<md-select ng-change="" ng-disabled="" ng-model="moduleService.findElementInDetail_V3(['SecondaryOccupation']).Value" class="md-select-Style">
+      		<md-option>Estate</md-option>
+      		<md-option>Insurance</md-option>
+      		<md-option>Land</md-option>
+		</md-select>
+     </div>         
+</div>
+<div fieldId="needs-analysis:ClientAnnualIncome" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Annual Income</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<input type="text" maxlength="12" />
+     </div>         
+</div>
+<div fieldId="needs-analysis:Employer" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Employer Name - Full Time *</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<input type="text" maxlength="12" />
+     </div>         
+</div>
+<div fieldId="needs-analysis:ClientNeedsRegularHealthCheckup" class="col-xs-12 col-sm-6 col-md-6 col-lg-9 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <b>Health</b>
+	</div>
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Do you have any medical conditions requiring regular attendance by a Doctor in a clinic or hospital?</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="idtype" 
+	           switch-model="idtype" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="yesno"/>
+     </div>         
+</div>
+<div fieldId="needs-analysis:ClientMedicalCondition" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>What is the medical condition? *</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<textarea id="lossDescription" style="width: 372px; height: 88px;"></textarea>
+     </div>         
+</div>
+<div fieldId="needs-analysis:ClientMedicalConditionPeriod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>How long ago was it diagnosed (years)? *</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<input type="text" />
+     </div>         
+</div>
+
+<!-- Section: JABasicInfo -->
+<div fieldId="needs-analysis:JATitle" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+		<span>Title</span>
+	</div>
+	<div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+		<md-select ng-change="" ng-disabled="" ng-model="moduleService.findElementInDetail_V3(['Title']).Value" class="md-select-Style">
+			<md-option>MR</md-option>
+			<md-option>Miss</md-option>
+			<md-option>Dr</md-option>
+		</md-select>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Title']).errorMessage | translate"></span>
+   </div>			
+</div>
+<div fieldId="needs-analysis:JAFullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+		<span>Full Name</span>
+	</div>
+	<div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+		<input ng-change="" ng-disabled="" type="text"  maxlength="120" ng-model="moduleService.findElementInDetail_V3(['FullName']).$" />
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['FullName']).errorMessage | translate"></span>
+	</div>           
+</div>
+<div fieldId="needs-analysis:JABirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	 <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+		 <span>Birth Date</span>
+	 </div>
+	 <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+		<div layout="row">
+			<input type="text" ms-datepicker="{mode: 'scroller', theme:'android-holo light',dateFormat:'dd/mm/yy'}" ng-model="moduleService.findElementInDetail_V3(['BirthDate']).$" "/>
+		</div>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BirthDate']).errorMessage | translate"></span>
+	 </div>
+</div>
+<div fieldId="needs-analysis:JAGender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+		<span>Gender</span>
+	</div>
+	 <div flex-sm="100"  flex-md="100" layout="column" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="gender1" 
+			   switch-model="moduleService.findElementInDetail_V3(['Gender']).Value" 
+			   switch-default-value="" switch-disabled="false" 
+			   switch-options="gender">
+		</v3-switch-new>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Gender']).errorMessage | translate"></span>
+	</div>                 
+</div>
+<div fieldId="needs-analysis:JAMarStat" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex-md="100"  flex="15" layout="row" layout-align="start center">
+		<span>Marital Status</span>
+	</div>
+	<div flex-sm="100" flex-md="100"  layout="row" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="MarStat1" 
+				   switch-model="moduleService.findElementInDetail_V3(['MarStat']).Value" switch-default-value="" switch-disabled="false" switch-options="MarStat">
+		</v3-switch-new>
+	</div>           
+</div>
+<div fieldId="needs-analysis:JASmokerStat" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex-md="100"  flex="30" layout="row" layout-align="start center">
+		<span>Smoking Status</span>
+	</div>
+	<div flex-sm="100" flex-md="100"  layout="column" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="SmokerStatus1" 
+			   switch-model="moduleService.findElementInDetail_V3(['SmokerStat']).Value" 
+			   switch-default-value="" switch-disabled="false" 
+			   switch-options="SmokerStatus">
+		</v3-switch-new>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['SmokerStat']).errorMessage | translate"></span>
+	</div>           
+</div>
+<div fieldId="needs-analysis:JARace" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="15" layout="row" layout-align="start center">
+		<span>Race</span>
+	</div>
+	<div  flex-md="100" flex-sm="100" layout="row" layout-align="start center" flex>
+		<v3-switch-new alway-watch="true" style="float:right;" switch-name="race" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['Race'])['@editable']=='0'"
+			switch-model="race" 
+			switch-default-value="" switch-options="race"></v3-switch-new>                      
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Race']).errorMessage | translate"></span>
+	</div>			
+</div>
+<div fieldId="needs-analysis:JANationality" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		<span>Nationality</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<md-select ng-model="moduleService.findElementInDetail_V3(['Nationality']).Value" class="md-select-Style">
+		  <md-option>Singapore</md-option>
+		  <md-option>Japan</md-option>
+		  <md-option>Viet Nam</md-option>
+		</md-select>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Nationality']).errorMessage | translate"></span>
+	</div>           
+</div>
+<div fieldId="needs-analysis:JAIDType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		<span>ID Type</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="column" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="idtype" 
+			   switch-model="idtype" 
+			   switch-default-value="" switch-disabled="false" 
+			   switch-options="idtype">
+		</v3-switch-new>
+		<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(num,['IDType']).errorMessage | translate"></span>
+	</div>			
+</div>
+<div fieldId="needs-analysis:JAIDNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		<span>ID Number</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(num,['IDNumber'])['@editable']=='0'"  
+		maxlength="12" ng-model="moduleService.findElementInElement_V3(num,['IDNumber']).$" />
+		<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(num,['IDNumber']).errorMessage | translate"></span>
+	</div>		
+</div>
+<div fieldId="needs-analysis:JABusinessIndustry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		<span>Business / Industry</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start center" flex>
+		<md-select ng-model="moduleService.findElementInDetail_V3(['BusinessIndustry']).Value" class="md-select-Style">
+			  <md-option>Singapore</md-option>
+			  <md-option>Japan</md-option>
+			  <md-option>Viet Nam</md-option>
+		</md-select>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BusinessIndustry']).errorMessage | translate"></span>
+	</div>			
+</div>
+<div fieldId="needs-analysis:JAOccupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		<span>Occupation</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<md-select ng-change="" ng-disabled="" ng-model="moduleService.findElementInDetail_V3(['Occupation']).Value" class="md-select-Style">
+			<md-option>MR</md-option>
+			<md-option>Miss</md-option>
+			<md-option>Dr</md-option>
+		</md-select>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>
+	 </div>         
+</div>
+<!-- JAAddresses -->
+<div fieldId="needs-analysis:JAAddresses" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<!-- Residential Address -->
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 10px;"><b>Residential Address</b></div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Block/ House Number</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['BlkHouseNo'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['BlkHouseNo']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['BlkHouseNo']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Building</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['Building'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['Building']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Building']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>City</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['City'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['City']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['City']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Country</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <md-select ng-model="moduleService.findElementInElement_V3(address, ['Country']).Value" class="md-select-Style">
+			          <md-option>Singapore</md-option>
+			          <md-option>Japan</md-option>
+			          <md-option>Viet Nam</md-option>
+		        </md-select>
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Country']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Postal Code</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['Postal'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['Postal']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Postal']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Street</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['Street'])['@editable']=='0'"  
+		        maxlength="30" ng-model="moduleService.findElementInElement_V3(address,['Street']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Street']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Unit Number</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['UnitNo'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['UnitNo']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['UnitNo']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+	</div>
+	<!--Correspondence Address-->
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 10px;"><b>Correspondence Address</b></div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Block/ House Number</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['BlkHouseNo'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['BlkHouseNo']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['BlkHouseNo']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Building</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['Building'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['Building']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Building']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>City</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['City'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['City']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['City']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Country</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <md-select ng-model="moduleService.findElementInElement_V3(address, ['Country']).Value" class="md-select-Style">
+			          <md-option>Singapore</md-option>
+			          <md-option>Japan</md-option>
+			          <md-option>Viet Nam</md-option>
+		        </md-select>
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Country']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Postal Code</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['Postal'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['Postal']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Postal']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Street</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['Street'])['@editable']=='0'"  
+		        maxlength="30" ng-model="moduleService.findElementInElement_V3(address,['Street']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['Street']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+			<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		    	<span>Unit Number</span>
+		    </div>
+		    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(address,['UnitNo'])['@editable']=='0'"  
+		        maxlength="12" ng-model="moduleService.findElementInElement_V3(address,['UnitNo']).$" />
+		        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(address,['UnitNo']).errorMessage | translate"></span>
+		    </div>		
+		</div>
+	</div>
+</div>
+
+<!-- Section: JAEmploymentAndHealth-->
+<div fieldId="needs-analysis:JAEducationLevelGroup" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <b>Employment</b>
+	</div>
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Education</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<md-select ng-change="" ng-disabled="" ng-model="moduleService.findElementInDetail_V3(['JAEducationLevelGroup']).Value" class="md-select-Style">
+      		<md-option>Below Secondary</md-option>
+      		<md-option>Secondary</md-option>
+      		<md-option>Diploma</md-option>
+      		<md-option>Degree</md-option>
+      		<md-option>Master</md-option>
+      		<md-option>Diploma</md-option>
+      		<md-option>Doctorate (Ph.D.)</md-option>
+      		<md-option>Others</md-option>
+		</md-select>
+     </div>         
+</div>
+<div fieldId="needs-analysis:JASecondaryIndustry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    &nbsp;
+	</div>
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Business/Industry - Part Time</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<md-select ng-change="" ng-disabled="" ng-model="moduleService.findElementInDetail_V3(['JASecondaryIndustry']).Value" class="md-select-Style">
+      		<md-option>Abattoir (beef/poultry/other meats)</md-option>
+      		<md-option>Acetylene chemical making</md-option>
+      		<md-option>Actuary</md-option>
+		</md-select>
+     </div>         
+</div>
+<div fieldId="needs-analysis:JASecondaryOccupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Occupation - Part time</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<md-select ng-change="" ng-disabled="" ng-model="moduleService.findElementInDetail_V3(['SecondaryOccupation']).Value" class="md-select-Style">
+      		<md-option>Estate</md-option>
+      		<md-option>Insurance</md-option>
+      		<md-option>Land</md-option>
+		</md-select>
+     </div>         
+</div>
+<div fieldId="needs-analysis:JAAnnualIncome" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Annual Income</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<input type="text" maxlength="12" />
+     </div>         
+</div>
+<div fieldId="needs-analysis:JAEmployer" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Employer Name - Full Time *</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<input type="text" maxlength="12" />
+     </div>         
+</div>
+<div fieldId="needs-analysis:JANeedsRegularHealthCheckup" class="col-xs-12 col-sm-6 col-md-6 col-lg-9 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <b>Health</b>
+	</div>
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Do you have any medical conditions requiring regular attendance by a Doctor in a clinic or hospital?</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="idtype" 
+	           switch-model="idtype" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="yesno"/>
+     </div>         
+</div>
+<div fieldId="needs-analysis:JAMedicalCondition" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>What is the medical condition? *</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<textarea id="lossDescription" style="width: 372px; height: 88px;"></textarea>
+     </div>         
+</div>
+<div fieldId="needs-analysis:JAMedicalConditionPeriod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>How long ago was it diagnosed (years)? *</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<input type="text" />
+     </div>         
+</div>
+
+<!-- Section: Dependants -->
+<div fieldId="needs-analysis:Dependant" >
+<div fieldId="needs-analysis:DepFullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <b>Children</b>
+    </div>
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Full Name</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+        <input ng-change="" ng-disabled="" type="text"  maxlength="120" ng-model="moduleService.findElementInDetail_V3(['FullName']).$" />
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['FullName']).errorMessage | translate"></span>
+    </div>           
+</div>
+<div fieldId="needs-analysis:DepBirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        &nbsp;
+    </div>
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Birth Date</span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+     	<div layout="row">
+     		<input type="text" ms-datepicker="{mode: 'scroller', theme:'android-holo light',dateFormat:'dd/mm/yy'}" ng-model="moduleService.findElementInDetail_V3(['BirthDate']).$" "/>
+       	</div>
+       	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BirthDate']).errorMessage | translate"></span>
+     </div>
+</div>
+<div fieldId="needs-analysis:DepGender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+	    <span>Gender</span>
+	</div>
+	 <div flex-sm="100"  flex-md="100" layout="column" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="gender1" 
+	           switch-model="moduleService.findElementInDetail_V3(['Gender']).Value" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="gender">
+		</v3-switch-new>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Gender']).errorMessage | translate"></span>
+	</div>                 
+</div>
+<div fieldId="needs-analysis:DepRelationship" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex-md="100"  flex="30" layout="row" layout-align="start center">
+	    <span>Relationship</span>
+	</div>
+	<div flex-sm="100" flex-md="100"  layout="column" layout-align="start start" flex>
+		<md-select ng-change="" ng-disabled="" ng-model="moduleService.findElementInDetail_V3(['SecondaryOccupation']).Value" class="md-select-Style">
+      		<md-option>Grand Father</md-option>
+      		<md-option>Grand Mother</md-option>
+      		<md-option>Father</md-option>
+      		<md-option>Mother</md-option>
+      		<md-option>Brother</md-option>
+      		<md-option>Sister</md-option>
+      		<md-option>Others</md-option>
+		</md-select>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['SmokerStat']).errorMessage | translate"></span>
+	</div>           
+</div>
+<div fieldId="needs-analysis:DepRace" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="15" layout="row" layout-align="start center">
+		<span>Race</span>
+	</div>
+	<div  flex-md="100" flex-sm="100" layout="row" layout-align="start center" flex>
+		<v3-switch-new alway-watch="true" style="float:right;" switch-name="race" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['Race'])['@editable']=='0'"
+			switch-model="race" 
+			switch-default-value="" switch-options="race"></v3-switch-new>                      
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Race']).errorMessage | translate"></span>
+	</div>			
+</div>
+<div fieldId="needs-analysis:DepNationality" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Nationality</span>
+    </div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+	    <md-select ng-model="moduleService.findElementInDetail_V3(['Nationality']).Value" class="md-select-Style">
+          <md-option>Singapore</md-option>
+          <md-option>Japan</md-option>
+          <md-option>Viet Nam</md-option>
+        </md-select>
+	    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Nationality']).errorMessage | translate"></span>
+	</div>           
+</div>
+<div fieldId="needs-analysis:DepIDType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+		<span>ID Type</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="column" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="idtype" 
+	           switch-model="idtype" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="idtype">
+		</v3-switch-new>
+      	<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(num,['IDType']).errorMessage | translate"></span>
+	</div>			
+</div>
+<div fieldId="needs-analysis:DepIDNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+    	<span>ID Number</span>
+    </div>
+    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+        <input ng-change="moduleService.isDisabledEvent()" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(num,['IDNumber'])['@editable']=='0'"  
+        maxlength="12" ng-model="moduleService.findElementInElement_V3(num,['IDNumber']).$" />
+        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(num,['IDNumber']).errorMessage | translate"></span>
+    </div>		
+</div>
+<div fieldId="needs-analysis:DepBusinessIndustry" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Business / Industry</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start center" flex>
+		<md-select ng-model="moduleService.findElementInDetail_V3(['BusinessIndustry']).Value" class="md-select-Style">
+	          <md-option>Singapore</md-option>
+	          <md-option>Japan</md-option>
+	          <md-option>Viet Nam</md-option>
+        </md-select>
+	    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BusinessIndustry']).errorMessage | translate"></span>
+	</div>			
+</div>
+<div fieldId="needs-analysis:DepOccupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+	    <span>Occupation</span>
+	</div>
+	<div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+		<md-select ng-change="" ng-disabled="" ng-model="moduleService.findElementInDetail_V3(['Occupation']).Value" class="md-select-Style">
+      		<md-option>MR</md-option>
+      		<md-option>Miss</md-option>
+      		<md-option>Dr</md-option>
+		</md-select>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>
+     </div>         
+</div>
+<div fieldId="needs-analysis:DepNumOfYearSupport" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div flex-md="100" flex-sm="100" flex="30" layout="row" layout-align="start center">
+    	<span>No. of years to support</span>
+    </div>
+    <div flex-md="100" flex-sm="100" layout="row" layout-align="start start" flex>
+        <input type="text" />
+    </div>		
+</div>
+</div>
+
+<!-- Section: FinancialAdvice -->
+<!-- Main Applicant -->
+<div fieldId="needs-analysis:ClientChoiceOnLife" class="col-xs-12 col-sm-6 col-md-4 col-lg-6 v3-column-content">
+	<div flex-sm="100"  flex-md="100" layout="column" >
+		<b>Main Applicant</b>
+	</div>
+	<div flex-sm="100" flex-md="100" flex="100" layout="row" layout-align="start center">
+        <span>Life Insurance & ILP</span>
+    </div>
+   <div flex-sm="100"  flex-md="100" layout="column" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="gender1" 
+	           switch-model="moduleService.findElementInDetail_V3(['ClientChoiceOnLife']).Value" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialAdviceMainApplicant">
+		</v3-switch-new>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ClientChoiceOnLife']).errorMessage | translate"></span>
+	</div>
+</div>
+<div fieldId="needs-analysis:ClientChoiceOnAccidentAndHealth" class="col-xs-12 col-sm-6 col-md-4 col-lg-6 v3-column-content">
+	<div flex-sm="100"  flex-md="100" layout="column" >
+		&nbsp;&nbsp;&nbsp;&nbsp;
+	</div>
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Health Insurance</span>
+    </div>
+	<div flex-sm="100"  flex-md="100" layout="column" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="gender1" 
+	           switch-model="moduleService.findElementInDetail_V3(['ClientChoiceOnAccidentAndHealth']).Value" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialAdviceMainApplicant">
+		</v3-switch-new>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ClientChoiceOnAccidentAndHealth']).errorMessage | translate"></span>
+	</div>
+</div>
+
+<!-- Joint Applicant -->
+<div fieldId="needs-analysis:JAChoiceOnLife" class="col-xs-12 col-sm-6 col-md-4 col-lg-6 v3-column-content">
+	<div flex-sm="100"  flex-md="100" layout="column" >
+		<b>Joint Applicant</b>
+	</div>
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Life Insurance & ILP</span>
+    </div>
+   <div flex-sm="100"  flex-md="100" layout="column" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="gender1" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialAdviceMainApplicant">
+		</v3-switch-new>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['JAChoiceOnLife']).errorMessage | translate"></span>
+	</div>
+</div>
+<div fieldId="needs-analysis:JAChoiceOnAccidentAndHealth" class="col-xs-12 col-sm-6 col-md-4 col-lg-6 v3-column-content">
+	<div flex-sm="100"  flex-md="100" layout="column" >
+		&nbsp;&nbsp;&nbsp;&nbsp;
+	</div>
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Health Insurance</span>
+    </div>
+	<div flex-sm="100"  flex-md="100" layout="column" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="gender1" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialAdviceMainApplicant">
+		</v3-switch-new>
+		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['JAChoiceOnAccidentAndHealth']).errorMessage | translate"></span>
+	</div>
+</div>
+
+<!-- Section: FinancialGoals -->
+<div fieldId="needs-analysis:FinancialGoal" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-lg-offset-2 col-xs-12 col-sm-12 col-md-6 col-lg-4">
+		<b>Main Applicant</b>
+	</div>
+	<div class="col-lg-offset-2 col-xs-12 col-sm-12 col-md-6 col-lg-4">
+		<b>Joint Applicant</b>
+	</div>
+	<div class="col-lg-offset-2 col-xs-12 col-sm-12 col-md-5 col-lg-3">
+		<b>Priority</b>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<b>Ranking</b>
+	</div>
+	<div class="col-lg-offset-2 col-xs-12 col-sm-12 col-md-5 col-lg-3">
+		<b>Priority</b>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<b>Ranking</b>
+	</div>
+	
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+		<b>Financial Protection</b>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+		<span>Protection upon Death</span>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+		<span>Protection upon TPD</span>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+		<span>Critical Illness</span>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+		<span>Mortgage</span>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+		<span>Hospitalisation Expense</span>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" style="margin-top: 15px">
+		<b>Wealth Accummulation</b>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+		<span>Education Fund</span>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+		<span>Retirement Fund</span>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+		<span>Medium/Long Term Saving</span>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-5">
+		<v3-switch-new style="float:left;" switch-size="" switch-name="ClientAnswer" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="financialGoals">
+		</v3-switch-new>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+		<input type="text" />
+	</div>
+</div>
+
+<!-- Section: RiskProfile  -->
+<div fieldId="needs-analysis:RiskProfile" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+			<b>Main Applicant</b>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+			<b>Joint Applicant</b>
+		</div>
+	</div>
+</div>
+<div fieldId="needs-analysis:CKA" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+</div>

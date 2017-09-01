@@ -1,0 +1,179 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Configure Servers -->
+<div fieldId="ipos-admin:GlobalSetup_Table" class="container-fluid v3-padding-left-0">
+   	<div layout="column" class="md-whiteframe-z1 tab-content">				
+		<div class="header-session-detail">
+			<span id="valueId">
+				<i style="padding-right: 7px;" class="fa fa-database fa-lg">
+				</i>{{'v3.adminconfiguration.label.ConfigureServers' | translate}}
+			</span>
+			<span id="valueId" class="configureServersToggle float-icon-right-hide-show" ng-click="toogleElement('configureServers','configureServersToggle')" tabindex="0">
+				<i class="fa fa-chevron-down fa-lg">
+				</i>
+			</span>
+		</div>
+		<div  class="configureServers">
+<!-- 			<div layout="row" flex layout-align="start center">
+				<div layout="row" flex="50">
+					{{'v3.adminconfiguration.label.ClientListServiceEndpoint' | translate}}
+				</div>
+				<div layout="row">
+					<button type="button" class="btn btn-info">{{'v3.adminconfiguration.label.VPMSUpload' | translate}}</button>
+				</div>
+			</div> -->
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 test1">    
+			     <div class="col-xs-offset-1 col-xs-10 ">
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.ClientListServiceEndpoint' | translate}}</label>	
+				  	</div>
+			  	</div>
+			</div>
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 test1 v3-column-content">    
+			     <div class="col-xs-offset-1 col-xs-10 ">
+					<div class="form-group form-group-lg has-success">
+			     		<button type="button" class="btn btn-info">{{'v3.adminconfiguration.label.VPMSUpload' | translate}}</button>	
+				  	</div>
+			  	</div>
+			</div>
+			
+<!-- 			<div layout="row" flex style="padding-left:2%">
+				<div layout="row" flex="50" layout-align="start center">
+					{{'v3.adminconfiguration.label.ServerName' | translate}} &nbsp;
+					<input class="form-control" ng-disabled="true" type="text" value="Client List Service Endpoint Main"/>
+				</div>
+				<div layout="row" flex layout-align="start center">
+					{{'v3.adminconfiguration.label.ServerURL' | translate}} &nbsp;
+					<input class="form-control" ng-disabled="true" type="text" value="https://server1:8080/ClientListMSP"/>	
+				</div>
+			</div> -->
+
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">	    	
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.ServerName' | translate}}</label>
+			     		<input class="form-control" ng-disabled="true" type="text" value="Client List Service Endpoint Main"/>	
+				  	</div>
+			  	</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">    	
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.ServerURL' | translate}}</label>
+			     		<input class="form-control" ng-disabled="true" type="text" value="https://server1:8080/ClientListMSP"/>	
+				  	</div>
+			  	</div>
+			</div>
+
+<!-- 			<div layout="row" flex style="padding-left:2%">
+				<div layout="row" flex="50" layout-align="start center">
+					{{'v3.adminconfiguration.label.ServerName' | translate}} &nbsp;
+					<input class="form-control" ng-disabled="true" type="text" value="Client List Service Endpoint Slave 1"/>
+				</div>
+				<div layout="row" flex layout-align="start center">
+					{{'v3.adminconfiguration.label.ServerURL' | translate}} &nbsp;
+					<input type="text" disabled="disabled" style="width:70% !important;" value="https://server2:8080/ClientListMSPSlave1"/>
+				</div>
+			</div> -->
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">   	
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.ServerName' | translate}}</label>
+			     		<input class="form-control" ng-disabled="true" type="text" value="Client List Service Endpoint Slave 1"/>	
+				  	</div>
+			  	</div>
+			</div>
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.ServerURL' | translate}}</label>
+			     		<input class="form-control" ng-disabled="true" type="text" value="https://server2:8080/ClientListMSPSlave1"/>	
+				  	</div>
+			  	</div>
+			</div>
+		</div>
+		
+		<div class="header-session-detail">
+			<span id="valueId">
+				<i style="padding-right: 7px;" class="fa fa-clock-o fa-lg">
+				</i>{{'v3.adminconfiguration.label.ConfigureWebPortal' | translate}}</span>
+			<span id="valueId" class="configureWebPortalToggle float-icon-right-hide-show" ng-click="toogleElement('configureWebPortal','configureWebPortalToggle')" tabindex="0">
+				<i class="fa fa-chevron-down fa-lg">
+				</i>
+			</span>
+		</div>
+		<div flex class="configureWebPortal">
+<!-- 			<div layout="row" flex layout-align="start center">
+				<div layout="row" flex="15">{{'v3.adminconfiguration.label.SessionTimeOut' | translate}}</div>
+				<div layout="row" flex layout-align="start center">
+					<input type="text" style="width:50px !important;" />&nbsp; min(s)
+				</div>
+			</div> -->
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.SessionTimeOut' | translate}} min(s)</label>
+			     		<input class="form-control" ng-disabled="disabled" type="text" />	
+				  	</div>
+			  	</div>
+			</div>
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+					<div class="form-group form-group-lg has-success">
+				  	</div>
+			  	</div>
+			</div>
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">   	
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.ClearUserInfocache' | translate}}</label>
+					    <div id="valueId">
+					    	<button type="button" class="btn btn-info" ng-click="resetUserMapInfo()">Go...</button>
+					    </div>
+				  	</div>
+			  	</div>
+			</div>
+			<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content test1">    
+			     <div class="col-xs-offset-1 col-xs-10 v3-column-content">   	
+					<div class="form-group form-group-lg has-success">
+					    <label>{{'v3.adminconfiguration.label.ClearAllCache' | translate}}</label>
+					    <div id="valueId">
+					    	<button type="button" class="btn btn-info" ng-click="clearCache()">Go...</button>
+					    </div>
+				  	</div>
+			  	</div>
+			</div>
+		</div>
+<!-- 		<div layout="row" layout-align="center" flex class="md-whiteframe-z1" style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px;">
+			<div flex="15">
+				<md-button class="md-raised md-primary ipos_lower_button_letter">{{'v3.adminconfiguration.label.Save' | translate}}</md-button>&nbsp;&nbsp;
+				<md-button class="md-raised md-primary ipos_lower_button_letter">{{'v3.adminconfiguration.label.Cancel' | translate}}</md-button>
+			</div>	 				
+			<div flex="20">
+				<span>{{'v3.adminconfiguration.label.ClearUserInfocache' | translate}}: </span> &nbsp;
+				<md-button class="md-raised md-primary ipos_lower_button_letter" ng-click="resetUserMapInfo()">Go...</md-button>
+			</div>
+			<div flex="20">
+				<span>{{'v3.adminconfiguration.label.ClearAllCache' | translate}}: </span> &nbsp;
+					<md-button class="md-raised md-primary ipos_lower_button_letter" ng-click="clearCache()">Go...</md-button>
+			</div>
+		</div> -->
+	</div>
+</div>

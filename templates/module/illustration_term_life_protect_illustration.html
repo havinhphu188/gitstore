@@ -1,0 +1,160 @@
+<div layout="column" class="height-inherit">
+    <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div style="overflow: scroll;" class="backgroundColor touch">
+        <div refresh-on="vars.bIsContentChanged" use-boolean>
+               <div layout="row">
+                    <div flex="20">
+                        <output id="pic">
+                            <img class="edit-avatar" src="img/avatar_generic.png">
+                        </output>
+                    </div>
+                    <div flex="70">
+                        <br>
+                        <span class="main-info">{{::variables.FullName.$}}</span>
+                        <br>
+                        <span class="sub-info">Age: {{::variables.Age.$}}</span>
+                        <br>
+                        <span class="sub-info">Gender: {{::variables.Gender.Value.$}}</span>
+                        <br>
+                    </div>
+                </div>
+                <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.PersonalInfoFullName" label-value="Fullname" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.PersonalInfoFullName.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.PersonalInfoBirthDate" label-value="Birth Date" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.PersonalInfoBirthDate.$" ms-datepicker>
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:FullName')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-label model="variables.PersonalInfoAgeNextBirthday" label-value="Age Next Birthdate" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="true" ng-model="::variables.PersonalInfoAgeNextBirthday.$" ms-datepicker>
+                            <!--   <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:BirthDate')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.PersonalInfoGender" label-value="Gender" />
+                        </div>
+                        <div flex="70">
+                             <input class="input" v3-Select src-data="prospectUIService.listGenders" displayText="text" displayValue="value" Prefix="" dialogTitle="Gender" ng-disabled="true" model="::variables.PersonalInfoGender.$">
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row" layout-margin>
+                        <div flex="80">
+                            <v3-label model="variables.PersonalInfoSmokerStat" label-value="Smoking status" />
+                        </div>
+                        <div flex="10">
+                            <md-switch class="input" md-no-ink style="margin-top:-5px !important; margin-right: 10px;" ng-model="::variables.PersonalInfoSmokerStat.$" ng-true-value="'S'" ng-false-value="'N'" class="md-primary" ng-disabled="true">
+                            </md-switch>
+                        </div>
+                    </div>
+                </div>
+                <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.BasicSummaryProductName" label-value="Product Name" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryProductName.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.BasicSummarySumAssured" label-value="Sum Assured" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummarySumAssured.$">
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:FullName')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.BasicSummaryPolicyTerm" label-value="Policy Term" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryPolicyTerm.$" ms-datepicker>
+                            <!--   <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:BirthDate')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.BasicSummaryCurrency" label-value="Currency" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryCurrency.$">
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-label model="variables.BasicSummaryFrequencyPremium" label-value="Frequency Premium" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryFrequencyPremium.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.BasicSummaryPaymentMode" label-value="Payment Method" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryPaymentMode.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.BasicSummaryYearlyPremium" label-value="Yearly Premium" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryYearlyPremium.$">
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-label model="variables.BasicSummaryHalfYearlyPremium" label-value="HalfYearly Premium" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryHalfYearlyPremium.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.BasicSummaryQuarterlyPremium" label-value="Quarterly Premium" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryQuarterlyPremium.$">
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row" layout-margin>
+                        <div flex="20">
+                            <v3-label model="variables.BasicSummaryMonthlyPremium" label-value="Monthly Premium" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryMonthlyPremium.$">
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                </div>
+         
+        </div>
+    </div>
+</div>

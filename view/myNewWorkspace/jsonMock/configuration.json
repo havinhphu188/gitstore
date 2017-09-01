@@ -1,0 +1,23 @@
+{
+  "IposDocument": {
+    "Data": {
+      "ipos-admin:admin": {
+        "@key": "ipos-admin:admin",
+        "@section": "ipos-admin:admin",
+        "@vpms-suffix": "admin",
+        "ipos-admin:GlobalSetup": {
+          "@section": "ipos-admin:admin",
+          "@key": "ipos-admin:GlobalSetup",
+          "ipos-admin:GlobalSetup_Table": {
+            "@key": ""
+          }
+        },
+        "ipos-admin:BusinessModule": {
+          "@section": "ipos-admin:admin",
+          "@key": "BusinessModule",
+          "@initCtrl": "business"
+        }
+      }
+    }
+  }
+}

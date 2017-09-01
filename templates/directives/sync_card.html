@@ -1,0 +1,333 @@
+<div layout="row" ng-if="(card.metaDataServer.DocType == 'prospect' || card.metaDataLocal.DocType == 'prospect') && (card.localSyncType != 'none' || card.serverSyncType != 'none')" layout-margin>
+    <div flex="45">
+        <div class="product-card-row" ng-if="card.serverSyncType == 'update' || card.serverSyncType == 'add'">
+            <div class="product-card-green">
+                <div layout="row" style="height: 0px;position:relative;">
+                    <div flex="90">
+                    </div>
+                    <div flex="5">
+                        <md-checkbox md-no-ink ng-model="::card.syncServerChecked" ng-disabled="card.syncLocalChecked" ></md-checkbox>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div flex="20" layout-margin>
+                        <img v3-avatar="::card.Photo" class="avatar-rounded">
+                    </div>
+                    <div flex="50" layout-margin>
+                        <div class="margin-card">
+                            <span class="main-info">{{::card.metaDataServer.FullName}}</span>
+                            <br>
+                            <span class="sub-info"> DOB: {{::card.metaDataServer.BirthDate}}</span>
+                            <br>
+                            <span class="sub-info"> Gender: <span v3-translate="::card.metaDataServer.Gender" prefix="v3.application.motor.gender"></span></span>
+                            <br>
+                            <span class="sub-info"> Last Updated: {{::card.metaDataServer.UpdatedDate1}} </span>
+                        </div>
+                    </div>
+                    <div flex="5" layout-margin>
+                    </div>
+                </div>
+                <div ng-if="card.resources.length > 0" style="margin-top: -20px !important;">
+                    <div ng-if="resource.serverSyncType != 'none'" layout="row" layout-margin class="row" ng-repeat="resource in card.resources track by $index" >
+                        <div flex="85">
+                            <i align="center" class="fa fa-paperclip">&nbsp;&nbsp;&nbsp; 
+                                <span ng-if="::resource.serverSyncType == 'add'" class="sub-info">{{resource.resourceFileName}}</span>
+                                <span ng-if="::resource.serverSyncType == 'update'" class="sub-info" style="color: green">{{resource.resourceFileName}}</span>
+                                <span ng-if="::resource.serverSyncType == 'delete'" class="sub-info" style="color: red">{{resource.resourceFileName}}</span>
+                            </i>
+                        </div>
+                        <div flex="5">
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.serverSyncType == 'add'" ng-model="::card.syncServerChecked" ng-disabled="card.syncLocalChecked">
+                            </md-checkbox>
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.serverSyncType == 'update'" ng-model="::card.syncServerChecked" ng-disabled="card.syncLocalChecked">
+                            </md-checkbox>
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.serverSyncType == 'delete'" ng-model="::card.syncServerChecked" ng-disabled="card.syncLocalChecked">
+                            </md-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; padding-top:40px; color: lightgray" ng-if="!card.metaDataServer || card.serverSyncType == 'none'">
+            <!-- Downloaded --><i class="fa fa-cloud-upload fa-2x"></i>
+            </div>
+    </div>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+    <div flex="45">
+        <div class="product-card-row" ng-if="card.localSyncType == 'update' || card.localSyncType == 'add'">
+            <div class="product-card-green">
+                <div layout="row" style="height: 0px;position:relative;">
+                    <div flex="90">
+                    </div>
+                    <div flex="5">
+                        <md-checkbox md-no-ink ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked" ></md-checkbox>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div flex="20" layout-margin>
+                        <img v3-avatar="::card.Photo" class="avatar-rounded">
+                    </div>
+                    <div flex="50" layout-margin>
+                        <div class="margin-card">
+                            <span class="main-info">{{::card.metaDataLocal.FullName}}</span>
+                            <br>
+                            <span class="sub-info"> DOB: {{::card.metaDataLocal.BirthDate}}</span>
+                            <br>
+                            <span class="sub-info"> Gender: <span v3-translate="::card.metaDataLocal.Gender" prefix="v3.application.motor.gender"></span></span>
+                            <br>
+                            <span class="sub-info"> Last Updated: {{::card.metaDataLocal.UpdatedDate1}} </span>
+                        </div>
+                    </div>
+                    <div flex="5" layout-margin>
+                    </div>
+                </div>
+                <div ng-if="card.resources.length > 0">
+                    <div layout="row" layout-margin class="row" ng-repeat="resource in card.resources track by $index" ng-if="::resource.localSyncType != 'none'">
+                        <div flex="85">
+                            <i align="center" class="fa fa-paperclip">&nbsp;&nbsp;&nbsp; 
+                            <span ng-if="::resource.localSyncType == 'add'" class="sub-info">{{resource.resourceFileName}}</span>
+                            <span ng-if="::resource.localSyncType == 'update'" class="sub-info" style="color: green">{{resource.resourceFileName}}</span>
+                            <span ng-if="::resource.localSyncType == 'delete'" class="sub-info" style="color: red">{{resource.resourceFileName}}</span>
+                        </i>
+                        </div>
+                        <div flex="5">
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.localSyncType == 'add'" ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked">
+                            </md-checkbox>
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.localSyncType == 'update'" ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked">
+                            </md-checkbox>
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.localSyncType == 'delete'" ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked">
+                            </md-checkbox>
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.localSyncType == 'non'" ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked">
+                            </md-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+        <div style="text-align: center; padding-top:40px; color: lightgray" ng-if="!card.metaDataLocal || card.localSyncType == 'none'">
+            <!-- No Update --><i class="fa fa-cloud-download fa-2x"></i>
+         
+        </div>
+    </div>
+</div>
+<div layout="row" ng-if="(card.metaDataServer.DocType == 'illustration' || card.metaDataLocal.DocType == 'illustration') && (card.localSyncType != 'none' || card.serverSyncType != 'none')" layout-margin>
+    <div flex="45">
+        <div class="product-card-row" ng-if="card.serverSyncType == 'update' || card.serverSyncType == 'add'">
+            <div class="product-card-pink">
+                <div layout="row" style="height: 0px;position:relative;">
+                    <div flex="90">
+                    </div>
+                    <div flex="5">
+                        <md-checkbox md-no-ink ng-model="::card.syncServerChecked" ng-disabled="card.syncLocalChecked"></md-checkbox>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div flex="20" layout-margin>
+                        <img v3-avatar="::card.Photo" class="avatar-rounded">
+                    </div>
+                    <div flex="50" layout-margin>
+                        <div class="margin-card">
+                            <span class="main-info">{{::card.metaDataServer.ProductNameTemp}}</span>
+                            <br>
+                            <span class="sub-info"> BI Name: {{::card.metaDataServer.DocName}}</span>
+                            <br>
+                            <span class="sub-info"> Created Date: {{::card.metaDataServer.CreatedDate1}} </span>
+                            <br>
+                            <span class="sub-info"> Last Updated: {{::card.metaDataServer.UpdatedDate1}} </span>
+                        </div>
+                    </div>
+                    <div flex="5" layout-margin>
+                    </div>
+                </div>
+                <div ng-if="card.resources.length > 0">
+                    <div layout="row" layout-margin class="row" ng-repeat="resource in card.resources track by $index" ng-if="::resource.serverSyncType != 'none'">
+                        <div flex="85">
+                            <i align="center" class="fa fa-paperclip">&nbsp;&nbsp;&nbsp; 
+                                <span ng-if="::resource.serverSyncType == 'add'" class="sub-info">{{resource.resourceFileName}}</span>
+                                <span ng-if="::resource.serverSyncType == 'update'" class="sub-info" style="color: green">{{resource.resourceFileName}}</span>
+                                <span ng-if="::resource.serverSyncType == 'delete'" class="sub-info" style="color: red">{{resource.resourceFileName}}</span>
+                            </i>
+                        </div>
+                        <div flex="5">
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.serverSyncType == 'add'" ng-model="::card.syncServerChecked" ng-disabled="card.syncLocalChecked">
+                            </md-checkbox>
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.serverSyncType == 'update'" ng-model="::card.syncServerChecked" ng-disabled="card.syncLocalChecked">
+                            </md-checkbox>
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.serverSyncType == 'delete'" ng-model="::card.syncServerChecked" ng-disabled="card.syncLocalChecked">
+                            </md-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+        <div style="text-align: center; padding-top:40px; color: lightgray" ng-if="!card.metaDataServer || card.serverSyncType == 'none'">
+            <!-- Downloaded --><i class="fa fa-cloud-upload fa-2x"></i>
+        </div>
+    </div>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+    <div flex="45">
+        <div class="product-card-row" ng-if="card.localSyncType == 'update' || card.localSyncType == 'add'">
+            <div class="product-card-pink">
+                <div layout="row" style="height: 0px;position:relative;">
+                    <div flex="90">
+                    </div>
+                    <div flex="5">
+                        <md-checkbox md-no-ink ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked"></md-checkbox>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div flex="20" layout-margin>
+                        <img v3-avatar="::card.Photo" class="avatar-rounded">
+                    </div>
+                    <div flex="50" layout-margin>
+                        <div class="margin-card">
+                            <span class="main-info">{{::card.metaDataLocal.ProductNameTemp}}</span>
+                            <br>
+                            <span class="sub-info"> BI Name: {{::card.metaDataLocal.DocName}}</span>
+                            <br>
+                            <span class="sub-info"> Created Date: {{::card.metaDataLocal.CreatedDate1}} </span>
+                            <br>
+                            <span class="sub-info"> Last Updated: {{::card.metaDataLocal.UpdatedDate1}} </span>
+                        </div>
+                    </div>
+                    <div flex="5" layout-margin>
+                    </div>
+                </div>
+                <div ng-if="card.resources.length > 0">
+                    <div layout="row" layout-margin class="row" ng-repeat="resource in card.resources track by $index" ng-if="::resource.localSyncType != 'none'">
+                        <div flex="85">
+                            <i align="center" class="fa fa-paperclip">&nbsp;&nbsp;&nbsp; 
+                                <span ng-if="::resource.localSyncType == 'add'" class="sub-info">{{resource.resourceFileName}}</span>
+                                <span ng-if="::resource.localSyncType == 'update'" class="sub-info" style="color: green">{{resource.resourceFileName}}</span>
+                                <span ng-if="::resource.localSyncType == 'delete'" class="sub-info" style="color: red">{{resource.resourceFileName}}</span>
+                            </i>
+                        </div>
+                        <div flex="5">
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.localSyncType == 'add'" ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked">
+                            </md-checkbox>
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.localSyncType == 'update'" ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked">
+                            </md-checkbox>
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.localSyncType == 'delete'" ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked">
+                            </md-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div style="text-align: center; padding-top:40px; color: lightgray" ng-if="!card.metaDataLocal || card.localSyncType == 'none'">
+            <!-- No Update --><i class="fa fa-cloud-download fa-2x"></i>
+        </div>
+    </div>
+</div>
+<div layout="row" ng-if="(card.metaDataServer.DocType == 'pdpa' || card.metaDataLocal.DocType == 'pdpa') && (card.localSyncType != 'none' || card.serverSyncType != 'none')" layout-margin>
+    <div flex="45">
+        <div class="product-card-row" ng-if="card.serverSyncType == 'update' || card.serverSyncType == 'add'">
+            <div class="product-card-yellow">
+                <div layout="row" style="height: 0px;position:relative;">
+                    <div flex="90">
+                    </div>
+                    <div flex="5">
+                        <md-checkbox md-no-ink ng-model="::card.syncServerChecked" ng-disabled="card.syncLocalChecked"></md-checkbox>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div flex="20" layout-margin>
+                        <img v3-avatar="::card.Photo" class="avatar-rounded">
+                    </div>
+                    <div flex="50" layout-margin>
+                        <div class="margin-card">
+                            <span class="main-info">{{::card.metaDataServer.DocName}}</span>
+                            <br>
+                            <span class="sub-info"> Consent: <span v3-translate="::card.metaDataServer.Consent" prefix="v3.companion.pdpa.consent"></span></span>
+                            <br>
+                            <span class="sub-info"> Last Updated: {{::card.metaDataServer.UpdatedDate1}} </span>
+                        </div>
+                    </div>
+                    <div flex="5" layout-margin>
+                    </div>
+                </div>
+                <div ng-if="card.resources.length > 0">
+                    <div ng-if="resource.serverSyncType != 'none'" layout="row" layout-margin class="row" ng-repeat="resource in card.resources track by $index">
+                        <div flex="85">
+                            <i align="center" class="fa fa-paperclip">&nbsp;&nbsp;&nbsp; 
+                            <span ng-if="::resource.serverSyncType == 'add'" class="sub-info">{{resource.resourceFileName}}</span>
+                            <span ng-if="::resource.serverSyncType == 'update'" class="sub-info" style="color: green">{{resource.resourceFileName}}</span>
+                            <span ng-if="::resource.serverSyncType == 'delete'" class="sub-info" style="color: red">{{resource.resourceFileName}}</span>
+                        </i>
+                        </div>
+                        <div flex="5">
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.serverSyncType == 'add'" ng-model="::card.syncServerChecked" ng-disabled="card.syncLocalChecked">
+                            </md-checkbox>
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.serverSyncType == 'update'" ng-model="::card.syncServerChecked" ng-disabled="card.syncLocalChecked">
+                            </md-checkbox>
+                            <md-checkbox md-no-ink style="margin-right: -25px;" ng-if="::resource.serverSyncType == 'delete'" ng-model="::card.syncServerChecked" ng-disabled="card.syncLocalChecked">
+                            </md-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <div style="text-align: center; padding-top:40px; color: lightgray" ng-if="!card.metaDataServer || card.serverSyncType == 'none'">
+            <!-- Downloaded --><i class="fa fa-cloud-upload fa-2x"></i>
+        </div>
+    </div>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+    <div flex="45">
+        <div class="product-card-row" ng-if="card.localSyncType == 'update' || card.localSyncType == 'add'">
+            <div class="product-card-yellow">
+                <div layout="row" style="height: 0px;position:relative;">
+                    <div flex="90">
+                    </div>
+                    <div flex="5">
+                        <md-checkbox ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked"></md-checkbox>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div flex="20" layout-margin>
+                        <img v3-avatar="::card.Photo" class="avatar-rounded">
+                    </div>
+                    <div flex="50" layout-margin>
+                        <div class="margin-card">
+                            <span class="main-info">{{::card.metaDataLocal.DocName}}</span>
+                            <br>
+                            <span class="sub-info"> Consent: <span v3-translate="::card.metaDataLocal.Consent" prefix="v3.companion.pdpa.consent"></span></span>
+                            <br>
+                            <span class="sub-info"> Last Updated: {{::card.metaDataLocal.UpdatedDate1}} </span>
+                        </div>
+                    </div>
+                    <div flex="5" layout-margin>
+                    </div>
+                </div>
+                <div ng-if="card.resources.length > 0">
+                    <div layout="row" layout-margin class="row" ng-repeat="resource in card.resources track by $index" ng-if="::resource.localSyncType != 'none'">
+                        <div flex="85">
+                            <i align="center" class="fa fa-paperclip">&nbsp;&nbsp;&nbsp; 
+                                <span ng-if="::resource.localSyncType == 'add'" class="sub-info">{{resource.resourceFileName}}</span>
+                                <span ng-if="::resource.localSyncType == 'update'" class="sub-info" style="color: green">{{resource.resourceFileName}}</span>
+                                <span ng-if="::resource.localSyncType == 'delete'" class="sub-info" style="color: red">{{resource.resourceFileName}}</span>
+                            </i>
+                        </div>
+                        <div flex="5">
+                            <md-checkbox style="margin-right: -25px;" ng-if="::resource.localSyncType == 'add'" ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked">
+                            </md-checkbox>
+                            <md-checkbox style="margin-right: -25px;" ng-if="::resource.localSyncType == 'update'" ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked">
+                            </md-checkbox>
+                            <md-checkbox sstyle="margin-right: -25px;" ng-if="::resource.localSyncType == 'delete'" ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked">
+                            </md-checkbox>
+                            <md-checkbox style="margin-right: -25px;" ng-if="::resource.localSyncType == 'non'" ng-model="::card.syncLocalChecked" ng-disabled="card.syncServerChecked">
+                            </md-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <div style="text-align: center; padding-top:40px; color: lightgray" ng-if="!card.metaDataLocal || card.localSyncType == 'none'">
+            <!-- No Update --><i class="fa fa-cloud-download fa-2x"></i>
+        </div>
+    </div>
+</div>

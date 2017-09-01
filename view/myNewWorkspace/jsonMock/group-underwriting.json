@@ -1,0 +1,113 @@
+{
+  "IposDocument": {
+    "Data": {
+      "group-underwriting:UnderwritingInfo": {
+        "@vpms-suffix": "UnderwritingInfo",
+        "group-underwriting:DocumentRelation": {
+          "@vpms-suffix": "DocumentRelation",
+          "group-underwriting:CaseID": {
+            "type": "",
+            "key": []
+          }
+        },
+        "group-underwriting:BasicInformation": {
+          "@vpms-suffix": "BasicInformation",
+          "group-underwriting:InceptionDate": {
+            "type": "",
+            "key": []
+          },
+          "group-underwriting:ExpiryDate": {
+            "type": "",
+            "key": []
+          },
+          "group-underwriting:EffectiveDate": {
+            "type": "",
+            "key": []
+          },
+          "group-underwriting:Result": {
+            "type": "",
+            "key": []
+          },
+          "group-underwriting:Status": {
+            "type": "",
+            "key": []
+          }
+        },
+        "group-underwriting:UWInformation": {
+          "@vpms-suffix": "UWInformation",
+          "group-underwriting:WaitingPeriod": {
+            "type": "",
+            "key": []
+          },
+          "group-underwriting:exclusions": {
+            "type": "",
+            "key": []
+          },
+          "group-underwriting:DeathDueToWarLabel": {
+            "type": "",
+            "key": []
+          },
+          "group-underwriting:DeathDueToWar": {
+            "type": "",
+            "key": [],
+            "Options": {
+              "Option": ""
+            },
+            "Value": ""
+          },
+          "group-underwriting:DeathWhenIllegalActLabel": {
+            "type": "",
+            "key": []
+          },
+          "group-underwriting:DeathWhenIllegalAct": {
+            "type": "",
+            "key": [],
+            "Options": {
+              "Option": ""
+            },
+            "Value": ""
+          },
+            "group-underwriting:DeathDueToSuicideLabel": {
+            "type": "",
+            "key": []
+          },
+          "group-underwriting:DeathDueToSuicide": {
+            "type": "",
+            "key": [],
+            "Options": {
+              "Option": ""
+            },
+            "Value": ""
+          },
+            "group-underwriting:FreeCoverLimitTitle": {
+            "type": "",
+            "key": []
+          },
+            "group-underwriting:FreeCoverLimitLabel": {
+            "type": "",
+            "key": []
+          },
+          "group-underwriting:FreeCoverLimit": {
+            "type": "",
+            "key": [],
+            "Options": {
+              "Option": ""
+            },
+            "Value": ""
+          }
+        },
+        "group-underwriting:PolicyOwnerInfo": {
+          "@vpms-suffix": "PolicyOwnerInfo",
+          "group-underwriting:POId": {
+            "type": "",
+            "key": []
+          },
+          "group-underwriting:POName": {
+            "type": "",
+            "key": []
+          }
+        }
+      }
+    }
+  }
+}

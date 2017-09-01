@@ -1,0 +1,865 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="application-personal-accident:Summary" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-left-padding">
+		     <div class="form-group form-group-lg has-success">
+		         <span style="font-weight: bold">{{'v3.illustration.product.' + moduleService.findElementInDetail_V3(['Product']) | translate}}:&nbsp;</span>
+		     </div>
+		 </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.ProductName' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.illustration.product.' + moduleService.findElementInDetail_V3(['Product']) | translate}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	         	<span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.AppNumber' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['DocName'])}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.InceptionDate' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['InceptionDate']).$  | dateFilter }}</span>
+	         </div>
+	    </div>
+	    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.ExpiryDate' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['ExpiryDate']).$  | dateFilter }}</span>
+	         </div>
+	   	</div>
+	    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.AgentName' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['DocInfo'])['OwnerUid']}}</span>
+	         </div>
+	     </div>
+	   	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.AgentCode' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding"></span>
+	         </div>
+	     </div>
+	</div>
+	 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-left-padding">
+		     <div class="form-group form-group-lg has-success">
+		         <span style="font-weight: bold">{{'v3.mynewworkspace.personal-accident.application.label.Coverage' | translate}}:&nbsp;</span>
+		     </div>
+		 </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.Plan' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.personal-accident.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	         	<span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.Country' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.personal-accident.country.enum.' + moduleService.findElementInDetail_V3(['Country']).Value | translate}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.Benefits' | translate}}:&nbsp;</span>
+	         </div>
+	    </div>
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+         <div class="form-group form-group-lg has-success" ng-if="moduleService.findElementInDetail_V3(['Plan']).Value == 'BTP'">
+	         <div class="col-xs-offset-1 col-xs-11 col-sm-5 col-md-5 col-lg-5">
+	            <div class="form-group form-group-lg has-success">
+	                <span style="font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.LumpSumBenefit' | translate}}</span>
+	            </div>
+	            <div class="form-group form-group-lg has-success">
+	                <span style="font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.IncomeBenefit' | translate}}</span>
+	            </div>
+	            <div class="form-group form-group-lg has-success">
+	                <span style="font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.TravelInconvenience' | translate}}</span>
+	            </div>
+	         </div>
+			<div class="col-xs-offset-1 col-xs-11 col-sm-5 col-md-5 col-lg-5">
+	            <div class="form-group form-group-lg has-success">
+	                <span style="font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.MedicalBenefit' | translate}}</span>
+	            </div>
+	            <div class="form-group form-group-lg has-success">
+	                <span style="font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.Evacuation' | translate}}</span>
+	            </div>
+	            <div class="form-group form-group-lg has-success">
+	                <span style="font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.VehicleRental' | translate}}</span>
+	            </div>
+	         </div>
+         </div>
+         <div class="form-group form-group-lg has-success" ng-if="moduleService.findElementInDetail_V3(['Plan']).Value == 'LTP'">
+	         <div class="col-xs-offset-1 col-xs-11 col-sm-5 col-md-5 col-lg-5">
+	            <div class="form-group form-group-lg has-success">
+	                <span style="font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.LumpSumBenefit' | translate}}</span>
+	            </div>
+	            <div class="form-group form-group-lg has-success">
+	                <span style="font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.IncomeBenefit' | translate}}</span>
+	            </div>
+	            <div class="form-group form-group-lg has-success">
+	                <span style="font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.TravelInconvenience' | translate}}</span>
+	            </div>
+	         </div>
+         </div>
+          <div class="form-group form-group-lg has-success" ng-if="moduleService.findElementInDetail_V3(['Plan']).Value == 'IPAP'">
+	         <div class="col-xs-offset-1 col-xs-11 col-sm-5 col-md-5 col-lg-5">
+	            <div class="form-group form-group-lg has-success">
+	                <span style="font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.LumpSumBenefit' | translate}}</span>
+	            </div>
+	            <div class="form-group form-group-lg has-success">
+	                <span style="font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.IncomeBenefit' | translate}}</span>
+	            </div>
+	           </div>
+	      </div>
+       </div>
+	    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.GeographicCover' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.personal-accident.geographic-coverage.enum.' + moduleService.findElementInDetail_V3(['GeographicCoverage']).Value | translate}}</span>
+	         </div>
+	   	</div>
+	   	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.PolicyDeductible' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['PolicyDeductible']).$}}</span>
+	         </div>
+	     </div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-left-padding">
+		     <div class="form-group form-group-lg has-success">
+		         <span style="font-weight: bold">{{'v3.mynewworkspace.personal-accident.application.label.InsuredPersons' | translate}}:&nbsp;</span>
+		     </div>
+		 </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.NumberOfPersons' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['NoOfPeople']).$}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	         <div class="form-group form-group-lg has-success">
+	         	<span  style="font-weight: bold">{{'v3.mynewworkspace.personal-accident.application.label.MainInsured' | translate}}:&nbsp;</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.FullName' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['MainInsured', 'FullName']).$}}</span>
+	         </div>
+	   	</div>
+	   	 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">&nbsp;</span>
+	         </div>
+	   	</div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.IDNumber' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['MainInsured', 'IDs','ID','IDNumber']).$ }}</span>
+	         </div>
+	   	</div>
+	     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-md-offset-1">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.DateOfBirth' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['MainInsured', 'BirthDate']).$  | dateFilter }}</span>
+	         </div>
+	   	</div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.OccupationClass' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['MainInsured', 'BusinessIndustry']).Value }}</span>
+	         </div>
+	   	</div>
+	     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-md-offset-1">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.Occupation' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.personal-accident.occupation.enum.' + moduleService.findElementInDetail_V3(['MainInsured', 'Occupation']).Value |translate }}</span>
+	         </div>
+	   	</div>
+	   	<div ng-if="moduleService.findElementInDetail_V3(['NoOfPeople']).$ > 1">
+	  		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		         <div class="form-group form-group-lg has-success">
+		         	<span  style="font-weight: bold">{{'v3.mynewworkspace.personal-accident.application.label.OtherInsureds' | translate}}:&nbsp;</span>
+		         </div>
+	        </div>
+	       <!-- <div class="hidden-xs col-xs-12 col-sm-11 col-md-11 col-lg-11 v3-table-content col-md-offset-1" style="width: 85%">
+		        <div flex layout="row" class="ipos_portlet_table_header_item" layout-align="center center">
+		            <div flex="40">{{'v3.mynewworkspace.personal-accident.illustration.label.Name' | translate}}</div>
+		            <div flex="30">{{'v3.mynewworkspace.personal-accident.illustration.label.ID' | translate}}</div>
+		            <div flex="30">{{'v3.mynewworkspace.personal-accident.illustration.label.DateOfBirth' | translate}}</div>
+		        </div>
+		        <div flex layout="row" ng-repeat="otherInsured in moduleService.convertToArray(moduleService.findElementInDetail_V3(['OtherInsuredPerson'])) track by $index" flex layout="row" class="ipos_portlet_table_listRow">
+		            <div flex="40">{{moduleService.findElementInElement_V3(otherInsured, ['PersonName', 'FullName']).$}}&nbsp;</div>
+		            <div flex="30">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</div>
+		            <div flex="30">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+			    </div>
+		    </div> -->
+		    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-md-offset-1 no-padding-left no-padding-right" style="width: 85%">
+				<div class="table-responsive">
+					<table class="table v3-responsive-table">
+						<thead>
+		            		<tr>
+		            			 <th style="height: 45px; vertical-align: middle; width: 320px;">{{'v3.mynewworkspace.personal-accident.illustration.label.Name' | translate}}</th>
+		            			 <th style="height: 45px; vertical-align: middle; width: 230px;">{{'v3.mynewworkspace.personal-accident.illustration.label.ID' | translate}}</th>
+		            			 <th style="height: 45px; vertical-align: middle;">{{'v3.mynewworkspace.personal-accident.illustration.label.DateOfBirth' | translate}}</th>
+		            		</tr>
+		            	</thead>
+		            	<tbody>
+		            		<tr  ng-repeat="otherInsured in moduleService.convertToArray(moduleService.findElementInDetail_V3(['OtherInsuredPerson'])) track by $index" >
+		            			 <td class="center-align">{{moduleService.findElementInElement_V3(otherInsured, ['PersonName', 'FullName']).$}}&nbsp;</td>
+		            			 <td class="center-align">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+		            			 <td class="center-align">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+		            		</tr>
+		            	</tbody>
+					</table>
+				</div>
+			</div>
+	    
+	    </div>
+	</div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group form-group-lg has-success">
+                <span style="font-weight: bold">{{'v3.mynewworkspace.personal-accident.illustration.label.Premiums' | translate}} ({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}}):&nbsp;</span>
+            </div>
+         </div>
+    
+	    <!-- <div class="hidden-xs col-xs-12 col-sm-12 col-md-11 col-lg-11 v3-table-content col-md-offset-1" style="width: 60%;">
+	        <div flex layout="row" class="ipos_portlet_table_colspan">
+	            <div flex="60">{{'v3.mynewworkspace.personal-accident.illustration.label.TotalPremium' | translate}}</div>
+	            <div flex="40" class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['TotalPremium']).$}}</div>
+	        </div>
+	        <div flex layout="row" class="ipos_portlet_table_colspan">
+	            <div flex="60">{{'v3.mynewworkspace.personal-accident.illustration.label.StampDuty' | translate}}</div>
+	            <div flex="40" class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['StampDuty']).$}}</div>
+	        </div>
+	        <div flex layout="row" class="ipos_portlet_table_colspan">
+	            <div flex="60">{{'v3.mynewworkspace.personal-accident.illustration.label.GST' | translate}}</div>
+	            <div flex="40" class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['GST']).$}}</div>
+	        </div>
+	        <div flex layout="row" class="ipos_portlet_table_colspan">
+	            <div flex="60">{{'v3.mynewworkspace.personal-accident.illustration.label.TotalPayablePremium' | translate}}</div>
+	            <div flex="40" class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['TotalPayable']).$}}</div>
+	        </div>
+	    </div> -->
+	    
+	    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-md-offset-1 no-padding-left no-padding-right" style="width: 60%;">
+			<div class="table-responsive">
+				<table class="table v3-responsive-table">
+	            	<tbody>
+	            		<tr>
+	            			 <td class="v3-currency-alignment">{{'v3.mynewworkspace.personal-accident.illustration.label.TotalPremium' | translate}}</td>
+	            			 <td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['TotalPremium']).$}}</td>
+	            		</tr>
+	            		<tr>
+	            			 <td class="v3-currency-alignment">{{'v3.mynewworkspace.personal-accident.illustration.label.StampDuty' | translate}}</td>
+	            			 <td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['StampDuty']).$}}</td>
+	            		</tr>
+	            		<tr>
+	            			 <td class="v3-currency-alignment">{{'v3.mynewworkspace.personal-accident.illustration.label.GST' | translate}}</td>
+	            			 <td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['GST']).$}}</td>
+	            		</tr>
+	            		<tr>
+	            			 <td class="v3-currency-alignment">{{'v3.mynewworkspace.personal-accident.illustration.label.TotalPayablePremium' | translate}}</td>
+	            			 <td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['TotalPayable']).$}}</td>
+	            		</tr>
+	            	</tbody>
+				</table>
+			</div>
+		</div>
+	 </div>
+	 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-left-padding">
+		     <div class="form-group form-group-lg has-success">
+		         <span style="font-weight: bold">{{'v3.mynewworkspace.personal-accident.application.label.PolicyOwner' | translate}}:&nbsp;</span>
+		     </div>
+		 </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.FullName' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'FullName']).$}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-12 no-left-padding">&nbsp;</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	         	<span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.DateOfBirth' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'BirthDate']).$ | dateFilter}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.Gender' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.gender.enum.' + moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).Value | translate}}</span>
+	         </div>
+	    </div>
+	    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.IDNumber' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'IDNumber']).$}}</span>
+	         </div>
+	   	</div>
+	   	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.IDType' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.pnc.idType.enum.' + moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'IDType']).Value | translate}}</span>
+	         </div>
+	     </div>
+	    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.Occupation' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.application.personal-accident.occupation.enum.' + moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Occupation']).Value | translate}}</span>
+	         </div>
+	   	</div>
+	   	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.EthnicGroup' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.personal-accident.race.enum.' + moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Race']).Value | translate}}</span>
+	         </div>
+	     </div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-left-padding">
+		     <div class="form-group form-group-lg has-success">
+		         <span style="font-weight: bold">{{'v3.mynewworkspace.personal-accident.application.label.Contact' | translate}}:&nbsp;</span>
+		     </div>
+		 </div>
+		 <div ng-if="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Contacts'])['@counter'] > 0 || commonUIService.convertToNumber(moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Contacts'])[0]['@counter']) > 0">
+		     <div ng-repeat="contact in moduleService.convertToArray(moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Contacts', 'Contact'])) track by $index">
+			     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			         <div class="form-group form-group-lg has-success">
+			             <span class="col-md-5 no-left-padding" ng-if="moduleService.findElementInElement_V3(contact, ['ContactType']).Value != ''">{{'v3.prospect.contact.' + moduleService.findElementInElement_V3(contact, ['ContactType']).Value | translate}}:&nbsp;</span>
+			             <span class="col-md-7 no-left-padding">{{moduleService.findElementInElement_V3(contact, ['ContactInformation']).$}}</span>
+			         </div>
+			     </div>
+	    	</div>
+    	</div>
+	 </div>
+	 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-left-padding">
+		     <div class="form-group form-group-lg has-success">
+		         <span style="font-weight: bold">{{'v3.mynewworkspace.personal-accident.application.label.CorrespondenceAddress' | translate}}:&nbsp;</span>
+		     </div>
+		 </div>
+	     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.BlockHouseNoAndStreet' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'BlkHouseNo']).$}} {{moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'Street']).$}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+	         <div class="form-group form-group-lg has-success">
+	         	<span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.UnitNumber' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'UnitNo']).$}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+	         <div class="form-group form-group-lg has-success">
+	         	<span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.Building' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'Building']).$}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.City' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'City']).$}}</span>
+	         </div>
+	     </div>
+	     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.Country' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{'v3.pnc.country.enum.' + moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'Country']).Value | translate}}</span>
+	         </div>
+	     </div>
+	      <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+	         <div class="form-group form-group-lg has-success">
+	             <span class="col-md-5 no-left-padding">{{'v3.mynewworkspace.personal-accident.application.label.PostalCode' | translate}}:&nbsp;</span>
+	             <span class="col-md-7 no-left-padding">{{moduleService.findElementInDetail_V3(['CorrespondenceAddress', 'Postal']).$}}</span>
+	         </div>
+	     </div>
+	  </div>
+	  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-left-padding">
+		     <div class="form-group form-group-lg has-success">
+		         <span style="font-weight: bold">{{'v3.mynewworkspace.personal-accident.application.label.Questionnaires' | translate}}:&nbsp;</span>
+		     </div>
+		 </div>
+		 
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-left-padding">
+			<div ng-repeat="question in moduleService.findElementInDetail_V3(['Questionnaires', 'Question'])  track by $index">
+				<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+					<div class="form-group form-group-lg has-success">
+						<span>{{$index + 1}}.&nbsp;{{'v3.personal-accident.question.enum.' + moduleService.findElementInElement_V3(question, ['QKey']).Value | translate}}</span>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+			   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+			   			switch-model="moduleService.findElementInElement_V3(question, ['QValue']).Value" 
+			   			switch-default-value="" switch-disabled="true"
+			   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['QValue','Option'])">
+			   		</v3-switch-new-slide>
+				</div>
+			</div>
+		</div>
+	 </div>
+</div>
+
+<!-- ProductInformation -->
+<div fieldId="application-personal-accident:ProductInformation" class="col-xs-12 col-sm-12 col-md-11 col-lg-12 v3-column-content summary">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="form-group form-group-lg has-success">
+				<label>{{'v3.mynewworkspace.personal-accident.application.label.ProductName' | translate}}:&nbsp;</label>
+				<span>{{'v3.illustration.product.' + moduleService.findElementInDetail_V3(['Product']) | translate}}</span>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="form-group form-group-lg has-success">
+				<span>{{'v3.mynewworkspace.personal-accident.application.label.InceptionDate' | translate}}:&nbsp;</span>
+				<span>{{moduleService.findElementInDetail_V3(['InceptionDate']).$ | dateFilter}}</span>
+			</div>	
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="form-group form-group-lg has-success">
+				<span>{{'v3.mynewworkspace.personal-accident.application.label.ExpiryDate' | translate}}:&nbsp;</span>
+				<span>{{moduleService.findElementInDetail_V3(['ExpiryDate']).$ | dateFilter}}</span>
+			</div>	
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="form-group form-group-lg has-success">
+				<span>{{'v3.mynewworkspace.personal-accident.application.label.Plan' | translate}}:&nbsp;</span>
+				<span>{{'v3.personal-accident.plan.enum.' + moduleService.findElementInDetail_V3(['Plan']).Value | translate}}</span>
+			</div>	
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="form-group form-group-lg has-success">
+				<span>{{'v3.mynewworkspace.personal-accident.application.label.Country' | translate}}:&nbsp;</span>
+				<span>{{'v3.personal-accident.country.enum.' + moduleService.findElementInDetail_V3(['Country']).Value | translate}}</span>
+			</div>	
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="form-group form-group-lg has-success">
+				<span>{{'v3.mynewworkspace.personal-accident.illustration.label.GeographicCoverage' | translate}}:&nbsp;</span>
+				<span>{{moduleService.findElementInDetail_V3(['GeographicCoverage']).$}}</span>
+			</div>	
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="form-group form-group-lg has-success">
+				<span>{{'v3.mynewworkspace.personal-accident.application.label.PolicyDeductible' | translate}}:&nbsp;</span>
+				<span>{{moduleService.findElementInDetail_V3(['PolicyDeductible']).$}}</span>
+			</div>	
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="form-group form-group-lg has-success">
+				<span>{{'v3.mynewworkspace.personal-accident.application.label.Premiums' | translate}}:&nbsp;</span>
+				<span>&nbsp;</span>
+			</div>	
+		</div>
+	</div>
+	<!-- <div class="hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-table-content" style="width: 80%;  margin-left: 30px;">
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="60">{{'v3.mynewworkspace.personal-accident.illustration.label.TotalPremium' | translate}}</div>
+            <div flex="40" class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['TotalPremium']).$}}</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="60">{{'v3.mynewworkspace.personal-accident.illustration.label.StampDuty' | translate}}</div>
+            <div flex="40" class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['StampDuty']).$}}</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="60">{{'v3.mynewworkspace.personal-accident.illustration.label.GST' | translate}}</div>
+            <div flex="40" class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['GST']).$}}</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="60">{{'v3.mynewworkspace.personal-accident.illustration.label.TotalPayablePremium' | translate}}</div>
+            <div flex="40" class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['TotalPayable']).$}}</div>
+        </div>
+    </div> -->
+    
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding-left no-padding-right" style="width: 80%;  margin-left: 30px;">
+		<div class="table-responsive">
+			<table class="table v3-responsive-table">
+            	<tbody>
+            		<tr>
+            			 <td class="v3-currency-alignment">{{'v3.mynewworkspace.personal-accident.illustration.label.TotalPremium' | translate}}</td>
+            			 <td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['TotalPremium']).$}}</td>
+            		</tr>
+            		<tr>
+            			 <td class="v3-currency-alignment">{{'v3.mynewworkspace.personal-accident.illustration.label.StampDuty' | translate}}</td>
+            			 <td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['StampDuty']).$}}</td>
+            		</tr>
+            		<tr>
+            			 <td class="v3-currency-alignment">{{'v3.mynewworkspace.personal-accident.illustration.label.GST' | translate}}</td>
+            			 <td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['GST']).$}}</td>
+            		</tr>
+            		<tr>
+            			 <td class="v3-currency-alignment">{{'v3.mynewworkspace.personal-accident.illustration.label.TotalPayablePremium' | translate}}</td>
+            			 <td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['TotalPayable']).$}}</td>
+            		</tr>
+            	</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<!-- PolicyOwner-->
+<div fieldId="po:Title" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.application.label.Title' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Title'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Title'])"
+			   list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['POTitle','Option'])" 
+			   type="nonFlag" prefix="v3.application.motor.salutation"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Title']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="po:BirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.application.label.DateOfBirth' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'BirthDate'])['@mandatory'] == '1'">*</span></label>
+			<div class="ms-calendar-wrapper"><input ms-datepicker ng-model=" moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'BirthDate']).$" class="ms-calendar"/></div> 
+	   		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'BirthDate']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="po:FullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.application.label.FullName' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'FullName'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'FullName'])['@editable']=='0'"  
+				ng-model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'FullName']).$"/>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'FullName']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="po:Gender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.application.label.Gender' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender'])['@mandatory'] == '1'">*</span></label>
+			<v3-switch-new switch-size="" switch-name="gender" prefix="v3.gender.enum"
+	           	switch-model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).Value" 
+	           	switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender'])['@editable']=='0'" 
+	           	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['POGender','Option'])">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Gender']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="po:IDType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.application.label.IDType' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'IDType'])['@mandatory'] == '1'">*</span></label>
+			<v3-switch-new switch-size="" switch-name="idtype" prefix="v3.pnc.idType.enum"
+		    	switch-model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'IDType']).Value" 
+		    	switch-default-value="" switch-disabled="viewMode || moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'IDType'])['@editable'] == '0'"
+		    	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['POIDType']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(id, ['PolicyOwnerInformation', 'IDType']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="po:IDNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.application.label.IDNumber' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'IDNumber'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'IDNumber'])['@editable'] == '0'"
+				maxlength="12" ng-model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'IDNumber']).$" />&nbsp;
+			<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(id, ['PolicyOwnerInformation', 'IDNumber']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="po:EthnicGroup" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.application.label.EthnicGroup' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Race'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Race'])"
+			   list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['PORace','Option'])" 
+			   type="nonFlag" prefix="v3.personal-accident.race.enum"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Race']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="po:Occupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.application.label.Occupation' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Occupation'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Occupation'])"
+			   list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['POOccupation','Option'])" 
+			   type="nonFlag" prefix="v3.application.personal-accident.occupation.enum"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Occupation']).errorMessage | translate"></span>
+		</div>
+	</div>
+</div>
+
+<!-- Contacts -->
+<!-- <div fieldId="po:Contact" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" layout="column">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content" style="text-align: right;" ng-show="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Contacts'])['@counter']=='0' || moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Contacts'])['@counter']==0 || moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Contacts'])[0]['@counter']=='0'" >
+		<i style="margin-right:5px; cursor: pointer" class="fa fa-plus-circle fa-3x" ng-click="addContactForPO()"></i>
+		<label>{{'v3.mynewworkspace.personal-accident.application.label.AddNewContact' | translate}}</label>
+	</div>
+	<div ng-show="moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Contacts'])['@counter'] > 0 || commonUIService.convertToNumber(moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Contacts'])[0]['@counter']) > 0">
+    	<div layout="column" ng-repeat="contact in moduleService.convertToArray(moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Contacts', 'Contact'])) track by $index">
+        	<div layout="row">
+               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+                   		<div class="form-group form-group-lg has-success">
+                   			<label>{{'v3.mynewworkspace.personal-accident.application.label.ContactType' | translate}}  <span ng-show="moduleService.findElementInElement_V3(contact,['ContactType'])['@mandatory'] == '1'" >*</span></label>
+							<select class="form-control" ng-disabled="mouduleService.freeze || moduleService.findElementInElement_V3(contact, ['ContactType'])['@editable'] == '0'" ng-model="moduleService.findElementInElement_V3(contact, ['ContactType']).Value"
+								ng-options="item.value as ('v3.prospect.contact.'+item.value | translate) for item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['POContactType']).Option">
+							</select>
+						  	<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(contact, ['ContactType']).errorMessage | translate"></span> 
+              			</div>
+					</div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3">
+                   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+                 		<div class="form-group form-group-lg has-success">    
+                     		<span>{{'v3.mynewworkspace.personal-accident.application.label.ContactInformation' | translate}} <span ng-show="moduleService.findElementInElement_V3(contact,['ContactInformation'])['@mandatory'] == '1'" >*</span></span>
+		                    <div layout="row">
+			                    <div ng-if="moduleService.findElementInElement_V3(contact,['ContactType']).Value=='EMAIL_ADDRESS'">
+			                      	<input class="form-control" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(contact,['ContactInformation'])['@editable'] == '0'" style="padding-left: 35px;"
+										ng-model="moduleService.findElementInElement_V3(contact,['ContactInformation']).$" />
+			                     	<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(contact, ['ContactInformation']).errorMessage | translate"></span>
+			                    </div>
+			                    <div ng-if="moduleService.findElementInElement_V3(contact,['ContactType']).Value!='EMAIL_ADDRESS' && moduleService.findElementInElement_V3(contact,['ContactType']).Value!=''" >
+			                      	<input class="form-control" type="text" ng-disabled="viewMode || moduleService.findElementInElement_V3(contact,['ContactInformation'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber phone-Numbers-Only
+										ng-model="moduleService.findElementInElement_V3(contact,['ContactInformation']).$" />
+			                     	<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(contact, ['ContactInformation']).errorMessage | translate"></span>
+			                    </div>
+	                     		<div class="" layout="row">
+	             		  			<button style="min-width: 10px;" class="btn btn-lg v3-btn-danger" ng-click="moduleService.removeElementInElement_V3($index, moduleService.detail, ['PolicyOwnerInformation', 'Contacts'], ['PolicyOwnerInformation', 'Contacts', 'Contact']); moduleService.addMandatoryToFirstContactType()"><i class="fa fa-times"></i></button>
+		                     		<button ng-if="$index==0 && (moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Contacts'])['@counter'] < moduleService.findElementInDetail_V3(['PolicyOwnerInformation', 'Contacts'])['@maxOccurs'])"
+		                     			class="btn btn-lg v3-btn-primary" style="min-width: 10px; margin-right: -10px;" ng-click="moduleService.addElementInElement_V3(moduleService.detail, ['PolicyOwnerInformation', 'Contacts'], ['PolicyOwnerInformation', 'Contacts', 'Contact']); moduleService.removeMandatoryFromLastContactType()"><i class="fa fa-plus"></i></button>
+	             		  		</div>
+		                    </div>
+           		  	  	</div>
+           		  	</div>
+               </div>
+        	</div>
+    	</div>
+	</div>
+</div> -->
+<div fieldId="person:EmailAddress" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.EmailAddress" | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['EmailAddress'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" placeholder="{{'new.v3.mynewworkspace.corporate.label.EmailAddress' | translate}}" ng-disabled="moduleService.findElementInElement_V3(card.refDetail, ['EmailAddress'])['@editable'] == '0'"
+				type="text" maxlength="120" ng-model="moduleService.findElementInElement_V3(card.refDetail, ['EmailAddress']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['EmailAddress']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="person:MobilePhone" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.MobilePhone" | translate}} <span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['MobilePhone'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInElement_V3(card.refDetail, ['MobilePhone'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber phone-Numbers-Only
+				ng-model="moduleService.findElementInElement_V3(card.refDetail, ['MobilePhone']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['MobilePhone']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="person:HomePhone" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.HomePhone" | translate}} <span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['HomePhone'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInElement_V3(card.refDetail, ['HomePhone'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber phone-Numbers-Only
+				ng-model="moduleService.findElementInElement_V3(card.refDetail, ['HomePhone']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['HomePhone']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<div fieldId="person:OfficePhone" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">   
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{"new.v3.mynewworkspace.prospect.label.OfficePhone" | translate}} <span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['OfficePhone'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInElement_V3(card.refDetail, ['OfficePhone'])['@editable'] == '0'" close-text="Close" style="padding-left: 35px;" maxlength="16" pos-phonenumber phone-Numbers-Only
+				ng-model="moduleService.findElementInElement_V3(card.refDetail, ['OfficePhone']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['OfficePhone']).errorMessage | translate"></span>		
+		</div>
+	</div>
+</div>
+<!-- CorrespondenceAddress -->
+<div fieldId="CorrespondenceAddress:SelectAddress" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.application.label.SelectAddress' | translate}}</label>
+			<ng-newDropDown 
+			   model="moduleService.selectedAddress"
+			   list="moduleService.NPAddressList" 
+			   type="irregular" key="blkAndStreet">
+			</ng-newDropDown>
+				<i  class="fa fa-arrow-circle-down fa-3x button-import" ng-click="importAddress(moduleService.selectedAddress)"></i>
+				<i  class="fa fa-minus-circle fa-3x button-remove" ng-if="checkAddressHasData(card.refDetail) && !moduleService.freeze" ng-click="removeAddress(card.refDetail)"></i>  
+		</div>
+	</div>
+</div>
+<div fieldId="CorrespondenceAddress:AddressType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{'new.v3.mynewworkspace.motor.application.label.AddressType' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','AddressType'])['@mandatory'] == '1'">*</span></label>
+		    <!-- <ng-newDropDown model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','AddressType'])"
+				disable="moduleService.freeze == true || moduleService.findElementInDetail_V3(['CorrespondenceAddress','AddressType'])['@editable'] == '0'"
+				list=" moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['CAddressType']).Option" 
+				type="nonFlag" prefix="v3.pnc.addressType.enum"></ng-newDropDown> -->
+				<v3-switch-new-slide 
+		   			switch-model="moduleService.findElementInElement_V3(card.refDetail, ['AddressType']).Value" prefix="v3.pnc.addressType.enum"
+		   			switch-default-value="" switch-disabled="moduleService.findElementInElement_V3(card.refDetail, ['AddressType'])['@editable'] == '0'"
+		   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['CAddressType']).Option">
+		   		</v3-switch-new-slide>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','AddressType']).errorMessage | translate"></span>	
+	  	</div>
+	</div>
+</div>
+<!-- <div fieldId="CorrespondenceAddress:AddressType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{'v3.mynewworkspace.personal-accident.application.label.AddressType' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','AddressType'])['@mandatory'] == '1'">*</span></label>
+		    <ng-newDropDown model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','AddressType'])"
+				disable="moduleService.findElementInDetail_V3(['CorrespondenceAddress','AddressType'])['@editable'] == '0'"
+				list=" moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['CAddressType']).Option" 
+				type="nonFlag" prefix="v3.pnc.addressType.enum"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','AddressType']).errorMessage | translate"></span>	
+	  	</div>
+	</div>
+</div> -->
+
+<div fieldId="CorrespondenceAddress:BlkHouseNoAndStreet" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label class="col-xs-12 col-sm-12 col-lg-12 no-left-padding no-right-padding">{{'v3.mynewworkspace.personal-accident.application.label.BlockHouseNoAndStreet' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Street'])['@mandatory'] == '1'">*</span></label>		    
+		    <div class="col-xs-12 col-sm-3 col-lg-3 no-left-padding no-right-padding">
+			    <input type="text" class="form-control" placeholder="{{(moduleService.findElementInDetail_V3(['CorrespondenceAddress','BlkHouseNo'])['@editable'] == '0') ? '' : ('v3.mynewworkspace.personal-accident.application.label.BlockHouseNumber' | translate) }}" 
+			    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','BlkHouseNo'])['@editable'] == '0'"  
+	        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','BlkHouseNo']).$" />
+	        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','BlkHouseNo']).errorMessage | translate"></span>
+        	</div>
+		    <div class="col-xs-12 col-sm-9 col-lg-9 no-left-padding no-right-padding">
+			    <input type="text" class="form-control" placeholder="{{'v3.mynewworkspace.personal-accident.application.label.Street' | translate}}" ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Street'])['@editable'] == '0'"  
+	        		maxlength="30" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Street']).$" />
+	        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Street']).errorMessage | translate"></span>
+        	</div>
+	  	</div>
+	</div>
+</div>
+<div fieldId="CorrespondenceAddress:UnitNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{'v3.mynewworkspace.personal-accident.application.label.UnitNumber' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control"  placeholder="{{(moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0') ? '' : ('v3.mynewworkspace.personal-accident.application.label.UnitNumber' | translate) }}" 
+		    	ng-disabled="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','UnitNo']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="CorrespondenceAddress:Building" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>{{'v3.mynewworkspace.personal-accident.application.label.Building' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Building'])['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control" placeholder="{{'v3.mynewworkspace.personal-accident.application.label.Building' | translate}}" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['CorrespondenceAddress','Building'])['@editable'] == '0'"  
+       			maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Building']).$" />
+        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Building']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="CorrespondenceAddress:City" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{'v3.mynewworkspace.personal-accident.application.label.City' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','City'])['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control" placeholder="{{'v3.mynewworkspace.personal-accident.application.label.City' | translate}}" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['CorrespondenceAddress','City'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','City']).$" />
+        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','City']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="CorrespondenceAddress:Country" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{'v3.mynewworkspace.personal-accident.application.label.Country' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Country'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Country'])"
+				disable="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Country'])['@editable'] == '0'"
+				list=" moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['CCountry']).Option" type="nonFlag" prefix="v3.pnc.country.enum"></ng-newDropDown>
+	        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Country']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="CorrespondenceAddress:Postal" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>{{'v3.mynewworkspace.personal-accident.application.label.PostalCode' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Postal'])['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control" placeholder="{{'v3.mynewworkspace.personal-accident.application.label.PostalCode' | translate}}" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['CorrespondenceAddress','Postal'])['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Postal']).$" />
+        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CorrespondenceAddress','Postal']).errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+
+<!-- Questionnaires -->
+<div  fieldId="application-personal-accident:Questionnaires" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+	<div ng-repeat="question in moduleService.findElementInDetail_V3(['Questionnaires', 'Question'])  track by $index">
+		<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+			<div class="form-group form-group-lg has-success">
+				<span>{{$index + 1}}.&nbsp;{{'v3.personal-accident.question.enum.' + moduleService.findElementInElement_V3(question, ['QKey']).Value | translate}}</span>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 v3-column-content" >
+	   		<v3-switch-new-slide switch-size="" switch-name="question1" prefix="v3.yesno.enum"
+	   			switch-model="moduleService.findElementInElement_V3(question, ['QValue']).Value" 
+	   			switch-default-value="" switch-disabled="false"
+	   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['QValue','Option'])">
+	   		</v3-switch-new-slide>
+		</div>
+	</div>
+</div>
+<!-- Declaration by Proposer -->
+<div fieldId="application-personal-accident:Declaration1" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<span>{{'v3.mynewworkspace.personal-accident.application.label.Declaration1' | translate}}</span>
+</div>
+<div fieldId="application-personal-accident:Declaration2" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<span>{{'v3.mynewworkspace.personal-accident.application.label.Declaration2' | translate}}</span>
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+

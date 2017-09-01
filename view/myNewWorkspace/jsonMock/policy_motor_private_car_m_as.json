@@ -1,0 +1,292 @@
+{
+  "IposDocument": {
+    "Data": {
+      "policy-motor-private-car-m:PolicyDetail": {
+        "@key": [
+          "Policy"
+        ],
+        "@section": "policy-motor-private-car-m:PolicyDetail",
+        "@icon": "fa fa-list-alt",
+        "@cssClass": "v3-box-6",
+        "policy-motor-private-car-m:Summary": {
+          "@section": "policy-motor-private-car-m:PolicyDetail",
+          "@icon": "fa fa-list-alt",
+          "@cssClass": "v3-box-6",
+          "policy-motor-private-car-m:PolicyInformation": {},
+          "policy-motor-private-car-m:PolicyPeriod": {},
+          "policy-motor-private-car-m:PolicyStatus": {
+            "@key": [
+              "DocStatus"
+            ]
+          },
+          "policy-motor-private-car-m:PolicyOwner": {}
+        },
+        "policy-motor-private-car-m:BasicProduct": {
+          "@section": "policy-motor-private-car-m:PolicyDetail",
+          "@icon": "fa fa-list-alt",
+          "@cssClass": "v3-box-6",
+          "policy-motor-private-car-m:ProductName": {},
+          "policy-motor-private-car-m:InceptionDate": {},
+          "policy-motor-private-car-m:StampDuty": {},
+          "policy-motor-private-car-m:TotalPayablePremium": {},
+          "policy-motor-private-car-m:ExpiryDate": {},
+          "policy-motor-private-car-m:PolicyNumber": {},
+          "policy-motor-private-car-m:IssueDate": {},
+          "policy-motor-private-car-m:PolicyOwner1": {},
+          "policy-motor-private-car-m:VehicleNumber": {},
+          "policy-motor-private-car-m:CoverageGrid": {}
+        },
+        "policy-motor-private-car-m:PolicyOwners": {
+          "@section": "policy-motor-private-car-m:PolicyDetail",
+          "@icon": "fa fa-list-alt",
+          "@cssClass": "v3-box-6",
+          "policy-motor-private-car-m:PolicyOwner": {
+            "@key": [
+              "PolicyOwner"
+            ],
+            "@section": "policy-motor-private-car-m:PolicyOwners",
+            "@icon": "fa fa-list-alt",
+            "@cssClass": "v3-box-6",
+            "policy-motor-private-car-m:Title": {
+              "@key": [
+                "Title"
+              ],
+              "valuePrefix": "v3.pnc.title.enum."
+            },
+            "policy-motor-private-car-m:FullName": {
+              "@preview": [
+                "policy-motor-private-car-m:PolicyOwners"
+              ],
+              "@key": [
+                "FullName"
+              ]
+            },
+            "policy-motor-private-car-m:BirthDate": {
+              "@key": [
+                "ExpiryDate"
+              ]
+            },
+            "policy-motor-private-car-m:Gender": {},
+            "policy-motor-private-car-m:MarialStatus": {},
+            "policy-motor-private-car-m:POIDs": {},
+            "policy-motor-private-car-m:Nationality": {},
+            "policy-motor-private-car-m:Mobile": {},
+            "policy-motor-private-car-m:Home": {},
+            "policy-motor-private-car-m:Office": {},
+            "policy-motor-private-car-m:EmailAddress": {}
+          },
+          "policy-motor-private-car-m:CorrespondenceAddress": {
+            "@section": "policy-motor-private-car-m:PolicyOwners",
+            "@icon": "fa fa-list-alt",
+            "@cssClass": "v3-box-6",
+            "policy-motor-private-car-m:AddressType": {},
+            "policy-motor-private-car-m:BlockHouseNo": {},
+            "policy-motor-private-car-m:UnitNo": {},
+            "policy-motor-private-car-m:Street": {},
+            "policy-motor-private-car-m:City": {},
+            "policy-motor-private-car-m:Country": {},
+            "policy-motor-private-car-m:PostalCode": {}
+          }
+        },
+        "policy-motor-private-car-m:VehicleDetails": {
+          "@section": "policy-motor-private-car-m:PolicyDetail",
+          "@icon": "fa fa-list-alt",
+          "@cssClass": "v3-box-6",
+          "policy-motor-private-car-m:Description": {
+            "@section": "policy-motor-private-car-m:VehicleDetails",
+            "@icon": "fa fa-list-alt",
+            "@cssClass": "v3-box-6",
+            "policy-motor-private-car-m:MakeModel": {},
+            "policy-motor-private-car-m:YearManufactured": {},
+            "policy-motor-private-car-m:VehicleNo": {},
+            "policy-motor-private-car-m:ModelDescription": {},
+            "policy-motor-private-car-m:Body": {},
+            "policy-motor-private-car-m:PoweredBy": {},
+            "policy-motor-private-car-m:NumberofSeats": {},
+            "policy-motor-private-car-m:EngineMotorNo": {},
+            "policy-motor-private-car-m:ChassisNo": {},
+            "policy-motor-private-car-m:EngineCapacity": {}
+          },
+          "policy-motor-private-car-m:OtherInformation": {
+            "@section": "policy-motor-private-car-m:VehicleDetails",
+            "@icon": "fa fa-list-alt",
+            "@cssClass": "v3-box-6",
+            "policy-motor-private-car-m:VehicleClass": {},
+            "policy-motor-private-car-m:LogBookNo": {},
+            "policy-motor-private-car-m:SafetyCode": {},
+            "policy-motor-private-car-m:AntiTheftCode": {},
+            "policy-motor-private-car-m:PermittedDriver": {}
+          }
+        },
+        "policy-motor-private-car-m:Coverage": {
+          "@section": "policy-motor-private-car-m:PolicyDetail",
+          "@icon": "fa fa-list-alt",
+          "@cssClass": "v3-box-6",
+          "policy-motor-private-car-m:CDescription": {
+            "@section": "policy-motor-private-car-m:Coverage",
+            "@icon": "fa fa-list-alt",
+            "@cssClass": "v3-box-6",
+            "policy-motor-private-car-m:UseofVehicle": {},
+            "policy-motor-private-car-m:GeographyLocation": {},
+            "policy-motor-private-car-m:Region": {},
+            "policy-motor-private-car-m:Garage": {},
+            "policy-motor-private-car-m:CIType": {}
+          },
+          "policy-motor-private-car-m:CExcess": {
+            "@section": "policy-motor-private-car-m:Coverage",
+            "@icon": "fa fa-list-alt",
+            "@cssClass": "v3-box-6",
+            "policy-motor-private-car-m:ExcessType": {},
+            "policy-motor-private-car-m:ExcessAmount": {}
+          }
+        },
+        "policy-motor-private-car-m:FinancingInformation": {
+          "@section": "policy-motor-private-car-m:PolicyDetail",
+          "@icon": "fa fa-list-alt",
+          "@cssClass": "v3-box-6",
+          "policy-motor-private-car-m:OwnershipType": {},
+          "policy-motor-private-car-m:FinancialType": {},
+          "policy-motor-private-car-m:LoanCompany": {},
+          "policy-motor-private-car-m:VehiclePurchaseDate": {},
+          "policy-motor-private-car-m:PurchasePrice": {}
+        },
+        "policy-motor-private-car-m:DriverInformation": {
+          "@section": "policy-motor-private-car-m:PolicyDetail",
+          "@icon": "fa fa-list-alt",
+          "@cssClass": "v3-box-6",
+          "policy-motor-private-car-m:MainDriver": {
+            "@section": "policy-motor-private-car-m:DriverInformation",
+            "policy-motor-private-car-m:MDFullName": {},
+            "policy-motor-private-car-m:MDGender": {},
+            "policy-motor-private-car-m:MDBirthDate": {},
+            "policy-motor-private-car-m:MDAge": {},
+            "policy-motor-private-car-m:MDIDs": {},
+            "policy-motor-private-car-m:MDYearDrivingLicenceObtained": {},
+            "policy-motor-private-car-m:MDMarialStatus": {},
+            "policy-motor-private-car-m:MDOccupation": {}
+          },
+          "policy-motor-private-car-m:OtherDrivers": {
+            "@key": [
+              "OtherDrivers"
+            ],
+            "isVisible": "findElementInDetail(['OtherDrivers'])['@counter']!=0",
+            "@section": "policy-motor-private-car-m:DriverInformation",
+            "@icon": "fa fa-list-alt",
+            "@cssClass": "v3-box-6",
+            "policy-motor-private-car-m:OtherDriver": {
+              "@key": [
+                "OtherDriver"
+              ],
+              "@section": "policy-motor-private-car-m:OtherDrivers",
+              "@icon": "fa fa-list-alt",
+              "@cssClass": "v3-box-6",
+              "policy-motor-private-car-m:ODSalutation": {
+                "@key": [
+                  "Title"
+                ]
+              },
+              "policy-motor-private-car-m:ODFullName": {},
+              "policy-motor-private-car-m:ODGender": {
+                "@key": [
+                  "Gender"
+                ]
+              },
+              "policy-motor-private-car-m:ODBirthDate": {},
+              "policy-motor-private-car-m:ODAge": {},
+              "policy-motor-private-car-m:ODIDs": {},
+              "policy-motor-private-car-m:ODYearDrivingLicenceObtained": {},
+              "policy-motor-private-car-m:ODMarialStatus": {},
+              "policy-motor-private-car-m:OOccupation": {}
+            }
+          },
+          "policy-motor-private-car-m:NCDSource": {
+            "@section": "policy-motor-private-car-m:DriverInformation",
+            "@icon": "fa fa-list-alt",
+            "@cssClass": "v3-box-6",
+            "policy-motor-private-car-m:NCDForm": {},
+            "policy-motor-private-car-m:NCDVehicleNo": {},
+            "policy-motor-private-car-m:PrevPolicyNo": {},
+            "policy-motor-private-car-m:PrevPolicyEffDate": {},
+            "policy-motor-private-car-m:PrevPolicyExpDate": {},
+            "policy-motor-private-car-m:NCDAllow": {},
+            "policy-motor-private-car-m:NCDEffDate": {},
+            "policy-motor-private-car-m:NoofClaimForLast3Years": {}
+          }
+        },
+        "policy-motor-private-car-m:Others": {
+          "@section": "policy-motor-private-car-m:PolicyDetail",
+          "@icon": "fa fa-list-alt",
+          "@cssClass": "v3-box-6",
+          "isVisible": "findElementInDetail(['InterestedParties'])['@counter']!=0 || findElementInDetail(['RiskClauses'])['@counter']!=0",
+          "policy-motor-private-car-m:InterestParties": {
+            "@key": [
+              "InterestedParties"
+            ],
+            "isVisible": "findElementInDetail(['InterestedParties'])['@counter']!=0",
+            "@section": "policy-motor-private-car-m:Others",
+            "policy-motor-private-car-m:InterestParty": {
+              "@key": [
+                "InterestedParty"
+              ],
+              "@section": "policy-motor-private-car-m:InterestParties",
+              "@icon": "fa fa-list-alt",
+              "@cssClass": "v3-box-6",
+              "@cardType": "template",
+              "policy-motor-private-car-m:IFullName": {
+                "@key": [
+                  "FullName"
+                ]
+              },
+              "policy-motor-private-car-m:IClientNumber": {
+                "@key": [
+                  "ClientNumber"
+                ]
+              },
+              "policy-motor-private-car-m:IRelationship": {
+                "@key": [
+                  "Relationship"
+                ]
+              }
+            }
+          },
+          "policy-motor-private-car-m:Clause": {
+            "@section": "policy-motor-private-car-m:Others",
+            "@icon": "fa fa-list-alt",
+            "@cssClass": "v3-box-6",
+            "@key": [
+              "RiskClauses"
+            ],
+            "isVisible": "findElementInDetail(['RiskClauses'])['@counter']!=0",
+            "policy-motor-private-car-m:RiskClause": {
+              "@key": [
+                "RiskClause"
+              ],
+              "@cardType": "template",
+              "@section": "policy-motor-private-car-m:Clause",
+              "policy-motor-private-car-m:ClauseDetail": {
+                "@key": [
+                  "Clause"
+                ]
+              }
+            }
+          },
+          "policy-motor-private-car-m:ClaimList": {
+            "@icon": "fa fa-list-alt",
+            "@cssClass": "v3-box-6",
+            "@onOpen": "getClaimHistoryList()",
+            "@section": "policy-motor-private-car-m:PolicyDetail",
+            "policy-motor-private-car-m:ClaimPolicyId": {},
+            "policy-motor-private-car-m:ClaimClientId": {},
+            "policy-motor-private-car-m:ClaimClaimant": {},
+            "policy-motor-private-car-m:ClaimClaimType": {},
+            "policy-motor-private-car-m:ClaimByFrom": {},
+            "policy-motor-private-car-m:ClaimFrom": {},
+            "policy-motor-private-car-m:ClaimTo": {},
+            "policy-motor-private-car-m:ClaimSearch": {},
+            "policy-motor-private-car-m:ClaimTable": {}
+          }
+        }
+      }
+    }
+  }
+}

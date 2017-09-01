@@ -1,0 +1,329 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- <div ng-controller="TransactionDetailCtrl">
+	<div flex layout="row" class="ipos_portlet_table_header_item md-whiteframe-z1" layout-align="center center" style="line-height: 30px">
+		<div flex>Transaction ID</div>
+		<div flex>Transaction Type</div>
+		<div flex>Cover Note/ Endorsement No.</div>
+		<div flex>Policy No.</div>
+		<div flex>Name of Policy Owner</div>
+		<div flex>Effective Date</div>
+		<div flex>Premium $ (Gross)</div>
+		<div flex>Date paid to Agent</div>
+		<div flex>Date paid to Company</div>
+		<div flex>Status Change Date</div>
+		<div flex="5">Status</div>
+		<div flex="5">Action</div>
+	</div>
+	<div flex layout="row" class="ipos_portlet_table_listRow">
+		<div flex="5" style="margin-left:5px !important"> <md-checkbox style="margin:0 !important" ng-click="toggleSelection($index)" ng-check="selection.indexOf($index)>-1"></md-checkbox></div>
+		<div flex>Motor</div>
+		<div flex title="{{payment.POName}}">Minh Nguyen</div>
+		<div flex="15">TR98956094</div>
+		<div flex>9/15/2015</div>
+		<div flex>1.000.000</div>
+		<div flex>180</div>
+		<div flex>20.000.000</div>
+		<div flex>Pending</div>
+	</div>
+	
+	<div dir-paginate="payment in paymentList | itemsPerPage: pageSize" current-page="currentPage">
+  		<div id="node" flex layout="row" class="ipos_portlet_table_listRow" >
+	   		<div flex>{{payment.PaymentNo}}</div>
+	   		<div flex>{{payment.PaymentMethod}}</div>
+	   		<div flex>{{payment.FullName}}</div>
+	   		<div flex>{{payment.SumInsured | number:2}}</div>
+	   		<div flex>{{payment.Premium | number:2}}</div>
+	   		<div flex>{{payment.Premium | number:2}}</div>
+	   		<div flex>{{moduleCommonService.convertToDateTime(trans.PaidDate,'DD/MM/YYYY HH:mm')}}</div>
+	   		<div flex>{{moduleCommonService.convertToDateTime(payment.PaidDate,'DD/MM/YYYY HH:mm')}}</div>
+	   		<div flex>{{moduleCommonService.convertToDateTime(payment.PaidDate,'DD/MM/YYYY HH:mm')}}</div>
+	   		<div flex>{{moduleCommonService.convertToDateTime(payment.PaidDate,'DD/MM/YYYY HH:mm')}}</div>
+	   		<div flex>{{payment.DocumentStatus}}</div>
+	   		<div flex><span><i class="fa fa-eye" ng-click="showPaymentDetail($index, trans.DocId)"></i></span></div>
+  		</div>
+		<div id="detail_{{$index}}" class="detail-hide">
+			
+			<div class="box-detail wrapper-detail animated zoomIn"
+				style="border-top-width: 2px; border-top-style: solid; border-top-color: rgb(243, 130, 49); border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: rgb(243, 130, 49); margin-bottom: -2px; margin-top: 20px">
+				<span class="arrow"
+					style="left: 477px; border-right: rgb(243, 130, 49) 2px solid; border-top: rgb(243, 130, 49) 2px solid; top: -25px"></span>
+				<div class="container-fluid v3-padding-0">
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Business Transaction:</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Transaction ID:</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Transaction Type:</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Name of Policy Owner:</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Cover Note/Endorsement No:</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Policy No.:</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Insured:</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Sum Insured $:</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Premium $ (Gross):</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Premium $ (Net):</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Date paid to Agent:</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Date paid to Company:</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Status Change Date:</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 v3-column-content">
+						<div class="row">
+							<strong>Status:</strong>
+						</div>
+						<div class="row">
+							<span>Data</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div flex layout="row" layout-margin>
+  		<div flex="65"></div>
+  		<div flex layout="row">Total&nbsp;&nbsp;<b>{{totalPremium | number:2}}</b></div>
+ 	</div>	
+    <div layout-margin flex layout="row" layout-align="end center">	
+		<div class="ipos_paging_margin_top_25" flex layout="row"  layout-align="end center">							
+                           <span>{{'v3.transactioncenter.label.Itemsperpage' | translate}}</span>
+				<md-select class="small-md-select ipos_paging_dropdown_65" ng-model="pageSize">
+                    <md-option ng-repeat="size in pageSizes" value="{{size}}">{{size}}</md-option>
+                </md-select>
+		</div>	
+		<dir-pagination-controls boundary-links="true" max-size="5">
+		</dir-pagination-controls>
+	</div>
+</div> -->
+
+<div ng-controller="TransactionDetailCtrl">
+	<div flex layout="row" class="ipos_portlet_table_header_item md-whiteframe-z1" layout-align="center center" style="line-height: 30px">
+		<div flex="85"></div>
+		<div flex="15">Premium $ (Gross)</div>
+		<!-- <div flex="10">Action</div> -->
+	</div>
+
+	<div class="md-whiteframe-z1" dir-paginate="payment in paymentList | itemsPerPage: pageSize" current-page="currentPage">
+  		<div id="node" flex layout="row" class="ipos_portlet_table_listRow" style="line-height: 25px">
+	   		
+			<div flex="85" style="text-align: left">
+				<div class="container-fluid v3-padding-0">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
+					   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-padding-left-0">
+						   <div class="col-xs-10" style="padding-left: 0px;">
+								<div class="form-group-lg has-success">
+								    <strong>Transaction Type: </strong><a href="">Motor New Business {{$index}}</a> 
+							  	</div>
+						  	</div>
+					   </div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
+					   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-padding-left-0">
+						   <div class="col-xs-10" style="padding-left: 0px;">
+								<div class="form-group-lg has-success">
+								    <strong>Reference No.:</strong> eCover Note Number
+							  	</div>
+						  	</div>
+					   </div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
+					   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-padding-left-0">
+						   <div class="col-xs-10" style="padding-left: 0px;">
+								<div class="form-group-lg has-success">
+								    <strong>Name of Policy Owner: </strong> Policyowner Name
+							  	</div>
+						  	</div>
+					   </div>
+					</div>
+					
+					<!-- more detail -->
+					<div  class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+						<div id="detail_{{$index}}" class="cssSlideUp" ng-hide="payment.isShow">
+							<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6 ">
+								<div class="row">
+									<strong>Policy No.:</strong> <a href="">Policy No</a>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
+								<div class="row">
+									<strong>Effective Date:</strong> Effective date of the contract
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
+								<div class="row">
+									<strong>Date paid to Agent: </strong> <a href="">DD/MM/YYYY</a>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
+								<div class="row">
+									<strong> Date paid to Company: </strong> <a href="">DD/MM/YYYY</a>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
+								<div class="row">
+									<strong> Status Change Date: </strong> DD/MM/YYYY
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
+								<div class="row">
+									<strong> Status: </strong> JPJ Rejected with Changes
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					
+					<!-- action list -->
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
+					   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 v3-padding-left-0">
+						   <div class="col-xs-10" style="padding-left: 0px;">
+						   		<i id="endorse-submenu-caret-{{$index}}"  class="fa fa-angle-down fa-lg icon-action-list" ></i>
+								<div class="form-group-lg has-success action-list">
+								    <a href="" ng-click="showPaymentDetail($index, payment)" ng-show="payment.isShow">More </a>
+								    <a href="" ng-click="showPaymentDetail($index, payment)" ng-hide="payment.isShow">Less </a>
+								    
+								    <!-- <span class="carret-button" ng-click="showPaymentDetail($index, payment.DocId)">
+										<i id="endorse-submenu-caret-{{$index}}"  class="fa fa-angle-down fa-2x"></i>Detail
+									</span> -->
+							  	</div>
+							  	<i class="fa fa-heart fa-lg icon-action-list" ></i>
+							  	<div class="form-group-lg has-success action-list">
+								    <a href="">Action 2 </a>
+								    <!-- <span class="carret-button" ng-click="showPaymentDetail($index, payment.DocId)">
+										<i id="endorse-submenu-caret-{{$index}}"  class="fa fa-angle-down fa-2x"></i>Detail
+									</span> -->
+							  	</div>
+							  	<i class="fa fa-eye fa-lg icon-action-list" ></i>
+							  	<div class="form-group-lg has-success action-list" style="border: none">
+								    <a href="">Action 3 </a>
+								    <!-- <span class="carret-button" ng-click="showPaymentDetail($index, payment.DocId)">
+										<i id="endorse-submenu-caret-{{$index}}"  class="fa fa-angle-down fa-2x"></i>Detail
+									</span> -->
+							  	</div>
+						  	</div>
+					   </div>
+					</div>
+					
+				</div>
+			</div>
+			<div flex="15">1,000,000</div>
+			<!-- <div flex="10"><i class="fa fa-eye" ng-click="showPaymentDetail($index, payment.DocId)"></i></div> -->
+  		</div>
+		<md-divider ></md-divider>
+	</div>
+    <!-- <div flex layout="row" layout-margin>
+  		<div flex="65"></div>
+  		<div flex layout="row">Total&nbsp;&nbsp;<b>{{totalPremium | number:2}}</b></div>
+ 	</div>	 -->
+    <div layout-margin flex layout="row" layout-align="end center">	
+		<div class="ipos_paging_margin_top_25" flex layout="row"  layout-align="end center">							
+                           <span>{{'v3.transactioncenter.label.Itemsperpage' | translate}}</span>
+                <select class="form-control ipos_paging_dropdown_70" ng-model="pageSize" ng-options="size as size for size in pageSizes">
+				</select>
+		</div>	
+		<dir-pagination-controls boundary-links="true" max-size="5">
+		</dir-pagination-controls>
+	</div>
+</div>

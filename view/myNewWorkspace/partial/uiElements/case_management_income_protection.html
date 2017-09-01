@@ -1,0 +1,302 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="case-management-personal-accident:CaseInformation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6" title="{{'v3.mynewworkspace.personal-accident.casemanagement.label.BusinessTransactionInformation' | translate}}">
+			{{'v3.mynewworkspace.personal-accident.casemanagement.label.BusinessTransactionInformation' | translate | trimtext:false:25:'...'}} :
+		</span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['DocName'])}}</span>
+	</div>
+</div>
+<div fieldId="case-management-personal-accident:CurrentStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.personal-accident.casemanagement.label.CurrentStatus' | translate}}:</span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['BusinessStatus'])}}</span>
+	</div>
+</div>
+<div fieldId="case-management-personal-accident:PendingInformation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.personal-accident.casemanagement.label.PendingInformation' | translate}}:</span>
+		<span class="col-md-6">N/A</span>
+	</div>
+</div>
+<div fieldId="case-management-personal-accident:NextRequiredAction" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.personal-accident.casemanagement.label.NextRequiredAction' | translate}}:</span>
+		<span class="col-md-6">N/A</span>
+	</div>
+</div>
+<div fieldId="case-management-income-protection:PolicyNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'new.v3.mynewworkspace.motor.casemanagement.label.PolicyNo' | translate}}:</span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['PolicyNumber']).$}}</span>
+	</div>
+</div>
+
+<!-- Attachments -->
+<div fieldId="case-management-personal-accident:Attachment" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+    <div flex layout="row" class="ipos_portlet_table_header_item md-whiteframe-z1" layout-align="center center" style="line-height: 30px">
+        <div flex>Description</div>
+        <div flex>File Name</div>
+        <div flex>Created Date</div>
+        <div flex>File Size</div>
+        <div flex>Action</div>
+    </div>
+    <div flex layout="row" class="ipos_portlet_table_listRow">
+        <div flex>Prospect Test</div>
+        <div flex>prospect.json</div>
+        <div flex>10/09/2015</div>
+        <div flex>18.4 KB</div>
+        <div flex><i class="fa fa-search-plus fa-lg"></i>&nbsp;<i class="pointer fa fa-trash-o fa-lg"></i></div>
+    </div>
+    <div ng-include="initContextPath+'/view/fileAttachment/fileUpload.html'"></div>
+</div>
+<!-- Document Center -->
+<div fieldId="case-management-personal-accident:DocumentCenter" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+    <!-- Document Center Section-->
+    <div>
+        <strong>{{"new.v3.mynewworkspace.motor.application.label.ApplicationID"| translate}} - {{"new.v3.mynewworkspace.motor.policy.label.PolicyNumber"| translate}}: {{moduleService.findElementInElement_V3(applicationService.detail, ['DocName'])}} - {{moduleService.findElementInDetail_V3(['PolicyNumber']).$}}</strong>
+       <!--  <span class="documentListToggle v3-float-icon-right-hide-show pointer" ng-click="toogleElement('documentList','documentListToggle')" tabindex="0"><i class="fa fa-chevron-down fa-lg"></i></span> -->
+    </div>
+    <br/>
+    <div class="hidden-xs container-fluid v3-padding-left-0 documentList border-table">
+        <div class="row ipos_portlet_table_header_item  v3-margin-right-0">
+            <div class="col-xs-2">{{"v3.myworkspace.label.application.motor.Description"| translate}}</div>
+            <div class="col-xs-2">{{"v3.myworkspace.label.application.motor.FileName"| translate}}</div>
+            <div class="col-xs-2">{{"v3.myworkspace.label.application.motor.CreatedDate"| translate}}</div>
+            <div class="col-xs-2">{{"v3.documentcenter.label.Status"| translate}}</div>
+            <div class="col-xs-2">{{"v3.myworkspace.label.application.motor.FileSize"| translate}}</div>
+            <div class="col-xs-2">{{"v3.myworkspace.label.application.motor.Action"| translate}}</div>
+        </div>
+        <div class="row ipos_portlet_table_listRow v3-margin-right-0" ng-repeat="data in moduleService.convertToArray(moduleService.DocumentCenterList) track by $index">
+            <div class="col-xs-2 v3-padding-0" title="{{data.Name}}">{{data.Name | trimtext:false:15:'...'}}</div>
+            <div class="col-xs-2 v3-padding-0" title="{{data.FileName}}">{{data.FileName | trimtext:false:15:'...'}}</div>
+            <div class="col-xs-2 v3-padding-0" title="{{data.CreateDate}}">{{data.CreatedDate | datetimeFilter:"DD/MM/YYYY"| trimtext:false:10:'...'}}</div>
+            <div class="col-xs-2 v3-padding-0">{{data.DocumentStatus}}&nbsp;</div>
+            <div class="col-xs-2 v3-padding-0">{{data.FileSize}}</div>
+            <div class="col-xs-2 v3-padding-0">
+                <i ng-click="fileReaderService.openFileReader('view',data,moduleService.convertToArray(moduleService.DocumentCenterList),'')" class="fa fa-search-plus fa-lg pointer" tooltips tooltip-title="View" tooltip-side="bottom" tooltip-size="medium"></i> &nbsp;
+                <i ng-click="fileReaderService.openFileReader('download',data,null,'')" class="fa fa-download fa-lg pointer" tooltips tooltip-title="Download" tooltip-side="bottom" tooltip-size="medium"></i> &nbsp;
+                <i ng-if="data.DocumentStatus == 'DRAFT'" ng-click="" class="fa fa-pencil fa-lg pointer" tooltips tooltip-title="Sign" tooltip-side="bottom" tooltip-size="medium"></i>
+            </div>
+        </div>
+    </div>
+    <div class="hidden-md hidden-sm hidden-lg col-xs-12  ipos-table-xs"  ng-repeat="data in moduleService.convertToArray(moduleService.DocumentCenterList) track by $index" >            
+   		<div class="col-xs-12">
+   			<div class="col-xs-6">{{"v3.myworkspace.label.application.motor.Description"| translate}}</div>
+   			<div title="{{data.Name.$}}" class="col-xs-6" title="{{data.Name}}">{{data.Name | trimtext:false:20:'...'}}</div>
+   		</div>
+   		<div class="col-xs-12">
+   			<div class="col-xs-6">{{"v3.myworkspace.label.application.motor.FileName"| translate}}</div>
+   			<div class="col-xs-6" title="{{data.FileName}}">{{data.FileName | trimtext:false:20:'...'}}</div>
+   		</div>
+   		<div class="col-xs-12">
+   			<div class="col-xs-6">{{"v3.myworkspace.label.application.motor.CreatedDate"| translate}}</div>
+   			<div class="col-xs-6" title="{{data.CreateDate}}">{{data.CreatedDate | datetimeFilter:"DD/MM/YYYY"| trimtext:false:10:'...'}}</div>
+   		</div>
+   		<div class="col-xs-12">
+   			<div class="col-xs-6">{{"v3.documentcenter.label.Status"| translate}}</div>
+   			<div class="col-xs-6" >{{data.DocumentStatus}}&nbsp;</div>
+   		</div>
+   		<div class="col-xs-12">
+   			<div class="col-xs-6">{{"v3.myworkspace.label.application.motor.FileSize"| translate}}</div>
+   			<div class="col-xs-6">{{data.FileSize}}&nbsp;</div>
+   		</div>
+     	<div class="col-xs-12">
+   			<div class="col-xs-6">{{"v3.myworkspace.label.application.motor.Action"| translate}}</div>
+   			<div class="col-xs-6">
+   				 <i ng-click="fileReaderService.openFileReader('view',data,moduleService.convertToArray(moduleService.DocumentCenterList),'')" class="fa fa-search-plus fa-lg pointer" tooltips tooltip-title="View" tooltip-side="bottom" tooltip-size="medium"></i> &nbsp;
+                <i ng-click="fileReaderService.openFileReader('download',data,null,'')" class="fa fa-download fa-lg pointer" tooltips tooltip-title="Download" tooltip-side="bottom" tooltip-size="medium"></i> &nbsp;
+                <i ng-if="data.DocumentStatus == 'DRAFT'" ng-click="" class="fa fa-pencil fa-lg pointer" tooltips tooltip-title="Sign" tooltip-side="bottom" tooltip-size="medium"></i>
+   			</div>
+   		</div>
+</div>
+    <!-- Attachment Section-->
+    </br>
+    <div>
+        <strong>{{'v3.claimsubmission.label.motor.Attachment' | translate}} </strong>
+      <!--   <span class="attachmentToggle v3-float-icon-right-hide-show pointer" ng-click="toogleElement('attachment','attachmentToggle')" tabindex="0"><i class="fa fa-chevron-down fa-lg"></i></span> -->
+    </div>
+    </br>
+    <div class="attachment" ng-include="initContextPath+'/view/fileAttachment/fileUpload.html'"></div>
+</div>
+
+<!-- Payment -->
+<div fieldId="case-management-personal-accident:Payment" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="col-xs-offset-0 form-group form-group-lg">
+			<label><strong>Basic Information</strong></label>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Transaction Type</label>
+				<span style='background-color: #eee;cursor: not-allowed;' class="form-control">{{'v3.payment.transactiontype.'+ moduleService.findElementInElement_V3(moduleService.payment,['CaseType']).$ | translate}}</span>
+				<!-- <input class="form-control" type="text" ng-disabled="true" 
+				 	ng-model="moduleService.findElementInElement_V3(moduleService.payment,['CaseType']).$"/> -->
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Reference No.</label>
+				<input class="form-control" type="text" ng-disabled="true" 
+				 	ng-model="moduleService.findElementInElement_V3(moduleService.payment,['CaseName']).$"/>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Product Name</label>
+				<span style='background-color: #eee;cursor: not-allowed;' class="form-control">{{'v3.illustration.product.'+ moduleService.findElementInElement_V3(moduleService.payment,['Product']).$ | translate}}</span>
+				<!-- <input class="form-control" type="text" ng-disabled="true" 
+				 	ng-model="moduleService.findElementInElement_V3(moduleService.payment,['Product']).$"/> -->
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Total Sum Insured ({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</label>
+				<input class="form-control" type="text" ng-disabled="true" pos-autonumeric decimal="0"
+				 	ng-model="moduleService.findElementInElement_V3(moduleService.payment,['SumInsured']).$"/>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="col-xs-offset-0 form-group form-group-lg">
+			<label><strong>Payment Information</strong></label>
+		</div>
+	</div>	
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Payor Name</label>
+				<input class="form-control" type="text" ng-disabled="false" 
+				 	ng-model="moduleService.findElementInElement_V3(moduleService.payment,['FullName']).$"/>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Payable Amount ({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</label>
+				<input class="form-control" type="text" ng-disabled="true" 
+				 	ng-model="moduleService.findElementInElement_V3(moduleService.payment,['Premium']).$"/>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Payment Method*</label>
+				<v3-switch-new switch-size="" switch-name="paymentMethod" prefix="v3.paymentMethod"
+		           	switch-model="moduleService.findElementInElement_V3(moduleService.payment,['PaymentMethod']).Value" 
+		           	switch-default-value="" switch-disabled="false" 
+		           	switch-options="paymentMethod">
+				</v3-switch-new>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	</div>	
+	<!-- CASH -->
+	<!-- CHEQUE -->
+	<div ng-if="moduleService.findElementInElement_V3(moduleService.payment,['PaymentMethod']).Value=='CHEQUE'" 
+		class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Cheque Number*</label>
+				<input class="form-control" type="text" ng-disabled="false" 
+				 	ng-model="moduleService.findElementInElement_V3(moduleService.payment,['']).$"/>
+			</div>
+		</div>
+	</div>
+	<div ng-if="moduleService.findElementInElement_V3(moduleService.payment,['PaymentMethod']).Value=='CHEQUE'" 
+		class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Bank Name*</label>
+				<input class="form-control" type="text" ng-disabled="false" 
+				 	ng-model="moduleService.findElementInElement_V3(moduleService.payment,['']).$"/>
+			</div>
+		</div>
+	</div>
+	<div ng-if="moduleService.findElementInElement_V3(moduleService.payment,['PaymentMethod']).Value=='CHEQUE'" 
+		class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Cheque Date*</label>
+				<div class="ms-calendar-wrapper"><input ms-datepicker ng-model="moduleService.findElementInElement_V3(moduleService.payment,['PaidDate']).$" class="ms-calendar"/></div>
+			</div>
+		</div>
+	</div>
+	<!-- BANK TRANSFER -->
+	<div ng-if="moduleService.findElementInElement_V3(moduleService.payment,['PaymentMethod']).Value=='BANKTRANSFER'" 
+		class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Advice No.*</label>
+				<input class="form-control" type="text" ng-disabled="false" 
+				 	ng-model="moduleService.findElementInElement_V3(moduleService.payment,['']).$"/>
+			</div>
+		</div>
+	</div>
+	<div ng-if="moduleService.findElementInElement_V3(moduleService.payment,['PaymentMethod']).Value=='BANKTRANSFER'" 
+		class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Advice Date*</label>
+				<div class="ms-calendar-wrapper"><input ms-datepicker ng-model="moduleService.findElementInElement_V3(moduleService.payment,['PaidDate']).$" class="ms-calendar"/></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Payment Date*</label>
+				<!-- <span style='background-color: #eee;cursor: not-allowed;' class="form-control">{{moduleService.findElementInElement_V3(moduleService.payment,['Payment','CreatedDate']).$ | dateFilter}}</span> -->
+				<div class="ms-calendar-wrapper"><input ng-disabled="true" ms-datepicker ng-model="moduleService.findElementInElement_V3(moduleService.payment,['Payment','CreatedDate']).$" class="ms-calendar"/></div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>Remark</label>
+				<input class="form-control" type="text" ng-disabled="false" 
+				 	ng-model="moduleService.findElementInElement_V3(moduleService.payment,['BasePremiumAfterLoadingAndNCD']).$"/>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content" style="text-align: right;">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+				<label>&nbsp;</label>
+				<button class="btn btn-lg v3-btn-primary" ng-disabled="moduleService.payment==undefined" ng-click="printPdf()">Generate PDF</button>
+			</div>
+		</div>
+	</div>
+</div>

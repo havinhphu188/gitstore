@@ -1,0 +1,126 @@
+<md-dialog class="dialog-style" ng-init="showTicketInfo()" aria-label="Settings">
+    <div layout="row" class="popup-header" layout-margin>
+        <div flex="10">
+            <div ng-click="cancelDialog()" class="center default-color"></div>
+        </div>
+        <div flex>
+        <div class="center">Setting</div>
+        </div>
+        <div flex="10">
+            <div ng-click="closeDialog()" class="center default-color">Close</div>
+        </div>
+    </div>
+    <div class="dialog-content-500">
+        <div layout="row" class="row breakLine" layout-margin>
+            <div flex="30">
+                Change theme
+            </div>
+            <div flex="60">
+                <md-select style="margin-top:-5px;" class="full-width" ng-model="defaultTheme" placeholder="Choose theme color">
+                    <md-option md-no-ink ng-click="changeTheme(color.name)" ng-value="color.name" ng-repeat="color in colors">
+                        <div style="width: 300px" layout="row">
+                            <div flex="60">
+                                {{ color.name }}
+                            </div>
+                            <div flex="10">
+                            </div>
+                            <div flex="20">
+                                <div style="background-color: {{color.primaryColor}}; width: 20px; height: 20px;border-radius: 15px;"></div>
+                            </div>
+                        </div>
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <!-- <div layout="row" class="margin-text-center">
+            <div flex="30">
+                Change theme
+            </div>
+            <div md-theme="altTheme" flex="60">
+                <md-select class="full-width" ng-model="defaultTheme" placeholder="Choose theme color">
+                    <md-option md-no-ink ng-click="changeTheme(color.name)" ng-value="color.name" ng-repeat="color in colors">
+                        <div style="width: 300px" layout="row">
+                            <div flex="60">
+                                {{ color.name }}
+                            </div>
+                            <div flex="10">
+                            </div>
+                            <div flex="20">
+                                <div style="background-color: {{color.primaryColor}}; width: 20px; height: 20px;border-radius: 15px;"></div>
+                            </div>
+                        </div>
+                    </md-option>
+                </md-select>
+            </div>
+        </div> -->
+        <div layout="row" class="row breakLine" layout-margin>
+            <div flex="80">
+                Ticket Information
+            </div>
+            <div flex="10" class="input">
+               <!--  <md-button md-no-ink ng-click="showTicketInfo()" class="md-button button" aria-label="show ticket info">
+                    View ticket info
+                </md-button> -->
+                
+                <!-- <md-button style="margin-top:-15px;" md-no-ink ng-click="showTicketInfo()" class="md-icon-button button">
+                    <i class="fa fa-refresh fa-lg default-color"></i>
+                </md-button>  -->
+            </div>
+        </div>
+        <div class="slide-down" style="color: gray;">
+             <div layout="row" class="row breakLine" layout-margin>
+                <div flex="30">
+                    Expire Date
+                </div>
+                <div flex="60" class="input default-color">
+                    {{ticketInfo.expireDate}}
+                </div>
+            </div>
+            <div layout="row" class="row breakLine" layout-margin>
+                <div flex="30">
+                    User Id
+                </div>
+                <div flex="60" class="input">
+                    {{ticketInfo.userId}}
+                </div>
+            </div>
+            <div layout="row" class="row breakLine" layout-margin>
+                <div flex="30">
+                    Ticket Number
+                </div>
+                <div flex="60" class="input">
+                    {{ticketInfo.ticketNumber}}
+                </div>
+            </div>
+            <div layout="row" class="row breakLine" layout-margin>
+                <div flex="30">
+                    Started Date
+                </div>
+                <div flex="60" class="input">
+                    {{ticketInfo.startedDate}}
+                </div>
+            </div>
+           
+            <!-- <div layout="row" class="row breakLine" layout-margin>
+                <div flex="50">
+                    Expire Duration (hh:mm:ss)
+                </div>
+                <div flex="40" class="input">
+                    {{ticketInfo.expireDuration}}
+                </div>
+            </div>
+            <div layout="row" class="row breakLine" layout-margin>
+                <div flex="50">
+                    Valid Time (hh:mm:ss)
+                </div>
+                <div flex="40" class="input">
+                    {{ticketInfo.validTime}}
+                </div>
+            </div> -->
+        </div>
+    </div>
+<!--     <div class="dialog-footer">
+        <md-button ng-click="cancelDialog()" md-no-ink class="button-footer">Cancel</md-button>
+    </div> -->
+</md-dialog>

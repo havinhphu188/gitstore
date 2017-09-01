@@ -1,0 +1,183 @@
+{
+  "IposDocument": {
+    "Data": {
+      "case-management-fire:CaseManagement": {
+        "@key": [
+          "CaseManagement"
+        ],
+        "@icon": {
+          "main": "fa fa-fire"
+        },
+        "@section": "case-management-fire:CaseManagement",
+        "@case-name": "",
+        "@product": "FIR",
+        "case-management-fire:Summary": {
+          "@icon": "fa fa-pencil",
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-fire:CaseManagement",
+          "case-management-fire:CaseInformation": {
+            "@key": ["DocName"],
+            "@preview": ["case-management-fire:Summary"]
+          },
+          "case-management-fire:CurrentStatus": {
+            "@key": ["BusinessStatus"],
+            "@preview": ["case-management-fire:Summary"],
+            "@valuePrefix": "v3.document.status."
+          },
+          "case-management-fire:PendingInformation": {},
+          "case-management-fire:NextRequiredAction": {},
+          "case-management-fire:PolicyNo": {
+            "@key": [
+              "PolicyNumber"
+            ]
+          }
+        },
+        "case-management-fire:Step2_Quotation": {
+          "@key": [
+            "Quotations"
+          ],
+          "@icon": {
+            "main": "fa fa-fire",
+            "step": "2"
+          },
+          "@cssClass": "v3-box-2",
+          "@section": "case-management-fire:CaseManagement",
+          "case-management-fire:NewQuotation": {
+            "permission": {
+	          "UW": {
+	            "editable": false,
+	            "viewable": false
+	          }
+	        },
+            "@key": [
+              "case-management-fire:NewQuotation"
+            ],
+            "@section": "case-management-fire:Step2_Quotation",
+            "@icon": {
+            	"main": "fa fa-fire",
+            	"mainAction":"addIcon"
+            },
+            "@cssClass": "v3-box-2",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          },
+          "case-management-fire:Quotation": {
+            "@key": [
+              "Quotation"
+            ],
+            "@icon": {
+              "main": "fa fa-fire",
+              "subAction": "removeIcon"
+            },
+            "@cssClass": "v3-box-2",
+            "@section": "case-management-fire:Step2_Quotation",
+            "@cardType": "template"
+          }
+        },
+        "case-management-fire:Application": {
+          "@key": ["Application"],
+          "@icon": {
+            "main": "fa fa-file-o",
+            "step": "3"
+          },
+          "@onOpen": "checkQuotation()",
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-fire:CaseManagement"
+        },
+        "case-management-fire:Step5_DocumentCenter": {
+          "@key": ["Step5_DocumentCenter"],
+          "@icon": {
+            "main": "fa fa-paperclip"
+          },
+          "@section": "case-management-fire:CaseManagement",
+          "case-management-fire:TransactionDocuments": {
+            "@key": [
+              "Prints"
+            ],
+            "@isVisible": false,
+            "@icon": "fa fa-file-text-o",
+            "@section": "case-management-fire:Step5_DocumentCenter",
+            "TransactionDocument": {
+              "@key": [
+                "Print"
+              ],
+              "@section": "case-management-fire:TransactionDocuments",
+              "@icon": "fa fa-paperclip",
+              "@cssClass": "v3-box-1",
+              "@cardType": "template",
+              "@onOpen": "fileReaderService.openFileReader('view',card.metadata,[],'')"
+            }
+          },
+          "case-management-fire:Attachments": {
+            "@key": [
+              "Attachments"
+            ],
+            "@section": "case-management-fire:Step5_DocumentCenter",
+            "@icon": "fa fa-paperclip",
+            "@cssClass": "v3-box-1",
+            "@previewHtml": "v3-summary-static-attachment.html",
+            "Attachment": {
+              "@key": [
+                "Attachment"
+              ],
+              "@section": "case-management-fire:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "subAction": "removeIcon"
+              },
+              "@cssClass": "v3-box-1",
+              "@previewHtml": "v3-summary-static-attachment-file.html",
+              "@cardType": "template",
+              "@onOpen": "fileReaderService.openFileReader('view',card.refDetail,self.moduleService.convertToArray(self.moduleService.findElementInElement_V3(self.moduleService.detail, ['Attachment'])),'uploadMode')"
+            },
+            "addAttachment": {
+              "@section": "case-management-fire:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "mainAction": "addIcon"
+              },
+              "@cardType": "action",
+              "@staticHtml": "fileUpload.html",
+              "@onClick": "importFile()"
+            }
+          }
+        },        
+        "case-management-fire:Step6_Underwriting": {
+          "@key": [
+            "Underwriting"
+          ],
+          "@icon": {
+            "main": "fa fa-pencil-square-o",
+            "step": "4"
+          },
+          "@isVisible": false,
+          "@onOpen": "getUnderwritingLazyList()",
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-fire:CaseManagement"
+        },
+        "case-management-fire:Step7_MaintainEcover": {
+          "@icon": {
+            "main": "fa fa-spinner",
+            "step": "5"
+          },
+          "@isVisible": false,
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-fire:CaseManagement",
+          "case-management-fire:MaintainEcover": {}
+        },
+        "case-management-fire:Payment": {
+          "@icon": {
+            "main": "fa fa-credit-card"
+          },
+          "@isVisible": "findElementInDetail(['ClientPayment'])['@refUid']!=''",
+          "@onOpen": "getPaymentLazyList()",
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-fire:CaseManagement",
+          "@key": [
+            "ClientPayment"
+          ]
+        }
+      }
+    }
+  }
+}

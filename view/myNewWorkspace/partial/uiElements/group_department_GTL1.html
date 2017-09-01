@@ -1,0 +1,70 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Group Department Manager Approval -->
+<div fieldId="groupdepartment:Findings" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<label class="">{{"v3.mynewworkspace.portlet.label.group-department:Findings" | translate}} <span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+	  <table class="table v3-responsive-table">
+	  	<thead>
+	  		<tr>
+	  			<th class="common-action-items-text v3-group-department-findings-text">{{"v3.mynewworkspace.portlet.label.group-department:Conditions" | translate}}:</th>
+	  			<th class="common-action-items-text v3-group-department-findings-text">{{"v3.mynewworkspace.portlet.label.group-department:Outcome" | translate}}:</th>
+	  		</tr>
+	  	<thead>
+	  	<tbody><tr>
+	  		<td>
+	  			<div ng-repeat="ruleCd in moduleService.findElementInDetail_V3(['GroupDepartmentRulesInfo', 'GroupDepartmentRuleInfo']) track by $index">
+	  				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-if = "moduleService.findElementInElement_V3(ruleCd,['GroupDepartmentRuleValid']).$ == 'N'">
+	  				<span>{{"v3.mynewworkspace.portlet.label.manager-review:" + moduleService.findElementInElement_V3(ruleCd,['GroupDepartmentRuleCd']).$ | translate}}</span>
+	  				</div>
+	  			</div>
+			</th>
+	  		<td>
+	  			<div ng-repeat="ruleOutcome in moduleService.findElementInDetail_V3(['GroupDepartmentRulesInfo', 'GroupDepartmentRuleInfo']) track by $index">
+	  				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-if = "moduleService.findElementInElement_V3(ruleOutcome,['GroupDepartmentRuleValid']).$ == 'N'">
+	  				<span>{{moduleService.findElementInElement_V3(ruleOutcome,['GroupDepartmentRuleOutcome']).$}}</span>
+	  				</div>
+	  			</div>
+			</th>
+	  	</tr></tbody>
+	  </table>
+</div>
+<div fieldId="groupdepartment:Comments" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary v3-column-content">
+	<div class="col-xs-12 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label class="">{{"v3.mynewworkspace.portlet.label.group-department:Comments" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+			<textarea class="form-control bottom-25" ng-disabled="moduleService.freeze==true || uiElement.refDetail['@editable'] == '0'"
+     			type="text" ng-model="uiElement.refDetail.$">
+     		</textarea>
+		</div>
+	</div>
+</div>
+<div fieldId="groupdepartment:ReviewDecision" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary v3-column-content">
+	<div class="col-xs-9 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label class="">{{"v3.mynewworkspace.portlet.label.group-department:ReviewDecision" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></label>
+      		<v3-switch-new prefix="v3.groupDepartment.isStandard"
+		    	switch-model="uiElement.refDetail.$"
+		    	switch-default-value="" switch-disabled="moduleService.freeze==true || uiElement.refDetail['@editable'] == '0'"
+		    	switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['IsStandard']).Option">
+			</v3-switch-new>
+			<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+		</div>
+	</div>
+</div>

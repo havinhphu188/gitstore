@@ -1,0 +1,437 @@
+[
+  {
+    "myContentMyPendingBusinessTransaction": {
+      "details": [
+        {
+          "selector": "#navigationContainer",
+          "content_translate": "new.v3.userguide.content.navigationContainer",
+          "width": "400px",
+          "position":"fixed",
+          "placement": "bottom"
+        },        
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_pending_business_transaction']",         
+          "content_translate": "new.v3.userguide.myContent.content.myContentMyPendingBusinessTransaction",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_pending_business_transaction'] .ipos-icon-expand",
+          "content_translate": "new.v3.userguide.myContent.content.iposiconexpand",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_pending_business_transaction'] .menu-item-text",
+          "content_translate": "new.v3.userguide.myContent.content.menuitemtext",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_pending_business_transaction'] .add-new-item",
+          "content_translate": "new.v3.userguide.myContent.content.addnewitem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_pending_business_transaction'] .search-item",
+          "content_translate": "new.v3.userguide.myContent.content.searchitem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_pending_business_transaction'] .reload-item",
+          "content_translate": "new.v3.userguide.myContent.content.reloaditem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_pending_business_transaction'] .view-list-item",
+          "content_translate": "new.v3.userguide.myContent.content.viewlistitem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_pending_business_transaction'] .view-thumb-item",
+          "content_translate": "new.v3.userguide.myContent.content.viewthumbitem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_pending_business_transaction'] .view-table-list-item",
+          "content_translate": "new.v3.userguide.myContent.content.viewtablelistitem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_pending_business_transaction'] .view-pagination-item",
+          "content_translate": "new.v3.userguide.myContent.content.viewpaginationitem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": "#footerNew",
+          "content_translate": "new.v3.userguide.content.footer",
+          "width": "400px",
+          "placement": "top"
+        }        
+      ],
+      "isCompleted": false
+    }
+  },
+  {
+    "myContentMyUnderwritingRequestsList": {
+      "details": [
+        {
+          "selector": "#navigationContainer",
+          "content_translate": "new.v3.userguide.content.navigationContainer",
+          "width": "400px",
+          "position":"fixed",
+          "placement": "bottom"
+        },        
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_underwriting_requests_list']",         
+          "content_translate": "new.v3.userguide.myContent.content.myContentMyUnderwritingRequestsList",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_underwriting_requests_list'] .ipos-icon-expand",
+          "content_translate": "new.v3.userguide.myContent.content.iposiconexpand",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_underwriting_requests_list'] .menu-item-text",
+          "content_translate": "new.v3.userguide.myContent.content.menuitemtext",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_underwriting_requests_list'] .add-new-item",
+          "content_translate": "new.v3.userguide.myContent.content.addnewitem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_underwriting_requests_list'] .search-item",
+          "content_translate": "new.v3.userguide.myContent.content.searchitem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_underwriting_requests_list'] .reload-item",
+          "content_translate": "new.v3.userguide.myContent.content.reloaditem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_underwriting_requests_list'] .view-list-item",
+          "content_translate": "new.v3.userguide.myContent.content.viewlistitem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_underwriting_requests_list'] .view-thumb-item",
+          "content_translate": "new.v3.userguide.myContent.content.viewthumbitem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_underwriting_requests_list'] .view-table-list-item",
+          "content_translate": "new.v3.userguide.myContent.content.viewtablelistitem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".portlet-body #dashboard-portlet[name='my_underwriting_requests_list'] .view-pagination-item",
+          "content_translate": "new.v3.userguide.myContent.content.viewpaginationitem",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": "#footerNew",
+          "content_translate": "new.v3.userguide.content.footer",
+          "width": "400px",
+          "placement": "top"
+        }        
+      ],
+      "isCompleted": false
+    }
+  },
+  {
+    "productList": {
+      "details": [
+        {
+          "selector": ".productList .v3-live-card-item[name='FIR']",
+          "content_translate": "new.v3.userguide.productlist.content.FIR",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".productList .v3-live-card-item[name='fire-houseowner-as']",
+          "content_translate": "new.v3.userguide.productlist.content.fire-houseowner-as",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".productList .v3-live-card-item[name='fire-houseowner-ds']",
+          "content_translate": "new.v3.userguide.productlist.content.fire-houseowner-ds",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".productList .v3-live-card-item[name='motor-private-car-m-as']",
+          "content_translate": "new.v3.userguide.productlist.content.motor-private-car-m-as",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".productList .v3-live-card-item[name='motor-private-car-m-ds']",          
+          "content_translate": "new.v3.userguide.productlist.content.motor-private-car-m-ds",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".productList .v3-live-card-item[name='term-life-protect-as']",          
+          "content_translate": "new.v3.userguide.productlist.content.term-life-protect-as",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".productList .v3-live-card-item[name='term-life-protect-ds']",          
+          "content_translate": "new.v3.userguide.productlist.content.term-life-protect-ds",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".productList .v3-live-card-item[name='personal-accident']",          
+          "content_translate": "new.v3.userguide.productlist.content.personal-accident",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".productList .v3-live-card-item[name='income-protection']",          
+          "content_translate": "new.v3.userguide.productlist.content.income-protection",
+          "width": "400px",
+          "placement": "bottom"
+        }         
+      ],
+      "isCompleted": false
+    }
+  },
+  {
+    "CaseManagement": {
+      "details": [
+       	{
+          "selector": ".documentList .v3-live-card-item[name ^='case-management'][name $='Summary']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Summary",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name ^='case-management'][name $='ProspectClient']",        
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Step1_ProspectClient",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name ^='case-management'][name $='NeedAnalysis']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Summary",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name ^='case-management'][name $='Quotation']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Quotation",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name ^='case-management'][name $='ReviewQuotation']",         
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Step3_ReviewQuotation",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name ^='case-management'][name $='Application']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Application",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name ^='case-management'][name $='DocumentCenter']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Step5_DocumentCenter",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name ^='case-management'][name $='Attachment']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Step5_DocumentCenter",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name ^='case-management'][name $='Underwriting']",         
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Step6_Underwriting",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name ^='case-management'][name $='Step7_MaintainEcover']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Step7_MaintainEcover",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name ^='case-management'][name $='Step6_MaintainEcover']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Step6_MaintainEcover",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name ^='case-management'][name $='Payment']",         
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Payment",
+          "width": "400px",
+          "placement": "bottom"
+        } 
+      ],
+      "isCompleted": false
+    }
+  },
+  {
+    "prospect:Prospect": {
+      "details": [
+       	{
+          "selector": ".v3-live-card-item[name='person:Summary']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Summary",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".v3-live-card-item[name='person:BasicInformation']",        
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Step1_ProspectClient",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".v3-live-card-item[name='person:OtherInformation']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Quotation",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".v3-live-card-item[name='person:Contacts']",         
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Step3_ReviewQuotation",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".v3-live-card-item[name='person:Addresses']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Application",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".v3-live-card-item[name='Attachments']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Step5_DocumentCenter",
+          "width": "400px",
+          "placement": "bottom"
+        }
+      ],
+      "isCompleted": false
+    }
+  },
+  {
+    "ipos-client:Client": {
+      "details": [
+       	{
+          "selector": ".documentList .v3-live-card-item[name='ipos-client:ClientDetail']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Summary",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name='ipos-client:OtherInformation']",        
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Step1_ProspectClient",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name='ipos-client:Contacts']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Quotation",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name='ipos-client:Addresses']",         
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Step3_ReviewQuotation",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name='ipos-client:PolicyByClient']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Application",
+          "width": "400px",
+          "placement": "bottom"
+        }
+      ],
+      "isCompleted": false
+    }
+  },
+  {
+    "claim-notification:ClaimNotification": {
+      "details": [
+       	{
+          "selector": ".documentList .v3-live-card-item[name='claim-notification:Summary']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Summary",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name='claim-notification:ClaimInformation']",        
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Step1_ProspectClient",
+          "width": "400px",
+          "placement": "bottom"
+        },
+        {
+          "selector": ".documentList .v3-live-card-item[name='Attachments']",          
+          "content_translate": "new.v3.userguide.documentlist.content.case-management-motor:Quotation",
+          "width": "400px",
+          "placement": "bottom"
+        }
+      ],
+      "isCompleted": false
+    }
+  },
+  {
+    "documentDetails": {
+      "details": [
+        {
+          "selector": ".box-detail-form",         
+          "content_translate":  "new.v3.userguide.content.documentDetails",
+          "width": "400px",
+          "placement": "top",
+          "step": "2"
+        },
+        {
+          "selector": ".common-menu",         
+          "content_translate": "new.v3.userguide.content.actionMenu",
+          "width": "400px",
+          "placement": "bottom",
+          "position":"fixed",
+          "step": "0"
+        },
+        {
+          "selector": ".v3-bread-crum-list",          
+          "content_translate": "new.v3.userguide.content.breadCrumList",
+          "width": "400px",
+          "placement": "right",
+          "position":"fixed",
+          "step": "1"
+        }
+      ],
+      "isCompleted": false
+    }
+  }
+]

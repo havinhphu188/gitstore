@@ -1,0 +1,583 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Section: Policy Summary -->
+<div fieldId="policy-private-fire:PolicyInformation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Policy Information </label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:PolicyInformation'])['@editable']=='0'" 
+			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:PolicyInformation']).$"
+		     />	
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:PolicyOwner" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Policy Owner</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:PolicyOwner'])['@editable']=='0'" 
+			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:PolicyOwner']).$" />	
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:PolicyPeriod" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Policy Period</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:PolicyPeriod'])['@editable']=='0'" 
+			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:PolicyPeriod']).$"/>	
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:PolicyStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Policy Status</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:PolicyStatus'])['@editable']=='0'" 
+			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:PolicyStatus']).$" />	
+	  	</div>
+  	</div>
+</div>
+<!-- Section: Policy Owner -->
+
+<div fieldId="policy-private-fire:ID" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>ID</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInElement_V3(['policy-private-fire:PolicyOwner'],['policy-private-fire:ID'])['@editable']=='0'" 
+			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:ID']).$"/>	
+	  	</div>
+  	</div>
+</div>
+
+<div fieldId="policy-private-fire:FullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Full Name</label>
+		   	 <input class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:FullName'])['@editable']=='0'" 
+			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:FullName']).$"
+	        	type="text"  maxlength="120"/>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:BirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Date of Birth</label>
+		   	<input class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:BirthDate'])['@editable']=='0'"
+     			type="text" style="cursor: pointer" ms-datepicker="{mode: 'scroller', theme: 'android-holo light', dateFormat: 'dd/mm/yy'}"
+     			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:BirthDate']).$"/>
+	        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:BirthDate']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:Gender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>Gender</label>
+		    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+		        <v3-switch-new style="float:left;" switch-size="" switch-name="gender1" switch-model="moduleService.findElementInDetail_V3(['policy-private-fire:Gender']).Value" switch-default-value="" switch-disabled="false" switch-options="gender">
+		        </v3-switch-new>
+			</div>
+		</div>
+	</div>
+</div>
+<div fieldId="policy-private-fire:Nationality" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">	
+	 <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Nationality{{moduleProspectPersonalService.findElementInDetail_V3(['Nationality']).Value}} <span ng-show="moduleProspectPersonalService.findElementInDetail_V3(['Nationality'])['@mandatory'] == '1'">*</span></label>
+<!-- 		   	<select class="form-control" ng-disabled="viewMode || moduleProspectPersonalService.findElementInDetail_V3(['Nationality'])['@editable'] == '0'"
+	    		ng-model="moduleProspectPersonalService.findElementInDetail_V3(['Nationality']).Value">
+			  <option ng-repeat="item in moduleProspectPersonalService.findElementInElement_V3(moduleProspectPersonalService.lazyChoicelist, ['Nationality']).Option" value="{{item.value}}">{{'v3.pnc.nationality.enum.'+item.value | translate}}</option>
+			</select> -->
+			<ng-newDropDown ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Nationality']).Value"  filename="nationality_mock" list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['policy-private-fire:Nationality']).Option" type="nonFlag" prefix="v3.application.motor.nationality"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:Nationality']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:MarialStatus" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div class="col-xs-offset-1 col-xs-10 v3-padding-left-0">
+			<div class="form-group form-group-lg has-success">
+			   <label>Marital Status</label>
+			   <div flex-sm="100" flex-md="100" layout="row" layout-align="start start" flex>
+			        <v3-switch-new style="float:left;" switch-size="" switch-name="MarStat1" switch-model="moduleService.findElementInDetail_V3(['policy-private-fire:MarialStatus']).Value" switch-default-value="" switch-disabled="false" switch-options="MarStat">
+			        </v3-switch-new>
+				</div>			
+		  	</div>
+		</div>
+  	</div>			
+</div>
+<div fieldId="policy-private-fire:Mobile" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Mobile</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Mobile'])['@editable']=='0'" 
+			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Mobile']).$" />	
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:Home" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Home</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Home'])['@editable']=='0'" 
+			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Home']).$"/>	
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:Office" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Office</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Office'])['@editable']=='0'" 
+			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Office']).$" />	
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:EmailAddress" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Email Address</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:EmailAddress'])['@editable']=='0'" 
+			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:EmailAddress']).$" />	
+	  	</div>
+  	</div>
+</div>
+<!-- Section: Policy Corresponding address -->
+<div fieldId="policy-private-fire:AddressType" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div class="col-xs-offset-1 col-xs-10 v3-padding-left-0">
+			<div class="form-group form-group-lg has-success">
+			    <label>Address Type</label>
+			    <select class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:AddressType']['@editable'] == '0'"
+					ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:AddressType']['Value']">
+				  <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist,['policy-private-fire:AddressType'])['Option']" value="{{item.value}}">{{'v3.pnc.addresssType.enum.'+item.value | translate}}</option>
+				</select>
+		      	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:AddressType'].errorMessage | translate"></span>			
+		  	</div>
+		</div>
+  	</div>			
+</div>	
+<div fieldId="policy-private-fire:BlkHouseNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Block/ House Number <span ng-show="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:BlkHouseNo']['@mandatory'] == '1'">*</span></label>		    
+		    <input type="text" class="form-control" placeholder="{{(viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:BlkHouseNo']['@editable'] == '0') ? '' : 'Block/ House Number'}}" 
+		    		ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:BlkHouseNo']['@editable'] == '0'"  
+        			maxlength="12" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:BlkHouseNo'].$" />
+        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:BlkHouseNo'].errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="policy-private-fire:Building" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Building <span ng-show="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Building']['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control" placeholder="Building" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Building']['@editable'] == '0'"  
+       			maxlength="12" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Building'].$" />
+        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Building'].errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="policy-private-fire:City" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>City <span ng-show="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:City']['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control" placeholder="City" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['City']['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:City'].$" />
+        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:City'].errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="policy-private-fire:Country" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>Country <span ng-show="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Country']['@mandatory'] == '1'">*</span></label>
+<!-- 		    <select class="form-control" ng-disabled="viewMode ||moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Country']['@editable'] == '0'"
+	        	ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Country'].Value">
+			  <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['policy-private-fire:Country']).Option" value="{{item.value}}">{{'v3.pnc.country.enum.'+item.value | translate}}</option>
+			</select> -->
+			<ng-newDropDown ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Country']['Value']"  filename="nationality_mock" list="moduleService.findElementInElement_V3(moduleService.lazyChoicelist,['policy-private-fire:Country'])['Option']" type="nonFlag" prefix="v3.application.motor.nationality"></ng-newDropDown>
+	        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Country']['errorMessage'] | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="policy-private-fire:Postal" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>Postal Code <span ng-show="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Postal']['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Postal']['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Postal'].$" />
+        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Postal'].errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="policy-private-fire:Street" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Street <span ng-show="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Street']['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Street']['@editable'] == '0'"  
+        		maxlength="30" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Street'].$" />
+        	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:Street'].errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<div fieldId="policy-private-fire:UnitNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">	
+	    <div class="form-group form-group-lg has-success">
+		    <label>Unit Number<span ng-show="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:UnitNo']['@mandatory'] == '1'">*</span></label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:UnitNo']['@editable'] == '0'"  
+        		maxlength="12" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:UnitNo'].$" />
+       	 	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:Address'])['policy-private-fire:UnitNo'].errorMessage | translate"></span>
+	  	</div>
+	</div>
+</div>
+<!-- Section: Policy Basic <Produc Name> -->
+<div fieldId="policy-private-fire:InceptionDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Inception Date</label>
+		   	<input class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:InceptionDate'])['@editable'] == '0'"
+     			type="text" style="cursor: pointer" ms-datepicker="{mode: 'scroller', theme: 'android-holo light', dateFormat: 'dd/mm/yy'}"
+     			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:InceptionDate']).$" "/>
+	        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:InceptionDate']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:ExpiryDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Expiry Date</label>
+		   	<input class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:ExpiryDate'])['@editable'] == '0'"
+     			type="text" style="cursor: pointer" ms-datepicker="{mode: 'scroller', theme: 'android-holo light', dateFormat: 'dd/mm/yy'}"
+     			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:ExpiryDate']).$" "/>
+	        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:ExpiryDate']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:IssueDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">     
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Issue Date</label>
+		   	<input class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:IssueDate'])['@editable'] == '0'"
+     			type="text" style="cursor: pointer" ms-datepicker="{mode: 'scroller', theme: 'android-holo light', dateFormat: 'dd/mm/yy'}"
+     			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:IssueDate']).$" "/>
+	        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:IssueDate']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:BillingCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Billing Currency</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:BillingCurrency'])['@editable']=='0'" 
+			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:BillingCurrency']).$"  />	
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:ContactCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Contact Currency</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:ContactCurrency'])['@editable']=='0'" 
+			ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:ContactCurrency']).$"/>	
+	  	</div>
+  	</div>
+</div>
+<!-- Section: Policy Accumulation -->
+<div fieldId="policy-private-fire:State" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>State</label>
+		    <input type="text" class="form-control"  ng-disabled="viewMode ||moduleService.findElementInDetail_V3(['policy-private-fire:Accumulation'])['policy-private-fire:State']['@editable'] == '0'"
+	        	ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Accumulation'])['policy-private-fire:State'].$"/>	
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:Locality" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Locality</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Accumulation'])['policy-private-fire:Locality']['@editable'] == '0'"
+	        	ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Accumulation'])['policy-private-fire:Locality'].$" />	
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:Register" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Register</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Accumulation'])['policy-private-fire:Register']['@editable'] == '0'"
+	        	ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Accumulation'])['policy-private-fire:Register'].$" />	
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:PostalCode" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Postal Code</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Accumulation'])['policy-private-fire:PostalCode']['@editable'] == '0'"
+	        	ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Accumulation'])['policy-private-fire:PostalCode'].$" />	
+	  	</div>
+  	</div>
+</div>
+<!-- Section: Policy Building Info -->
+<div fieldId="policy-private-fire:SituationOfRisk" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"> 
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Situation Of Risk</label>
+			 <input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:SituationOfRisk']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:SituationOfRisk']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:Business" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"> 
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Business</label>
+			<select class="form-control" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Business']).Value">
+			  <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['policy-private-fire:Business','Option'])" 
+			  value="{{item.value}}">{{::item.value}}</option>
+			</select>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:Business']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:Occupancy" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"> 
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Occupancy</label>
+			<select class="form-control" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Occupancy']).Value">
+			  <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['policy-private-fire:Occupancy','Option'])" 
+			  value="{{item.value}}">{{::item.value}}</option>
+			</select>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:Occupancy']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:NoOfStorey" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"> 
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Number of Storey</label>
+			 <input class="form-control" type="text"  ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:NoOfStorey']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:NoOfStorey']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:Attached" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"> 
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Attached</label>
+			<select class="form-control" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Attached']).Value">
+			  <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['policy-private-fire:Attached','Option'])" 
+			  value="{{item.value}}">{{::item.value}}</option>
+			</select>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:Attached']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:FloorArea" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"> 
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Floor Area</label>
+			 <input class="form-control" type="text" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:FloorArea']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:FloorArea']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:ProtectedBy" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"> 
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Protected By</label>
+			<select class="form-control" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:ProtectedBy']).Value">
+			  <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['policy-private-fire:ProtectedBy','Option'])" 
+			  value="{{item.value}}">{{::item.value}}</option>
+			</select>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:ProtectedBy']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:ConstructionYear" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"> 
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Construction Year</label>
+			 <input class="form-control" type="text"  ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:ConstructionYear']).$" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:ConstructionYear']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:Building" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Building</label>
+		    <input type="text" class="form-control" ng-disabled="viewMode || moduleService.findElementInElement_V3(BuildingInfo, ['policy-private-fire:Building'])['@editable'] == '0'"
+	        	ng-model="moduleService.findElementInElement_V3(BuildingInfo, ['policy-private-fire:Building']).$" />	
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:ConstructionType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content"> 
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Construction Type</label>
+			<select class="form-control" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:ConstructionType']).Value">
+			  <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['policy-private-fire:ConstructionType','Option'])" 
+			  value="{{item.value}}">{{::item.value}}</option>
+			</select>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:ConstructionType']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<!-- Section: Policy Perils / FEA / Other -->
+<div fieldId="policy-private-fire:PerilFEAOtherIndicator" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Indicator</label>
+			<select class="form-control" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:PerilFEAOtherIndicator']).Value">
+			  <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['policy-private-fire:PerilFEAOtherIndicator','Option'])" 
+			  value="{{item.value}}">{{::item.value}}</option>
+			</select>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['policy-private-fire:PerilFEAOtherIndicator']).errorMessage | translate"></span>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:PerilFEAOtherDescription" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Type</label>
+			<select class="form-control" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:ConstructionType']).Value">
+			  <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['policy-private-fire:ConstructionType','Option'])" 
+			  value="{{item.value}}">{{::item.value}}</option>
+			</select>
+	  	</div>
+  	</div>
+</div>
+<!-- Section: Policy  Insured Interest-->
+<div fieldId="policy-private-fire:InsuredInterest" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div flex layout="row" class="ipos_portlet_table_header_item md-whiteframe-z1" layout-align="center center" style="line-height: 30px">
+		<div flex>Interest</div>
+		<div flex>Sum Insured</div>
+		<div flex>Premium</div>
+	</div>
+	<div flex layout="row" class="ipos_portlet_table_listRow">
+		<div flex>Interest 1</div>
+		<div flex>Sum Insured</div>
+		<div flex>1,450.00</div>
+	</div>
+	<div flex layout="row" class="ipos_portlet_table_listRow">
+		<div flex>Interest 2</div>
+		<div flex>Sum Insured</div>
+		<div flex>350.00</div>
+	</div>
+	<div flex layout="row" class="ipos_portlet_table_listRow">
+		<div flex>Interest 3</div>
+		<div flex>Sum Insured</div>
+		<div flex>200.00</div>
+	</div>
+	<div flex layout="row" class="ipos_portlet_table_listRow">
+		<div flex>Total</div>
+		<div flex>Sum Insured</div>
+		<div flex>2000</div>
+	</div>
+	<div flex layout="row" class="ipos_portlet_table_listRow">
+		<div flex>Stamp Duty</div>
+		<div flex></div>
+		<div flex>10.00</div>
+	</div>
+	<div flex layout="row" class="ipos_portlet_table_listRow">
+		<div flex>Total Payable</div>
+		<div flex></div>
+		<div flex>2010</div>
+	</div>
+</div>
+<!-- Section: Policy Excess-->
+<div fieldId="policy-private-fire:ExcessType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Excess Type</label>
+			<select class="form-control" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:ExcessType']).Value">
+			  <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['policy-private-fire:ExcessType','Option'])" 
+			  value="{{item.value}}">{{::item.value}}</option>
+			</select>	
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:ExcessRate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Excess Rate</label>
+		    <input type="text" class="form-control" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:ExcessRate']).$" />	
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:ExcessAmount" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Excess Amount</label>
+		    <input type="text" class="form-control" ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:ExcessAmount']).$" />	
+	  	</div>
+  	</div>
+</div>
+<!-- Section: Policy Interest Party -->
+<div fieldId="policy-private-fire:FullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Full Name</label>
+		   	 <input class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:InterestParty'])['policy-private-fire:FullName']['@editable'] == '0'"
+	        	ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:InterestParty'])['policy-private-fire:FullName'].$" 
+	        	type="text"  maxlength="120"/>		
+	  	</div>
+  	</div>
+</div>
+<div fieldId="policy-private-fire:PartyType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+			<div class="form-group form-group-lg has-success">
+			   <label>Party Type</label>
+		        <md-select ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:InterestParty'])['policy-private-fire:PartyType'].Value" class="md-select-Style">
+		      		<md-option ng-repeat="item in moduleService.findElementInDetail_V3(moduleService.lazyChoicelist, ['policy-private-fire:Relationship']).Option" value="{{item.value}}">{{'v3.partytype.'+item.value | translate}}</md-option>
+		       	</md-select>		
+		  	</div>
+		</div>
+  	</div>			
+</div>
+
+<div fieldId="policy-private-fire:Relationship" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+		    <label>Relationship <span ng-show="moduleService.findElementInDetail_V3('policy-private-fire:InterestParty')['policy-private-fire:Relationship']['@mandatory'] == '1'">*</span></label>
+ 		    <select class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3('policy-private-fire:InterestParty')['policy-private-fire:Relationship']['@editable'] == '0'"
+	        	ng-model="moduleService.findElementInDetail_V3('policy-private-fire:InterestParty')['policy-private-fire:Relationship'].Value">
+			  <option ng-repeat="item in moduleService.findElementInDetail_V3(moduleService.lazyChoicelist, ['policy-private-fire:Relationship']).Option" value="{{item.value}}">{{'v3.application.motor.relationship.'+item.value | translate}}</option>
+			</select>
+	  	</div>
+	</div>
+</div>
+<!-- Section: Policy Clause -->
+<div fieldId="policy-private-fire:Clause" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">    
+     <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+		    <label>Clause</label>
+		   	 <input class="form-control" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['policy-private-fire:Clause'])['@editable'] == '0'"
+		   	 ng-model="moduleService.findElementInDetail_V3(['policy-private-fire:Clause'])['policy-private-fire:Clause'].$" 
+	        	type="text"  maxlength="120"/>		
+	  	</div>
+  	</div>
+</div>

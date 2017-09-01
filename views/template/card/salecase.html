@@ -1,0 +1,56 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="sale-background">
+	<div ng-if="salecase != ''" class="card  pointer"  ng-class="moduleService.classForValidStateOfDocument(salecase) + (isLeftSideBar=='true'?' no-shadow':'')" ng-click="!moduleService.checkActionPermission(salecase,'view')?'':showSalecaseDetail(salecase.uid)">
+		<div class="card-header overflow-prevent" ng-bind="moduleService.getMetaName(salecase)">{{salecase.uid}}</div>
+		<div ng-if="!moduleService.isInViewMode()">
+			<div class="card-success pull-right pointer">
+				&nbsp;
+				<i ng-show="isLeftSideBar=='true' && controller.isState('sale')" class="icon-briefcase medium-icon archive-color"/>
+			</div>
+			<div class="card-success pull-right pointer" ng-click="isLeftSideBar=='true'? controller.starSalecase($event, salecase) : ''">
+				<i ng-show="moduleService.isStarredObject(salecase)" class="icon-star medium-icon yellow-icon"></i> 
+				<i ng-show="isLeftSideBar=='true' && !moduleService.isStarredObject(salecase)" class="icon-star-empty medium-icon yellow-icon"></i>
+			</div>
+		</div>											
+		<div ng-if="moduleService.isInViewMode()">
+			<div class="card-success pull-right pointer">
+				<i ng-show="moduleService.isStarredObject(salecase)" class="icon-star medium-icon yellow-icon"></i> 
+				<i ng-show="isLeftSideBar=='true' && !moduleService.isStarredObject(salecase)" class="icon-star-empty medium-icon yellow-icon"></i>
+			</div>
+		</div>
+		<div class="card-data">
+			<span>{{moduleService.getIPosRefNoByIndex(salecase, 0)}}</span>
+		</div>
+		<div class="card-data">
+			<span>{{moduleService.getIPosRefNoByIndex(salecase, 1)}}</span>
+		</div>
+		<div class="card-data">
+			<span>{{'workspace.vmenu.label.status'|i18nText}}:</span>
+			<span ng-bind="'document.status.' + salecase.status | i18nText"></span>
+		</div>				
+		<div class="card-icon" ng-show="isLeftSideBar=='false'"><i class="icon-suitcase"></i></div>
+		<div class="card-date">{{salecase.updatedDate | momentDate}}</div>
+	</div>
+	
+	<div ng-if="salecase == ''" class="card pointer" ng-click="addSalecase()">
+		<i class="icon-plus-sign"></i>
+	</div>
+</div>	

@@ -1,0 +1,484 @@
+<style>
+.popup_overlay{
+  position:fixed; top:0; left:0;
+  background-color: rgba(0, 0, 0, .8);
+  z-index:9999; 
+  width:100%; 
+  height:100%; 
+}
+#ipos_viewer_header{
+  background-color: rgba(0, 0, 0, .6);
+}
+#ipos_viewr_bottom{
+    background-color: rgba(0, 0, 0, .0);
+    position: absolute;
+    bottom: 25px;
+    height: 40px;
+    width: 90%;
+    margin: auto;
+}
+/* #ipos_file_content{
+   background-color: #4B7E37 !important;
+} */
+ .file_content_color{
+  color: #4CAF50 !important;
+} 
+#ipos_file_detail{
+  color:white;
+}
+#ipos_send_email_detail{
+    color: white !important;
+    text-align: left;
+    font-size: 12px;
+}
+/* .ipos_send_email_textarea{ */
+/*     display: block; */
+/*     width: 100%; */
+/*     height: 50px; */
+/*     padding: 6px 12px; */
+/*     font-size: 12px; */
+/*     line-height: 1.42857143; */
+/*     color: #555; */
+/*     background-color: #fff; */
+/*     background-image: none; */
+/*     border: 1px solid #ccc; */
+/*     border-radius: 4px; */
+/*     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); */
+/*     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); */
+/*     -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s; */
+/*     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; */
+/*     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;     */
+/* } */
+.new-form-control {   
+    height: 70px !important;   
+}
+.file_detail_header{
+  font-size: 20px;
+  font-weight: bold;
+}
+i{
+  cursor: pointer;
+}
+.menu-arrow {
+  position: relative;
+    bottom: 100%;
+    content: '';
+    width: 26px;
+    height: 26px;
+    background-color: white;
+   /*  box-shadow: 1px -1px 3px -1px #29B6D8; */
+    display: block;
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    margin-bottom: -13px;
+}   
+.menu-arrow-action{
+  border-right: rgb(76, 175, 80)2px solid;
+    border-top: rgb(76, 175, 80)2px solid;
+    position: absolute;
+    top: 43px;
+    z-index: 1000;
+    background-color: #34495E;
+  
+}
+#showMenu{
+  position: absolute;
+    top: -20px;
+}
+.file-reader-menu{
+  position: fixed;
+  right:0;
+  z-index:9;
+  top: 50px;
+}
+
+.file-reader-action-box{
+    color: #4CAF50;
+    padding-top: 6px;
+    cursor: pointer;
+    text-align: center;
+    width: 54px !important;
+    height: 54px !important;
+    line-height: 54px;
+    /* border-bottom: 3px solid #4CAF50; */
+    cursor: pointer;
+}
+.file-reader-action-items{
+  height: 50px;
+    line-height: 60px;
+  
+    display: flex;
+}
+.file-reader-action-items-back:hover{
+  background: #262d37;
+    z-index: 1000;
+    position: relative;
+    cursor:pointer;
+}
+ .file-reader-menu-container{
+  top: 75px;
+    border: 2px solid #4CAF50;
+   /*  border-bottom: 2px solid #4CAF50;
+    border-left: 2px solid #4CAF50;
+    border-right: 2px solid #4CAF50; */
+    /* color: #4CAF50; */
+    color: white;
+    min-width: 200px;
+    background: #34495E;
+    border-radius: 4px;
+    position: absolute;
+} 
+.file-reader-action-items-icon{
+    z-index: 1000;
+    margin-left: 15px;
+}
+.file-reader-action-items-text {
+        min-width: 110px;
+    text-align: left;
+    color: white;
+    /* bottom: 0px; */
+    position: relative;
+    font-size: 15px;
+    line-height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    white-space: nowrap;
+} 
+  .file-reader-action-box:hover{
+  color: white;   color: #4CAF50;
+  opacity:1;        opacity: 1;
+}   }
+.file-reader-action-name{
+  font-size:14px;
+}
+
+md-divider{
+  border-top-color: white !important;
+}
+/* sub menu in action bar */
+.submenu-action {
+  display: none;
+  list-style-type: none;
+  padding-left: 0;
+  color: white;
+   margin-bottom: 0;
+   max-height: 350px;
+}
+
+.submeu-container {
+  background-color: rgb(53, 72, 92);
+}
+
+.submenu-item {
+  /* margin-left: 52px; */
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 50px;
+}
+
+.carret-button {
+  display: inline-block;
+    color: #4CAF50;
+    float: right;
+    margin-left: 20px;
+}
+
+.rotate-caret {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    color: #4CAF50;
+    /* position: static; */
+    /* margin-left: 20px; */
+}
+
+.active-actionmenu {
+  border-bottom: 1px solid rgb(150, 160, 164);
+  width: 100%;
+  background-color: #262d37 !important;
+  color: white !important;
+}
+
+.sub-action-items{
+    height: 50px;
+    line-height: 50px;
+    font-size: 15px;
+    border-top: 2px solid white;
+}
+.sub-action-items:hover{
+    background-color: #262d37 !important;
+    cursor: pointer;
+}
+.nav-submenu{
+  display: none;
+}
+
+.submenu-action::-webkit-scrollbar-track
+{
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+  background-color: white;
+}
+
+.submenu-action::-webkit-scrollbar-thumb {
+    /* border-radius: 12px; */
+    border: 3px solid rgba(255,255,255,0);
+    background-clip: content-box;
+    _background-color: #bfbfbf;
+    background-color: #4CAF50;
+}
+.submenu-action::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;
+    height: 12px;
+}
+.submenu-action::-webkit-scrollbar-corner {
+    background-color: #e6e6e6;
+}
+.submenu-action::-webkit-scrollbar-button {
+    background-color: white;
+    width: 0px !important;
+  height: 0px;
+}
+._720kb-tooltip._720kb-tooltip-open{
+  position:fixed;
+  z-index:9999; 
+}
+#ipos_ds_confirmation_text{
+	position: fixed;
+	bottom: 8px;
+}
+.ipos-iframe-setting{
+	width: 100%;
+	height: 780px;
+}
+
+@media only screen and (min-width: 1600px){
+    .ipos-iframe-setting{
+		width: 100%;
+		height: 685px;
+	}
+}
+</style>
+<div flex layout="column" class="popup_overlay">
+  <div id="ipos_viewer_header"  layout="row" flex="5">
+      <div layout="row" flex="30" layout-align="start center">
+        <b ng-hide="fileReaderService.isPrintPDF" style="color:white">{{fileReaderService.isFileUploadPreview==false?fileReaderService.fileDetail.FileName:fileReaderService.fileDetail.FileName.$}}</b>
+      </div>
+      <div layout-align="center center" layout="row" flex="40">
+        <div layout="row" layout-align="center" ng-click="fileReaderService.changeFile('previous')"  flex="25">
+          <i ng-hide="fileReaderService.isPrintPDF" class="fa fa-angle-double-left fa-2x file_content_color" ng-if="fileReaderService.list.length>0"></i>
+        </div>        
+        <div layout="row" layout-align="center" ng-click="fileReaderService.download()" flex="25">
+          <i  class="fa fa-download fa-2x file_content_color"></i>
+        </div>
+        <div layout="row" layout-align="center" ng-show="checkEnableButtonPdf!='WEB_DIRECT'" ng-click="fileReaderService.send()" flex="25">
+          <i  class="fa fa-envelope fa-2x file_content_color"></i>
+        </div>          
+        <div layout="row" layout-align="center" ng-click="fileReaderService.showFileDetail()"  flex="25">
+          <i class="fa fa-info-circle fa-2x file_content_color"></i>
+        </div>
+        <div layout="row" layout-align="center" ng-show="checkEnableButtonPdf!='WEB_DIRECT' && fileReaderService.docType == commonService.CONSTANTS.MODULE_NAME.RESOURCE_FILE"
+        	ng-click="moduleService.signDocument(fileReaderService, card, commonUIService)" flex="25">
+          <i class="fa fa-pencil-square-o fa-2x file_content_color"></i>
+        </div>
+        <div  layout="row" layout-align="center" flex="25" ng-if="fileReaderService.moduleService.name=='policy'">
+          <section class="file-reader-action-box pull-right" >
+            <i class="fa fa-list-ul fa-2x"  ng-click='fileReaderService.showMore($event)'></i>
+          <div id="showMenu" style="display:none;">
+<!--              <span class="arrow arrow-action"></span> -->
+              <div class="file-reader-menu-container">
+                  <div ng-if="fileReaderService.moduleService.findElementInDetail_V3(['DocInfo'])['Product'] != fileReaderService.commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK">
+                      <div class="file-reader-action-items-back" >
+                          <div class="file-reader-action-items" loading loading-action='fileReaderService.moduleService.renewPolicy(resourceURL, fileReaderService.moduleService.metaData.Effective_Date)'>
+                              <span class="file-reader-action-items-icon"><i
+                      class='fa fa-th fa-2x'></i></span>
+                              <span class='file-reader-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.RenewThePolicy' | translate}}</span>
+                          </div>
+                          <md-divider></md-divider>
+                        </div>
+                        <div class="file-reader-action-items-back" >
+                          <div class="file-reader-action-items" loading loading-action='fileReaderService.toggleList()'>
+                              <span class="file-reader-action-items-icon"><i class='fa fa-edit fa-2x'></i></span>
+                              <span class='file-reader-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.EndorseThePolicy' | translate}}</span>
+                              <span class='carret-button'> <i id="endorse-submenu-caret" class='fa fa-angle-down fa-2x'></i></span>
+                          </div>
+                          <div class="submeu-container">
+                    <ul class="submenu-action" id="submenu-endorse" show-more>
+                      <li class="sub-action-items" loading loading-action="fileReaderService.moduleService.doEndorse(item.value)"
+                        ng-repeat="item in fileReaderService.moduleService.findElementInElement_V3(fileReaderService.moduleService.endorsementReason,['EReason','Option']) track by item.value">
+                        <div style="margin-left: 20px;">{{::"caseManagement.endorsement.reason."+item.value|translate |trimtext:false:20:'...'}}</div>
+                      </li>
+                    </ul>
+                  </div>
+                          <md-divider></md-divider>
+                      </div>
+<!--                      <div class="file-reader-action-items-back" ng-if="fileReaderService.moduleService.findElementInDetail_V3(['DocStatus']).BusinessStatus == 'IF'"> -->
+                      <div class="file-reader-action-items-back" >
+                          <div class="file-reader-action-items" loading loading-action="fileReaderService.moduleService.doClaimNotification()">
+                              <span class="file-reader-action-items-icon"><i class='fa fa-paper-plane fa-2x'></i></span>
+                              <span class='file-reader-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.ClaimNotification' | translate}}</span>
+                          </div>
+                      </div>
+                  </div>
+                   <div ng-if="fileReaderService.moduleService.findElementInDetail_V3(['DocInfo'])['Product'] == fileReaderService.commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK">
+                       <div class="file-reader-action-items-back" >
+					                <div class="file-reader-action-items" loading loading-action="fileReaderService.moduleService.policyServicing('addBeneficiary')">
+                              <span class="file-reader-action-items-icon"><i class='fa fa-paper-plane fa-2x'></i></span>
+                              <span class='file-reader-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.AddBeneficiary' | translate}}</span>
+                          </div>
+					                <div class="file-reader-action-items" loading loading-action="fileReaderService.moduleService.policyServicing('changePremiumFrequency')">
+                              <span class="file-reader-action-items-icon"><i class='fa fa-paper-plane fa-2x'></i></span>
+                              <span class='file-reader-action-items-text'>{{'new.v3.mynewworkspace.actionbar.label.ChangePremiumFrequency' | translate}}</span>
+                          </div>
+                      </div>
+                   </div>
+              </div>
+          </div>
+        </div>
+        <div layout="row" layout-align="center" ng-click="fileReaderService.changeFile('next')" flex="25">
+          <i ng-hide="fileReaderService.isPrintPDF" class="fa fa-angle-double-right fa-2x file_content_color" ng-if="fileReaderService.list.length>0"></i>
+        </div>          
+      </div>
+      <div  ng-click="fileReaderService.closeFileReader()" layout-align="end center" layout="row" flex="30">
+        <i style="margin-right:12%" class="fa fa-times-circle fa-2x file_content_color"></i>
+      </div>        
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  <div ng-if="fileReaderService.fileNotFoundMessage!=''" layout-align="center center" layout="row">
+      <b style="color:white;margin-top:25%">{{fileReaderService.fileNotFoundMessage | translate}}</b>
+  </div>
+  <div flex layout="row" layout-margin layout-align="center">
+    
+    <div class="ipos_popup_overlay" ng-show="!fileReaderService.fileLoaded">
+      <div style="position:fixed; top:85px; z-index:999; width: 100%">
+      	<div ng-if="contextPathTheme != ''"class="row" style="text-align: center;"><span><img src='{{contextPathTheme}}/images/loading_ten.gif'></span></div>
+        <!-- <div ng-if="contextPathTheme == ''" class="row" style="text-align: center;"><span><img src='/ipos-web-direct/css/images/loading_ten.gif'></span></div> -->
+      </div>
+    </div>
+      
+    <div flex layout="row" layout-align="center start">
+<!--    <div id="ipos_file_right" flex="5"></div> -->
+    <div id="ipos_file_content" flex="90">
+      <iframe ng-if="fileReaderService.content!=''" class="ipos-iframe-setting" src="{{fileReaderService.content}}" type="application/pdf"></iframe>
+      <iframe ng-if="fileReaderService.source!=''" class="ipos-iframe-setting" src="{{fileReaderService.source}}" type="image/jpeg"></iframe>
+    </div>
+    <div id="ipos_ds_confirmation_text" class="text-center col-lg-12" ng-if="checkEnableButtonPdf=='WEB_DIRECT' && fileReaderService.isShowSubmitApplication">
+    	<div class="col-xs-4 col-lg-1"></div>
+    	<div class="col-xs-4 col-lg-9"><span class="ipos-ds-confirmation-text pull-right">{{'v3.mynewworkspace.direct-sale.application.label.ConfirmationText' | translate}}</span></div>    	 
+		<div class="col-xs-4 col-lg-2"></div>      	
+    </div>
+    <div ng-show="fileReaderService.isDetail" id="ipos_file_detail" layout="column" layout-margin flex="5">
+      <div layout="column">
+        <div class="file_detail_header" flex layout="row">{{"new.v3.filereader.detail.label.Details" | translate}}</div>
+        <div flex layout="row"><md-divider></md-divider></div>
+        <div ng-hide="fileReaderService.isPrintPDF">
+          <div layout="row" class="file-reader-detail-margin">
+            <div flex layout="row">{{"new.v3.filereader.detail.label.Type" | translate}}</div>
+            <div flex layout="row"><!-- {{fileReaderService.fileDetail.FileSize}} --></div>
+          </div>
+          <div layout="row" class="file-reader-detail-margin">
+            <div flex layout="row">{{"new.v3.filereader.detail.label.Size" | translate}}</div>
+            <div flex layout="row">{{fileReaderService.isFileUploadPreview==false?fileReaderService.fileDetail.FileSize:fileReaderService.fileDetail.FileSize.$}}</div>
+          </div>
+          <div layout="row" class="file-reader-detail-margin">
+            <div flex layout="row">{{"new.v3.filereader.detail.label.DateCreated" | translate}}</div>
+            <div flex layout="row">{{fileReaderService.isFileUploadPreview==false?fileReaderService.fileDetail.CreatedDate:fileReaderService.fileDetail.CreateDate.$}}</div>
+          </div>
+          <div layout="row" class="file-reader-detail-margin">
+            <div flex layout="row">{{"new.v3.filereader.detail.label.CreatedBy" | translate}}</div>
+            <div flex layout="row"></div>
+          </div>
+        </div>
+        <div ng-show="fileReaderService.isPrintPDF">
+          <div layout="row" class="file-reader-detail-margin">
+            <div flex layout="row">{{"new.v3.filereader.detail.label.Type" | translate}}</div>
+            <div flex layout="row">pdf</div>
+          </div>
+          <div layout="row" class="file-reader-detail-margin">
+            <div flex layout="row">{{"new.v3.filereader.detail.label.Size" | translate}}</div>
+            <div flex layout="row">{{fileReaderService.fileSize}}</div>
+          </div>
+          <div layout="row" class="file-reader-detail-margin">
+            <div flex layout="row">{{"new.v3.filereader.detail.label.DateCreated" | translate}}</div>
+            <div flex layout="row">{{fileReaderService.currentDate}}</div>
+          </div>
+          <div layout="row" class="file-reader-detail-margin">
+            <div flex layout="row">{{"new.v3.filereader.detail.label.CreatedBy" | translate}}</div>
+            <div flex layout="row">System</div>
+          </div>
+          <div layout="row" class="file-reader-detail-margin">
+            <div flex layout="row">{{"new.v3.filereader.detail.label.PDFTemplate" | translate}}:</div>
+          </div>
+          <div layout="row" class="file-reader-detail-margin" style="width: 80%">
+            <select class="form-control" ng-model="printPdfService.template"
+                ng-options="item as item for item in printPdfService.listTemplate"
+                ng-change="printPdfService.generatePdf(printPdfService.portletId, printPdfService.moduleService, printPdfService.product, printPdfService.actionType, true)">
+                </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-show="fileReaderService.sendEmail" id="ipos_send_email_detail" layout="column" layout-margin flex="5">
+      <div layout="column">
+        <div ng-show="fileReaderService.isPrintPDF">
+<!--          <table id="" class="table v3-responsive-table"> -->
+<!--            <thead> -->
+<!--                    <tr> -->
+<!--                      <th style="height: 45px; vertical-align: middle;">{{"new.v3.filereader.detail.label.enterEmail" | translate}}</th>                 -->
+<!--                    </tr> -->
+<!--                  </thead> -->
+<!--                  <tbody> -->
+<!--                    <tr> -->
+<!--                      <th style="height: 45px; vertical-align: middle;"><textarea class="ipos_send_email_textarea" type="text" ng-model="emailList"/></th> -->
+<!--                    </tr> -->
+<!--                  </tbody> -->
+<!--          </table> -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-margin-bottom-15">
+            <div class="v3-column-content">
+              <div class="form-group form-group-lg has-success">
+                <div class="row"> 
+                  <label style="color:white !important">{{'new.v3.filereader.detail.label.enterEmail' | translate}}: </label>
+                  <i class="fa fa-info-circle fa-2x" style="color:#4B7E37" tooltips  tooltip-title="Separate each address by comma." tooltip-side="bottom" tooltip-size="medium"></i>
+                </div>
+                <textarea class="new-form-control" type="text" ng-model="emailList" />
+              </div>              
+            </div>
+          </div>
+          <div class="margin-top-20">
+            <button class="col-sm-offset-1 col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="fileReaderService.send()">Cancel</button>
+            <button class="col-sm-offset-1 col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="fileReaderService.PDFEmail(emailList)">Send</button>
+          </div>
+          <div>
+            <span class="errorMessage" ng-if="!fileReaderService.isValid">One emails didn't have the right format: {{fileReaderService.errorEmail}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="ipos_viewr_bottom" ng-if="checkEnableButtonPdf=='WEB_DIRECT' && fileReaderService.isShowSubmitApplication">
+    <div class="col-xs-6 direct-bottom-pannel">
+      <button style="float:left;left:0px;" ng-click="fileReaderService.closeFileReader()"  class="col-sm-offset-4 col-md-4 direct-btn btn btn-lg-new-ui v3-box-4 ng-binding">
+        <i class="fa fa-chevron-left"></i>
+        {{'v3.mynewworkspace.direct-sale.side-panel.label.back'|translate}}
+      </button>
+    </div>
+    <div class="col-xs-6 direct-bottom-pannel">
+      <button style="float: right;right:0px;" 
+        class="col-sm-offset-4 col-md-4 direct-btn btn btn-lg-new-ui v3-box-4 ng-binding"
+        ng-click="fileReaderService.closeFileReader(); preSubmit(); fileReaderService.isShowSubmitApplication = false">
+        {{'v3.mynewworkspace.direct-sale.side-panel.label.submit'|translate}}
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </div>   
+  </div>
+</div>

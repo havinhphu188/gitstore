@@ -1,0 +1,344 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection"
+                  content="telephone=no" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title></title>
+        
+        <!-- CSS files mobile-->
+
+        <link rel="stylesheet" href="my-css/paymentHistory.css" async>
+        <!-- This policy allows everything (eg CSS, AJAX, object, frame, media, etc) except that 
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        
+            * CSS only from the same origin and inline styles,
+            * scripts only from the same origin and inline styles, and eval()
+            * from: http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/index.html
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' data: gap: https://ssl.gstatic.com"> -->
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    </head>
+
+    <body id="ngAppDiv" class="noselect ipos-mobileApp">
+        <!-- loading screen, will auto remove when angular is initalized-->        
+        <div id="waitingBar" class="mask ipos-mobileApp-loading-bar">
+	    	<div class="icon-loading-bar"><span><img src='css/images/circular_loading.svg'/></span></div>
+	    </div>
+
+        <ui-view></ui-view>
+    </body>
+
+<!-- ################ Start of 3-PARTIES ################ -->
+        <!--Add css, js for all portlets -->
+        <link href="css/ipos-sdk-share/angular/nvd3/nv.d3.css" rel="stylesheet" type="text/css" async />
+        <link href="css/ipos-sdk-share/angular/ng-grid/ng-grid.css" rel="stylesheet" type="text/css" async />
+        <link href="css/ipos-sdk-share/jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css" async />
+        <link href="css/ipos-sdk-share/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" async />
+        <link href="css/ipos-sdk-share/bootstrap.vertical-tabs.css" rel="stylesheet" type="text/css" async />
+        <link href="js/ipos-sdk-share/IntTelInput/css/intlTelInput.css" rel="stylesheet" type="text/css" async /> 
+        <link href="css/ipos-sdk-share/bootstrap3/bootstrap.css" rel="stylesheet" type="text/css" async />
+        <link href="css/ipos-sdk-share/bootstro/bootstro.css" rel="stylesheet" type="text/css" async />   
+        <link href="css/ipos-sdk-share/animate.css" rel="stylesheet" type="text/css" async />
+        <link href="js/ipos-sdk-share/IntTelInput/css/longDropdown.css" rel="stylesheet" type="text/css" async /> 
+        <link href="js/ipos-sdk-share/ipos-sdk/3rd-party/mobiscroll/css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" async />
+        <link href="js/ipos-sdk-share/ipos-sdk/3rd-party/mobiscroll/css/mobiscroll.scroller.wp.css" rel="stylesheet" type="text/css" async />
+        <link href="js/ipos-sdk-share/ipos-sdk/3rd-party/mobiscroll/css/mobiscroll.animation.css" rel="stylesheet" type="text/css" async />   
+        <link href="js/ipos-sdk-share/ipos-sdk/3rd-party/mobiscroll/css/mobiscroll.scroller.android-holo.css" rel="stylesheet" type="text/css" async />
+        <link href="js/ipos-sdk-share/ipos-sdk/3rd-party/mobiscroll/css/mobiscroll.wp-light.css" rel="stylesheet" type="text/css" async />        
+        <link href="js/ipos-sdk-share/ipos-sdk/3rd-party/material-design/version_010/angular-material.css" rel="stylesheet" type="text/css" async />
+        <link href="css/ipos-sdk-share/rzslider/rzslider.css" rel="stylesheet" type="text/css" async />
+       <!--  <link href="css/ipos-sdk-share/angular/carousel/angular-carousel.css" rel="stylesheet" type="text/css" async /> -->
+       <!--  <link href="js/ipos-sdk-share/ipos-sdk/3rd-party/select2/select2.css" rel="stylesheet" type="text/css" async /> -->
+        <link href="js/ipos-sdk-share/ipos-sdk/3rd-party/angular-ui-select2/selectize.default.css" rel="stylesheet" type="text/css" async />
+        
+        <script src="js/ipos-sdk-share/jquery/jquery-1.10.2.js"></script>
+        <script src="js/ipos-sdk-share/jquery/jquery-ui-1.11.2.js"></script>    
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/mobiscroll/mobiscroll.core.js"></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/mobiscroll/mobiscroll.scroller.js"></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/mobiscroll/mobiscroll.datetime.js"></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/mobiscroll/mobiscroll.scroller.android-holo.js"></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/mobiscroll/mobiscroll.wp-light.js"></script>    
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/autoNumeric-1.9.43.min.js"></script>
+        <script src="js/ipos-sdk-share/angular/1.3.8/angular.js"></script>
+        <script src="js/ipos-sdk-share/angular/1.3.8/angular-route.js"></script>
+        <script src="js/ipos-sdk-share/angular/1.3.8/angular-animate.js"></script>
+        <script src="js/ipos-sdk-share/angular/1.3.8/angular-aria.js"></script>
+        <script src="js/ipos-sdk-share/angular/1.3.8/angular-touch.js"></script>
+        <script src="js/ipos-sdk-share/angular/1.3.8/angular-sanitize.js"></script> 
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/bootstrap.js"></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/bootstro/bootstro.js"></script>       
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/bootstrap-ui/ui-bootstrap-tpls-0.13.4.min.js"></script>   
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/angular-translate/angular-translate.js"></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+        <script src="js/ipos-sdk-share/angular/nvd3/angularjs-nvd3-directives.js"></script>
+        <script src="js/ipos-sdk-share/angular/nvd3/d3.js"></script>
+        <script src="js/ipos-sdk-share/angular/nvd3/nv.d3.js"></script>
+        <script src="js/ipos-sdk-share/angular/ng-grid-2.0.11.debug.js"></script>
+        <script src="js/ipos-sdk-share/angular/ng-grid-flexible-height.js"></script>
+        <script src="js/ipos-sdk-share/angular/dirPagination/dirPagination.js"></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/angular-ui-router.js"></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/sortable.js"></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/jquery.maskedinput.min.js"></script>
+        <!-- <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/remove-hover.js"></script> -->
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/jsonpath-0.8.0.js"></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/angular-carousel.min.js"></script>
+        <script src="lib/carousel/carousel-swipe.js"></script>
+        <!-- <script src="lib/hammerjs/hammer.min.js"></script>  -->
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/moment.js"></script>
+        <script src="js/ipos-sdk-share/IntTelInput/js/intlTelInput.min.js"></script>    
+        
+        <!-- material design -->
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/material-design/version_010/angular-material.js"></script>
+        
+        <!-- ng file upload -->
+        <script type="text/javascript" src="js/ipos-sdk-share/angular/ngfileupload/angular-file-upload.min.js"></script>
+        <script type="text/javascript" src="js/ipos-sdk-share/angular/ngfileupload/angular-file-upload-shim.min.js"></script>
+            
+        <!-- rzslider -->
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/rzslider/rzslider.js"></script>           
+        
+        <!--Remove 300ms delay on devices-->
+        <script src="./js/fastclick.js" async></script>
+		
+        <!-- c3 chart -->
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/c3/d3.v3.min.js" async></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/3rd-party/c3/c3.js" async></script>
+        <link href="js/ipos-sdk-share/ipos-sdk/3rd-party/c3/c3.css" rel="stylesheet" type="text/css" async />
+<!-- ################ End of 3-PARTIES ################ -->
+    
+
+
+<!-- ################ Start of Companion App's files ################ -->
+		
+		<!-- CSS files mobile link share-->
+		<link rel="stylesheet" href="css/ipos-sdk-share/custom.css" async>
+        <link rel="stylesheet" href="css/portlet/myNewWorkspace.css" async>
+        <link rel="stylesheet" href="my-css/mobileApp.css" async>
+         
+        <!-- cordova script (this will be a 404 during development) -->
+        <script src="cordova.js"></script>       
+        
+        <!-- integrate with cordova -->
+        <script src="js/iPosAppPlugin.js"></script>        
+        <!-- <script src="js/unitTestProcess.js"></script> -->
+
+        
+        <script type="text/javascript">
+            
+            ////////////////////////////////////////////////////////////////////////////////////
+            //For debug purpose: Below script will show out which js files get syntax errors. //
+            ////////////////////////////////////////////////////////////////////////////////////
+            
+            // window.onerror = function(msg, url, line) {
+            //     var idx = url.lastIndexOf("/");
+            //     if (idx > -1) {
+            //         url = url.substring(idx + 1);
+            //     }
+            //     alert("ERROR in " + url + " (line #" + line + "): " + msg);
+            //     return false; //suppress Error Alert;
+            // };
+            
+            ////////////////////////////////////////////////////////////////////////////////////
+            //For debug purpose:                                                              //
+            ////////////////////////////////////////////////////////////////////////////////////
+            
+            window.onload = function (argument) {
+                FastClick.attach(document.body);
+
+                var script = document.createElement('script');
+                script.src = 'js/ctrl/app.js';
+                script.onload = function () {
+                    //after loading all files, we init the angular application
+                    angular.bootstrap(angular.element('#ngAppDiv'), ["ngAppMyNewWorkspace"]);
+                    angular.element('#waitingBar').css("display", "none");
+                };
+                document.head.appendChild(script);
+                
+            };
+
+            function forceLogout () {
+                jsNotification('SessionTimeOut');
+            };
+
+            function jsNotification (command, params) {
+                angular.element($("#workspaceCtrl")).scope().broadcastEvent(command, params);
+            };
+
+
+
+            ////////////////////////////////////////////////////////////////////////
+            //Mock functions & variables, to re-use functions in liferay angular  //
+            ////////////////////////////////////////////////////////////////////////
+            var myArrayPortletId = [];
+            angular.portlet = {};
+            var contextPathRoot = "";
+            var emptyValueFn = function() {return ""};//empty function
+            //mock liferay functions
+            var Liferay = {
+                ThemeDisplay: {
+                    getPathThemeRoot: emptyValueFn,
+                    getPathContext: emptyValueFn,
+                }
+            };
+
+            var themeDisplay = Liferay.ThemeDisplay;
+            var iPOSLiferayPortletURL = {
+                createResourceURL: function() {
+                    return {
+                        setPortletId: emptyValueFn,
+                        setResourceId: emptyValueFn,
+                        toString: emptyValueFn
+                    }
+                }
+            }
+
+            angular.contextPathTheme = Liferay.ThemeDisplay.getPathThemeRoot();
+            angular.portlet.add = function(pluginName, portletName, angularFunction) {
+                angularFunction();
+            };
+            var activeRole;
+        	var activeChannel;
+        	var loadingCounter = 0;
+//         	var companyName = "MNC-General";
+        	var companyName = "MNC-Life";
+        	var serverUrl;
+        	var directSaleUserName;
+        	
+            ////////////////////////////////////////////////////////////////////////
+            //Mock functions & variables, to re-use functions in liferay angular  //
+            ////////////////////////////////////////////////////////////////////////
+        </script>
+
+        <script src="js/ipos-sdk-share/urlService.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/connection/connection-core.js" ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/connection/ios-connector.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/connection/android-connector.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/connection/web-connector.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/common-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/detail-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/prospect-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/prospect-personal-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/prospect-corporate-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/illustration-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/application-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/salecase-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/policy-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/factfind-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/pdpa-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/review-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/client-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/user-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/quote-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/underwriting-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/group-underwriting-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/ecovernote-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/group-department-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/configuration-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/claim-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/claim-notification-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/payment-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/transaction-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/renewal-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/endorsement-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/resource-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/notification-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/death-claim-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/ui-render-core.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk/mobileApp-core.js" async ></script>
+
+        <!-- Ipos Portal sdk-ui -->
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/directives.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/filters.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/translate.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/common-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/prospect-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/prospect-personal-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/prospect-corporate-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/illustration-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/application-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/salecase-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/policy-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/factfind-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/pdpa-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/review-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/client-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/user-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/quote-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/underwriting-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/group-underwriting-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/ecovernote-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/group-department-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/configuration-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/claim-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/claim-notification-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/payment-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/transaction-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/renewal-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/endorsement-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/resource-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/notification-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/death-claim-ui.js" async ></script>
+        <script src="js/ipos-sdk-share/ipos-sdk/client-sdk-ui/render-html-prototype-ui.js" async ></script>
+
+        <!-- Ipos Portal Controller -->
+        <script src="my-js/navigation-ctrl.js" async ></script>
+        <script src="my-js/listview-ctrl.js" async ></script>
+        <script src="my-js/login-ctrl.js" async ></script>
+        <script src="my-js/sync-ctrl.js" async ></script>
+        <script src="my-js/paymentCart_MNC/transaction-mnc-ctrl.js" async ></script>
+        <script src="my-js/paymentCart_MNC/paymentHistory-ctrl.js" async ></script>
+        
+        <script src="js/ctrl/main-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/prospect-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/corporate-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/pdpa-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/illustration-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/application-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/factfind-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/salecase-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/policy-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/renewal-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/endorsement-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/claim-notification-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/claim-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/client-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/ecovernote-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/payment-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/underwriting-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/review-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/death-claim-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/group-underwriting-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/businesscatalog-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/groupDepartment-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/policyServicing-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/resourcefile-ctrl.js" async ></script>
+        <script src="js/ctrl/partial/navigation-ds-ctrl.js" async ></script>
+        <script src="js/ctrl/config-portlet.js" async ></script>
+        <!-- <script src="js/ctrl/app.js" defer></script> -->
+        
+<!--     ################ End of Companion App's files ################ -->
+
+</html>
+

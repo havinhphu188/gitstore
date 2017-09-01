@@ -1,0 +1,107 @@
+.bootstro-next-btn
+{
+    float:left;
+    color: #fff;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+}
+.bootstro-prev-btn
+{
+    float:left;
+    color: #fff;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    margin-right: 2px;
+}
+.bootstro-finish-btn{
+	float: right;
+	color: #fff;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+}
+.bootstro-backdrop
+{
+    opacity: 0.5;
+    background-color: #000000;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000 !important;
+    filter: alpha(opacity=50);
+}
+.bootstro-highlight
+{
+	z-index: 9999 !important;
+	position: relative;
+	border: 1px solid white;
+	background-color: white;
+}
+
+.bootstro-finish-btn-wrapper{
+	/*border-top:1px solid #eee;*/
+	padding-top:10px;
+    text-align:center;
+    clear:both;
+}
+.bootstro-nav-wrapper{
+    margin-top:15px;
+}
+
+.bootstro-nav-wrapper button, .bootstro-finish-btn-wrapper button
+{
+	/* font-size:17px !important;
+	padding : 3px 5px 3px 5px !important;
+	font-weight:bold; */	
+	font-size: 17px !important;
+    padding: 8px 30px 8px 30px !important;
+    min-width: 60px;
+    margin-bottom: 15px;
+}
+.bootstro-nav-wrapper button:HOVER, .bootstro-nav-wrapper button:ACTIVE, .bootstro-nav-wrapper button:ACTIVE:FOCUS,
+.bootstro-nav-wrapper button:FOCUS, .bootstro-nav-wrapper button:VISITED{
+	outline: none;
+	outline-offset: 0px;
+	box-shadow:none;
+}
+.popover-title {
+	position: inherit !important;
+	font-weight: bold;
+}
+.popover-title > .label.label-success{
+	display: inline;
+	font-size: 17px;
+    font-weight: normal;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #24B699;
+}
+.v3-popover-user-guide{
+	max-width: 350px;
+	border: 1px solid #495867;
+	border-radius:0px;
+	padding: 0px;
+	opacity: 0.9 !important;
+	background-color: #435465;
+	color: white;
+	font-size: 15px;
+}
+.v3-popover-user-guide .popover-title{
+	border-bottom: 0px;
+	border-radius:0px;
+	background-color: #435465;
+}
+.v3-popover-user-guide .popover-title span{
+	float: right;
+}
+
+.v3-popover-user-guide.popover.top > .arrow:after, .v3-popover-user-guide.popover.bottom > .arrow:after, .v3-popover-user-guide.popover.top > .arrow, .v3-popover-user-guide.popover.bottom > .arrow{
+	border-bottom-color: #435465;
+	border-top-color: #435465;
+}
+
+.v3-popover-user-guide .popover-content{
+	padding: 20px 10px;
+}
+

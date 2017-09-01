@@ -1,0 +1,120 @@
+{
+  "IposDocument": {
+    "Data": {
+      "case-management-gtl:CaseManagement": {
+        "@key": [
+          ""
+        ],
+        "@icon": {
+          "main": "fa fa-car"
+        },
+        "@section": "case-management-gtl:CaseManagement",
+        "@case-name": "",
+        "@product": "motor-private-car-m-as",
+        "permission": {
+          "AGENT": {
+            "editable": true,
+            "viewable": true
+          },
+          "PROSPECT": {
+            "editable": true,
+            "viewable": true
+          },
+          "GUEST": {
+            "editable": true,
+            "viewable": true
+          },
+          "POLICY_OWNER": {
+            "editable": true,
+            "viewable": true
+          },
+          "UW": {
+            "editable": false,
+            "viewable": true
+          }
+        },
+        "case-management-gtl:Summary": {
+          "@icon": {
+            "main": "fa fa-bar-chart"
+          },
+          "@cssClass": "v3-box-1",
+          "@section": "case-management-gtl:CaseManagement"
+        },
+        "case-management-gtl:Quotations": {
+          "@key": [
+            "Quotation"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart"
+          },
+          "@cssClass": "v3-box-2",
+          "@section": "case-management-gtl:CaseManagement"
+        },      
+        "case-management-gtl:reviewAndApproval": {
+          "@key": [
+            ""
+          ],
+          "@icon": {
+            "main": "fa fa-file-o",
+            "step": "3"
+          },
+          "@cssClass": "v3-box-3",
+          "@section": "case-management-gtl:CaseManagement",
+          "case-management-gtl:groupLevelUW": {
+            "@key": [
+              ""
+            ],
+            "@icon": {
+              "main": "fa fa-file-o",
+              "step": "3"
+            },
+            "@cssClass": "v3-box-3",
+            "@section": "case-management-gtl:reviewAndApproval"
+          },
+          "case-management-gtl:saleManager": {
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "case-management-gtl:reviewAndApproval",
+            "case-management-gtl:assessmentChecklist": {},
+            "case-management-gtl:reviewedCase": {},
+            "case-management-gtl:minimumGroupSize": {},
+            "case-management-gtl:minimumParticipationPercentage": {},
+            "case-management-gtl:minimumAge": {},
+            "case-management-gtl:maximumAge": {},
+            "case-management-gtl:minimumSI": {},
+            "case-management-gtl:maximumSI": {},
+            "case-management-gtl:noAdverse": {},
+            "case-management-gtl:properDisclosures": {}
+          },
+          
+            "case-management-gtl:groupLevelUW": {
+          "@key": [
+            "Underwriting"
+          ],
+          "@product": "GTL1",
+          "@icon": {
+            "main": "fa fa-file-o",
+            "step": "3"
+          },
+          "@cssClass": "v3-box-3",
+          "@section": "case-management-gtl:reviewAndApproval"
+        },
+        
+        
+          "case-management-gtl:groupDepartmentManager": {
+            "@key": [
+              "GroupDepartment"
+            ],
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "case-management-gtl:reviewAndApproval"
+          }
+        }
+      }
+    }
+  }
+}

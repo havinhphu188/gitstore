@@ -1,0 +1,263 @@
+/**
+ * //*******************************************************************************
+ * // * Copyright (c) 2011-2014 CSC.
+ * // * Copyright (C) 2010-2016 CSC - All rights reserved.
+ * // *
+ * // * The information contained in this document is the exclusive property of
+ * // * CSC.  This work is protected under USA copyright law
+ * // * and the copyright laws of given countries of origin and international
+ * // * laws, treaties and/or conventions. No part of this document may be
+ * // * reproduced or transmitted in any form or by any means, electronic or
+ * // * mechanical including photocopying or by any informational storage or
+ * // * retrieval system, unless as expressly permitted by CSC.
+ * //
+ * // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+ * // ******************************************************************************
+ */
+
+#shoppingCart .shoppingcart_sideMenu ul li {
+  	padding: 10px;
+  	color: #4B7E37;
+  	border-bottom: 2px solid white;
+  
+}
+#shoppingCart .shoppingcart_sideMenu ul {
+	list-style-type: none;
+	margin: 0;
+ 	text-align: center;
+} 
+#shoppingCart .shoppingcart_sideMenu ul li:hover {
+	border-bottom: 2px solid #4caf50;
+	cursor: pointer;
+}
+#shoppingCart .shoppingcart_radio_buton{
+	margin:0px !important;
+}
+#shoppingCart .md-on,#shoppingCart .md-off{
+	margin-top:-3px;
+}
+#shoppingCart .shoppingcart_icon-size{
+	font-size:18px;
+}
+#shoppingCart .shoppingcart_icon-color-star{
+	color:#4caf50;
+	cursor:pointer;
+}
+#shoppingCart .shoppingcart_table_data{
+	line-height:30px;
+	border-bottom:1px solid #4caf50;
+}
+md-dialog md-content *:first-child{
+	margin-top:auto;
+}
+md-input-container .md-input:focus {
+  border-color: #4caf50 !important;
+}
+#shoppingCart .shopingcart_action_item{
+	cursor:pointer;
+	color:#4A89DC;
+	padding-left:10px;
+	text-decoration: underline;
+}
+#shoppingCart .shoppingcart_smallfont{
+	font-size: 10px;
+}
+#shoppingCart .removeUpperCaseButton,.removeUpperCaseButton{
+	text-transform: initial !important;
+}
+#shoppingCart md-tabs.md-default-theme .md-header {
+  background-color: white ;
+}
+#shoppingCart md-tabs.md-default-theme md-tab.active {
+color: #4B7E37;
+font-weight: bold;
+}
+
+#shoppingCart md-tabs.md-default-theme md-tab {
+  color: green;
+}
+#shoppingCart md-tabs.md-default-theme md-tabs-ink-bar {
+/* color: blue; */
+background: #8BC34A;
+}
+
+#shoppingCart .md-header-items-container{
+  background-color: white;	
+}
+#shoppingCart md-tabs.md-default-theme.md-accent md-tab:not([disabled]).active{
+	color:#4caf50;
+}
+.shoppingcart_margin_left{
+	margin-left: 10px !important;
+}
+
+.aui .navbar .nav > .active > a, .aui .navbar .nav > .active > a:hover {
+  color: white;
+  background: url("/ipos-portal-common-portlet/images/arrow-active.png") no-repeat scroll 100% 0px;
+  box-shadow: none;
+}
+.aui .navbar .nav > .inactive > a, .aui .navbar .nav > .inactive > a:hover {
+  color: #BDBDBD;
+  cursor: not-allowed;
+  background: url("/ipos-portal-common-portlet/images/arrow-inactive.png") no-repeat scroll 100% 0px;
+  box-shadow: none;
+}
+.aui .navbar .nav > .active > a, .aui .navbar .nav > .active > a:focus {
+  color: white;
+  background: url("/ipos-portal-common-portlet/images/arrow-active.png") no-repeat scroll 100% 0px;
+  box-shadow: none;
+}
+.aui .navbar .nav > .inactive > a, .aui .navbar .nav > .inactive > a:focus {
+  color: #BDBDBD;
+  cursor: not-allowed;
+  background: url("/ipos-portal-common-portlet/images/arrow-inactive.png") no-repeat scroll 100% 0px;
+  box-shadow: none;
+}
+.aui .label, .aui .badge{
+  line-height: 35px;
+}
+.aui .navbar .nav > li > a {
+  font-size:14px;
+  text-shadow: none;
+  padding: 0px;
+}
+.aui .navbar{
+margin-bottom:0px;}
+.aui .modal-header{
+border-bottom:none;
+padding: 5px 0px 0px 0px;
+  margin-bottom: 0px;
+}
+.modal-body {
+  padding-top: 0 !important;
+}
+.zizap {
+  border: 3px dashed #4caf50;
+}
+.aui input[type="text"]{
+border: 2px solid #dce4ec;
+ }
+#nav-quote .navbar .active .badge {
+  background-color: #3bafda !important;
+}
+#nav-quote .navbar .badge {
+  background-color: #4caf50 !important;
+  border-radius:33px;
+}
+
+.aui .navbar .nav > li > a:focus, .aui .navbar .nav > li > a:hover {
+  color: #4caf50;
+}
+aui .modal-header {
+ 
+  border-bottom: 1px solid #4caf50;
+}
+.shopping_cart_small_font_size{
+	font-size:10px;
+}
+.shopping_cart_margin-top20{
+	margin-top:20px;
+}
+.shopping-cart-float-icon-right-hide-show {
+  float: right;
+  margin-right: 5px;
+}
+.float-icon-right-hide-show {
+  float: right;
+  margin-right: 5px;
+}
+.normal-icon{
+	font-size:20px;
+}
+
+.inner-icon{
+	margin-left: -25px;
+	margin-top: 5px;
+}
+
+.detail{
+	-webkit-transition:all linear 0.5s;
+  	transition:all linear 0.5s;
+  	height: 0px;
+  	overflow: hidden;
+}
+
+.detail-show{
+	height: 80px;
+}
+
+.carret-button{
+	display: inline-block;
+    margin-right: 10px;
+}
+
+.rotate-caret{
+	-webkit-transform: rotate(180deg);  /* to support Safari and Android browser */
+    -ms-transform: rotate(180deg);      /* to support IE 9 */
+    transform: rotate(180deg);
+    transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.action-list{
+	float: left;
+    padding-right: 20px;
+    border-right-width: 1px;
+    border-right-color: rgba(0,0,0,0.12);
+    margin-bottom: 10px;
+	margin-right: 20px;
+    padding-left: 7px;
+}
+.icon-action-list{
+	float: left;
+
+    margin-top: 6px;
+ }
+ 
+ .ng-hide-add, .ng-hide-remove {
+    /* ensure visibility during the transition */
+    display: block !important; /* yes, important */
+}
+
+.cssSlideUp {
+    transition: .5s linear all;
+    height: 120px;
+    overflow: hidden;
+}
+.cssSlideUp.ng-hide {
+    height:0;
+}
+
+.cssSlideUp2 {
+    transition: .5s linear all;
+    height: 80px;
+    overflow: hidden;
+}
+.cssSlideUp2.ng-hide {
+    height:0;
+}
+.checkbox-align {
+	width: 0%;
+	margin: auto;
+}
+
+.form-group{
+	margin-bottom: 0px!important;
+}
+
+/* .form-group label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 0px;
+    font-weight: normal;
+    font-size: 15px;
+} */
+
+.form-label {
+    font-weight: normal;
+    font-size: 15px;
+}  
+.rotate-caret{
+	margin-left: 0px!important;
+}

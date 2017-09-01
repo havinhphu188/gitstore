@@ -1,0 +1,98 @@
+{
+  "IposDocument": {
+    "Data": {
+      "payment:Payment": {
+        "@key": [
+          "Payment"
+        ],
+        "@section": "payment:Payment",
+        "payment:BasicInfo": {},
+        "payment:TransactionType": {
+          "@key": [
+            "CaseType"
+          ]
+        },
+         "payment:Product": {
+          "@key": [
+            "ClientPayment", "Product"
+          ]
+        },
+        "payment:ReferenceNo": {
+          "@key": [
+            "CaseName"
+          ]
+        },
+        "payment:TotalSumInsured": {
+          "@key": [
+            "SumInsured"
+          ]
+        },
+        "payment:PaymentInfo": {},
+        "payment:PayorName": {
+          "@key": [
+            "FullName"
+          ]
+        },
+        "payment:TotalPayable": {
+          "@key": [
+            "Premium"
+          ]
+        },
+        "payment:PaymentMethod": {
+        "@isVisible": "moduleService.product != 'term-life-secure'",
+          "@key": [
+            "PaymentMethod"
+          ]
+        },
+        "payment:ChequeNumber": {
+          "@key": [
+            "ChequeNumber"
+          ]
+        },
+        "payment:BankName": {
+          "@key": [
+            "BankName"
+          ]
+        },
+        "payment:ChequeDate": {
+          "@key": [
+            "ChequeDate"
+          ]
+        },
+        "payment:AdviceNo": {
+          "@key": [
+            "AdviceNo"
+          ]
+        },
+        "payment:AdviceDate": {
+          "@key": [
+            "AdviceDate"
+          ]
+        },
+        "payment:PaymentDate": {
+        "@isVisible": "moduleService.product != 'term-life-secure'",
+          "@key": [
+            "PaymentDate"
+          ]
+        },
+        "payment:Remark": {
+        "@isVisible": "moduleService.product != 'term-life-secure'",
+          "@key": [
+            "Comments"
+          ]
+        },
+        "payment:GenPdf": {
+          "@isVisible": "moduleService.product != 'term-life-secure'",
+          "@key": [
+            "Comments"
+          ]
+        },
+         "payment:ProceedPayment": {
+          "@key": [
+            ""
+          ]
+        }
+      }
+    }
+  }
+}

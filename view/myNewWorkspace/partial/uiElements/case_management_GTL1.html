@@ -1,0 +1,345 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="case-management-gtl:CaseInformation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6" title="{{'new.v3.mynewworkspace.motor.casemanagement.label.BusinessTransactionInformation' | translate}}">
+			{{'new.v3.mynewworkspace.motor.casemanagement.label.BusinessTransactionInformation' | translate | trimtext:false:25:'...'}} :
+		</span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['DocName'])}}</span>
+	</div>
+</div>
+<div fieldId="case-management-gtl:CurrentStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'new.v3.mynewworkspace.motor.casemanagement.label.CurrentStatus' | translate}}:</span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['BusinessStatus'])}}</span>
+	</div>
+</div>
+<div fieldId="case-management-gtl:PendingInformation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'new.v3.mynewworkspace.motor.casemanagement.label.PendingInformation' | translate}}:</span>
+		<span class="col-md-6">N/A</span>
+	</div>
+</div>
+<div fieldId="case-management-gtl:NextRequiredAction" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'new.v3.mynewworkspace.motor.casemanagement.label.NextRequiredAction' | translate}}:</span>
+		<span class="col-md-6">N/A</span>
+	</div>
+</div>
+<div fieldId="case-management-gtl:PolicyNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'new.v3.mynewworkspace.motor.casemanagement.label.PolicyNo' | translate}}:</span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['PolicyNumber']).$}}</span>
+	</div>
+</div>
+<!-- End of Summary -->
+<!-- Review And Approval -->
+
+<!-- Sale Manager Assessment  -->
+<div fieldId="case-management-gtl:assessmentChecklist" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="form-group form-group-lg has-success large-font text-center">
+		{{"v3.mynewworkspace.portlet.label.case-management-gtl:assessmentChecklist" | translate}}
+	</div>
+</div>
+<div fieldId="case-management-gtl:reviewedCase" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="form-group form-group-lg has-success">
+		<b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:reviewedCase" | translate}}</b>
+	</div>
+</div>
+<div fieldId="case-management-gtl:minimumGroupSize" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:minimumGroupSize" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:minimumParticipationPercentage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:minimumParticipationPercentage" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:minimumAge" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:minimumAge" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:maximumAge" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:maximumAge" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:minimumSI" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:minimumSI" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:maximumSI" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:maximumSI" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:noAdverse" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:noAdverse" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+<div fieldId="case-management-gtl:properDisclosures" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pdpa-column-content">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pdpa-column-content">
+		<span>{{"v3.mynewworkspace.portlet.label.case-management-gtl:properDisclosures" | translate}}</span>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pdpa-column-content">
+   		<v3-switch-new-slide switch-size="" prefix="v3.yesno.enum"
+   			switch-model="moduleService.findElementInDetail_V3(['Consent']).Value" 
+   			switch-default-value="" switch-disabled="false"
+   			switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoicelist, ['Consent', 'Option'])"
+   			more-action="selectCommunicationChannels()">
+   		</v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Consent']).errorMessage | translate"></span>
+</div>
+
+<!-- Interested Parties - Agent Detail -->
+<div fieldId="case-management-gtl:AgentName" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding-left no-padding-right">
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+		<div class="col-xs-10 v3-column-content">
+	    <div class="form-group form-group-lg has-success">
+	      <label><b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:agentName" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span> :</b></label>
+	      <input class="form-control" ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+	      type="text" maxlength="20" ng-model="uiElement.refDetail.$"/>
+	      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+	    </div>
+	  </div>
+	</div>
+</div>
+<div fieldId="case-management-gtl:LocationCd" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:locationCode" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></b></label>
+<ng-newDropDown model="uiElement.refDetail"
+			disable="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+			list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.product], ['LocationCd']).Option" 
+			type="nonFlag" prefix="v3.pnc.locationcd.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="case-management-gtl:SubLocationCd" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:sublocationCode" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></b></label>
+<ng-newDropDown model="uiElement.refDetail" 
+disable="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList, ['SubLocationCd']).Option" 
+type="nonFlag" prefix="v3.pnc.sublocationcd.enum"></ng-newDropDown>  
+			<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="case-management-gtl:Contact" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label><b>{{"v3.mynewworkspace.portlet.label.Contact" | translate}} :</b></label>
+		</div>
+	</div>
+</div>
+<div fieldId="case-management-gtl:PhoneNumberOfAgent" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+    <div class="form-group form-group-lg has-success">
+      	<label><b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:telephone" | translate}} :<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></b></label>
+		<input style="padding-left: 40px;" class="form-control" pos-phonenumber phone-Numbers-Only
+			ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+			type="text" maxlength="13" ng-model="uiElement.refDetail.$" />
+		<span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="case-management-gtl:EmailAddressOfAgent" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:email" | translate}} :<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span></b></label>
+      <input class="form-control" type="text" maxlength="50" 
+      ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0'" 
+      ng-model="uiElement.refDetail.$"/>
+      <span class="errorMessage" ng-bind ="commonService.hasValueNotEmpty(uiElement.refDetail.$) ? ('v3.user.error.message.' + commonUIService.checkValidEmail(uiElement.refDetail.$) | translate) : ''"></span>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Interest Parties / Servicing Staff Information -->
+<div fieldId="case-management-gtl:InsuranceCompany" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+  <div class="col-xs-10">
+    <div class="form-group form-group-lg has-success">
+      <label><b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:insuranceCompany" | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'">*</span> :</b></label>
+    </div>
+  </div>
+</div>
+<div fieldId="case-management-gtl:ServicingStaffTemp1" class="col-xs-12 col-sm-6 col-md-6 col-lg-6  margin-bottom-20">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="case-management-gtl:importServicingStaff" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:servicingStaff" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ServicingStaffCd'])['@mandatory'] == '1'">*</span> :</b></label>
+ 	  <ng-newDropDown disable="moduleService.freeze"
+ 			model = "selected.Value"
+            list='clientList'
+            type="regular" key="FullName">
+	  </ng-newDropDown> 
+	  <i class="fa fa-arrow-circle-down fa-3x button-import" ng-click="importStaff(selected.Value.DocId,true)"></i>  
+    </div>
+  </div>
+</div>
+<div fieldId="case-management-gtl:ServicingStaffTemp2" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="case-management-gtl:ServicingStaffCd" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:servicingStaffName" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ServicingStaffCd'])['@mandatory'] == '1'">*</span> :</b></label>
+		<input class="form-control" type="text" ng-disabled="moduleService.freeze"
+		ng-model="moduleService.findElementInDetail_V3(['ServicingStaffCd']).$"/>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ServicingStaffCd']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="case-management-gtl:PhoneNumberOfServicingStaff" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:serviceStaffTelephone" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PhoneNumberOfServicingStaff'])['@mandatory'] == '1'">*</span> :</b></label>
+      <input class="form-control" type="text" pos-phonenumber phone-Numbers-Only style="padding-left: 40px;"
+      		ng-disabled="moduleService.freeze"
+			type="text" maxlength="13"  ng-model="moduleService.findElementInDetail_V3(['PhoneNumberOfServicingStaff']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PhoneNumberOfServicingStaff']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="case-management-gtl:importMarketingStaff" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:marketingStaff" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ServicingStaffCd'])['@mandatory'] == '1'">*</span> :</b></label>
+ 	  <ng-newDropDown disable="moduleService.freeze"
+ 			model = "selected.Value"
+            list='clientList'
+            type="regular" key="FullName"">
+	  </ng-newDropDown>
+	  <i class="fa fa-arrow-circle-down fa-3x button-import" ng-click="importStaff(selected.Value.DocId,false)"></i>  
+    </div>
+  </div>
+</div>
+<div fieldId="case-management-gtl:ServicingStaffTemp3" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10">
+		<div class="form-group form-group-lg has-success">
+			<label>&nbsp;</label>
+		</div>
+	</div>
+</div>
+<div fieldId="case-management-gtl:MarketingStaffCd" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:marketingStaffName" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MarketingStaffCd'])['@mandatory'] == '1'">*</span> :</b></label>
+		<input class="form-control" type="text" ng-disabled="moduleService.freeze"
+		ng-model="moduleService.findElementInDetail_V3(['MarketingStaffCd']).$"/>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MarketingStaffCd']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="case-management-gtl:PhoneNumberOfMarketingStaff" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label><b>{{"v3.mynewworkspace.portlet.label.case-management-gtl:marketingStaffTelephone" | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PhoneNumberOfMarketingStaff'])['@mandatory'] == '1'">*</span> :</b></label>
+      <input class="form-control" style="padding-left: 40px;" type="text" pos-phonenumber phone-Numbers-Only
+      		ng-disabled="moduleService.freeze"
+			type="text" maxlength="13" ng-model="moduleService.findElementInDetail_V3(['PhoneNumberOfMarketingStaff']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PhoneNumberOfMarketingStaff']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>

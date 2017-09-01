@@ -1,0 +1,9 @@
+<div layout="row" id="switch-{{::switchName}}" class="v3-switch-new">
+    <div ng-repeat="item in ::switchOptions">
+        <div layout="row" id="switch-{{::switchName}}-{{::$index}}" class="v3-switch-item-new" flex>
+            <div  ng-click="chooseSwitch($index, item.value)" flex>
+                {{::item.text}}
+            </div>
+        </div>
+    </div>
+</div>

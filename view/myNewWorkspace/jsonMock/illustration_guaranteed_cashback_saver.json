@@ -1,0 +1,252 @@
+{
+  "IposDocument": {
+    "Data": {
+      "guaranteed-cashback-saver": {
+        "@key": [
+          "Inputs"
+        ],
+        "@section": "guaranteed-cashback-saver",
+        "@vpms-suffix": "QuotationFire",
+        "guaranteed-cashback-saver:Summary": {
+          "@section": "guaranteed-cashback-saver",
+          "@vpms-suffix": "Summary",
+          "guaranteed-cashback-saver:ProductName": {
+            "@key": [
+              "Product"
+            ],
+            "@preview": [
+              "guaranteed-cashback-saver:Summary"
+            ],
+            "@valuePrefix": "v3.mynewworkspace.portlet.label.productName."
+          },
+          "guaranteed-cashback-saver:ProductNameFake": {
+            "@key": [
+              ""
+            ]
+          },
+          "guaranteed-cashback-saver:QuotationNo": {
+            "@key": [
+              "DocName"
+            ],
+            "@preview": [
+              "guaranteed-cashback-saver:Summary"
+            ]
+          },
+          "guaranteed-cashback-saver:Status": {
+            "@key": [
+              "BusinessStatus"
+            ],
+            "@preview": [
+              "guaranteed-cashback-saver:Summary"
+            ],
+            "@valuePrefix": "v3.document.status."
+          },
+          "guaranteed-cashback-saver:CreatedDate": {
+            "@key": [
+              "CreatedDate"
+            ],
+            "@format": "datetime",
+            "@preview": [
+              "guaranteed-cashback-saver:Summary"
+            ]
+          },
+          "guaranteed-cashback-saver:LastUpdatedDate": {},
+          "guaranteed-cashback-saver:ProposerName": {},
+          "guaranteed-cashback-saver:InsuredName": {},
+          "guaranteed-cashback-saver:PreviewQuotationDetail": {}
+        },
+        "guaranteed-cashback-saver:PolicyOwner": {
+          "@key": [
+            "PolicyOwner"
+          ],
+          "@section": "guaranteed-cashback-saver",
+          "@vpms-suffix": "BasicInformation",
+          "guaranteed-cashback-saver:Title": {},
+          "guaranteed-cashback-saver:Name": {
+            "@key": [
+              "PolicyOwner",
+              "FullName"
+            ],
+            "@preview": [
+              "guaranteed-cashback-saver:PolicyOwner"
+            ]
+          },
+          "guaranteed-cashback-saver:DateofBirth": {
+            "@key": [
+              "PolicyOwner",
+              "BirthDate"
+            ],
+            "@format": "datetime",
+            "@preview": [
+              "guaranteed-cashback-saver:PolicyOwner"
+            ]
+          },
+          "guaranteed-cashback-saver:AgeNextBirthday": {},
+          "guaranteed-cashback-saver:Gender": {
+            "@key": [
+              "PolicyOwner",
+              "Gender"
+            ],
+            "@preview": [
+              "guaranteed-cashback-saver:PolicyOwner"
+            ],
+            "@valuePrefix": "v3.gender.enum."
+          },
+          "guaranteed-cashback-saver:Smoking": {
+            "@key": [
+              "PolicyOwner",
+              "SmokerStatus"
+            ],
+            "@preview": [
+              "guaranteed-cashback-saver:PolicyOwner"
+            ],
+            "@valuePrefix": "v3.pnc.smoker.enum."
+          },
+          "guaranteed-cashback-saver:BusinessIndustry": {},
+          "guaranteed-cashback-saver:Occupation": {}
+        },
+        "guaranteed-cashback-saver:addNewLifeInsured": {
+          "@key": [
+            "NewProspect"
+          ],
+          "@isVisible": "moduleService.gcsAddNewLifeInsured == false",
+          "@section": "guaranteed-cashback-saver",
+          "@icon": {
+            "main": "fa fa-user",
+            "mainAction": "addIcon"
+          },
+          "@cssClass": "v3-box-1",
+          "@cardType": "action",
+          "@onClick": "addNewLifeInsured()"
+        },
+        "guaranteed-cashback-saver:LifeInsured": {
+          "@isVisible": "moduleService.gcsAddNewLifeInsured == true",
+          "@key": [
+            "LifeInsured"
+          ],
+          "icons": {
+          	"cardIcon": {
+              "content": "fa fa-bar-chart"
+            },
+            "removeCard": {
+              "onClick": "removeLifeInsured()"
+            }
+          },
+          "subAction": "removeLifeInsured()",
+          "@section": "guaranteed-cashback-saver",
+          "@vpms-suffix": "RiskAccumulation",
+          "guaranteed-cashback-saver:SelectContact": {},
+          "guaranteed-cashback-saver:RelationshiptoPolicyOwner": {},
+          "guaranteed-cashback-saver:LITitle": {},
+          "guaranteed-cashback-saver:LIName": {
+            "@key": [
+              "LifeInsured",
+              "FullName"
+            ],
+            "@preview": [
+              "guaranteed-cashback-saver:LifeInsured"
+            ]
+          },
+          "guaranteed-cashback-saver:LIDateofBirth": {
+            "@key": [
+              "LifeInsured",
+              "BirthDate"
+            ],
+            "@format": "datetime",
+            "@preview": [
+              "guaranteed-cashback-saver:LifeInsured"
+            ]
+          },
+          "guaranteed-cashback-saver:LIAgeNextBirthDay": {},
+          "guaranteed-cashback-saver:LIGender": {},
+          "guaranteed-cashback-saver:LISmoking": {
+            "@key": [
+              "LifeInsured",
+              "SmokerStatus"
+            ],
+            "@preview": [
+              "guaranteed-cashback-saver:LifeInsured"
+            ],
+            "@valuePrefix": "v3.pnc.smoker.enum."
+          },
+          "guaranteed-cashback-saver:LIBusinessIndustry": {},
+          "guaranteed-cashback-saver:LIOccupation": {}
+        },
+        "guaranteed-cashback-saver:BasicPlan": {
+          "@section": "guaranteed-cashback-saver",
+          "@vpms-suffix": "ConstructionInformation",
+          "guaranteed-cashback-saver:EffectiveDate": {
+            "@key": [
+              "EffectiveDate"
+            ],
+            "@format": "datetime",
+            "@preview": [
+              "guaranteed-cashback-saver:BasicPlan"
+            ]
+          },
+          "guaranteed-cashback-saver:BackingDate": {},
+          "guaranteed-cashback-saver:ContractCurrency": {},
+          "guaranteed-cashback-saver:BillingCurrency": {},
+          "guaranteed-cashback-saver:PolicyTerm": {
+            "@key": [
+              "PolicyTerm"
+            ],
+            "@defaultValue": "15",
+            "@preview": [
+              "guaranteed-cashback-saver:BasicPlan"
+            ],
+            "@valuePrefix": "v3.pnc.policyTerm."
+          },
+          "guaranteed-cashback-saver:SumInsured": {
+            "@key": [
+              "SumAssured"
+            ],
+            "@defaultValue": "20000"
+          },
+          "guaranteed-cashback-saver:CashbackPayoutOption": {
+            "@key": [
+              "CashbackPayoutOption"
+            ],
+            "@defaultValue": "P"
+          },
+          "guaranteed-cashback-saver:CashbacPayoutYearing": {
+            "@key": [
+              "CashbackPayoutYear"
+            ],
+            "@defaultValue": "2"
+          },
+          "guaranteed-cashback-saver:PremiumPrequency": {
+            "@key": [
+              "PremiumFrequency"
+            ],
+            "@defaultValue": "02"
+          },
+          "guaranteed-cashback-saver:Loading": {
+            "@key": [
+              "Loading"
+            ]
+          },
+          "guaranteed-cashback-saver:Reason": {
+            "@key": [
+              "Reason"
+            ]
+          },
+          "guaranteed-cashback-saver:LoadingForFrequency": {
+            "@key": [
+              "LoadingForFrequency"
+            ]
+          },
+          "guaranteed-cashback-saver:FrequencyPremiumPayable": {
+            "@key": [
+              "PremiumFrequency"
+            ],
+            "@preview": [
+              "guaranteed-cashback-saver:BasicPlan"
+            ],
+            "@valuePrefix": "v3.pnc.premiumPrequencys."
+          }
+        }
+      }
+    }
+  }
+}

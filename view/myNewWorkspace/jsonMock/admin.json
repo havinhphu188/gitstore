@@ -1,0 +1,142 @@
+{
+  "IposDocument": {
+    "Data": {
+      "ipos-admin:admin": {
+        "@key": "admin",
+        "@section": "ipos-admin:admin",
+        "@vpms-suffix": "admin",
+        "@cssClass": "v3-box-1",
+        "ipos-admin:GlobalSetup": {
+          "@section": "ipos-admin:admin",
+          "@key": "GlobalSetup",
+          "ipos-admin:GlobalSetup_Config": {
+            "@section": "ipos-admin:GlobalSetup",
+            "@key": "",
+            "ipos-admin:GlobalConfig": {}
+          },
+          "ipos-admin:GlobalSetup_Server": {
+            "@section": "ipos-admin:GlobalSetup",
+            "@key": "",
+            "ipos-admin:GlobalSetup_Table": {}
+          },
+          "ipos-admin:RoleConfig_Table": {
+            "@section": "ipos-admin:GlobalSetup",
+            "@key": "",
+            "ipos-admin:RoleConfig": {}
+          }
+        },
+        "ipos-admin:BusinessModule": {
+          "@section": "ipos-admin:admin",
+          "@key": "BusinessModule",
+          "@cssClass": "v3-box-4",
+          "@initCtrl": "business"
+        },
+        "ipos-admin:UserManagement": {
+          "@section": "ipos-admin:admin",
+          "ipos-admin:CSC-Insurance": {
+            "@section": "ipos-admin:UserManagement",
+            "@onOpen": "getListUsers('CSC-Insurance')",
+            "ipos-admin:User": {
+              "@key": [
+                "metadatas"
+              ],
+              "@previewHtml": "v3-user-admin-config.html",
+              "@icon": "undefined",
+              "@onOpen": "loadUser(card)",
+              "@initCtrl": "userProfile",
+              "@cssClass": "v3-box-3",
+              "@section": "ipos-admin:CSC-Insurance",
+              "@cardType": "template"
+            }
+          },
+          "ipos-admin:MNC-General": {
+            "@section": "ipos-admin:UserManagement",
+            "@onOpen": "getListUsers('MNC-General')",
+            "ipos-admin:User": {
+              "@key": [
+                "metadatas"
+              ],
+              "@previewHtml": "v3-user-admin-config.html",
+              "@icon": "undefined",
+              "@onOpen": "loadUser(card)",
+              "@initCtrl": "userProfile",
+              "@cssClass": "v3-box-3",
+              "@section": "ipos-admin:MNC-General",
+              "@cardType": "template"
+            }
+          },
+          "ipos-admin:MNC-Life": {
+            "@section": "ipos-admin:UserManagement",
+            "@onOpen": "getListUsers('MNC-Life')",
+            "ipos-admin:User": {
+              "@key": [
+                "metadatas"
+              ],
+              "@previewHtml": "v3-user-admin-config.html",
+              "@icon": "undefined",
+              "@onOpen": "loadUser(card)",
+              "@initCtrl": "userProfile",
+              "@cssClass": "v3-box-3",
+              "@section": "ipos-admin:MNC-Life",
+              "@cardType": "template"
+            }
+          }
+        },
+        "ipos-admin:OTP": {
+          "@section": "ipos-admin:admin",
+          "@key": "OTP",
+          "ipos-admin:OTP_Table": {
+            "@key": ""
+          }
+        },
+        "ipos-admin:TranslationConfig": {
+          "@section": "ipos-admin:admin",
+          "@key": "TranslationConfig",
+          "ipos-admin:TranslationConfigContent": {
+            "@key": ""
+          }
+        },
+        "ipos-admin:DataMigrate": {
+          "@section": "ipos-admin:admin",
+          "cssClass": "v3-box-4",
+          "@key": "",
+          "ipos-admin:getDataMigrateCard": {
+            "@section": "ipos-admin:DataMigrate",
+            "@key": "",
+            "ipos-admin:getDataMigrateContainer": {},
+            "@onOpen": "CreateDataSource()"
+          },
+          "ipos-admin:upDataMigrateCard": {
+            "@section": "ipos-admin:DataMigrate",
+            "@key": "",
+            "ipos-admin:upDataMigrateContainer": {},
+            "@onOpen": "CreateDataSourceOutput()"
+          },
+          "ipos-admin:emptyDataMigrateCard": {
+            "@section": "ipos-admin:DataMigrate",
+            "@key": "",
+            "ipos-admin:cleaningDataMigrateContainer": {},
+            "@onOpen": "initCleaningProcessResource()"
+          }
+        },
+        "ipos-admin:Config": {
+          "@section": "ipos-admin:admin",
+          "cssClass": "v3-box-4",
+          "ipos-admin:autoSaveInterval": {},
+          "ipos-admin:autoSaveNavigating": {},
+          "ipos-admin:cacheFlg": {},
+          "ipos-admin:cardPreview": {},
+          "ipos-admin:cardTouchMode": {},
+          "ipos-admin:DEV_MODE": {},
+          "ipos-admin:useUIModelFromDB": {},
+          "ipos-admin:importQuotation": {},
+          "ipos-admin:isShowLeftSideBar": {},
+          "ipos-admin:useTranslationDataFromDB": {},
+          "ipos-admin:serverUrl_V3": {},
+          "ipos-admin:maxDayToRenew": {},
+          "ipos-admin:saveButton": {}
+        }
+      }
+    }
+  }
+}

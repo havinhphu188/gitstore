@@ -1,0 +1,199 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+ <div fieldId="payment:BasicInfo">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="form-group form-group-lg has-success">
+    	<label style="font-weight: bold">{{'new.v3.mynewworkspace.motor.payment.label.BasicInformation' | translate}}&nbsp;</label>      
+    </div>
+  </div>
+</div>
+<div fieldId="payment:TransactionType"  class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.payment.label.TransactionType' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['CaseType'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['CaseType'])['@editable'] == '0'" 
+        value="{{'v3.payment.transactiontype.'+ moduleService.findElementInDetail_V3(['CaseType']).Value | translate}}"/>
+    <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CaseType']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="payment:ReferenceNo"  class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.payment.label.ReferenceNo' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['CaseName'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['ReferenceNo'])['@editable'] == '0'"
+        ng-model="moduleService.findElementInDetail_V3(['ReferenceNo']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ReferenceNo']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="payment:Product"  class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.payment.label.ProductName' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['ClientPayment','Product'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['ClientPayment','Product'])['@editable'] == '0'" 
+        value="{{'v3.illustration.product.'+ moduleService.findElementInDetail_V3(['ClientPayment','Product']).$ | translate}}"/>
+       <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ClientPayment','Product']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="payment:TotalSumInsured"  class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.payment.label.TotalSumInsured' | translate}} ({{moduleService.findElementInDetail_V3(['SICurrency']).Value}})<span ng-show="moduleService.findElementInDetail_V3(['SumInsured'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['SumInsured'])['@editable'] == '0'" 
+        ng-model="moduleService.findElementInDetail_V3(['SumInsured']).$" pos-autonumeric decimal="0" />
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['SumInsured']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+ <div fieldId="payment:PaymentInfo">
+   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="form-group form-group-lg has-success">
+    	<label style="font-weight: bold">{{'new.v3.mynewworkspace.motor.payment.label.PaymentInformation' | translate}}&nbsp;</label>      
+    </div>
+  </div>
+</div>
+<div fieldId="payment:PayorName"  class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.payment.label.PayorName' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['PayorName'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['PayorName'])['@editable'] == '0' || moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] == 'PAID'" 
+        ng-model="moduleService.findElementInDetail_V3(['PayorName']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PayorName']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="payment:TotalPayable"  class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.payment.label.PayableAmount' | translate}} ({{moduleService.findElementInDetail_V3(['SICurrency']).Value}}) <span ng-show="moduleService.findElementInDetail_V3(['Premium'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['PayableAmount'])['@editable'] == '0'" 
+        ng-model="moduleService.findElementInDetail_V3(['PayableAmount']).$" pos-autonumeric />
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PayableAmount']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+ <div fieldId="payment:PaymentMethod" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-padding-0">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+      <div class="form-group form-group-lg has-success">
+        <label>{{'new.v3.mynewworkspace.motor.payment.label.PaymentMethod' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['PaymentMethod'])['@mandatory'] == '1'">*</span></label>
+        <v3-switch-new switch-size="" switch-name="paymentMethod" prefix="v3.paymentMethod"
+                switch-model="moduleService.findElementInDetail_V3(['PaymentMethod']).Value" switch-default-value="" 
+                switch-disabled="moduleService.findElementInDetail_V3(['PaymentMethod'])['@editable'] == '0' || moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] == 'PAID'" 
+                switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['PaymentMethod','Option'])"
+                more-action="changePaymentMethod()">
+        </v3-switch-new>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PaymentMethod']).errorMessage | translate"></span>
+      </div>
+    </div>
+  </div>
+</div>
+ <div fieldId="payment:ChequeNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-if="moduleService.findElementInDetail_V3(['PaymentMethod']).Value=='CHEQUE'">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.payment.label.ChequeNumber' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['ChequeNumber'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['ChequeNumber'])['@editable'] == '0' || moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] == 'CLIENT-PAID'" 
+        ng-model="moduleService.findElementInDetail_V3(['ChequeNumber']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ChequeNumber']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+ <div fieldId="payment:BankName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" ng-if="moduleService.findElementInDetail_V3(['PaymentMethod']).Value=='CHEQUE'">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.payment.label.BankName' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['BankName'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="moduleService.findElementInDetail_V3(['BankName'])['@editable']=='0' || moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] == 'CLIENT-PAID'"
+        model="moduleService.findElementInDetail_V3(['BankName'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['BankName']).Option" 
+         type="nonFlag" prefix="v3.payment.bankname"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BankName']).errorMessage | translate"></span>
+      
+      <!-- <ng-newDropDown model="moduleService.findElementInDetail_V3(['BankName'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList,['BankName','Option'])" 
+         disable="mouduleService.freeze || moduleService.findElementInDetail_V3(['BankName'])['@editable'] == '0'"
+         type="nonFlag" prefix="v3.payment.bankname"></ng-newDropDown> -->
+    </div>
+  </div>
+</div>
+ <div fieldId="payment:ChequeDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-if="moduleService.findElementInDetail_V3(['PaymentMethod']).Value=='CHEQUE'">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.payment.label.ChequeDate' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['ChequeDate'])['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper"><input ng-disabled="moduleService.findElementInDetail_V3(['ChequeDate'])['@editable'] == '0' || moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] == 'CLIENT-PAID'" ms-datepicker ng-model="moduleService.findElementInDetail_V3(['ChequeDate']).$" class="ms-calendar"/></div>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ChequeDate']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+ <div fieldId="payment:AdviceNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-if="moduleService.findElementInDetail_V3(['PaymentMethod']).Value=='BT'">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.payment.label.AdviceNo' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['AdviceNo'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['AdviceNo'])['@editable'] == '0' || moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] == 'CLIENT-PAID'" 
+        ng-model="moduleService.findElementInDetail_V3(['AdviceNo']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['AdviceNo']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+ <div fieldId="payment:AdviceDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-if="moduleService.findElementInDetail_V3(['PaymentMethod']).Value=='BT'">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.payment.label.AdviceDate' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['AdviceDate'])['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper"><input ng-disabled="moduleService.findElementInDetail_V3(['AdviceDate'])['@editable'] == '0' || moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] == 'CLIENT-PAID'" ms-datepicker ng-model="moduleService.findElementInDetail_V3(['AdviceDate']).$" class="ms-calendar"/></div>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['AdviceDate']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="payment:PaymentDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.payment.label.PaymentDate' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['PaymentDate'])['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper"><input ng-disabled="moduleService.findElementInDetail_V3(['PaymentDate'])['@editable'] == '0' || moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] == 'CLIENT-PAID'" ms-datepicker ng-model="moduleService.findElementInDetail_V3(['PaymentDate']).$" class="ms-calendar"/></div>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PaymentDate']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+ <div fieldId="payment:Remark" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-padding-0">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+      <div class="form-group form-group-lg has-success">
+        <label>{{'new.v3.mynewworkspace.motor.payment.label.Remark' | translate}} <span ng-show="moduleService.findElementInDetail_V3(['Comments'])['@mandatory'] == '1'">*</span></label>
+        <input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['Comments'])['@editable'] == '0' || moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] == 'PAID'" 
+         ng-model="moduleService.findElementInDetail_V3(['Comments','Comment']).RemarkText"/>  
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Comments']).errorMessage | translate"></span>
+      </div>
+    </div>
+  </div>  
+</div>
+<div fieldId="payment:GenPdf" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10 v3-button-min-height">
+      <div class="form-group form-group-lg has-success">
+        <button class="btn btn-lg v3-btn-primary v3-button-low-left-corner" style="width: 200px" ng-disabled="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] == 'CLIENT-PAID'" ng-click="generatePDF()">{{'new.v3.mynewworkspace.motor.payment.label.GeneratePDF' | translate}}</button>
+      </div>
+    </div>
+</div>
+<div fieldId="payment:ProceedPayment" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-offset-1 col-xs-10">
+      <div class="form-group form-group-lg has-success">
+        <button class="btn btn-lg v3-btn-primary v3-button-low-left-corner" style="width: 200px" ng-click="goToShoppingCart()">{{'new.v3.mynewworkspace.endowment.ProceedPayment' | translate}}</button>
+      </div>
+    </div>
+</div>

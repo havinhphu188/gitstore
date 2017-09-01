@@ -1,0 +1,577 @@
+{
+  "IposDocument": {
+    "Data": {
+      "application-travel-express:Application": {
+        "key": [
+          "Application"
+        ],
+        "section": "application-travel-express:Application",
+        "application-travel-express:Summary": {
+          "icon": "fa fa-file-o",
+          "cssClass": "v3-box-3",
+          "key": [],
+          "section": "application-travel-express:Application",
+          "isShowValidationIcon": "false",
+          "application-travel-express:ApplicationInformation": {
+            "key": [
+              "DocName"
+            ],
+            "preview": [
+              {
+                "cardName": "application-travel-express:Summary",
+                "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.ApplicationInformation",
+                "priority": 50
+              },
+              {
+                "cardName": "application-travel-express:Application",
+                "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.ApplicationInformation",
+                "priority": 50
+              }
+            ]
+          },
+          "application-travel-express:CurrentStatus": {
+            "key": [
+              "BusinessStatus"
+            ],
+            "preview": [
+              {
+                "cardName": "application-travel-express:Summary",
+                "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.CurrentStatus",
+                "priority": 50
+              },
+              {
+                "cardName": "application-travel-express:Application",
+                "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.CurrentStatus",
+                "priority": 50
+              }
+            ],
+            "valuePrefix": "v3.document.status."
+          },
+          "application-travel-express:PendingInformation": {},
+          "application-travel-express:NextRequiredAction": {}
+        },
+        "application-travel-express:ProductInformation": {
+          "icon": "fa fa-file-o",
+          "cssClass": "v3-box-3",
+          "key": [],
+          "section": "application-travel-express:Application",
+          "isShowValidationIcon": "false",
+          "previewHtml": "v3-preview-static-travel-express-application-product-information.html",
+          "application-travel-express:ProductName": {
+            "key": [
+              "Product"
+            ],
+            "valuePrefix": "v3.mynewworkspace.portlet.label.productName."
+          },
+          "application-travel-express:InceptionDate": {
+            "key": [
+              "InceptionDate"
+            ]
+          },
+          "application-travel-express:ExpiryDate": {
+            "key": [
+              "ExpiryDate"
+            ]
+          },
+          "application-travel-express:Plan": {
+            "key": [
+              "Plan"
+            ]
+          },
+          "application-travel-express:TypeOfTravel": {
+            "key": [
+              "TypeOfTravel"
+            ]
+          },
+          "application-travel-express:Premium": {},
+          "application-travel-express:PremiumTable": {}
+        },
+        "application-travel-express:PolicyOwnerInformation": {
+          "icon": "fa fa-file-o",
+          "cssClass": "v3-box-3",
+          "key": [
+            "PolicyOwnerInformation"
+          ],
+          "section": "application-travel-express:Application",
+          "application-travel-express:BasicInfo": {
+            "key": [],
+            "icon": "fa fa-user",
+            "section": "application-travel-express:PolicyOwnerInformation",
+            "person:SelectPolicyOwner": {},
+            "person:Title": {
+              "key": [
+                "PolicyOwnerInformation",
+                "Title"
+              ],
+              "defaultValue": "DR"
+            },
+            "person:FullName": {
+              "key": [
+                "PolicyOwnerInformation",
+                "FullName"
+              ],
+              "preview": [
+                {
+                  "cardName": "application-travel-express:Application",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.POFullName",
+                  "priority": 50
+                },
+                {
+                  "cardName": "application-travel-express:BasicInfo",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.POFullName",
+                  "priority": 50
+                },
+                {
+                  "cardName": "application-travel-express:PolicyOwnerInformation",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.POFullName",
+                  "priority": 50
+                }
+              ],
+              "defaultValue": "Default Name"
+            },
+            "person:BirthDate": {
+              "key": [
+                "PolicyOwnerInformation",
+                "BirthDate"
+              ],
+              "format": "datetime",
+              "preview": [
+                {
+                  "cardName": "application-travel-express:BasicInfo",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.POBirthDate",
+                  "priority": 50
+                },
+                {
+                  "cardName": "application-travel-express:PolicyOwnerInformation",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.POBirthDate",
+                  "priority": 50
+                }
+              ],
+              "defaultValue": "1992-02-23"
+            },
+            "person:Gender": {
+              "key": [
+                "PolicyOwnerInformation",
+                "Gender"
+              ],
+              "preview": [
+                {
+                  "cardName": "application-travel-express:BasicInfo",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.POGender",
+                  "priority": 50
+                },
+                {
+                  "cardName": "application-travel-express:PolicyOwnerInformation",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.POGender",
+                  "priority": 50
+                }
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.person:Gender",
+              "valuePrefix": "v3.pnc.gender.enum.",
+              "defaultValue": "M"
+            },
+            "person:MaritalStatus": {
+              "key": [
+                "PolicyOwnerInformation",
+                "MaritalStatus"
+              ],
+              "defaultValue": "S"
+            },
+            "person:SmokerStatus": {
+              "key": [
+                "PolicyOwnerInformation",
+                "SmokerStatus"
+              ]
+            },
+            "person:Nationality": {
+              "key": [
+                "PolicyOwnerInformation",
+                "Nationality"
+              ],
+              "defaultValue": "SGP"
+            },
+            "person:Race": {
+              "key": [
+                "PolicyOwnerInformation",
+                "Race"
+              ]
+            },
+            "person:IDType": {
+              "key": [
+                "PolicyOwnerInformation",
+                "IDType"
+              ],
+              "defaultValue": "BC"
+            },
+            "person:IDNumber": {
+              "key": [
+                "PolicyOwnerInformation",
+                "IDNumber"
+              ],
+              "defaultValue": "025519169"
+            }
+          },
+          "application-travel-express:OtherInfo": {
+            "section": "application-travel-express:PolicyOwnerInformation",
+            "icon": "fa fa-user",
+            "person:BusinessIndustry": {
+              "key": [
+                "PolicyOwnerInformation",
+                "BusinessIndustry"
+              ]
+            },
+            "person:Occupation": {
+              "key": [
+                "PolicyOwnerInformation",
+                "Occupation"
+              ],
+              "preview": [
+                {
+                  "cardName": "application-travel-express:OtherInfo",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.POOccupation",
+                  "priority": 50
+                }
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.person:Occupation",
+              "valuePrefix": "v3.pnc.occupation.enum."
+            },
+            "person:ReferralType": {
+              "key": [
+                "PolicyOwnerInformation",
+                "ReferralType"
+              ]
+            },
+            "person:Referrer": {
+              "key": [
+                "PolicyOwnerInformation",
+                "Referrer"
+              ]
+            },
+            "person:Staff": {
+              "key": [
+                "PolicyOwnerInformation",
+                "Staff"
+              ]
+            },
+            "person:Vip": {
+              "key": [
+                "PolicyOwnerInformation",
+                "Vip"
+              ],
+              "preview": [
+                {
+                  "cardName": "application-travel-express:OtherInfo",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.POVip",
+                  "priority": 50
+                }
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.person:Vip",
+              "valuePrefix": "v3.yesno.enum."
+            },
+            "person:Education": {
+              "key": [
+                "PolicyOwnerInformation",
+                "Education"
+              ]
+            },
+            "person:EmploymentStatus": {
+              "key": [
+                "PolicyOwnerInformation",
+                "EmploymentStatus"
+              ]
+            },
+            "person:CountryOfBirth": {
+              "key": [
+                "PolicyOwnerInformation",
+                "CountryOfBirth"
+              ]
+            }
+          },
+          "application-travel-express:Contact": {
+            "key": [
+              "PolicyOwnerInformation",
+              "Contacts"
+            ],
+            "section": "application-travel-express:PolicyOwnerInformation",
+            "icon": "fa fa-user",
+            "cssClass": "v3-box-1",
+            "person:EmailAddress": {
+              "type": "",
+              "key": [
+                "PolicyOwnerInformation",
+                "EmailAddress"
+              ]
+            },
+            "person:MobilePhone": {
+              "type": "",
+              "key": [
+                "PolicyOwnerInformation",
+                "MobilePhone"
+              ],
+              "defaultValue": "+60 9066612"
+            },
+            "person:HomePhone": {
+              "type": "",
+              "key": [
+                "PolicyOwnerInformation",
+                "HomePhone"
+              ]
+            },
+            "person:OfficePhone": {
+              "type": "",
+              "key": [
+                "PolicyOwnerInformation",
+                "OfficePhone"
+              ]
+            }
+          },
+          "person:Addresses": {
+            "key": [
+              "NonPrimaryAddresses"
+            ],
+            "onOpen": "convertNPAddressesToArray()",
+            "section": "application-travel-express:PolicyOwnerInformation",
+            "icon": "fa fa-user",
+            "cssClass": "v3-box-1",
+            "person:PrimaryAddress": {
+              "section": "person:Addresses",
+              "key": [
+                "PrimaryAddress"
+              ],
+              "person:PAddressType": {
+                "type": "",
+                "key": [
+                  "PrimaryAddress",
+                  "AddressType"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+                "valuePrefix": "v3.pnc.addressType.enum.",
+                "defaultValue": "RESIDENTIAL"
+              },
+              "person:PBlkHouseNo": {
+                "key": [
+                  "PrimaryAddress",
+                  "BlkHouseNo"
+                ],
+                "defaultValue": "Block 1"
+              },
+              "person:PUnitNo": {
+                "key": [
+                  "PrimaryAddress",
+                  "UnitNo"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.UnitNo",
+                "maxlength": 120,
+                "placeholder": "Unit No",
+                "type": "INPUT",
+                "isDisable": "(moduleService.freeze == true) || (findElementInDetail(uiElement.key)['@editable'] == '0')",
+                "defaultValue": "Unit 1"
+              },
+              "person:PBuilding": {
+                "key": [
+                  "PrimaryAddress",
+                  "Building"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.Building",
+                "maxlength": 120,
+                "placeholder": "Building",
+                "type": "INPUT",
+                "isDisable": "(moduleService.freeze == true) || (findElementInDetail(uiElement.key)['@editable'] == '0')",
+                "defaultValue": "Build 1"
+              },
+              "person:PCity": {
+                "key": [
+                  "PrimaryAddress",
+                  "City"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.City",
+                "maxlength": 120,
+                "placeholder": "City",
+                "type": "INPUT",
+                "isDisable": "(moduleService.freeze == true) || (findElementInDetail(uiElement.key)['@editable'] == '0')",
+                "defaultValue": "HCM"
+              },
+              "person:PCountry": {
+                "type": "",
+                "key": [
+                  "PrimaryAddress",
+                  "Country"
+                ],
+                "defaultValue": "SGP"
+              },
+              "person:PPostal": {
+                "key": [
+                  "PrimaryAddress",
+                  "Postal"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+                "maxlength": 120,
+                "placeholder": "Postal Code",
+                "type": "INPUT",
+                "isDisable": "(moduleService.freeze == true) || (findElementInDetail(uiElement.key)['@editable'] == '0')",
+                "defaultValue": "01212"
+              }
+            },
+            "person:NewNonPrimaryAddress": {
+              "section": "person:Addresses",
+              "key": [
+                "NonPrimaryAddress"
+              ],
+              "icon": {
+                "subAction": "removeIcon"
+              },
+              "cssClass": "v3-box-1",
+              "cardType": "template",
+              "person:NPAddressType": {
+                "type": "",
+                "key": [
+                  "AddressType"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+                "valuePrefix": "v3.pnc.addressType.enum."
+              },
+              "person:NPBlkHouseNo": {
+                "key": [
+                  "BlkHouseNo"
+                ]
+              },
+              "person:NPUnitNo": {
+                "key": [
+                  "UnitNo"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.UnitNo",
+                "maxlength": 120,
+                "placeholder": "Unit No",
+                "type": "INPUT"
+              },
+              "person:NPBuilding": {
+                "key": [
+                  "Building"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.Building",
+                "maxlength": 120,
+                "placeholder": "Building",
+                "type": "INPUT"
+              },
+              "person:NPCity": {
+                "key": [
+                  "City"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.City",
+                "maxlength": 120,
+                "placeholder": "City",
+                "type": "INPUT"
+              },
+              "person:NPCountry": {
+                "key": [
+                  "Country"
+                ]
+              },
+              "person:NPPostal": {
+                "key": [
+                  "Postal"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+                "maxlength": 120,
+                "placeholder": "Postal Code",
+                "type": "INPUT"
+              }
+            },
+            "person:NonPrimaryAddress": {
+              "section": "person:Addresses",
+              "icon": {
+                "main": "fa fa-user",
+                "mainAction": "addIcon"
+              },
+              "cardType": "action",
+              "onClick": "addCard(card)"
+            }
+          }
+        },
+        "application-travel-express:CorrespondenceAddress": {
+          "icon": "fa fa-file-o",
+          "cssClass": "v3-box-3",
+          "key": [
+            "CorrespondenceAddress"
+          ],
+          "section": "application-travel-express:Application",
+          "CorrespondenceAddress:SelectAddress": {},
+          "CorrespondenceAddress:AddressType": {
+            "key": [
+              "CorrespondenceAddress",
+              "AddressType"
+            ]
+          },
+          "CorrespondenceAddress:BlkHouseNoAndStreet": {
+            "key": [
+              "CorrespondenceAddress",
+              "BlkHouseNo"
+            ]
+          },
+          "CorrespondenceAddress:UnitNo": {
+            "key": [
+              "CorrespondenceAddress",
+              "UnitNo"
+            ],
+            "labelKey": "new.v3.mynewworkspace.prospect.label.UnitNo",
+            "maxlength": 120,
+            "placeholder": "Unit No",
+            "type": "INPUT"
+          },
+          "CorrespondenceAddress:Building": {
+            "key": [
+              "CorrespondenceAddress",
+              "Building"
+            ],
+            "labelKey": "new.v3.mynewworkspace.prospect.label.Building",
+            "maxlength": 120,
+            "placeholder": "Building",
+            "type": "INPUT"
+          },
+          "CorrespondenceAddress:City": {
+            "key": [
+              "CorrespondenceAddress",
+              "City"
+            ],
+            "labelKey": "new.v3.mynewworkspace.prospect.label.City",
+            "maxlength": 120,
+            "placeholder": "City",
+            "type": "INPUT"
+          },
+          "CorrespondenceAddress:Country": {
+            "key": [
+              "CorrespondenceAddress",
+              "Country"
+            ]
+          },
+          "CorrespondenceAddress:Postal": {
+            "key": [
+              "CorrespondenceAddress",
+              "Postal"
+            ],
+            "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+            "maxlength": 120,
+            "placeholder": "Postal Code",
+            "type": "INPUT"
+          }
+        },
+        "application-travel-express:DeclarationByProposer": {
+          "icon": "fa fa-file-o",
+          "cssClass": "v3-box-3",
+          "key": [],
+          "section": "application-travel-express:Application",
+          "application-travel-express:DeclareAndAgreeTheForm": {
+            "key": [
+              "DeclareAndAgreeTheForm"
+            ]
+          },
+          "application-travel-express:DeclareAndAgreeTheTerm": {
+            "key": [
+              "DeclareAndAgreeTheTerm"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

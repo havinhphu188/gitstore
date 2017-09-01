@@ -1,0 +1,50 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="resource-file:FileName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"new.v3.mynewworkspace.resourcefile.label.FileName" | translate}}:</span>
+        <span class="col-md-6 v3-padding-0">{{moduleService.findElementInDetail_V3(['FileName']).$}}</span>
+    </div>
+</div>
+<div fieldId="resource-file:FileSize" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"new.v3.mynewworkspace.resourcefile.label.FileSize" | translate}}:</span>
+        <span class="col-md-6 v3-padding-0">{{moduleService.findElementInDetail_V3(['FileSize']).$}}</span>
+    </div>
+</div>
+<div fieldId="resource-file:DateTime" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{"new.v3.mynewworkspace.resourcefile.label.DateTime" | translate}}:</span>
+        <span class="col-md-6 v3-padding-0">{{moduleService.findElementInDetail_V3(['DateTime']).$ | datetimeFilter: "DD/MM/YYYY HH:mm:ss"}}</span>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+    <div class="form-group form-group-lg has-success">
+	    <div class="row">
+		    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+		         <button ng-if="card.refDetail['@vpms-suffix'] === 'Attachment'" class="col-xs-offset-4 col-xs-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="openResource(card, true)">{{"new.v3.mynewworkspace.resourcefile.label.ViewFile" | translate}}</button>
+		         <button id="btn-print-resource-file" ng-if="card.refDetail['@vpms-suffix'] === 'Print'"
+		         class="col-xs-offset-4 col-xs-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+		         ng-click="openResource(card, true)">{{"new.v3.mynewworkspace.resourcefile.label.ViewPDF" | translate}}</button> 
+		    </div>
+		</div>
+    </div>
+</div>

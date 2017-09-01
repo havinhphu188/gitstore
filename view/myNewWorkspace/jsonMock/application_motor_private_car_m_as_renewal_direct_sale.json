@@ -1,0 +1,295 @@
+{
+  "IposDocument": {
+    "Data": {
+      "application-motor:Application": {
+        "@key": [
+          "Application"
+        ],
+        "@section": "application-motor:Application",
+        "application-motor:Summary": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "Summary"
+          ],
+          "@section": "application-motor:Application",
+          "application-motor:ApplicationInformation": {},
+          "application-motor:CurrentStatus": {},
+          "application-motor:PendingInformation": {},
+          "application-motor:NextRequiredAction": {}
+        },
+        "application-motor:ProductDetails": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "ProductDetails"
+          ],
+          "@section": "application-motor:Application",
+          "application-motor:Product": {
+            "@key": [
+              "Product"
+            ],
+            "@preview": [
+              "application-motor:ProductDetails"
+            ],
+            "@labelKey": "v3.mynewworkspace.portlet.label.application-motor:ProductName",
+            "@valuePrefix": "v3.mynewworkspace.portlet.label.ipos-product:"
+          },
+          "application-motor:BenefitGrid": {}
+        },
+        "application-motor:Quotation": {
+          "application-motor:MainCoverage": {
+            "application-motor:MainCoverageType": {},
+            "application-motor:MainSumInsured": {},
+            "application-motor:MainPremium": {}
+          },
+          "application-motor:OptionalCoverages": {
+            "@counter": "0",
+            "@maxOccurs": "",
+            "@minOccurs": "0",
+            "application-motor:OptionalCoverage": {
+              "application-motor:AdditionalBenefitCode": {},
+              "application-motor:AdditionalBenefitLimit": {},
+              "application-motor:AdditionalPremium": {}
+            }
+          },
+          "application-motor:ProposalBegin": {
+        	  "@key":["ProposalBegin"],
+        	  "@preview": ["application-motor:ProductDetails"],
+        	  "@labelKey": "v3.mynewworkspace.portlet.label.application-motor:ProposalBegin"
+          },
+          "application-motor:TotalPayablePremium": {
+        	  "@key":["TotalPayablePremium"],
+        	  "@preview": ["application-motor:ProductDetails"],
+        	  "@labelKey": "v3.mynewworkspace.portlet.label.application-motor:TotalPayablePremium"
+          },
+          "application-motor:ProposalEnd": {}
+        },
+        "application-motor:PolicyOwnerInformation": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": "",
+          "@section": "application-motor:Application",
+          "application-motor:BasicInfo":{
+        	  "@key": "",
+        	  "@section": "application-motor:PolicyOwnerInformation",
+        	  "person:Title": {
+        		  "@key": ["Title"]
+        	  },
+              "person:FullName": {
+            	  "@key": ["FullName"],
+            	  "@preview": ["application-motor:BasicInfo","application-motor:PolicyOwnerInformation"]
+              },
+              "person:BirthDate": {
+            	  "@key": ["BirthDate"],
+            	  "@format": "datetime",
+            	  "@preview": ["application-motor:BasicInfo","application-motor:PolicyOwnerInformation"]
+              },
+              "person:Gender": {
+            	  "@key": ["Gender"],
+            	  "@preview": ["application-motor:BasicInfo","application-motor:PolicyOwnerInformation"],
+            	  "@labelKey": "v3.mynewworkspace.portlet.label.person:Gender",
+                  "@valuePrefix": "v3.pnc.gender.enum."
+              },
+              "person:MaritalStatus": {
+            	  "@key": ["MaritalStatus"]
+              },
+              "person:SmokerStatus": {
+            	  "@key": ["SmokerStatus"]
+              },
+              "person:Nationality": {
+            	  "@key": ["Nationality"]
+              },
+              "person:Race": {
+            	  "@key": ["Race"]
+              },
+              "person:IDType": {},
+              "person:IDNumber": {}
+          },
+          "application-motor:OtherInfo":{
+        	  "@section": "application-motor:PolicyOwnerInformation",
+              "@icon": "fa fa-user",
+              "person:BusinessIndustry": {
+                  "@key": ["BusinessIndustry"]
+              },
+              "person:Occupation": {
+                  "@key": ["Occupation"],
+                  "@preview": ["application-motor:OtherInfo"],
+                  "@labelKey": "v3.mynewworkspace.portlet.label.person:Occupation",
+                  "@valuePrefix": "v3.pnc.occupation.enum."
+              },
+              "person:ReferralType": {
+                  "@key": ["ReferralType"]
+              },
+              "person:Referrer": {
+                  "@key": ["Referrer"]
+              },
+              "person:Staff": {
+                  "@key": ["Staff"]
+              },
+              "person:Vip": {
+                  "@key": ["Vip"],
+                  "@preview": ["application-motor:OtherInfo"],
+                  "@labelKey": "v3.mynewworkspace.portlet.label.person:Vip",
+                  "@valuePrefix": "v3.yesno.enum."
+              },
+              "person:Education": {
+                  "@key": ["Education"]
+              },
+              "person:EmploymentStatus": {
+                  "@key": ["EmploymentStatus"]
+              },
+              "person:CountryOfBirth": {
+                  "@key": ["CountryOfBirth"]
+              }
+          },
+          "application-motor:Contacts": {
+              "@key": ["PolicyOwnerInformation", "Contacts"],
+              "@section": "application-motor:PolicyOwnerInformation",
+              "@icon": "fa fa-user",
+              "person:Contact": {
+              	"@key": [
+               		"Contacts"
+				]
+              }
+          },
+          "person:Addresses": {
+              "@key": ["PolicyOwnerInformation", "Addresses"],
+              "@section": "application-motor:PolicyOwnerInformation",
+              "@icon": "fa fa-user",
+              "person:Address": {
+                  "@key": ["Address"],
+                  "@section": "person:Addresses",
+                  "@icon": "fa fa-user",
+                  "@cardType": "template",
+                  "person:AddressType": {
+                      "@key": ["AddressType"],
+                      "@preview": [""],
+                      "@labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+                      "@valuePrefix": "v3.pnc.addressType.enum."
+                  },
+                  "person:BlkHouseNo": {
+                      "@key": ["BlkHouseNo"],
+                      "@preview": [""],
+                      "@labelKey": "v3.mynewworkspace.portlet.label.person:BlkHouseNo",
+                      "@valuePrefix": ""
+                  },
+                  "person:Street": {
+                      "@key": ["Street"],
+                      "@preview": [""],
+                      "@labelKey": "v3.mynewworkspace.portlet.label.person:Street",
+                      "@valuePrefix": ""
+                  },
+                  "person:UnitNo": {
+                      "@key": ["UnitNo"],
+                      "@preview": [""],
+                      "@labelKey": "v3.mynewworkspace.portlet.label.person:UnitNo",
+                      "@valuePrefix": ""
+                  },
+                  "person:Building": {
+                      "@key": ["Building"]
+                  },
+                  "person:City": {
+                      "@key": ["City"]
+                  },
+                  "person:Country": {
+                      "@key": ["Country"]
+                  },
+                  "person:Postal": {
+                      "@key": ["Postal"]
+                  },
+                  "person:PreferredAddress": {
+                      "@key": ["PreferredAddress"]
+                  }
+	          }
+          }
+        },
+        "application-motor:CorrespondenceAddress": {
+          "@key":["CorrespondenceAddress"],
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@section": "application-motor:Application",
+          "@onOpen":"getAddressListToImport()",
+          "CorrespondenceAddress:SelectAddress": {
+        	  "@key":["SelectAddress"]
+          },
+          "CorrespondenceAddress:AddressType":{
+          	"@key": ["CorrespondenceAddress","AddressType"]
+          },
+          "CorrespondenceAddress:BlkHouseNoAndStreet":{
+            "@key":[]
+          },
+          "CorrespondenceAddress:UnitNo": {
+        	  "@key":["CorrespondenceAddress", "UnitNo"]
+          },
+          "CorrespondenceAddress:Building": {
+        	  "@key":["CorrespondenceAddress", "Building"]
+          },
+          "CorrespondenceAddress:City": {
+        	  "@key":["CorrespondenceAddress", "City"]
+          },
+          "CorrespondenceAddress:Country": {
+        	  "@key":["CorrespondenceAddress", "Country"]
+          },
+          "CorrespondenceAddress:Postal": {
+        	  "@key":["CorrespondenceAddress", "Postal"]
+          }
+        },
+        "application-motor:Questionnaires": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "Questionnaires"
+          ],
+          "@section": "application-motor:Application",
+          "application-motor:Question1": {
+          	"@key":["Section1","Question1"]
+          },
+          "application-motor:Question2": {
+          	"@key":["Section1","Question2"]
+          },
+          "application-motor:Question3": {
+          	"@key":["Section2","Question1"]
+          },
+          "application-motor:Question4": {
+          	"@key":["Section3","Question1"]
+          },
+          "application-motor:Question5": {
+          	"@key":["Section3","Question2"]
+          },
+          "application-motor:Question6": {
+          	"@key":["Section4","Question1"]
+          },
+          "application-motor:Question7": {
+          	"@key":["Section4","Question2"]
+          },
+          "application-motor:Question8": {
+          	"@key":["Section4","Question3"]
+          }
+        },
+        "application-motor:DeclarationByProposer": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "DeclarationByProposer"
+          ],
+          "@section": "application-motor:Application",
+          "application-motor:Declaration1": {},
+          "application-motor:Declaration2": {}
+        },
+        "Attachments": {
+          "@counter": "0",
+          "@maxOccurs": "",
+          "@minOccurs": "0",
+          "Attachment": {
+            "FileUid": {},
+            "Name": {},
+            "FileName": {},
+            "CreateDate": {},
+            "FileSize": {}
+          }
+        }
+      }
+    }
+  }
+}

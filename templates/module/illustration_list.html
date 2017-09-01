@@ -1,0 +1,129 @@
+<div layout="column" class="height-inherit">
+     <div ng-click="toggleLeftNav()" ng-if="vars.portraitView" class="toggle-side-nav">
+            <i style="color:white;margin-left:10px;"  class="fa fa-ellipsis-v fa-lg"></i>
+        </div>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+          <md-button md-no-ink ng-click="toggle()" class="md-icon-button button">
+            <i class="fa fa-bars fa-lg"></i>
+        </md-button> 
+            <span flex> <h2>
+                <span class="header-text"><span t-lazy v3-translate="v3.myworkspace.label.illustration.life.IllustrationList" prefix=""></span></span>
+            </h2></span>
+            <md-button md-no-ink ng-click="toggleSearch()" class="md-icon-button button" aria-label="Open Search">
+                <i class="fa fa-search fa-lg"></i>
+            </md-button>
+        </div>
+    </md-toolbar>
+  <!--   <div class="backgroundColor" ng-if="vars.showSearchbar" use-boolean layout="row">
+        <div flex="90">
+            <input class="searchText" placeholder="search..." ng-model="vars.strSearch" ng-change="$parent.searchDoc()" aria-label="Search input">
+        </div>
+        <div ng-click="$parent.clearText();" flex="10">
+            <md-icon style="padding-top:5px; padding-bottom:5px;" md-svg-icon="md-close" class="ng-isolate-scope md-teal-theme" aria-hidden="true">
+            </md-icon>
+        </div>
+    </div> -->
+
+    <div class="backgroundColor slide-down" ng-if="vars.showSearchbar" layout="row" use-boolean style="height: 60px;">
+            <div flex="80">
+                <form action=".">
+                <input name="search" type="search" class="searchText" id="searchTextField" placeholder="search..." ng-model="vars.strSearch" ng-change="searchDoc()" aria-label="Search input">
+                </form>
+            </div>
+            <div ng-click="clearText(); "  flex="10">
+                <md-button md-no-ink class="md-icon-button button" aria-label="Open search bar">
+                    <i style="color: gray" class="fa fa-times-circle fa-lg"></i>
+                </md-button>
+            </div>
+        </div>
+    <div style="background-color:white;" class="height-inherit none-horizontal-scroll touch" id="left-list">
+        <div ng-show="vars.bLoadingLeftView" class="mask">
+            <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <p ng-if="vars.errorSearch" align="center" style="color: grey; margin:0 auto; width:90%;">{{vars.errorSearch}}</p>
+        <div refresh-on="vars.bIsListChanged" use-boolean after-refresh="broadcastEvent('finish_render')" class="height-101">
+            <!-- a dummy BI card-->
+            <!-- <div ng-show="vars.showDummyCard">
+                <div layout="row" class="breakLine list-content-100" id="{{::vars.dummyCardId}}">
+                    <div flex="25" layout-margin>
+                    </br>
+                    </br>
+                        <img src="img/avatar_generic.png" class="avatar">
+                    </div>
+                    <div flex="70">
+                    </br>
+                    </br>
+                    </br>
+                        <div>
+                            <div>
+                                <span class="main-info">Product: New Product</span>
+                                <br>
+                                <span class="sub-info">Policy Owner: </span>
+                                <br>
+                                <span class="sub-info">Status: </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div ng-repeat="item in pages" layout="row" id="{{::vars.dummyCardId}}-{{::$index}}" ng-click="openSubMenu(item.id, vars.dummyCardId)" class="list-item-actions breakLine">
+                        <div flex="10">
+                        </div>
+                        <div flex="10">
+                            <i class="{{::item.icon}}"></i>
+                        </div>
+                        <div flex="80">
+                            {{::item.option}}
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <p ng-if="vars.showEmptyListMessage && !vars.showDummyCard" align="center" class="empty-message">
+                You don't have any Illustration documents yet</p>
+            <div v3-when-done="markSelectingCard()"  ng-repeat="card in vars.lsDocDisp track by $index" class="breakLine list-content-120"  id="{{::$index}}"  ng-click="$parent.getDetail(card.DocId, $index, card.Product)">
+                <div layout="row" style="height: 0px;position:relative;">
+                
+                    <div flex="80">
+                        
+                    </div>
+                    <div flex="5">
+                        <!-- <md-button md-no-ink ng-click="$parent.addNewTab(card.DocId)" style="" class="md-icon-button button" aria-label="add new tab">
+                            <i class="fa fa-external-link fa-lg"></i>
+                        </md-button> -->
+
+                        <md-button class="md-icon-button button" md-no-ink ng-click="$parent.toggleStarred(card.Star, card.DocId, $index)" aria-label="Star document">
+                            <i id="star-{{::$index}}" ng-if="!card.Star" class="fa fa-star-o fa-lg star"></i>
+                            <i id="star-{{::$index}}" ng-if="card.Star" class="fa fa-star fa-lg star"></i>
+                        </md-button>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div flex="20" layout-margin>
+                        <img src="img/avatar_generic.png" class="avatar">
+                    </div>
+                    <div flex="70" layout-margin>
+                        <div class="margin-card">
+                            <span class="main-info short-word"><span t-lazy v3-translate="v3.myworkspace.label.illustration.life.Product" prefix=""></span>: {{::card.ProductNameTemp}}</span>
+                            <br>
+                            <span class="sub-info"><span t-lazy v3-translate="v3.myworkspace.label.illustration.life.BIName" prefix=""></span>: {{::card.DocName}}</span>
+                            <br>
+                            <span class="sub-info"><span t-lazy v3-translate="v3.myworkspace.label.illustration.life.Status" prefix=""></span>: {{::card.EffectiveDate}}</span>
+                            <br>
+                            <span class="sub-info"><span t-lazy v3-translate="v3.myworkspace.label.illustration.life.CreatedDate" prefix=""></span>: {{::card.CreatedDateDisplay}} </span>
+                        </div>
+                    </div>
+                </div>
+                <div align="right">
+                    <span class="list-footer"> {{::card.UpdatedSince}} </span>
+                </div>
+               
+            </div>
+        </div>
+       <!--  <div class="empty-card">
+        </div> -->
+    </div>
+    <md-button ng-click="showProductList();" md-no-ink class="md-primary md-fab md-fab-bottom-right" aria-label="Show Illustration list">
+        <img style="margin-top: 10px;" src="img/ic_plus_white_24dp.png">
+    </md-button>
+</div>

@@ -1,0 +1,649 @@
+{
+  "IposDocument": {
+    "Data": {
+      "application-fire:Application": {
+        "@key": [
+          "Application"
+        ],
+        "@section": "application-fire:Application",
+        "application-fire:Summary": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "Summary"
+          ],
+          "@section": "application-fire:Application",
+          "application-fire:SummaryTitle": {
+            "@section": "application-fire:Summary",
+            "@key": [
+              "SummaryTitle"
+            ],
+            "application-fire:ApplicationInformation": {
+              "@key": [
+                "DocName"
+              ],
+              "@preview": [
+                "application-fire:Summary"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.application:ApplicationInformation"
+            },
+            "application-fire:CurrentStatus": {
+              "@key": [
+                "BusinessStatus"
+              ],
+              "@preview": [
+                "application-fire:Summary"
+              ],
+              "@valuePrefix": "v3.document.status.",
+              "@labelKey": "v3.mynewworkspace.portlet.label.application:CurrentStatus"
+            },
+            "application-fire:PendingInformation": {},
+            "application-fire:NextRequiredAction": {},
+            "application-fire:SummaryApplication": {},
+            "application-fire:PreviewPDF": {}
+          },
+          "application-fire:DocumentPreview": {
+            "@section": "application-fire:Summary",
+            "@key": [
+              "DocumentPreview"
+            ],
+            "application-fire:DocumentPreviewApplication": {}
+          }
+        },
+        "application-fire:ProductDetails": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "ProductDetails"
+          ],
+          "@section": "application-fire:Application",
+          "application-fire:ProductDetail": {}
+        },
+        "application-fire:PolicyOwnerInformation": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": "",
+          "@section": "application-fire:Application",
+          "application-fire:BasicInfo": {
+            "@key": [
+              "BasicInfo"
+            ],
+            "@cssClass": "v3-box-1",
+            "@section": "application-fire:PolicyOwnerInformation",
+            "person:SelectPolicyOwner": {
+              "@key": [
+                "SelectPolicyOwner"
+              ]
+            },
+            "person:Title": {
+              "@key": [
+                "Title"
+              ]
+            },
+            "person:FullName": {
+              "@key": [
+                "FullName"
+              ],
+              "@preview": [
+                "application-fire:BasicInfo",
+                "application-fire:PolicyOwnerInformation"
+              ]
+            },
+            "person:BirthDate": {
+              "@key": [
+                "BirthDate"
+              ],
+              "@format": "datetime",
+              "@preview": [
+                "application-fire:BasicInfo",
+                "application-fire:PolicyOwnerInformation"
+              ]
+            },
+            "person:Gender": {
+              "@key": [
+                "Gender"
+              ],
+              "@preview": [
+                "application-fire:BasicInfo",
+                "application-fire:PolicyOwnerInformation"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.person:Gender",
+              "@valuePrefix": "v3.pnc.gender.enum."
+            },
+            "person:MaritalStatus": {
+              "@key": [
+                "MaritalStatus"
+              ]
+            },
+            "person:SmokerStatus": {
+              "@key": [
+                "SmokerStatus"
+              ]
+            },
+            "person:Nationality": {
+              "@key": [
+                "Nationality"
+              ]
+            },
+            "person:Race": {
+              "@key": [
+                "Race"
+              ]
+            },
+            "person:IDType": {
+              "@key": [
+                "IDType"
+              ]
+            },
+            "person:IDNumber": {
+              "@key": [
+                "IDNumber"
+              ]
+            }
+          },
+          "application-fire:OtherInfo": {
+            "@section": "application-fire:PolicyOwnerInformation",
+            "@icon": "fa fa-user",
+            "@cssClass": "v3-box-1",
+            "person:BusinessIndustry": {
+              "@key": [
+                "BusinessIndustry"
+              ]
+            },
+            "person:Occupation": {
+              "@key": [
+                "Occupation"
+              ],
+              "@preview": [
+                "application-fire:OtherInfo"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.person:Occupation",
+              "@valuePrefix": "v3.pnc.occupation.enum."
+            },
+            "person:ReferralType": {
+              "@key": [
+                "ReferralType"
+              ]
+            },
+            "person:Referrer": {
+              "@key": [
+                "Referrer"
+              ]
+            },
+            "person:Staff": {
+              "@key": [
+                "Staff"
+              ]
+            },
+            "person:Vip": {
+              "@key": [
+                "Vip"
+              ],
+              "@preview": [
+                "application-fire:OtherInfo"
+              ],
+              "@labelKey": "v3.mynewworkspace.portlet.label.person:Vip",
+              "@valuePrefix": "v3.yesno.enum."
+            },
+            "person:Education": {
+              "@key": [
+                "Education"
+              ]
+            },
+            "person:EmploymentStatus": {
+              "@key": [
+                "EmploymentStatus"
+              ]
+            },
+            "person:CountryOfBirth": {
+              "@key": [
+                "CountryOfBirth"
+              ]
+            }
+          },
+          "application-fire:Contacts": {
+            "key": [
+              "Contacts"
+            ],
+            "section": "application-fire:PolicyOwnerInformation",
+            "icon": "fa fa-user",
+            "cssClass": "v3-box-1",
+            "person:EmailAddress": {
+              "type": "",
+              "key": [
+                "EmailAddress"
+              ]
+            },
+            "person:MobilePhone": {
+              "type": "",
+              "key": [
+                "MobilePhone"
+              ],
+              "@defaultValue": "+60 9066612"
+            },
+            "person:HomePhone": {
+              "type": "",
+              "key": [
+                "HomePhone"
+              ]
+            },
+            "person:OfficePhone": {
+              "type": "",
+              "key": [
+                "OfficePhone"
+              ]
+            }
+          },
+          "person:Addresses": {
+            "key": [
+              "NonPrimaryAddresses"
+            ],
+            "onOpen": "convertNPAddressesToArray()",
+            "section": "application-fire:PolicyOwnerInformation",
+            "icon": "fa fa-user",
+            "cssClass": "v3-box-1",
+            "person:PrimaryAddress": {
+              "section": "person:Addresses",
+              "key": [
+                "PrimaryAddress"
+              ],
+              "person:PAddressType": {
+                "type": "",
+                "key": [
+                  "PrimaryAddress",
+                  "AddressType"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+                "valuePrefix": "v3.pnc.addressType.enum.",
+                "@defaultValue": "RESIDENTIAL"
+              },
+              "person:PBlkHouseNo": {
+                "key": [
+                  "PrimaryAddress",
+                  "BlkHouseNo"
+                ],
+                "@defaultValue": "Block 1"
+              },
+              "person:PUnitNo": {
+                "key": [
+                  "PrimaryAddress",
+                  "UnitNo"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.UnitNo",
+                "maxlength": 120,
+                "placeholder": "Unit No",
+                "type": "INPUT",
+                "isDisable": "(moduleService.freeze == true) || (findElementInDetail(uiElement.key)['@editable'] == '0')",
+                "@defaultValue": "Unit 1"
+              },
+              "person:PBuilding": {
+                "key": [
+                  "PrimaryAddress",
+                  "Building"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.Building",
+                "maxlength": 120,
+                "placeholder": "Building",
+                "type": "INPUT",
+                "isDisable": "(moduleService.freeze == true) || (findElementInDetail(uiElement.key)['@editable'] == '0')",
+                "@defaultValue": "Build 1"
+              },
+              "person:PCity": {
+                "key": [
+                  "PrimaryAddress",
+                  "City"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.City",
+                "maxlength": 120,
+                "placeholder": "City",
+                "type": "INPUT",
+                "isDisable": "(moduleService.freeze == true) || (findElementInDetail(uiElement.key)['@editable'] == '0')",
+                "@defaultValue": "HCM"
+              },
+              "person:PCountry": {
+                "type": "",
+                "key": [
+                  "PrimaryAddress",
+                  "Country"
+                ],
+                "@defaultValue": "SGP"
+              },
+              "person:PPostal": {
+                "key": [
+                  "PrimaryAddress",
+                  "Postal"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+                "maxlength": 120,
+                "placeholder": "Postal Code",
+                "type": "INPUT",
+                "isDisable": "(moduleService.freeze == true) || (findElementInDetail(uiElement.key)['@editable'] == '0')",
+                "@defaultValue": "01212"
+              }
+            },
+            "person:NewNonPrimaryAddress": {
+              "section": "person:Addresses",
+              "key": [
+                "NonPrimaryAddress"
+              ],
+              "icon": {
+                "subAction": "removeIcon"
+              },
+              "cssClass": "v3-box-1",
+              "cardType": "template",
+              "person:NPAddressType": {
+                "type": "",
+                "key": [
+                  "AddressType"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+                "valuePrefix": "v3.pnc.addressType.enum."
+              },
+              "person:NPBlkHouseNo": {
+                "key": [
+                  "BlkHouseNo"
+                ]
+              },
+              "person:NPUnitNo": {
+                "key": [
+                  "UnitNo"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.UnitNo",
+                "maxlength": 120,
+                "placeholder": "Unit No",
+                "type": "INPUT"
+              },
+              "person:NPBuilding": {
+                "key": [
+                  "Building"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.Building",
+                "maxlength": 120,
+                "placeholder": "Building",
+                "type": "INPUT"
+              },
+              "person:NPCity": {
+                "key": [
+                  "City"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.City",
+                "maxlength": 120,
+                "placeholder": "City",
+                "type": "INPUT"
+              },
+              "person:NPCountry": {
+                "type": "",
+                "key": [
+                  "Country"
+                ]
+              },
+              "person:NPPostal": {
+                "key": [
+                  "Postal"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+                "maxlength": 120,
+                "placeholder": "Postal Code",
+                "type": "INPUT"
+              }
+            },
+            "person:NonPrimaryAddress": {
+              "section": "person:Addresses",
+              "icon": {
+                "main": "fa fa-user",
+                "mainAction": "addIcon"
+              },
+              "cardType": "action",
+              "onClick": "addCard(card)"
+            }
+          }
+        },
+        "application-fire:CorrespondenceAddress": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "CorrespondenceAddress"
+          ],
+          "@section": "application-fire:Application",
+          "CorrespondenceAddress:SelectAddress": {
+            "@key": [
+              ""
+            ]
+          },
+          "CorrespondenceAddress:AddressType": {
+            "@key": [
+              "CorrespondenceAddress",
+              "AddressType"
+            ]
+          },
+          "CorrespondenceAddress:BlkHouseNoAndStreet": {
+            "@key": []
+          },
+          "CorrespondenceAddress:UnitNo": {
+            "@key": [
+              "CorrespondenceAddress",
+              "UnitNo"
+            ]
+          },
+          "CorrespondenceAddress:Building": {
+            "@key": [
+              "CorrespondenceAddress",
+              "Building"
+            ]
+          },
+          "CorrespondenceAddress:City": {
+            "@key": [
+              "CorrespondenceAddress",
+              "City"
+            ]
+          },
+          "CorrespondenceAddress:Country": {
+            "@key": [
+              "CorrespondenceAddress",
+              "Country"
+            ]
+          },
+          "CorrespondenceAddress:Postal": {
+            "@key": [
+              "CorrespondenceAddress",
+              "Postal"
+            ]
+          }
+        },
+        "application-fire:InterestedParties": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "InterestedParties"
+          ],
+          "@section": "application-fire:Application",
+          "application-fire:InterestedParty": {
+            "@key": [
+              "InterestedParty"
+            ],
+            "@section": "application-fire:InterestedParties",
+            "@cssClass": "v3-box-3",
+            "@cardType": "template",
+            "@icon": {
+              "main": "fa fa-file-o",
+              "subAction": "removeIcon"
+            },
+            "application-fire:importClient": {
+              "@key": [
+                "importClient"
+              ]
+            },
+            "application-fire:invisibleField": {
+              "@key": ""
+            },
+            "application-fire:ClientNo": {
+              "@key": [
+                "ClientNumber"
+              ],
+              "@preview": [
+                "application-fire:InterestedParty"
+              ]
+            },
+            "application-fire:ClientName": {
+              "@key": [
+                "ClientName"
+              ],
+              "@preview": [
+                "application-fire:InterestedParty"
+              ]
+            },
+            "application-fire:Relationship": {
+              "@key": [
+                "Relationship"
+              ],
+              "@preview": [
+                "application-fire:InterestedParty"
+              ],
+              "@valuePrefix": "v3.fire.application.relationship."
+            }
+          },
+          "application-fire:AddNewInterestParty": {
+            "@section": "application-fire:InterestedParties",
+            "@icon": {
+              "main": "fa fa-file-o",
+              "mainAction": "addIcon"
+            },
+            "@cssClass": "v3-box-3",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          }
+        },
+        "application-fire:Clauses": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "Clauses"
+          ],
+          "@section": "application-fire:Application",
+          "application-fire:Clause": {},
+          "application-fire:ClauseDescription": {}
+        },
+        "application-fire:Questionnaires": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "Questionnaires"
+          ],
+          "@section": "application-fire:Application",
+          "application-fire:Question1": {
+            "@key": [
+              "Q1",
+              "Question"
+            ]
+          },
+          "application-fire:Question2": {
+            "@key": [
+              "Q2",
+              "Question"
+            ]
+          },
+          "application-fire:Question3": {
+            "@key": [
+              "Q3",
+              "Question"
+            ]
+          },
+          "application-fire:Question4": {
+            "@key": [
+              "Q4",
+              "Question"
+            ]
+          },
+          "application-fire:Detail4": {
+            "@key": [
+              "Q4",
+              "Detail"
+            ]
+          },
+          "application-fire:Question5": {
+            "@key": [
+              "Q5",
+              "Question"
+            ]
+          },
+          "application-fire:Detail5": {
+            "@key": [
+              "Q5",
+              "Detail"
+            ]
+          },
+          "application-fire:Question6": {
+            "@key": [
+              "Q6",
+              "Question"
+            ]
+          },
+          "application-fire:Detail6": {
+            "@key": [
+              "Q6",
+              "Detail"
+            ]
+          },
+          "application-fire:Question7": {
+            "@key": [
+              "Q7",
+              "Question"
+            ]
+          },
+          "application-fire:Detail7": {
+            "@key": [
+              "Q7",
+              "Detail"
+            ]
+          },
+          "application-fire:Question8": {
+            "@key": [
+              "Q8",
+              "Question"
+            ]
+          },
+          "application-fire:Detail8": {
+            "@key": [
+              "Q8",
+              "Detail"
+            ]
+          },
+          "application-fire:Question9": {
+            "@key": [
+              "Q9",
+              "Question"
+            ]
+          },
+          "application-fire:Detail9": {
+            "@key": [
+              "Q9",
+              "Detail"
+            ]
+          }
+        },
+        "application-fire:DeclarationByProposer": {
+          "@icon": "fa fa-file-o",
+          "@cssClass": "v3-box-3",
+          "@key": [
+            "DeclarationByProposer"
+          ],
+          "@section": "application-fire:Application",
+          "application-fire:Declaration1": {},
+          "application-fire:Declaration2": {}
+        },
+        "Attachments": {
+          "@counter": "0",
+          "@maxOccurs": "",
+          "@minOccurs": "0",
+          "Attachment": {
+            "FileUid": {},
+            "Name": {},
+            "FileName": {},
+            "CreateDate": {},
+            "FileSize": {}
+          }
+        }
+      }
+    }
+  }
+}

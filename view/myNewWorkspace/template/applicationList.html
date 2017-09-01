@@ -1,0 +1,50 @@
+<div ng-controller="listApplicationCtrl"></div>
+<!-- list Application -->
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.Application'|translate}}
+			</label>
+			<ng-newDropDown
+				model="moduleService.findElementInDetail_V3(['PolicyOwner','Title'])"
+				list="getListApplicationToImport()"
+				prefix="v3.pnc.title.enum"
+				type="nonFlag"></ng-newDropDown>
+		</div>
+	</div>
+</div>
+<!-- button import -->
+<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 v3-column-content">
+	<div class="form-group form-group-lg has-success">
+		<button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="saveDetailInfo()">Import</button>
+	</div>
+</div>
+<!-- Product Name -->
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.ProductName'|translate}}</label>
+			<input class="form-control" ng-model="moduleService.findElementInDetail_V3(['BasePlan','PremiumFrequencyPayable']).Value"/>
+		</div>
+	</div>
+</div>
+
+<!-- Quotation Num -->
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.QuotationNum'|translate}}</label>
+			<input class="form-control" ng-model="moduleService.findElementInDetail_V3(['BasePlan','PremiumFrequencyPayable']).Value"/>
+		</div>
+	</div>
+</div>
+
+<!-- Frequency -->
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'new.v3.mynewworkspace.endowment.FrequencyPremiumPayable'|translate}}</label>
+			<input class="form-control" ng-model="moduleService.findElementInDetail_V3(['BasePlan','PremiumFrequencyPayable']).Value"/>
+		</div>
+	</div>
+</div>

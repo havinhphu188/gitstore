@@ -1,0 +1,537 @@
+{
+  "IposDocument": {
+    "Data": {
+      "application-group-travel-express:Application": {
+        "key": [
+          "Application"
+        ],
+        "section": "application-group-travel-express:Application",
+        "application-group-travel-express:Summary": {
+          "icon": "fa fa-file-o",
+          "key": [],
+          "section": "application-group-travel-express:Application",
+          "isShowValidationIcon": "false",
+          "isShowNoOfEmptyField": "false",
+          "application-group-travel-express:ApplicationInformation": {
+            "key": [
+              "DocName"
+            ],
+            "preview": [
+              {
+                "cardName": "application-group-travel-express:Summary",
+                "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.ApplicationInformation",
+                "priority": 50
+              },
+              {
+                "cardName": "application-group-travel-express:Application",
+                "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.ApplicationInformation",
+                "priority": 50
+              }
+            ]
+          },
+          "application-group-travel-express:CurrentStatus": {
+            "key": [
+              "BusinessStatus"
+            ],
+            "preview": [
+              {
+                "cardName": "application-group-travel-express:Summary",
+                "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.CurrentStatus",
+                "priority": 50
+              },
+              {
+                "cardName": "application-group-travel-express:Application",
+                "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.CurrentStatus",
+                "priority": 50
+              }
+            ],
+            "valuePrefix": "v3.document.status."
+          },
+          "application-group-travel-express:PendingInformation": {},
+          "application-group-travel-express:NextRequiredAction": {}
+        },
+        "application-group-travel-express:ProductInformation": {
+          "icon": "fa fa-file-o",
+          "key": [],
+          "section": "application-group-travel-express:Application",
+          "isShowValidationIcon": "false",
+          "isShowNoOfEmptyField": "false",
+          "application-group-travel-express:ProductName": {
+            "key": [
+              "Product"
+            ],
+            "preview": [
+              {
+                "cardName": "application-group-travel-express:ProductInformation",
+                "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.ProductName",
+                "priority": 50
+              }
+            ],
+            "valuePrefix": "v3.mynewworkspace.portlet.label.productName."
+          },
+          "application-group-travel-express:InceptionDate": {
+            "key": [
+              "InceptionDate"
+            ],
+            "format": "datetime:DD/MM/YYYY",
+            "preview": [
+              {
+                "cardName": "application-group-travel-express:ProductInformation",
+                "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.InceptionDate",
+                "priority": 50
+              }
+            ]
+          },
+          "application-group-travel-express:ExpiryDate": {
+            "key": [
+              "ExpiryDate"
+            ]
+          },
+          "application-group-travel-express:Premium": {},
+          "application-group-travel-express:PremiumTable": {}
+        },
+        "application-group-travel-express:PolicyOwnerInformation": {
+          "icon": "fa fa-file-o",
+          "key": [
+            "PolicyOwner"
+          ],
+          "section": "application-group-travel-express:Application",
+          "application-group-travel-express:BasicInfo": {
+            "section": "application-group-travel-express:PolicyOwnerInformation",
+            "SelectPolicyOwner": {},
+            "CorporateName": {
+              "key": [
+                "CorporateName"
+              ],
+              "preview": [
+                {
+                  "cardName": "application-group-travel-express:PolicyOwnerInformation",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.application-travel-express.CompanyName",
+                  "priority": 50
+                }
+              ],
+              "type": ""
+            },
+            "CompanyRegNo": {
+              "key": [
+                "CompanyRegistrationNumber"
+              ],
+              "type": ""
+            },
+            "PersonInCharge": {
+              "key": [
+                "PersonInCharge"
+              ],
+              "type": ""
+            },
+            "Subsidiaries": {
+              "key": [
+                "Subsidiaries"
+              ],
+              "type": ""
+            },
+            "CountryOfOrigin": {
+              "key": [
+                "CountryOfOrigin"
+              ],
+              "type": ""
+            },
+            "Industry": {
+              "key": [
+                "Industry"
+              ],
+              "type": ""
+            },
+            "DateOfIncorporation": {
+              "key": [
+                "DateOfIncorporation"
+              ],
+              "type": ""
+            },
+            "STaxApplicable": {
+              "key": [
+                "STaxApplicable"
+              ],
+              "type": ""
+            }
+          },
+          "application-group-travel-express:Contact": {
+            "section": "application-group-travel-express:PolicyOwnerInformation",
+            "key": [
+              "Contact"
+            ],
+            "CorporateWebsiteURL": {
+              "key": [
+                "CorporateWebsiteURL"
+              ],
+              "type": ""
+            },
+            "EmailAddress": {
+              "key": [
+                "EmailAddress"
+              ],
+              "type": ""
+            },
+            "MainLineTelephone": {
+              "key": [
+                "MainLineTelephone"
+              ],
+              "type": ""
+            },
+            "PersonInChargeTelephone": {
+              "key": [
+                "PersonInChargeTelephone"
+              ],
+              "type": ""
+            },
+            "FacsimileNo": {
+              "key": [
+                "FacsimileNo"
+              ],
+              "type": ""
+            }
+          },
+          "application-group-travel-express:Addresses": {
+            "section": "application-group-travel-express:PolicyOwnerInformation",
+            "key": [
+              "Addresses"
+            ],
+            "BusinessAddress": {
+              "section": "application-group-travel-express:Addresses",
+              "key": [
+                "BusinessAddress"
+              ],
+              "BBlkHouseNo": {
+                "key": [
+                  "BusinessAddress",
+                  "BlkHouseNo"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.BlkHouseNo",
+                "maxlength": 120,
+                "placeholder": "Block/ House Number",
+                "type": "INPUT"
+              },
+              "BStreet": {
+                "key": [
+                  "BusinessAddress",
+                  "Street"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.Street",
+                "maxlength": 120,
+                "placeholder": "Street",
+                "type": "INPUT"
+              },
+              "BUnitNo": {
+                "key": [
+                  "BusinessAddress",
+                  "UnitNo"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.UnitNo",
+                "maxlength": 120,
+                "placeholder": "Unit No",
+                "type": "INPUT"
+              },
+              "BBuilding": {
+                "key": [
+                  "BusinessAddress",
+                  "Building"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.Building",
+                "maxlength": 120,
+                "placeholder": "Building",
+                "type": "INPUT"
+              },
+              "BProvince": {
+                "key": [
+                  "BusinessAddress",
+                  "Province"
+                ],
+                "defaultValue": "1"
+              },
+              "BCity": {
+                "key": [
+                  "BusinessAddress",
+                  "CityCd"
+                ]
+              },
+              "BCountry": {
+                "key": [
+                  "BusinessAddress",
+                  "Country"
+                ],
+                "type": ""
+              },
+              "BPostal": {
+                "key": [
+                  "BusinessAddress",
+                  "Postal"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.PostalCode",
+                "maxlength": 120,
+                "placeholder": "Postal Code",
+                "type": "INPUT"
+              }
+            },
+            "RegisteredAddress": {
+              "section": "application-group-travel-express:Addresses",
+              "key": [
+                "RegisteredAddress"
+              ],
+              "RBlkHouseNo": {
+                "key": [
+                  "RegisteredAddress",
+                  "BlkHouseNo"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.BlkHouseNo",
+                "maxlength": 120,
+                "placeholder": "Block/ House Number",
+                "type": "INPUT"
+              },
+              "RStreet": {
+                "key": [
+                  "RegisteredAddress",
+                  "Street"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.Street",
+                "maxlength": 120,
+                "placeholder": "Street",
+                "type": "INPUT"
+              },
+              "RUnitNo": {
+                "key": [
+                  "RegisteredAddress",
+                  "UnitNo"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.UnitNo",
+                "maxlength": 120,
+                "placeholder": "Unit No",
+                "type": "INPUT"
+              },
+              "RBuilding": {
+                "key": [
+                  "RegisteredAddress",
+                  "Building"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.Building",
+                "maxlength": 120,
+                "placeholder": "Building",
+                "type": "INPUT"
+              },
+              "RProvince": {
+                "key": [
+                  "RegisteredAddress",
+                  "Province"
+                ],
+                "defaultValue": "1"
+              },
+              "RCity": {
+                "key": [
+                  "RegisteredAddress",
+                  "CityCd"
+                ]
+              },
+              "RCountry": {
+                "key": [
+                  "RegisteredAddress",
+                  "Country"
+                ],
+                "type": ""
+              },
+              "RPostal": {
+                "key": [
+                  "RegisteredAddress",
+                  "Postal"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.PostalCode",
+                "maxlength": 120,
+                "placeholder": "Postal Code",
+                "type": "INPUT"
+              }
+            },
+            "MailingAddress": {
+              "section": "application-group-travel-express:Addresses",
+              "key": [
+                "MailingAddress"
+              ],
+              "MBlkHouseNo": {
+                "key": [
+                  "MailingAddress",
+                  "BlkHouseNo"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.BlkHouseNo",
+                "maxlength": 120,
+                "placeholder": "Block/ House Number",
+                "type": "INPUT"
+              },
+              "MStreet": {
+                "key": [
+                  "MailingAddress",
+                  "Street"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.Street",
+                "maxlength": 120,
+                "placeholder": "Street",
+                "type": "INPUT"
+              },
+              "MUnitNo": {
+                "key": [
+                  "MailingAddress",
+                  "UnitNo"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.UnitNo",
+                "maxlength": 120,
+                "placeholder": "Unit No",
+                "type": "INPUT"
+              },
+              "MBuilding": {
+                "key": [
+                  "MailingAddress",
+                  "Building"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.Building",
+                "maxlength": 120,
+                "placeholder": "Building",
+                "type": "INPUT"
+              },
+              "MProvince": {
+                "key": [
+                  "MailingAddress",
+                  "Province"
+                ],
+                "defaultValue": "1"
+              },
+              "MCity": {
+                "key": [
+                  "MailingAddress",
+                  "CityCd"
+                ]
+              },
+              "MCountry": {
+                "key": [
+                  "MailingAddress",
+                  "Country"
+                ],
+                "type": ""
+              },
+              "MPostal": {
+                "key": [
+                  "MailingAddress",
+                  "Postal"
+                ],
+                "labelKey": "new.v3.mynewworkspace.corporate.label.PostalCode",
+                "maxlength": 120,
+                "placeholder": "Postal Code",
+                "type": "INPUT"
+              }
+            }
+          },
+          "application-group-travel-express:OtherInfo": {
+            "section": "application-group-travel-express:PolicyOwnerInformation",
+            "GSTRegNo": {
+              "key": [
+                "GSTNumber"
+              ],
+              "type": ""
+            },
+            "AuthorizedCapital": {
+              "key": [
+                "AuthorizedCapital"
+              ],
+              "type": ""
+            },
+            "Category": {
+              "key": [
+                "Category"
+              ],
+              "type": ""
+            },
+            "FreeTradeZone": {
+              "key": [
+                "FreeTradeZone"
+              ],
+              "type": ""
+            }
+          }
+        },
+        "application-group-travel-express:CorrespondenceAddress": {
+          "icon": "fa fa-file-o",
+          "key": [
+            "CorrespondenceAddress"
+          ],
+          "section": "application-group-travel-express:Application",
+          "CorrespondenceAddress:SelectAddress": {},
+          "CorrespondenceAddress:AddressType": {
+            "key": [
+              "CorrespondenceAddress",
+              "AddressType"
+            ],
+            "defaultValue": "RESIDENTIAL"
+          },
+          "CorrespondenceAddress:BlkHouseNoAndStreet": {
+            "key": [
+              "CorrespondenceAddress",
+              "BlkHouseNo"
+            ],
+            "defaultValue": "Block 1"
+          },
+          "CorrespondenceAddress:UnitNo": {
+            "key": [
+              "CorrespondenceAddress",
+              "UnitNo"
+            ],
+            "defaultValue": "Unit 1"
+          },
+          "CorrespondenceAddress:Building": {
+            "key": [
+              "CorrespondenceAddress",
+              "Building"
+            ],
+            "defaultValue": "Build 1"
+          },
+          "CorrespondenceAddress:Province": {
+            "key": [
+              "CorrespondenceAddress",
+              "Province"
+            ],
+            "defaultValue": "1"
+          },
+          "CorrespondenceAddress:City": {
+            "key": [
+              "CorrespondenceAddress",
+              "CityCd"
+            ],
+            "defaultValue": "405"
+          },
+          "CorrespondenceAddress:Country": {
+            "key": [
+              "CorrespondenceAddress",
+              "Country"
+            ]
+          },
+          "CorrespondenceAddress:Postal": {
+            "key": [
+              "CorrespondenceAddress",
+              "Postal"
+            ],
+            "defaultValue": "01212"
+          }
+        },
+        "application-group-travel-express:DeclarationByProposer": {
+          "icon": "fa fa-file-o",
+          "key": [],
+          "section": "application-group-travel-express:Application",
+          "application-group-travel-express:DeclareAndAgreeTheForm": {
+            "key": [
+              "DeclareAndAgreeTheForm"
+            ]
+          },
+          "application-group-travel-express:DeclareAndAgreeTheTerm": {
+            "key": [
+              "DeclareAndAgreeTheTerm"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,431 @@
+{
+  "IposDocument": {
+    "Data": {
+      "case-management-gtl:CaseManagement": {
+        "@key": [
+          ""
+        ],
+        "@icon": {
+          "main": "fa fa-users"
+        },
+        "@section": "case-management-gtl:CaseManagement",
+        "@case-name": "",
+        "@product": "GTL1-v1.2",
+        "permission": {
+          "UW": {
+            "openable": true,
+            "editable": false,
+            "viewable": true
+          },
+          "MANAGER_REVIEW": {
+            "openable": true,
+            "editable": false,
+            "viewable": true
+          },
+          "GROUP_DPMT_MNGR": {
+            "openable": true,
+            "editable": false,
+            "viewable": true
+          }
+        },
+        "case-management-gtl:Summary": {
+          "@icon": "fa fa-pencil",
+          "icons": {
+            "cardIcon": {
+              "content": "fa fa-pencil"
+            }
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-gtl:CaseManagement",
+          "case-management-gtl:CaseInformation": {
+            "@key": [
+              "DocName"
+            ],
+            "@preview": [
+              "case-management-gtl:Summary"
+            ]
+          },
+          "case-management-gtl:CurrentStatus": {
+            "@key": [
+              "BusinessStatus"
+            ],
+            "@preview": [
+              "case-management-gtl:Summary"
+            ],
+            "@valuePrefix": "v3.document.status."
+          },
+          "case-management-gtl:PendingInformation": {},
+          "case-management-gtl:NextRequiredAction": {},
+          "case-management-gtl:PolicyNo": {
+            "@key": [
+              "PolicyNumber"
+            ]
+          }
+        },
+        "case-management-gtl:InterestedParties": {
+          "@key": [
+            "InterestedParty"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart",
+            "step": "1"
+          },
+          "@cssClass": "v3-box-2",
+          "@onClose": "",
+          "@section": "case-management-gtl:CaseManagement",
+          "case-management-gtl:PolicyOwner": {
+            "@key": [
+              "case-management:PolicyOwners"
+            ],
+            "@section": "case-management-gtl:InterestedParties",
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "case-management-gtl:ImportFromExistingContact": {
+              "@key": [
+                "case-management-gtl:ImportFromExistingContact"
+              ],
+              "@section": "case-management-gtl:PolicyOwner",
+              "icons": {
+                "cardIcon": {
+                  "content": "fa fa-user"
+                }
+              },
+              "@cardType": "action",
+              "@cssClass": "v3-box-1",
+              "@isVisible": "!moduleService.freeze",
+              "@staticHtml": "list_existing_corporate_prospect.html"
+            },
+            "case-management-gtl:NewPolicyOwner": {
+              "@key": [
+                "case-management-gtl:NewPolicyOwner"
+              ],
+              "@section": "case-management-gtl:PolicyOwner",
+              "@icon": {
+                "main": "fa fa-user",
+                "mainAction": "addIcon"
+              },
+              "icons": {
+                "cardIcon": {
+                  "content": "fa fa-user"
+                },
+                "cardIconPlus": {}
+              },
+              "@cssClass": "v3-box-1",
+              "@cardType": "action",
+              "@onClick": "addCard(card)"
+            },
+            "case-management-gtl:PolicyOwnerInfo": {
+              "@key": [
+                "case-management:PolicyOwner"
+              ],
+              "icons": {
+                "cardIcon": {
+                  "content": "fa fa-user"
+                },
+                "removeCardInList": {
+                  "onClick": "removeCardInList()"
+                }
+              },
+              "@cssClass": "v3-box-1",
+              "@section": "case-management-gtl:PolicyOwner",
+              "@cardType": "template"
+            }
+          },
+          "case-management-gtl:AgentInformation": {
+            "@key": [
+              "AgentInformation"
+            ],
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "case-management-gtl:InterestedParties",
+            "case-management-gtl:AgentName": {
+              "@key": [
+                "AgentName"
+              ]
+            },
+            "case-management-gtl:LocationCd": {
+              "@key": [
+                "LocationCd"
+              ]
+            },
+            "case-management-gtl:SubLocationCd": {
+              "@key": [
+                "SubLocationCd"
+              ]
+            },
+            "case-management-gtl:Contact": {},
+            "case-management-gtl:PhoneNumberOfAgent": {
+              "@key": [
+                "PhoneNumberOfAgent"
+              ]
+            },
+            "case-management-gtl:EmailAddressOfAgent": {
+              "@key": [
+                "EmailAddressOfAgent"
+              ]
+            }
+          },
+          "case-management-gtl:ServicingStaff": {
+            "@key": [
+              "ServicingStaff"
+            ],
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "case-management-gtl:InterestedParties",
+            "case-management-gtl:InsuranceCompany": {},
+            "case-management-gtl:ServicingStaffTemp1": {},
+            "case-management-gtl:importServicingStaff": {},
+            "case-management-gtl:ServicingStaffTemp2": {},
+            "case-management-gtl:ServicingStaffCd": {
+              "@key": [
+                "ServicingStaffCd"
+              ]
+            },
+            "case-management-gtl:PhoneNumberOfServicingStaff": {
+              "@key": [
+                "PhoneNumberOfServicingStaff"
+              ]
+            },
+            "case-management-gtl:importMarketingStaff": {},
+            "case-management-gtl:ServicingStaffTemp3": {},
+            "case-management-gtl:MarketingStaffCd": {
+              "@key": [
+                "MarketingStaffCd"
+              ]
+            },
+            "case-management-gtl:PhoneNumberOfMarketingStaff": {
+              "@key": [
+                "PhoneNumberOfMarketingStaff"
+              ]
+            }
+          }
+        },
+        "case-management-gtl:QuotationAndPricing": {
+          "@key": [
+            "Quotation"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart",
+            "step": "2"
+          },
+          "@cssClass": "v3-box-2",
+          "@onClose": "updateCaseFromQuotation()",
+          "@section": "case-management-gtl:CaseManagement"
+        },
+        "case-management-gtl:reviewAndApproval": {
+          "@key": [
+            ""
+          ],
+          "@icon": {
+            "main": "fa fa-file-o",
+            "step": "3"
+          },
+          "@isVisible": "findElementInDetail(['ManagerReview'])['@refUid']",
+          "@cssClass": "v3-box-3",
+          "@section": "case-management-gtl:CaseManagement",
+          "case-management-gtl:saleManager": {
+            "permission": {
+              "AGENT": {
+                "openable": false,
+                "editable": false,
+                "viewable": true
+              },
+              "POLICY_OWNER": {
+                "openable": false,
+                "editable": false,
+                "viewable": true
+              },
+              "UW": {
+                "openable": false,
+                "editable": false,
+                "viewable": false
+              },
+              "GROUP_DPMT_MNGR": {
+                "openable": false,
+                "editable": false,
+                "viewable": false
+              }
+            },
+            "@key": [
+              "ManagerReview"
+            ],
+            "@icon": {
+              "main": "fa fa-pencil-square-o"
+            },
+            "@cssClass": "v3-box-1",
+            "@previewHtml": "v3-preview-salemanager-gtl1.html",
+            "@section": "case-management-gtl:reviewAndApproval",
+            "@isVisible": "findElementInDetail(card.key)['@refUid']"
+          },
+          "case-management-gtl:groupLevelUW": {
+            "permission": {
+              "AGENT": {
+                "openable": false,
+                "editable": false,
+                "viewable": true
+              },
+              "POLICY_OWNER": {
+                "openable": false,
+                "editable": false,
+                "viewable": true
+              },
+              "GROUP_DPMT_MNGR": {
+                "openable": false,
+                "editable": false,
+                "viewable": false
+              },
+              "MANAGER_REVIEW": {
+                "openable": false,
+                "editable": false,
+                "viewable": false
+              }
+            },
+            "@key": [
+              "Underwriting"
+            ],
+            "@icon": {
+              "main": "fa fa-file-o"
+            },
+            "@cssClass": "v3-box-3",
+            "@previewHtml": "v3-preview-underwriting-gtl1.html",
+            "@section": "case-management-gtl:reviewAndApproval",
+            "@isVisible": "findElementInDetail(card.key)['@refUid']"
+          },
+          "case-management-gtl:groupDepartmentManager": {
+            "permission": {
+              "AGENT": {
+                "openable": false,
+                "editable": false,
+                "viewable": true
+              },
+              "POLICY_OWNER": {
+                "openable": false,
+                "editable": false,
+                "viewable": true
+              },
+              "UW": {
+                "openable": false,
+                "editable": false,
+                "viewable": false
+              },
+              "MANAGER_REVIEW": {
+                "openable": false,
+                "editable": false,
+                "viewable": false
+              }
+            },
+            "@key": [
+              "GroupDepartment"
+            ],
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "case-management-gtl:reviewAndApproval",
+            "@previewHtml": "v3-preview-groupmanager-gtl1.html",
+            "@isVisible": "findElementInDetail(card.key)['@refUid']"
+          }
+        },
+        "case-management-gtl:DocumentCenter": {
+          "@key": [
+            ""
+          ],
+          "@icon": {
+            "main": "fa fa-paperclip"
+          },
+          "icons": {
+            "cardIcon": {
+              "content": "attachmentIcon"
+            }
+          },
+          "@section": "case-management-gtl:CaseManagement",
+          "case-management-gtl:TransactionDocuments": {
+            "@key": [
+              "Prints"
+            ],
+            "@isVisible": false,
+            "@icon": "fa fa-file-text-o",
+            "icons": {
+              "cardIcon": {
+                "content": "transactionIcon"
+              }
+            },
+            "@section": "case-management-gtl:DocumentCenter",
+            "TransactionDocument": {
+              "@key": [
+                "Print"
+              ],
+              "@section": "case-management-gtl:TransactionDocuments",
+              "@icon": "attachmentIcon",
+              "icons": {
+                "cardIcon": {
+                  "content": "transactionIcon"
+                }
+              },
+              "@cssClass": "v3-box-1",
+              "@cardType": "template",
+              "@previewHtml": "v3-resource-file-transaction.html",
+              "@onOpen": "fileReaderService.openFileReader('view',card.metadata,[],'')"
+            }
+          },
+          "case-management-gtl:Attachments": {
+            "@key": [
+              "Attachments"
+            ],
+            "@section": "case-management-gtl:DocumentCenter",
+            "@icon": "attachmentIcon",
+            "icons": {
+              "cardIcon": {
+                "content": "attachmentIcon"
+              }
+            },
+            "@cssClass": "v3-box-1",
+            "@previewHtml": "v3-summary-static-attachment.html",
+            "Attachment": {
+              "@key": [
+                "Attachment"
+              ],
+              "@section": "case-management-gtl:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "subAction": "removeIcon"
+              },
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                },
+                "removeCardInList": {}
+              },
+              "@cssClass": "v3-box-1",
+              "@previewHtml": "v3-summary-static-attachment-file.html",
+              "@cardType": "template",
+              "@onOpen": "fileReaderService.openFileReader('view',card.refDetail,self.moduleService.convertToArray(self.moduleService.findElementInElement_V3(self.moduleService.detail, ['Attachment'])),'uploadMode')"
+            },
+            "addAttachment": {
+              "@section": "case-management-gtl:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "mainAction": "addIcon"
+              },
+              "icons": {
+                "cardIcon": {
+                  "content": "fa fa-paperclip"
+                },
+                "cardIconPlus": {}
+              },
+              "@cardType": "action",
+              "@staticHtml": "fileUpload.html",
+              "@onClick": "importFile()"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "IposDocument": {
+    "Data": {
+      "illustration-income-protection:QuotationIncomeProtection": {
+        "@section": "illustration-income-protection:QuotationIncomeProtection",
+        "illustration-income-protection:Summary": {
+          "@key": [
+            "Summary"
+          ],
+          "@icon": "fa fa-bar-chart",
+          "@cssClass": "v3-box-2",
+          "@section": "illustration-income-protection:QuotationIncomeProtection",
+          "illustration-income-protection:SummaryPlanName": {},
+          "illustration-income-protection:SummaryTemp": {},
+          "illustration-income-protection:SummaryQuotationNo": {},
+          "illustration-income-protection:SummaryStatus": {},
+          "illustration-income-protection:SummaryCreatedDate": {},
+          "illustration-income-protection:SummaryLastUpdatedDate": {},
+          "illustration-income-protection:SummaryFirstInsured": {},
+          "illustration-income-protection:SummarySecondInsured": {},
+          "illustration-income-protection:SummaryPreviewButton": {}
+        },
+        "illustration-income-protection:FirstInsured": {
+          "@icon": "fa fa-bar-chart",
+          "@cssClass": "v3-box-2",
+          "@section": "illustration-income-protection:QuotationIncomeProtection",
+          "illustration-income-protection:FIPersonalParticulars ": {
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-income-protection:FirstInsured",
+            "first-insured:ImportProspect": {},
+            "first-insured:ImportProspectTemp": {},
+            "first-insured:Title": {},
+            "first-insured:FullName": {
+              "@key": [
+                "FullName"
+              ],
+              "@preview": [
+                "illustration-income-protection:FirstInsured"
+              ]
+            },
+            "first-insured:BirthDate": {
+              "@key": [
+                "BirthDate"
+              ],
+              "@preview": [
+                "illustration-income-protection:FirstInsured"
+              ],
+              "@format": "datetime"
+            },
+            "first-insured:AgeNextBirthday": {},
+            "first-insured:Gender": {
+              "@key": [
+                "Occupation"
+              ],
+              "@preview": [
+                "illustration-income-protection:PersonalParticulars"
+              ]
+            },
+            "first-insured:SmokerStatus": {},
+            "first-insured:Occupation": {
+              "@key": [
+                "Occupation"
+              ],
+              "@preview": [
+                "illustration-income-protection:PersonalParticulars"
+              ]
+            },
+            "first-insured:AnnualIncome": {}
+          },
+          "illustration-income-protection:FIBasicPlan": {
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-income-protection:FirstInsured",
+            "first-insured:CommencementDate": {},
+            "first-insured:ExpiryAge": {
+              "@key": [
+                "CommencementDate"
+              ],
+              "@preview": [
+                "illustration-income-protection:FIBasicPlan"
+              ],
+              "@format": "date"
+            },
+            "first-insured:ContractCurrency": {},
+            "first-insured:BillingCurrency": {},
+            "first-insured:BenefitAmount": {
+              "@key": [
+                "CommencementDate"
+              ],
+              "@preview": [
+                "illustration-income-protection:FIBasicPlan"
+              ]
+            },
+            "first-insured:BenefitPeriod": {},
+            "first-insured:WaitingPeriod": {},
+            "first-insured:PremiumFrequency": {
+              "@key": [
+                "PremiumFrequency"
+              ],
+              "@preview": [
+                "illustration-income-protection:FIBasicPlan"
+              ]
+            },
+            "first-insured:PremiumType": {},
+            "first-insured:ConsumerPriceIndexation": {},
+            "first-insured:OccupationClass": {},
+            "first-insured:PlanType": {},
+            "first-insured:FrequencyBasePremium": {}
+          },
+          "illustration-income-protection:FIAddRider": {
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "mainAction": "addIcon"
+            },
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-income-protection:FirstInsured",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          },
+          "illustration-income-protection:FIRider": {
+            "@section": "illustration-income-protection:FirstInsured",
+            "@cardType": "template",
+            "@key": [
+              "Rider"
+            ],
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "subAction": "removeIcon"
+            },
+            "first-insured:SelectRider": {},
+            "first-insured:SelectRiderTemp": {},
+            "first-insured:SumInsured": {},
+            "first-insured:FrequencyBasePremium": {}
+          }
+        },
+        "illustration-income-protection:AddSecondInsured": {
+          "@icon": {
+            "main": "fa fa-bar-chart",
+            "mainAction": "addIcon"
+          },
+          "@cssClass": "v3-box-2",
+          "@section": "illustration-income-protection:QuotationIncomeProtection",
+          "@cardType": "action",
+          "@onClick": "addCard(card)"
+        },
+        "illustration-income-protection:SecondInsured": {
+          "@cssClass": "v3-box-2",
+          "@section": "illustration-income-protection:QuotationIncomeProtection",
+          "@key": [
+            "SecondInsured"
+          ],
+          "@cardType": "template",
+          "@icon": {
+            "main": "fa fa-bar-chart",
+            "subAction": "removeIcon"
+          },
+          "illustration-income-protection:SIPersonalParticulars ": {
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-income-protection:SecondInsured",
+            "second-insured:ImportProspect": {},
+            "second-insured:ImportProspectTemp": {},
+            "second-insured:Title": {},
+            "second-insured:FullName": {
+              "@key": [
+                "FullName"
+              ],
+              "@preview": [
+                "illustration-income-protection:FirstInsured"
+              ]
+            },
+            "second-insured:BirthDate": {
+              "@key": [
+                "BirthDate"
+              ],
+              "@preview": [
+                "illustration-income-protection:FirstInsured"
+              ],
+              "@format": "datetime"
+            },
+            "second-insured:AgeNextBirthday": {},
+            "second-insured:Gender": {
+              "@key": [
+                "Occupation"
+              ],
+              "@preview": [
+                "illustration-income-protection:PersonalParticulars"
+              ]
+            },
+            "second-insured:SmokerStatus": {},
+            "second-insured:Occupation": {
+              "@key": [
+                "Occupation"
+              ],
+              "@preview": [
+                "illustration-income-protection:PersonalParticulars"
+              ]
+            },
+            "second-insured:AnnualIncome": {}
+          },
+          "illustration-income-protection:SIBasicPlan": {
+            "@icon": "fa fa-bar-chart",
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-income-protection:SecondInsured",
+            "second-insured:CommencementDate": {},
+            "second-insured:ExpiryAge": {
+              "@key": [
+                "CommencementDate"
+              ],
+              "@preview": [
+                "illustration-income-protection:FIBasicPlan"
+              ],
+              "@format": "date"
+            },
+            "second-insured:ContractCurrency": {},
+            "second-insured:BillingCurrency": {},
+            "second-insured:BenefitAmount": {
+              "@key": [
+                "CommencementDate"
+              ],
+              "@preview": [
+                "illustration-income-protection:FIBasicPlan"
+              ]
+            },
+            "second-insured:BenefitPeriod": {},
+            "second-insured:WaitingPeriod": {},
+            "second-insured:PremiumFrequency": {
+              "@key": [
+                "PremiumFrequency"
+              ],
+              "@preview": [
+                "illustration-income-protection:FIBasicPlan"
+              ]
+            },
+            "second-insured:PremiumType": {},
+            "second-insured:ConsumerPriceIndexation": {},
+            "second-insured:OccupationClass": {},
+            "second-insured:PlanType": {},
+            "second-insured:FrequencyBasePremium": {}
+          },
+          "illustration-income-protection:SIAddRider": {
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "mainAction": "addIcon"
+            },
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-income-protection:SecondInsured",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          },
+          "illustration-income-protection:SIRider": {
+            "@section": "illustration-income-protection:SecondInsured",
+            "@cardType": "template",
+            "@key": [
+              "Rider"
+            ],
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "subAction": "removeIcon"
+            },
+            "first-insured:SelectRider": {},
+            "first-insured:SelectRiderTemp": {},
+            "first-insured:SumInsured": {},
+            "first-insured:FrequencyBasePremium": {}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<ul class="dropdown-menu" ng-style="{display: (isOpen && 'block') || 'none', top: position.top+'px', left: position.left+'px'}">
+	<li ng-transclude></li>
+	<li ng-show="showButtonBar" style="padding:10px 9px 2px">
+		<span class="btn-group">
+			 <md-button ng-click="today()" class="md-raised md-primary ipos_lower_button_letter">Today</md-button>
+			 <md-button ng-click="showWeeks = ! showWeeks" ng-class="{active: showWeeks}" class="md-raised md-primary ipos_lower_button_letter ipos_margin_left_10">Week</md-button>
+			 <md-button ng-click="clear()" class="md-raised md-primary ipos_lower_button_letter ipos_margin_left_10">Clear</md-button>
+			<!-- <button type="button" class="btn btn-small btn-inverse" ng-click="today()">Today</button> -->
+		<!-- 	<button type="button" class="btn btn-small btn-info" ng-click="showWeeks = ! showWeeks" ng-class="{active: showWeeks}">Week</button> -->
+			<!-- <button type="button" class="btn btn-small btn-danger" ng-click="clear()">Clear</button> -->
+		</span>
+		 <md-button ng-click="isOpen = false" class="md-raised md-primary pull-right ipos_lower_button_letter">Close</md-button>
+	<!-- 	<button type="button" class="btn btn-small btn-success pull-right" ng-click="isOpen = false">Close</button> -->
+	</li>
+</ul>

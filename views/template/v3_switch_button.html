@@ -1,0 +1,58 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div style="position: relative;">
+	<div ng-if="showMasked==true"  ng-click="close()" class="v3-switch-masked"></div>
+	<div ng-if="!LiferayFake">
+		<div ng-click="open()" style=" top: 0;
+		    position: relative;" class="v3-switch-button-hide v3-switch-button-ontop" id="switch-button-{{::switchName}}">
+		    <input id= "switch-button-input-{{::switchName}}"  type="text" style="background-color: white; cursor: pointer;" placeholder="{{switchDisabled ? '' : ('new.v3.placeholer.ChooseOne' | translate)}}" class="form-control" ng-disabled="true" style="cursor: pointer" ng-model="switchModelButton" />
+			<i  id= "switch-button-icon-{{::switchName}}"  class="fa fa-caret-right fa-3x v3-switch-icon"></i>
+		</div>
+		<div id="switch-button-containner-{{::switchName}}">
+		    <div style="margin-top: 0px;" layout="row" id="switch-{{::switchName}}" ng-show="switchOptions.length > 0" class="v3-switch-new v3-switch-option-verticle-display">
+		        <div style="z-index: 30;" ng-repeat="item in ::switchOptions">
+		            <div layout="row" id="switch-{{::switchName}}-{{::$index}}" class="v3-switch-item-new" flex>
+		                <div ng-click="chooseSwitch($index, item.value)" flex>
+		                    {{::item.translate | trimtext:false:15:'...'}}
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	<div ng-if="LiferayFake == true">
+		<div ng-click="open()" style=" top: 0;
+		    position: relative;" class="v3-switch-button-hide v3-switch-button-ontop" id="switch-button-{{switchName}}">
+		    <input id= "switch-button-input-{{switchName}}"  type="text" style="background-color: white; cursor: pointer;" placeholder="{{switchDisabled ? '' : ('new.v3.placeholer.ChooseOne' | translate)}}" class="form-control" ng-disabled="true" style="cursor: pointer" ng-model="switchModelButton" />
+			<i  id= "switch-button-icon-{{switchName}}"  class="fa fa-caret-right fa-3x v3-switch-icon"></i>
+		</div>
+		<div id="switch-button-containner-{{switchName}}">
+		    <div style="margin-top: 0px;" layout="row" id="switch-{{switchName}}" ng-show="switchOptions.length > 0" class="v3-switch-new v3-switch-option-verticle-display">
+		        <div style="z-index: 30;" ng-repeat="item in switchOptions">
+		            <div layout="row" id="switch-{{switchName}}-{{$index}}" class="v3-switch-item-new" flex>
+		                <div ng-click="chooseSwitch($index, item.value)" flex>
+		                    {{item.translate | trimtext:false:15:'...'}}
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+</div>

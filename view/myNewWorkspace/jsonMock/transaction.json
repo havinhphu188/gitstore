@@ -1,0 +1,123 @@
+{
+  "IposDocument": {
+    "@xmlns": "http://www.csc.com/integral/ipos-common",
+    "@xmlns:transaction": "http://www.csc.com/integral/transaction",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xsi:schemaLocation": "http://www.csc.com/integral/transaction transaction-model.xsd ",
+    "Data": {
+      "transaction:Transaction": {
+        "@section": "transaction:Transaction",
+        "transaction:Step1_SelectYourTransaction": {
+          "@section": "transaction:Transaction",
+          "transaction:ProductName": {
+              "type": ""
+            },
+          "transaction:Currency": {
+              "type": ""
+            },
+          "transaction:DueDateFrom": {
+              "type": ""
+            },
+          "transaction:DueDateTo": {
+              "type": ""
+            },
+          "transaction:Search": {
+              "type": ""
+            },
+          "transaction:PaymentBasic": {
+              "type": ""
+            },
+          "transaction:Table1": {
+              "type": ""
+            }
+        },
+        "transaction:Step2_PaymentInformation": {
+          "@section": "transaction:Transaction",
+          "transaction:PaymentSubmissionNo": {
+            "@key": [
+              "PaymentSubmissionNo"
+            ],
+            "type": ""
+          },
+          "transaction:PaymentDate": {
+            "@key": [
+              "PaymentDate"
+            ],
+            "type": ""
+          },
+          "transaction:Basic": {
+            "@key": [
+              "Basic"
+            ],
+            "type": ""
+          },
+          "transaction:PayableAmount": {
+            "@key": [
+              "PayableAmount"
+            ],
+            "type": ""
+          },
+          "transaction:DepositAdviceReference": {
+            "@key": [
+              "DepositAdviceReference"
+            ],
+            "type": ""
+          },
+          "transaction:ChequeNumber": {
+            "@key": [
+              "ChequeNumber"
+            ],
+            "type": ""
+          },
+          "transaction:ChequeDate": {
+            "@key": [
+              "ChequeDate"
+            ],
+            "type": ""
+          },
+          "transaction:BankName": {
+            "@key": [
+              "BankName"
+            ],
+            "type": ""
+          },
+          "transaction:Remark": {
+            "@key": [
+              "Remark"
+            ],
+            "type": ""
+          },
+          "transaction:PayableName": {
+            "@key": [
+              "PayableName"
+            ],
+            "type": ""
+          },
+          "transaction:AdviceNo": {
+            "@key": [
+              "AdviceNo"
+            ],
+            "type": ""
+          },
+          "transaction:AdviceDate": {
+            "@key": [
+              "AdviceDate"
+            ],
+            "type": ""
+          },
+          "transaction:PayButton": {
+            "@index": "10",
+            "@visible": "1"
+          }
+        },
+        "transaction:Step3_Finish": {
+          "@section": "transaction:Transaction",
+          "transaction:Table4": {
+            "@index": "1",
+            "@visible": "1"
+          }
+        }
+      }
+    }
+  }
+}

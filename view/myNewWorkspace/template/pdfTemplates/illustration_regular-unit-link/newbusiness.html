@@ -1,0 +1,865 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+<style>
+.text-align-right {
+	text-align: right;
+}
+#pdf-main {
+    font-size: 10px;
+    background: #b3b3b3;
+}
+.pdf-page {
+	margin: 6px;
+    background: white;
+    box-shadow: 3px 3px 2px #000000;
+}
+#pdf-page-title {
+	margin-top: 0px !important;
+	min-height: 560px;
+}
+#pdf-page-title-logo {
+	text-align: center;
+	padding-top: 50px;
+}
+#pdf-page-title1 {
+	text-align: center;
+    margin: 30px;
+    font-size: 12px;
+    font-weight: bold;
+}
+#pdf-page-title2 {
+    text-align: center;
+    margin: 40px;
+    font-size: 17px;
+    font-weight: bold;
+}
+#pdf-page-title-content {
+	margin-bottom: 30px;
+    font-size: 11px;
+    line-height: 20px;
+}
+.pdf-page-title-footer1 {
+	text-align: center;
+}
+.pdf-page-title-footer2 {
+	margin-right: 30px;
+	float: right;
+}
+.pdf-page-header {
+	height: 20px;
+    padding-top: 4px;
+}
+.pdf-page-header > div:nth-child(1) {
+	font-weight: bold;
+	font-size: 12px;
+}
+.pdf-page-header > div:nth-child(2) {
+	font-size: 8px;
+    text-align: right;
+	padding-top: 3px;
+}
+.pdf-page-content {
+	margin-bottom: 4px;
+    margin-top: 3px;
+    min-height: 460px !important;
+}
+.pdf-page-footer {
+	width: 100%;
+    padding-bottom: 10px;
+}
+.pdf-page-footer > div:nth-child(2) {
+	text-align: right;
+}
+.pdf-page-footer > div:nth-child(1) > div:nth-child(1),
+.pdf-page-footer > div:nth-child(2) > div:nth-child(1) {
+	font-weight: bold;
+}
+.pdf-page-content-header {
+	font-weight: bold;
+	display: flex;
+}
+.desc-section-specialpadding {
+	padding-left: 10px !important;
+    text-indent: -10px;
+}
+#table-productinfo table {
+	border: 1px solid;
+}
+#table-productinfo table th {
+	text-align: center;
+	border: 1px solid;
+}
+#table-productinfo table td {
+	border-left: 1px solid;
+	border-right: 1px solid;
+}
+#table-productinfo table td:nth-child(1) {
+	width: 150px;
+	padding-left: 3px;
+}
+#table-productinfo table td:nth-child(2) {
+	width: 120px;
+	text-align: right;
+	padding-right: 3px;
+}
+#table-productinfo table td:nth-child(3) {
+	text-align: center;
+}
+#table-productinfo table td:nth-child(4) {
+	width: 80px;
+	text-align: right;
+	padding-right: 3px;
+}
+#table-fundallcation table th,
+#table-fundallcation table td {
+	text-align: center;
+	width: 70px;
+}
+#table-fundallcation table td:nth-child(1) {
+	text-align: left;
+	padding-left: 3px;
+	width: 170px;
+}
+#table-fundallcation table {
+	border: 1px solid;
+}
+#table-fundallcation table th {
+	border: 1px solid;
+}
+#table-fundallcation table td {
+	border-left: 1px solid;
+	border-right: 1px solid;
+}
+.desc-section-header {
+	font-weight: bold;
+	margin-top: 2px;
+}
+.pdf-page-last-content1 {
+	padding-left: 10px !important;
+    text-indent: -10px;
+    display: flex;
+}
+.pdf-page-last-content2 {
+	padding-left: 20px !important;
+    text-indent: -10px;
+    display: flex;
+}
+#pdf-page-benefit table {
+	width: 100%;
+}
+#pdf-page-benefit table th {
+	text-align: center;
+}
+#pdf-page-benefit table td {
+	text-align: right;
+	padding-right: 3px;
+}
+#pdf-page-benefit table td:nth-child(-n+2) {
+	text-align: center !important;
+}
+#page-chart-catatan {
+	font-size: 9px;
+	padding-left: 10px !important;
+    text-indent: -10px;
+}
+#fund-performance {
+	padding-left: 40px;
+}
+#fund-performance table th {
+	text-align: center;
+}
+#fund-performance table td {
+	text-align: center;
+	min-width: 40px;
+}
+#fund-performance table td:nth-child(1) {
+	text-align: left;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+#fund-performance table td:nth-child(n+5) {
+	text-align: right;
+	padding-right: 3px;
+}
+#pdf-page-last-table1 table {
+	min-width: 350px;
+}
+#pdf-page-last-table1 table th,
+#pdf-page-last-table1 table td {
+	text-align: center;
+	min-width: 30px;
+}
+#pdf-page-last-table1 table td:nth-child(1) {
+	text-align: left;
+	padding-left: 3px;
+}
+#pdf-page-last-table2 table {
+	min-width: 300px;
+}
+#pdf-page-last-table2 table th,
+#pdf-page-last-table2 table td {
+	text-align: center;
+}
+#pdf-page-last-table3 table th,
+#pdf-page-last-table3 table td {
+	text-align: center !important;
+	width: 140px;
+}
+</style>
+<div id="pdf-main">
+	<div class="pdf-page" id="pdf-page-title">
+		<div id="pdf-page-title-logo">
+			<img src="{{contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/illustration_regular-unit-link/images/mnc-logo.jpeg'}}" width="200" />
+		</div>
+		<div id="pdf-page-title1">PROPOSAL INVESTASI &<br/>PERLINDUNGAN KESEJAHTERAAN<br/>VERSION 4.0.4</div>
+		<div id="pdf-page-title2">MNC LINK</div>
+		<div id="pdf-page-title-content" class="col-xs-12">
+			<div class="col-xs-3">&nbsp;</div>
+			<div class="col-xs-6 container-fluid">
+				<div class="col-xs-6"><b>Dipersiapkan untuk:</b></div>
+				<div class="col-xs-6">&nbsp;</div>
+				<div class="col-xs-6">Nama Pemegang Polis</div>
+				<div class="col-xs-6">
+					{{::': ' + 
+						(commonService.hasValueNotEmpty(illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'Salutation']).$) ? illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'Salutation']).$ + ' ' : '') +
+						illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'FullName']).$ + ' ' + 
+						illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'SuffixName']).$
+					}}
+				</div>
+				<div class="col-xs-6">Nama Tertanggung</div>
+				<div class="col-xs-6">
+					{{::': ' + 
+						(commonService.hasValueNotEmpty(illustrationUIService.findElementInDetail_V3(['LifeInsured', 'Salutation']).$) ? illustrationUIService.findElementInDetail_V3(['LifeInsured', 'Salutation']).$ + ' ' : '') +
+						illustrationUIService.findElementInDetail_V3(['LifeInsured', 'FullName']).$ + ' ' + 
+						illustrationUIService.findElementInDetail_V3(['LifeInsured', 'SuffixName']).$
+					}}
+				</div>
+				<div class="col-xs-6 margin-top-10"><b>Dipersiapkan oleh:</b></div>
+				<div class="col-xs-6 margin-top-10">&nbsp;</div>
+				<div class="col-xs-6">Nama Agen/FC</div>
+				<div class="col-xs-6">: {{agentName}}</div>
+				<div class="col-xs-6">No. Handphone</div>
+				<div class="col-xs-6">: {{agentMobilePhone}}</div>
+				<div class="col-xs-6">Tanggal</div>
+				<div class="col-xs-6">: {{::illustrationUIService.findElementInDetail_V3(['EffectiveDate']).$}}</div>
+			</div>
+			<div class="col-xs-3">&nbsp;</div>
+		</div>
+		<div class="pdf-page-title-footer1">PT MNC Life Assurance | MNC Financial Center 18th floor, Jl. Kebon Sirih Kav. 21-27, Jakarta 10340, Indonesia</div>
+		<div class="pdf-page-title-footer1">T. +6221 2970 4288 | F. +6221 3983 7011 | Customer Service : 1500 899 | www.mnclife.com</div>
+		<div class="pdf-page-title-footer2">73322086</div>
+	</div>
+	<div class="pdf-page" id="pdf-page-premium">
+		<div class="pdf-page-header">
+			<div class="col-xs-4">MNC LINK</div>
+			<div class="col-xs-8">PROPOSAL INI ADALAH ILUSTRASI SEMATA, DAN BUKAN MERUPAKAN SEBUAH KONTRAK ASURANSI</div>
+		</div>
+		<div class="pdf-page-content col-xs-12">
+			<div class="pdf-page-content-header">RINGKASAN ILUSTRASI | MNC LINK</div>
+			<div class="info-section container-fluid no-padding-left no-padding-right">
+				<div class="info-header pdf-page-content-header">DATA UMUM CALON PEMEGANG POLIS DAN TERTANGGUNG</div>
+				<div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Nama Pemegang Polis</div>
+							<div class="col-xs-7">
+								{{::': ' + 
+									(commonService.hasValueNotEmpty(illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'Salutation']).$) ? illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'Salutation']).$ + ' ' : '') +
+									illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'FullName']).$ + ' ' + 
+									illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'SuffixName']).$
+								}}
+							</div>
+						</div>
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Nama Tertanggung</div>
+							<div class="col-xs-7">
+								{{::': ' + 
+									(commonService.hasValueNotEmpty(illustrationUIService.findElementInDetail_V3(['LifeInsured', 'Salutation']).$) ? illustrationUIService.findElementInDetail_V3(['LifeInsured', 'Salutation']).$ + ' ' : '') +
+									illustrationUIService.findElementInDetail_V3(['LifeInsured', 'FullName']).$ + ' ' + 
+									illustrationUIService.findElementInDetail_V3(['LifeInsured', 'SuffixName']).$
+								}}
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Usia Pemegang Polis</div>
+							<div class="col-xs-7">: {{::illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'Age']).$}}</div>
+						</div>
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Usia Tertanggung</div>
+							<div class="col-xs-7">: {{::illustrationUIService.findElementInDetail_V3(['LifeInsured', 'Age']).$}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Jenis Kelamin Pempol.</div>
+							<div class="col-xs-7">: {{::'v3.gender.enum.' + illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'Gender']).Value | translate}}</div>
+						</div>
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Jenis Kelamin Ttg.</div>
+							<div class="col-xs-7">: {{::'v3.gender.enum.' + illustrationUIService.findElementInDetail_V3(['LifeInsured', 'Gender']).Value | translate}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Cara Pembayaran Premi</div>
+							<div class="col-xs-7">: {{::'v3.pnc.premiumPrequency.' + illustrationUIService.findElementInDetail_V3(['PremiumFrequency']).Value | translate}}</div>
+						</div>
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Kelas Pekerjaan</div>
+							<div class="col-xs-7">: {{::illustrationUIService.findElementInDetail_V3(['RiskClass']).$}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Mata Uang</div>
+							<div class="col-xs-7">: {{::'v3.prospect.contact.' + illustrationUIService.findElementInDetail_V3(['ContractCurrency']).Value | translate}}</div>
+						</div>
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Akhir Pertanggungan</div>
+							<div class="col-xs-7">: {{::illustrationUIService.findElementInDetail_V3(['RiskSessionDate']).$ | datetimeFilter:"DD/MM/YYYY"}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right" style="white-space: nowrap;">Rencana Pembayaran Premi</div>
+							<div class="col-xs-7">: {{::illustrationUIService.findElementInDetail_V3(['PremiumTerm']).$ + ' Tahun'}}</div>
+						</div>
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Status Perokok</div>
+							<div class="col-xs-7">: {{::'v3.pdf.mnc.smoke.enum.' + illustrationUIService.findElementInDetail_V3(['LifeInsured', 'SmokerStatus']).Value | translate}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="info-section container-fluid no-padding-left no-padding-right padding-top-10">
+				<div class="info-header pdf-page-content-header">JUMLAH PREMI</div>
+				<div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-4 no-padding-left">
+							<div class="col-xs-6 no-padding-left">Premi Dasar Berkala</div>
+							<div class="col-xs-1 no-padding-left no-padding-right" style="white-space: nowrap;">: Rp.</div>
+							<div class="col-xs-5 text-align-right">{{::illustrationUIService.findElementInDetail_V3(['BenefitIllustration', 'BasicPremium']).$}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-4 no-padding-left">
+							<div class="col-xs-6 no-padding-left no-padding-right">Premi Top Up Berkala</div>
+							<div class="col-xs-1 no-padding-left no-padding-right" style="white-space: nowrap; border-bottom: 1px solid;">: Rp.</div>
+							<div class="col-xs-5 text-align-right" style="border-bottom: 1px solid;">{{::illustrationUIService.findElementInDetail_V3(['BenefitIllustration', 'RegularTopUpPremium']).$}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-4 no-padding-left">
+							<div class="col-xs-6 no-padding-left no-padding-right">Premi Total Berkala</div>
+							<div class="col-xs-1 no-padding-left no-padding-right" style="white-space: nowrap;">: Rp.</div>
+							<div class="col-xs-5 text-align-right">{{::illustrationUIService.findElementInDetail_V3(['BenefitIllustration', 'TotalRegularPremium']).$}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-4 no-padding-left">
+							<div class="col-xs-6 no-padding-left no-padding-right">Premi Top Up Sekaligus</div>
+							<div class="col-xs-1 no-padding-left no-padding-right" style="white-space: nowrap;">: Rp.</div>
+							<div class="col-xs-5 text-align-right">{{::illustrationUIService.findElementInDetail_V3(['BenefitIllustration', 'TotalSingleTopUp']).$}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="info-section container-fluid no-padding-left no-padding-right padding-top-10">
+				<div class="info-header pdf-page-content-header">INFORMASI PRODUK</div>
+				<div id="table-productinfo">
+					<table>
+						<tr>
+							<th>Jenis Manfaat</th>
+							<th>Uang Pertanggungan</th>
+							<th>Masa Asuransi</th>
+							<th>Biaya Asuransi Tahun I</th>
+						</tr>
+						<tr>
+							<td><b>Manfaat Dasar</b></td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td>Pertanggungan Dasar</td>
+							<td>{{::moduleService.getNumber(illustrationUIService.findElementInDetail_V3(['BasicSumInsured']).$) | number:0}}</td>
+							<td>{{::illustrationUIService.findElementInDetail_V3(['PolicyTerm']).$ + ' tahun'}}</td>
+							<td>{{::moduleService.getNumber(illustrationUIService.findElementInDetail_V3(['BasicStandardPremium']).$) | number:0}}</td>
+						</tr>
+						<tr ng-if="illustrationUIService.findElementInDetail_V3(['Riders'])['@counter'] > 0">
+							<td><b>Manfaat Tambahan</b></td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr ng-if="illustrationUIService.findElementInDetail_V3(['Riders'])['@counter'] > 0"
+							ng-repeat="rider in ::illustrationUIService.findElementInDetail_V3(['Rider'])">
+							<td>{{::'v3.pdf.mnc.rul.riderPlan.enum.' + illustrationUIService.findElementInElement_V3(rider, ['RiderPlan']).Value | translate}}</td>
+							<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(rider, ['RiderSumInsured']).$) | number:0}}</td>
+							<td>{{::illustrationUIService.findElementInElement_V3(rider, ['RiderTerm']).$ + ' tahun'}}</td>
+							<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(rider, ['RiderStandardPremium']).$) | number:0}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="info-section container-fluid no-padding-left no-padding-right padding-top-10">
+				<div class="info-header pdf-page-content-header">ALOKASI DANA INVESTASI</div>
+				<div id="table-fundallcation">
+					<table>
+						<tr>
+							<th>Dana Investasi</th>
+							<th>Premi Dasar Berkala</th>
+							<th>Premi Top Up Berkala</th>
+							<th>Premi Top Up Sekaligus</th>
+						</tr>
+						<tr ng-repeat="fund in ::illustrationUIService.findElementInDetail_V3(['Fund'])">
+							<td>{{::'v3.illustration.rul.fund.' + illustrationUIService.findElementInElement_V3(fund, ['FundCd']).Value | translate}}</td>
+							<td>{{::illustrationUIService.findElementInElement_V3(fund, ['FundAllocation']).$ + '%'}}</td>
+							<td>{{::illustrationUIService.findElementInElement_V3(fund, ['FundAllocation']).$ + '%'}}</td>
+							<td>{{::illustrationUIService.findElementInElement_V3(fund, ['FundAllocation']).$ + '%'}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="pdf-page-footer row">
+			<div class="col-xs-6">
+				<div>Tandatangan Agen/FC________________________________</div>
+				<div>Saya telah menjelaskan isi ilustrasi ini kepada calon pemegang polis.</div>
+				<div>MNC LINK v3.1.0 | 79670213 | 14 Nov 2016 03:15:24</div>
+			</div>
+			<div class="col-xs-6">
+				<div>Tandatangan Calon Pemegang Polis________________________________</div>
+				<div>Saya telah memahami isi ilustrasi ini.</div>
+				<div>Hal 2 / 6</div>
+			</div>
+		</div>
+	</div>
+	<div class="pdf-page" id="pdf-page-description">
+		<div class="pdf-page-header">
+			<div class="col-xs-4">MNC LINK</div>
+			<div class="col-xs-8">PROPOSAL INI ADALAH ILUSTRASI SEMATA, DAN BUKAN MERUPAKAN SEBUAH KONTRAK ASURANSI</div>
+		</div>
+		<div class="pdf-page-content col-xs-12">
+			<div id="desc-basic">
+				<div class="desc-header pdf-page-content-header">DESKRIPSI MANFAAT UTAMA</div>
+				<div class="desc-section">
+					<div class="desc-section-header">Santunan Meninggal Dunia</div>
+					<div>Jika tertanggung meninggal dunia, maka Yang Ditunjuk (ahli waris) akan menerima santunan sebesar 100% uang pertanggungan ditambah akumulasi nilai investasi (jika sudah terbentuk).</div>
+				</div>
+				<div class="desc-section">
+					<div class="desc-section-header">Manfaat Jatuh Tempo</div>
+					<div>Saat polis jatuh tempo, yaitu saat ulang tahun polis segera setelah tertanggung berusia 100 tahun, tertanggung akan menerima 100% total nilai investasi.</div>
+				</div>
+			</div>
+			<div id="desc-rider" class="margin-top-10" ng-if="illustrationUIService.findElementInDetail_V3(['Riders'])['@counter'] > 0">
+				<div class="desc-header pdf-page-content-header">DESKRIPSI MANFAAT TAMBAHAN (RIDER)</div>
+				<div class="desc-section" ng-if="moduleService.hasRiderPlan(illustrationUIService.findElementInDetail_V3(['Rider']), ['MNCCIRREV'])">
+					<div class="desc-section-header">Hario 911</div>
+					<div>Jika tertanggung didiagnosa untuk pertama kali  menderita salah satu dari 66 penyakit kritis yang didefinisikan dalam polis Hario 911 dan tidak meninggal dalam kurun waktu 30 hari setelah diagnosa tersebut, maka tertanggung akan mendapat santunan penyakit kritis sesuai dengan jumlah uang pertanggungan yang dipilih, dan pertanggungan berakhir (berlaku masa tunggu 90 hari).</div>
+				</div>
+				<div class="desc-section" ng-if="moduleService.hasRiderPlan(illustrationUIService.findElementInDetail_V3(['Rider']), ['HCSPLAT', 'HCSGOLD', 'HCSSILV' , 'HCSBRON', 'HCSI900', 'HCSI800', 'HCSI700', 'HCSI600', 'HCSI500', 'HCSI400', 'HCSI300', 'HCSI200', 'HCSI100'])">
+					<div class="desc-section-header">MNC Pro medis</div>
+					<div>Penggantian biaya perawatan rumah sakit sesuai tagihan (<i>as charged</i>) bila tertanggung menderita suatu penyakit atau kecelakaan dan memerlukan tindakan medis dengan batasan maksimum tahunan sebesar Uang Pertanggungan.</div>
+				</div>
+				<div class="desc-section" ng-if="moduleService.hasRiderPlan(illustrationUIService.findElementInDetail_V3(['Rider']), ['PAAREV'])">
+					<div class="desc-section-header">MNC PA (Risiko A)</div>
+					<div>Santunan PA akan diberikan apabila Tertanggung meninggal dunia akibat kecelakaan (yang tidak dikecualikan) maka Yang Ditunjuk (ahli waris) akan menerima 100% dari Uang Pertanggungan asuransi tambahan sebesar jumlah yang tercantum dalam polis.</div>
+				</div>
+				<div class="desc-section" ng-if="moduleService.hasRiderPlan(illustrationUIService.findElementInDetail_V3(['Rider']), ['PABREV'])">
+					<div class="desc-section-header">MNC PA (Risiko AB)</div>
+					<div class="desc-section-specialpadding">1. Santunan PA akan diberikan apabila Tertanggung meninggal dunia akibat kecelakaan (yang tidak dikecualikan) maka Yang Ditunjuk (ahli waris) akan menerima 100% dari Uang Pertanggungan asuransi tambahan sebesar jumlah yang tercantum dalam polis.</div>
+					<div class="desc-section-specialpadding">2. Atau mengalami cacat tetap, baik total maupun sebagian maka Tertanggung akan menerima prosentase dari Uang Pertanggungan Asuransi tambahan sesuai yang ditentukan dalam Tabel Manfaat dengan maksimal sebesar 100% dari Uang Pertanggungan Asuransi Tambahan.</div>
+				</div>
+				<div class="desc-section" ng-if="moduleService.hasRiderPlan(illustrationUIService.findElementInDetail_V3(['Rider']), ['PABDREV'])">
+					<div class="desc-section-header">MNC PA (Risiko ABD)</div>
+					<div class="desc-section-specialpadding">1. Santunan PA akan diberikan apabila Tertanggung meninggal dunia akibat kecelakaan (yang tidak dikecualikan) maka Yang Ditunjuk (ahli waris) akan menerima 100% dari Uang Pertanggungan asuransi tambahan sebesar jumlah yang tercantum dalam polis.</div>
+					<div class="desc-section-specialpadding">2. Atau mengalami cacat tetap, baik total maupun sebagian maka Tertanggung akan menerima prosentase dari Uang Pertanggungan Asuransi tambahan sesuai yang ditentukan dalam Tabel Manfaat dengan maksimal sebesar 100% dari Uang Pertanggungan Asuransi Tambahan.</div>
+					<div class="desc-section-specialpadding">3. Atau penggantian semua biaya perawatan/pengobatan sebagai akibat dari suatu kecelakaan (yang tidak dikecualikan) yang mengakibatkan sakit/cidera yang memerlukan perawatan, sampai dengan batas maksimum 10% dari jumlah pertanggungan asuransi tambahan per tahun polis asuransi tambahan ini.</div>
+				</div>
+				<div class="desc-section" ng-if="moduleService.hasRiderPlan(illustrationUIService.findElementInDetail_V3(['Rider']), ['PADREV'])">
+					<div class="desc-section-header">MNC PA (Risiko AD)</div>
+					<div class="desc-section-specialpadding">1. Santunan PA akan diberikan apabila Tertanggung meninggal dunia akibat kecelakaan (yang tidak dikecualikan) maka Yang Ditunjuk (ahli waris) akan menerima 100% dari Uang Pertanggungan asuransi tambahan sebesar jumlah yang tercantum dalam polis.</div>
+					<div class="desc-section-specialpadding">2. Atau penggantian semua biaya perawatan/pengobatan sebagai akibat dari suatu kecelakaan (yang tidak dikecualikan) yang mengakibatkan sakit/cidera yang memerlukan perawatan, sampai dengan batas maksimum 10% dari jumlah pertanggungan asuransi tambahan per tahun polis asuransi tambahan ini.</div>
+				</div>
+				<div class="desc-section" ng-if="moduleService.hasRiderPlan(illustrationUIService.findElementInDetail_V3(['Rider']), ['MNCPBNREV55', 'MNCPBNREV70'])">
+					<div class="desc-section-header">Manfaat Payor Benefit</div>
+					<div>Manfaat bebas Premi Total Berkala (Premi Dasar Berkala dan Premi Top Up Berkala) jika Pemegang Polis/Pembayar mengalami risiko cacat tetap total atau penyakit kritis yang disebabkan sakit dan atau kecelakaan dalam periode pertanggungan asuransi tambahan Payor Benefit.</div>
+				</div>
+				<div class="desc-section" ng-if="moduleService.hasRiderPlan(illustrationUIService.findElementInDetail_V3(['Rider']), ['MNCPPRREV55', 'MNCPPRREV70'])">
+					<div class="desc-section-header">Manfaat Payor Protection</div>
+					<div>Manfaat bebas Premi Total Berkala (Premi Dasar Berkala dan Premi Top Up Berkala) jika Pemegang Polis/Pembayar mengalami risiko meninggal dunia yang disebabkan sakit dan atau kecelakaan dalam periode pertanggungan asuransi tambahan Payor Protection.</div>
+				</div>
+				<div class="desc-section" ng-if="false">
+					<div class="desc-section-header">Santunan Meninggal Dunia</div>
+					<div>Jika tertanggung meninggal dunia, maka Yang Ditunjuk (ahli waris) akan menerima santunan sebesar 100% uang pertanggungan ditambah akumulasi nilai investasi (jika sudah terbentuk).</div>
+				</div>
+				<div class="desc-section" ng-if="false">
+					<div class="desc-section-header">Manfaat Jatuh Tempo</div>
+					<div>Saat polis jatuh tempo, yaitu saat ulang tahun polis segera setelah tertanggung berusia 100 tahun, tertanggung akan menerima 100% total nilai investasi.</div>
+				</div>
+				<div class="desc-section" ng-if="moduleService.hasRiderPlan(illustrationUIService.findElementInDetail_V3(['Rider']), ['TPDADDREV'])">
+					<div class="desc-section-header">Manfaat TPD Additional</div>
+					<div>Jika tertanggung mengalami cacat total  tetap akibat sakit dan/atau kecelakaan, maka Yang Ditunjuk (ahli waris) akan menerima Manfaat TPD sebesar 100 persen uang pertanggungan TPD.</div>
+				</div>
+				<div class="desc-section" ng-if="moduleService.hasRiderPlan(illustrationUIService.findElementInDetail_V3(['Rider']), ['TPDACCREV'])">
+					<div class="desc-section-header">Manfaat TPD Accelerated</div>
+					<div>Jika tertanggung mengalami cacat total  tetap akibat sakit dan/atau kecelakaan, maka Yang Ditunjuk (ahli waris) akan menerima Manfaat TPD sebesar 100 persen uang pertanggungan TPD dan akan mengurangi manfaat Pertanggungan Dasar.</div>
+				</div>
+				<div class="desc-section" ng-if="moduleService.hasRiderPlan(illustrationUIService.findElementInDetail_V3(['Rider']), ['MNCWBNREV55', 'MNCWBNREV70'])">
+					<div class="desc-section-header">Manfaat Waiver Benefit</div>
+					<div>Manfaat bebas Premi Dasar Berkala jika Pemegang Polis/Pembayar  mengalami risiko cacat tetap total atau penyakit kritis yang disebabkan sakit dan atau kecelakaan dalam periode pertanggungan asuransi tambahan Waiver Benefit.</div>
+				</div>
+				<div class="desc-section" ng-if="moduleService.hasRiderPlan(illustrationUIService.findElementInDetail_V3(['Rider']), ['MNCWPRREV55', 'MNCWPRREV70'])">
+					<div class="desc-section-header">Manfaat Waiver Protection</div>
+					<div>Manfaat bebas Premi Dasar Berkala  jika Pemegang Polis/Pembayar  mengalami risiko meninggal dunia yang disebabkan sakit dan atau kecelakaan dalam periode pertanggungan asuransi tambahan Waiver Protection.</div>
+				</div>
+			</div>
+			<div id="desc-fund" class="margin-top-10">
+				<div class="desc-header pdf-page-content-header">DESKRIPSI INVESTASI</div>
+				<div class="desc-section">
+					<div class="desc-section-header">MNC AMAN IDR</div>
+					<div>100% investasi pada instrumen mata uang dan pendapatan tetap dengan jangka waktu kurang dari 1 tahun dengan imbal hasil relatif kecil, namun risiko rendah dalam jangka pendek.</div>
+				</div>
+				<div class="desc-section">
+					<div class="desc-section-header">MNC KONSERVATIF SYARIAH IDR</div>
+					<div>Investasi pada instrumen pendapatan tetap dan pasar uang berbasis Syariah dengan tingkat pengembalian yang relatif stabil dan risiko moderat dalam jangka pendek dan menengah.</div>
+				</div>
+				<div class="desc-section">
+					<div class="desc-section-header">MNC LINK AKTIF IDR</div>
+					<div>Investasi sebagian besar pada instrument saham dan sebagian kecil pada instrument pendapatan tetap dan pasar uang yang memberikan tingkat pengembalian tinggi. Berisiko tinggi, sesuai untuk investasi jangka panjang.</div>
+				</div>
+				<div class="desc-section">
+					<div class="desc-section-header">MNC LINK SERASI IDR</div>
+					<div>Investasi pada instrument saham, pendapatan tetap, dan pasar uang yang memberikan tingkat pengembalian optimal. Berisiko relatif tinggi, sesuai untuk investasi jangka menengah dan panjang.</div>
+				</div>
+			</div>
+		</div>
+		<div class="pdf-page-footer row">
+			<div class="col-xs-6">
+				<div>Tandatangan Agen/FC________________________________</div>
+				<div>Saya telah menjelaskan isi ilustrasi ini kepada calon pemegang polis.</div>
+				<div>MNC LINK v3.1.0 | 79670213 | 14 Nov 2016 03:15:24</div>
+			</div>
+			<div class="col-xs-6">
+				<div>Tandatangan Calon Pemegang Polis________________________________</div>
+				<div>Saya telah memahami isi ilustrasi ini.</div>
+				<div>Hal 3 / 6</div>
+			</div>
+		</div>
+	</div>
+	<div class="pdf-page" id="pdf-page-benefit">
+		<div class="pdf-page-header">
+			<div class="col-xs-4">MNC LINK</div>
+			<div class="col-xs-8">PROPOSAL INI ADALAH ILUSTRASI SEMATA, DAN BUKAN MERUPAKAN SEBUAH KONTRAK ASURANSI</div>
+		</div>
+		<div class="pdf-page-content col-xs-12">
+			<div class="pdf-page-content-header">
+				<span>RINGKASAN ILUSTRASI SELURUH DANA INVESTASI&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>PERKEMBANGAN DANA INVESTASI DAN MANFAAT SELAMA MASA BAYAR PREMI</i></span>
+				<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(,000)</span>
+			</div>
+			<div>
+				<table border="1">
+					<tr>
+						<th rowspan="2" style="width: 35px;">Akhir Tahun</th>
+						<th rowspan="2">Usia</th>
+						<th rowspan="2" style="width: 65px;">Premi Dasar Berkala</th>
+						<th rowspan="2" style="width: 65px;">Premi Top Up Berkala</th>
+						<th colspan="2">Dana Investasi</th>
+						<th colspan="3">Proyeksi Nilai Dana Investasi</th>
+						<th colspan="3">Manfaat Asuransi</th>
+					</tr>
+					<tr>
+						<th>Top Up Sekaligus</th>
+						<th>Penarikan</th>
+						<th>Rendah</th>
+						<th>Sedang</th>
+						<th>Tinggi</th>
+						<th>Rendah</th>
+						<th>Sedang</th>
+						<th>Tinggi</th>
+					</tr>
+					<tr ng-repeat="row in ::illustrationUIService.findElementInDetail_V3(['LimitedPaymentPoliciesBenefitRow'])"
+						ng-if="row['illustration:LPPYear'].$ <= 20 || (row['illustration:LPPAge'].$ % 5 == 0 && row['illustration:LPPAge'].$ % 2 != 0) || $last">
+						<td>{{::illustrationUIService.findElementInElement_V3(row, ['LPPYear']).$}}</td>
+						<td>{{::illustrationUIService.findElementInElement_V3(row, ['LPPAge']).$}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPBasicPremium']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPRegularTopUpPremium']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPSingleTopUpAmount']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPWithdrawlAmount']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPCashValueLow']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPCashValueMedium']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPCashValueHigh']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPDeathBenefitLow']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPDeathBenefitMedium']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPDeathBenefitHigh']).$, {roundAndDiv: true}) | number:0}}</td>
+					</tr>
+				</table>
+			</div>
+			<div>Proposal ini adalah ilustrasi semata dan bukan merupakan bagian dari polis. Ketentuan tentang program asuransi ini dijelaskan secara lengkap dalam polis.</div>
+		</div>
+		<div class="pdf-page-footer row">
+			<div class="col-xs-6">
+				<div>Tandatangan Agen/FC________________________________</div>
+				<div>Saya telah menjelaskan isi ilustrasi ini kepada calon pemegang polis.</div>
+				<div>MNC LINK v3.1.0 | 79670213 | 14 Nov 2016 03:15:24</div>
+			</div>
+			<div class="col-xs-6">
+				<div>Tandatangan Calon Pemegang Polis________________________________</div>
+				<div>Saya telah memahami isi ilustrasi ini.</div>
+				<div>Hal 4 / 6</div>
+			</div>
+		</div>
+	</div>
+	<div class="pdf-page" id="pdf-page-chart">
+		<div class="pdf-page-header">
+			<div class="col-xs-4">MNC LINK</div>
+			<div class="col-xs-8">PROPOSAL INI ADALAH ILUSTRASI SEMATA, DAN BUKAN MERUPAKAN SEBUAH KONTRAK ASURANSI</div>
+		</div>
+		<div class="pdf-page-content col-xs-12">
+			<div class="pdf-page-content-header">GRAFIK PERTUMBUHAN NILAI DANA INVESTASI</div>
+			<div id="chart-section">
+				<div class="col-xs-6 no-padding-left">
+					<p style="text-align: center;">{{::moduleService.titleOfChartLPP}}</p>
+					<div id="LimitedPaymentPoliciesBenefitRow" style="height:350px" >{{moduleService.initChartDataForLimitedPaymentPoliciesBenefitRow()}}</div>
+				</div>
+				<div class="col-xs-6">
+					<p style="text-align: center;">{{::moduleService.titleOfChartCPP}}</p>
+					<div id="ContinuousPremiumPoliciesBenefitRow" style="height:350px" >{{moduleService.initChartDataForContinuousPremiumPoliciesBenefitRow()}}</div>
+				</div>
+			</div>
+			<div id="fund-performance">
+				<div>Kinerja masa lalu dana investasi yang dipilih</div>
+				<div>
+					<table border="1">
+						<tr>
+							<th rowspan="2">Dana Investasi</th>
+							<th colspan="3">Asumsi Imbal Hasil</th>
+							<th colspan="6">Nilai Dana Investasi Bersih Rata-rata (%)</th>
+						</tr>
+						<tr>
+							<th>Rendah</th>
+							<th>Sedang</th>
+							<th>Tinggi</th>
+							<th>2008</th>
+							<th>2009</th>
+							<th>2010</th>
+							<th>2011</th>
+							<th>2012</th>
+							<th>2013</th>
+						</tr>
+						<tr>
+							<td>MNC AMAN IDR</td>
+							<td>5%</td>
+							<td>7%</td>
+							<td>9%</td>
+							<td>7.73</td>
+							<td>9.47</td>
+							<td>8.86</td>
+							<td>6.85</td>
+							<td>7.86</td>
+							<td>3.38</td>
+						</tr>
+						<tr>
+							<td>MNC KONSERVATIF SYARIAH IDR</td>
+							<td>6%</td>
+							<td>9%</td>
+							<td>12%</td>
+							<td>10.69</td>
+							<td>10.00</td>
+							<td>13.07</td>
+							<td>9.05</td>
+							<td>5.85</td>
+							<td>1.22</td>
+						</tr>
+						<tr>
+							<td>MNC LINK AKTIF IDR</td>
+							<td>10%</td>
+							<td>15%</td>
+							<td>20%</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>MNC LINK SERASI IDR</td>
+							<td>8%</td>
+							<td>12%</td>
+							<td>15%</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+					</table>
+				</div>
+				<div id="page-chart-catatan">
+					<div>Catatan:</div>
+					<div>1. Rata-rata nilai dana investasi bersih per tahun yang tercantum pada tabel di atas merupakan gambaran kinerja dana investasi di masa lalu.</div>
+					<div>2. Semua nilai yang tercantum dalam ilustrasi ini, termasuk tetapi tidak terbatas pada tingkat pengembangan, nilai dana investasi, manfaat asuransi dapat berubah setiap saat (lebih besar atau lebih kecil), dan karena itu TIDAK DIJAMIN oleh agen, penjual atau PT MNC Life Assurance ("MNC Life").</div>
+				</div>
+			</div>
+		</div>
+		<div class="pdf-page-footer row">
+			<div class="col-xs-6">
+				<div>Tandatangan Agen/FC________________________________</div>
+				<div>Saya telah menjelaskan isi ilustrasi ini kepada calon pemegang polis.</div>
+				<div>MNC LINK v3.1.0 | 79670213 | 14 Nov 2016 03:15:24</div>
+			</div>
+			<div class="col-xs-6">
+				<div>Tandatangan Calon Pemegang Polis________________________________</div>
+				<div>Saya telah memahami isi ilustrasi ini.</div>
+				<div>Hal 5 / 6</div>
+			</div>
+		</div>
+	</div>
+	<div class="pdf-page" id="pdf-page-last">
+		<div class="pdf-page-header">
+			<div class="col-xs-4">MNC LINK</div>
+			<div class="col-xs-8">PROPOSAL INI ADALAH ILUSTRASI SEMATA, DAN BUKAN MERUPAKAN SEBUAH KONTRAK ASURANSI</div>
+		</div>
+		<div class="pdf-page-content col-xs-12">
+			<div class="pdf-page-content-header">KETERANGAN</div>
+			<div class="pdf-page-last-content1">1. Pengalokasian premi kedalam unit adalah sebagai berikut:</div>
+			<div id="pdf-page-last-table1" class="col-xs-12">
+				<table border="1">
+					<tr>
+						<th rowspan="2">Jenis Premi</th>
+						<th colspan="5">Alokasi Investasi tahun ke-</th>
+					</tr>
+					<tr>
+						<th>1</th>
+						<th>2</th>
+						<th>3</th>
+						<th>4</th>
+						<th>5, dst</th>
+					</tr>
+					<tr>
+						<td>Premi Dasar Berkala</td>
+						<td>25%</td>
+						<td>60%</td>
+						<td>75%</td>
+						<td>90%</td>
+						<td>100%</td>
+					</tr>
+					<tr>
+						<td>Premi Top Up Berkala & Top Up Sekaligus</td>
+						<td>95%</td>
+						<td>95%</td>
+						<td>95%</td>
+						<td>95%</td>
+						<td>95%</td>
+					</tr>
+				</table>
+			</div>
+			<div class="pdf-page-last-content1">2. Santunan meninggal dunia maksimal 100% Uang Pertanggungan ditambah nilai dana investasi. Untuk Tertanggung anak-anak, maksimal Uang Pertanggungan yang akan diberikan adalah :</div>
+			<div id="pdf-page-last-table2" class="col-xs-12">
+				<table border="1">
+					<tr>
+						<th>Usia Kematian</th>
+						<th>% Uang Pertanggungan</th>
+					</tr>
+					<tr>
+						<td>0 <= usia < 2 tahun</td>
+						<td>20%</td>
+					</tr>
+					<tr>
+						<td>2 <= usia < 3 tahun</td>
+						<td>40%</td>
+					</tr>
+					<tr>
+						<td>3 <= usia < 4 tahun</td>
+						<td>60%</td>
+					</tr>
+					<tr>
+						<td>4 <= usia < 5 tahun</td>
+						<td>80%</td>
+					</tr>
+					<tr>
+						<td>Di atas atas sama dengan 5 tahun</td>
+						<td>100%</td>
+					</tr>
+				</table>
+			</div>
+			<div class="pdf-page-last-content1">3. Ilustrasi manfaat sudah memperhitungkan biaya-biaya yang terkait dengan kontrak asuransi sebagai berikut:</div>
+			<div class="pdf-page-last-content2">a. Biaya Asuransi (COI= Cost of Insurance & COR= Cost of Rider) yang besarnya tergantung pada usia, jenis kelamin, merokok dan tidak merokok, uang pertanggungan dan metode pembayaran premi selama berlakunya asuransi.</div>
+			<div class="pdf-page-last-content2">b. Biaya Administrasi dikenakan sesuai metode pembayaran premi selama berlakunya asuransi :</div>
+			<div id="pdf-page-last-table3" class="col-xs-12">
+				<div class="col-xs-6">
+					<table border="1">
+						<tr>
+							<th>Metode Pembayaran Premi</th>
+							<th>Biaya Administrasi</th>
+						</tr>
+						<tr>
+							<td>Bulanan</td>
+							<td>Rp 30.000</td>
+						</tr>
+						<tr>
+							<td>Triwulanan</td>
+							<td>Rp 90.000</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-xs-6">
+					<table border="1">
+						<tr>
+							<th>Metode Pembayaran Premi</th>
+							<th>Biaya Administrasi</th>
+						</tr>
+						<tr>
+							<td>Semesteran</td>
+							<td>Rp 180.000</td>
+						</tr>
+						<tr>
+							<td>Tahunan</td>
+							<td>Rp 360.000</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="pdf-page-last-content2">c. Biaya Pengelolaan Dana Investasi yang berkisar 1% - 2% per tahun dari nilai dana yang diinvestasikan.</div>
+			<div class="pdf-page-last-content1">4. Nilai Dana Investasi adalah nilai akumulasi dari saldo unit yang dihitung berdasarkan harga unit yang terbentuk pada waktu tertentu.</div>
+			<div class="pdf-page-last-content1">5. Asumsi tinggi-rendahnya tingkat pengembalian investasi yang digunakan dalam ilustrasi ini berdasarkan asumsi hasil pengembalian investasi jangka panjang, sedangkan tingkat pengembalian investasi yang sesungguhnya dapat berbeda dan bergantung pada perkembangan dana investasi MNC LINK.</div>
+			<div class="pdf-page-last-content1">6. Kinerja investasi bergantung pada risiko yang melekat pada masing-masing dana investasi, sehingga MNC Life tidak menjamin tingkat pengembalian investasi dan karenanya memberikan keleluasaan kepada pemegang polis untuk menempatkan dana investasi sesuai kebutuhan dan profil risiko pemegang polis.</div>
+			<div class="pdf-page-last-content1">7. Setiap penarikan/penebusan nilai dana investasi sebelum ulang tahun polis ketiga akan dikenakan pajak penghasilan atas surplus antara nilai dana investasi dengan akumulasi premi total berkala, dan premi top up sekaligus (jika ada).</div>
+			<div class="pdf-page-last-content1">8. Semua nilai yang tercantum dalam ilustrasi ini, termasuk tetapi tidak terbatas tingkat pengembangan, nilai dana investasi, manfaat asuransi dapat berubah setiap saat (lebih besar atau lebih kecil), dan karenanya TIDAK DIJAMIN oleh agen atau MNC Life.</div>
+			<div class="pdf-page-last-content1">9. MNC LINK adalah produk asuransi jiwa yang dikombinasikan dengan investasi sehingga bersarnya santunan meninggal dunia mengandung unsur fleksibilitas dan risiko-risiko sesuai instrumen investasi yang dipilih dan profil risiko dari masing-masing pemegang polis.</div>
+		</div>
+		<div class="pdf-page-footer row">
+			<div class="col-xs-6">
+				<div>Tandatangan Agen/FC________________________________</div>
+				<div>Saya telah menjelaskan isi ilustrasi ini kepada calon pemegang polis.</div>
+				<div>MNC LINK v3.1.0 | 79670213 | 14 Nov 2016 03:15:24</div>
+			</div>
+			<div class="col-xs-6">
+				<div>Tandatangan Calon Pemegang Polis________________________________</div>
+				<div>Saya telah memahami isi ilustrasi ini.</div>
+				<div>Hal 6 / 6</div>
+			</div>
+		</div>
+	</div>
+</div>

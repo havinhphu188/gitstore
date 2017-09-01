@@ -1,0 +1,19 @@
+{
+	"IposDocument": {        
+		"Data": {
+			"pdpa:Pdpa": {
+				"@key": ["Pdpa"],
+				"@section": "pdpa:Pdpa",
+				"pdpa:ImportantNotes": {
+					"@key": []
+				},
+				"pdpa:TextMessage": {
+					"@key": []
+				},
+				"pdpa:ConfirmationBtn": {
+					"@key": ["Consent"]
+				}
+			}
+		}
+	}
+}

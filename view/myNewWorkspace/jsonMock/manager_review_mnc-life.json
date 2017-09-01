@@ -1,0 +1,43 @@
+{
+  "IposDocument": {
+    "Data": {
+      "@section": "Data",
+      "case-management-rul:CompleteofClientDetailFake": {},
+      "case-management-rul:CompleteofClientDetail": {
+        "@key": [
+          "CompletionOfClientPersonalDetail"
+        ]
+      },
+      "case-management-rul:CompleteofClientDetailRemark": {
+        "@key": [
+          "CompletionOfClientPersonalDetailRemark"
+        ]
+      },
+      "case-management-rul:ObjectiveandPreferences": {
+        "@key": [
+          "ObjectiveAndPreference"
+        ]
+      },
+      "case-management-rul:ObjectiveandPreferencesRemark": {
+        "@key": [
+          "ObjectiveAndPreferenceRemark"
+        ]
+      },
+      "case-management-rul:CompleteodClientInvestment": {
+        "@key": [
+          "CompletionOfClientInvestmentProfile"
+        ]
+      },
+      "case-management-rul:CompleteodClientInvestmentRemark": {
+        "@key": [
+          "CompletionOfClientInvestmentProfileRemark"
+        ]
+      },
+      "case-management-rul:SupervisorValidation": {
+        "@key": [
+          "ManagerDecisionDescription"
+        ]
+      }
+    }
+  }
+}

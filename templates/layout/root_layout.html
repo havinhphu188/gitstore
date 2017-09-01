@@ -1,0 +1,7 @@
+<div id="workspaceCtrl" ng-swipe-left="toggleLeftSide()" style="background: gray !important;">
+   <input style="margin-top:20px;" id="slide-sidebar" type="checkbox" ng-model="hideSideBar" role="button" />
+   <ui-view name="status-bar-layout" style="" status-bar-layout></ui-view>
+    <ui-view name="main-view-layout" main-view-layout style="background-color: white; margin-top: 20px;height:98%;"></ui-view>
+    <ui-view name="left-bar-view" style="background-color:rgb(55, 71, 79); margin-top: 20px;height:98%;" left-bar-layout></ui-view>
+    <span notification-area/>
+</div>

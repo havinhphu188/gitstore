@@ -1,0 +1,609 @@
+{
+  "IposDocument": {
+    "@xmlns": "http://www.csc.com/integral/ipos-common",
+    "@xmlns:illustration-motor": "http://www.csc.com/integral/illustration-motor",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xsi:schemaLocation": "http://www.csc.com/integral/illustration-motor illustration-motor-private-car-m-ds-model.xsd ",
+    "Header": {
+      "DocInfo": {
+        "DocType": "illustration",
+        "Product": "motor-private-car-m-ds",
+        "DefUid": "3e287489-c7f1-4a86-9e11-d54c25b4e1de",
+        "DocId": "",
+        "DocName": "illustration-DefaultName",
+        "DocVersion": "",
+        "OwnerUid": "",
+        "CreatedDate": "",
+        "UpdatedDate": "",
+        "UpdatedUserUid": "",
+        "Tags": "",
+        "Star": "",
+        "Archived": "",
+        "Comments": ""
+      },
+      "DocAccessControllList": {
+        "User": {
+          "@userid": "",
+          "Permisions": {
+            "Permision": ""
+          }
+        }
+      },
+      "DocStatus": {
+        "DocumentStatus": "",
+        "BusinessStatus": "NEW"
+      }
+    },
+    "Data": {
+      "illustration-motor:QuotationMotor": {
+        "@vpms-suffix": "QuotationMotor",
+        "@section": "illustration-motor:QuotationMotor",
+        "illustration-motor:DocumentRelation": {
+          "@vpms-suffix": "DocumentRelation",
+          "illustration-motor:ActionType": {
+            "@vpms-suffix": "ActionType"
+          },
+          "illustration-motor:CaseID": {
+            "@vpms-suffix": "CaseID"
+          }
+        },
+        "illustration-motor:Summary": {
+          "@section": "illustration-motor:QuotationMotor",
+          "illustration-motor:quotation-information": {
+            "@default": "motor-private-car-m-ds",
+            "@visible": "1",
+            "@index": "1"
+          },
+          "illustration-motor:current-status": {
+            "@default": "",
+            "@visible": "1",
+            "@index": "2"
+          },
+          "illustration-motor:pending-information": {
+            "@default": "",
+            "@visible": "1",
+            "@index": "3"
+          },
+          "illustration-motor:next-required-action": {
+            "@default": "",
+            "@visible": "1",
+            "@index": "4"
+          }
+        },
+        "illustration-motor:Inputs": {
+          "@vpms-suffix": "Inputs",
+          "illustration-motor:BasicProduct": {
+            "@section": "illustration-motor:QuotationMotor",
+            "illustration-motor:ProductName": {
+              "@default": "motor-private-car-m-ds",
+              "@visible": "1",
+              "@index": "1"
+            },
+            "motor:InceptionDate": {
+              "@default": "motor-private-car-m-ds",
+              "@visible": "1",
+              "@index": "2"
+            },
+            "motor:ExpiryDate": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "3"
+            },
+            "motor:BillingCurrency": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "4"
+            },
+            "motor:SICurrency": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "5"
+            },
+            "motor:DocumentType": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "6"
+            },
+            "motor:Reason": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "7"
+            }
+          },
+          "illustration-motor:Coverage": {
+            "@section": "illustration-motor:QuotationMotor",
+            "illustration-motor:BasicCoverage": {
+              "@section": "illustration-motor:Coverage",
+              "@index": "1",
+              "motor:CoverageType": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "1"
+              },
+              "motor:GoodCarriedByVehicle": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "2"
+              },
+              "motor:CIType": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "3"
+              },
+              "motor:GeographicLocation": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "4"
+              },
+              "motor:Region": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "5"
+              },
+              "motor:UseOfVehicle": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "6"
+              },
+              "motor:Garage": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "7"
+              },
+              "motor:MarketValue": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "8"
+              },
+              "motor:SumInsured": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "9"
+              }
+            },
+            "illustration-motor:Excess": {
+              "@section": "illustration-motor:Coverage",
+              "@index": "2",
+              "motor:ExcessType": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "1"
+              },
+              "motor:ExcessAmt": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "2"
+              }
+            },
+            "illustration-motor:OptionalCoverages": {
+              "@section": "illustration-motor:Coverage",
+              "@index": "3",
+              "illustration-motor:OptionalCoverage": {
+                "@section": "illustration-motor:OptionalCoverages",
+                "illustration-motor:AdditionalBenefitCode": {
+                  "@default": "",
+                  "@visible": "1",
+                  "@index": "1"
+                },
+                "illustration-motor:AdditionalBenefitLimit": {
+                  "@default": "",
+                  "@visible": "1",
+                  "@index": "2"
+                },
+                "illustration-motor:AdditionalPremiumClass": {
+                  "@default": "",
+                  "@visible": "1",
+                  "@index": "3"
+                }
+              }
+            }
+          },
+          "illustration-motor:VehicleDetails": {
+            "@section": "illustration-motor:QuotationMotor",
+            "illustration-motor:VehicleInformation": {
+              "@section": "illustration-motor:VehicleDetails",
+              "motor:VehicleClass": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "1"
+              },
+              "motor:VehicleNo": {
+                "@default": "CO",
+                "@visible": "1",
+                "@index": "2"
+              },
+              "motor:VehicleType": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "3"
+              },
+              "motor:MakeOrModel": {
+                "@default": "CO",
+                "@visible": "1",
+                "@index": "4"
+              },
+              "motor:ModelDescription": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "5"
+              },
+              "motor:YearOfManufacture": {
+                "@default": "CO",
+                "@visible": "1",
+                "@index": "6"
+              },
+              "motor:EngineCapacity": {
+                "@default": "CO",
+                "@visible": "1",
+                "@index": "7"
+              },
+              "motor:Body": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "8"
+              },
+              "motor:PowerBy": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "9"
+              },
+              "motor:NoOfSeat": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "10"
+              },
+              "motor:LogBookNo": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "11"
+              },
+              "motor:EngineMotorNo": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "12"
+              },
+              "motor:ChassisNo": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "13"
+              },
+              "motor:SafetyCode": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "14"
+              },
+              "motor:AntiThefCode": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "15"
+              },
+              "motor:PermittedDriver": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "16"
+              }
+            },
+            "illustration-motor:Trailer": {
+              "motor:TrailerNo": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "1"
+              },
+              "motor:TrailerMakeModel": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "2"
+              },
+              "motor:TrailerModelDesc": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "3"
+              },
+              "motor:TrailerYearMake": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "4"
+              },
+              "motor:TrailerLogBookNo": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "5"
+              },
+              "motor:TrailerChassisNo": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "6"
+              }
+            }
+          },
+          "illustration-motor:FinancingInformation": {
+            "@section": "illustration-motor:QuotationMotor",
+            "motor:OwnershipType": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "1"
+            },
+            "motor:FinancialType": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "2"
+            },
+            "motor:LoanCompany": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "3"
+            },
+            "motor:VehiclePurchaseDate": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "4"
+            },
+            "motor:PurchasePrice": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "5"
+            }
+          },
+          "illustration-motor:DriverInformation": {
+            "@section": "illustration-motor:QuotationMotor",
+            "illustration-motor:MainDriver": {
+              "@section": "illustration-motor:DriverInformation",
+              "@index": "1",
+              "person:MDTitle": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "1"
+              },
+              "person:MDFullName": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "2"
+              },
+              "person:MDGender": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "3"
+              },
+              "person:MDBirthDate": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "4"
+              },
+              "person:MDYearDrivingLicenseObtained": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "5"
+              },
+              "person:MDIDs": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "6",
+                "person:MDID": {
+                  "person:MDIDType": {
+                    "@default": "",
+                    "@visible": "1",
+                    "@index": "1"
+                  },
+                  "person:MDIDNumber": {
+                    "@default": "",
+                    "@visible": "1",
+                    "@index": "2"
+                  }
+                }
+              },
+              "person:MDMaritalStatus": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "7"
+              },
+              "person:MDOccupation": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "8"
+              }
+            },
+            "illustration-motor:OtherDrivers": {
+              "@section": "illustration-motor:DriverInformation",
+              "@index": "2",
+              "illustration-motor:OtherDriver": {
+                "@section": "illustration-motor:OtherDrivers",
+                "person:ODTitle": {
+                  "@default": "",
+                  "@visible": "1",
+                  "@index": "1"
+                },
+                "person:ODFullName": {
+                  "@default": "",
+                  "@visible": "1",
+                  "@index": "2"
+                },
+                "person:ODGender": {
+                  "@default": "",
+                  "@visible": "1",
+                  "@index": "3"
+                },
+                "person:ODBirthDate": {
+                  "@default": "",
+                  "@visible": "1",
+                  "@index": "4"
+                },
+                "person:ODYearDrivingLicenseObtained": {
+                  "@default": "",
+                  "@visible": "1",
+                  "@index": "5"
+                },
+                "person:ODIDs": {
+                  "@default": "",
+                  "@visible": "1",
+                  "@index": "6",
+                  "person:ODID": {
+                    "person:ODIDType": {
+                      "@default": "",
+                      "@visible": "1",
+                      "@index": "1"
+                    },
+                    "person:ODIDNumber": {
+                      "@default": "",
+                      "@visible": "1",
+                      "@index": "2"
+                    }
+                  }
+                },
+                "person:ODMaritalStatus": {
+                  "@default": "",
+                  "@visible": "1",
+                  "@index": "7"
+                },
+                "person:ODOccupation": {
+                  "@default": "",
+                  "@visible": "1",
+                  "@index": "8"
+                }
+              }
+            },
+            "illustration-motor:NCDSource": {
+              "@section": "illustration-motor:DriverInformation",
+              "@index": "3",
+              "illustration-motor:NCDFrom": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "1"
+              },
+              "illustration-motor:NCDVehicleNo": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "2"
+              },
+              "illustration-motor:PreviousPolicyNo": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "3"
+              },
+              "illustration-motor:PreviousPolicyEffectiveDate": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "4"
+              },
+              "illustration-motor:PreviousPolicyExpiryDate": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "5"
+              },
+              "illustration-motor:NCDAllowed": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "6"
+              },
+              "illustration-motor:NCDEffectivedate": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "7"
+              },
+              "illustration-motor:NoOfClaim": {
+                "@default": "",
+                "@visible": "1",
+                "@index": "8"
+              }
+            }
+          }
+        },
+        "illustration-motor:Outputs": {
+          "illustration-motor:QuotationPremium": {
+            "@section": "illustration-motor:QuotationMotor",
+            "illustration-motor:BasePremium": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "1"
+            },
+            "illustration-motor:BasePremiumAfterLoadingAndNCD": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "2"
+            },
+            "illustration-motor:OptionalCoveragePremium": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "3"
+            },
+            "illustration-motor:TotalPremium": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "4"
+            },
+            "illustration-motor:StampDuty": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "5"
+            },
+            "illustration-motor:TotalPayablePremium": {
+              "@default": "",
+              "@visible": "1",
+              "@index": "6"
+            }
+          }
+        },
+        "Attachments": {
+          "@counter": "0",
+          "@maxOccurs": "",
+          "@minOccurs": "0",
+          "@vpms-suffix": "Attachments",
+          "Attachment": {
+            "@refResourceDocType": "",
+            "@refResourceUid": "",
+            "@vpms-suffix": "Attachment",
+            "FileUid": {
+              "@default": "",
+              "@editable": "0",
+              "@mandatory": "0",
+              "@refResourceStatus": "",
+              "@refResourceVal": "",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "FileUid"
+            },
+            "Name": {
+              "@default": "",
+              "@editable": "0",
+              "@mandatory": "0",
+              "@refResourceStatus": "",
+              "@refResourceVal": "",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "Name"
+            },
+            "FileName": {
+              "@default": "",
+              "@editable": "0",
+              "@mandatory": "0",
+              "@refResourceStatus": "",
+              "@refResourceVal": "",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "FileName"
+            },
+            "CreateDate": {
+              "@default": "",
+              "@editable": "0",
+              "@mandatory": "0",
+              "@refResourceStatus": "",
+              "@refResourceVal": "",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "CreateDate"
+            },
+            "FileSize": {
+              "@default": "",
+              "@editable": "0",
+              "@mandatory": "0",
+              "@refResourceStatus": "",
+              "@refResourceVal": "",
+              "@validate": "",
+              "@visible": "1",
+              "@vpms-suffix": "FileSize"
+            }
+          }
+        }
+      }
+    }
+  }
+}

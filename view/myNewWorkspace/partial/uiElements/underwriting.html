@@ -1,0 +1,90 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- UW Summary -->
+<div fieldId="underwriting:UWDecision" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+		<div class="form-group form-group-lg has-success">
+			<span class="col-xs-12 col-sm-6 col-md-6 col-lg-6"><strong>{{"new.v3.mynewworkspace.fire.underwriting.label.UnderwritingDecision" | translate}}:</strong></span>
+			<span class="col-xs-12 col-sm-6 col-md-6 col-lg-6">{{moduleService.findElementInDetail_V3(['UnderwritingDecisionCd']).$}}</span>
+		</div>
+	</div>
+</div>
+<div fieldId="underwriting:UWLoadingApplied" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+		<div class="form-group form-group-lg has-success">
+			<span class="col-xs-12 col-sm-6 col-md-6 col-lg-6"><strong>{{"new.v3.mynewworkspace.fire.underwriting.label.LoadingApplied" | translate}}:</strong></span>
+			<span class="col-xs-12 col-sm-6 col-md-6 col-lg-6">{{loadingOfUQ}}%</span>
+		</div>
+	</div>
+</div>
+<div fieldId="underwriting:UWRevisedPremiums" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<div class="form-group form-group-lg has-success">
+			<span class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><strong>{{"new.v3.mynewworkspace.fire.underwriting.label.RevisedPremiums" | translate}} ({{moduleService.findElementInDetail_V3(['Currency']).$}}):</strong></span>
+			<div class="col-xs-12 col-sm-8 col-md-12 col-lg-12 no-padding-left no-padding-right">
+				<div class="table-responsive">
+					<table class="table v3-responsive-table">
+		            	<tbody>
+		            		<tr>
+		            			 <td class="v3-currency-alignment">{{"new.v3.mynewworkspace.fire.underwriting.label.TotalPremium" | translate}}</td>
+		            			 <td class="v3-currency-alignment">{{totalPremiumOfUQ | number:2}}</td>
+		            		</tr>
+		            		<tr>
+		            			 <td class="v3-currency-alignment">{{"new.v3.mynewworkspace.fire.underwriting.label.StampDuty" | translate}}</td>
+		            			 <td class="v3-currency-alignment">{{stampDutyOfUQ | number:2}}</td>
+		            		</tr>
+		            		<tr>
+		            			 <td class="v3-currency-alignment"><strong>{{"new.v3.mynewworkspace.fire.underwriting.label.TotalPayablePremium" | translate}}</strong></td>
+		            			 <!-- <td class="v3-currency-alignment">{{moduleService.findElementInDetail_V3(['TotalPayablePremium']).$  | number:2}}</td> -->
+		            			 <td class="v3-currency-alignment">{{revisedPremiumOfUQ}}</td>
+		            		</tr>
+		            	</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- UW Findings -->
+<div fieldId="Findings" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+		<div class="form-group form-group-lg has-success">
+			<span class="large-font">{{"new.v3.mynewworkspace.fire.underwriting.label.Findings" | translate}}</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="col-md-10 col-xs-offset-2">
+			<span class="col-md-12">Sum insured exceed limit. Current Sum Insured ({{moduleService.findElementInDetail_V3(['Currency']).$}}): {{moduleService.findElementInDetail_V3(['SumInsured']).$ | number:0}}</span>
+		</div>
+	</div>
+</div>
+
+<!-- UW Comments -->
+<div fieldId="Comments" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><strong>{{"new.v3.mynewworkspace.fire.underwriting.label.UnderwriterComments" | translate}}*:</strong></span>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<textarea rows="5" cols="120" style="width: 500px;" ng-model="moduleService.findElementInDetail_V3(['DocInfo']).Comments"
+				ng-disabled="moduleService.findElementInDetail_V3(['BusinessStatus']) != 'WIP' && moduleService.findElementInDetail_V3(['BusinessStatus']) != 'PENDING'">
+			</textarea>
+		</div>
+	</div>
+</div>

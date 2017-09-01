@@ -1,0 +1,879 @@
+{
+  "IposDocument": {
+    "Data": {
+      "illustration-gtl:Quotation": {
+        "@key": [
+          "Quotation"
+        ],
+        "@icon": {
+          "main": "fa fa-bar-chart"
+        },
+        "@cssClass": "v3-box-2",
+        "@section": "illustration-gtl:Quotation",
+        "@product": "group-term-life",
+        "permission": {
+          "AGENT": {
+            "editable": true,
+            "viewable": true
+          },
+          "PROSPECT": {
+            "editable": true,
+            "viewable": true
+          },
+          "GUEST": {
+            "editable": true,
+            "viewable": true
+          },
+          "POLICY_OWNER": {
+            "editable": true,
+            "viewable": true
+          },
+          "UW": {
+            "editable": false,
+            "viewable": true
+          }
+        },
+        "illustration-gtl:quoteSummary": {
+          "@icon": {
+            "main": "fa fa-bar-chart"
+          },
+          "@cssClass": "v3-box-3",
+          "@section": "illustration-gtl:Quotation",
+          "illustration-gtl:productNameQuoteSummary": {
+            "@key": [
+              "Product"
+            ]
+          },
+          "illustration-gtl:policyOwnerQuoteSummary": {
+            "@key": [
+              "PolicyOwnerName"
+            ]
+          },
+          "illustration-gtl:quotationNoQuoteSummary": {
+            "@key": [
+              "DocName"
+            ]
+          },
+          "illustration-gtl:statusQuoteSummary": {
+            "@key": [
+              "BusinessStatus"
+            ]
+          },
+          "illustration-gtl:createdDateQuoteSummary": {
+            "@key": [
+              "CreatedDate"
+            ]
+          },
+          "illustration-gtl:lastUpdatedDateQuoteSummary": {
+            "@key": [
+              "UpdatedDate"
+            ]
+          }
+        },
+        "illustration-gtl:quoteInterestParties": {
+          "key": [
+            "InterestedParty"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart"
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "illustration-gtl:Quotation",
+          "illustration-gtl:policyOwner": {
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "illustration-gtl:quoteInterestParties",
+            "illustration-gtl:ImportFromExistingContact": {
+              "@key": [
+                ""
+              ],
+              "@section": "illustration-gtl:policyOwner",
+              "@icon": "fa fa-user",
+              "@cssClass": "v3-box-1",
+              "@cardType": "action",
+              "@staticHtml": "list_existing_corporate_prospect.html"
+            },
+            "illustration-gtl:basicInformation": {
+              "@key": [
+                ""
+              ],
+              "@section": "illustration-gtl:policyOwner",
+              "@icon": {
+                "main": "fa fa-user",
+                "mainAction": "addIcon"
+              },
+              "@cssClass": "v3-box-1",
+              "illustration-gtl:poName": {
+                "@key": [
+                  "PolicyOwnerName"
+                ]
+              },
+              "illustration-gtl:clientStatus": {
+                "@key": [
+                  "ClientStatus"
+                ]
+              },
+              "illustration-gtl:dateOfIncorporation": {
+                "@key": [
+                  "DateOfIncorporation"
+                ]
+              },
+              "illustration-gtl:countryOfOrigin": {
+                "@key": [
+                  "CountryOfOrigin"
+                ]
+              },
+              "illustration-gtl:industry": {
+                "@key": [
+                  "Industry"
+                ]
+              },
+              "illustration-gtl:category": {
+                "@key": [
+                  "Category"
+                ]
+              },
+              "illustration-gtl:personInChargeName": {
+                "@key": [
+                  "PersonInChargeName"
+                ]
+              },
+              "illustration-gtl:freeTradeZone": {
+                "@key": [
+                  "FreeTradeZone"
+                ]
+              },
+              "illustration-gtl:labelPOContact": {
+                "@key": [
+                  ""
+                ]
+              },
+              "illustration-gtl:telephoneNo": {
+                "@key": [
+                  "TelephoneNo"
+                ]
+              },
+              "illustration-gtl:emailAddress": {
+                "@key": [
+                  "EmailAddress"
+                ]
+              }
+            },
+            "illustration-gtl:address": {
+              "@key": [
+                ""
+              ],
+              "@section": "illustration-gtl:policyOwner",
+              "@icon": {
+                "main": "fa fa-user",
+                "mainAction": "addIcon"
+              },
+              "@cssClass": "v3-box-1",
+              "illustration-gtl:businessAddress": {
+                "@key": [
+                  "BusinessAddress"
+                ],
+                "@section": "illustration-gtl:address",
+                "illustration-gtl:BBlkHouseNo": {
+                  "@key": [
+                    "BusinessAddress",
+                    "BlkHouseNo"
+                  ]
+                },
+                "illustration-gtl:BStreet": {
+                  "@key": [
+                    "BusinessAddress",
+                    "Street"
+                  ]
+                },
+                "illustration-gtl:BUnitNo": {
+                  "@key": [
+                    "BusinessAddress",
+                    "UnitNo"
+                  ]
+                },
+                "illustration-gtl:BBuilding": {
+                  "@key": [
+                    "BusinessAddress",
+                    "Building"
+                  ]
+                },
+                "illustration-gtl:BCity": {
+                  "@key": [
+                    "BusinessAddress",
+                    "City"
+                  ]
+                },
+                "illustration-gtl:BCountry": {
+                  "@key": [
+                    "BusinessAddress",
+                    "Country"
+                  ]
+                },
+                "illustration-gtl:BPostal": {
+                  "@key": [
+                    "BusinessAddress",
+                    "Postal"
+                  ]
+                }
+              },
+              "illustration-gtl:mailingAddress": {
+                "@key": [
+                  "MailingAddress"
+                ],
+                "@section": "illustration-gtl:address",
+                "illustration-gtl:MBlkHouseNo": {
+                  "@key": [
+                    "MailingAddress",
+                    "BlkHouseNo"
+                  ]
+                },
+                "illustration-gtl:MStreet": {
+                  "@key": [
+                    "MailingAddress",
+                    "Street"
+                  ]
+                },
+                "illustration-gtl:MUnitNo": {
+                  "@key": [
+                    "MailingAddress",
+                    "UnitNo"
+                  ]
+                },
+                "illustration-gtl:MBuilding": {
+                  "@key": [
+                    "MailingAddress",
+                    "Building"
+                  ]
+                },
+                "illustration-gtl:MCity": {
+                  "@key": [
+                    "MailingAddress",
+                    "City"
+                  ]
+                },
+                "illustration-gtl:MCountry": {
+                  "@key": [
+                    "MailingAddress",
+                    "Country"
+                  ]
+                },
+                "illustration-gtl:MPostal": {
+                  "@key": [
+                    "MailingAddress",
+                    "Postal"
+                  ]
+                }
+              },
+              "illustration-gtl:registeredOfficeAddress": {
+                "@key": [
+                  "RegisteredOfficeAddress"
+                ],
+                "@section": "illustration-gtl:address",
+                "illustration-gtl:RBlkHouseNo": {
+                  "@key": [
+                    "RegisteredOfficeAddress",
+                    "BlkHouseNo"
+                  ]
+                },
+                "illustration-gtl:RStreet": {
+                  "@key": [
+                    "RegisteredOfficeAddress",
+                    "Street"
+                  ]
+                },
+                "illustration-gtl:RUnitNo": {
+                  "@key": [
+                    "RegisteredOfficeAddress",
+                    "UnitNo"
+                  ]
+                },
+                "illustration-gtl:RBuilding": {
+                  "@key": [
+                    "RegisteredOfficeAddress",
+                    "Building"
+                  ]
+                },
+                "illustration-gtl:RCity": {
+                  "@key": [
+                    "RegisteredOfficeAddress",
+                    "City"
+                  ]
+                },
+                "illustration-gtl:RCountry": {
+                  "@key": [
+                    "RegisteredOfficeAddress",
+                    "Country"
+                  ]
+                },
+                "illustration-gtl:RPostal": {
+                  "@key": [
+                    "RegisteredOfficeAddress",
+                    "Postal"
+                  ]
+                }
+              }
+            }
+          },
+          "illustration-gtl:AgentInformation": {
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "illustration-gtl:quoteInterestParties",
+            "illustration-gtl:AgentName": {},
+            "illustration-gtl:AgentTemp1": {},
+            "illustration-gtl:LocationCd": {},
+            "illustration-gtl:SubLocationCd": {},
+            "illustration-gtl:Contact": {},
+            "illustration-gtl:AgentTemp2": {},
+            "illustration-gtl:PhoneNumberOfAgent": {},
+            "illustration-gtl:EmailAddressOfAgent": {}
+          },
+          "illustration-gtl:ServicingStaff": {
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "illustration-gtl:quoteInterestParties",
+            "illustration-gtl:InsuranceCompany": {},
+            "illustration-gtl:ServicingStaffTemp1": {},
+            "illustration-gtl:importServicingStaff": {},
+            "illustration-gtl:ServicingStaffTemp2": {},
+            "illustration-gtl:ServicingStaffCd": {},
+            "illustration-gtl:PhoneNumberOfServicingStaff": {},
+            "illustration-gtl:importMarketingStaff": {},
+            "illustration-gtl:ServicingStaffTemp3": {},
+            "illustration-gtl:MarketingStaffCd": {},
+            "illustration-gtl:PhoneNumberOfMarketingStaff": {}
+          }
+        },
+        "illustration-gtl:quotePolicyInfo": {
+          "@key": [
+            ""
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart"
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "illustration-gtl:Quotation",
+          "illustration-gtl:policyDetails": {
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "illustration-gtl:quotePolicyInfo",
+            "illustration-gtl:quotationNo": {
+              "@key": [
+                "DocName"
+              ]
+            },
+            "illustration-gtl:policyOwnerName": {
+              "@key": [
+                "PolicyOwnerName"
+              ]
+            },
+            "illustration-gtl:quotationStartDate": {
+              "@key": [
+                "StartDate"
+              ]
+            },
+            "illustration-gtl:quotationEndDate": {
+              "@key": [
+                "EndDate"
+              ]
+            },
+            "illustration-gtl:insuredFromDate": {
+              "@key": [
+                "InsuredFromDate"
+              ]
+            },
+            "illustration-gtl:insuredToDate": {
+              "@key": [
+                "InsuredToDate"
+              ]
+            },
+            "illustration-gtl:policyCurrency": {
+              "@key": [
+                "BillingCurrency"
+              ]
+            },
+            "illustration-gtl:ageBasis": {
+              "@key": [
+                "AgeBasis"
+              ]
+            },
+            "illustration-gtl:memberIdentification": {
+              "@key": [
+                "MemberIdentification"
+              ]
+            },
+            "illustration-gtl:policyDetailAgentName": {
+              "@key": [
+                "AgentName"
+              ]
+            }
+          },
+          "illustration-gtl:billingDetails": {
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "illustration-gtl:quotePolicyInfo",
+            "illustration-gtl:billingCurrency": {
+              "@key": [
+                "BillingCurrency"
+              ]
+            },
+            "illustration-gtl:paymentMethod": {
+              "@key": [
+                "PaymentMethod"
+              ]
+            },
+            "illustration-gtl:billingFrequency": {
+              "@key": [
+                "BillingFrequency"
+              ]
+            },
+            "illustration-gtl:adjustmentFrequency": {
+              "@key": [
+                "AdjustmentFrequency"
+              ]
+            }
+          },
+          "illustration-gtl:otherPolicyDetails": {
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@section": "illustration-gtl:quotePolicyInfo",
+            "@cssClass": "v3-box-1",
+            "illustration-gtl:takeOver": {
+              "@key": [
+                "TakeOverillustration:Pooling"
+              ]
+            },
+            "illustration-gtl:pooling": {
+              "@key": [
+                "Pooling"
+              ]
+            },
+            "illustration-gtl:sourceOfBusiness": {
+              "@key": [
+                "SourceOfBusiness"
+              ]
+            },
+            "illustration-gtl:defaultDataTemplate": {
+              "@key": [
+                "DefaultDataTemplate"
+              ]
+            }
+          },
+          "illustration-gtl:organisationProfile": {
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "illustration-gtl:quotePolicyInfo",
+            "illustration-gtl:labelOrganisationInfo": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:natureOfGroup": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:medicalTestRequired": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:hazardEvent": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:labelEmployeeProfile": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:totalEmployee": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:activelyAtWork": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:noOfMaleEmployee": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:noOfFemaleEmployee": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:averageSalary": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:averageAge": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:labelEmployeeDistribution": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:additionalInfo": {
+              "@key": [
+                ""
+              ]
+            }
+          }
+        },
+        "illustration-gtl:productInfoList": {
+          "@key": [
+            "ProductInformationList"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart"
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "illustration-gtl:Quotation",
+          "illustration-gtl:addNewProduct": {
+            "@key": [
+              "AddNewProductInformationList"
+            ],
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "mainAction": "addIcon"
+            },
+            "@cssClass": "v3-box-2",
+            "@section": "illustration-gtl:productInfoList",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          },
+          "illustration-gtl:productInfo": {
+            "@key": [
+              "ProductInformation"
+            ],
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-4",
+            "@section": "illustration-gtl:productInfoList",
+            "@cardType": "template",
+            "illustration-gtl:productDetails": {
+              "@key": [
+                "ProductDetails"
+              ],
+              "@icon": {
+                "main": "fa fa-bar-chart"
+              },
+              "@cssClass": "v3-box-1",
+              "@section": "illustration-gtl:productInfo",
+              "illustration-gtl:product": {
+                "@key": [
+                  "ProductCd"
+                ]
+              },
+              "illustration-gtl:productType": {
+                "@key": [
+                  "ProductType"
+                ]
+              },
+              "illustration-gtl:freeCoverLimit": {
+                "@key": [
+                  "FreeCoverLimit"
+                ]
+              },
+              "illustration-gtl:istYearBasicCommissionRate": {
+                "@key": [
+                  "InitialCommRate"
+                ]
+              },
+              "illustration-gtl:renewalBasicCommissionRate": {
+                "@key": [
+                  "RenewalCommRate"
+                ]
+              },
+              "illustration-gtl:istYearOverRidingCommisstionRate": {
+                "@key": [
+                  "InitialOverRidingCommRate"
+                ]
+              },
+              "illustration-gtl:renewalYearOverRidingCommisstionRate": {
+                "@key": [
+                  "RenewalOverRidingCommRate"
+                ]
+              },
+              "illustration-gtl:discount": {
+                "@key": [
+                  "Discount"
+                ]
+              },
+              "illustration-gtl:gstType": {
+                "@key": [
+                  "GST"
+                ]
+              },
+              "illustration-gtl:experienceRefundFormula": {
+                "@key": [
+                  "ExperienceRefundFormula"
+                ]
+              }
+            },
+            "illustration-gtl:planInfoList": {
+              "@key": [
+                "PlanInformationList"
+              ],
+              "@icon": {
+                "main": "fa fa-bar-chart"
+              },
+              "@cssClass": "v3-box-4",
+              "@section": "illustration-gtl:productInfo",
+              "illustration-gtl:addNewPlan": {
+                "@key": [
+                  "AddNewPlan"
+                ],
+                "@icon": {
+                  "main": "fa fa-bar-chart",
+                  "mainAction": "addIcon"
+                },
+                "@cssClass": "v3-box-2",
+                "@section": "illustration-gtl:planInfoList",
+                "@cardType": "action",
+                "@onClick": "addCard(card)"
+              },
+              "illustration-gtl:planInfo": {
+                "@key": [
+                  "PlanInformation"
+                ],
+                "@cardType": "template",
+                "@icon": {
+                  "main": "fa fa-bar-chart"
+                },
+                "@cssClass": "v3-box-4",
+                "@section": "illustration-gtl:planInfoList",
+                "illustration-gtl:planDetails": {
+                  "@key":["PlanDetails"],
+                  "@icon": {
+                    "main": "fa fa-bar-chart"
+                  },
+                  "@cssClass": "v3-box-1",
+                  "@section": "illustration-gtl:planInfo",
+                  "illustration-gtl:plan_Product": {
+                    "@key": [
+                      ""
+                    ]
+                  },
+                  "illustration-gtl:planNumber": {
+                    "@key": [
+                      "PlanNumber"
+                    ]
+                  },
+                  "illustration-gtl:planDescription": {
+                    "@key": [
+                      "PlanDescription"
+                    ]
+                  },
+                  "illustration-gtl:premiumMethod": {
+                    "@key": [
+                      "PremiumMethod"
+                    ]
+                  },
+                  "illustration-gtl:classOfInsuredPeople": {
+                    "@key": [
+                      "ClassOfInsuredPeople"
+                    ]
+                  },
+                  "illustration-gtl:coverageBasis": {
+                    "@key": [
+                      "CoverageBasis"
+                    ]
+                  },
+                  "illustration-gtl:fixedSumInsured": {
+                    "@key": [
+                      "FixedSI"
+                    ]
+                  },
+                  "illustration-gtl:yearlySalaryMultiplier": {
+                    "@key": [
+                      "YearlySalaryMultiplier"
+                    ]
+                  },
+                  "illustration-gtl:monthlySalaryMultiplier": {
+                    "@key": [
+                      "MonthlySalaryMultiplier"
+                    ]
+                  }
+                },
+                "illustration-gtl:otherPlanDetails": {
+                  "@key": [
+                    "OtherPlanDetails"
+                  ],
+                  "@icon": {
+                    "main": "fa fa-bar-chart"
+                  },
+                  "@cssClass": "v3-box-1",
+                  "@section": "illustration-gtl:planInfo",
+                  "illustration-gtl:minSumInsured": {
+                    "@key": [
+                      "MinimumSI"
+                    ]
+                  },
+                  "illustration-gtl:maxSumInsured": {
+                    "@key": [
+                      "MaximumSI"
+                    ]
+                  },
+                  "illustration-gtl:headCount": {
+                    "@key": [
+                      "Headcount"
+                    ]
+                  },
+                  "illustration-gtl:salaryFrequency": {
+                    "@key": [
+                      "SalaryFrequency"
+                    ]
+                  },
+                  "illustration-gtl:minAge": {
+                    "@key": [
+                      "MinimumAge"
+                    ]
+                  },
+                  "illustration-gtl:maxAge": {
+                    "@key": [
+                      "MaximumAge"
+                    ]
+                  },
+                  "illustration-gtl:benefitTemplate": {
+                    "@key": [
+                      "BenefitTemplate"
+                    ]
+                  }
+                },
+                "illustration-gtl:benefitDetails": {
+                  "@key": [
+                    "BenefitDetails"
+                  ],
+                  "@icon": {
+                    "main": "fa fa-bar-chart"
+                  },
+                  "@cssClass": "v3-box-1",
+                  "@section": "illustration-gtl:planInfo"
+                }
+              }
+            }
+          }
+        },
+        "illustration-gtl:members": {
+          "@key": [
+            "Members"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart"
+          },
+          "@cssClass": "v3-box-2",
+          "@section": "illustration-gtl:Quotation",
+          "illustration-gtl:attachmentMember": {
+              "@key": [
+                ""
+              ]
+            }
+        },        
+        "illustration-gtl:pricing": {
+          "@key": [
+            "Pricing"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart"
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "illustration-gtl:Quotation",
+          "illustration-gtl:termLifePricing": {
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "illustration-gtl:pricing",
+            "illustration-gtl:labelTermlifePricing": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:productName": {
+              "@key": [
+                ""
+              ]
+            },
+            "illustration-gtl:premiumRateType": {
+              "@key": [
+                "PremiumRateType"
+              ]
+            },
+            "illustration-gtl:unitOfRating": {
+              "@key": [
+                "UnitOfRating"
+              ]
+            },
+            "illustration-gtl:ratingFactor": {
+              "@key": [
+                "RatingFactor"
+              ]
+            },
+            "illustration-gtl:policySpecificUnitRate": {
+              "@key": [
+                "PolicySpecificUnitRate"
+              ]
+            },
+            "illustration-gtl:expenseLoading": {
+              "@key": [
+                "ExpenseLoading"
+              ]
+            },
+            "illustration-gtl:commissionLoading": {
+              "@key": [
+                "CommissionLoading"
+              ]
+            },
+            "illustration-gtl:profitLoading": {
+              "@key": [
+                "ProfitLoading"
+              ]
+            },
+            "illustration-gtl:experienceRefund": {
+              "@key": [
+                "ExperienceRefund"
+              ]
+            },
+            "illustration-gtl:otherPricingFactor": {
+              "@key": [
+                ""
+              ]
+            }
+          },
+          "illustration-gtl:tpdPricing": {
+            "@icon": {
+              "main": "fa fa-bar-chart"
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "illustration-gtl:pricing"
+          }
+        }
+      }
+    }
+  }
+}

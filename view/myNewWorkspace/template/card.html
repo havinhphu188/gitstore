@@ -1,0 +1,129 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="{{v3LiveCard}}">
+    <div class="card-element box-item {{card.cssClass}} v3-live-card-item" name="{{card.name}}" ng-mouseenter="card.show = true" ng-mouseleave="card.show = false">
+        <!-- Card Status -->
+        <div class="row v3-margin-right-0" ng-if="card.isShowValidationIcon == true">
+            <div class="col-xs-1 col-xs-offset-11 v3-padding-0">
+                <span class="card-status" ng-switch on="card.validStatus">
+                 <i class="fa fa-check" ng-switch-when="VALID"></i>
+                 <i class="fa fa-exclamation" ng-switch-when="INVALID"></i>
+              </span>
+            </div>
+        </div>
+  
+        <!-- Old style of card icons-->
+        <span ng-if="card.view.icons.length === 0" >
+          <!-- Card icon -->
+          <div ng-if="card.icon.main != 'undefined'" class="v3-margin-right-0 v3-live-card-icon">
+              <span>
+                <i class="{{card.icon.main}}"></i>
+            </span>
+          </div>
+          <h3 ng-if="card.icon.main == 'undefined'" class="v3-card-image-name">
+                {{card.refDetail.UserName |  formatTitleImage}}
+          </h3>
+
+
+          <!-- Card icon remove -->
+          <span ng-if="card.icon.subAction" class="v3-card-icon-remove">
+            <i class="{{card.icon.subAction}}" ng-if="card.parent.refDetail['@counter'] > card.parent.refDetail['@minOccurs']" ng-click="removeCard(card, $index); $event.stopPropagation()"/></i>
+          </span>
+          <!-- Card icon plus -->
+          <span ng-if="card.icon.mainAction" class="v3-card-icon-plus">
+            <i class="{{card.icon.mainAction}}" ></i>
+          </span>
+          <!-- Card icon step -->
+          <span ng-if="card.icon.step" class="v3-card-icon-step">
+            {{card.icon.step}}
+          </span>
+        </span>
+
+        <!-- New style of card icons-->
+        <span ng-if="card.view.icons.length > 0" >
+          <span ng-repeat="icon in card.view.icons">
+            <span card-icon="icon" >
+            </span>
+          </span>
+        </span>
+
+        <!-- Card Short sumary -->
+        <div class="row v3-margin-right-0 v3-live-card-short-sumary">
+            <div class="container-fluid v3-padding-0">
+                <div class="row v3-margin-right-0 v3-live-card-details v3-live-card-details-short-sumary">
+                    <div ng-if="card.previewHtml == undefined" class="col-xs-12 v3-padding-0">
+                        <span title="{{card.preview[0].uiElement | cardSummary}}">
+                          {{card.preview[0].uiElement | cardSummary | trimtext:false:35:'..'}}
+                        </span>
+                    </div>
+                    <div ng-if="card.previewHtml != undefined" class="col-xs-11 v3-padding-0" ng-include="initContextPath+'/view/myNewWorkspace/template/'+card.previewHtml">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card full content -->
+        <div class="v3-live-card-info">
+            <div class="container-fluid v3-padding-0">
+                <div class="row col-xs-11 v3-margin-right-0 v3-auto-text-ellipsis-2 v3-live-card-details v3-live-card-details-title">
+                  <span class="card-detail" title="{{'v3.mynewworkspace.portlet.label.'+ card.name | translate}}">
+                    <b>{{'v3.mynewworkspace.portlet.label.'+ card.name | translate }}</b>
+                  </span>
+                </div>
+                <div ng-if="card.previewHtml == undefined" class="row v3-margin-right-0 v3-live-card-details" ng-repeat="fullsummary in card.preview">
+                    <div class="col-xs-12 v3-padding-0 v3-live-card-preview-label">
+                      <span title="label">
+                        {{fullsummary.label | translate | trimtext:false:35:'..'}}
+                      </span>
+                    </div>
+                    <div class="col-xs-12 v3-padding-0 v3-live-card-preview-content">
+                      <span title="{{fullsummary.uiElement | cardSummary}}">
+                        {{fullsummary.uiElement | cardSummary | trimtext:false:35:'..'}}
+                      </span>
+                    </div>
+                </div>
+                <div ng-if="card.previewHtml != undefined" class="row v3-margin-right-0 v3-live-card-details">
+                    <div class="col-xs-12 v3-padding-0" ng-include="initContextPath+'/view/myNewWorkspace/template/'+card.previewHtml">
+                    </div>
+                </div>
+<!--                 <div class="row v3-margin-right-0 v3-live-card-details" ng-if="card.isShowNoOfEmptyField == true"> -->
+<!--                   <span>No. of empty field: {{card.view.FieldsInformation.NumEmptyRequiredFields}}</span> -->
+<!--                 </div> -->
+                <h5 class="v3-live-card-details v3-live-card-details-footer" ng-if="card.cardType">                           
+                  <span class="side-icon-left">
+                      <i class="fa fa-clock-o fa-2x"></i>                    
+                  </span>
+                  <span class="side-icon-right" ng-hide="card.refDetail['@refDocType']!=null && card.refDetail['@refUid']=='' ">{{commonUIService.getTimeAgo(moduleService.findElementInDetail_V3(['UpdatedDate']),'YYYY-MM-DD hh-mm-ss')}}</span>
+                  <span class="side-icon-right" ng-if="card.view.icons.length > 0" >
+			              <span ng-repeat="icon in card.view.icons">
+			                <span card-icon="icon" class="v3-card-icon-remove-hover" ng-if="icon.cssClass == 'v3-card-icon-remove'">
+			                </span>
+			              </span>
+			            </span>
+                </h5>
+            </div>
+        </div>
+        <!-- Card Title -->
+        <h5 class="v3-card-title v3-auto-text-ellipsis-2">  
+          <span class="card-detail" title="{{'v3.mynewworkspace.portlet.label.'+ card.name| translate}}">
+                {{'v3.mynewworkspace.portlet.label.'+ card.name | translate}}
+          </span>
+        </h5>
+    </div>
+</div>

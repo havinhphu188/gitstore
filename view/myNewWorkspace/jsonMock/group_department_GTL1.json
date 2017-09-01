@@ -1,0 +1,28 @@
+{
+  "IposDocument": {
+    "Data": {
+      "groupdepartment:GroupDepartment": {
+        "key": [
+          ""
+        ],
+        "section": "groupdepartment:GroupDepartment",
+        "groupdepartment:Findings": {
+          "@key": [
+            ""
+          ]
+        },
+        "groupdepartment:Comments": {
+          "@key": [
+            "GroupDepartment",
+            "Comment"
+          ]
+        },
+        "groupdepartment:ReviewDecision": {
+          "@key": [
+            "IsStandard"
+          ]
+        }
+      }
+    }
+  }
+}

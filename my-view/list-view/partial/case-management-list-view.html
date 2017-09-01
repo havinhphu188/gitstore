@@ -1,0 +1,121 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="row v3-margin-auto" ng-if="!isListView">
+	<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 pointer v3-padding-0" ng-cloak 
+		dir-paginate="item in datalist | orderBy:'-UpdatedDate' | filter:searchText | itemsPerPage: pageSize.size" current-page="currentPage" pagination-id="title" ng-click="goToDocumentDetails(item)">
+		<div class="ipos-card-mobile ipos-box-case-management-boder">
+            <div class="row v3-margin-auto center-align font-bold margin-bottom-10">
+                <span>{{item.DocName}}</span>
+            </div>
+            <div class="row v3-margin-auto v3-auto-text-ellipsis">
+                <span>{{'v3.mynewworkspace.portlet.label.ipos-product:' + item.Product | translate}}</span>
+            </div>
+            <div class="row v3-margin-auto">
+                <span>{{item.CaseName}}</span>
+            </div>
+            <div class="row v3-margin-auto">
+                <span>{{'v3.dashboardportlet.my_pending_business_transaction.BusinessStatus.' + item.BusinessStatus | translate}}</span>
+            </div>
+            <div class="row v3-margin-auto">
+                <span>{{item.POName}}</span>
+            </div>
+            <div class="row v3-margin-auto">
+                <span>{{item.LIName}}</span>
+            </div>
+            <div class="row v3-margin-auto">
+                <span>{{item.UpdatedDate | datetimeFilter:'DD/MM/YYYY'}}</span>
+            </div>
+            <div class="row v3-margin-auto v3-auto-text-ellipsis ipos-card-mobile-footer">
+	              <span><i class="fa fa-clock-o fa-lg"></i> {{item.CreatedDate}}</span>
+            </div>            
+		</div>
+	</div>
+</div>
+<div class="row v3-margin-auto" ng-if="isListView">		
+	<div class="col-xs-12 ipos_medium_mobile_table" hide-xs hide-sm>
+		<div class="ipos_mobile_table_table_header ipos-box-case-management-background md-whiteframe-z1 row v3-margin-auto" ng-if="datalist != undefined && datalist.length > 0">													
+			<div class="star-icon v3-auto-text-ellipsis col-icon-star"></div>
+            <div class="v3-auto-text-ellipsis">{{'v3.mynewworkspace.portlet.label.case-management:CaseManagement' | translate}}</div>
+            <div class="v3-auto-text-ellipsis">{{'v3.mynewworkspace.portlet.label.application-motor:ProductName' | translate}}</div>
+            <div class="v3-auto-text-ellipsis">{{'v3.mynewworkspace.fire.illustration.label.Type' | translate}}</div>
+            <div class="v3-auto-text-ellipsis">{{'v3.mynewworkspace.income-protection.illustration.label.Status' | translate}}</div>
+            <div class="v3-auto-text-ellipsis">{{'new.v3.mynewworkspace.rul.ProposerName' | translate}}</div>
+            <div class="v3-auto-text-ellipsis">{{'new.v3.mynewworkspace.rul.InsuredName' | translate}}</div>
+            <div class="v3-auto-text-ellipsis">{{'new.v3.mynewworkspace.rul.casemanagement.label.UpdatedDate' | translate}}</div>
+			<div class="v3-auto-text-ellipsis">{{'new.v3.mynewworkspace.rul.casemanagement.label.CreatedDate' | translate}}</div>
+		</div>							
+		<div class="ipos_medium_mobile_table_table_listRow row v3-margin-auto" ng-cloak 
+			 dir-paginate="item in datalist | orderBy:'-UpdatedDate' | filter:searchText | itemsPerPage: pageSize.size" current-page="currentPage" pagination-id="title"
+			 ng-class-even="'ipos-box-case-management-opacity-3'" ng-class-odd="'ipos_even_row'" ng-click="goToDocumentDetails(item)">
+            <div  class="v3-auto-text-ellipsis col-icon-star">
+            	<i class="fa fa-lg pointer" ng-class="item.Star==''?'fa-star-o star-icon':'fa-star star-icon'"></i>
+            </div>
+            <div  class="v3-auto-text-ellipsis">{{item.DocName}}</div>
+            <div  class="v3-auto-text-ellipsis">{{'v3.mynewworkspace.portlet.label.ipos-product:' + item.Product | translate}}</div>
+            <div  class="v3-auto-text-ellipsis">{{item.CaseName}}</div>
+            <div  class="v3-auto-text-ellipsis">{{'v3.dashboardportlet.my_pending_business_transaction.BusinessStatus.' + item.BusinessStatus | translate}}</div>
+            <div  class="v3-auto-text-ellipsis">{{item.POName}}</div>
+            <div  class="v3-auto-text-ellipsis">{{item.LIName}}</div>            
+            <div  class="v3-auto-text-ellipsis">{{item.UpdatedDate | datetimeFilter:'DD/MM/YYYY'}}</div>
+            <div  class="v3-auto-text-ellipsis">{{item.CreatedDate}}</div>
+		</div>
+	</div>
+				
+	
+	<div class="col-xs-12 ipos_small_mobile_table" hide-lg hide-gt-lg hide-md>
+		<div class="row v3-margin-auto" ng-cloak 
+			 dir-paginate="item in datalist | orderBy:'-UpdatedDate' | filter:searchText | itemsPerPage: pageSize.size" current-page="currentPage" pagination-id="title"
+			 ng-class-even="'ipos_even_row'" ng-class-odd="'ipos-box-case-management-opacity-3'" ng-click="goToDocumentDetails(item)">
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'v3.mynewworkspace.portlet.label.case-management:CaseManagement' | translate}}</b></div> 
+				<div>{{item.DocName}}</div>
+			</div>
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'v3.mynewworkspace.portlet.label.application-motor:ProductName' | translate}}</b></div> 
+				<div>{{'v3.mynewworkspace.portlet.label.ipos-product:' + item.Product | translate}}</div>
+			</div>
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'v3.mynewworkspace.fire.illustration.label.Type' | translate}}</b></div> 
+				<div>{{item.CaseName}}</div>
+			</div>
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'v3.mynewworkspace.income-protection.illustration.label.Status' | translate}}</b></div> 
+				<div>{{'v3.dashboardportlet.my_pending_business_transaction.BusinessStatus.' + item.BusinessStatus | translate}}</div>
+			</div>
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'new.v3.mynewworkspace.rul.ProposerName' | translate}}</b></div> 
+				<div>{{item.POName}}</div>
+			</div>
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'new.v3.mynewworkspace.rul.InsuredName' | translate}}</b></div> 
+				<div>{{item.LIName}}</div>
+			</div>
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'new.v3.mynewworkspace.GCS.casemanagement.label.UpdatedDate' | translate}}</b></div> 
+				<div>{{item.UpdatedDate | datetimeFilter:'DD/MM/YYYY'}}</div>
+			</div>
+			<div class="ipos_medium_mobile_table_table_listRow">
+				<div><b>{{'new.v3.mynewworkspace.rul.casemanagement.label.CreatedDate' | translate}}</b></div> 
+				<div>{{item.CreatedDate}}</div>
+			</div>
+		</div>
+	</div>
+</div>				
+	

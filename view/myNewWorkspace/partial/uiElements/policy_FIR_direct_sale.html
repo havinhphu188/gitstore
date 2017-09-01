@@ -1,0 +1,330 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Basic Information-->
+<div fieldId="endorsement-FIR:PolicyBasicInformation" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 summary">
+    <div class="col-xs-12">
+        <div class="form-group form-group-lg has-success">
+            <label class=""><b>{{"v3.mynewworkspace.portlet.label.endorsement-FIR:PolicyBasicInformation"|translate}}</b></label>
+        </div> 
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1ProductName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:ProductName'
+            | translate}}:</span> 
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.productName.' + moduleService.findElementInDetail_V3(['Product']) |     translate}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1PolicyNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:PolicyNo'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['PolicyNo']).$}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1PolicyOwner" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:PolicyOwner'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['PolicyOwner', 'FullName']).$}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1ClientID" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:ClientID'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['ClientId']).$}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1InceptionDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:InceptionDate'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['InceptionDate']).$}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1ExpiryDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:ExpireDate'
+			| translate}}:</span> <span class="col-md-6">{{moduleService.findElementInDetail_V3(['ExpiryDate']).$}}</span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1EffectiveDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6  summary v3-column-content">
+    <div class="col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{"v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:EffectiveDate"|translate}}*</label>
+            <div class="ms-calendar-wrapper">
+                <input maxDate='{{effectiveMaxDate}}' minDate='{{effectiveMinDate}}' 
+                    ms-datepicker ng-disabled= "salecaseService.findElementInDetail_V3(['BusinessStatus']) != 'DRAFT'"
+            ng-model="moduleService.findElementInDetail_V3(['EffectiveDate']).$" class="ms-calendar"/></div> 
+            <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['EffectiveDate']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+
+<div fieldId="endorsement-FIR:field1" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary v3-column-content">
+    <div class="col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+           
+        </div>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1TypeofReasonEndorse" class="col-xs-12 col-sm-6 col-md-12 col-lg-12 summary">
+    <div class="form-group form-group-lg has-success col-xs-12 v3-column-content">
+        <span class="col-md-6">{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:TypeofReasonEndorse'
+			| translate}}<span ng-show="moduleService.findElementInDetail_V3(['EndorsementReasonNote'])['@mandatory'] == '1'">*</span>:</span>
+        <textarea class="form-control" ng-disabled="false" type="text" ng-model="moduleService.findElementInDetail_V3(['EndorsementReasonNote']).$"></textarea>
+    </div>
+</div>
+
+
+<!--Update Interest Parties-->
+<div fieldId="endorsement-FIR:Step1Selectclient" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Step1Selectclient' | translate}}
+                <span ng-show="moduleService.findElementInDetail_V3(['InceptionDate'])['@mandatory'] == '1'">*</span>
+            </label>
+            <ng-newDropDown disable="false" model="selectedClient.Value" list='prospectList' type="regular" key="FullName"> </ng-newDropDown>
+            <i class="fa fa-arrow-circle-down fa-3x button-import" ng-click="importClientInfor(selectedClient.Value, card)"></i> <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Title']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1Field1" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            
+        </div>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1ClientName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:ClientName' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail,['FullName'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" ng-disabled="moduleService.findElementInElement_V3(card.refDetail,['FullName'])['@editable']=='0'" type="text" 
+            ng-model="moduleService.findElementInElement_V3(card.refDetail,['FullName']).$" />
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail,['FullName']).errorMessage | translate"></span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1ClientIDIP" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:ClientID' | translate}}<span 
+            ng-show="moduleService.findElementInElement_V3(card.refDetail,['ClientNumber'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" ng-disabled="moduleService.findElementInElement_V3(card.refDetail,['ClientNumber'])['@editable']=='0'" 
+            type="text" ng-model="moduleService.findElementInElement_V3(card.refDetail,['ClientNumber']).$" />
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail,['ClientNumber']).errorMessage | translate"></span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1Relationship" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+          <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Relationship' | translate}}
+                <span ng-show="moduleService.findElementInElement_V3(card.refDetail,['Relationship'])['@mandatory'] == '1'">*</span>
+            </label>
+            <ng-newDropDown disable="false"   
+            model="moduleService.findElementInElement_V3(card.refDetail,['Relationship'])" 
+             list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Relationship','Option'])" 
+              type="nonFlag" prefix="v3.application.motor.relationship"> </ng-newDropDown>
+             <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail,['Relationship']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+
+
+<!--Update Perils/FEA/Other-->  
+<div fieldId="endorsement-FIR:Step1Indicator" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+   <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Step1Indicator' | translate}}
+                <span ng-show="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherIndicator'])['@mandatory'] == '1'">*</span>
+            </label>
+            <ng-newDropDown model="moduleService.findElementInElement_V3(card.refDetail, ['PerilFEAOtherIndicator'])"
+                disable="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherIndicator'])['@editable']=='0'"   
+                list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName], ['PerilFEAOtherIndicator']).Option" 
+                type="nonFlag" prefix="v3.illustration.fire.perilFEAOtherIndicator" more-action="computeTag([['DocumentRelation'], ['PerilFEAOthers']])"></ng-newDropDown>    
+            <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['PerilFEAOtherIndicator']).errorMessage | translate"></span>        
+        </div>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1Type" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 ">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Step1Type' | translate}}
+                <span ng-show="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherDescription'])['@mandatory'] == '1'">*</span>
+            </label>
+            <ng-newDropDown disable="moduleService.findElementInDetail_V3(['PerilFEAOtherDescription'])['@editable']=='0'" 
+            model="moduleService.findElementInElement_V3(card.refDetail, ['PerilFEAOtherType'])" 
+            list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['PerilFEAOtherDescription']).Option" 
+            type="nonFlag" prefix="v3.illustration.fire.perilFEAOtherDescription" more-action="computeTag([['DocumentRelation'], ['PerilFEAOthers']])"></ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['PerilFEAOtherType']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1Rate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Step1Rate' | translate}}
+            <span ng-show="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherRate'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" ng-disabled="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherRate'])['@editable']=='0'"
+             type="text" ng-model="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherRate']).$" />
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherRate']).errorMessage | translate"></span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1Amount" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Step1Amount' | translate}}
+            <span ng-show="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherAmount'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" ng-disabled="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherAmount'])['@editable']=='0'"
+             type="text" ng-model="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherAmount']).$" />
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherAmount']).errorMessage | translate"></span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1PremiumClassIP" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Step1PremiumClass' | translate}}
+                <span ng-show="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherPremiumClass'])['@mandatory'] == '1'">*</span>
+            </label>
+            <ng-newDropDown disable="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherPremiumClass'])['@editable']=='0'" 
+            model="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherPremiumClass'])" 
+            list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['PerilFEAOtherPremiumClass','Option'])" 
+            type="nonFlag" prefix="v3.illustration.fire.PerilFEAOtherPremiumClass"></ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail,['PerilFEAOtherPremiumClass']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+
+
+<!--Update Insured Interests-->
+<div fieldId="endorsement-FIR:Step1Interest" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Step1Interest' | translate}}
+                <span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['InterestCode'])['@mandatory'] == '1'">*</span>
+            </label>
+            <ng-newDropDown disable="moduleService.findElementInElement_V3(card.refDetail, ['InterestCode'])['@editable']=='0'" 
+            model="moduleService.findElementInElement_V3(card.refDetail, ['InterestCode'])" 
+            list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['InterestCode','Option'])" 
+            type="nonFlag" prefix="v3.illustration.fire.interestCode"></ng-newDropDown>
+            <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['InterestCode']).errorMessage | translate"></span>
+        </div>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1FOC" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<md-checkbox class="pdpa-checkbox" ng-disabled="moduleService.findElementInElement_V3(card.refDetail,['FOC'])['@editable']=='0'"
+					ng-model="moduleService.findElementInElement_V3(card.refDetail,['FOC']).Value"
+					ng-true-value="'Y'" ng-false-value="'N'">
+					{{"v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:FOC" | translate}}
+				</md-checkbox>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<md-checkbox class="pdpa-checkbox" ng-disabled="moduleService.findElementInElement_V3(card.refDetail,['Floater'])['@editable']=='0'"
+					ng-model="moduleService.findElementInElement_V3(card.refDetail,['Floater']).Value"
+					ng-true-value="'Y'" ng-false-value="'N'">
+					{{"v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Floater" | translate}}
+				</md-checkbox>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<md-checkbox class="pdpa-checkbox" ng-disabled="moduleService.findElementInElement_V3(card.refDetail,['Index'])['@editable']=='0'"
+					ng-model="moduleService.findElementInElement_V3(card.refDetail,['Index']).Value"
+					ng-true-value="'Y'" ng-false-value="'N'">
+					{{"v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Index" | translate}}
+				</md-checkbox>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<md-checkbox class="pdpa-checkbox" ng-disabled="moduleService.findElementInElement_V3(card.refDetail,['NoAccum'])['@editable']=='0'"
+					ng-model="moduleService.findElementInElement_V3(card.refDetail,['NoAccum']).Value"
+					ng-true-value="'Y'" ng-false-value="'N'">
+					{{"v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Accumulation" | translate}}
+				</md-checkbox>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div fieldId="endorsement-FIR:Step1SumInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Step1SumInsured' | translate}}
+            <span ng-show="moduleService.findElementInElement_V3(card.refDetail,['SumInsured'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" ng-disabled="moduleService.findElementInElement_V3(card.refDetail, ['SumInsured'])['@editable']=='0'"
+             type="text" ng-model="moduleService.findElementInElement_V3(card.refDetail, ['SumInsured']).$" pos-autonumeric decimal="0"/>
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['SumInsured']).errorMessage | translate"></span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1PremiumClassN" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Step1PremiumClass' | translate}}
+            <span ng-show="moduleService.findElementInElement_V3(card.refDetail,['PremiumClass'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" ng-disabled="true"
+             type="text" ng-bind="{{'v3.illustration.fire.class.' + moduleService.findElementInElement_V3(card.refDetail,['PremiumClass']).Value | translate}}" value="{{'v3.illustration.fire.class.' + moduleService.findElementInElement_V3(card.refDetail,['PremiumClass']).Value | translate}}"/>
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['PremiumClass']).errorMessage | translate"></span>
+    </div>
+</div> 
+<div fieldId="endorsement-FIR:Step1Loading" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Step1Loading' | translate}}
+            <span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['Loading'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" ng-disabled="moduleService.findElementInElement_V3(card.refDetail,['Loading'])['@editable']=='0'" 
+            type="text" ng-model="moduleService.findElementInElement_V3(card.refDetail, ['Loading']).$" />
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Loading']).errorMessage | translate"></span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1Multiplier" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Step1Multiplier' | translate}}
+            <span ng-show="moduleService.findElementInElement_V3(card.refDetail,['Multiply'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" ng-disabled="moduleService.findElementInElement_V3(card.refDetail,['Multiply'])['@editable']=='0'" 
+            type="text" ng-model="moduleService.findElementInElement_V3(card.refDetail, ['Multiply']).$" />
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Multiply']).errorMessage | translate"></span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1Rate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Step1Rate' | translate}}
+            <span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['PremiumRate'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" ng-disabled="moduleService.findElementInElement_V3(card.refDetail,['PremiumRate'])['@editable']=='0'" 
+            type="text" ng-model="moduleService.findElementInElement_V3(card.refDetail,['PremiumRate']).$" />
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['PremiumRate']).errorMessage | translate"></span>
+    </div>
+</div>
+<div fieldId="endorsement-FIR:Step1Premium" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+        <div class="form-group form-group-lg has-success">
+            <label>{{'v3.mynewworkspace.portlet.label.case-managerment-FIR-Endorsement:Step1Premium' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Premium'])['@mandatory'] == '1'">*</span></label>
+            <input class="form-control" ng-disabled="moduleService.findElementInDetail_V3(['Premium'])['@editable']=='0'" type="text" ng-model="moduleService.findElementInDetail_V3(['Premium']).$" />
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Premium']).errorMessage | translate"></span>
+    </div>
+</div>

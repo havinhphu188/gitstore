@@ -1,0 +1,160 @@
+<div layout="column" class="height-inherit">
+    <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div refresh-on="vars.bIsContentChanged" use-boolean style="overflow: scroll;" class="backgroundColor touch">
+        <div class="white-card">
+            <div layout="row" layout-margin>
+                <div flex>
+                    <h3>
+                CSC integral Insurance Singapore Private Policy
+                <br><br>
+                In accordiance with the Personal Data Protection Act 2012:
+                <br><br>
+                CSC Integral Insurance Singapore shall not disclose your personal information to any third party without the prior consent of yours. CSC Integral Insurance Singapore shall take responsible steps to protect your personal information from any unauthorized access or misuse and in ensureing accuracy of your personal information at all times and shall not keep it longer than necessary for its specified purpose.
+                <br><br>
+                I consent to receiving information on offers & campaigns, promotions, product information, new launches and other related information on products and services from CSC Insurance Singapore, on its products and services.
+                </h3>
+                </div>
+            </div>
+            <div layout="row" layout-margin>
+                <div flex="20">
+                    <v3-label label-prop="variables.Consent" label-value="Consent" />
+                </div>
+                 <div flex="5">
+                    <div ng-click="toggleErrorMsg('Consent')" ng-if="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-pdpa:Pdpa.ipos-pdpa:Consent')">
+                        <i style="color:red;" class="fa fa-exclamation-circle">
+                        </i>
+                        <div id="Consent" style="display:none;" class="triangle-isosceles">
+                            <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-pdpa:Pdpa.ipos-pdpa:Consent')"></span>
+                        </div>
+                    </div>
+                </div>
+                <div flex="55">
+                </div>
+                <div flex="10">
+                    <v3-switch-new alway-watch="false" style="float:right;" switch-name="consent" switch-disabled="::!moduleService.isEditMode" switch-model="moduleService.findElementInDetail_V3(['ipos-pdpa:Pdpa', 'ipos-pdpa:Consent']).Value" switch-options="::prospectUIService.listVip">
+                        </v3-switch-new>
+                </div>
+            </div>
+        </div>
+
+         <div class="white-card slide-down" ng-if="moduleService.findElementInDetail_V3(['ipos-pdpa:Pdpa', 'ipos-pdpa:Consent']).Value=='Y'">
+                <div layout="row" layout-margin>
+                    <div flex>
+                        <h3>
+                        1/ We wish to receive information, including marketing materials from CSC integral Insurance Singapore from the following communication channels:
+                    </h3>
+                    </div>
+                </div>
+                <div layout="row" layout-margin>
+                    <div flex="12" ng-repeat="item in moduleService.listComChannel track by $index">
+                        <md-checkbox ng-disabled="::!moduleService.isEditMode" style="margin-top:-10px !important;" ng-model="moduleService.findElementInElement_V3(item, ['ipos-pdpa:CommunicationChannelValue']).Value" ng-true-value="'Y'" ng-false-value="'N'" ng-change="updateCommunicationChannelCheckboxs($index)" md-no-ink>
+            
+                        {{moduleService.findElementInElement_V3(item, ['ipos-pdpa:CommunicationChannelValue'])['@channelType']}}
+           
+                        </md-checkbox>
+                    </div>
+                </div>
+                <div layout="row" layout-margin>
+                    <div flex>
+                        <h3>
+                        * "SMS/MMS" means any message, weather is sound, text, visual or other from Witness's name
+                    </h3>
+                    </div>
+                </div>
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.WitnessName" label-value="v3.myworkspace.label.PDPA.WitnessName" />
+                    </div>
+                    <div flex="70">
+                        <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-pdpa:Pdpa', 'ipos-pdpa:WitnessName']).$" value="">
+                    </div>
+                </div>
+                <div layout="row" class="row" layout-margin>
+                    <div flex="20">
+                        <v3-label label-prop="variables.WitnessIdNumber" label-value="v3.myworkspace.label.PDPA.WitnessID" />
+                    </div>
+                    <div flex="70">
+                        <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-pdpa:Pdpa', 'ipos-pdpa:WitnessIdNumber']).$" value="">
+                    </div>
+                </div>
+            </div>
+      
+        <div class="white-card slide-down" ng-if="moduleService.findElementInDetail_V3(['ipos-pdpa:Pdpa', 'ipos-pdpa:Consent']).Value=='Y'">
+            <div layout="row" class="row breakLine" layout-margin>
+                <div flex="20">
+                    <v3-label label-prop="" label-value="v3.myworkspace.label.PDPA.Prospect" />
+                </div>
+                <div flex="70">
+                    <v3-Select class="input-select" more-action="getDetail(value1, $index)" src-data="listProspect" displayText="FullName" displayValue="DocId" dialogTitle="Prospect List" select-disabled="::!moduleService.isEditMode" model="moduleService.findElementInDetail_V3(['ipos-pdpa:Pdpa', 'ipos-pdpa:Prospect'])['@coupleUid']"></v3-Select>
+                </div>
+            </div>
+            <div layout="row" class="row breakLine" layout-margin>
+                <div flex="20">
+                    <v3-label label-prop="variables.FullName" label-value="v3.myworkspace.label.PDPA.FullName" />
+                </div>
+                <div flex="70">
+                    <input class="input" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['ipos-pdpa:Pdpa', 'ipos-pdpa:FullName']).$">
+                </div>
+            </div>
+
+
+            <div layout="row" class="row breakLine" layout-margin>
+                <div flex="20">
+                    <v3-label label-prop="variables.BirthDate" label-value="v3.myworkspace.label.prospect.DateofBirth">
+                </div>
+                <div flex="70">
+                    <input class="input" ng-disabled="true" ng-model="moduleService.findElementInDetail_V3(['ipos-pdpa:Pdpa', 'ipos-pdpa:BirthDate']).$">
+                </div>
+            </div>
+            <div layout="row" class="row breakLine" layout-margin>
+                <div flex="20">
+                    <v3-label label-prop="variables.Gender" label-value="v3.myworkspace.label.prospect.Gender">
+                </div>
+                <div flex="70">
+                    <!-- <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-pdpa:Pdpa', 'ipos-pdpa:Gender']).Value"> -->
+                    <v3-switch-new alway-watch="false" style="float:right;" switch-name="gender" switch-disabled="true" switch-model="moduleService.findElementInDetail_V3(['ipos-pdpa:Pdpa', 'ipos-pdpa:Gender']).Value" switch-options="::prospectUIService.listGenders">
+                    </v3-switch-new>
+                </div>
+            </div>
+            <div layout="row" class="row" layout-margin>
+                <div flex="20">
+                    <v3-label label-prop="variables.SmokerStat" label-value="v3.myworkspace.label.prospect.SmokerStatus" />
+                </div>
+                <div flex="70">
+                    <!-- <input class="input" ng-disabled="::!moduleService.isEditMode" ng-model="moduleService.findElementInDetail_V3(['ipos-pdpa:Pdpa', 'ipos-pdpa:SmokerStat']).Value"> -->
+                    <v3-switch-new alway-watch="false" style="float:right;" switch-name="SmokerStat" switch-disabled="true" switch-model="moduleService.findElementInDetail_V3(['ipos-pdpa:Pdpa', 'ipos-pdpa:SmokerStat']).Value" switch-options="::prospectUIService.listSmokeStat">
+                    </v3-switch-new>
+                </div>
+            </div>
+        </div>
+         <div layout="row" class="header-repeat-bar">
+                <div flex layout-margin>
+                    <h class="repeat-toobar-text"><span t-lazy v3-translate="v3.companion.label.Attachment-C" prefix=""></span></h>
+                </div>
+            </div>
+            <div class="white-card">
+                <div ng-if="moduleService.findElementInDetail_V3(['Attachments'])['@counter'] > 0">
+                    <div layout="row" class="row breakLine" layout-margin ng-repeat="attachment in moduleService.attachments track by $index" class="tag-card">
+                        <div flex="5">
+                            <i align="left" class="fa fa-paperclip fa-lg"></i>
+                        </div>
+                        <div ng-click="moduleService.attachmentPreview(attachment['@refResourceUid'])" flex="60" style="text-align:left; color:gray;">
+                            {{attachment.FileName.$}}
+                        </div>
+                        <div flex>
+                            <div layout="row" ng-if="moduleService.isEditMode">
+                                <div flex="40" style="text-align: right">
+                                    <i class="fa fa-edit fa-lg fa-style" ng-click="_showImgPickerEdit(attachment['@refResourceUid'])"></i>
+                                </div>
+                                <div flex="40" style="text-align: right">
+                                    <i class="fa fa-trash fa-lg fa-style" ng-click="_markRemoveFile(attachment['@refResourceUid'])"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

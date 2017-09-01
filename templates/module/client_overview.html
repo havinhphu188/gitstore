@@ -1,0 +1,101 @@
+
+<ion-view>
+  <ion-content class="has-header">
+        <md-progress-circular ng-hide="moduleService.progressBarOverview" style="margin-top:43%;margin-left:50%;" md-mode="indeterminate"></md-progress-circular>
+        <input type="file" id="fileinput" />
+        <div ng-if="!moduleService.showOverview" ng-hide="!moduleService.progressBarOverview" style="margin-left: 10%; margin-right: 10%;">
+            <div ng-click="goToProspectDetail(); toggleView();" class="row">
+                <div flex="50">
+                    <div class="md-tile-content ">
+                        <div class="row">
+                            <div flex="85">
+                                <h1 class="clientHeader" ng-bind="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:FirstName').$"></h1>
+                            </div>
+                            <div flex="15">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div flex="10">
+                            </div>
+                            <div flex="50">
+                                <h3>Gender:</h3>
+                                <h3>DoB:</h3>
+                            </div>
+                            <div class="clientHeaderDetail" flex="50">
+                                <h3 ng-bind="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:Gender').Value"></h3>
+                                <h3 ng-bind="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:BirthDate').$"></h3>
+                            </div>
+                            <div flex="40">
+                                <h3>Age:</h3>
+                            </div>
+                            <div class="clientHeaderDetail" flex="50">
+                                <h3 ng-bind="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Person.ipos-prospect:Age').$"></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <md-divider> </md-divider>
+            <div class="row" ng-click="goToState('home.edit.client', { tabId: 1});">
+                <div flex="50">
+                    <div class="md-tile-content ">
+                        <h1 class="clientHeader">Address</h1>
+                        <div class="row">
+                            <div flex="10">
+                            </div>
+                            <div flex="50">
+                                <h3>Blk:</h3>
+                                <h3>Country:</h3>
+                            </div>
+                            <div class="clientHeaderDetail" flex="50">
+                                <h3 ng-bind="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Address.ipos-prospect:BlkHouseNo').$">HCM</h3>
+                                <h3 ng-bind="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Address.ipos-prospect:Country').$">Vietnam</h3>
+                            </div>
+                            <div flex="40">
+                                <h3>Postal Code:</h3>
+                            </div>
+                            <div class="clientHeaderDetail" flex="50">
+                                <h3 ng-bind="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Address.ipos-prospect:Postal').$">8000002221</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <md-divider> </md-divider>
+            <div class="row" ng-click="goToState('home.edit.client', { tabId: 2});">
+                <div flex="50">
+                    <div class="md-tile-content ">
+                        <h1 class="clientHeader">Contact</h1>
+                        <div class="row">
+                            <div flex="10">
+                            </div>
+                            <div flex="50">
+                                <h3>Mobile:</h3>
+                                <h3>Home:</h3>
+                            </div>
+                            <div class="clientHeaderDetail" flex="50">
+                                <h3 ng-bind="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Phone.ipos-prospect:PhoneNumber').$">0121555555</h3>
+                                <h3 ng-bind="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Phone.ipos-prospect:Age').$">8000002221</h3>
+                            </div>
+                            <div flex="40">
+                                <h3>Office:</h3>
+                            </div>
+                            <div class="clientHeaderDetail" flex="50">
+                                <h3 ng-bind="moduleService.findElementInDetailByJsonPath('$..ipos-prospect:Phone.ipos-prospect:Age').$">8000002221</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </ion-content>
+    <ion-footer-bar>
+        <!-- <div  ng-if="!showOverview"  ng-controller="BottomSheetExample" style="width: 100%">
+            <div class="bottom-sheet-demo inset" layout="column" layout-sm="row" layout-align="center">
+                <md-button class="md-primary" ng-click="showGridBottomSheet($event)">
+                    Attachments
+                </md-button>
+            </div>
+        </div> -->
+    </ion-footer-bar>
+</ion-view>

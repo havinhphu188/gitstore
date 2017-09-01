@@ -1,0 +1,113 @@
+<div layout="column" class="height-inherit">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>
+                <span ng-if="!vars.showSearchbar" class="header-text">Application List</span>
+                <input ng-if="vars.showSearchbar" class="searchText" ng-model="vars.strSearch" ng-change="$parent.searchDoc()" aria-label="Seach input">
+            </h2>
+            <span flex></span>
+            <div class="md-icon-button toolBar-button" ng-click="toggleSearch()" aria-label="Show search">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-content class="height-inherit none-horizontal-scroll">
+        <div ng-show="vars.bLoadingLeftView" class="mask">
+            <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <p ng-if="vars.errorSearch" align="center" style="color: grey; margin:0 auto; width:90%;">{{vars.errorSearch}}</p>
+        <div refresh-on="vars.bIsListChanged" use-boolean class="height-101">
+            <div ng-repeat="card in vars.lsDocDisp track by $index">
+                <div class="breakLine list-content-100" id="{{::$index}}" ng-click="getDetail(card.DocId, $index, card.ProductName)">
+                    <div layout="row">
+                        <div flex="20" layout-margin>
+                            <img src="img/avatar_generic.png" class="avatar">
+                        </div>
+                        <div flex="70">
+                            <p>
+                                
+                                <span class="main-info">Policy Owner: {{::card.POFullName}}</span>
+                                <br>
+                                <span class="sub-info">Product: {{::card.DocName}}</span>
+                                <br>
+                                <span class="sub-info">Status: {{::card.CreatedDate}}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <!--   <div align="right">
+                        <a ng-repeat="tag in ::card.Tags track by $index">{{::tag}}</a> &nbsp
+                        <span class="list-footer"> {{::card.CreatedDate}} </span>
+                    </div> -->
+                </div>
+                <div id="sub{{::$index}}" ng-if="$index==selectedIndex">
+                    <div layout="row" id="{{::$index}}-0" ng-click="openSubMenu(0, $index)" class="list-item-actions breakLine">
+                        <div flex="10">
+                        </div>
+                        <div flex="10">
+                            <i class="fa fa-info"></i>
+                        </div>
+                        <div flex="80">
+                            Product Detail
+                        </div>
+                    </div>
+                    <div layout="row" id="{{::$index}}-1" ng-click="openSubMenu(1, $index)" class="list-item-actions breakLine">
+                        <div flex="10">
+                        </div>
+                        <div flex="10">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div flex="80">
+                            Additional Vehicle Information
+                        </div>
+                    </div>
+                    <div layout="row" id="{{::$index}}-2" ng-click="openSubMenu(2, $index)" class="list-item-actions breakLine">
+                        <div flex="10">
+                        </div>
+                        <div flex="10">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div flex="80">
+                           Policy Owner Information
+                        </div>
+                    </div>
+                    <div layout="row" id="{{::$index}}-3" ng-click="openSubMenu(3, $index)" class="list-item-actions breakLine">
+                        <div flex="10">
+                        </div>
+                        <div flex="10">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div flex="80">
+                           Other Drivers
+                        </div>
+                    </div>
+                    <div layout="row" id="{{::$index}}-4" ng-click="openSubMenu(4, $index)" class="list-item-actions breakLine">
+                        <div flex="10">
+                        </div>
+                        <div flex="10">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div flex="80">
+                           Date of Proposal
+                        </div>
+                    </div>
+                    <div layout="row" id="{{::$index}}-5" ng-click="openSubMenu(5, $index)" class="list-item-actions breakLine">
+                        <div flex="10">
+                        </div>
+                        <div flex="10">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div flex="80">
+                           Questionnaires
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  <ion-infinite-scroll on-infinite="loadMore()" distance="10%">
+            </ion-infinite-scroll> -->
+    </md-content>
+    <md-button ng-click="showProductList();" md-no-ink class="md-primary md-fab md-fab-bottom-right" aria-label="Show Illustration list">
+        <img style="margin-top: 10px;" src="img/ic_plus_white_24dp.png">
+    </md-button>
+</div>

@@ -1,0 +1,39 @@
+
+<div class="breakLine list-content-100"  id="{{::$index}}" ng-click="getDetail(card.DocId, $index)" >
+   <div layout="row" style="height: 0px;position:relative;">
+      
+        <div flex="80">
+        </div>
+        <div flex="5">
+            <!--  <md-button md-no-ink ng-click="addNewTab(card.DocId);" style="" class="md-icon-button button" aria-label="add new tab">
+                <i class="fa fa-external-link fa-lg"></i>
+            </md-button> -->
+            <md-button class="md-icon-button button" md-no-ink ng-click="toggleStarred(card.Star, card.DocId, $index)" aria-label="unstar doc">
+                <i ng-if="::!card.Star" id="star-{{::$index}}" class="fa fa-star-o fa-lg star"></i>
+                <i ng-if="::card.Star" id="star-{{::$index}}" class="fa fa-star fa-lg star"></i>
+            </md-button> 
+        </div>
+    </div>
+    <div layout="row" >
+        <div flex="20" layout-margin>
+            <img v3-avatar="::card.Photo" class="avatar">
+        </div>
+        <div flex="50"  layout-margin>
+            <div class="margin-card">
+                    <span class="main-info short-word">{{::card.FullName}}</span>
+                    <br>
+                    <span class="sub-info"> <span t-lazy v3-translate="v3.myworkspace.label.prospect.Age" prefix=""></span>: {{::card.Age}} </span>
+                    <br>
+                    <span class="sub-info"> <span t-lazy v3-translate="v3.myworkspace.label.prospect.CreatedDate" prefix=""></span>: {{::card.CreatedDateDisplay}} </span>
+                </div>
+               
+          
+        </div>
+        <div flex="5" layout-margin>
+          
+        </div>
+    </div>
+    <div align="right">
+        <span class="list-footer"> {{::card.UpdatedSince}} </span>
+    </div>
+</div>

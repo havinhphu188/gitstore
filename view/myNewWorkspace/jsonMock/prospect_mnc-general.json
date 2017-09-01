@@ -1,0 +1,1075 @@
+{
+  "IposDocument": {
+    "Data": {
+      "prospect:Prospect": {
+        "key": [
+          "PersonContactData"
+        ],
+        "section": "prospect:Prospect",
+        "icon": "fa fa-user",
+        "cssClass": "v3-box-1",
+        "prospect:DocumentRelation": {
+          "key": [
+            "DocumentRelation"
+          ],
+          "prospect:ClientId": {
+            "key": [
+              "ClientId"
+            ]
+          }
+        },
+        "prospect:Personal": {
+          "key": [
+            "Personal"
+          ],
+          "person:Summary": {
+            "@isVisible": "findElementInDetail(['PersonContactRole']).Value != 'BENEFICIARY'",
+            "section": "prospect:Prospect",
+            "icon": "fa fa-user",
+            "cssClass": "v3-box-1",
+            "person:ProspectInformation": {
+              "type": "",
+              "key": [
+                ""
+              ]
+            },
+            "person:FullNames": {
+              "type": "",
+              "key": [
+                ""
+              ]
+            },
+            "person:BirthDates": {
+              "type": "",
+              "key": [
+                ""
+              ]
+            },
+            "person:Genders": {
+              "type": "",
+              "valuePrefix": "v3.pnc.gender.enum.",
+              "key": [
+                ""
+              ]
+            },
+            "person:SmokerStatuss": {
+              "type": "",
+              "key": [
+                ""
+              ]
+            },
+            "person:Networths": {
+              "type": "",
+              "key": [
+                ""
+              ]
+            },
+            "person:AnnualCashFlow": {
+              "type": "",
+              "key": [
+                ""
+              ]
+            },
+            "person:TotalAssetss": {
+              "type": "",
+              "key": [
+                "TotalAssets"
+              ]
+            },
+            "person:AnnualIncome": {
+              "type": "",
+              "key": [
+                ""
+              ]
+            },
+            "person:TotalLiabilities": {
+              "type": "",
+              "key": [
+                ""
+              ]
+            },
+            "person:AnnualExpenses": {
+              "type": "",
+              "key": [
+                ""
+              ]
+            },
+            "person:Networth": {
+              "type": "",
+              "key": [
+                ""
+              ]
+            },
+            "person:ShortageSurplus": {
+              "type": "",
+              "key": [
+                ""
+              ]
+            },
+            "person:InvestmentRiskProfiles": {
+              "type": "",
+              "key": [
+                ""
+              ]
+            }
+          },
+          "person:BasicInformation": {
+            "section": "prospect:Prospect",
+            "icon": "fa fa-user",
+            "cssClass": "v3-box-1",
+            "person:Photo": {
+              "type": "",
+              "key": [
+                "Photo"
+              ]
+            },
+            "person:Title": {
+              "type": "",
+              "key": [
+                "Title"
+              ],
+              "@defaultValue": "MR"              
+            },
+            "person:FullName": {
+              "key": [
+                "FullName"
+              ],
+              "preview": [
+                "prospect:Prospect"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.FullName",
+              "placeholder": "Full Name",
+              "maxlength": 120,
+              "type": "",             
+              "@defaultValue": "Full Name"
+            },
+            "person:BirthDate": {
+              "type": "",
+              "key": [
+                "BirthDate"
+              ],
+              "preview": [
+                "prospect:Prospect"
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.person:BirthDate",
+              "valuePrefix": "",
+              "format": "datetime",
+              "@defaultValue": "1975-01-01"
+            },
+            "person:Gender": {
+              "type": "",
+              "key": [
+                "Gender"
+              ],
+              "preview": [
+                "prospect:Prospect"
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.person:Gender",
+              "valuePrefix": "v3.pnc.gender.enum.",
+              "@defaultValue": "M"
+            },
+            "person:MaritalStatus": {
+              "type": "",
+              "key": [
+                "MaritalStatus"
+              ],
+              "@defaultValue": "S"
+            },
+            "person:Race": {
+              "type": "",
+              "key": [
+                "Race"
+              ],
+              "@defaultValue": "OTH"
+            },
+            "person:SmokerStatus": {
+              "type": "",
+              "key": [
+                "SmokerStatus"
+              ],
+              "@defaultValue": "N"
+            },
+            "person:Nationality": {
+              "type": "",
+              "key": [
+                "Nationality"
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.person:Nationality",
+              "valuePrefix": "v3.application.motor.nationality.",
+              "@defaultValue": "725"
+            },
+            "person:IDType": {
+              "type": "",
+              "key": [
+                "IDs",
+                "ID",
+                "IDType"
+              ],
+              "@defaultValue": "PP"
+            },
+            "person:IDNumber": {
+              "key": [
+                "IDs",
+                "ID",
+                "IDNumber"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.IDNumber",
+              "placeholder": "ID Number",
+              "maxlength": 12,
+              "type": "INPUT",
+              "@isVisible": "false",
+              "@defaultValue": "022767712"
+            },
+            "person:BusinessIndustry": {
+              "type": "",
+              "key": [
+                "BusinessIndustry"
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.person:BusinessIndustry",
+              "valuePrefix": "v3.pnc.industry.enum.",
+              "@defaultValue": "ACT"
+            },
+            "person:Occupation": {
+              "type": "",
+              "key": [
+                "Occupation"
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.person:Occupation",
+              "valuePrefix": "v3.pnc.occupation.enum.",
+              "@defaultValue": "ACCT"
+            },
+            "person:ClientStatus": {
+              "type": "",
+              "key": [
+                "ClientStatus"
+              ]
+            }
+          },
+          "person:Contacts": {
+            "@isVisible": "findElementInDetail(['PersonContactRole']).Value != 'BENEFICIARY'",
+            "key": [
+              "Contacts"
+            ],
+            "section": "prospect:Prospect",
+            "icon": "fa fa-user",
+            "cssClass": "v3-box-1",
+            "person:EmailAddress": {
+              "type": "",
+              "key": [
+                "EmailAddress"
+              ]
+            },
+            "person:MobilePhone": {
+              "type": "",
+              "key": [
+                "MobilePhone"
+              ],
+              	"@defaultValue": "+60 9066612"
+            },
+            "person:HomePhone": {
+              "type": "",
+              "key": [
+                "HomePhone"
+              ]
+            },
+            "person:OfficePhone": {
+              "type": "",
+              "key": [
+                "OfficePhone"
+              ]
+            }
+          },
+          "person:Addresses": {
+            "@isVisible": "findElementInDetail(['PersonContactRole']).Value != 'BENEFICIARY'",
+            "key": [
+              "NonPrimaryAddresses"
+            ],
+            "onOpen": "convertNPAddressesToArray()",
+            "section": "prospect:Prospect",
+            "icon": "fa fa-user",
+            "cssClass": "v3-box-1",
+            "person:PrimaryAddress": {
+              "section": "person:Addresses",
+              "key": [
+                "PrimaryAddress"
+              ],
+              "person:PAddressType": {
+                "type": "",
+                "key": [
+                  "AddressType"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+                "valuePrefix": "v3.pnc.addressType.enum.",
+              	"@defaultValue": "RESIDENTIAL"
+              },
+              "person:PBlkHouseNo": {
+                "key": [
+                  "BlkHouseNo"
+                ],
+              	"@defaultValue": "Block 1"
+              },
+              "person:PUnitNo": {
+                "key": [
+                  "UnitNo"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.UnitNo",
+                "maxlength": 120,
+                "placeholder": "Unit No",
+                "type": "INPUT",
+              	"@defaultValue": "Unit 1"
+              },
+              "person:PBuilding": {
+                "key": [
+                  "Building"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.Building",
+                "maxlength": 120,
+                "placeholder": "Building",
+                "type": "INPUT",
+              	"@defaultValue": "Build 1"
+              },
+              "person:PCity": {
+                "key": [
+                  "CityCd"
+                ],
+              	"@defaultValue": "405"
+              },
+              "person:PProvince": {
+                "key": [
+                  "Province"
+                ],
+                "@defaultValue": "1"
+              },
+              "person:PCountry": {
+                "type": "",
+                "key": [
+                  "Country"
+                ],
+              	"@defaultValue": "SGP"
+              },
+              "person:PPostal": {
+                "key": [
+                  "Postal"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+                "maxlength": 120,
+                "placeholder": "Postal Code",
+                "type": "INPUT",
+              	"@defaultValue": "01212"
+              }
+            },
+            "person:NewNonPrimaryAddress": {
+              "section": "person:Addresses",
+              "key": [
+                "NonPrimaryAddress"
+              ],
+              "icons": {
+                "cardIcon": {
+                  "content": "fa fa-user"
+                },
+                "removeCardInList": {}
+              },
+              "cssClass": "v3-box-1",
+              "cardType": "template",
+              "person:NPAddressType": {
+                "type": "",
+                "key": [
+                  "AddressType"
+                ],
+                "labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+                "valuePrefix": "v3.pnc.addressType.enum."
+              },
+              "person:NPBlkHouseNo": {
+                "key": [
+                  "BlkHouseNo"
+                ]
+              },
+              "person:NPUnitNo": {
+                "key": [
+                  "UnitNo"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.UnitNo",
+                "maxlength": 120,
+                "placeholder": "Unit No",
+                "type": "INPUT"
+              },
+              "person:NPBuilding": {
+                "key": [
+                  "Building"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.Building",
+                "maxlength": 120,
+                "placeholder": "Building",
+                "type": "INPUT"
+              },
+              "person:NPCity": {
+                "key": [
+                  "CityCd"
+                ],
+                "@defaultValue": "405"
+              },
+              "person:NPProvince": {
+                "key": [
+                  "Province"
+                ],
+                "@defaultValue": "1"
+              },
+              "person:NPCountry": {
+                "type": "",
+                "key": [
+                  "Country"
+                ]
+              },
+              "person:NPPostal": {
+                "key": [
+                  "Postal"
+                ],
+                "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+                "maxlength": 120,
+                "placeholder": "Postal Code",
+                "type": "INPUT"
+              }
+            },
+            "person:NonPrimaryAddress": {
+              "section": "person:Addresses",
+              "icon": {
+                "main": "fa fa-user",
+                "mainAction": "addIcon"
+              },
+              "cardType": "action",
+              "onClick": "addCard(card)"
+            }
+          },
+             "person:ResidentialAddress": {
+            "@isVisible": "findElementInDetail(['PersonContactRole']).Value == 'BENEFICIARY'",
+            "key": [
+            ],
+            "section": "prospect:Prospect",
+            "icon": "fa fa-user",
+            "cssClass": "v3-box-1",
+            "person:RAddressType": {
+              "type": "",
+              "key": [
+                "AddressType"
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.person:AddressType",
+              "valuePrefix": "v3.pnc.addressType.enum."
+            },
+            "person:RBlkHouseNo": {
+              "key": [
+                "BlkHouseNo"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.BKHouseNo",
+              "placeholder": "Block/ House Number",
+              "maxlength": 120,
+              "type": "INPUT"
+            },
+            "person:RStreet": {
+              "key": [
+                "Street"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.Street",
+              "maxlength": 120,
+              "placeholder": "Street",
+              "type": "INPUT"
+            },
+            "person:RUnitNo": {
+              "key": [
+                "UnitNo"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.UnitNo",
+              "maxlength": 120,
+              "placeholder": "Unit No",
+              "type": "INPUT"
+            },
+            "person:RBuilding": {
+              "key": [
+                "Building"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.Building",
+              "maxlength": 120,
+              "placeholder": "Building",
+              "type": "INPUT"
+            },
+            "person:RCity": {
+              "key": [
+                "City"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.City",
+              "maxlength": 120,
+              "placeholder": "City",
+              "type": "INPUT"
+            },
+            "person:RCountry": {
+              "type": "",
+              "key": [
+                "Country"
+              ]
+            },
+            "person:RPostal": {
+              "key": [
+                "Postal"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.PostalCode",
+              "maxlength": 120,
+              "placeholder": "Postal Code",
+              "type": "INPUT"
+            }
+          },
+          "person:OtherInformation": {
+            "@isVisible": "findElementInDetail(['PersonContactRole']).Value != 'BENEFICIARY'",
+            "section": "prospect:Prospect",
+            "icon": "fa fa-user",
+            "cssClass": "v3-box-1",
+            "person:CountryOfBirth": {
+              "type": "",
+              "key": [
+                "CountryOfBirth"
+              ]
+            },
+            "person:Education": {
+              "type": "",
+              "key": [
+                "Education"
+              ]
+            },
+            "person:Staff": {
+              "type": "",
+              "key": [
+                "Staff"
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.person:Staff",
+              "valuePrefix": "v3.yesno.enum.",
+              "@defaultValue": "N"
+            },
+            "person:Vip": {
+              "type": "",
+              "key": [
+                "Vip"
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.person:Vip",
+              "valuePrefix": "v3.yesno.enum.",
+              "@defaultValue": "N"
+            },
+            "prospect:EmployerName": {
+              "key": [
+                "EmployerName"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.EmployerName",
+              "maxlength": 120,
+              "placeholder": "Employer Name",
+              "type": "INPUT",
+              "@defaultValue": "CSC"
+            },
+            "person:EmploymentStatus": {
+              "type": "",
+              "key": [
+                "EmploymentStatus"
+              ],
+              "@defaultValue": "EMPLOYED"
+            },
+            "person:AnnualEmployeeIncome": {
+              "key": [
+                "AnnualIncome"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.person:AnnualEmployeeIncome",
+              "maxlength": 120,
+              "placeholder": "Annual Employee Income",
+              "type": ""
+            },
+            "person:SourceOfFund": {
+              "type": "",
+              "key": [
+                "SourceOfFund"
+              ],
+              "@defaultValue": "BANK-FINANCING"
+            },
+            "person:ClientNumber": {
+              "key": [
+                "ClientId"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.person:ClientNumber",
+              "maxlength": 120,
+              "placeholder": "Client Number",
+              "type": ""
+            },
+            "person:SourceName": {
+              "key": [
+                "SourceName"
+              ],
+              "labelKey": "new.v3.mynewworkspace.prospect.label.person:SourceName",
+              "maxlength": 120,
+              "placeholder": "Source Name",
+              "type": ""
+            }
+          }
+        },
+        "prospect:PdpaInformation": {
+          "@isVisible": "findElementInDetail(['PersonContactRole']).Value != 'BENEFICIARY'",
+          "section": "prospect:Prospect",
+          "key": [
+            "PdpaInformation"
+          ]
+        },
+        "prospect:CurrentFinancialPosition": {
+          "@isVisible": "findElementInDetail(['PersonContactRole']).Value != 'BENEFICIARY'",
+          "section": "prospect:Prospect",
+          "key": [
+            "CurrentFinancialPosition"
+          ],
+          "prospect:CurrentAssetsLiabilities": {
+            "section": "prospect:CurrentFinancialPosition",
+            "@onOpen": "setSlider()",
+            "key": [
+              "CurrentAssetsLiabilities"
+            ],
+            "prospect:CurrentAssets": {},
+            "prospect:CurrentAssetsTemp1": {},
+            "prospect:ResidentialProperty": {
+              "key": [
+                "ResidentialProperty"
+              ]
+            },
+            "prospect:OtherSavingFunds": {
+              "key": [
+                "OtherSavingFunds"
+              ]
+            },
+            "prospect:InvestmentAndSaving": {
+              "key": [
+                "InvestmentAndSavings"
+              ]
+            },
+            "prospect:TotalAssets": {
+              "key": [
+                "TotalAssets"
+              ],
+              "preview": [
+                "prospect:CurrentAssetsLiabilities"
+              ]
+            },
+            "prospect:CurrentLiabilities": {},
+            "prospect:CurrentAssetsTemp2": {},
+            "prospect:MortageLoan": {
+              "key": [
+                "MortageLoan"
+              ]
+            },
+            "prospect:OtherOutstandingDebts": {
+              "key": [
+                "OtherOutstandingDebts"
+              ]
+            },
+            "prospect:NetWorth": {
+              "key": [
+                "NetWorth"
+              ],
+              "preview": [
+                "prospect:CurrentFinancialPosition"
+              ]
+            },
+            "prospect:TotalLiabilities": {
+              "key": [
+                "TotalLiabilities"
+              ],
+              "preview": [
+                "prospect:CurrentAssetsLiabilities"
+              ]
+            },
+            "prospect:CurrentAssetsSignificants": {},
+            "prospect:CurrentAssetsTemp3": {},
+            "prospect:CurrentAssetsSignificant": {
+              "key": [
+                "SignificantChangeCAL"
+              ],
+              "@defaultValue": "N"
+            },
+            "prospect:CurrentAssetsSpecify": {
+              "key": [
+                "SpecifySignificantChangeCAL"
+              ]
+            }
+          },
+          "prospect:AnnualCashFlowBudgetedFunds": {
+            "section": "prospect:CurrentFinancialPosition",
+            "onOpen": "setSlider()",
+            "key": [
+              "AnnualCashFlowBudgetedFunds"
+            ],
+            "prospect:AnnualIncome": {
+            "key": [
+                "AnnualIncome"
+              ]
+            },
+            "prospect:AnnualCashFlowTemp1": {},
+            "prospect:AnnualEmployeeIncomes": {
+              "key": [
+                "OtherInfomation",
+                "AnnualIncome"
+              ]
+            },
+            "prospect:LessCPF": {
+              "key": [
+                "LessCPF"
+              ]
+            },
+            "prospect:NetAnnualIncome": {
+              "key": [
+                "NetAnnualIncome"
+              ],
+              "preview": [
+                "prospect:AnnualCashFlowBudgetedFunds"
+              ]
+            },
+            "prospect:OtherIncome": {
+              "key": [
+                "OtherIncome"
+              ]
+            },
+            "prospect:TotalAnnualIncome": {
+              "key": [
+                "TotalAnnualIncome"
+              ]
+            },
+            "prospect:AnnualCashFlowTemp2": {},
+            "prospect:AnnualExpense": {
+              "key": [
+                "AnnualExpense"
+              ],
+              "preview": [
+                "prospect:AnnualCashFlowBudgetedFunds"
+              ]
+            },
+            "prospect:AnnualCashFlowTemp3": {},
+            "prospect:LivingExpenses": {
+              "key": [
+                "LivingExpenses"
+              ]
+            },
+            "prospect:TuitionAndSchoolExpenses": {
+              "key": [
+                "TuitionAndSchoolExpenses"
+              ]
+            },
+            "prospect:LoanRepayment": {
+              "key": [
+                "LoanRepayment"
+              ]
+            },
+            "prospect:Others": {
+              "key": [
+                "Others"
+              ]
+            },
+            "prospect:TotalAnnualExpenses": {
+              "key": [
+                "TotalAnnualExpenses"
+              ]
+            },
+            "prospect:NetCashFlowOrSurplus": {
+              "key": [
+                "NetCashFlowOrSurplus"
+              ],
+              "preview": [
+                "prospect:CurrentFinancialPosition"
+              ]
+            },
+            "prospect:BudgetedFunds": {},
+            "prospect:AnnualCashFlowTemp4": {},
+            "prospect:AnnualCashImportantNote": {},
+            "prospect:AnnualCashFlowTemp5": {},
+            "prospect:RegularAmount": {
+              "key": [
+                "RegularAmount"
+              ]
+            },
+            "prospect:LumpSum": {
+              "key": [
+                "LumpSum"
+              ]
+            },
+            "prospect:AnnualCashSignificants": {},
+            "prospect:AnnualCashFlowTemp6": {},
+            "prospect:AnnualCashSignificant": {
+              "key": [
+                "SignificantChangeACFBF"
+              ],
+              "@defaultValue": "N"
+            },
+            "prospect:AnnualCashSpecify": {
+              "key": [
+                "SpecifySignificantChangeACFBF"
+              ]
+            }
+          },
+          "prospect:ExistingFinancialPlans": {
+            "section": "prospect:CurrentFinancialPosition",
+            "key": [
+              "ExistingFinancialPlans"
+            ],
+            "icon": "fa fa-user",
+            "cssClass": "v3-box-1",
+            "prospect:ExistingFinancialDeclaration": {
+              "section": "prospect:ExistingFinancialPlans",
+              "key": [
+                "ExistingFinancialDeclaration"
+              ],
+              "prospect:HaveExistingPlan": {
+                "key": [
+                  "HaveExistingPlan"
+                ],
+                "preview": [
+                  "prospect:ExistingFinancialPlans"
+                ],
+                "@valuePrefix": "v3.yesno.enum."
+              }
+            },
+            "prospect:ExistingFinancialPlan": {
+              "section": "prospect:ExistingFinancialPlans",
+              "key": [
+                "ExistingFinancialPlan"
+              ],
+              "icon": {
+                "subAction": "removeIcon"
+              },
+              "cardType": "template",
+              "@onOpen": "setSlider()",
+              "prospect:InsuranceDetailsAndValue": {
+                "type": "",
+                "key": [
+                  "InsuranceDetailsAndValue"
+                ]
+              },
+              "prospect:ExistingFinancialPlanTemp1": {
+                "key": [
+                  "ExistingFinancialPlanTemp1"
+                ]
+              },
+              "prospect:OwnerName": {
+                "type": "",
+                "key": [
+                  "OwnerName"
+                ]
+              },
+              "prospect:Company": {
+                "type": "",
+                "key": [
+                  "Company"
+                ]
+              },
+              "prospect:PolicyType": {
+                "type": "",
+                "key": [
+                  "PolicyType"
+                ]
+              },
+              "prospect:YearOfIssue": {
+                "type": "",
+                "key": [
+                  "YearOfIssue"
+                ]
+              },
+              "prospect:PremiumValue": {
+                "type": "",
+                "key": [
+                  "PremiumValue"
+                ]
+              },
+              "prospect:PremiumType": {
+                "type": "",
+                "key": [
+                  "PremiumType"
+                ]
+              },
+              "prospect:DeathOfBenefit": {
+                "type": "",
+                "key": [
+                  "DeathOfBenefit"
+                ]
+              },
+              "prospect:TBD": {
+                "type": "",
+                "key": [
+                  "TBD"
+                ]
+              },
+              "prospect:CriticalIllness": {
+                "type": "",
+                "key": [
+                  "CriticalIllness"
+                ]
+              },
+              "prospect:HSBenefit": {
+                "type": "",
+                "key": [
+                  "HSBenefit"
+                ]
+              }
+            },
+            "prospect:NewExistingPlan": {
+              "section": "prospect:ExistingFinancialPlans",
+              "isVisible": "findElementInDetail(['HaveExistingPlan']).Value === 'Y'",
+              "icon": {
+                "main": "fa fa-user",
+                "mainAction": "addIcon"
+              },
+              "cardType": "action",
+              "onClick": "addCard(card)"
+            }
+          }
+        },
+        "prospect:FinancialKnowledgeQualification": {
+          "@isVisible": "findElementInDetail(['PersonContactRole']).Value != 'BENEFICIARY'",
+          "section": "prospect:Prospect",
+          "key": [
+            "FinancialKnowledgeAndQualification"
+          ],
+          "prospect:KnowledgeImportantNote1": {},
+          "prospect:KnowledgeTemp1": {},
+          "prospect:KnowledgeEducation": {},
+          "prospect:KnowledgeQ01": {
+            "key": [
+              "Q01Value"
+            ],
+              "@defaultValue": "N"
+          },
+          "prospect:KnowledgeQ01TypeOfInstitution": {
+            "key": [
+              "Q01TypeOfInstitution"
+            ]
+          },
+          "prospect:KnowledgeQ01NameOfInstitution": {
+            "key": [
+              "Q01NameOfInstitution"
+            ]
+          },
+          "prospect:KnowledgeQ01YearOfGraduation": {
+            "key": [
+              "Q01YearOfGraduation"
+            ]
+          },
+          "prospect:KnowledgeQ02": {
+            "key": [
+              "Q02Value"
+            ]
+          },
+          "prospect:KnowledgeQ02NameOfInstitution": {
+            "key": [
+              "Q02NameOfInstitution"
+            ]
+          },
+          "prospect:KnowledgeQ02YearOfGraduation": {
+            "key": [
+              "Q02YearOfGraduation"
+            ]
+          },
+          "prospect:KnowledgeInvestmentExp": {},
+          "prospect:KnowledgeQ03": {
+            "key": [
+              "Q03Value"
+            ],
+            "valuePrefix": "v3.yesno.enum.",
+            "preview": [
+              "prospect:FinancialKnowledgeQualification"
+            ]
+          },
+          "prospect:KnowledgeQ03NoOfTransaction": {
+            "key": [
+              "Q03NoOfTransaction"
+            ]
+          },
+          "prospect:KnowledgeQ03TypeOfTransaction": {
+            "key": [
+              "Q03TypeOfTransaction"
+            ]
+          },
+          "prospect:KnowledgeWorkExp": {},
+          "prospect:KnowledgeQ04": {
+            "key": [
+              "Q04Value"
+            ]
+          },
+          "prospect:KnowledgeQ04NatureOfWork": {
+            "key": [
+              "Q04NatureOfWork"
+            ]
+          },
+          "prospect:KnowledgeTemp2": {},
+          "prospect:KnowledgeOutcome": {},
+          "prospect:KnowledgeOutcome1": {
+            "key": [
+              "ILPCISKnowledge"
+            ]
+          },
+          "prospect:KnowledgeOutcome2": {
+            "key": [
+              "NotILPCISKnowledge"
+            ]
+          },
+          "prospect:KnowledgeImportantNote2": {}
+        },
+        "prospect:InvestmentRiskProfile": {
+          "@isVisible": "findElementInDetail(['PersonContactRole']).Value != 'BENEFICIARY'",
+          "section": "prospect:Prospect",
+          "key": [
+            "InvestmentRiskProfile"
+          ],
+          "prospect:InvestmentRiskImportantNote": {},
+          "prospect:InvestmentRiskTemp1": {},
+          "prospect:InvestmentRiskChoose": {},
+          "prospect:InvestmentRiskTemp2": {},
+          "prospect:InvestmentPreference": {
+            "key": [
+              "InvestmentPreference"
+            ],
+              "@defaultValue": "1"
+          },
+          "prospect:ExpectedReturn": {
+            "key": [
+              "ExpectedReturn"
+            ],
+              "@defaultValue": "1"
+          },
+          "prospect:InvestmentTimePeriod": {
+            "key": [
+              "InvestmentTimePeriod"
+            ],
+              "@defaultValue": "1"
+          },
+          "prospect:DuringSortTermDrop": {
+            "key": [
+              "DuringSortTermDrop"
+            ],
+              "@defaultValue": "1"
+          },
+          "prospect:InvestmentGoal": {
+            "key": [
+              "InvestmentGoal"
+            ],
+              "@defaultValue": "1"
+          },
+          "prospect:InvestmentPortfolio": {
+            "key": [
+              "InvestmentPortfolio"
+            ],
+              "@defaultValue": "1"
+          },
+          "prospect:TotalScore": {
+            "key": [
+              "TotalScore"
+            ]
+          },
+          "prospect:RiskProfile": {
+            "key": [
+              "RiskProfile"
+            ],
+            "preview": [
+              "prospect:InvestmentRiskProfile"
+            ]
+          },
+          "prospect:Result": {}
+        }
+      }
+    }
+  }
+}

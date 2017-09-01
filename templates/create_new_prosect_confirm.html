@@ -1,0 +1,41 @@
+<!-- <md-dialog class="dialog-style" ng-init="showTicketInfo()" aria-label="Settings">
+    <div layout="row" class="popup-header" layout-margin>
+        <div flex="10">
+            <div ng-click="saveDialog()" class="center default-color">Yes</div>
+        </div>
+        <div flex>
+            <div class="center">New Propsect</div>
+        </div>
+        
+        <div flex="10">
+            <div ng-click="saveDialog(true)" class="center default-color">No</div>
+        </div>
+    </div>
+    <div class="dialog-content-500">
+
+        <div layout="row" layout-margin>
+            <div >
+                Do you want to create new prospect?
+            </div>
+        </div>
+    </div> 
+</md-dialog> -->
+
+<md-dialog class="dialog-style" aria-label="Settings">
+    <div class="center">
+        Confirm
+    </div>
+    <div class="custom-dialog-content">
+        <p class="margin-text-center">Do you want to create new prospect?</p>
+    </div>
+    <div class="custom-dialog-footer">
+        <div layout="row">
+            <div flex>
+                <div ng-click="saveDialog(true)"  class="center">No</div>
+            </div>
+            <div flex>
+                <div ng-click="saveDialog()" class="center">Yes</div>
+            </div>
+        </div>
+    </div>
+</md-dialog>

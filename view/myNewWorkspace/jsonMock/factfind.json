@@ -1,0 +1,1055 @@
+{
+  "IposDocument": {
+    "Data": {
+      "needs-analysis:NeedsAnalysis": {
+		"icons":{
+          	"cardIcon":{
+          		"content": "fa fa-search"
+          	}
+	    },
+        "@section": "needs-analysis:NeedsAnalysis",
+        "needs-analysis:Summary": {
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@isVisible":  "!moduleService.isInsideView()",
+          "@previewHtml":"v3-preview-static-fna-sumary.html",          
+          "needs-analysis:Summary": {},
+          "factfind:FullName": {
+	          "@key": ["Client", "ContactInformation", "FullName"],
+	          "@isVisible": "false"
+          },
+          "factfind:BirthDate": {
+	          "@key": ["Client", "ContactInformation", "BirthDate"],
+	          "@isVisible": "false"
+          },
+          "factfind:Gender": {
+	          "@key": ["Client", "ContactInformation", "Gender"],
+	          "@isVisible": "false"
+          }
+        },
+        "needs-analysis:SummaryInSide": {
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@isVisible":  "moduleService.isInsideView()",
+          "needs-analysis:SummaryInSide": {}
+        },
+        "needs-analysis:ImportFromExistingJointApplicant": {
+          "@key": [
+            "needs-analysis:ImportFromExistingClient"
+          ],
+          "@isVisible": "!hasValueNotEmpty(findElementInDetail(['JointApplicant'])['@refUid']) && !moduleService.isInsideView()",
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@icon": {
+            "main": "fa fa-user",
+            "mainAction": "addIcon"
+          },
+          "@cardType": "action",
+          "@onClick": "importFromExistingProspect(card)",
+          "@onOpen": "getProspectList()",
+          "@staticHtml": "list_existing_client.html"
+        },
+        "needs-analysis:ImportFromExistingClient": {
+          "@key": [
+            "needs-analysis:ImportFromExistingClient"
+          ],
+          "@isVisible": "!hasValueNotEmpty(findElementInDetail(['Client'])['@refUid']) && !moduleService.isInsideView()",
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@icon": {
+            "main": "fa fa-user",
+            "mainAction": "addIcon"
+          },
+          "@cardType": "action",
+          "@onClick": "importFromExistingProspect(card)",
+          "@onOpen": "getProspectList()",
+          "@staticHtml": "list_existing_client.html"
+        },
+        "needs-analysis:Client": {
+          "@key": [
+            "Client"
+          ],
+          "@isVisible": "hasValueNotEmpty(findElementInDetail(['Client'])['@refUid']) && !moduleService.isInsideView()",
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@onOpen": "checklistPreViewFGS('Client')",
+          "@previewHtml":"v3-preview-static-fna-client-jointApplicant.html",
+          "@icon": {
+            "subAction": "removeIcon",
+             "main": "fa fa-user"
+          },
+          "icons":{
+	          "removeCard" : {
+              	"onClick": "removeCardClient('v3.mynewworkspace.portlet.label.case-management-guaranteed-cashback-saver:RemoveClientFNAConfirm')"
+              },
+              "cardIcon":{
+              	"content": "fa fa-user"
+              }
+	      },
+          "needs-analysis:Dependants": {
+            "@key": [
+              "Client",
+              "Dependants"
+            ],
+            "@section": "needs-analysis:Client",
+            "@onOpen": "getProspectList()",
+            "@previewHtml":"v3-preview-static-fna-dependants.html",
+            "needs-analysis:Childrens": {
+              "@section": "needs-analysis:Dependants",
+              "@key": ["Client","Dependants","Children"],
+              "@previewHtml":"v3-preview-static-fna-dependants.html",
+              "needs-analysis:Children": {
+              	 "@key": ["Client","Dependants","Children"]              	
+              }
+            },
+            "needs-analysis:ElderlyDependants": {
+              "@section": "needs-analysis:Dependants",
+              "@key": ["Client","Dependants","ElderDependants"],
+              "@previewHtml":"v3-preview-static-fna-dependants.html",
+              "needs-analysis:ElderlyDependant": { 
+              	 "@key": ["Client","Dependants","ElderDependants"]             	
+              }
+            }
+          },
+          "needs-analysis:FinancialGoalsSelection": {
+            "@section": "needs-analysis:Client",
+            "@key": [
+              "Client",
+              "FinancialGoalsSelection"
+            ],
+            "@previewHtml":"v3-preview-static-fna-FGS.html",
+            "needs-analysis:FinancialGoalsSelectionDetail": {
+            	"@key": ["Client","FinancialGoalsSelection"]
+            }
+          },
+          "needs-analysis:FinancialGoalsAnalysis": {
+            "@key": [
+              "Client",
+              "FinancialGoalsAnalysis"
+            ],
+            "@previewHtml":"v3-preview-static-fna-FGA.html",
+            "@section": "needs-analysis:Client",
+            "@onOpen": "refreshFNADoc()",
+            "needs-analysis:Assumptions": {
+              "@key": ["Client","FinancialGoalsAnalysis","Assumptions"],
+              "@section": "needs-analysis:FinancialGoalsAnalysis",
+              "@onOpen": "setSlider()",
+              "needs-analysis:ExpectedReturnOnInvestment": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "Assumptions", "ExpectedReturnOnInvestment"]
+              },
+              "needs-analysis:InflationRate": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "Assumptions", "InflationRate"]
+              },
+              "needs-analysis:ReplacementIncomePercentage": {},
+              "needs-analysis:AssumptionsTemp1": {},
+              "needs-analysis:CurrentAnnualIncome": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "Assumptions", "PercentOfCurrentAnnualIncome"]
+              },
+              "needs-analysis:NetRateOfReturn": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "Assumptions", "NetRateOfReturn"]
+              },
+              "needs-analysis:AssumptionsAge": {},
+              "needs-analysis:AssumptionsTemp2": {},
+              "needs-analysis:DependencyPeriodForChildren": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "Assumptions", "DependencePeriodForChildren"]
+              },
+              "needs-analysis:DependencyPeriodForElderlyDepandants": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "Assumptions", "DependencePeriodForEarlyDependants"]
+              },
+              "needs-analysis:MaleStartsUniversity": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "Assumptions", "MaleStartsUniversity"]
+              },
+              "needs-analysis:FemaleStartsUniversity": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "Assumptions", "FemaleStartsUniversity"]
+              },
+              "needs-analysis:RetirementAge": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "Assumptions", "RetirementAge"]
+              },
+              "needs-analysis:LifeExpectancyAge": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "Assumptions", "LifeExpectancyAge"]
+              },
+              "needs-analysis:UniversityEducation": {},
+              "needs-analysis:AssumptionsTemp3": {},
+              "needs-analysis:UniversityStudyDuration": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "Assumptions", "UniversityStudyDuration"]
+              },
+              "needs-analysis:CostPerYear": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "Assumptions", "CostPerYear"]
+              },
+              "needs-analysis:AssumptionsTemp4": {},
+              "needs-analysis:ComputeTagAssumption": {}
+            },
+            "needs-analysis:ProtectionUponDeath": {
+              "@key": ["Client","FinancialGoalsAnalysis","ProtectionUponDeathInfo"],
+              "@isVisible": "findElementInDetail(['Client', 'FinancialProtection', 'ProtectionUponDeath', 'Priority']).Value != 'NR'",
+              "@section": "needs-analysis:FinancialGoalsAnalysis",
+              "@onOpen": "setSlider()",
+              "needs-analysis:CapitalSumRequirement": {},
+              "needs-analysis:ProtectionUponDeathTemp1": {},
+              "needs-analysis:ReplacementIncomeNeeded": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "ReplacementIncomeNeeded"]
+              },
+              "needs-analysis:NumberOfYearsIncomeRequired": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "NumberOfYearIncomeRequired"]
+              },
+              "needs-analysis:ProtectionUponDeathNetRateOfReturn": {
+              	  "@key": ["Client","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "NetRateOfReturn"]
+              },
+              "needs-analysis:LumpSumRequired": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "LumpSumRequired"]
+              },
+              "needs-analysis:TotalCashRequirement": {},
+              "needs-analysis:ProtectionUponDeathTemp2": {},
+              "needs-analysis:MortgageLoan": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "MortgageLoan"]
+              },
+              "needs-analysis:OtherOutstandingDebts": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "OtherOutstandingDebts"]
+              },
+              "needs-analysis:TotalCashRequired": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "TotalCashRequired"]
+              },
+              "needs-analysis:TotalRequiredForIncomeProtection": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "TotalRequiredForIncomeProtection"],
+              	 "@format": "currency:0",
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:ProtectionUponDeath",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountRequired",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:ExistingFundsSetAside": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "ProtectionExistingFundsSetAside"],
+              	 "@format": "currency:0",
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:ProtectionUponDeath",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountSaved",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:TotalShortfallOrSurplus": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "ProtectionTotalShortfallOrSurplus"]
+              },
+              "needs-analysis:ProtectionUponDeathTemp3": {},
+              "needs-analysis:ComputeTagProtectionUponDeath": {}
+            },
+            "needs-analysis:RetirementFund": {
+              "@key": ["Client","FinancialGoalsAnalysis","RetirementFundInfo"],
+              "@isVisible": "findElementInDetail(['Client', 'WealthAccumulation', 'RetirementFund', 'Priority']).Value != 'NR'",
+              "@section": "needs-analysis:FinancialGoalsAnalysis",
+              "@onOpen": "setSlider()",
+              "needs-analysis:ClientCurrentAgeInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "CurrentAge"]
+              },
+              "needs-analysis:ClientCurrentAnnualIncomeInRetireFundInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "CurrentAnnualIncome"]
+              },
+              "needs-analysis:ClientExpectedRetirementAgeInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "ExpectedRetirementAge"]
+              },
+              "needs-analysis:ClientPercentIncomeCanLiveInRetirementInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "PercentIncomeCanLiveInRetirement"]
+              },
+              "needs-analysis:ClientAssumedRateOfSalaryIncreaseInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "AssumedRateOfSalaryIncrease"]
+              },
+              "needs-analysis:ClientRetirementFundTemp1InRF": {},
+              "needs-analysis:ClientAnnualIncomeRequiredInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "AnnualIncomeRequired"]
+              },
+              "needs-analysis:ClientRetirementFundTemp2InRF": {},
+              "needs-analysis:ClientYearToReceiveRetirementIncomeInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "YearToReceiveRetirementIncome"]
+              },
+              "needs-analysis:ClientRetirementNetRateOfReturnInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "NetRateOfReturn"]
+              },
+              "needs-analysis:ClientTotalAmountRequiredAtRetirementInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "TotalAmountRequiredAtRetirement"],
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:RetirementFund",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountRequired",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:ClientExistingFundsSetAsideInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "ExistingFundsSetAside"],
+              	 "@format": "currency:0",
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:RetirementFund",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountSaved",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:ClientTotalShortfallOrSurplusInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "TotalShortfallOrSurplus"]
+              },
+              "needs-analysis:ClientReturnOnInvestmentInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "ReturnOnInvestment"]
+              },
+              "needs-analysis:ClientExpectedInterestEarnedFromTheExistingFundInRetireFundInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "ExpectedInterestEarnedFromTheExistingFund"]
+              },
+              "needs-analysis:ClientRetirementFundTemp3InRF": {},
+              "needs-analysis:ClientPossibleOptionsInRF": {},
+              "needs-analysis:ClientRetirementFundTemp4InRF": {},
+              "needs-analysis:ClientSingleCapitalSumRequiredForRetirementInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "SingleCapitalSumRequiredForRetirement"]
+              },
+              "needs-analysis:ClientAnnualSumRequiredForRetirementInRF": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "RetirementFundInfo", "AnnualSumRequiredForRetirement"]
+              },
+              "needs-analysis:ClientRetirementFundTemp5InRF": {},
+              "needs-analysis:ClientComputeTagInRF": {}
+            },
+            "needs-analysis:EducationFund": {
+              "@key": ["Client", "EducationFundInfos"],
+              "@section": "needs-analysis:FinancialGoalsAnalysis",
+              "@previewHtml":"v3-preview-static-fna-FGA.html",
+              "@isVisible": "findElementInDetail(['Client', 'WealthAccumulation', 'EducationFund', 'Priority']).Value != 'NR'",              
+              "needs-analysis:AddChildED": {
+		        "@key": ["needs-analysis:AddChildED"],
+		        "@section": "needs-analysis:EducationFund",
+		        "@icon": {
+		           "main": "fa fa-user",
+		           "mainAction": "addIcon"
+		        },
+		        "@cardType": "action",
+		        "@onClick": "importFromExistingProspect(card)",
+		        "@staticHtml": "list_existing_Children_fna_EducationFund.html"
+		       },              
+              "needs-analysis:Child": {
+                "@key": ["factfind:EducationFundInfo"],
+                "@section": "needs-analysis:EducationFund",
+                "@onOpen": "setSlider()",
+                "@cardType": "template",
+                "@icon": {
+                  "subAction": "removeIcon"
+                },
+                "needs-analysis:EFName": {
+                	"@key": ["ChildName"]
+                },
+                "needs-analysis:EFCurrentAge": {
+                	"@key": ["ChildCurrentAge"]
+                },
+                "needs-analysis:EFPlanEducationToStart": {
+                	"@key": ["PlanEducationToStart"]
+                },
+                "needs-analysis:EFEducationInflationRate": {
+                	"@key": ["InflationRate"]
+                },
+                "needs-analysis:EFTotalEducationFundRequiredToday": {
+                	"@key": ["TotalEducationFundRequiredToday"]
+                },
+                "needs-analysis:EFTotalEducationFundRequired": {
+                	"@key": ["TotalEducationFundRequiredTodayStartOfEducation"],
+                	 "preview": [
+		                {
+		                  "cardName": "needs-analysis:Child",
+		                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountRequired",
+		                  "priority": 50
+		                }	                
+		              ]
+                },
+                "needs-analysis:EFExistingFundssetAside": {
+                	"@key": ["ExistingFundsSetAside"],
+                	"@format": "currency:0",
+                	"preview": [
+		                {
+		                  "cardName": "needs-analysis:Child",
+		                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountSaved",
+		                  "priority": 50
+		                }	                
+		              ]
+                },
+                "needs-analysis:EFExpectedRate": {
+                },
+                "needs-analysis:EFExpectedRateOfReturn": {
+                	"@key": ["ExpectedRateOfReturn"]
+                },
+                "needs-analysis:EFExpectedFutureValue": {
+                	"@key": ["ExpectedFutureValueOfFundSetAside"]
+                },
+                "needs-analysis:EFTotalShortfallOrSurplus": {
+                	"@key": ["TotalShortfallOrSurplus"]
+                },
+                "needs-analysis:EFReturnOnInvestment": {
+                	"@key": ["ReturnOnInvestment"]
+                },
+                "needs-analysis:EFExpectedInterestEarned": {
+                	"@key": ["ExpectedInterestEarnedFromTheExistingFund"]
+                },
+                "needs-analysis:EFPossibleOptions": {
+                	"@key": ["PossibleOptions"]
+                },
+                "needs-analysis:EducationFundTemp1": {},
+                "needs-analysis:EFSingleCapitalSum": {
+                	"@key": ["SingleCapitalSumRequiredForRetirement"]
+                },
+                "needs-analysis:EFAnnualSumRrequired": {
+                	"@key": ["AnnualSumRequiredForRetirement"]
+                },
+                "needs-analysis:EducationFundTemp2": {},
+                "needs-analysis:ComputeTagEducationFund": {}
+              }
+            },
+            "needs-analysis:MediumLongTermSavings": {
+              "@key": ["Client","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo"],
+              "@isVisible": "findElementInDetail(['Client', 'WealthAccumulation', 'MediumLongTermSavings', 'Priority']).Value != 'NR'",
+              "@section": "needs-analysis:FinancialGoalsAnalysis",
+              "@onOpen": "setSlider()",
+              "needs-analysis:PurposeOfSaving": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "PurposeOfSaving"]
+              },
+              "needs-analysis:AmountRequired": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "AmountRequired"],
+              	 "@format": "currency:0",
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:MediumLongTermSavings",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountRequired",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:YearsOfSavings": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "YearOfSavings"]
+              },
+              "needs-analysis:MLTSExistingFundsSetAside": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "ExistingFundsSetAside"],
+              	 "@format": "currency:0",
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:MediumLongTermSavings",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountSaved",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:MLTSTotalShortfallOrSurplus": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "TotalShortfallOrSurplus"]
+              },
+              "needs-analysis:MLTSReturnOnInvestment": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "ReturnOnInvestment"]
+              },
+              "needs-analysis:MLTSExpectedInterestEarned": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "ExpectedInterestEarnedFromTheExistingFund"]
+              },
+              "needs-analysis:MediumLongTermSavingsTemp1": {},
+              "needs-analysis:MLTSPossibleOptions": {},
+              "needs-analysis:MediumLongTermSavingsTemp2": {},
+              "needs-analysis:SingleCapitalSum": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "SingleCapitalSumRequiredForRetirement"]
+              },
+              "needs-analysis:AnnualSumRequiredForSaving": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "AnnualSumRequiredForRetirement"]
+              },
+              "needs-analysis:MediumLongTermSavingsTemp3": {},
+              "needs-analysis:ClientMLTSComputeTag": {}
+            },
+            "needs-analysis:CriticalIllness": {
+              "@key": ["Client","FinancialGoalsAnalysis", "CriticalIllnessInfo"],
+              "@isVisible": "findElementInDetail(['Client', 'FinancialProtection', 'CriticalIllness', 'Priority']).Value != 'NR'",
+              "@section": "needs-analysis:FinancialGoalsAnalysis",
+              "@onOpen": "setSlider()",
+              "needs-analysis:CICapitalSumRequirement": {},
+              "needs-analysis:CriticalIllnessTemp1": {},
+              "needs-analysis:CIReplacementIncomeNeeded": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "CriticalIllnessInfo", "ReplacementIncomeNeeded"]
+              },
+              "needs-analysis:CINumberOfYearsIncomeRequired": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "CriticalIllnessInfo", "NumberOfYearIncomeRequired"]
+              },
+              "needs-analysis:CINetRateOfReturn": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "CriticalIllnessInfo", "NetRateOfReturn"]
+              },
+              "needs-analysis:CILumpSumRequired": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "CriticalIllnessInfo", "LumpSumRequired"]
+              },
+              "needs-analysis:CITotalCashRequirement": {},
+              "needs-analysis:CriticalIllnessTemp2": {},
+              "needs-analysis:CITreatmentCost": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "CriticalIllnessInfo", "TreatmentCost"]
+              },
+              "needs-analysis:CIOthers": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "CriticalIllnessInfo", "Others"]
+              },
+              "needs-analysis:CITotalCashRequired": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "CriticalIllnessInfo", "TotalCashRequired"]
+              },
+              "needs-analysis:CITotalRequiredForCriticalIllness": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "CriticalIllnessInfo", "TotalRequiredForCriticalIllness"],
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:CriticalIllness",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountRequired",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:CriticalIllnessTemp3": {},
+              "needs-analysis:ClientCIComputeTag": {}
+            },
+            "needs-analysis:MortgageProtection": {
+              "@key": ["Client","FinancialGoalsAnalysis", "MortgageProtection"],
+              "@isVisible": "findElementInDetail(['Client', 'FinancialProtection', 'Mortgage', 'Priority']).Value != 'NR'",
+              "@section": "needs-analysis:FinancialGoalsAnalysis",
+              "@onOpen": "setSlider()",
+              "needs-analysis:MPMortgageCalculator": {},
+              "needs-analysis:MortgageProtectionTemp1": {},
+              "needs-analysis:MPMortgageValue": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MortgageProtection", "MortgageValue"]
+              },
+              "needs-analysis:MPLoanAmount": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MortgageProtection", "LoanAmount"]
+              },
+              "needs-analysis:MPLoanInterestRate": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MortgageProtection", "LoanInterestRate"]
+              },
+              "needs-analysis:MPLoanTerm": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MortgageProtection", "LoanTerm"]
+              },
+              "needs-analysis:MPTotalPaid": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MortgageProtection", "TotalPaid"],
+              	  "preview": [
+	                {
+	                  "cardName": "needs-analysis:MortgageProtection",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountRequired",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:MPMonthlyPayment": {
+              	 "@key": ["Client","FinancialGoalsAnalysis", "MortgageProtection", "MonthlyPayment"]
+              },
+              "needs-analysis:MortgageProtectionTemp2": {},
+              "needs-analysis:ClientMPComputeTag": {}
+            }
+          }
+        },
+        "needs-analysis:JointApplicant": {
+          "@key": ["JointApplicant"],
+          "@isVisible": "hasValueNotEmpty(findElementInDetail(['JointApplicant'])['@refUid'])  && !moduleService.isInsideView()",
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@onOpen": "checklistPreViewFGS('JointApplicant')",
+          "@previewHtml":"v3-preview-static-fna-client-jointApplicant.html",
+          "@icon": {
+            "subAction": "removeIcon"
+          },
+          "icons":{
+	          "removeCard" : {
+              	"onClick": "removeCardJointApplicant('v3.mynewworkspace.portlet.label.case-management-guaranteed-cashback-saver:RemoveJointFNAConfirm')"
+              },
+              "cardIcon":{
+              	"content": "fa fa-user"
+              }
+	      },
+          "needs-analysis:JAFinancialGoalsSelection": {
+            "@section": "needs-analysis:JointApplicant",
+            "@previewHtml":"v3-preview-static-fna-FGS.html",
+            "needs-analysis:JAFinancialGoalsSelectionDetail": {
+            	"@key": ["JointApplicant","FinancialGoalsSelection"]
+            }
+          },
+          "needs-analysis:JAFinancialGoalsAnalysis": {
+          	"@key": ["JointApplicant","FinancialGoalsAnalysis"],
+            "@section": "needs-analysis:JointApplicant",
+            "@onOpen": "refreshFNADoc()",
+            "@previewHtml":"v3-preview-static-fna-FGA.html",
+            "needs-analysis:JAProtectionUponDeath": {
+              "@key": ["JointApplicant","FinancialGoalsAnalysis","Assumptions"],
+              "@isVisible": "findElementInDetail(['JointApplicant', 'FinancialProtection', 'ProtectionUponDeath', 'Priority']).Value != 'NR'",
+              "@section": "needs-analysis:JAFinancialGoalsAnalysis",
+              "@onOpen": "setSlider()",
+              "needs-analysis:JACapitalSumRequirement": {},
+              "needs-analysis:JAProtectionUponDeathTemp1": {},
+              "needs-analysis:JAReplacementIncomeNeeded": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "ReplacementIncomeNeeded"]
+              },
+              "needs-analysis:JANumberOfYearsIncomeRequired": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "NumberOfYearIncomeRequired"]
+              },
+              "needs-analysis:JAProtectionUponDeathNetRateOfReturn": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "NetRateOfReturn"]
+              },
+              "needs-analysis:JALumpSumRequired": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "LumpSumRequired"]
+              },
+              "needs-analysis:JATotalCashRequirement": {},
+              "needs-analysis:JAProtectionUponDeathTemp2": {},
+              "needs-analysis:JAMortgageLoan": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "MortgageLoan"]
+              },
+              "needs-analysis:JAOtherOutstandingDebts": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "OtherOutstandingDebts"]
+              },
+              "needs-analysis:JATotalCashRequired": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "TotalCashRequired"]
+              },
+              "needs-analysis:JATotalRequiredForIncomeProtection": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "TotalRequiredForIncomeProtection"],
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:JAProtectionUponDeath",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountRequired",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:JAExistingFundsSetAside": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "ProtectionExistingFundsSetAside"],
+              	 "@format": "currency:0",
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:JAProtectionUponDeath",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountSaved",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:JATotalShortfallOrSurplus": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "ProtectionUponDeathInfo", "ProtectionTotalShortfallOrSurplus"]
+              },
+              "needs-analysis:JAProtectionUponDeathTemp3": {},
+              "needs-analysis:JComputeTagProtectionUponDeath": {}
+            },
+            "needs-analysis:JARetirementFund": {
+              "@key": ["JointApplicant","FinancialGoalsAnalysis","RetirementFundInfo"],
+              "@isVisible": "findElementInDetail(['JointApplicant', 'WealthAccumulation', 'RetirementFund', 'Priority']).Value != 'NR'",
+              "@section": "needs-analysis:JAFinancialGoalsAnalysis",
+              "@onOpen": "setSlider()",
+              "needs-analysis:JACurrentAgeInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "CurrentAge"]
+              },
+              "needs-analysis:JACurrentAnnualIncomeInRetireFundInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "CurrentAnnualIncome"]
+              },
+              "needs-analysis:JAExpectedRetirementAgeInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "ExpectedRetirementAge"]
+              },
+              "needs-analysis:JAPercentIncomeCanLiveInRetirementInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "PercentIncomeCanLiveInRetirement"]
+              },
+              "needs-analysis:JAAssumedRateOfSalaryIncreaseInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "AssumedRateOfSalaryIncrease"]
+              },
+              "needs-analysis:JARetirementFundTemp1InRF": {},
+              "needs-analysis:JAAnnualIncomeRequiredInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "AnnualIncomeRequired"]
+              },
+              "needs-analysis:JARetirementFundTemp2InRF": {},
+              "needs-analysis:JAYearToReceiveRetirementIncomeInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "YearToReceiveRetirementIncome"]
+              },
+              "needs-analysis:JARetirementNetRateOfReturnInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "NetRateOfReturn"]
+              },
+              "needs-analysis:JATotalAmountRequiredAtRetirementInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "TotalAmountRequiredAtRetirement"],
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:JARetirementFund",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountRequired",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:JAExistingFundsSetAsideInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "ExistingFundsSetAside"],
+              	 "@format": "currency:0",
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:JARetirementFund",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountSaved",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:JATotalShortfallOrSurplusInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "TotalShortfallOrSurplus"]
+              },
+              "needs-analysis:JAReturnOnInvestmentInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "ReturnOnInvestment"]
+              },
+              "needs-analysis:JAExpectedInterestEarnedFromTheExistingFundInRetireFundInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "ExpectedInterestEarnedFromTheExistingFund"]
+              },
+              "needs-analysis:JARetirementFundTemp3InRF": {},
+              "needs-analysis:JAPossibleOptionsInRF": {},
+              "needs-analysis:JARetirementFundTemp4InRF": {},
+              "needs-analysis:JASingleCapitalSumRequiredForRetirementInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "SingleCapitalSumRequiredForRetirement"]
+              },
+              "needs-analysis:JAAnnualSumRequiredForRetirementInRF": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "RetirementFundInfo", "AnnualSumRequiredForRetirement"]
+              },
+              "needs-analysis:JARetirementFundTemp5InRF": {},
+              "needs-analysis:JAComputeTagInRF": {}
+            },
+            "needs-analysis:JAEducationFund": {
+              "@key": ["JointApplicant","EducationFundInfos"],
+              "@section": "needs-analysis:JAFinancialGoalsAnalysis",
+              "@previewHtml":"v3-preview-static-fna-FGA.html",
+              "@isVisible": "findElementInDetail(['JointApplicant', 'WealthAccumulation', 'EducationFund', 'Priority']).Value != 'NR'",             
+              "needs-analysis:AddJAChildED": {
+		        "@key": ["needs-analysis:AddJAChildED"],
+		        "@section": "needs-analysis:JAEducationFund",
+		        "@icon": {
+		           "main": "fa fa-user",
+		           "mainAction": "addIcon"
+		        },
+		        "@cardType": "action",
+		        "@onClick": "importFromExistingProspect(card)",
+		        "@staticHtml": "list_existing_Children_fna_EducationFund.html"
+		       },
+              "needs-analysis:JAChild": {
+                "@key": ["factfind:EducationFundInfo"],
+                "@section": "needs-analysis:JAEducationFund",
+                "@onOpen": "setSlider()",
+                "@cardType": "template",
+                "@icon": {
+                  "subAction": "removeIcon"
+              },
+              "needs-analysis:JAEFName": {
+                "@key": ["ChildName"]
+              },
+              "needs-analysis:JAEFCurrentAge": {
+              	"@key": ["ChildCurrentAge"]
+              },
+              "needs-analysis:JAEFPlanEducationToStart": {
+              	"@key": ["PlanEducationToStart"]
+              },
+              "needs-analysis:JAEFEducationInflationRate": {
+              	"@key": ["InflationRate"]
+              },
+              "needs-analysis:JAEFTotalEducationFundRequiredToday": {
+              	 "@key": ["TotalEducationFundRequiredToday"]
+              },
+              "needs-analysis:JAEFTotalEducationFundRequired": {
+              	 "@key": ["TotalEducationFundRequiredTodayStartOfEducation"],
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:JAChild",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountRequired",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:JAEFExistingFundssetAside": {
+              	 "@key": ["ExistingFundsSetAside"],
+              	 "@format": "currency:0",
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:JAChild",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountSaved",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:JAEFExpectedRate": {},
+              "needs-analysis:JAEFExpectedRateOfReturn": {
+              	 "@key": ["ExpectedRateOfReturn"]
+              },
+              "needs-analysis:JAEFExpectedFutureValue": {
+              	 "@key": ["ExpectedFutureValueOfFundSetAside"]
+              },
+              "needs-analysis:JAEFTotalShortfallOrSurplus": {
+              	 "@key": ["TotalShortfallOrSurplus"]
+              },
+              "needs-analysis:JAEFReturnOnInvestment": {
+              	 "@key": ["ReturnOnInvestment"]
+              },
+              "needs-analysis:JAEFExpectedInterestEarned": {
+              	 "@key": ["ExpectedInterestEarnedFromTheExistingFund"]
+              },
+              "needs-analysis:JAEFPossibleOptions": {},
+              "needs-analysis:JAEducationFundTemp1": {},
+              "needs-analysis:JAEFSingleCapitalSum": {
+              	 "@key": ["SingleCapitalSumRequiredForRetirement"]
+              },
+              "needs-analysis:JAEFAnnualSumRrequired": {
+              	 "@key": ["AnnualSumRequiredForRetirement"]
+              },
+              "needs-analysis:JAEducationFundTemp2": {},
+              "needs-analysis:JAComputeTagEducationFund": {}
+              }
+            },
+            "needs-analysis:JAMediumLongTermSavings": {
+              "@key": ["JointApplicant","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo"],
+              "@section": "needs-analysis:JAFinancialGoalsAnalysis",
+              "@isVisible": "findElementInDetail(['JointApplicant', 'WealthAccumulation', 'MediumLongTermSavings', 'Priority']).Value != 'NR'",
+              "@onOpen": "setSlider()",
+              "needs-analysis:JAPurposeOfSaving": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "PurposeOfSaving"]
+              },
+              "needs-analysis:JAAmountRequired": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "AmountRequired"],
+              	 "@format": "currency:0",
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:JAMediumLongTermSavings",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountRequired",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:JAYearsOfSavings": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "YearOfSavings"]
+              },
+              "needs-analysis:JAMLTSExistingFundsSetAside": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "ExistingFundsSetAside"],
+              	 "@format": "currency:0",
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:JAMediumLongTermSavings",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountSaved",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:JAMLTSTotalShortfallOrSurplus": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "TotalShortfallOrSurplus"]
+              },
+              "needs-analysis:JAMLTSReturnOnInvestment": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "ReturnOnInvestment"]
+              },
+              "needs-analysis:JAMLTSExpectedInterestEarned": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "ExpectedInterestEarnedFromTheExistingFund"]
+              },
+              "needs-analysis:JAMediumLongTermSavingsTemp1": {},
+              "needs-analysis:JAMLTSPossibleOptions": {},
+              "needs-analysis:JAMediumLongTermSavingsTemp2": {},
+              "needs-analysis:JASingleCapitalSum": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "SingleCapitalSumRequiredForRetirement"]
+              },
+              "needs-analysis:JAAnnualSumRequiredForSaving": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MediumLongTermSavingsInfo", "AnnualSumRequiredForRetirement"]
+              },
+              "needs-analysis:JAMediumLongTermSavingsTemp3": {},
+              "needs-analysis:JAMLTSComputeTag": {}
+            },
+            "needs-analysis:JACriticalIllness": {
+              "@key": ["JointApplicant","FinancialGoalsAnalysis", "CriticalIllnessInfo"],
+              "@section": "needs-analysis:JAFinancialGoalsAnalysis",
+              "@isVisible": "findElementInDetail(['JointApplicant', 'FinancialProtection', 'CriticalIllness', 'Priority']).Value != 'NR'",
+              "@onOpen": "setSlider()",
+              "needs-analysis:JACICapitalSumRequirement": {},
+              "needs-analysis:JACriticalIllnessTemp1": {},
+              "needs-analysis:JACIReplacementIncomeNeeded": {
+              	  "@key": ["JointApplicant","FinancialGoalsAnalysis", "CriticalIllnessInfo", "ReplacementIncomeNeeded"]
+              },
+              "needs-analysis:JACINumberOfYearsIncomeRequired": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "CriticalIllnessInfo", "NumberOfYearIncomeRequired"]
+              },
+              "needs-analysis:JACINetRateOfReturn": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "CriticalIllnessInfo", "NetRateOfReturn"]
+              },
+              "needs-analysis:JACILumpSumRequired": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "CriticalIllnessInfo", "LumpSumRequired"]
+              },
+              "needs-analysis:JACITotalCashRequirement": {},
+              "needs-analysis:JACriticalIllnessTemp2": {},
+              "needs-analysis:JACITreatmentCost": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "CriticalIllnessInfo", "TreatmentCost"]
+              },
+              "needs-analysis:JACIOthers": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "CriticalIllnessInfo", "Others"]
+              },
+              "needs-analysis:JACITotalCashRequired": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "CriticalIllnessInfo", "TotalCashRequired"]
+              },
+              "needs-analysis:JACITotalRequiredForCriticalIllness": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "CriticalIllnessInfo", "TotalRequiredForCriticalIllness"],
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:JACriticalIllness",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountRequired",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:JACriticalIllnessTemp3": {},
+              "needs-analysis:JACIComputeTag": {}
+            },
+            "needs-analysis:JAMortgageProtection": {
+              "@key": ["JointApplicant","FinancialGoalsAnalysis", "MortgageProtection"],
+              "@section": "needs-analysis:JAFinancialGoalsAnalysis",
+              "@isVisible": "findElementInDetail(['JointApplicant', 'FinancialProtection', 'Mortgage', 'Priority']).Value != 'NR'",
+              "@onOpen": "setSlider()",
+              "needs-analysis:JAMPMortgageCalculator": {},
+              "needs-analysis:JAMortgageProtectionTemp1": {},
+              "needs-analysis:JAMPMortgageValue": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MortgageProtection", "MortgageValue"]
+              },
+              "needs-analysis:JAMPLoanAmount": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MortgageProtection", "LoanAmount"]
+              },
+              "needs-analysis:JAMPLoanInterestRate": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MortgageProtection", "LoanInterestRate"]
+              },
+              "needs-analysis:JAMPLoanTerm": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MortgageProtection", "LoanTerm"]
+              },
+              "needs-analysis:JAMPTotalPaid": {
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MortgageProtection", "TotalPaid"],
+              	 "preview": [
+	                {
+	                  "cardName": "needs-analysis:JAMortgageProtection",
+	                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountRequired",
+	                  "priority": 50
+	                }	                
+	              ]
+              },
+              "needs-analysis:JAMPMonthlyPayment": {	 
+              	 "@key": ["JointApplicant","FinancialGoalsAnalysis", "MortgageProtection", "MonthlyPayment"]
+              },
+              "needs-analysis:JAMortgageProtectionTemp2": {},
+              "needs-analysis:JAMPComputeTag": {}
+            }
+          }
+        },
+        "needs-analysis:Recommendations": {
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@isVisible": "moduleService.isInsideView()",
+          "needs-analysis:ProductNameRider": {},
+          "needs-analysis:RecommendationsReasons1": {
+          	"key": ["ViewAcceptedBIDetails", "ReasonsOfEachPlan"]
+          },
+          "needs-analysis:RecommendationsReasons2": {
+          	"key": ["ViewAcceptedBIDetails", "BenefitsOfEachPlan"]
+          },
+          "needs-analysis:RecommendationsReasons3": {
+          	"key": ["ViewAcceptedBIDetails", "LimitationsRisksOfEachPlan"]
+          }
+        },
+        "needs-analysis:Declaration": {
+          "@isVisible":  "moduleService.isInsideView()",
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@key": ["InsideFNA", "Declarations"],
+          "needs-analysis:Declaration": {
+          	 "@key": ["InsideFNA", "Declarations", "BenefitAndRiskQuestions"]
+          },
+          "needs-analysis:Declaration1": {
+          	 "@key": ["InsideFNA", "Declarations", "BenefitIllustrationQuestions"]
+          },
+          "needs-analysis:Declaration2": {
+          	 "@key": ["InsideFNA", "Declarations", "PolicyOwnerQuestions"]
+          }
+        },
+        "emptyCard":{
+          "@section": "needs-analysis:NeedsAnalysis",
+          "@isVisible": false,
+          "fullNameClient":{
+            "type": "",
+            "@key": ["Client", "ContactInformation", "FullName"],
+            "preview": [
+                {
+                  "cardName": "needs-analysis:Client",
+                  "label": "v3.mynewworkspace.portlet.label.needs-analysis:Children.FullName",
+                  "priority": 50
+                }	                
+             ]
+          },
+          "birthDateClient":{
+            "type": "",
+            "@key": ["Client", "ContactInformation", "BirthDate"],
+            "@format": "datetime",
+            "preview": [
+                {
+                  "cardName": "needs-analysis:Client",
+                  "label": "v3.mynewworkspace.portlet.label.needs-analysis:Children.DateofBirth",
+                  "priority": 50
+                }	                
+             ]
+          }, 
+          "genderClient":{
+            "type": "",
+            "@key": ["Client", "ContactInformation", "Gender"],
+            "labelKey": "v3.mynewworkspace.portlet.label.person:Gender",
+            "valuePrefix": "v3.pnc.gender.enum.",
+            "preview": [
+                {
+                  "cardName": "needs-analysis:Client",
+                  "label": "v3.mynewworkspace.portlet.label.needs-analysis:Children.Gender",
+                  "priority": 50
+                }	                
+             ]
+          },                
+          "fullNameJointApplicant":{
+            "type": "",
+            "@key": ["JointApplicant", "ContactInformation", "FullName"],
+            "preview": [
+                {
+                  "cardName": "needs-analysis:JointApplicant",
+                  "label": "v3.mynewworkspace.portlet.label.needs-analysis:Children.FullName",
+                  "priority": 50
+                }	                
+             ]
+          },
+          "birthDateJointApplicant":{
+            "type": "",
+            "@key": ["JointApplicant", "ContactInformation", "BirthDate"],
+            "@format": "datetime",
+            "preview": [
+                {
+                  "cardName": "needs-analysis:JointApplicant",
+                  "label": "v3.mynewworkspace.portlet.label.needs-analysis:Children.DateofBirth",
+                  "priority": 50
+                }	                
+             ]
+          },
+          "genderJointApplicant":{
+            "type": "",
+            "@key": ["JointApplicant", "ContactInformation", "Gender"],
+            "labelKey": "v3.mynewworkspace.portlet.label.person:Gender",
+            "valuePrefix": "v3.pnc.gender.enum.",
+            "preview": [
+                {
+                  "cardName": "needs-analysis:JointApplicant",
+                  "label": "v3.mynewworkspace.portlet.label.needs-analysis:Children.Gender",
+                  "priority": 50
+                }	                
+             ]
+          },                    
+          "riskProfileInsides":{
+            "type": "",
+            "@key": ["Client", "ContactInformation", "InvestmentRiskProfile"],
+            "preview": [
+                {
+                  "cardName": "needs-analysis:SummaryInSide",
+                  "label": "v3.mynewworkspace.portlet.label.needs-analysis:RiskProfile",
+                  "priority": 50
+                }	                
+             ]
+          },
+          "numberGoalsInsides":{
+            "type": "",
+            "@key": ["Client", "NumberOfGoals"],
+            "preview": [
+                {
+                  "cardName": "needs-analysis:SummaryInSide",
+                  "label": "v3.mynewworkspace.portlet.label.needs-analysis.Preview.NumberofGoals",
+                  "priority": 50
+                }	                
+             ]
+          },
+          "productNameInsides":{
+            "type": "",
+            "@key": ["InsideFNAs", "InsideFNA", "Recommendations", "ProductName"],
+            "valuePrefix": "v3.mynewworkspace.portlet.label.ipos-product.",
+            "preview": [
+                {
+                  "cardName": "needs-analysis:Recommendations",
+                  "label": "v3.mynewworkspace.portlet.label.illustration-gtl:product",
+                  "priority": 50
+                }	                
+             ]
+          }
+        }
+      }
+    }
+  }
+}

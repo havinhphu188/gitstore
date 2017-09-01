@@ -1,0 +1,238 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Base plan -->
+<div fieldId="illustration-term-life:EffectiveDate" class="col-xs-12 col-sm-6 col-md-3 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Effective Date</span>
+    </div>
+	<div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+        <input ng-change="" ng-disabled="" type="text"  maxlength="120" ng-model="asd" />
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['EffectiveDate']).errorMessage | translate"></span>
+    </div> 	
+</div>
+<div fieldId="illustration-term-life:BackdatingDate" class="col-xs-12 col-sm-6 col-md-3 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Backdating Date</span>
+    </div>
+	<div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+        <input ng-change="" ng-disabled="" type="text"  maxlength="120" ng-model="asd" />
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BackdatingDate']).errorMessage | translate"></span>
+    </div> 	
+</div>
+<div fieldId="illustration-term-life:PolicyTerm" class="col-xs-12 col-sm-6 col-md-3 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Policy Term</span>
+    </div>
+	<div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+        <md-select ng-change="" ng-disabled="" ng-model="abc" class="md-select-Style">
+      		<md-option>5</md-option>
+      		<md-option>10</md-option>
+      		<md-option>15</md-option>
+      		<md-option>20</md-option>
+      		<md-option>25</md-option>
+       	</md-select>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyTerm']).errorMessage | translate"></span>
+    </div> 	
+</div>
+<div fieldId="illustration-term-life:SumAssured" class="col-xs-12 col-sm-6 col-md-3 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Sum Assured</span>
+    </div>
+	<div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+        <input ng-change="" ng-disabled="" type="text"  maxlength="120" ng-model="asd" />
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['SumAssured']).errorMessage | translate"></span>
+    </div> 	
+</div>
+<div fieldId="illustration-term-life:PaymentMode" class="col-xs-12 col-sm-6 col-md-3 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Payment Mode</span>
+    </div>
+	<div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+        <md-select ng-change="" ng-disabled="" ng-model="abc" class="md-select-Style">
+      		<md-option>Anual</md-option>
+      		<md-option>Half-Yearly</md-option>
+      		<md-option>Quaterly</md-option>
+      		<md-option>Monthly</md-option>
+       	</md-select>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PaymentMode']).errorMessage | translate"></span>
+    </div> 	
+</div>
+<div fieldId="illustration-term-life:Currency" class="col-xs-12 col-sm-6 col-md-3 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Currency</span>
+    </div>
+	<div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+        <md-select ng-change="" ng-disabled="" ng-model="abc" class="md-select-Style">
+      		<md-option>USD</md-option>
+      		<md-option>SGD</md-option>
+      		<md-option>RM</md-option>
+       	</md-select>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Currency']).errorMessage | translate"></span>
+    </div> 	
+</div>
+
+<!-- Party -->
+<div fieldId="PartyType" class="col-xs-12 col-sm-6 col-md-3 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Party Type</span>
+    </div>
+	<div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+        <md-select ng-change="" ng-disabled="" ng-model="abc" class="md-select-Style">
+      		<md-option>Owner</md-option>
+      		<md-option>Life Assured</md-option>
+      		<md-option>Children</md-option>
+      		<md-option>Payor</md-option>
+       	</md-select>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PartyType']).errorMessage | translate"></span>
+    </div> 	
+</div>
+<div fieldId="Title" class="col-xs-12 col-sm-6 col-md-3 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Title</span>
+    </div>
+	<div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+        <md-select ng-change="" ng-disabled="" ng-model="abc" class="md-select-Style">
+      		<md-option>Colonel</md-option>
+      		<md-option>Dr</md-option>
+      		<md-option>Mr</md-option>
+      		<md-option>Mrs</md-option>
+      		<md-option>Ms</md-option>
+      		<md-option>Mdm</md-option>
+       	</md-select>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Title']).errorMessage | translate"></span>
+    </div> 	
+</div>
+<div fieldId="FullName" class="col-xs-12 col-sm-6 col-md-3 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Full Name</span>
+    </div>
+	<div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+        <input ng-change="" ng-disabled="" type="text"  maxlength="120" ng-model="asd" />
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['FullName']).errorMessage | translate"></span>
+    </div> 	
+</div>
+<div fieldId="Gender" class="col-xs-12 col-sm-6 col-md-3 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Gender</span>
+    </div>
+	<div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+        <v3-switch-new style="float:left;" switch-size="" switch-name="gender1" 
+	           switch-model="gender1" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="gender">
+		</v3-switch-new>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Gender']).errorMessage | translate"></span>
+    </div> 	
+</div>
+<div fieldId="BirthDate" class="col-xs-12 col-sm-6 col-md-4 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Birth Date</span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+     	<input type="text" ng-model="abc" />
+       	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BirthDate']).errorMessage | translate"></span>
+     </div>
+</div>
+<div fieldId="SmokerStat" class="col-xs-12 col-sm-6 col-md-3 col-lg-6 v3-column-content">
+	<div flex-sm="100" flex="30" layout="row" layout-align="start center">
+        <span>Smoker Status</span>
+    </div>
+	<div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+		<v3-switch-new style="float:left;" switch-size="" switch-name="SmokerStatus1" 
+	           switch-model="SmokerStatus1" 
+	           switch-default-value="" switch-disabled="false" 
+	           switch-options="SmokerStatus">
+		</v3-switch-new>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['SmokerStat']).errorMessage | translate"></span>
+    </div> 	
+</div>
+<div fieldId="illustration-term-life:MainInsured" class="col-xs-12 col-sm-6 col-md-4 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Main Insured</span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+     	<input type="text" ng-model="abc" />
+       	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainInsured']).errorMessage | translate"></span>
+     </div>
+</div>
+<div fieldId="illustration-term-life:Relationship" class="col-xs-12 col-sm-6 col-md-4 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Relationship</span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+     	<md-select ng-change="" ng-disabled="" ng-model="abc" class="md-select-Style">
+      		<md-option>Children</md-option>
+      		<md-option>Spouse</md-option>
+      		<md-option>Parent</md-option>
+       	</md-select>
+       	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Relationship']).errorMessage | translate"></span>
+     </div>
+</div>
+<div fieldId="illustration-term-life:Industry" class="col-xs-12 col-sm-6 col-md-4 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Industry</span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+     	<md-select ng-change="" ng-disabled="" ng-model="abc" class="md-select-Style">
+      		<md-option>Airport</md-option>
+      		<md-option>Baker</md-option>
+      		<md-option>Electric</md-option>
+       	</md-select>
+       	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Industry']).errorMessage | translate"></span>
+     </div>
+</div>
+<div fieldId="illustration-term-life:Occupation" class="col-xs-12 col-sm-6 col-md-4 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Occupation</span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+     	<md-select ng-change="" ng-disabled="" ng-model="abc" class="md-select-Style">
+      		<md-option>Butcher</md-option>
+      		<md-option>Designer</md-option>
+      		<md-option>Chemist</md-option>
+       	</md-select>
+       	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>
+     </div>
+</div>
+
+<!-- Riders -->
+<div fieldId="RiderSumInsured" class="col-xs-12 col-sm-6 col-md-4 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Rider Sum Insured</span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+     	<input type="text" ng-model="abc" pos-autonumeric decimal="0" />
+       	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['RiderSumInsured']).errorMessage | translate"></span>
+     </div>
+</div>
+<div fieldId="RiderType" class="col-xs-12 col-sm-6 col-md-4 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Rider Type</span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+     	<md-select ng-change="" ng-disabled="" ng-model="abc" class="md-select-Style">
+      		<md-option>CCII</md-option>
+      		<md-option>CCIIW</md-option>
+      		<md-option>AC</md-option>
+      		<md-option>DP</md-option>
+       	</md-select>
+       	<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Occupation']).errorMessage | translate"></span>
+     </div>
+</div>

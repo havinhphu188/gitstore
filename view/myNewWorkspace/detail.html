@@ -1,0 +1,168 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+maximum-scale=1.0, user-scalable=no"/>
+
+<!-- UI have left Sidebar -->
+<div ng-cloak  class="container-fluid v3-padding-0" id="newWorkspace" ng-if="commonService.options.isShowLeftSideBar">
+   <!--  <div class="float-action action-right md-whiteframe-z2 pointer" ng-click='showRelatedDoc($event)'  ng-show="vars.isShowLeftSidebar">
+        <i class="fa fa-link"></i>
+    </div> -->
+    <div ng-show="uiFrameworkService.isOpenedDetail" class="common-menu">
+    	<action-bar></action-bar> 
+    </div>   
+    <div ng-click="toggleAllBar()" style="min-height: 830px;" class="row v3-container-wrapper">
+
+        <div class="col-xs-12 col-md-10 col-md-offset-1 col-sm-12 col-lg-10 col-lg-offset-1">
+        	<card class="documentList" ng-repeat="card in viewProp.viewObject[0] track by $index" level="0" when-click="chooseCard(card, 0, $index, clickEvent)" ></card>
+        </div>   
+        <div class="col-xs-12 col-md-10 col-md-offset-1 col-sm-12 col-lg-10 col-lg-offset-1">
+        	<ui-element ng-repeat="uiElement in viewProp.viewUiEles track by $index" />
+        </div>   
+        <div class="col-xs-12 col-md-10 col-md-offset-1 col-sm-12 col-lg-10 col-lg-offset-1 animated1 zoomIn" ng-show="showProduct">
+        	<div class="row">
+        		<card ng-repeat="card in products track by $index"  ng-click="createCase(card.name)" ></card>
+        	</div>
+            
+        </div>    
+	    <div ng-if="fileReaderService.isReader" ng-include src="contextPathTheme + '/views/template/fileReader/fileReader.html'">
+	    </div>
+	    
+	</div>	    	    			
+</div>
+
+<!-- UI have Breadcrum -->
+
+<div ng-cloak  class="container-fluid" id="newWorkspace" ng-if="!commonService.options.isShowLeftSideBar">  
+    <div ng-show="uiFrameworkService.isOpenedDetail" class="common-menu md-whiteframe-z1">
+    	<action-bar></action-bar> 
+    </div>
+    <!-- Start breadcrum for mobile -->	    
+    <div hide-lg hide-gt-lg class="v3-bread-crum-icon-bars-mobile" ng-show="!isLoadBreadCrum && viewProp.historySelect.length > -1">
+	    <md-fab-speed-dial md-direction="down" ng-class="md-fling">	      
+			<md-fab-trigger>	          
+				<md-button class="md-fab v3-bread-crum-icon-button-trigger">
+				  <span>
+				  	<i ng-if="true" class="fa fa-bars"></i>
+				  	<i ng-if="false" class="fa fa-times"></i>
+				  </span>
+				</md-button>	          
+			</md-fab-trigger>
+			<md-fab-actions>        
+     			<md-button  class="md-mini v3-bread-crum-icon-button-action {{uiStructureRoot.cssClass}}" ng-click="closeChildCardsBreadCrum(0, uiStructureRoot)">
+					<md-tooltip md-direction="right" md-visible="tooltipVisible1" md-autohide="true">
+	          			{{'v3.mynewworkspace.portlet.label.'+ uiStructureRoot.name | translate }}
+					</md-tooltip>
+        			<span ng-if="uiStructureRoot.icon.main != undefined"><i class="{{uiStructureRoot.icon.main}}"></i></span>
+		    		<span ng-if="uiStructureRoot.icon.main == undefined"><i class="{{uiStructureRoot.view.mainIcon.content}}"></i></span>
+     			</md-button>	                 	                   
+			</md-fab-actions>        
+	      	<md-fab-actions ng-repeat="breadCrum in viewProp.historySelect track by $index">	        
+		        <md-button  class="md-mini v3-bread-crum-icon-button-action {{breadCrum.refUiStructure.cssClass}}" ng-click="closeChildCardsBreadCrum($index, breadCrum)">
+		       		<md-tooltip md-direction="right" md-visible="tooltipVisible1" md-autohide="true">
+		          		{{'v3.mynewworkspace.portlet.label.'+ breadCrum.refUiStructure.name | translate }}
+		          	</md-tooltip>
+		          	<span ng-if="breadCrum.refUiStructure.icon.main != undefined"><i class="{{breadCrum.refUiStructure.icon.main}}"></i></span>
+		    		<span ng-if="breadCrum.refUiStructure.icon.main == undefined"><i class="{{breadCrum.refUiStructure.view.mainIcon.content}}"></i></span>
+		        </md-button>	                    	        	          
+	      	</md-fab-actions>	        
+	    </md-fab-speed-dial>
+  	</div> 
+  	<!-- end breadcrum for mobile -->
+    
+     <!-- Button Show/hide breadcrum for desktop -->	  
+<!--     <div hide-sx hide-sm hide-md class="v3-bread-crum-icon-bars md-whiteframe-z1" ng-show="vars.isShowLeftSidebar && !isLoadBreadCrum && viewProp.historySelect.length > -1" ng-click="checkLoadBreadCrum()"> -->
+<!--     	<span><i class="fa fa-caret-right fa-3x"></i></span> -->
+<!--     </div>  	  	     -->
+    <div class="row-fluid"> 
+     	<!-- Start breadcrum for desktop -->	     	
+    	<div class="col-sm-1 col-md-2" id="containerLeft">
+    		<div class="v3-bread-crum-list md-whiteframe-z2" ng-show="isLoadBreadCrum == true && viewProp.historySelect.length > -1 && uiStructureRoot != undefined" >
+    			<span class="v3-bread-crum-icon-remove md-whiteframe-z1" ng-click="checkLoadBreadCrum()">
+		    		<i  class="fa fa-caret-left fa-3x pointer"></i>
+		    	</span>
+	    		<div class="row-fluid v3-bread-crum-container">
+	    			<div class="col-xs-10 col-xs-offset-1 v3-bread-crum {{uiStructureRoot.cssClass}}" ng-click="closeChildCardsBreadCrum(0, uiStructureRoot)" >
+	    				<div class="row-fluid v3-bread-crum-icon">
+		    				<span ng-if="uiStructureRoot.icon.main != undefined"><i class="{{uiStructureRoot.icon.main}}"></i></span>
+		    				<span ng-if="uiStructureRoot.icon.main == undefined"><i class="{{uiStructureRoot.view.mainIcon.content}}"></i></span>
+		    			</div>
+		    			<div class="row-fluid v3-bread-crum-title">
+		    				<span>{{'v3.mynewworkspace.portlet.label.'+ uiStructureRoot.name | translate }}</span>		    				
+		    			</div>		    			
+		    		</div>    		
+		    		<div class="col-xs-10 col-xs-offset-1 v3-bread-crum {{breadCrum.refUiStructure.cssClass}}"  ng-repeat="breadCrum in viewProp.historySelect track by $index" ng-click="closeChildCardsBreadCrum($index, breadCrum)" >
+		    			<div class="row-fluid v3-bread-crum-icon">
+		    				<span ng-if="breadCrum.refUiStructure.icon.main != undefined"><i class="{{breadCrum.refUiStructure.icon.main}}"></i></span>
+		    				<span ng-if="breadCrum.refUiStructure.icon.main == undefined"><i class="{{breadCrum.refUiStructure.view.mainIcon.content}}"></i></span>
+<!-- 		    				<span ng-if="breadCrum.refUiStructure.icon.main == undefined" card-icon="{{breadCrum.refUiStructure.view.mainIcon}}"></span> -->
+		    			</div>
+		    			<div class="row-fluid v3-bread-crum-title">
+		    				<span class="v3-auto-text-ellipsis-2" title="{{'v3.mynewworkspace.portlet.label.'+ breadCrum.refUiStructure.name | translate }}">{{'v3.mynewworkspace.portlet.label.'+ breadCrum.refUiStructure.name | translate }}</span>		    				
+		    			</div>		    			
+		    		</div>
+	    		</div>
+    		</div>
+	    </div>
+	     <!-- End breadcrum for desktop -->	  
+	    <div class="col-sm-11 col-md-10" id="containerRight">
+	    	<div ng-click="toggleAllBar()" class="row v3-container-wrapper">
+		        <div class="col-xs-12" ng-if="viewProp.layoutStyle != 'sec'">
+		        	<card class="documentList" ng-repeat="card in viewProp.viewObject[0] track by $index" level="0" 
+		        			when-click="chooseCard(card, 0, $index, clickEvent)" ></card>
+				</div>
+    		    <div ng-init="selectStep(viewProp)" class="col-xs-12" layout="row" ng-if="viewProp.layoutStyle == 'sec'">    		    	
+		        	<step-card ng-if="viewProp.initStep != undefined" ng-init="moveToSection(true, card, undefined, viewProp.initStep)" flex class="documentList" ng-repeat="card in viewProp.viewObject[0] track by $index" level="0" 
+		        			when-click="chooseCard(card, 0, $index, clickEvent)" ></step-card>		        
+		        </div>
+		        <div class="col-xs-12" layout="row" ng-if="viewProp.layoutStyle == 'sec'">
+		        	<div class="col-xs-12 col-md-12 col-md-9 col-lg-9 v3-padding-0">		        	
+		        		<div class="section-column" id="section-column"></div>
+		        		<div class="section-column1" id="section-column1"></div>
+						<bottom-pannel></bottom-pannel>
+		        	</div>
+			        <div class="hidden-xs hidden-sm col-md-3 col-lg-3 information-section" id="sec-side" style="padding-left: 0px; padding-right: 0px">			        	   
+		        		<side-pannel></side-pannel>	        		
+		        	</div>
+		        </div>
+		        
+		        <div class="col-xs-12">
+		        	<ui-element ng-repeat="uiElement in viewProp.viewUiEles track by $index" />
+		        </div>   
+		        <div class="col-xs-12 animated zoomIn {{card.name}}" ng-show="showProduct">
+		            <card ng-repeat="card in products track by $index"  when-click="createCase(card.name)" class="productList"></card>
+		        </div>    
+		        <div class="col-xs-12 animated zoomIn {{card.name}}" ng-show="showContact">
+		            <card ng-repeat="card in contacts track by $index"  when-click="createContact(card.name)"></card>
+		        </div>
+			    <div ng-if="fileReaderService.isReader" ng-include src="contextPathTheme + '/views/template/fileReader/fileReader.html'">
+			    </div>
+			    <div ng-if="isUploadDS" ng-include src="contextPathTheme + '/view/myNewWorkspace/template/fileUpload.html'" style="width:100%">
+			    </div>
+				<div ng-if="isShowPreviewPDF" ng-include src="contextPathRoot + 'view/myNewWorkspace/template/pdfTemplates/previewPDF.html'" style="width:100%">
+				</div>
+			</div>
+	    </div>
+    </div>    	    	    			
+</div>
+
+
+
+

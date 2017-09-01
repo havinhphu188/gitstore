@@ -1,0 +1,429 @@
+{
+	"IposDocument": {
+		"Data": {
+			"illustration-endowment": {
+				"key": ["Illustration"],
+				"section": "illustration-endowment",
+				"illustration-endowment:Summary": {
+					"key": [],
+					"section": "illustration-endowment",
+					"isShowValidationIcon": "false",
+					"isShowNoOfEmptyField": "false",
+					"@previewHtml": "v3-preview-static-endowment-illustration-summary.html",
+					"illustration-endowment:ProductName": {
+						"key": ["Product"],
+						"preview": [{
+							"cardName": "illustration-endowment",
+							"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.Product",
+							"priority": 50
+						}],
+						"valuePrefix": "v3.mynewworkspace.portlet.label.productName."
+					},
+					"illustration-endowment:QuotationNo": {
+						"key": ["DocName"]
+					},
+					"illustration-endowment:Status": {
+						"key": ["BusinessStatus"],
+						"preview": [{
+							"cardName": "illustration-endowment",
+							"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.Status",
+							"priority": 50
+						}],
+						"valuePrefix": "v3.document.status."
+					},
+					"illustration-endowment:CreatedDate": {
+						"key": ["CreatedDate"],
+						"format": "datetime:DD/MM/YYYY",
+						"preview": [{
+							"cardName": "illustration-endowment:Summary",
+							"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.CreatedDate",
+							"priority": 50
+						}]
+					},
+					"illustration-endowment:LastUpdatedDate": {
+						"key": ["UpdatedDate"],
+						"format": "datetime:DD/MM/YYYY",
+						"preview": [{
+							"cardName": "illustration-endowment",
+							"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.LastUpdatedDate",
+							"priority": 50
+						}]
+					},
+					"illustration-endowment:ProposerName": {
+						"key": ["PolicyOwner",
+						"FullName"]
+					},
+					"illustration-endowment:InsuredName": {
+						"key": ["LifeInsured",
+						"FullName"]
+					},
+					"illustration-endowment:PreviewQuotationDetail": {
+						
+					}
+				},
+				"illustration-endowment:Proposer": {
+					"key": ["PolicyOwner"],
+					"section": "illustration-endowment",
+					"illustration-endowment:Title": {
+						"key": ["PolicyOwner",
+						"Salutation"],
+						"valuePrefix": "v3.mynewworkspace.portlet.label.productName."
+					},
+					"illustration-endowment:FullName": {
+						"key": ["PolicyOwner",
+						"FullName"],
+						"preview": [{
+							"cardName": "illustration-endowment:Proposer",
+							"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.ProposerName",
+							"priority": 50
+						}]
+					},
+					"illustration-endowment:DateOfBirth": {
+						"key": ["PolicyOwner",
+						"BirthDate"],
+						"format": "datetime:DD/MM/YYYY",
+						"preview": [{
+							"cardName": "illustration-endowment:Proposer",
+							"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.ProposerDateOfBirth",
+							"priority": 40
+						}]
+					},
+					"illustration-endowment:Age": {
+						"key": ["PolicyOwner",
+						"Age"]
+					},
+					"illustration-endowment:Gender": {
+						"key": ["PolicyOwner",
+						"Gender"],
+						"preview": [{
+							"cardName": "illustration-endowment:Proposer",
+							"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.ProposerGender",
+							"priority": 50
+						}],
+						"valuePrefix": "v3.gender.enum."
+					},
+					"illustration-endowment:Smoking": {
+						"key": ["PolicyOwner",
+						"SmokerStatus"]
+					},
+					"illustration-endowment:BusinessIndustry": {
+						"key": ["PolicyOwner",
+						"BusinessIndustry"]
+					},
+					"illustration-endowment:Occupation": {
+						"key": ["PolicyOwner",
+						"Occupation"]
+					},
+					"illustration-endowment:BeneficiaryBirthdate": {
+						"key": ["BeneficiaryBirthdate"],
+						"format": "datetime:DD/MM/YYYY"
+					},
+					"illustration-endowment:BeneficiaryAge": {
+						"key": ["BeneficiaryAge"]
+					}
+				},
+				"illustration-endowment:AddLifeInsured": {
+					"key": [],
+					"isVisible": "moduleService.ShowLATile == 'N' && findElementInDetail(['LAIsTheSameWithPO']).Value == 'Y' && moduleService.findElementInDetail_V3(['DocStatus']).BusinessStatus != 'ACCEPTED' && activeRole != commonService.CONSTANTS.USER_ROLES.UW",
+					"section": "illustration-endowment",
+					"icons": {
+						"cardIcon": {
+							"content": "fa fa-user"
+						},
+						"cardIconPlus": {
+							
+						}
+					},
+					"cardType": "action",
+					"onClick": "moduleService.ShowLATile = 'Y'; showLifeInsuredCard($event)"
+				},
+				"illustration-endowment:LifeInsuredInformation": {
+					"section": "illustration-endowment",
+					"isVisible": "moduleService.ShowLATile == 'Y' || findElementInDetail(['LAIsTheSameWithPO']).Value == 'N'",
+					"icons": {
+						"cardIcon": {
+							"content": "fa fa-bar-chart"
+						},
+						"removeCard": {
+							"onClick": "moduleService.ShowLATile = 'N'; removeLifeInsured($event)",
+							"isVisible": "moduleService.findElementInDetail_V3(['DocStatus']).BusinessStatus != 'ACCEPTED'"
+						}
+					},
+					"illustration-endowment:LifeInsuredImportFromExistingProspect": {
+						"isVisible": "findElementInDetail(['LAIsTheSameWithPO']).Value == 'Y'",
+						"section": "illustration-endowment:LifeInsuredInformation",
+						"icons": {
+							"cardIcon": {
+								"content": "fa fa-bar-chart"
+							}
+						},
+						"cardType": "action",
+						"staticHtml": "list_existing_lifeinsured.html"
+					},
+					"illustration-endowment:LifeInsuredAdd": {
+						"isVisible": "findElementInDetail(['LAIsTheSameWithPO']).Value == 'Y'",
+						"section": "illustration-endowment:LifeInsuredInformation",
+						"icons": {
+							"cardIcon": {
+								"content": "fa fa-bar-chart"
+							},
+							"cardIconPlus": {
+								
+							}
+						},
+						"cardType": "action",
+						"onClick": "addLifeInsuredCard($event)"
+					},
+					"illustration-endowment:LifeInsured": {
+						"key": ["LifeInsured"],
+						"section": "illustration-endowment:LifeInsuredInformation",
+						"icons": {
+							"cardIcon": {
+								"content": "fa fa-bar-chart"
+							},
+							"removeCard": {
+								"onClick": "removeLifeInsured($event)",
+								"isVisible": "moduleService.findElementInDetail_V3(['DocStatus']).BusinessStatus != 'ACCEPTED'"
+							}
+						},
+						"isVisible": "findElementInDetail(['LAIsTheSameWithPO']).Value == 'N'",
+						"illustration-endowment:RelationshipToProposer": {
+							"key": ["LARelationship"]
+						},
+						"illustration-endowment:RelationshipToProposerFake": {
+							
+						},
+						"illustration-endowment:LITitle": {
+							"key": ["LifeInsured",
+							"Salutation"]
+						},
+						"illustration-endowment:LIName": {
+							"key": ["LifeInsured",
+							"FullName"],
+							"preview": [{
+								"cardName": "illustration-endowment:LifeInsured",
+								"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.LifeInsuredName",
+								"priority": 50
+							},{
+								"cardName": "illustration-endowment:LifeInsuredInformation",
+								"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.LifeInsuredName",
+								"priority": 50
+							}]
+						},
+						"illustration-endowment:LIDateOfBirth": {
+							"key": ["LifeInsured",
+							"BirthDate"],
+							"format": "datetime:DD/MM/YYYY",
+							"preview": [{
+								"cardName": "illustration-endowment:LifeInsured",
+								"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.LifeInsuredDateOfBirth",
+								"priority": 40
+							},{
+								"cardName": "illustration-endowment:LifeInsuredInformation",
+								"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.LifeInsuredDateOfBirth",
+								"priority": 40
+							}]
+						},
+						"illustration-endowment:LIAge": {
+							"key": ["LifeInsured",
+							"Age"],
+							"valuePrefix": "v3.pnc.smoker.enum."
+						},
+						"illustration-endowment:LIGender": {
+							"key": ["LifeInsured",
+							"Gender"],
+							"preview": [{
+								"cardName": "illustration-endowment:LifeInsured",
+								"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.LifeInsuredGender",
+								"priority": 50
+							},{
+								"cardName": "illustration-endowment:LifeInsuredInformation",
+								"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.LifeInsuredGender",
+								"priority": 50
+							}],
+							"valuePrefix": "v3.gender.enum."
+						},
+						"illustration-endowment:LISmoking": {
+							"key": ["LifeInsured",
+							"SmokerStatus"]
+						},
+						"illustration-endowment:LIBusinessIndustry": {
+							"key": ["LifeInsured",
+							"BusinessIndustry"]
+						},
+						"illustration-endowment:LIOccupation": {
+							"key": ["LifeInsured",
+							"Occupation"]
+						}
+					}
+				},
+				"illustration-endowment:BasicPlan": {
+					"key": ["BasicPlan"],
+					"section": "illustration-endowment",
+					"illustration-endowment:BasicInformation": {
+						"key": [],
+						"section": "illustration-endowment:BasicPlan",
+						"illustration-endowment:EffectiveDate": {
+							"key": ["EffectiveDate"],
+							"format": "datetime:DD/MM/YYYY",
+							"preview": [{
+								"cardName": "illustration-endowment:BasicPlan",
+								"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.EffectiveDate",
+								"priority": 50
+							}]
+						},
+						"illustration-endowment:PremiumFrequency": {
+							"key": ["PremiumFrequency"]
+						},
+						"illustration-endowment:ContractCurrency": {
+							"key": ["ContractCurrency"]
+						},
+						"illustration-endowment:BillingCurrency": {
+							"key": ["BillingCurrency"]
+						},
+						"illustration-endowment:PolicyTerm": {
+							"key": ["PolicyTerm"],
+							"preview": [{
+								"cardName": "illustration-endowment:BasicPlan",
+								"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.PolicyTerm",
+								"priority": 50
+							}]
+						},
+						"illustration-endowment:PremiumTerm": {
+							"key": ["PremiumTerm"]
+						},
+						"illustration-endowment:BasicSumInsured": {
+							"key": ["BasicSumInsured"]
+						},
+						"illustration-endowment:RegularBasicPremium": {
+							"key": ["RegularBasicPremium"],
+							"preview": [{
+								"cardName": "illustration-endowment:Summary",
+								"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.PremiumFrequencyPayable",
+								"priority": 50
+							}]
+						},
+						"illustration-endowment:PayablePremium": {
+							"key": ["BasicStandardPremiumLoading"],
+							"@isVisible": "checkUnderwriterQuotation()"
+						}
+					},
+					"illustration-endowment:LoadingInformation": {
+						"key": [],
+						"@isVisible": "checkUnderwriterQuotation()",
+						"section": "illustration-endowment:BasicPlan",
+						"illustration-endowment:AddLoadingInformation": {
+							
+						},
+						"illustration-endowment:AllLoadingInformations": {
+							"key": ["LoadingInformation"]
+						}
+					},
+					"illustration-endowment:ExclusionsClauses": {
+						"key": [],
+						"@isVisible": "checkUnderwriterQuotation()",
+						"section": "illustration-endowment:BasicPlan",
+						"illustration-endowment:ExclusionsClauses": {
+							"key": ["Exclusion"]
+						}
+					}
+				},
+				"illustration-endowment:Riders": {
+					"onOpen": "computeRiderOnOpenCard([['BasicPlan'], ['PolicyOwnerInformation'], ['LifeInsuredInformation'], ['Riders']], card, computeRiderIgnoreList)",
+					"key": ["Riders"],
+					"section": "illustration-endowment",
+					"illustration-endowment:NewRider": {
+						"key": ["Rider"],
+						"section": "illustration-endowment:Riders",
+						"icons": {
+							"cardIcon": {
+								"content": "quotationIcon"
+							},
+							"removeCardInList": {
+								"isVisible": "moduleService.findElementInDetail_V3(['DocStatus']).BusinessStatus != 'ACCEPTED' && activeRole != commonService.CONSTANTS.USER_ROLES.UW",
+								"onClick": "closeChildCards(4, $event);closeChildCards(3, $event);computeRiderOnRemoveCard([['BasicPlan'], ['PolicyOwnerInformation'], ['LifeInsuredInformation'], ['Riders']], card, computeRiderIgnoreList)"
+							}
+						},
+						"isVisible": "true",
+						"cardType": "template",
+						"illustration-endowment:SummaryNewRider": {
+							"key": [],
+							"section": "illustration-endowment:NewRider",
+							"illustration-endowment:RiderType": {
+								"key": ["RiderType"],
+								"preview": [{
+									"cardName": "illustration-endowment:NewRider",
+									"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.RiderName",
+									"priority": 50
+								}],
+								"valuePrefix": "v3.illustration.endowment.riderType."
+							},
+							"illustration-endowment:RiderPlan": {
+								"key": ["RiderPlan"]
+							},
+							"illustration-endowment:RiderTerm": {
+								"key": ["RiderTerm"]
+							},
+							"illustration-endowment:RiderPremiumTerm": {
+								"key": ["RiderPremiumTerm"]
+							},
+							"illustration-endowment:RiderSumInsured": {
+								"key": ["RiderSumInsured"],
+								"format": "currency:0",
+								"preview": [{
+									"cardName": "illustration-endowment:NewRider",
+									"label": "v3.mynewworkspace.portlet.previewlabel.illustration-endowment.RiderSumInsured",
+									"priority": 50
+								}]
+							},
+							"illustration-endowment:NumberOfUnits": {
+								"key": ["NumberOfUnits"]
+							},
+							"illustration-endowment:RiderPremium": {
+								"key": ["RiderPremium"]
+							},
+							"illustration-endowment:PayableRiderPremium": {
+								"key": ["RiderStandardPremiumLoading"],
+								"@isVisible": "checkUnderwriterQuotation()"
+							}
+						},
+						"illustration-endowment:RLoadingInformation": {
+							"key": ["LoadingInformation"],
+							"@isVisible": "checkUnderwriterQuotation()",
+							"section": "illustration-endowment:NewRider",
+							"illustration-endowment:RAddLoadingInformation": {
+								"key": []
+							},
+							"illustration-endowment:RAllLoadingInformations": {
+								"key": ["LoadingInformation"]
+							}
+						},
+						"illustration-endowment:RExclusionsClauses": {
+							"key": ["Exclusion"],
+							"@isVisible": "checkUnderwriterQuotation()",
+							"section": "illustration-endowment:NewRider",
+							"illustration-endowment:RExclusionsClauses": {
+								"key": ["Exclusion"]
+							}
+						}
+					},
+					"illustration-endowment:AddRider": {
+						"key": [],
+						"section": "illustration-endowment:Riders",
+						"icons": {
+							"cardIcon": {
+								"content": "quotationIcon"
+							},
+							"cardIconPlus": {
+								
+							}
+						},
+						"isVisible": "!moduleService.freeze && activeRole != commonService.CONSTANTS.USER_ROLES.UW",
+						"cardType": "action",
+						"onClick": "addCard(card, hideNumberOfUnit);closeChildCards(4, $event);closeChildCards(3, $event)"
+					}
+				}
+			}
+		}
+	}
+}

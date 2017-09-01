@@ -1,0 +1,28 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+         <md-button md-no-ink ng-click="toggle()" class="md-icon-button button">
+                <i class="fa fa-bars fa-lg"></i>
+            </md-button> 
+        <span flex>
+            <h2>
+                <span class="header-text">
+                    <span t-lazy v3-translate="v3.companion.label.sync.Synchronize" prefix=""></span>
+                </span>
+            </h2>
+        </span>
+         <span flex></span> 
+   
+        <div class="search-box" >
+            <input placeholder="Search..." class="search-box-input" id="searchTextField" style="margin-top:-2px;"  ng-model="vars.strSyncSearch" ng-change="searchSyncDoc()" aria-label="Search input">
+            <i ng-if="vars.strSyncSearch" style="margin-top:-2px;" ng-click="clearSyncSearch()" class="fa fa-times-circle"></i>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <md-button md-no-ink ng-click="loadMetaList()" class="md-icon-button button" aria-label="refresh">
+            <span class="fa fa-repeat C fa-2x button-padding-10"></span>
+        </md-button>
+        <md-button md-no-ink ng-click="syncAllSelectedDocs()" class="md-icon-button button" aria-label="sync">
+            <span class="fa fa-refresh C fa-2x button-padding-10"></span>
+        </md-button>
+    </div>
+</md-toolbar>

@@ -1,0 +1,88 @@
+{
+  "IposDocument": {
+    "Data": {
+      "ipos-agent:Agent": {
+        "@section": "ipos-agent:Agent",
+        "@icon": "fa fa-users",
+        "@cssClass": "v3-box-3",
+        "ipos-agent:AgentDetail": {
+          "@section": "ipos-agent:Agent",
+          "@icon": "fa fa-users",
+          "@cssClass": "v3-box-3",
+          "ipos-agent:Salutation": {
+          },
+          "ipos-agent:FullName": {
+          },
+          "ipos-agent:Last_Name": {
+          },
+          "ipos-agent:Agent_Name": {
+          },
+          "ipos-agent:BirthDate": {
+          },
+          "ipos-agent:Gender": {
+          },
+          "ipos-agent:MaritalStatus": {
+          },
+          "ipos-agent:Nationality": {
+          },
+          "ipos-agent:IDNum": {
+          },
+          "ipos-agent:Race": {
+          }
+        },
+        "ipos-agent:OtherInformation": {
+          "@icon": "fa fa-users",
+          "@section": "ipos-agent:Agent",
+          "ipos-agent:CountryOfBirth": {
+          },
+          "ipos-agent:Occupation": {
+          },
+          "ipos-agent:Staff": {
+          },
+          "ipos-agent:VIP": {
+          }
+        },
+        "ipos-agent:Contacts": {
+          "@icon": "fa fa-users",
+          "@section": "ipos-agent:Agent",
+          "ipos-agent:MobileTel": {
+          },
+          "ipos-agent:MobileTelValue": {
+          },
+          "ipos-agent:HomeTel": {
+          },
+          "ipos-agent:HomeTelValue": {
+          },
+          "ipos-agent:OfficeTel": {
+          },
+          "ipos-agent:OfficeTelValue": {
+          },
+          "ipos-agent:EmailAddress": {
+          },
+          "ipos-agent:EmailAddressValue": {
+          }
+        },
+        "ipos-agent:Addresses": {
+          "icon": "fa fa-users",
+          "@section": "ipos-agent:Agent",
+          "ipos-agent:Address": {
+          },
+          "ipos-agent:AddressDetail": {
+          }
+        },
+        "ipos-agent:AgentInformation": {
+          "@icon": "fa fa-users",
+          "@section": "ipos-agent:Agent",
+          "ipos-agent:BrachCode": {
+          },
+          "ipos-agent:AgentID": {
+          },
+          "ipos-agent:IssuedDate": {
+          },
+          "ipos-agent:ExpiryDate": {
+          }
+        }
+      }
+    }
+  }
+}

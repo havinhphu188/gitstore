@@ -1,0 +1,73 @@
+<md-dialog class="dialog-style" aria-label="Settings" style="min-width: 600px;">
+    <div class="custom-dialog-header">
+        <h2 class="margin-text-center">Attachment</h2>
+    </div>
+    <md-button ng-click="_showImgPicker()" class="md-primary md-fab md-fab-top-right green-button" style="top: 25px; z-index: 100" aria-label="">
+        <span class="fa fa-plus fa-lg"></span>
+    </md-button>
+    <div class="custom-dialog-content" style="height: 380px; text-align: justify;">        
+        <div class="margin-text-center">
+            
+            <!-- USE FOR RUNTIME -->
+            <!-- <input id="fileAttach" v3-file-change="onFileSelect" type="file" name="files[]" multiple style="display:block"> -->
+
+            <div class="span4" layout="comlumn">
+            </div>
+
+            <!-- USE FOR RUNTIME -->
+            <!-- <div ng-repeat="file in filesMeta track by $index">
+                <div layout="row" class="row breakLine" layout-margin>
+                    <div flex="50">
+                        <div class="attachment-text"><span class="short-word">{{file.name}}</span></div>
+                    </div>
+                    <div flex="20" style="text-align: right">
+                        <div class="attachment-text">{{file.size}}</div>
+                    </div>
+                    <div flex="10" style="text-align: right">
+                        <i class="fa fa-trash fa-lg fa-style" ng-click="removeTempFileRuntime($index)"></i>
+                    </div>
+                </div>
+            </div> -->
+
+            <div ng-repeat="file in moduleService.tempNewResource track by $index">
+                <div layout="row" class="row breakLine" layout-margin>
+                
+                    <div flex="50">
+                        <div class="attachment-text"><span class="short-word">{{file.FileName}}</span></div>
+                    </div>
+                    <div flex="20" style="text-align: right">
+                        <div class="attachment-text">{{file.FileSize}}</div>
+                    </div>
+                    <div flex="10" style="text-align: right">
+                        <i class="fa fa-trash fa-lg fa-style" ng-click="removeTempFile($index)"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- USE FOR RUNTIME -->
+    <!-- <div layout="row" class="popup-header" layout-margin="">
+        <div flex="10">
+            <div ng-click="cancelAttach()" class="center default-color" role="button" tabindex="0">Cancel</div>
+        </div>
+        <div flex="">
+            <div class="center ng-binding"></div>
+        </div>
+        <div flex="10">
+            <div ng-click="doUpload()" class="center default-color" role="button" tabindex="0">Done</div>
+        </div>
+    </div> -->
+
+    <div layout="row" class="popup-header" layout-margin="">
+        <div flex="10">
+            <div ng-click="cancelAttachment()" class="center default-color" role="button" tabindex="0">Cancel</div>
+        </div>
+        <div flex="">
+            <div class="center ng-binding"></div>
+        </div>
+        <div flex="10">
+            <div ng-click="doneAttach()" class="center default-color" role="button" tabindex="0">Done</div>
+        </div>
+    </div>
+</md-dialog>

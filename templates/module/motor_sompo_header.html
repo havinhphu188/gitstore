@@ -1,0 +1,22 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <span flex></span>
+       <div ng-if="!moduleService.isEditMode">
+            <md-button md-no-ink ng-click="getComputedDetail()" class="md-icon-button button" aria-label="">
+                <span class="fa fa-pencil C fa-2x button-padding-10"></span>
+            </md-button>
+        </div>
+        <div ng-if="moduleService.isEditMode">
+            <md-button md-no-ink ng-click="computeIllustration()" class="md-icon-button button" aria-label="">
+                <span class="fa fa-play C fa-2x button-padding-10"></span>
+            </md-button>
+            <md-button md-no-ink ng-click="reset()" class="md-icon-button button" aria-label="">
+                <span class="fa fa-undo C fa-2x button-padding-10"></span>
+            </md-button>
+            
+            <md-button md-no-ink ng-click="save()" class="md-icon-button button" aria-label="">
+                <span class="fa fa-save C fa-2x button-padding-10"></span>
+            </md-button>
+        </div>
+    </div>
+</md-toolbar>

@@ -1,0 +1,56 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="row" ng-if="card.name == 'needs-analysis:JAFinancialGoalsAnalysis' || card.name == 'needs-analysis:FinancialGoalsAnalysis'">
+	<div class="col-xs-11 v3-padding-0 v3-live-card-preview-label">
+	    <span title="label">
+	      {{'v3.mynewworkspace.portlet.label.needs-analysis.Preview.TotalRequired' | translate | trimtext:false:35:'..'}}
+	    </span>
+    </div>
+	<div class="col-xs-11 v3-padding-0 v3-live-card-preview-content" ng-if="totalRequired != undefined">
+		{{totalRequired | v3Currency}}
+    </div>
+    <div class="col-xs-11 v3-padding-0 v3-live-card-preview-label">
+	    <span title="label">
+	      {{'v3.mynewworkspace.portlet.label.needs-analysis.Preview.TotalAmountSaved' | translate | trimtext:false:35:'..'}}
+	    </span>
+    </div>
+    <div class="col-xs-11 v3-padding-0 v3-live-card-preview-content" ng-if="totalRequired != undefined">
+		{{totalSavings | v3Currency}}
+    </div>
+</div>
+
+<div class="row" ng-if="card.name == 'needs-analysis:JAEducationFund' || card.name == 'needs-analysis:EducationFund'">
+	<div class="col-xs-11 v3-padding-0 v3-live-card-preview-label">
+	    <span title="label">
+	      {{'v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountRequired' | translate | trimtext:false:35:'..'}}
+	    </span>
+    </div>
+	<div class="col-xs-11 v3-padding-0 v3-live-card-preview-content" ng-if="totalRequired != undefined">
+		{{totalRequiredEducationFund | v3Currency}}
+    </div>
+    <div class="col-xs-11 v3-padding-0 v3-live-card-preview-label">
+	    <span title="label">
+	      {{'v3.mynewworkspace.portlet.label.needs-analysis.Preview.AmountSaved' | translate | trimtext:false:35:'..'}}
+	    </span>
+    </div>
+    <div class="col-xs-11 v3-padding-0 v3-live-card-preview-content" ng-if="totalRequired != undefined">
+		{{totalSavingsEducationFund | v3Currency}}
+    </div>
+</div>

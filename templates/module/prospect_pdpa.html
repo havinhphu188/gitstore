@@ -1,0 +1,96 @@
+<div layout="column" class="height-inherit">
+    <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div style="overflow: scroll;" class="backgroundColor touch">        
+        <div refresh-on="vars.bIsContentChanged" use-boolean>
+            <div style="height:650px;">
+                    <div layout="row" class="header-repeat-bar">
+                        <div flex="80" layout-margin>
+                            <h class="repeat-toobar-text">
+                                <!-- <span t-lazy v3-translate="v3.myworkspace.label.illustration.life.Parties-C" prefix=""></span> -->
+                                PDPA
+                            </h>
+                        </div>
+                    </div>
+                    <div class="white-card">
+                        <div layout="row" style="height: 50px !important;" class="row" layout-margin>
+                            <div flex="80">
+                                <v3-label model="" label-value="Consent" />
+                            </div>
+                            <div flex="10">
+                                <!-- <md-switch class="custom-md-switch" ng-disabled="::!moduleService.isEditMode" ng-model="variables.Consent.Value" class="md-primary" ng-true-value="'{{::moduleService.listConsent[0].value}}'" ng-false-value="'{{::moduleService.listConsent[1].value}}'" md-no-ink>
+                                </md-switch> -->
+                                 <v3-switch-new alway-watch="false" style="float:right;" switch-name="consent" switch-disabled="::!moduleService.isCreateNewMode" switch-model="variables.Consent.Value" switch-options="::moduleService.listConsent">
+                                </v3-switch-new>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-down" ng-if="variables.Consent.Value=='Y'">
+                        <div layout="row" class="header-repeat-bar">
+                            <div flex="80" layout-margin>
+                                <h class="repeat-toobar-text">
+                                    <!-- <span t-lazy v3-translate="v3.myworkspace.label.illustration.life.Parties-C" prefix=""></span> -->
+                                    COMMUNICATION CHANNEL
+                                </h>
+                            </div>
+                        </div>
+                        <div class="white-card slide-down" >
+                            <!-- <div layout="row" class="row" layout-margin>
+                                <div flex>
+                                    <v3-label model="" label-value="Communication Channels" />
+                                </div>
+                            </div> -->
+                            <!-- <div layout="row" class="row breakLine">
+                                <div flex="12" layout-margin ng-repeat="item in ::variables.CommunicationChannel track by $index">
+                                    <md-checkbox ng-disabled="::!moduleService.isEditMode" style="margin-top:-10px !important;" ng-model="moduleService.findElementInElement_V3(item, ['ipos-prospect:CommunicationChannelValue']).Value" ng-true-value="'Y'" ng-false-value="'N'" ng-change="updateCommunicationChannelCheckboxs($index)" md-no-ink>
+                                        {{moduleService.findElementInElement_V3(item, ['ipos-prospect:CommunicationChannelValue'])['@channelType']}}
+                                    </md-checkbox>
+                                </div>
+                            </div> -->
+
+                            <div layout="row" class="row breakLine" layout-margin ng-repeat="item in ::variables.CommunicationChannel track by $index">
+                                <div flex="20">
+                                    {{moduleService.findElementInElement_V3(item, ['ipos-prospect:CommunicationChannelValue'])['@channelType']}}
+                                </div>
+                                <div flex="65"></div>
+                                <div flex="5">
+                                    <md-checkbox ng-disabled="::!moduleService.isCreateNewMode" style="margin-top:-10px !important;" ng-model="moduleService.findElementInElement_V3(item, ['ipos-prospect:CommunicationChannelValue']).Value" ng-true-value="'Y'" ng-false-value="'N'" ng-change="updateCommunicationChannelCheckboxs($index)" md-no-ink>
+                                        
+                                    </md-checkbox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="white-card" ng-if="variables.Consent.Value=='Y'">
+                            <div layout="row" class="row breakLine" layout-margin>
+                                <div flex="20">
+                                    <v3-label model="" label-value="Witness's Name" />
+                                </div>
+                                <div flex="70">
+                                    <input class="input" ng-disabled="::!moduleService.isCreateNewMode" ng-model="variables.WitnessName.$" value="">
+                                </div>
+                            </div>
+                            <div layout="row" class="row" layout-margin>
+                                <div flex="20">
+                                    <v3-label model="" label-value="Witness's ID" />
+                                </div>
+                                <div flex="70">
+                                    <input class="input" ng-disabled="::!moduleService.isCreateNewMode" ng-model="variables.WitnessIdNumber.$" value="" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                </div>
+                            </div>
+                        </div>
+                        <div layout="row" class="header-repeat-bar">
+                            <div flex="80" layout-margin>
+                                <h class="repeat-toobar-text">
+                                    <!-- <span t-lazy v3-translate="v3.myworkspace.label.illustration.life.Parties-C" prefix=""></span> -->
+                                    ATTACHMENTS
+                                </h>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

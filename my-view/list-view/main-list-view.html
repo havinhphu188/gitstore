@@ -1,0 +1,67 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="col-xs-12 v3-padding-0 md-whiteframe-z2">
+	<div class="row v3-margin-auto document-list-view-header">
+		<div class="col-xs-5 title">
+			<div><span class="v3-auto-text-ellipsis-2" title="{{('v3.dashboardportlet.portlet.label.'+ title) | translate}}">{{('v3.dashboardportlet.portlet.label.'+ title) | translate}}</span></div>
+			<div><span><i ng-click="addNew(doctype)" ng-if="title == 'my_contacts' || title == 'my_pending_business_transaction' || title == 'my_fna'" class="pointer fa fa-plus-circle fa-2x"></i></span></div>
+		</div>
+		<div class="col-xs-7">
+			<div class="ipos-mobile-icon-control-group">
+				<i ng-click="checkShowSearchForm($event)" ng-class="!isShowSearchForm ? 'isShowTransform' : 'isHideTransform'" class="pointer fa fa-search fa-2x padding-left-7 search-item"></i>
+				<i ng-click="reloadlist()" class="pointer fa fa-refresh fa-2x padding-left-7 reload-item" ng-class="isloadlist ? '':'fa-spin'"></i>
+				<i ng-click="isListView = true" class="pointer fa fa-list fa-2x padding-left-7 view-list-item" ng-class="isListView ? 'icon-active':'icon-inactive'"></i>
+				<i ng-click="isListView = false" class="pointer fa fa-th-large fa-2x padding-left-7 view-thumb-item" ng-class="isListView ?'icon-inactive':'icon-active'"></i>
+			</div>
+			<div class="row col-xs-6 col-sm-5 col-md-4 col-lg-4 v3-margin-auto v3-padding-0 ipos-mobile-search">
+				<div class="form-group-lg has-success" ng-class="isShowSearchForm ? 'isShowTransform' : 'isHideTransform'">
+					<input id="searchBox" class="form-control" ng-model="searchText" placeholder="{{'v3.dashboardportlet.button.label.Search' | translate}}">
+					<i class="fa fa-search fa-2x searchIcon"></i>
+					<i class="fa fa-times-circle fa-2x cleanIcon" ng-show="searchText != '' && searchText != undefined" ng-click="checkHideSearchForm($event)"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+ 
+	<div class="row v3-margin-auto">	
+		<div class="col-xs-12 v3-padding-0" ng-include="templateHtml">
+		</div>
+	</div>
+	<div class="row v3-margin-auto">	
+		<div class="document-list-view-Error-Message" ng-if="datalist == undefined || datalist.length < 1">
+			{{"new.v3.common.message.ThereIsNoData" | translate}}
+		</div>
+	</div>	
+	<!-- Pagination -->
+	<div class="row v3-margin-auto v3-pagination" ng-if="datalist != undefined && datalist.length > 0">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="row v3-margin-auto v3-pagination-container">
+				<div class="itemsPerPage">
+					<span>{{'v3.dashboardportlet.label.Itemsperpage' | translate}}</span>
+					<select ng-model="pageSize.size">
+						<option ng-repeat="size in pageSizes" value="{{size}}">{{size}}</option>
+					</select>
+				</div>
+				<dir-pagination-controls class="row v3-margin-auto dirPpaginationControls" boundary-links="true" max-size="5" pagination-id="title">
+				</dir-pagination-controls>
+			</div>
+		</div>
+	</div>	
+</div>

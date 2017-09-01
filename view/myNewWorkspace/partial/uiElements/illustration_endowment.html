@@ -1,0 +1,830 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="illustration-endowment:ProductName" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-padding-0">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+    <div class="form-group form-group-lg has-success">
+      <span class="col-xs-6">{{'new.v3.mynewworkspace.endowment.ProductName' | translate}}:</span>
+      <span class="col-xs-6">{{'v3.mynewworkspace.portlet.label.productName.' + uiElement.refDetail | translate}}</span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:QuotationNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-xs-6">{{'new.v3.mynewworkspace.endowment.QuotationNo' | translate}}:</span>
+    <span class="col-xs-6">{{uiElement.refDetail}}</span>
+  </div>
+</div>
+<div fieldId="illustration-endowment:Status" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-xs-6">{{'new.v3.mynewworkspace.endowment.Status' | translate}}:</span>
+    <span class="col-xs-6">{{'v3.document.status.' + moduleService.findElementInDetail_V3(['BusinessStatus']) | translate}}</span>
+  </div>
+</div>
+<div fieldId="illustration-endowment:CreatedDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-xs-6">{{'new.v3.mynewworkspace.endowment.CreatedDate'| translate}}:</span>
+    <span class="col-xs-6">{{uiElement.refDetail | datetimeFilter:"DD/MM/YYYY" }}</span>
+  </div>
+</div>
+<div fieldId="illustration-endowment:LastUpdatedDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-xs-6">{{'new.v3.mynewworkspace.endowment.LastUpdatedDate' | translate}}:</span>
+    <span class="col-xs-6">{{uiElement.refDetail | datetimeFilter:"DD/MM/YYYY" }}</span>
+  </div>
+</div>
+<div fieldId="illustration-endowment:ProposerName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-xs-6">{{'new.v3.mynewworkspace.endowment.ProposerName' | translate}}:</span>
+    <span class="col-xs-6">{{uiElement.refDetail.$}}</span>
+  </div>
+</div>
+<div fieldId="illustration-endowment:InsuredName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-xs-6">{{'new.v3.mynewworkspace.endowment.InsuredName' | translate}}:</span>
+    <span class="col-xs-6">{{uiElement.refDetail.$}}</span>
+  </div>
+</div>
+<div fieldId="illustration-endowment:PreviewQuotationDetail" class="col-xs-12 col-sm-9 col-md-12 col-lg-12 summary padding-top-10">
+  <div class="form-group form-group-lg has-success">
+    <div class="col-xs-12 text-center">
+      <button ng-click="printPdfByHtml('abridge')" class="col-sm-offset-4 col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding">{{'new.v3.mynewworkspace.endowment.PreviewQuotationDetail' | translate}}</button>
+    </div>
+  </div>
+</div>
+
+<!-- Proposer -->
+<div fieldId="illustration-endowment:Title"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.Title' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <!-- <ng-newDropDown
+        disable="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['POTitle','Option'])"
+        type="nonFlag" prefix="v3.pnc.title.enum"></ng-newDropDown> -->
+      <input class="form-control" placeholder="Title" type="text"
+        ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        ng-model="uiElement.refDetail.$" />
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:FullName"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 v3-padding-0">
+      <div class="form-group form-group-lg has-success">
+        <label>{{'new.v3.mynewworkspace.endowment.FullName' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+        <input class="form-control" type="text"
+          ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+          ng-model="uiElement.refDetail.$">
+        </input>
+        <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+      </div>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 v3-padding-0">
+      <div class="form-group form-group-lg has-success">
+        <label class="v3-auto-text-ellipsis-suffix-name">{{'new.v3.mynewworkspace.endowment.Suffix' | translate}}<span ng-show="false"> *</span></label>
+        <input class="form-control" type="text"
+          ng-model="moduleService.findElementInDetail_V3(['PolicyOwner', 'SuffixName']).$"
+          ng-disabled="moduleService.freeze || isLastQuotation">
+        </input>
+        <span class="errorMessage"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:DateOfBirth"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.DateOfBirth' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <div class="ms-calendar-wrapper">
+        <input class="ms-calendar" ms-datepicker
+          ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+          ng-model="uiElement.refDetail.$"
+          more-action-blur="computeTag([['PolicyOwnerInformation', 'Age'], ['PolicyOwnerInformation', 'BirthDate']], card, true)"
+          ng-change="computeTag([['PolicyOwnerInformation', 'Age'], ['PolicyOwnerInformation', 'BirthDate']], card, true)">
+        </input>
+      </div>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:Age"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.Age' | translate}} <span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <input class="form-control" type="text"
+        ng-disabled="true"
+        ng-model="uiElement.refDetail.$">
+      </input>
+    </div>
+    <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translateMessage"></span>
+  </div>
+</div>
+<div fieldId="illustration-endowment:Gender"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.Gender' | translate}} <span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <v3-switch-new-slide
+        prefix="v3.gender.enum"
+        switch-model="uiElement.refDetail.Value"
+        switch-default-value=""
+        switch-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['POGender','Option'])">
+      </v3-switch-new-slide>
+    </div>
+    <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+  </div>
+</div>
+<div fieldId="illustration-endowment:Smoking"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.Smoking' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <v3-switch-new-slide prefix="v3.mnc.endowment.smoker.enum"
+        switch-model="uiElement.refDetail.Value"
+        switch-default-value=""
+        switch-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['POSmokerStatus','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:BusinessIndustry"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.BusinessIndustry' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <ng-newDropDown
+        disable="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        model="uiElement.refDetail" more-action="filterOcupationPO()"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['POBusinessIndustry','Option'])"
+        type="nonFlag" prefix="v3.mnc.endowment.industry.enum">
+      </ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:Occupation"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.Occupation' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <ng-newDropDown
+        disable="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        model="uiElement.refDetail"
+        list="moduleService.occupationListPO"
+        type="nonFlag" prefix="v3.mnc.endowment.occupation.enum">
+      </ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:BeneficiaryBirthdate"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.BeneficiaryBirthdate' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <div class="ms-calendar-wrapper">
+        <input class="ms-calendar" ms-datepicker
+          ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+          ng-model="uiElement.refDetail.$"
+          more-action-blur="computeBeneficiaryAge()"
+          ng-change="computeBeneficiaryAge()">
+        </input>
+      </div>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:BeneficiaryAge"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.BeneficiaryAge' | translate}} <span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <input class="form-control" type="text"
+        ng-disabled="true"
+        ng-model="uiElement.refDetail.$">
+      </input>
+    </div>
+    <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translateMessage"></span>
+  </div>
+</div>
+
+<!-- Life Insured -->
+<div fieldId="illustration-endowment:RelationshipToProposer"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	  <div class="form-group form-group-lg has-success">
+	    <label>{{'new.v3.mynewworkspace.endowment.RelationshipToProposer' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+	    <ng-newDropDown
+	      disable="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+	      model="uiElement.refDetail"
+	      list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['LIRelationship','Option'])"
+	      type="nonFlag" prefix="v3.mnc.relationship.enum">
+	    </ng-newDropDown>
+	    <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+	  </div>
+	</div>
+</div>
+<div fieldId="illustration-endowment:RelationshipToProposerFake"
+  class="hidden-xs col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  &nbsp;
+</div>
+<div fieldId="illustration-endowment:LITitle"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.Title' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <!-- <ng-newDropDown
+        disable="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['LITitle','Option'])"
+        type="nonFlag" prefix="v3.pnc.title.enum">
+      </ng-newDropDown> -->
+      <input class="form-control" placeholder="Title" type="text"
+        ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        ng-model="uiElement.refDetail.$" />
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:LIName"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 v3-padding-0">
+      <div class="form-group form-group-lg has-success">
+        <label>{{'new.v3.mynewworkspace.endowment.FullName' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+        <input class="form-control" type="text"
+          ng-disabled="moduleService.freeze || uiElement.refDetail['@editable'] == '0' || isLastQuotation"
+          ng-model="uiElement.refDetail.$">
+        </input>
+        <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+      </div>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 v3-padding-0">
+      <div class="form-group form-group-lg has-success">
+        <label class="v3-auto-text-ellipsis-suffix-name">{{'new.v3.mynewworkspace.endowment.Suffix' | translate}}<span ng-show="false"> *</span></label>
+        <input class="form-control" type="text"
+          ng-model="moduleService.findElementInDetail_V3(['LifeInsured', 'SuffixName']).$"
+          ng-disabled="moduleService.freeze || isLastQuotation">
+        </input>
+        <span class="errorMessage"></span>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:LIDateOfBirth"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.DateOfBirth' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <div class="ms-calendar-wrapper">
+        <input class="ms-calendar" ms-datepicker
+          ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+          ng-model="uiElement.refDetail.$"
+          more-action-blur="computeTag([['LifeInsuredInformation'], ['BasicPlan'], ['PolicyOwnerInformation']], card, true)"
+          ng-change="computeTag([['LifeInsuredInformation'], ['BasicPlan'], ['PolicyOwnerInformation']], card, true)">
+        </input>
+      </div>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:LIAge"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.Age' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label> 
+      <input class="form-control" type="text"
+        ng-disabled="true"
+        ng-model="uiElement.refDetail.$">
+      </input>
+    </div>
+    <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translateMessage"></span>
+  </div>
+</div>
+<div fieldId="illustration-endowment:LIGender"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.Gender' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <v3-switch-new-slide
+        prefix="v3.gender.enum"
+        switch-model="uiElement.refDetail.Value"
+        switch-default-value=""
+        switch-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['LIGender','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:LISmoking"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.Smoking' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <v3-switch-new-slide
+        prefix="v3.mnc.endowment.smoker.enum"
+        switch-model="uiElement.refDetail.Value"
+        switch-default-value=""
+        switch-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['LISmokerStatus','Option'])">
+      </v3-switch-new-slide>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:LIBusinessIndustry"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.BusinessIndustry' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <ng-newDropDown
+        disable="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        model="uiElement.refDetail"  more-action="filterOcupationLA()"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['LIBusinessIndustry','Option'])"
+        type="nonFlag" prefix="v3.mnc.endowment.industry.enum">
+      </ng-newDropDown>
+      <span class="errorMessage"ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:LIOccupation"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.Occupation' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <ng-newDropDown
+        disable="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        model="uiElement.refDetail"
+        list="moduleService.occupationListLA"
+        type="nonFlag" prefix="v3.mnc.endowment.occupation.enum">
+      </ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Basic Plan - Basic Information -->
+<div fieldId="illustration-endowment:EffectiveDate"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.EffectiveDate' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <div class="ms-calendar-wrapper">
+        <input
+          ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+          ms-datepicker
+          ng-model="uiElement.refDetail.$"
+          class="ms-calendar">
+        </input>
+      </div>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:PremiumFrequency"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.PremiumFrequency' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <ng-newDropDown
+        disable="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName], ['PremiumFrequency']).Option"
+        type="nonFlag" sort="false"  prefix="v3.pnc.premiumPrequency">
+      </ng-newDropDown>
+      <span class="errorMessage"ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:ContractCurrency"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.ContractCurrency' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <ng-newDropDown 
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName], ['ContractCurrency']).Option"
+        disable="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        type="nonFlag" prefix="v3.prospect.contact">
+      </ng-newDropDown>
+      <span class="errorMessage"
+        ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:BillingCurrency"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.BillingCurrency' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <ng-newDropDown 
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName], ['BillingCurrency']).Option"
+        disable="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        type="nonFlag" prefix="v3.prospect.contact">
+      </ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:PolicyTerm"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.PolicyTerm' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <input
+        ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        class="form-control"
+        ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0">
+      </input>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:PremiumTerm"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.PremiumTerm' | translate}}<span ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <input
+        ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        class="form-control"
+        ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0">
+      </input>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:BasicSumInsured"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.SumInsured' | translate}} ({{moduleService.findElementInDetail_V3(['ContractCurrency']).Value}})<span
+        ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span>
+      </label>
+      <input
+        ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        class="form-control"
+        ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0">
+      </input>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:RegularBasicPremium"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.Premium' | translate}} ({{moduleService.findElementInDetail_V3(['ContractCurrency']).Value}})<span
+        ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span>
+      </label>
+      <input
+        class="form-control"
+        ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0">
+      </input>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:PayablePremium"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.PayablePremium' | translate}} ({{moduleService.findElementInDetail_V3(['ContractCurrency']).Value}})<span
+        ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span>
+      </label>
+      <input
+        class="form-control"
+        ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0">
+      </input>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Basic Plan - Loading Information -->
+<div fieldId="illustration-endowment:AddLoadingInformation" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-padding-0">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 bottom-25">
+    <div class="col-xs-offset-1 col-xs-10">
+      <label>{{'v3.illustration.endowment.BasicPlan.LoadingInformation' | translate}}: &nbsp&nbsp</label>
+      <button class="btn v3-btn-primary"
+        ng-if="moduleService.findElementInDetail_V3(['LoadingInformation'])['@maxOccurs'] == ''
+          || moduleService.findElementInDetail_V3(['LoadingInformation'])['@counter'] < moduleService.findElementInDetail_V3(['LoadingInformation'])['@maxOccurs']"
+        ng-click="moduleService.addElementInElement_V3(moduleService.detail, ['LoadingInformation'], ['Loading']); markValidCard(card)"
+        ng-disabled="moduleService.freeze"
+        style="min-width: 10px; margin-right: -10px;"><i class="fa fa-plus"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:AllLoadingInformations">
+	<div ng-repeat="Loading in moduleService.findElementInElement_V3(uiElement.refDetail, ['Loading']) track by $index" ng-if="uiElement.refDetail['@counter'] > 0">
+	  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	      <div class="form-group form-group-lg has-success">
+	        <label>{{'v3.illustration.endowment.BasicPlan.LoadingInformation.LoadingType' | translate}}<span
+            ng-show="moduleService.findElementInElement_V3(Loading, ['LoadingCd'])['@mandatory'] == '1'"> *</span></label>
+	        <ng-newDropDown 
+	          model="moduleService.findElementInElement_V3(Loading, ['LoadingCd'])"
+	          list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName], ['LoadingCd']).Option"
+	          disable="moduleService.freeze || moduleService.findElementInElement_V3(Loading, ['LoadingCd'])['@editable']=='0'"
+	          type="nonFlag" prefix="v3.illustration.endowment.BasicPlan.LoadingInformation.LoadingType"
+	          more-action="refreshTags([['BasicPlan', 'LoadingInformation']], card, true)">
+	        </ng-newDropDown>
+	        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(Loading, ['LoadingCd']).errorMessage | translate"></span>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	      <div class="form-group form-group-lg has-success">   
+	        <div class="col-xs-10 v3-padding-0" ng-show="moduleService.findElementInElement_V3(Loading, ['LoadingCd']).Value == 'P'"> 
+	          <label>{{'v3.illustration.endowment.BasicPlan.LoadingInformation.Loading' | translate}}<span
+              ng-show="moduleService.findElementInElement_V3(Loading, ['LoadingAmount'])['@mandatory'] == '1'"> *</span></label>
+	          <input class="form-control"
+	            ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(Loading, ['LoadingAmount'])['@editable']=='0'"
+	            ng-model="moduleService.findElementInElement_V3(Loading, ['LoadingAmount']).$" click-when-keydown pos-autonumeric decimal="0">
+	          </input>
+	          <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(Loading, ['LoadingAmount']).errorMessage | translate"></span>
+	        </div>
+	         <div class="col-xs-10 v3-padding-0"  ng-show="moduleService.findElementInElement_V3(Loading, ['LoadingCd']).Value == 'E'"> 
+	          <label>{{'v3.illustration.endowment.BasicPlan.LoadingInformation.LoadingPercent' | translate}}<span
+              ng-show="moduleService.findElementInElement_V3(Loading, ['LoadingPercentage'])['@mandatory'] == '1'"> *</span></label>
+	          <input class="form-control"
+	            ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(Loading, ['LoadingPercentage'])['@editable']=='0'"
+	            ng-model="moduleService.findElementInElement_V3(Loading, ['LoadingPercentage']).$"
+	            click-when-keydown pos-autonumeric decimal="0">
+	          </input>
+	          <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(Loading, ['LoadingPercentage']).errorMessage | translate"></span>
+	        </div>
+	        <div class="col-xs-2 v3-padding-0">
+	          <br/>
+	          <button style="min-width: 10px; margin-top: 6px; padding: 11px 13px;" class="btn btn-lg v3-btn-danger"
+	            ng-disabled="moduleService.freeze"
+	            ng-click="uiElement.refDetail['@counter'] == 1 ? uiElement.refDetail['@counter'] = 0 : moduleService.removeElementInElement_V3($index, moduleService.detail, ['LoadingInformation'], ['Loading'])"><i class="fa fa-times"></i>
+	          </button>
+	        </div>         
+	      </div>
+	    </div>
+    </div>
+  </div>
+</div>
+<!-- Basic Plan - Exclusions/clauses -->
+<div fieldId="illustration-endowment:ExclusionsClauses" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-padding-0">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 bottom-25">
+    <div class="col-xs-offset-1 col-xs-10">
+	   	 <div class="form-group form-group-lg has-success">
+	       	<textarea class="form-control" rows="3"
+	       	  ng-model="uiElement.refDetail.$"
+	       	  ng-disabled="moduleService.freeze">
+	       	</textarea>
+	     </div>
+	</div>
+  </div>
+</div>
+<!-- Riders -->
+<div fieldId="illustration-endowment:RiderType"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.RiderType' | translate}}<span
+        ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <ng-newDropDown
+        disable="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        model="uiElement.refDetail"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName], ['RiderType']).Option"
+        type="nonFlag" prefix="v3.illustration.endowment.riderType"
+        more-action="
+        	clearRiderDataOnChangingType_Endowment(card.parent);
+        	computeRiderTypeOption(computeRiderIgnoreList);
+        	computeRiderPlanOption(computeRiderIgnoreList)
+        ">
+      </ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:RiderPlan"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.RiderPlan' | translate}}<span
+        ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span></label>
+      <ng-newDropDown
+        disable="moduleService.freeze || uiElement.refDetail['@editable'] == '0' || isLastQuotation || !moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderType']).Value"
+        model="uiElement.refDetail"
+        list="uiElement.refDetail.Options.Option" 
+        more-action="
+        	clearRiderDataOnChangingPlan_Endowment(card.parent);
+        	computeRiderOnChangePlan([['BasicPlan'], ['PolicyOwnerInformation'], ['LifeInsuredInformation'],  ['Riders']], card.parent, computeRiderIgnoreList)"
+        type="nonFlag" prefix="v3.illustration.endowment.riderPlan">
+      </ng-newDropDown>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:RiderTerm"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.RiderTerm' | translate}}<span
+        ng-show="moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderTerm'])['@mandatory'] == '1'"> *</span></label>
+      <input
+        class="form-control"
+        ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderTerm'])['@editable'] == '0' || isLastQuotation"
+        ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0">
+      </input>
+      <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderTerm']).errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:RiderPremiumTerm"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.RiderPremiumTerm' | translate}}<span
+        ng-show="moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderPremiumTerm'])['@mandatory'] == '1'"> *</span></label>
+      <input
+        class="form-control"
+        ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderPremiumTerm'])['@editable'] == '0' || isLastQuotation"
+        ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0">
+      </input>
+      <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderPremiumTerm']).errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:RiderSumInsured"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.RiderSumInsured' | translate}} ({{moduleService.findElementInDetail_V3(['ContractCurrency']).Value}})<span
+        ng-show="moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderSumInsured'])['@mandatory'] == '1'"> *</span></label>
+      <input
+        class="form-control"
+        ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderSumInsured'])['@editable'] == '0' || isLastQuotation"
+        ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0">
+      </input>
+      <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderSumInsured']).errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:NumberOfUnits" ng-if="uiElement.refDetail['@visible'] == '1'"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.NumberOfUnits' | translate}}<span
+        ng-show="moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderPremiumTerm'])['@mandatory'] == '1'"> *</span></label>
+      <input
+        class="form-control"
+        ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(card.parent.refDetail, ['NumberOfUnits'])['@editable'] == '0' || isLastQuotation"
+        ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0">
+      </input>
+      <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.parent.refDetail, ['NumberOfUnits']).errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:RiderPremium"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.RiderPremium' | translate}} ({{moduleService.findElementInDetail_V3(['ContractCurrency']).Value}})<span
+        ng-show="moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderPremium'])['@mandatory'] == '1'"> *</span></label>
+      <input
+        class="form-control"
+        ng-disabled="moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderPremium'])['@editable'] == '0'"
+        ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0">
+      </input>
+      <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.parent.refDetail, ['RiderPremium']).errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:BlankPayableRiderPremium"
+  class="hidden-xs col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  &nbsp;
+</div>
+<div fieldId="illustration-endowment:PayableRiderPremium"
+  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.endowment.PayablePremium' | translate}} ({{moduleService.findElementInDetail_V3(['ContractCurrency']).Value}})<span
+        ng-show="uiElement.refDetail['@mandatory'] == '1'"> *</span>
+      </label>
+      <input
+        class="form-control"
+        ng-disabled="moduleService.freeze || uiElement.refDetail['@editable']=='0' || isLastQuotation"
+        ng-model="uiElement.refDetail.$" pos-autonumeric decimal="0">
+      </input>
+      <span class="errorMessage" ng-bind="uiElement.refDetail.errorMessage | translateMessage"></span>
+    </div>
+  </div>
+</div>
+<!-- Riders - Loading Information -->
+<div fieldId="illustration-endowment:RAddLoadingInformation" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-padding-0">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 bottom-25">
+    <div class="col-xs-offset-1 col-xs-10">
+      <label>{{'v3.illustration.endowment.BasicPlan.LoadingInformation' | translate}}: &nbsp&nbsp</label>
+      <button class="btn v3-btn-primary"
+        ng-if="card.refDetail['@maxOccurs'] == '' || card.refDetail['@counter'] < card.refDetail['@maxOccurs']"
+        ng-click="moduleService.addElementInElement_V3(card.parent.refDetail, ['LoadingInformation'], ['Loading']); markValidCard(card.parent)"
+        ng-disabled="moduleService.freeze" style="min-width: 10px; margin-right: -10px;"><i class="fa fa-plus"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-endowment:RAllLoadingInformations">
+	<div ng-repeat="Loading in moduleService.findElementInElement_V3(card.parent.refDetail, ['LoadingInformation', 'Loading']) track by $index" ng-if="card.refDetail['@counter'] > 0">
+	  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	      <div class="form-group form-group-lg has-success">
+	        <label>{{'v3.illustration.endowment.BasicPlan.LoadingInformation.LoadingType' | translate}}<span
+            ng-show="moduleService.findElementInElement_V3(Loading, ['LoadingCd'])['@mandatory'] == '1'"> *</span></label>
+	        <ng-newDropDown 
+	          model="moduleService.findElementInElement_V3(Loading, ['LoadingCd'])"
+	          list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName], ['LoadingCd']).Option"
+	          disable="moduleService.freeze || moduleService.findElementInElement_V3(Loading, ['LoadingCd'])['@editable']=='0'"
+	          type="nonFlag" prefix="v3.illustration.endowment.BasicPlan.LoadingInformation.LoadingType"
+	          more-action="refreshTags([['Riders']], card.parent, true)">
+	        </ng-newDropDown>
+	        <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(Loading, ['LoadingCd']).errorMessage | translate"></span>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+	      <div class="form-group form-group-lg has-success">   
+	        <div class="col-xs-10 v3-padding-0" ng-show="moduleService.findElementInElement_V3(Loading, ['LoadingCd']).Value == 'P'"> 
+	          <label>{{'v3.illustration.endowment.BasicPlan.LoadingInformation.Loading' | translate}}<span
+              ng-show="moduleService.findElementInElement_V3(Loading, ['LoadingAmount'])['@mandatory'] == '1'"> *</span></label>
+	          <input class="form-control"
+	            ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(Loading, ['LoadingAmount'])['@editable']=='0'"
+	            ng-model="moduleService.findElementInElement_V3(Loading, ['LoadingAmount']).$"
+	            click-when-keydown pos-autonumeric decimal="0">
+	          </input>
+	          <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(Loading, ['LoadingAmount']).errorMessage | translate"></span>
+	        </div>
+	         <div class="col-xs-10 v3-padding-0"  ng-show="moduleService.findElementInElement_V3(Loading, ['LoadingCd']).Value == 'E'"> 
+	          <label>{{'v3.illustration.endowment.BasicPlan.LoadingInformation.LoadingPercent' | translate}}<span
+              ng-show="moduleService.findElementInElement_V3(Loading, ['LoadingPercentage'])['@mandatory'] == '1'"> *</span></label>
+	          <input class="form-control"
+	            ng-disabled="moduleService.freeze || moduleService.findElementInElement_V3(Loading, ['LoadingPercentage'])['@editable']=='0'"
+	            ng-model="moduleService.findElementInElement_V3(Loading, ['LoadingPercentage']).$"
+	            click-when-keydown pos-autonumeric decimal="0">
+	          </input>
+	          <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(Loading, ['LoadingPercentage']).errorMessage | translate"></span>
+	        </div>
+	        <div class="col-xs-2 v3-padding-0">
+	          <br/>
+	          <button style="min-width: 10px; margin-top: 6px; padding: 11px 13px;" class="btn btn-lg v3-btn-danger"
+	            ng-disabled="moduleService.freeze"
+	            ng-click="uiElement.refDetail['@counter'] == 1 ? uiElement.refDetail['@counter'] = 0 : moduleService.removeElementInElement_V3($index, card.parent.refDetail, ['LoadingInformation'], ['Loading'])"><i class="fa fa-times"></i>
+	          </button>
+	        </div>         
+	      </div>
+	    </div>
+    </div>
+  </div>
+</div>
+<!-- Riders - Exclusions/clauses -->
+<div fieldId="illustration-endowment:RExclusionsClauses" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-padding-0">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 bottom-25">
+    <div class="col-xs-offset-1 col-xs-10">
+	   	 <div class="form-group form-group-lg has-success">
+	       	<textarea class="form-control" rows="3"
+	       	  ng-model="card.refDetail.$"
+	       	  ng-disabled="moduleService.freeze">
+	       	</textarea>
+	     </div>
+	</div>
+  </div>
+</div>

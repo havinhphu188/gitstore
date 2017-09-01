@@ -1,0 +1,101 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div ng-repeat="item in selectedColumns">
+	<div ng-if="item.columnType == 'text' || item.columnType == 'selection'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div class="col-xs-offset-1 col-xs-10">
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 no-padding">
+				<div class="form-group form-group-lg has-success">
+					<h5 class="v3-label-search">{{item.columnTranslation.en}}</h5>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 no-padding">
+				<div class="form-group form-group-lg has-success">
+					<input class="form-control" type="text" placeholder="{{item.columnTranslation.en}}" ng-model="searchItems[$index].value" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-if="item.columnType == 'date_time'" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="col-xs-offset-1 col-xs-10">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 no-padding">
+					<div class="form-group form-group-lg has-success">
+						<h5 class="v3-label-search">{{item.columnTranslation.en}} {{'v3.dashboardportlet.label.From' | translate}}</h5>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 no-padding">
+					<div class="form-group form-group-lg has-success">
+						<div style="position: relative;"><input ms-datepicker class="ms-calendar" ng-model="searchItems[$index].from" /></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="col-xs-offset-1 col-xs-10">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 no-padding">
+					<div class="form-group form-group-lg has-success">
+						<h5 class="v3-label-search">{{'v3.dashboardportlet.label.To' | translate}}</h5>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 no-padding">
+					<div class="form-group form-group-lg has-success">
+						<div style="position: relative;"><input ms-datepicker class="ms-calendar" ng-model="searchItems[$index].to" /></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-if="item.columnType != 'text' && item.columnType != 'date_time' && item.columnType != 'selection'" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0;">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="col-xs-offset-1 col-xs-10">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 no-padding">
+					<div class="form-group form-group-lg has-success">
+						<h5 class="v3-label-search">{{item.columnTranslation.en}} {{'v3.dashboardportlet.label.From' | translate}}</h5>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 no-padding">
+					<div class="form-group form-group-lg has-success">
+						<input class="form-control" type="number" placeholder="{{'v3.dashboardportlet.label.From' | translate}}" ng-model="searchItems[$index].from" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="col-xs-offset-1 col-xs-10">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 no-padding">
+					<div class="form-group form-group-lg has-success">
+						<h5 class="v3-label-search">{{'v3.dashboardportlet.label.To' | translate}}</h5>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 no-padding">
+					<div class="form-group form-group-lg has-success">
+						<input class="form-control" type="number" placeholder="{{'v3.dashboardportlet.label.To' | translate}}" ng-model="searchItems[$index].to" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" layout="row" layout-align="center">
+	<div class="">
+		<button class="btn btn-lg v3-btn-default" ng-click="resetSearchForm()">{{'v3.dashboardportlet.button.label.Reset' | translate}}</button>
+		<button class="btn btn-lg v3-btn-primary" loading loading-action="doAdvancedSearch()">{{'v3.dashboardportlet.button.label.Search' | translate}}</button>
+	</div>
+</div>

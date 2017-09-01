@@ -1,0 +1,555 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+<style>
+.text-align-right {
+	text-align: right;
+}
+#pdf-main {
+    font-size: 10px;
+    background: #b3b3b3;
+}
+.pdf-page {
+	margin: 6px;
+    background: white;
+    box-shadow: 3px 3px 2px #000000;
+}
+#pdf-page-premium {
+	margin-top: 0px !important;
+}
+.pdf-page-header {
+	height: 20px;
+    padding-top: 4px;
+}
+.pdf-page-header > div:nth-child(1) {
+	font-weight: bold;
+	font-size: 12px;
+}
+.pdf-page-header > div:nth-child(2) {
+	font-size: 8px;
+    text-align: right;
+	padding-top: 3px;
+}
+.pdf-page-content {
+	margin-bottom: 4px;
+    margin-top: 3px;
+    min-height: 460px !important;
+}
+.pdf-page-footer {
+	width: 100%;
+    padding-bottom: 10px;
+}
+.pdf-page-footer > div:nth-child(2) {
+	text-align: right;
+}
+.pdf-page-footer > div:nth-child(1) > div:nth-child(1),
+.pdf-page-footer > div:nth-child(2) > div:nth-child(1) {
+	font-weight: bold;
+}
+.pdf-page-content-header {
+	font-weight: bold;
+	display: flex;
+}
+.desc-section-specialpadding {
+	padding-left: 10px !important;
+    text-indent: -10px;
+}
+#table-productinfo table {
+	border: 1px solid;
+}
+#table-productinfo table th {
+	text-align: center;
+	border: 1px solid;
+}
+#table-productinfo table td {
+	border-left: 1px solid;
+	border-right: 1px solid;
+}
+#table-productinfo table td:nth-child(1) {
+	width: 150px;
+	padding-left: 3px;
+}
+#table-productinfo table td:nth-child(2) {
+	width: 120px;
+	text-align: right;
+	padding-right: 3px;
+}
+#table-productinfo table td:nth-child(3) {
+	text-align: center;
+}
+#table-productinfo table td:nth-child(4) {
+	width: 80px;
+	text-align: right;
+	padding-right: 3px;
+}
+#table-fundallcation table th,
+#table-fundallcation table td {
+	text-align: center;
+	width: 70px;
+}
+#table-fundallcation table td:nth-child(1) {
+	text-align: left;
+	padding-left: 3px;
+	width: 170px;
+}
+#table-fundallcation table {
+	border: 1px solid;
+}
+#table-fundallcation table th {
+	border: 1px solid;
+}
+#table-fundallcation table td {
+	border-left: 1px solid;
+	border-right: 1px solid;
+}
+.desc-section-header {
+	font-weight: bold;
+	margin-top: 2px;
+}
+.pdf-page-last-content1 {
+	padding-left: 10px !important;
+    text-indent: -10px;
+    display: flex;
+}
+.pdf-page-last-content2 {
+	padding-left: 20px !important;
+    text-indent: -10px;
+    display: flex;
+}
+#pdf-page-benefit table {
+	width: 100%;
+}
+#pdf-page-benefit table th {
+	text-align: center;
+}
+#pdf-page-benefit table td {
+	text-align: right;
+	padding-right: 3px;
+}
+#pdf-page-benefit table td:nth-child(-n+2) {
+	text-align: center !important;
+}
+#page-chart-catatan {
+	font-size: 9px;
+	padding-left: 10px !important;
+    text-indent: -10px;
+}
+#fund-performance {
+	padding-left: 40px;
+}
+#fund-performance table th {
+	text-align: center;
+}
+#fund-performance table td {
+	text-align: center;
+	min-width: 40px;
+}
+#fund-performance table td:nth-child(1) {
+	text-align: left;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+#fund-performance table td:nth-child(n+5) {
+	text-align: right;
+	padding-right: 3px;
+}
+#pdf-page-last-table1 table {
+	min-width: 350px;
+}
+#pdf-page-last-table1 table th,
+#pdf-page-last-table1 table td {
+	text-align: center;
+	min-width: 30px;
+}
+#pdf-page-last-table1 table td:nth-child(1) {
+	text-align: left;
+	padding-left: 3px;
+}
+#pdf-page-last-table2 table {
+	min-width: 300px;
+}
+#pdf-page-last-table2 table th,
+#pdf-page-last-table2 table td {
+	text-align: center;
+}
+#pdf-page-last-table3 table th,
+#pdf-page-last-table3 table td {
+	text-align: center !important;
+	width: 140px;
+}
+</style>
+<div id="pdf-main">
+	<div class="pdf-page" id="pdf-page-premium">
+		<div class="pdf-page-header">
+			<div class="col-xs-4">MNC LINK</div>
+			<div class="col-xs-8">PROPOSAL INI ADALAH ILUSTRASI SEMATA, DAN BUKAN MERUPAKAN SEBUAH KONTRAK ASURANSI</div>
+		</div>
+		<div class="pdf-page-content col-xs-12">
+			<div class="pdf-page-content-header">RINGKASAN ILUSTRASI | MNC LINK</div>
+			<div class="info-section container-fluid no-padding-left no-padding-right">
+				<div class="info-header pdf-page-content-header">DATA UMUM CALON PEMEGANG POLIS DAN TERTANGGUNG</div>
+				<div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Nama Pemegang Polis</div>
+							<div class="col-xs-7">
+								{{::': ' + 
+									(commonService.hasValueNotEmpty(illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'Salutation']).$) ? illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'Salutation']).$ + ' ' : '') +
+									illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'FullName']).$ + ' ' + 
+									illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'SuffixName']).$
+								}}
+							</div>
+						</div>
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Nama Tertanggung</div>
+							<div class="col-xs-7">
+								{{::': ' + 
+									(commonService.hasValueNotEmpty(illustrationUIService.findElementInDetail_V3(['LifeInsured', 'Salutation']).$) ? illustrationUIService.findElementInDetail_V3(['LifeInsured', 'Salutation']).$ + ' ' : '') +
+									illustrationUIService.findElementInDetail_V3(['LifeInsured', 'FullName']).$ + ' ' + 
+									illustrationUIService.findElementInDetail_V3(['LifeInsured', 'SuffixName']).$
+								}}
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Usia Pemegang Polis</div>
+							<div class="col-xs-7">: {{::illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'Age']).$}}</div>
+						</div>
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Usia Tertanggung</div>
+							<div class="col-xs-7">: {{::illustrationUIService.findElementInDetail_V3(['LifeInsured', 'Age']).$}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Jenis Kelamin Pempol.</div>
+							<div class="col-xs-7">: {{::'v3.gender.enum.' + illustrationUIService.findElementInDetail_V3(['PolicyOwner', 'Gender']).Value | translate}}</div>
+						</div>
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Jenis Kelamin Ttg.</div>
+							<div class="col-xs-7">: {{::'v3.gender.enum.' + illustrationUIService.findElementInDetail_V3(['LifeInsured', 'Gender']).Value | translate}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Cara Pembayaran Premi</div>
+							<div class="col-xs-7">: {{::'v3.pnc.premiumPrequency.' + illustrationUIService.findElementInDetail_V3(['PremiumFrequency']).Value | translate}}</div>
+						</div>
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Kelas Pekerjaan</div>
+							<div class="col-xs-7">: {{::illustrationUIService.findElementInDetail_V3(['RiskClass']).$}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Mata Uang</div>
+							<div class="col-xs-7">: {{::'v3.prospect.contact.' + illustrationUIService.findElementInDetail_V3(['ContractCurrency']).Value | translate}}</div>
+						</div>
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Akhir Pertanggungan</div>
+							<div class="col-xs-7">: {{::illustrationUIService.findElementInDetail_V3(['RiskSessionDate']).$ | datetimeFilter:"DD/MM/YYYY"}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right" style="white-space: nowrap;">Rencana Pembayaran Premi</div>
+							<div class="col-xs-7">: {{::illustrationUIService.findElementInDetail_V3(['PremiumTerm']).$ + ' Tahun'}}</div>
+						</div>
+						<div class="col-xs-5 no-padding-left">
+							<div class="col-xs-5 no-padding-left no-padding-right">Status Perokok</div>
+							<div class="col-xs-7">: {{::'v3.pdf.mnc.smoke.enum.' + illustrationUIService.findElementInDetail_V3(['LifeInsured', 'SmokerStatus']).Value | translate}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="info-section container-fluid no-padding-left no-padding-right padding-top-10">
+				<div class="info-header pdf-page-content-header">JUMLAH PREMI</div>
+				<div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-4 no-padding-left">
+							<div class="col-xs-6 no-padding-left">Premi Dasar Berkala</div>
+							<div class="col-xs-1 no-padding-left no-padding-right" style="white-space: nowrap;">: Rp.</div>
+							<div class="col-xs-5 text-align-right">{{::illustrationUIService.findElementInDetail_V3(['BenefitIllustration', 'BasicPremium']).$}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-4 no-padding-left">
+							<div class="col-xs-6 no-padding-left no-padding-right">Premi Top Up Berkala</div>
+							<div class="col-xs-1 no-padding-left no-padding-right" style="white-space: nowrap; border-bottom: 1px solid;">: Rp.</div>
+							<div class="col-xs-5 text-align-right" style="border-bottom: 1px solid;">{{::illustrationUIService.findElementInDetail_V3(['BenefitIllustration', 'RegularTopUpPremium']).$}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-4 no-padding-left">
+							<div class="col-xs-6 no-padding-left no-padding-right">Premi Total Berkala</div>
+							<div class="col-xs-1 no-padding-left no-padding-right" style="white-space: nowrap;">: Rp.</div>
+							<div class="col-xs-5 text-align-right">{{::illustrationUIService.findElementInDetail_V3(['BenefitIllustration', 'TotalRegularPremium']).$}}</div>
+						</div>
+					</div>
+					<div class="col-xs-12 no-padding-left">
+						<div class="col-xs-4 no-padding-left">
+							<div class="col-xs-6 no-padding-left no-padding-right">Premi Top Up Sekaligus</div>
+							<div class="col-xs-1 no-padding-left no-padding-right" style="white-space: nowrap;">: Rp.</div>
+							<div class="col-xs-5 text-align-right">{{::illustrationUIService.findElementInDetail_V3(['BenefitIllustration', 'TotalSingleTopUp']).$}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="info-section container-fluid no-padding-left no-padding-right padding-top-10">
+				<div class="info-header pdf-page-content-header">INFORMASI PRODUK</div>
+				<div id="table-productinfo">
+					<table>
+						<tr>
+							<th>Jenis Manfaat</th>
+							<th>Uang Pertanggungan</th>
+							<th>Masa Asuransi</th>
+							<th>Biaya Asuransi Tahun I</th>
+						</tr>
+						<tr>
+							<td><b>Manfaat Dasar</b></td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td>Pertanggungan Dasar</td>
+							<td>{{::moduleService.getNumber(illustrationUIService.findElementInDetail_V3(['BasicSumInsured']).$) | number:0}}</td>
+							<td>{{::illustrationUIService.findElementInDetail_V3(['PolicyTerm']).$ + ' tahun'}}</td>
+							<td>{{::moduleService.getNumber(illustrationUIService.findElementInDetail_V3(['BasicStandardPremium']).$) | number:0}}</td>
+						</tr>
+						<tr ng-if="illustrationUIService.findElementInDetail_V3(['Riders'])['@counter'] > 0">
+							<td><b>Manfaat Tambahan</b></td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr ng-if="illustrationUIService.findElementInDetail_V3(['Riders'])['@counter'] > 0"
+							ng-repeat="rider in ::illustrationUIService.findElementInDetail_V3(['Rider'])">
+							<td>{{::'v3.pdf.mnc.rul.riderPlan.enum.' + illustrationUIService.findElementInElement_V3(rider, ['RiderPlan']).Value | translate}}</td>
+							<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(rider, ['RiderSumInsured']).$) | number:0}}</td>
+							<td>{{::illustrationUIService.findElementInElement_V3(rider, ['RiderTerm']).$ + ' tahun'}}</td>
+							<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(rider, ['RiderStandardPremium']).$) | number:0}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="info-section container-fluid no-padding-left no-padding-right padding-top-10">
+				<div class="info-header pdf-page-content-header">ALOKASI DANA INVESTASI</div>
+				<div id="table-fundallcation">
+					<table>
+						<tr>
+							<th>Dana Investasi</th>
+							<th>Premi Dasar Berkala</th>
+							<th>Premi Top Up Berkala</th>
+							<th>Premi Top Up Sekaligus</th>
+						</tr>
+						<tr ng-repeat="fund in ::illustrationUIService.findElementInDetail_V3(['Fund'])">
+							<td>{{::'v3.illustration.rul.fund.' + illustrationUIService.findElementInElement_V3(fund, ['FundCd']).Value | translate}}</td>
+							<td>{{::illustrationUIService.findElementInElement_V3(fund, ['FundAllocation']).$ + '%'}}</td>
+							<td>{{::illustrationUIService.findElementInElement_V3(fund, ['FundAllocation']).$ + '%'}}</td>
+							<td>{{::illustrationUIService.findElementInElement_V3(fund, ['FundAllocation']).$ + '%'}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="pdf-page-footer row">
+			<div class="col-xs-6">
+				<div>Tandatangan Agen/FC________________________________</div>
+				<div>Saya telah menjelaskan isi ilustrasi ini kepada calon pemegang polis.</div>
+				<div>MNC LINK v3.1.0 | 79670213 | 14 Nov 2016 03:15:24</div>
+			</div>
+			<div class="col-xs-6">
+				<div>Tandatangan Calon Pemegang Polis________________________________</div>
+				<div>Saya telah memahami isi ilustrasi ini.</div>
+				<div>Hal 2 / 6</div>
+			</div>
+		</div>
+	</div>
+	<div class="pdf-page" id="pdf-page-benefit">
+		<div class="pdf-page-header">
+			<div class="col-xs-4">MNC LINK</div>
+			<div class="col-xs-8">PROPOSAL INI ADALAH ILUSTRASI SEMATA, DAN BUKAN MERUPAKAN SEBUAH KONTRAK ASURANSI</div>
+		</div>
+		<div class="pdf-page-content col-xs-12">
+			<div class="pdf-page-content-header">
+				<span>RINGKASAN ILUSTRASI SELURUH DANA INVESTASI&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>PERKEMBANGAN DANA INVESTASI DAN MANFAAT SELAMA MASA BAYAR PREMI</i></span>
+				<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(,000)</span>
+			</div>
+			<div>
+				<table border="1">
+					<tr>
+						<th rowspan="2" style="width: 35px;">Akhir Tahun</th>
+						<th rowspan="2">Usia</th>
+						<th rowspan="2" style="width: 65px;">Premi Dasar Berkala</th>
+						<th rowspan="2" style="width: 65px;">Premi Top Up Berkala</th>
+						<th colspan="2">Dana Investasi</th>
+						<th colspan="3">Proyeksi Nilai Dana Investasi</th>
+						<th colspan="3">Manfaat Asuransi</th>
+					</tr>
+					<tr>
+						<th>Top Up Sekaligus</th>
+						<th>Penarikan</th>
+						<th>Rendah</th>
+						<th>Sedang</th>
+						<th>Tinggi</th>
+						<th>Rendah</th>
+						<th>Sedang</th>
+						<th>Tinggi</th>
+					</tr>
+					<tr ng-repeat="row in ::illustrationUIService.findElementInDetail_V3(['LimitedPaymentPoliciesBenefitRow'])"
+						ng-if="row['illustration:LPPYear'].$ <= 20 || (row['illustration:LPPAge'].$ % 5 == 0 && row['illustration:LPPAge'].$ % 2 != 0) || $last">
+						<td>{{::illustrationUIService.findElementInElement_V3(row, ['LPPYear']).$}}</td>
+						<td>{{::illustrationUIService.findElementInElement_V3(row, ['LPPAge']).$}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPBasicPremium']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPRegularTopUpPremium']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPSingleTopUpAmount']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPWithdrawlAmount']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPCashValueLow']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPCashValueMedium']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPCashValueHigh']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPDeathBenefitLow']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPDeathBenefitMedium']).$, {roundAndDiv: true}) | number:0}}</td>
+						<td>{{::moduleService.getNumber(illustrationUIService.findElementInElement_V3(row, ['LPPDeathBenefitHigh']).$, {roundAndDiv: true}) | number:0}}</td>
+					</tr>
+				</table>
+			</div>
+			<div>Proposal ini adalah ilustrasi semata dan bukan merupakan bagian dari polis. Ketentuan tentang program asuransi ini dijelaskan secara lengkap dalam polis.</div>
+		</div>
+		<div class="pdf-page-footer row">
+			<div class="col-xs-6">
+				<div>Tandatangan Agen/FC________________________________</div>
+				<div>Saya telah menjelaskan isi ilustrasi ini kepada calon pemegang polis.</div>
+				<div>MNC LINK v3.1.0 | 79670213 | 14 Nov 2016 03:15:24</div>
+			</div>
+			<div class="col-xs-6">
+				<div>Tandatangan Calon Pemegang Polis________________________________</div>
+				<div>Saya telah memahami isi ilustrasi ini.</div>
+				<div>Hal 4 / 6</div>
+			</div>
+		</div>
+	</div>
+	<div class="pdf-page" id="pdf-page-chart">
+		<div class="pdf-page-header">
+			<div class="col-xs-4">MNC LINK</div>
+			<div class="col-xs-8">PROPOSAL INI ADALAH ILUSTRASI SEMATA, DAN BUKAN MERUPAKAN SEBUAH KONTRAK ASURANSI</div>
+		</div>
+		<div class="pdf-page-content col-xs-12">
+			<div class="pdf-page-content-header">GRAFIK PERTUMBUHAN NILAI DANA INVESTASI</div>
+			<div id="chart-section">
+				<div class="col-xs-6 no-padding-left">
+					<p style="text-align: center;">{{::moduleService.titleOfChartLPP}}</p>
+					<div id="LimitedPaymentPoliciesBenefitRow" style="height:350px" >{{moduleService.initChartDataForLimitedPaymentPoliciesBenefitRow()}}</div>
+				</div>
+				<div class="col-xs-6">
+					<p style="text-align: center;">{{::moduleService.titleOfChartCPP}}</p>
+					<div id="ContinuousPremiumPoliciesBenefitRow" style="height:350px" >{{moduleService.initChartDataForContinuousPremiumPoliciesBenefitRow()}}</div>
+				</div>
+			</div>
+			<div id="fund-performance">
+				<div>Kinerja masa lalu dana investasi yang dipilih</div>
+				<div>
+					<table border="1">
+						<tr>
+							<th rowspan="2">Dana Investasi</th>
+							<th colspan="3">Asumsi Imbal Hasil</th>
+							<th colspan="6">Nilai Dana Investasi Bersih Rata-rata (%)</th>
+						</tr>
+						<tr>
+							<th>Rendah</th>
+							<th>Sedang</th>
+							<th>Tinggi</th>
+							<th>2008</th>
+							<th>2009</th>
+							<th>2010</th>
+							<th>2011</th>
+							<th>2012</th>
+							<th>2013</th>
+						</tr>
+						<tr>
+							<td>MNC AMAN IDR</td>
+							<td>5%</td>
+							<td>7%</td>
+							<td>9%</td>
+							<td>7.73</td>
+							<td>9.47</td>
+							<td>8.86</td>
+							<td>6.85</td>
+							<td>7.86</td>
+							<td>3.38</td>
+						</tr>
+						<tr>
+							<td>MNC KONSERVATIF SYARIAH IDR</td>
+							<td>6%</td>
+							<td>9%</td>
+							<td>12%</td>
+							<td>10.69</td>
+							<td>10.00</td>
+							<td>13.07</td>
+							<td>9.05</td>
+							<td>5.85</td>
+							<td>1.22</td>
+						</tr>
+						<tr>
+							<td>MNC LINK AKTIF IDR</td>
+							<td>10%</td>
+							<td>15%</td>
+							<td>20%</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>MNC LINK SERASI IDR</td>
+							<td>8%</td>
+							<td>12%</td>
+							<td>15%</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+					</table>
+				</div>
+				<div id="page-chart-catatan">
+					<div>Catatan:</div>
+					<div>1. Rata-rata nilai dana investasi bersih per tahun yang tercantum pada tabel di atas merupakan gambaran kinerja dana investasi di masa lalu.</div>
+					<div>2. Semua nilai yang tercantum dalam ilustrasi ini, termasuk tetapi tidak terbatas pada tingkat pengembangan, nilai dana investasi, manfaat asuransi dapat berubah setiap saat (lebih besar atau lebih kecil), dan karena itu TIDAK DIJAMIN oleh agen, penjual atau PT MNC Life Assurance ("MNC Life").</div>
+				</div>
+			</div>
+		</div>
+		<div class="pdf-page-footer row">
+			<div class="col-xs-6">
+				<div>Tandatangan Agen/FC________________________________</div>
+				<div>Saya telah menjelaskan isi ilustrasi ini kepada calon pemegang polis.</div>
+				<div>MNC LINK v3.1.0 | 79670213 | 14 Nov 2016 03:15:24</div>
+			</div>
+			<div class="col-xs-6">
+				<div>Tandatangan Calon Pemegang Polis________________________________</div>
+				<div>Saya telah memahami isi ilustrasi ini.</div>
+				<div>Hal 5 / 6</div>
+			</div>
+		</div>
+	</div>
+</div>

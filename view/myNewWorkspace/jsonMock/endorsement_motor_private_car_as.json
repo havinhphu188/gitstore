@@ -1,0 +1,115 @@
+{
+  "IposDocument": {
+    "@xmlns": "http://www.csc.com/integral/ipos-common",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xmlns:policy-motor-private-car-m": "http://www.csc.com/integral/policy-motor-private-car-m",
+    "Header": {
+      "DocInfo": {
+        "DocType": "endorsement",
+        "Product": "motor-private-car-m-as",
+        "DefUid": "",
+        "DocId": "",
+        "DocName": "",
+        "DocVersion": "",
+        "OwnerUid": "",
+        "CreatedDate": "",
+        "UpdatedDate": "",
+        "UpdatedUserUid": "",
+        "Tags": "",
+        "Star": "",
+        "Archived": "",
+        "Comments": ""
+      },
+      "DocAccessControllList": {
+        "User": {
+          "@userid": "",
+          "Permisions": {
+            "Permision": ""
+          }
+        }
+      },
+      "DocStatus": {
+        "DocumentStatus": "",
+        "BusinessStatus": ""
+      }
+    },
+    "Data": {
+      "endorsement-motor:EndorsementDetail": {
+        "@section": "endorsement-motor:EndorsementDetail",
+        "endorsement-motor:Step1": {
+          "@section": "endorsement-motor:EndorsementDetail",
+          "endorsement-motor:PolicyDetail": {
+            "@section": "endorsement-motor:Step1"
+          },
+          "endorsement-motor:PolicyBasicInformation": {
+            "@visible": "1",
+            "@index": "1"
+          },
+          "endorsement-motor:ProductName": {
+            "@visible": "1",
+            "@index": "2"
+          },
+          "endorsement-motor:PolicyNumber": {
+            "@visible": "1",
+            "@index": "3"
+          },
+          "endorsement-motor:POName": {
+            "@visible": "1",
+            "@index": "4"
+          },
+          "endorsement-motor:ClientID": {
+            "@visible": "1",
+            "@index": "5"
+          },
+          "endorsement-motor:InceptionDate": {
+            "@visible": "1",
+            "@index": "6"
+          },
+          "endorsement-motor:ExpiryDate": {
+            "@visible": "1",
+            "@index": "7"
+          },
+          "endorsement-motor:EnterChangeRequest": {
+            "@visible": "1",
+            "@index": "8"
+          },
+          "endorsement-motor:field1": {
+            "@visible": "1",
+            "@index": "9"
+          },
+          "endorsement-motor:field2": {
+            "@visible": "1",
+            "@index": "10"
+          },
+          "endorsement-motor:field3": {
+            "@visible": "1",
+            "@index": "11"
+          },
+          "endorsement-motor:field4": {
+            "@visible": "1",
+            "@index": "12"
+          },
+          "endorsement-motor:field5": {
+            "@visible": "1",
+            "@index": "13"
+          }
+        },
+        "endorsement-motor:Step2": {
+          "@section": "endorsement-motor:EndorsementDetail"
+        },
+        "endorsement-motor:Step3": {
+          "@section": "endorsement-motor:EndorsementDetail"
+        },
+        "endorsement-motor:Step4": {
+          "@section": "endorsement-motor:EndorsementDetail"
+        },
+        "endorsement-motor:Step5": {
+          "@section": "endorsement-motor:EndorsementDetail"
+        },
+        "endorsement-motor:Step6": {
+          "@section": "endorsement-motor:EndorsementDetail"
+        }
+      }
+    }
+  }
+}

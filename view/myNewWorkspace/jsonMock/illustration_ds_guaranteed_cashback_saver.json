@@ -1,0 +1,142 @@
+{
+  "IposDocument": {
+    "Data": {
+      "guaranteed-cashback-saver": {
+        "key": [
+          "Inputs"
+        ],
+        "section": "guaranteed-cashback-saver",
+        "guaranteed-cashback-saver:Summary": {
+          "@section": "guaranteed-cashback-saver",
+          "@vpms-suffix": "Summary",
+          "guaranteed-cashback-saver:ProductName": {
+            "@key": [
+              "Product"
+            ],
+            "@preview": [
+              "guaranteed-cashback-saver:Summary"
+            ],
+            "@valuePrefix": "v3.mynewworkspace.portlet.label.productName."
+          },
+          "guaranteed-cashback-saver:ProductNameFake": {
+            "@key": [
+              ""
+            ]
+          },
+          "guaranteed-cashback-saver:QuotationNo": {
+            "@key": [
+              "DocName"
+            ],
+            "@preview": [
+              "guaranteed-cashback-saver:Summary"
+            ]
+          },
+          "guaranteed-cashback-saver:Status": {
+            "@key": [
+              "BusinessStatus"
+            ],
+            "@preview": [
+              "guaranteed-cashback-saver:Summary"
+            ],
+            "@valuePrefix": "v3.document.status."
+          },
+          "guaranteed-cashback-saver:CreatedDate": {
+            "@key": [
+              "CreatedDate"
+            ],
+            "@format": "datetime",
+            "@preview": [
+              "guaranteed-cashback-saver:Summary"
+            ]
+          },
+          "guaranteed-cashback-saver:LastUpdatedDate": {},
+          "guaranteed-cashback-saver:ProposerName": {},
+          "guaranteed-cashback-saver:InsuredName": {},
+          "guaranteed-cashback-saver:PreviewQuotationDetail": {}
+        },
+        "guaranteed-cashback-saver:YourPersonalDetails": {
+          "key": [
+            "PolicyOwner"
+          ],
+          "section": "guaranteed-cashback-saver",
+          "guaranteed-cashback-saver:Name": {
+            "key": [
+              "PolicyOwner",
+              "FullName"
+            ]
+          },
+          "guaranteed-cashback-saver:Gender": {
+            "key": [
+              "PolicyOwner",
+              "Gender"
+            ],
+            "valuePrefix": "v3.gender.enum."
+          },
+          "guaranteed-cashback-saver:DateofBirth": {
+            "@key": [
+              "PolicyOwner",
+              "BirthDate"
+            ],
+            "@format": "datetime"
+          },
+          "guaranteed-cashback-saver:AgeNextBirthday": {},
+          "guaranteed-cashback-saver:Smoking": {
+            "@key": [
+              "PolicyOwner",
+              "SmokerStatus"
+            ],
+            "@valuePrefix": "v3.pnc.smoker.enum."
+          },
+          "guaranteed-cashback-saver:Email": {
+            "@key": [
+              "PolicyOwner",
+              "EmailAddress"
+            ]
+          },
+          "guaranteed-cashback-saver:PhoneNo": {
+            "@key": [
+              "PolicyOwner",
+              "MobilePhone"
+            ]
+          }
+        },
+        "guaranteed-cashback-saver:YourCoverage": {
+          "section": "guaranteed-cashback-saver",
+          "guaranteed-cashback-saver:EffectiveDate": {
+            "@key": [
+              "EffectiveDate"
+            ],
+            "@format": "datetime"
+          },
+          "guaranteed-cashback-saver:PolicyTerm": {
+            "@key": [
+              "PolicyTerm"
+            ],
+            "@defaultValue": "15",
+            "@valuePrefix": "v3.pnc.policyTerm."
+          },
+          "guaranteed-cashback-saver:PremiumPrequency": {
+            "@key": [
+              "PremiumFrequency"
+            ],
+            "@defaultValue": "02"
+          },
+          "guaranteed-cashback-saver:SumInsured": {
+            "@key": [
+              "SumAssured"
+            ],
+            "@defaultValue": "20000"
+          }
+        },
+        "guaranteed-cashback-saver:YourOption": {
+          "section": "guaranteed-cashback-saver",
+          "guaranteed-cashback-saver:CashbackPayoutOption": {
+            "key": [
+              "CashbackPayoutOption"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

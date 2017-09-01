@@ -1,0 +1,499 @@
+{
+  "IposDocument": {
+    "Data": {
+      "case-management-motor:CaseManagement": {
+        "@key": [
+          "CaseManagement"
+        ],
+        "@icon": {
+          "main": "fa fa-car"
+        },
+        "icons": {
+          "cardIcon": {
+            "content": "fa fa-car"
+          }
+        },
+        "@section": "case-management-motor:CaseManagement",
+        "@product": "motor-private-car-m-as",
+        "case-management-motor:Summary": {
+          "@icon": "fa fa-pencil",          
+          "@isShowValidationIcon": "false",          
+          "icons": {
+            "cardIcon": {
+              "content": "fa fa-pencil"
+            }
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-motor:CaseManagement",
+          "case-management-motor:CaseInformation": {
+            "@key": [
+              "DocName"
+            ],
+            "@preview": [
+              {
+                "cardName": "case-management-motor:Summary",
+                "label": "Summary:",
+                "priority": 90
+              }
+            ]
+          },
+          "case-management-motor:CurrentStatus": {
+            "@key": [
+              "BusinessStatus"
+            ],
+            "@preview": [
+              {
+                "cardName": "case-management-motor:Summary",
+                "label": "Current Status:",
+                "priority": 40
+              }
+            ],
+            "@valuePrefix": "v3.document.status."
+          },
+          "case-management-motor:PendingInformation": {},
+          "case-management-motor:NextRequiredAction": {},
+          "case-management-motor:PolicyNo": {
+            "@key": [
+              "PolicyNumber"
+            ]
+          }
+        },
+        "case-management-motor:Step1_ProspectClient": {
+          "@key": [
+            "Prospects"
+          ],
+          "@icon": {
+            "main": "fa fa-user",
+            "step": "1"
+          },
+          "icons":{
+            "step" : {
+              "content": "1"
+            },
+            "cardIcon": {
+              "content": "fa fa-user"
+            }
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-motor:CaseManagement",
+          "case-management-motor:ImportFromExistingProspect": {           
+            "@section": "case-management-motor:Step1_ProspectClient",
+            "@icon": "fa fa-user",
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "importFromExistingProspect(card)",
+            "@staticHtml": "list_existing_prospect.html"
+          },
+          "case-management-motor:NewProspect": {
+            "@section": "case-management-motor:Step1_ProspectClient",
+            "@icon": {
+              "main": "fa fa-user",
+              "mainAction": "addIcon"
+            },
+            "icons":{
+              "cardIcon": {
+                "content": "fa fa-user"
+              },
+              "cardIconPlus" : {}
+            },
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          },
+          "case-management-motor:Prospect": {
+            "@key": [
+              "Prospect"
+            ],
+            "@icon": {
+              "subAction": "removeIcon"
+            },
+            "icons":{
+              "cardIcon": {
+                "content": "fa fa-user"
+              },
+              "removeCardInList" : {}
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "case-management-motor:Step1_ProspectClient",
+            "@cardType": "template"
+          }
+        },
+        "case-management-motor:Quotations": {
+          "@icon": {
+            "main": "fa fa-bar-chart",
+            "step": "2"
+          },
+          "icons":{
+            "step" : {
+              "content": "2"
+            },
+            "cardIcon": {
+              "content": "quotationIcon"
+            }
+          },
+          "@cssClass": "v3-box-2",
+          "@isVisible": false,
+          "@section": "case-management-motor:CaseManagement",
+          "case-management-motor:ImportFromExistingQuotation": {
+            "@key": [
+              "ImportFromExistingQuotation"
+            ],
+            "@section": "case-management-motor:Quotations",
+            "@icon": "fa fa-bar-chart",
+      			"icons":{
+      			  "cardIcon": {
+	             "content": "quotationIcon"
+	            }
+            },
+            "@cssClass": "v3-box-2",
+            "@cardType": "action",
+            "@onClick": "importFromExistingQuotation(card)",
+            "@staticHtml": "list_existing_quotation.html"
+          },
+          "case-management-motor:NewQuotation": {
+            "@key": [
+              "NewQuotation"
+            ],
+            "@section": "case-management-motor:Quotations",
+            "@icon": {
+              "main": "fa fa-bar-chart",
+              "mainAction": "addIcon"
+            },
+            "icons":{
+			        "cardIcon": {
+	              "content": "quotationIcon"
+	            },
+              "cardIconPlus" : {}
+            },
+            "@cssClass": "v3-box-2",
+            "@cardType": "action",
+            "@onClick": "addNewQuotation(card)"
+          },
+          "case-management-motor:QuotationForImport": {
+            "@key": [
+              "Quotation"
+            ],
+            "@icon": {
+              "subAction": "removeIcon"
+            },
+            "icons":{
+			        "cardIcon": {
+  	              "content": "quotationIcon"
+  	          },
+              "removeCardInList" : {}
+            },
+            "@cssClass": "v3-box-2",
+            "@section": "case-management-motor:Quotations",
+            "@cardType": "template"
+          }
+        },
+        "case-management-motor:Quotation": {
+          "@key": [
+            "Quotation"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart",
+            "step": "2"
+          },
+          "icons":{
+            "step" : {
+              "content": "2"
+            },
+            "cardIcon": {
+              "content": "quotationIcon"
+            }
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-motor:CaseManagement"
+        },
+        "case-management-motor:Step3_ReviewQuotation": {
+          "@key": [
+            "Step3_ReviewQuotation"
+          ],
+          "@icon": {
+            "main": "fa fa-search",
+            "step": "3"
+          },
+          "icons":{
+            "step" : {
+              "content": "3"
+            },
+            "cardIcon": {
+              "content": "searchIcon"
+            }
+          },
+          "@cssClass": "v3-box-4",
+          "@onOpen": "showAcceptActions()",
+          "@onClose": "hideAcceptActions()",
+          "@section": "case-management-motor:CaseManagement",
+          "case-management-motor:ReviewQuotation": {}
+        },
+        "case-management-motor:Application": {
+          "@key": [
+            "Application"
+          ],
+          "@icon": {
+            "main": "fa fa-file-o",
+            "step": "4"
+          },
+          "icons":{
+            "step" : {
+              "content": "4"
+            },
+            "cardIcon": {
+              "content": "applicationIcon"
+            }
+          },
+          "@onOpen": "checkQuotation()",
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-motor:CaseManagement"
+        },
+        "case-management-motor:Step5_DocumentCenter": {
+          "@key": ["Step5_DocumentCenter"],
+          "@icon": {
+            "main": "fa fa-paperclip"
+          },
+          "icons":{
+            "cardIcon": {
+              "content": "attachmentIcon"
+            }
+          },
+          "@section": "case-management-motor:CaseManagement",
+          "case-management-motor:TransactionDocuments": {
+            "@key": [
+              "Prints"
+            ],
+            "@isVisible": false,
+            "@icon": "fa fa-file-text-o",
+            "icons":{
+              "cardIcon": {
+                "content": "transactionIcon"
+              }
+            },
+            "@section": "case-management-motor:Step5_DocumentCenter",
+            "TransactionDocument": {
+              "@key": [
+                "Print"
+              ],
+              "@section": "case-management-motor:TransactionDocuments",
+              "@icon": "attachmentIcon",
+			  "icons":{
+	             "cardIcon": {
+	               "content": "transactionIcon"
+	             }
+	           },
+              "@cssClass": "v3-box-1",
+              "@cardType": "template",
+              "@previewHtml":"v3-resource-file-transaction.html",
+              "@onOpen": "fileReaderService.openFileReader('view',card.metadata,[],'')"
+            }
+          },
+          "case-management-motor:Attachments": {
+            "@key": [
+              "Attachments"
+            ],
+            "@section": "case-management-motor:Step5_DocumentCenter",
+            "@icon": "attachmentIcon",
+             "icons":{
+              "cardIcon": {
+                "content": "attachmentIcon"
+              }
+            },
+            "@cssClass": "v3-box-1",
+            "@previewHtml": "v3-summary-static-attachment.html",
+            "Attachment": {
+              "@key": [
+                "Attachment"
+              ],
+              "@section": "case-management-motor:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "subAction": "removeIcon"
+              },
+              "icons":{
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                },
+                "removeCardInList": {}
+              },
+              "@cssClass": "v3-box-1",
+              "@previewHtml": "v3-summary-static-attachment-file.html",
+              "@cardType": "template",
+              "@onOpen": "fileReaderService.openFileReader('view',card.refDetail,self.moduleService.convertToArray(self.moduleService.findElementInElement_V3(self.moduleService.detail, ['Attachment'])),'uploadMode')"
+            },
+            "addAttachment": {
+              "@section": "case-management-motor:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "mainAction": "addIcon"
+              },
+              "icons":{
+				"cardIcon": {
+                  "content": "fa fa-paperclip"
+                },
+                "cardIconPlus": {}
+              },
+              "@cardType": "action",
+              "@staticHtml": "fileUpload.html",
+              "@onClick": "importFile()"
+            }
+          }
+        },
+        "case-management-motor:Step6_Underwriting": {
+          "@key": [
+            "Underwriting"
+          ],
+          "@icon": {
+            "main": "fa fa-pencil-square-o",
+            "step": "5"
+          },
+          "icons":{
+            "step" : {
+              "content": "5"
+            },
+            "cardIcon": {
+              "content": "uWIcon"
+            }
+          },
+          "@isVisible": "hasValueNotEmpty(findElementInDetail(['Underwriting'])['@refUid'])",
+          "@onOpen": "getUnderwritingLazyList()",
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-motor:CaseManagement"
+        },
+        "case-management-motor:Step7_MaintainEcover": {
+          "@key": [
+            "eCoverNotes"
+          ],
+          "@icon": {
+            "main": "fa fa-institution",
+            "step": "6"
+          },
+          "icons":{
+            "step" : {
+              "content": "6"
+            },
+            "cardIcon": {
+              "content": "eCoverIcon"
+            }
+          },
+          "@isVisible": "hasValueNotEmpty(findElementInDetail(['Underwriting'])['@refUid']) && hasValueNotEmpty(findElementInDetail(['eCoverNote'])[0]['@refUid'])",
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-motor:CaseManagement",
+          "@onOpen": "checkAddendumAdding()",
+          "case-management-motor:AddAddendum": {
+            "@key": [
+              "AddAddendum"
+            ],
+            "@section": "case-management-motor:Step7_MaintainEcover",
+            "@icon": {
+              "main": "fa fa-shield",
+              "mainAction": "addIcon"
+            },
+            "icons":{
+              "cardIconPlus" : {},
+              "cardIcon": {
+                "content": "fa fa-shield"
+              }
+            },
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "addAddendumAndHideAction(card)"
+          },
+          "case-management-motor:ECoverNote": {
+            "@key": [
+              "eCoverNote"
+            ],
+            "@icon": {
+              "main": "fa fa-institution"
+            },
+            "icons":{
+              "cardIconPlus" : {},
+              "cardIcon": {
+                "content": "fa fa-institution"
+              }
+            },
+            "@cssClass": "v3-box-5",
+            "@section": "case-management-motor:Step7_MaintainEcover",
+            "@onOpen": "getECoverLazyList()",
+            "@cardType": "template"
+          }
+        },
+        "case-management-motor:Step6_MaintainEcover": {
+          "@key": [
+            "eCoverNotes"
+          ],
+          "@icon": {
+            "main": "fa fa-shield",
+            "step": "5"
+          },
+
+          "icons":{
+            "step" : {
+              "content": "5"
+            },
+            "cardIcon": {
+              "content": "fa fa-shield"
+            }
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-motor:CaseManagement",
+          "@isVisible": "!hasValueNotEmpty(findElementInDetail(['Underwriting'])['@refUid']) && hasValueNotEmpty(findElementInDetail(['eCoverNote'])[0]['@refUid'])",
+          "@onOpen": "checkAddendumAdding()",
+          "case-management-motor:AddAddendum": {
+            "@key": [
+              "eCoverNotes"
+            ],
+            "@section": "case-management-motor:Step6_MaintainEcover",
+            "@icon": {
+              "main": "fa fa-shield",
+              "mainAction": "addIcon"
+            },
+            "icons":{
+              "cardIconPlus" : {},
+	          "cardIcon": {
+	            "content": "fa fa-shield"
+	          }
+            },
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "addAddendumAndHideAction(card)"
+          },
+          "case-management-motor:ECoverNote": {
+            "@key": [
+              "eCoverNote"
+            ],
+            "@icon": {
+              "main": "fa fa-shield"
+            },
+            "icons":{
+              "cardIcon": {
+                "content": "fa fa-shield"
+              }
+            },
+            "@cssClass": "v3-box-5",
+            "@section": "case-management-motor:Step6_MaintainEcover",
+            "@onOpen": "getECoverLazyList()",
+            "@cardType": "template"
+          }
+        },
+        "case-management-motor:Payment": {
+          "@icon": {
+            "main": "fa fa-credit-card"
+          },          
+          "icons": {
+            "cardIcon": {
+              "content": "fa fa-credit-card"
+            }
+          },
+          "@isVisible": false,
+          "@onOpen": "getPaymentLazyList()",
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-motor:CaseManagement",
+          "@key": [
+            "ClientPayment"
+          ]
+        }
+      }
+    }
+  }
+}

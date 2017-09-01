@@ -1,0 +1,88 @@
+/**
+ * //*******************************************************************************
+ * // * Copyright (c) 2011-2014 CSC.
+ * // * Copyright (C) 2010-2016 CSC - All rights reserved.
+ * // *
+ * // * The information contained in this document is the exclusive property of
+ * // * CSC.  This work is protected under USA copyright law
+ * // * and the copyright laws of given countries of origin and international
+ * // * laws, treaties and/or conventions. No part of this document may be
+ * // * reproduced or transmitted in any form or by any means, electronic or
+ * // * mechanical including photocopying or by any informational storage or
+ * // * retrieval system, unless as expressly permitted by CSC.
+ * //
+ * // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+ * // ******************************************************************************
+ */
+
+#contact-center .cardTitle {
+	font-weight: bold;
+	color: #4CAF50;
+}
+#contact-center .text-align {
+	text-align: left;
+	padding-left: 10px;
+}
+#contact-center .currency-align {
+	text-align: right;
+	padding-right: 10px;
+}
+#contact-center .text-align-no-padding {
+	text-align: left;
+}
+#contact-center .currency-align-no-padding {
+	text-align: right;
+}
+@media (min-width: 10em) and (max-width: 48em) {
+	#contact-center .text-align-no-padding {
+		text-align: right;
+	}
+	#contact-center .currency-align-no-padding {
+		text-align: right;
+	}
+}
+#contact-center .padding-left-7 {
+	padding-left: 7px;
+}
+#contact-center .padding-top-10 {
+	padding-top: 10px;
+}
+#contact-center .icon-active {
+	color: #4B7E37;
+}
+#contact-center .icon-inactive {
+	color: #C8E6C9;
+}
+#contact-center .v3-label-search {
+	color: #000000;
+	font-size: 15px !important;
+	font-weight: bold;
+}
+#contact-center .no-padding {
+	padding: 0;
+}
+#contact-center .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+	border-color: #4B7E37;
+	outline-color: #4B7E37;
+}
+#contact-center .pagination > li > a, .pagination > li > span {
+	color: #4B7E37;
+	outline-color: #4B7E37;
+}
+#contact-center .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+	background-color: #4B7E37;
+	border-color: #4B7E37;
+	color: #fff;
+	outline-color: #4B7E37;
+}
+#contact-center .select-size-page {
+	outline-color: #4B7E37;
+}
+#contact-center .item-clickable {
+	color: #4B7E37;
+    cursor: pointer;
+    text-decoration: underline;
+}
+#contact-center .vertical-align-sub {
+	vertical-align: sub;
+}

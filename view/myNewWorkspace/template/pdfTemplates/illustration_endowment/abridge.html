@@ -1,0 +1,677 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+<style>
+.text {
+	text-align: center;
+}
+
+.mnc-logo-title {
+	height: 400px;
+	padding-top: 150px;
+}
+
+.mnc-logo {
+	display: block;
+	margin: auto;
+	width: 300px;
+}
+
+.margin-30 {
+	margin: 30px
+}
+
+.margin-50 {
+	margin: 50px
+}
+.tablepading{
+margin-left:50px;margin-top:10px
+}
+.tablepading td,.tablepading th{
+	padding:5px;
+}
+.no-margin-top-bottom {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.table-66 > thead {
+	line-height: 30px;
+}
+
+.table-66 > tbody > tr > td:nth-child(1) {
+	text-align: center;
+}
+
+.table-66 > tbody > tr > td:nth-child(2) {
+	padding-left: 10px;
+}
+</style>
+<div>
+	<h2 class="text" style="font-weight: bold;">PROPOSAL</h2>
+	<h2 class="text" style="font-weight: bold;">UNITED DANA SISWA</h2>
+	<h3 class="text">dibuat khusus untuk</h3>
+	<h2 class="text" style="font-weight: bold;">{{'BAPAK/IBU ' + illustrationUIService.findElementInDetail_V3(['PolicyOwnerInformation','FullName']).$
+		+ ' ' + illustrationUIService.findElementInDetail_V3(['PolicyOwnerInformation','SuffixName']).$}}</h2>
+	<div class="mnc-logo-title">
+		<img class="mnc-logo" src="/android_asset/images/mnc-logo.jpeg" />
+		<h3 class="text">life is a choice</h3>
+	</div>
+	<h5 class="text">Oleh</h5>
+	<h4 class="text">PT MNC LIFE ASSURANCE</h4>
+	<h6 class="text">Kantor Pusat</h6>
+	<h6 class="text">MNC Financial Center 18th Floor</h6>
+	<h6 class="text">Jl. Kebon Sirih Kav. 21-27</h6>
+	<h6 class="text">Jakarta 10340</h6>
+	<h6 class="text">T. +6221 2970 4288</h6>
+	<h6 class="text"> F. +6221 3983 7011</h6>
+	<h2 class="margin-50" style="margin-top: 100px;">UNITED DANA SISWA</h2>
+	<table class="margin-50" style="margin-bottom: 0px; margin-top: 20px;" width="90%">
+		<tbody>
+		<tr>
+			<td>Nama Pemegang Polis</td>
+			<td>: {{illustrationUIService.findElementInDetail_V3(['PolicyOwnerInformation','Salutation']).$}}  {{illustrationUIService.findElementInDetail_V3(['PolicyOwnerInformation','FullName']).$}}
+				{{illustrationUIService.findElementInDetail_V3(['PolicyOwnerInformation','SuffixName']).$}}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td width="50%">Nama Tertanggung</td>
+			<td width="30%">: {{illustrationUIService.findElementInDetail_V3(['LifeInsuredInformation','Salutation']).$}}
+				{{illustrationUIService.findElementInDetail_V3(['LifeInsuredInformation','FullName']).$}} {{illustrationUIService.findElementInDetail_V3(['LifeInsuredInformation','SuffixName']).$}}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Jenis Kelamin</td>
+			<td>: {{illustrationUIService.findElementInDetail_V3(['LifeInsuredInformation','Gender']).Value}}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Usia Tertanggung</td>
+			<td>: {{illustrationUIService.findElementInDetail_V3(['LifeInsuredInformation','Age']).$}}</td>
+			<td>Tahun</td>
+		</tr>
+		<tr>
+			<td>Usia Anak</td>
+			<td>: {{illustrationUIService.findElementInDetail_V3(['PolicyOwnerInformation','BeneficiaryAge']).$}}</td>
+			<td>Tahun</td>
+		</tr>
+		<tr ng-if="illustrationUIService.findElementInDetail_V3(['Riders','@counter'])>0">
+			<td >Masa Pembayaran Premi</td>
+			<td >: {{illustrationUIService.findElementInDetail_V3(['Rider','RiderPremiumTerm']).$}}</td>
+			<td >Tahun</td>
+		</tr>
+		<tr>
+			<td>Masa Perlindungan</td>
+			<td>: {{illustrationUIService.findElementInDetail_V3(['BenefitIllustration','CoveragePeriod']).$}}</td>
+			<td>Tahun</td>
+		</tr>
+		<tr>
+			<td>Masa Kontrak</td>
+			<td>: {{illustrationUIService.findElementInDetail_V3(['BenefitIllustration','ContractPeriod']).$}}</td>
+			<td>Tahun</td>
+		</tr>
+		<tr>
+			<td>Mata Uang</td>
+			<td>: Rupiah</td>
+		</tr>
+		<tr>
+			<td>Uang Pertanggungan</td>
+			<td>: Rp.</td>
+			<td style="padding-right:60px;text-align:right" >{{illustrationUIService.findElementInDetail_V3(['BenefitIllustration','SumInsured']).$}}</td>
+		</tr>
+		<tr>
+			<td>Premi Dasar/{{'v3.previewpdf.mnc.uds.premiumPrequency.' + illustrationUIService.findElementInDetail_V3(['Coverage','PremiumFrequency']).Value |translate}}</td>
+			<td>: Rp.</td>
+			<td style="padding-right:60px;text-align:right">{{moduleService.basicPremium()|number}}</td>
+		</tr>
+		</tbody>
+	</table>
+	<table class="margin-50 no-margin-top-bottom" width="90%" ng-if="illustrationUIService.findElementInDetail_V3(['Rider']) != undefined">
+		<tbody>
+
+		<tr ng-repeat="rider in illustrationUIService.findElementInDetail_V3(['Rider'])">
+			<td width="10%" ng-if="illustrationUIService.findElementInDetail_V3(['Riders','@counter'])>0"><span ng-if="$index == 0">Rider</span> <span ng-if="$index != 0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+			<td width="40%" ng-if="illustrationUIService.findElementInDetail_V3(['Riders','@counter'])>0">{{'v3.illustration.endowment.pdf.riderPlan.' + illustrationUIService.findElementInElement_V3(rider,['RiderPlan']).Value | translate }}</td>
+			<td width="30%" ng-if="illustrationUIService.findElementInDetail_V3(['Riders','@counter'])>0">: Rp.</td>
+			<td style="text-align:right;padding-right:60px" ng-if="illustrationUIService.findElementInDetail_V3(['Riders','@counter'])>0">{{illustrationUIService.findElementInElement_V3(rider,['RiderPremium']).$ |number}}</td>
+		</tr>
+
+		</tbody>
+	</table>
+	<table width="90%">
+		<tbody>
+		<tr>
+			<td width="50%"  ></td>
+			<td width="20%" ></td>
+			<td><hr style="height:2px;border:none;color:#333;background-color:#333;"></td>
+		</tr>
+		</tbody>
+	</table>
+	<table  class="margin-50 no-margin-top-bottom"  width="90%">
+		<tbody>
+		<tr>
+			<td width="50%"  ><b>Premi {{'v3.previewpdf.mnc.uds.premiumPrequency.' + illustrationUIService.findElementInDetail_V3(['Coverage','PremiumFrequency']).Value |translate}}</b></td>
+			<td width="30%" ><b>: Rp.</b></td>
+			<td style="padding-right:60px;text-align:right"><b>{{illustrationUIService.findElementInDetail_V3(['BenefitIllustration','TotalPayablePremium']).$|number}}</b></td>
+		</tr>
+		</tbody>
+	</table>
+	<h5 style="margin-top: 30px; margin-left: 20px;">Manfaat Asuransi Dasar Yang Diterima :</h5>
+	<table class="margin-50" style="margin-top: 0px; margin-bottom: 10px" width="90%" ng-if="illustrationUIService.findElementInDetail_V3(['LifeBenefitRow']) != undefined">
+		<tbody>
+		<tr ng-repeat="lifeBenefitrow in illustrationUIService.findElementInDetail_V3(['LifeBenefitRow'])">
+			<td width="30%" ng-if="illustrationUIService.findElementInElement_V3(lifeBenefitrow,['AppropriateStages']).$>0">Akhir tahun polis ke - {{illustrationUIService.findElementInElement_V3(lifeBenefitrow,['PolicyYear']).$ }}</td>
+			<td width="10%" ng-if="illustrationUIService.findElementInElement_V3(lifeBenefitrow,['AppropriateStages']).$>0">Sebesar</td>
+			<td width="10%" ng-if="illustrationUIService.findElementInElement_V3(lifeBenefitrow,['AppropriateStages']).$>0">{{illustrationUIService.findElementInElement_V3(lifeBenefitrow,['AppropriateStages']).$ }} %</td>
+			<td width="30%" ng-if="illustrationUIService.findElementInElement_V3(lifeBenefitrow,['AppropriateStages']).$>0">: Rp.</td>
+			<td style="padding-right:60px;text-align:right"   ng-if="illustrationUIService.findElementInElement_V3(lifeBenefitrow,['AppropriateStages']).$>0">{{illustrationUIService.findElementInElement_V3(lifeBenefitrow,['PayoutAmount']).$|number }}</td>
+		</tr>
+		</tbody>
+	</table>
+	<table class="margin-50" width="90%">
+		<tbody>
+		<tr>
+			<td width="70%">* Apabila Tertanggung meninggal dunia pada masa pembayaran premi, maka Yang Ditunjuk
+				(ahli waris) akan menerima 100% dari Dana Yang Direncanakan (Uang Pertanggungan)
+				atau sebesar</td>
+			<td width="10%" >: Rp.</td>
+			<td style="padding-right:60px;text-align:right" >{{illustrationUIService.findElementInDetail_V3(['BenefitIllustration','SumInsured']).$}}</td>
+		</tr>
+		<tr>
+			<td>* Masa pembayaran premi otomatis akan berakhir tetapi manfaat beasiswa akan tetap diterima.</td>
+			<td></td>
+			<td></td>
+		</tr>
+		</tbody>
+	</table>
+	<h5 style="margin-top: 30px; margin-left: 20px;">Manfaat Asuransi Tambahan (Rider) Yang Diterima :</h5>
+	<div style="margin-top:0px; margin-bottom:10px;margin-right:0px;margin-left:50px" ng-repeat="rider in illustrationUIService.findElementInDetail_V3(['Rider'])" >
+		<table ng-if="illustrationUIService.findElementInElement_V3(rider,['RiderPlan']).Value == 'H911RR'" width="90%">
+			<tbody>
+			<tr>
+				<td width="70%" >* Jika Tertanggung didiagnosa pertama kali menderita atau mengalami salah satu dari 66 jenis penyakit kritis (daftar 66 jenis penyakit kritis terlampir) selama masa perlindungan asuransi dan tidak meninggal dalam kurun waktu 30 hari setelah diagnosa tersebut, maka Tertanggung akan mendapatkan santunan penyakit kritis sebesar.</td>
+				<td width="10%" style="padding-right:15px;text-align:right">: Rp.</td>
+				<td style="padding-right:20px;text-align:right">{{illustrationUIService.findElementInElement_V3(rider,['RiderSumInsured']).$|number}}</td>
+			</tr>
+			</tbody>
+		</table>
+		<table ng-if="illustrationUIService.findElementInElement_V3(rider,['RiderPlan']).Value == 'HSGOLDRR'" width="90%">
+			<tbody>
+			<tr>
+
+				<td width="70%">* Jika Tertanggung dirawat dirumah sakit (min. 1 X 24 jam) sebagai akibat sakit/penyakit atau cedera tubuh akibat kecelakaan. Santunan perawatan akan diberikan per hari (max. dalam setahun) sebesar.</td>
+				<td width="10%" style="padding-right:15px;text-align:right">: Rp.</td>
+				<td style="padding-right:20px;text-align:right">{{illustrationUIService.findElementInElement_V3(rider,['RiderSumInsured']).$|number}}</td>
+			</tr>
+			</tbody>
+		</table>
+		<table ng-if="illustrationUIService.findElementInElement_V3(rider,['RiderPlan']).Value == 'HSSILVRR'" width="90%">
+			<tbody>
+			<tr>
+				<td width="70%" >* Jika Tertanggung dirawat dirumah sakit (min. 1 X 24 jam) sebagai akibat sakit/penyakit atau cedera tubuh akibat kecelakaan. Santunan perawatan akan diberikan per hari (max. dalam setahun) sebesar.</td>
+				<td width="10%" style="padding-right:15px;text-align:right">: Rp.</td>
+				<td style="padding-right:20px;text-align:right" >{{illustrationUIService.findElementInElement_V3(rider,['RiderSumInsured']).$|number}}</td>
+			</tr>
+			</tbody>
+		</table>
+		<table ng-if="illustrationUIService.findElementInElement_V3(rider,['RiderPlan']).Value == 'PAARR'" width="90%">
+			<tbody>
+			<tr>
+				<td width="70%">* Santunan PA-A akan diberikan apabila Tertanggung meninggal dunia akibat kecelakaan (yang tidak dikecu-alikan) maka ahli waris akan menerima 100% dari Uang Pertanggungan asuransitambahan sebesar.</td>
+				<td width="10%" style="padding-right:15px;text-align:right" >: Rp.</td>
+				<td style="padding-right:20px;text-align:right">{{illustrationUIService.findElementInElement_V3(rider,['RiderSumInsured']).$|number}}</td>
+			</tr>
+			</tbody>
+		</table>
+		<table ng-if="illustrationUIService.findElementInElement_V3(rider,['RiderPlan']).Value == 'PAABRR'" width="90%">
+			<tbody>
+			<tr>
+				<td>* Santunan PA-A akan diberikan apabila Tertanggung meninggal dunia akibat kecelakaan (yang tidak dikecu-alikan) maka ahli waris akan menerima 100% dari Uang Pertanggungan asuransitambahan sebesar.</td>
+				<td>: Rp.</td>
+				<td>{{illustrationUIService.findElementInElement_V3(rider,['RiderSumInsured']).$|number}}</td>
+			</tr>
+
+			<tr>
+				<td>* Atau mengalami cacat tetap, baik total maupun sebagian maka Tertanggung akan menerima prosentase dari Uang Pertanggungan Asuransi tambahan sesuai yang ditentukan dalam Tabel Manfaat dengan maksimal se-besar 100% dari Uang Pertanggungan Asuransi Tambahan sebesar.</td>
+				<td></td>
+				<td></td>
+			</tr>
+			</tbody>
+		</table>
+		<table ng-if="illustrationUIService.findElementInElement_V3(rider,['RiderPlan']).Value == 'PAABDRR'" width="90%">
+			<tbody>
+			<tr>
+				<td width="70%">* Santunan PA-A akan diberikan apabila Tertanggung meninggal dunia akibat kecelakaan (yang tidak dikecu-alikan) maka ahli waris akan menerima 100% dari Uang Pertanggungan asuransitambahan sebesar.</td>
+				<td width="10%" style="padding-right:15px;text-align:right">: Rp.</td>
+				<td style="padding-right:20px;text-align:right">{{illustrationUIService.findElementInElement_V3(rider,['RiderSumInsured']).$|number}}</td>
+			</tr>
+			<tr>
+				<td>* Atau mengalami cacat tetap, baik total maupun sebagian maka Tertanggung akan menerima prosentase dari Uang Pertanggungan Asuransi tambahan sesuai yang ditentukan dalam Tabel Manfaat dengan maksimal se-besar 100% dari Uang Pertanggungan Asuransi Tambahan sebesar.</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>* Atau penggantian semua biaya perawatan/pengobatan sebagai akibat dari suatu kecelakaan (yang tidak dikecualikan) yang mengakibatkan sakit/cidera yang memerlukan perawatan, sampai dengan batas maksimum 10% dari jumlah pertanggungan asuransi tambahan per tahun polis asuransi tambahan ini.</td>
+				<td></td>
+				<td></td>
+			</tr>
+			</tbody>
+		</table>
+		<table ng-if="illustrationUIService.findElementInElement_V3(rider,['RiderPlan']).Value == 'PAADRR'" width="90%">
+			<tbody>
+			<tr>
+				<td width="70%">* Santunan PA-A akan diberikan apabila Tertanggung meninggal dunia akibat kecelakaan (yang tidak dikecu-alikan) maka ahli waris akan menerima 100% dari Uang Pertanggungan asuransitambahan sebesar.</td>
+				<td width="10%" style="padding-right:15px;text-align:right">:Rp.</td>
+				<td style="padding-right:20px;text-align:right">{{illustrationUIService.findElementInElement_V3(rider,['RiderSumInsured']).$|number}}</td>
+			</tr>
+
+			<tr>
+				<td>* Atau penggantian semua biaya perawatan/pengobatan sebagai akibat dari suatu kecelakaan (yang tidak dikecualikan) yang mengakibatkan sakit/cidera yang memerlukan perawatan, sampai dengan batas maksimum 10% dari jumlah pertanggungan asuransi tambahan per tahun polis asuransi tambahan ini.</td>
+				<td></td>
+				<td></td>
+			</tr>
+			</tbody>
+		</table>
+		<table ng-if="illustrationUIService.findElementInElement_V3(rider,['RiderPlan']).Value == 'WPRR'" width="90%">
+			<tbody>
+			<tr>
+				<td width="70%">* Santunan "Waiver of Premium" akan diberikan apabila akibat dari suatu penyakit atau akibat kecelakaan pada masa pembayaran Premi menyebabkan Tertanggung tidak dapat mencari nafkah (kehilangan penghasilan), maka Tertanggung tidak perlu melanjutkan pembayaran Premi, dan manfaat dasar Asuransi akan tetap diterima sesuai dengan kontrak polis</td>
+				<td width="10%" style="padding-right:15px;text-align:right">: Rp.</td>
+				<td style="padding-right:20px;text-align:right">{{illustrationUIService.findElementInElement_V3(rider,['RiderSumInsured']).$ |number}}</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<table style="margin-top: 30px; margin-left: 20px;" width="90%">
+		<tbody>
+		<tr>
+			<td width="30%" >Ttd</td>
+			<td width="30%">Ttd</td>
+			<td width="30%">No. Proposal: {{illustrationUIService.findElementInDetail_V3(['DocName'])}}</td>
+		</tr>
+		<tr>
+			<td>Agen</td>
+			<td>Pemegang</td>
+			<td>Tanggal: {{illustrationUIService.findElementInDetail_V3(['BasicPlan','EffectiveDate']).$}}</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Polis</td>
+			<td>Disajikan Oleh:{{agentName}}</td>
+		</tr>
+		</tbody>
+	</table>
+	<h2 ng-if="moduleService.isExistRider('CI')" class="margin-50" style="margin-top: 100px;">Lampiran 66 Jenis Penyakit Kritis</h2>
+	<table ng-if="moduleService.isExistRider('CI')" class="margin-30 table-66" style="margin-top: 15px;" width="90%" >
+		<thead style="border:1px solid black">
+		<th style="border-right:1px solid black" width="10%">NO.</th>
+		<th width="80%">Jenis Penyakit Kritis</th>
+
+		</thead>
+		<tbody>
+		<tr>
+			<td>1.</td>
+			<td>Serangan Jantung (Myocardial Infarction)</td>
+		</tr>
+		<tr>
+			<td>2.</td>
+			<td>Tindakan Bedah Bypass Pembuluh Darah Jantung (Coronary Artery Bypass Grafting)</td>
+		</tr>
+		<tr>
+			<td>3.</td>
+			<td>Angioplasty dan penatalaksanaan invasif lainnya untuk Penyakit Pembuluh Darah Jantung</td>
+		</tr>
+		<tr>
+			<td>4.</td>
+			<td>Pengobatan Arteri Koroner dengan Laser (Coronary Laser Treatment)</td>
+		</tr>
+		<tr>
+			<td>5.</td>
+			<td>Penyakit Jantung Koroner Lain Yang Serius</td>
+		</tr>
+		<tr>
+			<td>6.</td>
+			<td>Tindakan bedah Katup Jantung (Heart Valve Surgery)</td>
+		</tr>
+		<tr>
+			<td>7.</td>
+			<td>Hipertensi Arteri Pulmonalis (Disabling Primary Pulmonary Hypertension)</td>
+		</tr>
+		<tr>
+			<td>8.</td>
+			<td>Penyakit Paru Kronik (Chronic Lung Disease)</td>
+		</tr>
+		<tr>
+			<td>9.</td>
+			<td>Tindakan bedah Pembuluh Darah Aorta (Surgery of Aorta)</td>
+		</tr>
+		<tr>
+			<td>10.</td>
+			<td>Stroke</td>
+		</tr>
+		<tr>
+			<td>11.</td>
+			<td>Stroke yang memerlukan operasi arteri carotid</td>
+		</tr>
+		<tr>
+			<td>12.</td>
+			<td>Koma (Coma)</td>
+		</tr>
+		<tr>
+			<td>13.</td>
+			<td>Penyakit Radang Selaput Otak (Bacterial Meningitis)</td>
+		</tr>
+		<tr>
+			<td>14.</td>
+			<td>Radang Otak (Encephalitis)</td>
+		</tr>
+		<tr>
+			<td>15.</td>
+			<td>Penyakit Parkinson (Parkinson's Disease)</td>
+		</tr>
+		<tr>
+			<td>16.</td>
+			<td>Alzheimer (Alzheimer's Disease)</td>
+		</tr>
+		<tr>
+			<td>17.</td>
+			<td>Motor Neuron Disease</td>
+		</tr>
+		<tr>
+			<td>18.</td>
+			<td>Multiple Sclerosis</td>
+		</tr>
+		<tr>
+			<td>19.</td>
+			<td>Muscular Dystrophy</td>
+		</tr>
+		<tr>
+			<td>20.</td>
+			<td>Kelumpuhan (Paralysis)</td>
+		</tr>
+		<tr>
+			<td>21.</td>
+			<td>Poliomyelitis</td>
+		</tr>
+		<tr>
+			<td>22.</td>
+			<td>Trauma Kepala Serius (Major Head Trauma)</td>
+		</tr>
+		<tr>
+			<td>23.</td>
+			<td>Tumor Jinak Otak (Benign Brain Tumor)</td>
+		</tr>
+		<tr>
+			<td>24.</td>
+			<td>Kanker pada Wanita (Cancer)</td>
+		</tr>
+		<tr>
+			<td>25.</td>
+			<td>Kanker pada Pria (Cancer)</td>
+		</tr>
+		<tr>
+			<td>26.</td>
+			<td>Kanker Paru (Lung Cancer)</td>
+		</tr>
+		<tr>
+			<td>27.</td>
+			<td>Kanker Hati (Liver Cancer)</td>
+		</tr>
+		<tr>
+			<td>28.</td>
+			<td>Kanker Kulit (Skin Cancer)</td>
+		</tr>
+		<tr>
+			<td>29.</td>
+			<td>Kanker Nasofaring (Nasopharing Cancer)</td>
+		</tr>
+		<tr>
+			<td>30.</td>
+			<td>Anemia Aplastik (Aplastic Anaemia)</td>
+		</tr>
+		<tr>
+			<td>31.</td>
+			<td>Hepatitis Viral Fulminan</td>
+		</tr>
+		<tr>
+			<td>32.</td>
+			<td>Penyakit Hati Kronis</td>
+		</tr>
+		<tr>
+			<td>33.</td>
+			<td>Kolitis Ulseratif (Ulcerative Colitis)</td>
+		</tr>
+		<tr>
+			<td>34.</td>
+			<td>Penyakit Crohn (Crohn's Disease)</td>
+		</tr>
+		<tr>
+			<td>35.</td>
+			<td>Gagal Ginjal (Renal Failure l Kidney Failure / End Stage Renal Disease)</td>
+		</tr>
+		<tr>
+			<td>36.</td>
+			<td>Transplantasi Jantung</td>
+		</tr>
+		<tr>
+			<td>37.</td>
+			<td>Transplantasi Ginjal</td>
+		</tr>
+		<tr>
+			<td>38.</td>
+			<td>Transplantasi Hati</td>
+		</tr>
+		<tr>
+			<td>39.</td>
+			<td>Kehilangan Kemampuan Bicara (Loss of Speech)</td>
+		</tr>
+		<tr>
+			<td>40.</td>
+			<td>Ketulian (Deafness)</td>
+		</tr>
+		<tr>
+			<td>41.</td>
+			<td>Luka Bakar Kritis (Major Burns)</td>
+		</tr>
+		<tr>
+			<td>42.</td>
+			<td>HIV Yang Didapatkan Melalui Transfusi Darah</td>
+		</tr>
+		<tr>
+			<td>43.</td>
+			<td>HIV Yang Didapatkan Sehubungan dengan Pekerjaan</td>
+		</tr>
+		<tr>
+			<td>44.</td>
+			<td>Lupus Eritematosus Sistemik (Systemic Lupus Erythematosus)</td>
+		</tr>
+		<tr>
+			<td>45.</td>
+			<td>Kehilangan Kemampuan Melihat (Blindless)</td>
+		</tr>
+		<tr>
+			<td>46.</td>
+			<td>Terminal Iliness</td>
+		</tr>
+		<tr>
+			<td>47.</td>
+			<td>Hidrochepalus</td>
+		</tr>
+		<tr>
+			<td>48.</td>
+			<td>Apallic Syndrome</td>
+		</tr>
+		<tr>
+			<td>49.</td>
+			<td>Skleroderma Progresif</td>
+		</tr>
+		<tr>
+			<td>50.</td>
+			<td>Penyakit Kista Medullary</td>
+		</tr>
+		<tr>
+			<td>51.</td>
+			<td>Cardiomyopathy</td>
+		</tr>
+		<tr>
+			<td>52.</td>
+			<td>Aneurisma pembuluh darah otak yang mensyaratkan pembedahan</td>
+		</tr>
+		<tr>
+			<td>53.</td>
+			<td>Terputusnya akar-akar syaraf Plexus brachialis</td>
+		</tr>
+		<tr>
+			<td>54.</td>
+			<td>Operasi Scoliosis Idiopatik</td>
+		</tr>
+		<tr>
+			<td>55.</td>
+			<td>Pankreatitis menahun yang berulang</td>
+		</tr>
+		<tr>
+			<td>56.</td>
+			<td>Penyakit Kaki Gajah Kronis</td>
+		</tr>
+		<tr>
+			<td>57.</td>
+			<td>Hilangnya kemandirian hidup</td>
+		</tr>
+		<tr>
+			<td>58.</td>
+			<td>Kematian selaput otot atau jaringan (Gangrene)</td>
+		</tr>
+		<tr>
+			<td>59.</td>
+			<td>Rheumatoid Arthritis Barat</td>
+		</tr>
+		<tr>
+			<td>60.</td>
+			<td>Penyakit Kawasaki Yang Mengakibatkan Komplikasi Pada Jantung</td>
+		</tr>
+		<tr>
+			<td>61.</td>
+			<td>Myasthenia Gravis</td>
+		</tr>
+		<tr>
+			<td>62.</td>
+			<td>Kehilangan Anggota Tubuh (Loss of Limbs)</td>
+		</tr>
+		<tr>
+			<td>63.</td>
+			<td>Progressive Bulbar Palsy</td>
+		</tr>
+		<tr>
+			<td>64.</td>
+			<td>Progressive Supranuclear Palsy</td>
+		</tr>
+		<tr>
+			<td>65.</td>
+			<td>Eisenmerger</td>
+		</tr>
+		<tr>
+			<td>66.</td>
+			<td>Amyotrophic Lateral Sclerosis</td>
+		</tr>
+		</tbody>
+	</table>
+	<h2 class="margin-50" style="margin-top: 100px;">UNITED DANA SISWA</h2>
+	<table class="margin-50 no-margin-top-bottom" width="90%">
+		<tbody>
+		<tr>
+			<td>Nama Pemegang Polis/Tertanggung</td>
+			<td>: {{illustrationUIService.findElementInDetail_V3(['LifeInsuredInformation','Salutation']).$}}  {{illustrationUIService.findElementInDetail_V3(['LifeInsuredInformation','FullName']).$}}
+				{{illustrationUIService.findElementInDetail_V3(['LifeInsuredInformation','SuffixName']).$}}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Jenis kelamin</td>
+			<td>: {{illustrationUIService.findElementInDetail_V3(['LifeInsuredInformation','Gender']).Value }}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Usia</td>
+			<td>: {{illustrationUIService.findElementInDetail_V3(['LifeInsuredInformation','Age']).$}}</td>
+			<td>Tahun</td>
+		</tr>
+		<tr>
+			<td>Usia Anak</td>
+			<td>: {{illustrationUIService.findElementInDetail_V3(['PolicyOwnerInformation','BeneficiaryAge']).$}}</td>
+			<td>Tahun</td>
+		</tr>
+		<tr ng-if="illustrationUIService.findElementInDetail_V3(['Riders','@counter'])>0">
+			<td>Masa Pembayaran Premi</td>
+			<td>: {{illustrationUIService.findElementInDetail_V3(['Rider','RiderPremiumTerm']).$}}</td>
+			<td>Tahun</td>
+		</tr>
+		<tr>
+			<td>Masa Perlindungan</td>
+			<td>: {{illustrationUIService.findElementInDetail_V3(['BenefitIllustration','CoveragePeriod']).$}}</td>
+			<td>Tahun</td>
+		</tr>
+		<tr>
+			<td>Masa Kontrak</td>
+			<td>: {{illustrationUIService.findElementInDetail_V3(['BenefitIllustration','ContractPeriod']).$}}</td>
+			<td>Tahun</td>
+		</tr>
+		<tr>
+			<td>Mata Uang</td>
+			<td>: Rupiah</td>
+		</tr>
+		<tr>
+			<td>Uang Pertanggungan</td>
+			<td>: Rp.</td>
+			<td style="text-align:right;padding-right:100px">{{illustrationUIService.findElementInDetail_V3(['BenefitIllustration','SumInsured']).$}}</td>
+		</tr>
+		<tr>
+			<td>Premi Dasar</td>
+			<td>: Rp.</td>
+			<td style="text-align:right;padding-right:100px">{{moduleService.basicPremium()|number}}</td>
+		</tr>
+		<tr ng-if="illustrationUIService.findElementInDetail_V3(['Riders','@counter'])>0">
+			<td >Premi Rider</td>
+			<td >: Rp.</td>
+			<td style="text-align:right;padding-right:100px">{{illustrationUIService.findElementInDetail_V3(['BenefitIllustration','TotalRiderPremium']).$}}</td>
+		</tr>
+		</tbody>
+	</table>
+	<table class="tablepading" width="80%" border="1">
+		<thead>
+		<th>Akhir thn ke-</th>
+		<th>Nilai Tunai Polis</th>
+		<th>Bonus Tahapan</th>
+		<th>Santunan Kematian</th>
+		</thead>
+		<tbody>
+		<tr ng-repeat="endowmentpayoutrow in illustrationUIService.findElementInDetail_V3(['EndowmentPayoutRow'])">
+			<td style="text-align:center;">{{illustrationUIService.findElementInElement_V3(endowmentpayoutrow,['PayoutIndex']).$}}</td>
+			<td style="text-align:right;">{{illustrationUIService.findElementInElement_V3(endowmentpayoutrow,['CashValueBenefit']).$|number}}</td>
+			<td style="text-align:right;">{{illustrationUIService.findElementInElement_V3(endowmentpayoutrow,['BonusBenefit']).$|number}}</td>
+			<td style="text-align:right;">{{illustrationUIService.findElementInElement_V3(endowmentpayoutrow,['SumAssured']).$|number}}</td>
+		</tr>
+		</tbody>
+	</table>
+	<table style="margin: 0px auto;" width="90%">
+		<tbody>
+		<tr>
+			<td><h3><b>TOTAL TAHAPAN: </b></h3></td>
+			<td><h3><b>{{illustrationUIService.findElementInDetail_V3(['BenefitIllustration','TotalBenefit']).$|number}}</b></h3></td>
+		</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,435 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- SummaryStatus-->
+<div fieldId="illustration-personal-accident:quotation-information" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{::'v3.mynewworkspace.personal-accident.illustration.label.QuotationInformation' | translate}}:</span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['DocName'])}}</span>
+	</div>
+</div>
+<div fieldId="illustration-personal-accident:current-status" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.personal-accident.illustration.label.CurrentStatus' | translate}}:</span>
+		<span class="col-md-6">{{moduleService.findElementInDetail_V3(['BusinessStatus'])}}</span>
+	</div>
+</div>
+<div fieldId="illustration-personal-accident:pending-information" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.personal-accident.illustration.label.PendingInformation' | translate}}:</span>
+		<span class="col-md-6"></span>
+	</div>
+</div>
+<div fieldId="illustration-personal-accident:next-required-action" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-md-6">{{'v3.mynewworkspace.personal-accident.illustration.label.NextRequiredAction' | translate}}:</span>
+		<span class="col-md-6"></span>
+	</div>
+</div>
+
+<!-- SummaryQuotation -->
+<div fieldId="illustration-personal-accident:SummaryQuotation" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content summary">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group form-group-lg has-success">
+                <span style="font-weight: bold">1. {{'v3.mynewworkspace.personal-accident.illustration.label.ProductInformation' | translate}}:&nbsp;</span>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 no-left-padding">
+                <div class="form-group form-group-lg has-success">
+                    <span class="col-md-7 no-left-padding">{{'v3.mynewworkspace.personal-accident.illustration.label.ProductName' | translate}}:&nbsp;</span>
+                    <span class="col-md-5 no-left-padding">{{'v3.illustration.product.' + moduleService.findElementInElement_V3(illustrationService.detail, ['ProductName']).$ | translate}}</span>
+                </div>
+                <div class="form-group form-group-lg has-success">
+                    <span class="col-md-7 no-left-padding">{{'v3.mynewworkspace.personal-accident.illustration.label.InceptionDate' | translate}}:&nbsp;</span>
+                    <span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['InceptionDate']).$  | dateFilter }}</span>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 no-left-padding">
+                <div class="form-group form-group-lg has-success">
+                	<span class="col-md-7 no-left-padding">&nbsp;</span>
+                    <span class="col-md-5 no-left-padding"></span>
+                </div>
+                <div class="form-group form-group-lg has-success">
+                    <span class="col-md-7 no-left-padding">{{'v3.mynewworkspace.personal-accident.illustration.label.ExpiryDate' | translate}}:&nbsp;</span>
+                    <span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['ExpiryDate']).$  | dateFilter }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group form-group-lg has-success">
+                <span style="font-weight: bold">2. {{'v3.mynewworkspace.personal-accident.illustration.label.Coverage' | translate}}:&nbsp;</span>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 no-left-padding">
+                <div class="form-group form-group-lg has-success">
+                    <span class="col-md-7 no-left-padding">{{'v3.mynewworkspace.personal-accident.illustration.label.Plan' | translate}}:&nbsp;</span>
+                    <span class="col-md-5 no-left-padding">{{'v3.personal-accident.plan.enum.' + moduleService.findElementInElement_V3(illustrationService.detail, ['Plan']).Value | translate}}</span>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 no-left-padding">
+                <div class="form-group form-group-lg has-success">
+                    <span class="col-md-7 no-left-padding">{{'v3.mynewworkspace.personal-accident.illustration.label.Country' | translate}}:&nbsp;</span>
+                    <span class="col-md-5 no-left-padding">{{'v3.personal-accident.country.enum.' + moduleService.findElementInElement_V3(illustrationService.detail, ['Coverage', 'Country']).Value | translate}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group form-group-lg has-success">
+                <span style="font-weight: bold">3. {{'v3.mynewworkspace.personal-accident.illustration.label.InsuredPersons' | translate}}:&nbsp;</span>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 no-left-padding">
+                <div class="form-group form-group-lg has-success">
+                    <span class="col-md-7 no-left-padding">{{'v3.mynewworkspace.personal-accident.illustration.label.NumberOfPersons' | translate}}:&nbsp;</span>
+                    <span class="col-md-5 no-left-padding" ng-bind="countNumberOfPersons()"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group form-group-lg has-success">
+                <span style="font-weight: bold">{{'v3.mynewworkspace.personal-accident.illustration.label.MainInsured' | translate}}:&nbsp;</span>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 no-left-padding">
+                <div class="form-group form-group-lg has-success margin-left-10">
+                    <span class="col-md-7 no-left-padding">{{'v3.mynewworkspace.personal-accident.illustration.label.Name' | translate}}:&nbsp;</span>
+                    <span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['MainInsured', 'FullName']).$}}</span>
+                </div>
+                <div class="form-group form-group-lg has-success margin-left-10">
+                    <span class="col-md-7 no-left-padding">{{'v3.mynewworkspace.personal-accident.illustration.label.DateOfBirth' | translate}}:&nbsp;</span>
+                    <span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['MainInsured', 'BirthDate']).$ | dateFilter}}</span>
+                </div>
+                <div class="form-group form-group-lg has-success margin-left-10">
+                    <span class="col-md-7 no-left-padding">{{'v3.mynewworkspace.personal-accident.illustration.label.Occupation' | translate}}:&nbsp;</span>
+                    <span class="col-md-5 no-left-padding">{{'v3.personal-accident.occupation.enum.' + moduleService.findElementInElement_V3(illustrationService.detail, ['MainInsured', 'Occupation']).Value | translate}}</span>
+                </div>
+           	</div>
+           	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 no-left-padding">
+           		<div class="form-group form-group-lg has-success">
+                    <span class="col-md-7 no-left-padding">&nbsp;</span>
+                    <span class="col-md-5 no-left-padding"></span>
+                </div>
+                <div class="form-group form-group-lg has-success">
+                    <span class="col-md-7 no-left-padding">{{'v3.mynewworkspace.personal-accident.illustration.label.ID' | translate}}:&nbsp;</span>
+                    <span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['MainInsured', 'IDs','ID','IDNumber']).$}}</span>
+                </div>
+                <div class="form-group form-group-lg has-success">
+                    <span class="col-md-7 no-left-padding">{{'v3.mynewworkspace.personal-accident.illustration.label.OccupationClass' | translate}}:&nbsp;</span>
+                    <span class="col-md-5 no-left-padding">{{moduleService.findElementInElement_V3(illustrationService.detail, ['BusinessIndustry']).Value}}</span>
+                
+            	</div>
+        	</div>
+        	<div ng-if="moduleService.findElementInElement_V3(illustrationService.detail, ['OtherInsuredPersons'])['@counter']>0">
+	        	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-left-padding">
+		        	<div class="form-group form-group-lg has-success">
+		                <span style="font-weight: bold">{{'v3.mynewworkspace.personal-accident.illustration.label.OtherInsuredPersons' | translate}}:&nbsp;</span>
+		            </div>
+	           	</div>
+	           <!--  <div class="hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-table-content" style="width: 85%">
+			        <div flex layout="row" class="ipos_portlet_table_header_item" layout-align="center center">
+			            <div flex="40">{{'v3.mynewworkspace.personal-accident.illustration.label.Name' | translate}}</div>
+			            <div flex="30">{{'v3.mynewworkspace.personal-accident.illustration.label.ID' | translate}}</div>
+			            <div flex="30">{{'v3.mynewworkspace.personal-accident.illustration.label.DateOfBirth' | translate}}</div>
+			        </div>
+			        <div flex layout="row" ng-repeat="otherInsured in moduleService.convertToArray(moduleService.findElementInElement_V3(illustrationService.detail, ['OtherInsuredPerson'])) track by $index" flex layout="row" class="ipos_portlet_table_listRow">
+			            <div flex="40">{{moduleService.findElementInElement_V3(otherInsured, ['PersonName', 'FullName']).$}}&nbsp;</div>
+			            <div flex="30">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</div>
+			            <div flex="30">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</div>
+				    </div>
+			    </div> -->
+		    	
+		    	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding-left no-padding-right" style="width: 85%">
+					<div class="table-responsive">
+						<table class="table v3-responsive-table">
+							<thead>
+			            		<tr>
+			            			 <th style="height: 45px; vertical-align: middle; width: 320px;">{{'v3.mynewworkspace.personal-accident.illustration.label.Name' | translate}}</th>
+			            			 <th style="height: 45px; vertical-align: middle; width: 230px;">{{'v3.mynewworkspace.personal-accident.illustration.label.ID' | translate}}</th>
+			            			 <th style="height: 45px; vertical-align: middle;">{{'v3.mynewworkspace.personal-accident.illustration.label.DateOfBirth' | translate}}</th>
+			            		</tr>
+			            	</thead>
+			            	<tbody>
+			            		<tr  ng-repeat="otherInsured in moduleService.convertToArray(moduleService.findElementInElement_V3(illustrationService.detail, ['OtherInsuredPerson'])) track by $index" >
+			            			 <td class="center-align">{{moduleService.findElementInElement_V3(otherInsured, ['PersonName', 'FullName']).$}}&nbsp;</td>
+			            			 <td class="center-align">{{moduleService.findElementInElement_V3(otherInsured, ['IDs', 'ID', 'IDNumber']).$}}</td>
+			            			 <td class="center-align">{{moduleService.findElementInElement_V3(otherInsured, ['BirthDate']).$ | dateFilter}}</td>
+			            		</tr>
+			            	</tbody>
+						</table>
+					</div>
+				</div>
+		    	
+	       </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group form-group-lg has-success">
+                <span style="font-weight: bold">4. {{'v3.mynewworkspace.personal-accident.illustration.label.Premiums' | translate}} ({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}}):&nbsp;</span>
+            </div>
+         </div>
+    </div>
+    <!-- <div class="hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content v3-table-content" style="width: 80%;  margin-left: 30px;">
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="60">{{'v3.mynewworkspace.personal-accident.illustration.label.TotalPremium' | translate}}</div>
+            <div flex="40" class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['TotalPremium']).$}}</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="60">{{'v3.mynewworkspace.personal-accident.illustration.label.StampDuty' | translate}}</div>
+            <div flex="40" class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['StampDuty']).$}}</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="60">{{'v3.mynewworkspace.personal-accident.illustration.label.GST' | translate}}</div>
+            <div flex="40" class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['GST']).$}}</div>
+        </div>
+        <div flex layout="row" class="ipos_portlet_table_colspan">
+            <div flex="60">{{'v3.mynewworkspace.personal-accident.illustration.label.TotalPayablePremium' | translate}}</div>
+            <div flex="40" class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['TotalPayable']).$}}</div>
+        </div>
+    </div> -->
+    
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding-left no-padding-right" style="width: 80%;  margin-left: 30px;">
+		<div class="table-responsive">
+			<table class="table v3-responsive-table">
+            	<tbody>
+            		<tr>
+            			 <td class="v3-currency-alignment">{{'v3.mynewworkspace.personal-accident.illustration.label.TotalPremium' | translate}}</td>
+            			 <td class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['TotalPremium']).$}}</td>
+            		</tr>
+            		<tr>
+            			 <td class="v3-currency-alignment">{{'v3.mynewworkspace.personal-accident.illustration.label.StampDuty' | translate}}</td>
+            			 <td class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['StampDuty']).$}}</td>
+            		</tr>
+            		<tr>
+            			 <td class="v3-currency-alignment">{{'v3.mynewworkspace.personal-accident.illustration.label.GST' | translate}}</td>
+            			 <td class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['GST']).$}}</td>
+            		</tr>
+            		<tr>
+            			 <td class="v3-currency-alignment">{{'v3.mynewworkspace.personal-accident.illustration.label.TotalPayablePremium' | translate}}</td>
+            			 <td class="v3-currency-alignment">{{moduleService.findElementInElement_V3(illustrationService.detail, ['TotalPayable']).$}}</td>
+            		</tr>
+            	</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<!-- ProductInformation -->
+<div fieldId="illustration-personal-accident:ProductName" class="v3-column-content">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.ProductName' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ProductName'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="true" value="{{'v3.illustration.product.'+ moduleService.findElementInDetail_V3(['ProductName']).$ | translate}}" />
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ProductName']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" hide-sm>
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content"></div>
+	</div>
+</div>
+<div fieldId="illustration-personal-accident:InceptionDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.InceptionDate' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['InceptionDate'])['@mandatory'] == '1'">*</span></label>
+			<div class="ms-calendar-wrapper"><input ng-disabled="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['InceptionDate'])['@editable']=='0'" ms-datepicker more-action="updateExpiryDate()" ng-model="moduleService.findElementInDetail_V3(['InceptionDate']).$" class="ms-calendar"/></div> 
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['InceptionDate']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-personal-accident:ExpiryDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.ExpiryDate' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ExpiryDate'])['@mandatory'] == '1'">*</span></label>
+     		<span style='background-color: #eee;cursor: not-allowed;' class="form-control">{{moduleService.findElementInDetail_V3(['ExpiryDate']).$ | dateFilter}}</span>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ExpiryDate']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+
+<!-- Benefits -->
+<div fieldId="illustration-personal-accident:Plan" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.Plan' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Plan'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown disable="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['MainDriver','Plan'])['@editable']=='0'" 
+				model="moduleService.findElementInDetail_V3(['Coverage','Plan'])"
+			   list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Plan','Option'])" 
+			   type="nonFlag" prefix="v3.personal-accident.plan.enum" more-action="moduleService.refreshIllustration(resourceURL)"></ng-newDropDown>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Plan']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+	<div class="col-xs-1 v3-column-content" style="padding: 0">
+		<div class="form-group form-group-lg has-success">
+	        <i class="fa fa-2x fa-pencil-square-o icon-detail" title="Details"></i>
+		</div>
+    </div>
+</div>
+<div fieldId="illustration-personal-accident:Country" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.Country' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Country'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown model="moduleService.findElementInDetail_V3(['Coverage','Country'])"  disable="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['Coverage','Country'])['@editable']=='0'" 
+				list=" moduleProspectPersonalService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName], ['PACountry', 'Option'])" 
+				type="nonFlag" prefix="v3.personal-accident.country.enum" more-action="updateCurrencyByCountry()"></ng-newDropDown>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Country']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-personal-accident:Benefits" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+		<div class="form-group form-group-lg hass-success" style="margin-left: 52px">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.Benefits' | translate}}</label>
+		</div>	
+		<div class="col-xs-offset-1 col-xs-11 col-sm-5 col-md-5 col-lg-5">
+            <div class="form-group form-group-lg has-success" ng-if="moduleService.findElementInDetail_V3(['LumpSumBenefit'])['@visible'] == '1'">
+                <span style="font-size: 17px; font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.LumpSumBenefit' | translate}}</span>
+            </div>
+            <div class="form-group form-group-lg has-success"  ng-if="moduleService.findElementInDetail_V3(['IncomeBenefit'])['@visible'] == '1'">
+                <span style="font-size: 17px; font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.IncomeBenefit' | translate}}</span>
+            </div>
+            <div class="form-group form-group-lg has-success" ng-if="moduleService.findElementInDetail_V3(['TravelInconvenienceBenefit'])['@visible'] == '1'">
+                <span style="font-size: 17px; font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.TravelInconvenience' | translate}}</span>
+            </div>
+         </div>
+		<div class="col-xs-offset-1 col-xs-11 col-sm-5 col-md-5 col-lg-5">
+            <div class="form-group form-group-lg has-success" ng-if="moduleService.findElementInDetail_V3(['MedicalBenefit'])['@visible'] == '1'">
+                <span style="font-size: 17px; font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.MedicalBenefit' | translate}}</span>
+            </div>
+            <div class="form-group form-group-lg has-success" ng-if="moduleService.findElementInDetail_V3(['Evacuation'])['@visible'] == '1'">
+                <span style="font-size: 17px; font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.Evacuation' | translate}}</span>
+            </div>
+            <div class="form-group form-group-lg has-success" ng-if="moduleService.findElementInDetail_V3(['VehicleRental'])['@visible'] == '1'">
+                <span style="font-size: 17px; font-weight: bold;">- {{'v3.mynewworkspace.personal-accident.illustration.label.VehicleRental' | translate}}</span>
+            </div>
+         </div>
+	
+</div>
+<div fieldId="illustration-personal-accident:GeographicCoverage" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.GeographicCoverage' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['GeographicCoverage'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown disable="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['GeographicCoverage'])['@editable']=='0'" 
+				model="moduleService.findElementInDetail_V3(['GeographicCoverage'])"
+			   list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['GeographicCoverage','Option'])" 
+			   type="nonFlag" prefix="v3.personal-accident.geographic-coverage.enum"></ng-newDropDown>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['GeographicCoverage']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-personal-accident:PolicyDeductible" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.PolicyDeductible' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PolicyDeductible'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['PolicyDeductible'])['@editable']=='0'"  
+				ng-model="moduleService.findElementInDetail_V3(['PolicyDeductible']).$"/>
+     		<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PolicyDeductible']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+
+<!-- MainInsured -->
+<div fieldId="illustration-personal-accident:MIFullName" class="v3-column-content">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.FullName' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainInsured', 'FullName'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['MainInsured','FullName'])['@editable']=='0'"  
+				ng-model="moduleService.findElementInDetail_V3(['MainInsured','FullName']).$"/>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainInsured', 'FullName']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" hide-sm>
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content"></div>
+	</div>
+</div>
+<div fieldId="illustration-personal-accident:MIBirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.DateOfBirth' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainInsured', 'BirthDate'])['@mandatory'] == '1'">*</span></label>
+			<div class="ms-calendar-wrapper"><input ng-disabled="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['MainInsured', 'BirthDate'])['@editable']=='0'" ms-datepicker ng-model="moduleService.findElementInDetail_V3(['MainInsured', 'BirthDate']).$" class="ms-calendar"/></div>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainInsured', 'BirthDate']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-personal-accident:MIIDNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.ID' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainInsured','IDNumber'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['MainInsured','IDNumber'])['@editable']=='0'"  
+				ng-model="moduleService.findElementInDetail_V3(['MainInsured','IDNumber']).$"/>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainInsured','IDNumber']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-personal-accident:MIOccupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.Occupation' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainInsured','Occupation'])['@mandatory'] == '1'">*</span></label>
+			<ng-newDropDown disable="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['MainInsured','Occupation'])['@editable']=='0'" 
+				model="moduleService.findElementInDetail_V3(['MainInsured','Occupation'])"
+			   list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['MIOccupation','Option'])" 
+			   type="nonFlag" prefix="v3.personal-accident.occupation.enum" more-action="populatOccupationClass()"></ng-newDropDown>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainInsured','Occupation']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-personal-accident:MIOccupationClass" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.OccupationClass' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainInsured','BusinessIndustry'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInDetail_V3(['MainInsured','BusinessIndustry'])['@editable']=='0'"  
+				ng-model="moduleService.findElementInDetail_V3(['MainInsured','BusinessIndustry']).Value"/>
+			<span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainInsured','BusinessIndustry']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+
+<!-- OtherInsuredPersons -->
+<div fieldId="illustration-personal-accident:OIFullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.Name' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail,['FullName'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInElement_V3(card.refDetail,['FullName'])['@editable']=='0'"  
+				ng-model="moduleService.findElementInElement_V3(card.refDetail,['FullName']).$"/>
+			<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail,['FullName']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-personal-accident:OIIDNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.ID' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail,['IDNumber'])['@mandatory'] == '1'">*</span></label>
+			<input class="form-control" type="text" ng-disabled="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInElement_V3(card.refDetail,['IDNumber'])['@editable']=='0'"  
+				ng-model="moduleService.findElementInElement_V3(card.refDetail,['IDNumber']).$"/>
+			<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail,['IDNumber']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>
+<div fieldId="illustration-personal-accident:OIBirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+	<div class="col-xs-offset-1 col-xs-10 v3-column-content">
+		<div class="form-group form-group-lg has-success">
+			<label>{{'v3.mynewworkspace.personal-accident.illustration.label.DateOfBirth' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail,['BirthDate'])['@mandatory'] == '1'">*</span></label>
+			<div class="ms-calendar-wrapper"><input ng-disabled="moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']=='ACCEPTED' || moduleService.findElementInElement_V3(card.refDetail,['BirthDate'])['@editable']=='0'" ms-datepicker ng-model="moduleService.findElementInElement_V3(card.refDetail,['BirthDate']).$" class="ms-calendar"/></div>
+			<span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail,['BirthDate']).errorMessage | translateMessage"></span>
+		</div>
+	</div>
+</div>

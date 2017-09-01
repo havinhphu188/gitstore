@@ -1,0 +1,50 @@
+{
+  "IposDocument": {
+    "Data": {
+      "user-Profile:Profile": {
+        "section": "user-Profile:Profile",
+        "case-name": "",
+        "vpms-suffix": "Profile",
+        "user-Profile:UserTab": {
+          "section": "user-Profile:Profile",
+          "icon": "fa fa-user",
+          "cssClass": "v3-box-1",
+          "initCtrl": "user"
+        },
+        "user-Profile:AddRoleTab": {
+          "icon": "fa fa-user-plus",
+          "cssClass": "v3-box-4",
+          "isVisible": "commonUIService.getActiveUserRole() != commonService.CONSTANTS.USER_ROLES.GUEST",
+          "section": "user-Profile:Profile",
+          "user-Profile:AddRoleTabformation": {
+            "type": "",
+          	"key": []
+          }
+        },
+        "user-Profile:PolicyOwnerTab": {
+          "section": "user-Profile:Profile",
+          "icon": "fa fa-users",
+          "cssClass": "v3-box-2",
+          "isVisible": "hasRole('Policy Owner Group')",
+          "initCtrl": "client"
+        },
+        "user-Profile:AgentTab": {
+          "section": "user-Profile:Profile",
+          "icon": "fa fa-users",
+          "cssClass": "v3-box-3",
+          "isVisible": "hasRole('Agent Group')",
+          "initCtrl": "agent"
+        },
+        "user-Profile:PreferenceTab": {
+          "icon": "fa fa-cog",
+          "cssClass": "v3-box-5",
+          "section": "user-Profile:Profile",
+          "user-Profile:PreferenceTabInformation": {
+            "type": "",
+            "index": "1"
+          }
+        }
+      }
+    }
+  }
+}

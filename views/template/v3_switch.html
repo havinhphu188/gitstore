@@ -1,0 +1,43 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- <div layout="row" class="v3-switch-indicator" >
+   <div flex="5">    
+    </div>
+    <div class="v3-switch-option-item" id="left-switch-{{::switchName}}"  ng-click="toggleSwitch(true, options[0].value)" flex="40">
+        {{::options[0].text}}
+    </div>
+   
+    <div class="v3-switch-option-item" id="right-switch-{{::switchName}}" flex="40" ng-click="toggleSwitch(false, options[1].value)">
+        {{::options[1].text}}
+    </div>
+     <div flex="5">
+        <div id="switch-{{::switchName}}" class="v3-switch-indicator-bar-default">
+        </div>
+    </div>
+</div>
+ -->
+ <div layout="row" id="switch-{{switchName}}" class="v3-switch-indicator" >
+    <div class="v3-switch-option-item-left" id="left-switch-{{switchName}}"  ng-click="toggleSwitch(true, switchItems[0].value)" flex>
+        {{switchItems[0].translate}}
+    </div>
+    <div class="v3-switch-option-item-right" id="right-switch-{{switchName}}" flex ng-click="toggleSwitch(false, switchItems[1].value)">
+        {{switchItems[1].translate}}
+    </div>
+</div>

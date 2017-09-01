@@ -1,0 +1,519 @@
+{
+  "IposDocument": {
+    "Data": {
+      "illustration-rul": {
+        "key": [
+          "Illustration"
+        ],
+        "section": "illustration-rul",
+        "illustration-rul:Summary": {
+          "key": [],
+          "section": "illustration-rul",
+          "isShowValidationIcon": "false",
+          "isShowNoOfEmptyField": "false",
+          "@previewHtml":"v3-preview-static-regular-unit-link-illustration-summary.html",
+          "illustration-rul:ProductName": {
+            "key": [
+              "Product"
+            ],
+            "preview": [
+              {
+                "cardName": "illustration-rul",
+                "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.Product",
+                "priority": 50
+              }
+            ],
+            "valuePrefix": "v3.mynewworkspace.portlet.label.productName."
+          },
+          "illustration-rul:QuotationNo": {
+            "key": [
+              "DocName"
+            ]
+          },
+          "illustration-rul:Status": {
+            "key": [
+              "BusinessStatus"
+            ],
+            "preview": [
+              {
+                "cardName": "illustration-rul",
+                "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.Status",
+                "priority": 50
+              }
+            ],
+            "valuePrefix": "v3.document.status."
+          },
+          "illustration-rul:CreatedDate": {
+            "key": [
+              "CreatedDate"
+            ],
+            "format": "datetime:DD/MM/YYYY",
+            "preview": [
+              {
+                "cardName": "illustration-rul:Summary",
+                "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.CreatedDate",
+                "priority": 50
+              }
+            ]
+          },
+          "illustration-rul:LastUpdatedDate": {
+            "key": [
+              "UpdatedDate"
+            ],
+            "format": "datetime:DD/MM/YYYY",
+            "preview": [
+              {
+                "cardName": "illustration-rul",
+                "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.LastUpdatedDate",
+                "priority": 50
+              }
+            ]
+          },
+          "illustration-rul:ProposerName": {
+            "key": [
+              "PolicyOwner",
+              "FullName"
+            ]
+          },
+          "illustration-rul:InsuredName": {
+            "key": [
+              "LifeInsured",
+              "FullName"
+            ]
+          },
+          "illustration-rul:PreviewQuotationDetail": {}
+        },
+        "illustration-rul:Proposer": {
+          "key": [
+            "PolicyOwner"
+          ],
+          "section": "illustration-rul",
+          "illustration-rul:Title": {
+            "key": [
+              "PolicyOwner",
+              "Salutation"
+            ],
+            "valuePrefix": "v3.mynewworkspace.portlet.label.productName."
+          },
+          "illustration-rul:FullName": {
+            "key": [
+              "PolicyOwner",
+              "FullName"
+            ],
+            "preview": [
+              {
+                "cardName": "illustration-rul:Proposer",
+                "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.ProposerName",
+                "priority": 50
+              }
+            ]
+          },
+          "illustration-rul:DateOfBirth": {
+            "key": [
+              "PolicyOwner",
+              "BirthDate"
+            ],
+            "format": "datetime:DD/MM/YYYY",
+            "preview": [
+              {
+                "cardName": "illustration-rul:Proposer",
+                "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.ProposerDateOfBirth",
+                "priority": 40
+              }
+            ]
+          },
+          "illustration-rul:Age": {
+            "key": [
+              "PolicyOwner",
+              "Age"
+            ]
+          },
+          "illustration-rul:Gender": {
+            "key": [
+              "PolicyOwner",
+              "Gender"
+            ],
+            "preview": [
+              {
+                "cardName": "illustration-rul:Proposer",
+                "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.ProposerGender",
+                "priority": 50
+              }
+            ],
+            "valuePrefix": "v3.gender.enum."
+          },
+          "illustration-rul:Smoking": {
+            "key": [
+              "PolicyOwner",
+              "SmokerStatus"
+            ]
+          },
+          "illustration-rul:BusinessIndustry": {
+            "key": [
+              "PolicyOwner",
+              "BusinessIndustry"
+            ]
+          },
+          "illustration-rul:Occupation": {
+            "key": [
+              "PolicyOwner",
+              "Occupation"
+            ]
+          }
+        },
+        "illustration-rul:AddLifeInsured": {
+          "key": [],
+          "isVisible": "findElementInDetail(['LAIsTheSameWithPO']).Value == 'Y' && moduleService.findElementInDetail_V3(['DocStatus']).BusinessStatus != 'ACCEPTED' && activeRole != commonService.CONSTANTS.USER_ROLES.UW",
+          "section": "illustration-rul",
+          "icons": {
+            "cardIcon": {
+              "content": "fa fa-user"
+            },
+            "cardIconPlus": {}
+          },
+          "cardType": "action",
+          "onClick": "addNewLifeInsured($event)"
+        },
+        "illustration-rul:LifeInsured": {
+          "key": [
+            "LifeInsured"
+          ],
+          "section": "illustration-rul",
+          "icons": {
+            "cardIcon": {
+              "content": "fa fa-bar-chart"
+            },
+            "removeCard": {
+              "onClick": "removeLifeInsured($event)",
+              "isVisible": "moduleService.findElementInDetail_V3(['DocStatus']).BusinessStatus != 'ACCEPTED'"
+            }
+          },
+          "isVisible": "findElementInDetail(['LAIsTheSameWithPO']).Value == 'N'",
+          "illustration-rul:RelationshipToProposer": {
+            "key": [
+              "LARelationship"
+            ]
+          },
+          "illustration-rul:RelationshipToProposerFake": {},
+          "illustration-rul:LITitle": {
+            "key": [
+              "LifeInsured",
+              "Salutation"
+            ]
+          },
+          "illustration-rul:LIName": {
+            "key": [
+              "LifeInsured",
+              "FullName"
+            ],
+            "preview": [
+              {
+                "cardName": "illustration-rul:LifeInsured",
+                "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.LifeInsuredName",
+                "priority": 50
+              }
+            ]
+          },
+          "illustration-rul:LIDateOfBirth": {
+            "key": [
+              "LifeInsured",
+              "BirthDate"
+            ],
+            "format": "datetime:DD/MM/YYYY",
+            "preview": [
+              {
+                "cardName": "illustration-rul:LifeInsured",
+                "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.LifeInsuredDateOfBirth",
+                "priority": 40
+              }
+            ]
+          },
+          "illustration-rul:LIAge": {
+            "key": [
+              "LifeInsured",
+              "Age"
+            ],
+            "valuePrefix": "v3.pnc.smoker.enum."
+          },
+          "illustration-rul:LIGender": {
+            "key": [
+              "LifeInsured",
+              "Gender"
+            ],
+            "preview": [
+              {
+                "cardName": "illustration-rul:LifeInsured",
+                "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.LifeInsuredGender",
+                "priority": 50
+              }
+            ],
+            "valuePrefix": "v3.gender.enum."
+          },
+          "illustration-rul:LISmoking": {
+            "key": [
+              "LifeInsured",
+              "SmokerStatus"
+            ]
+          },
+          "illustration-rul:LIBusinessIndustry": {
+            "key": [
+              "LifeInsured",
+              "BusinessIndustry"
+            ]
+          },
+          "illustration-rul:LIOccupation": {
+            "key": [
+              "LifeInsured",
+              "Occupation"
+            ]
+          }
+        },
+        "illustration-rul:BasicPlan": {
+          "key": [
+            "BasicPlan"
+          ],
+          "section": "illustration-rul",
+          "illustration-rul:BasicInformation": {
+            "key": [],
+            "onOpen": "computeTag([['PolicyOwner'], ['LifeInsured'], ['PolicyTerm']])",
+           
+            "section": "illustration-rul:BasicPlan",
+            "illustration-rul:EffectiveDate": {
+              "key": [
+                "EffectiveDate"
+              ],
+              "format": "datetime:DD/MM/YYYY",
+              "preview": [
+                {
+                  "cardName": "illustration-rul:BasicPlan",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.EffectiveDate",
+                  "priority": 50
+                }
+              ]
+            },
+            "illustration-rul:PremiumFrequency": {
+              "key": [
+                "PremiumFrequency"
+              ]
+            },
+            "illustration-rul:ContractCurrency": {
+              "key": [
+                "ContractCurrency"
+              ]
+            },
+            "illustration-rul:BillingCurrency": {
+              "key": [
+                "BillingCurrency"
+              ]
+            },
+            "illustration-rul:PolicyTerm": {
+              "key": [
+                "PolicyTerm"
+              ],
+              "preview": [
+                {
+                  "cardName": "illustration-rul:BasicPlan",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.PolicyTerm",
+                  "priority": 50
+                }
+              ]
+            },
+            "illustration-rul:PremiumTerm": {
+              "key": [
+                "PremiumTerm"
+              ]
+            },
+            "illustration-rul:BasicSumInsured": {
+              "key": [
+                "BasicSumInsured"
+              ]
+            },
+            "illustration-rul:RegularBasicPremium": {
+              "key": [
+                "RegularBasicPremium"
+              ],
+              "preview": [
+                {
+                  "cardName": "illustration-rul:Summary",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.PremiumFrequencyPayable",
+                  "priority": 50
+                }
+              ]
+            },
+            "illustration-rul:RegularTopUpPremium": {
+              "key": [
+                "BasicPlan", "RegularTopUpPremium"
+              ]
+            }
+          },
+          "illustration-rul:Funds": {
+            "key": [
+              "Funds"
+            ],
+            "section": "illustration-rul:BasicPlan",
+            "illustration-rul:AddFund": {},
+            "illustration-rul:AllFunds": {
+              "key": [
+                "Funds"
+              ]
+            }
+          },
+          "illustration-rul:SingleTopUps": {
+            "key": [],
+            "section": "illustration-rul:BasicPlan",
+            "illustration-rul:AddSingleTopUp": {},
+            "illustration-rul:AllSingleTopUps": {
+              "key": [
+                "SingleTopUps"
+              ]
+            }
+          },
+          "illustration-rul:Withdrawals": {
+            "key": [],
+            "section": "illustration-rul:BasicPlan",
+            "illustration-rul:AddWithdrawal": {},
+            "illustration-rul:AllWithdrawals": {
+              "key": [
+                "Withdrawals"
+              ]
+            }
+          },
+          "illustration-rul:LoadingInformation": {
+            "key": [],
+            "@isVisible": "checkUnderwriterQuotation()",
+            "section": "illustration-rul:BasicPlan",
+            "illustration-rul:AddLoadingInformation": {},
+            "illustration-rul:AllLoadingInformations": {
+              "key": [
+                "LoadingInformation"
+              ]
+            }
+          },
+          "illustration-rul:ExclusionsClauses": {
+            "key": [],
+           	"@isVisible": "checkUnderwriterQuotation()",
+            "section": "illustration-rul:BasicPlan",
+            "illustration-rul:ExclusionsClauses": {
+              "key": [
+                "Exclusion"
+              ]
+            }
+          }
+        },
+        "illustration-rul:Riders": {
+          "onOpen": "computeRiderOnOpenCard([['LAIsTheSameWithPO'],['EffectiveDate'], ['PolicyOwnerInformation', 'BirthDate'], ['LifeInsuredInformation', 'BirthDate'],  ['Riders']], card, computeRiderIgnoreList)",
+          "key": [
+            "Riders"
+          ],
+          "section": "illustration-rul",
+          "illustration-rul:NewRider": {
+          	"key": [
+              "Rider"
+            ],
+            "section": "illustration-rul:Riders",
+            "icons": {
+              "cardIcon": {
+                "content": "quotationIcon"
+              },
+              "removeCardInList": {
+                "isVisible": "moduleService.findElementInDetail_V3(['DocStatus']).BusinessStatus != 'ACCEPTED' && activeRole != commonService.CONSTANTS.USER_ROLES.UW",
+                "onClick": "closeChildCards(4, $event);closeChildCards(3, $event);computeRiderOnRemoveCard([['LAIsTheSameWithPO'],['EffectiveDate'], ['PolicyOwnerInformation', 'BirthDate'], ['LifeInsuredInformation', 'BirthDate'],  ['Riders']], card, computeRiderIgnoreList)"
+              }
+            },
+            "isVisible": "true",
+            "cardType": "template",
+            "illustration-rul:SummaryNewRider": {
+              "key": [],
+              "section": "illustration-rul:NewRider",
+              "illustration-rul:RiderType": {
+                "key": [
+                  "RiderType"
+                ],
+                "preview": [
+                  {
+                    "cardName": "illustration-rul:NewRider",
+                    "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.RiderName",
+                    "priority": 50
+                  }
+                ],
+                "valuePrefix": "v3.illustration.rul.riderType."
+              },
+              "illustration-rul:RiderPlan": {
+                "key": [
+                  "RiderPlan"
+                ]
+              },
+              "illustration-rul:RiderTerm": {
+                "key": [
+                  "RiderTerm"
+                ]
+              },
+              "illustration-rul:RiderPremiumTerm": {
+                "key": [
+                  "RiderPremiumTerm"
+                ]
+              },
+              "illustration-rul:RiderSumInsured": {
+                "key": [
+                  "RiderSumInsured"
+                ],
+                "preview": [
+                  {
+                    "cardName": "illustration-rul:NewRider",
+                    "label": "v3.mynewworkspace.portlet.previewlabel.illustration-rul.RiderSumInsured",
+                    "priority": 50
+                  }
+                ]
+              },
+              "illustration-rul:RiderPremium": {
+                "key": [
+                  "RiderPremium"
+                ]
+              }
+            },
+            "illustration-rul:RLoadingInformation": {
+              "key": [
+                "LoadingInformation"
+              ],
+              "@isVisible": "checkUnderwriterQuotation()",
+              "section": "illustration-rul:NewRider",
+              "illustration-rul:RAddLoadingInformation": {
+                "key": []
+              },
+              "illustration-rul:RAllLoadingInformations": {
+                "key": [
+                  "LoadingInformation"
+                ]
+              }
+            },
+            "illustration-rul:RExclusionsClauses": {
+              "key": [
+                "Exclusion"
+              ],
+             "@isVisible": "checkUnderwriterQuotation()",
+              "section": "illustration-rul:NewRider",
+              "illustration-rul:RExclusionsClauses": {
+                "key": [
+                  "Exclusion"
+                ]
+              }
+            }
+          },
+          "illustration-rul:AddRider": {
+            "key": [],
+            "section": "illustration-rul:Riders",
+            "icons": {
+              "cardIcon": {
+                "content": "quotationIcon"
+              },
+              "cardIconPlus": {}
+            },
+            "isVisible": "!moduleService.freeze && activeRole != commonService.CONSTANTS.USER_ROLES.UW",
+            "cardType": "action",
+            "onClick": "addCard(card);closeChildCards(4, $event);closeChildCards(3, $event)"
+          }
+        }
+      }
+    }
+  }
+}

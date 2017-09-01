@@ -1,0 +1,74 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="row">
+	<div class="col-xs-12 col-sm-10 col-lg-10" hide-sm hide-xs>
+		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-4">
+			<div class="form-group form-group-lg has-success">
+				<input style="padding-left: 40px" class="form-control" ng-model="searchText" placeholder="Search">
+				<i style="position: absolute; top: 7px; left: 25px;" class="fa fa-search fa-2x"></i>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-10 col-lg-10" hide-lg hide-md hide-gt-lg>
+			<div class="form-group form-group-lg has-success">
+				<input style="padding-left: 40px" class="form-control" ng-model="searchText" placeholder="Search">
+				<i style="position: absolute; top: 7px; left: 25px;" class="fa fa-search fa-2x"></i>
+			</div>
+	</div>
+	<div id="list-import" class="list-import col-xs-12 col-sm-12 col-lg-12 v3-padding-0" scrolled="increase()">
+		<div class="error">{{msg}}</div>
+		<div class="" ng-class="viewProp.layoutStyle == 'sec'?'col-xs-6 col-sm-6 col-md-4 col-lg-4':'col-xs-6 col-sm-4 col-md-3 col-lg-3'"
+			ng-repeat="metaData in moduleService.convertToArray(moduleService.findElementInDetail_V3(['Client', 'Dependants','Children','Child'])) track by $index"
+			ng-click="importChildrenEducationFund(card, metaData, $event)" ng-if="moduleService.findElementInDetail_V3(['Client', 'Dependants','Children'])['@counter'] > 0 && checkExitsChildren(metaData, card)">
+			<div class="box-item-import v3-box-1 list-card-import">								
+				<!-- Card content -->		
+				<div class="col-xs-12 v3-padding-0 card-detail">
+					<div class="row v3-margin-right-0">
+						<div class="col-xs-4 v3-padding-0">
+							<h3 class="v3-image-name">
+								{{metaData['factfind:ChildFullName'].$ | formatTitleImage}}
+							</h3>
+						</div>
+						<div class="col-xs-8 v3-padding-0">
+							<h5 title="{{metaData['factfind:ChildFullName'].$}}" class="left-sidebar-card-list-title">
+								{{metaData['factfind:ChildFullName'].$ | trimtext:false:16:'..'}}
+							</h5>
+						</div>
+					</div>		     				
+				</div>
+				<div class="col-xs-12 v3-padding-0 v3-margin-top-10 card-detail">
+					<span title="{{metaData['factfind:ChildBirthOfDate'].$}}">
+						{{metaData['factfind:ChildBirthOfDate'].$}}
+					</span >     					
+				</div>
+				<div class="col-xs-12 v3-padding-0 v3-margin-top-10 card-detail">
+					<span title="{{'v3.pnc.gender.enum.' + metaData['factfind:ChildGender'].Value | translate}}">
+						{{'v3.pnc.gender.enum.' + metaData['factfind:ChildGender'].Value | translate}}
+					</span >     					
+				</div>
+				<div class="col-xs-12 v3-padding-0 card-detail">
+					<span title="{{metaData['factfind:ChildNumberOfYearToSupport'].$}}">
+						{{metaData['factfind:ChildNumberOfYearToSupport'].$}}
+					</span >     					
+				</div>
+			</div>
+		</div>	
+	</div>
+</div>

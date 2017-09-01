@@ -1,0 +1,35 @@
+<md-toolbar class="bar-style">
+    <h2 class="md-toolbar-tools">		
+		<div  flex class="row text-center">
+            <span class="fa-lg">Quotation:</span>
+			<md-input-container>
+			    <input class="header-text" ng-model="moduleService.getDocName().DocName">
+			</md-input-container>
+        </div>
+             <md-button ng-click="viewPDF()" class="md-primany optionButton">
+                <md-tooltip>
+                    Print PDF
+                </md-tooltip>
+                <span class="fa fa-print fa-2x " style="margin-left: 0px;"></span>
+            </md-button>
+            <md-button ng-click="save()" class="md-primany optionButton">
+                <md-tooltip>
+                    Save Quotation
+                </md-tooltip>
+                <span class="fa fa-floppy-o fa-2x"></span>
+            </md-button>
+            <md-button ng-click="computeQuotaion()" class="md-primany optionButton">
+                <md-tooltip>
+                    Compute
+                </md-tooltip>
+                <span class="fa fa-play fa-2x "></span>
+            </md-button>
+            <md-button ng-click="popover.show($event)" class="md-primany optionButton">
+                <md-tooltip>
+                    Option
+                </md-tooltip>
+                <span class="fa fa-ellipsis-v fa-2x "></span>
+            </md-button>
+        </div>
+	</h2>
+</md-toolbar>

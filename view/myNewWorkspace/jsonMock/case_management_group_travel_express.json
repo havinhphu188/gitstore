@@ -1,0 +1,282 @@
+{
+  "IposDocument": {
+    "Data": {
+      "case-management-gtravel:CaseManagement": {
+        "@key": [
+          ""
+        ],
+        "@icon": {
+          "main": "fa fa-users"
+        },
+        "@section": "case-management-gtravel:CaseManagement",
+        "@case-name": "",
+        "@product": "group-travel-express",
+        "permission": {
+          "UW": {
+            "openable": true,
+            "editable": false,
+            "viewable": true
+          },
+          "MANAGER_REVIEW": {
+            "openable": true,
+            "editable": false,
+            "viewable": true
+          }
+        },
+        "case-management-gtravel:Summary": {
+          "@icon": "fa fa-pencil",
+          "icons": {
+            "cardIcon": {
+              "content": "fa fa-pencil"
+            }
+          },
+          "@cssClass": "v3-box-4",
+          "@section": "case-management-gtravel:CaseManagement",
+          "case-management-gtravel:CaseInformation": {
+            "@key": [
+              "DocName"
+            ],
+            "@preview": [
+              {
+                "cardName": "case-management-gtravel:Summary",
+                "label": "v3.mynewworkspace.portlet.previewlabel.case-management-group-travel-express.CaseInformation",
+                "priority": 50
+              }
+            ]
+          },
+          "case-management-gtravel:CurrentStatus": {
+            "@key": [
+              "BusinessStatus"
+            ],
+            "@preview": [
+              {
+                "cardName": "case-management-gtravel:Summary",
+                "label": "v3.mynewworkspace.portlet.previewlabel.case-management-group-travel-express.CurrentStatus",
+                "priority": 50
+              }
+            ],
+            "@valuePrefix": "v3.document.status."
+          },
+          "case-management-gtravel:PendingInformation": {},
+          "case-management-gtravel:NextRequiredAction": {},
+          "case-management-gtravel:PolicyNo": {
+            "@key": [
+              "PolicyNumber"
+            ]
+          }
+        },
+        "case-management-gtravel:AddProspect": {
+          "key": [
+            "Prospects"
+          ],
+          "icons": {
+            "step": {
+              "content": "1"
+            },
+            "cardIcon": {
+              "content": "fa fa-user"
+            }
+          },
+          "section": "case-management-gtravel:CaseManagement",
+          "case-management-gtravel:ImportFromExistingProspect": {
+            "section": "case-management-gtravel:AddProspect",
+            "icon": "fa fa-user",
+            "cardType": "action",
+            "staticHtml": "list_existing_corporate_prospect.html"
+          },
+          "case-management-gtravel:NewProspect": {
+            "section": "case-management-gtravel:AddProspect",
+            "icons": {
+              "cardIcon": {
+                "content": "fa fa-user"
+              },
+              "cardIconPlus": {}
+            },
+            "cardType": "action",
+            "onClick": "addCard(card)"
+          },
+          "case-management-gtravel:Prospect": {
+            "key": [
+              "Prospect"
+            ],
+            "icons": {
+              "cardIcon": {
+                "content": "fa fa-user"
+              },
+              "removeCardInList": {}
+            },
+            "section": "case-management-gtravel:AddProspect",
+            "cardType": "template"
+          }
+        },
+        "case-management-gtravel:Quotation": {
+          "@key": [
+            "Quotation"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart",
+            "step": "2"
+          },
+          "@cssClass": "v3-box-2",
+          "@section": "case-management-gtravel:CaseManagement"
+        },
+        "case-management-gtravel:Application": {
+          "@key": [
+            "Application"
+          ],
+          "@icon": {
+            "main": "fa fa-bar-chart",
+            "step": "3"
+          },
+          "@cssClass": "v3-box-2",
+          "@section": "case-management-gtravel:CaseManagement",
+          "onOpen": "isQuotationValid('case-management-gtravel:Quotation', false)"
+        },
+        "case-management-gtravel:DocumentCenter": {
+          "@key": [
+            "DocumentCenter"
+          ],
+          "@icon": {
+            "main": "fa fa-paperclip"
+          },
+          "icons": {
+            "step": {
+              "content": "4"
+            },
+            "cardIcon": {
+              "content": "attachmentIcon"
+            }
+          },
+          "@section": "case-management-gtravel:CaseManagement",
+          "case-management-gtravel:TransactionDocuments": {
+            "@key": [
+              "Prints"
+            ],
+            "@isVisible": true,
+            "@icon": "fa fa-file-text-o",
+            "icons": {
+              "cardIcon": {
+                "content": "transactionIcon"
+              }
+            },
+            "@section": "case-management-gtravel:DocumentCenter",
+            "TransactionDocument": {
+              "@key": [
+                "Print"
+              ],
+              "@section": "case-management-gtravel:TransactionDocuments",
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                }
+              },
+              "@cssClass": "v3-box-1",
+              "@icon": "attachmentIcon",
+              "@cardType": "template",
+              "@previewHtml": "v3-resource-file-transaction.html",
+              "@onOpen": "openResource(card)"
+            }
+          },
+          "case-management-gtravel:Attachments": {
+            "@key": [
+              "Attachments"
+            ],
+            "@section": "case-management-gtravel:DocumentCenter",
+            "@icon": "attachmentIcon",
+            "icons": {
+              "cardIcon": {
+                "content": "attachmentIcon"
+              }
+            },
+            "@cssClass": "v3-box-1",
+            "@previewHtml": "v3-summary-static-attachment.html",
+            "Attachment": {
+              "@key": [
+                "Attachment"
+              ],
+              "@section": "case-management-gtravel:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "subAction": "removeIcon"
+              },
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                },
+                "removeCardInList": {}
+              },
+              "@cssClass": "v3-box-1",
+              "@previewHtml": "v3-summary-static-attachment-file.html",
+              "@cardType": "template",
+              "@onOpen": "fileReaderService.openFileReader('view',card.refDetail,self.moduleService.convertToArray(self.moduleService.findElementInElement_V3(self.moduleService.detail, ['Attachment'])),'uploadMode')"
+            },
+            "addAttachment": {
+              "@section": "case-management-gtravel:Attachments",
+              "@icon": {
+                "main": "fa fa-paperclip",
+                "mainAction": "addIcon"
+              },
+              "icons": {
+                "cardIcon": {
+                  "content": "fa fa-paperclip"
+                },
+                "cardIconPlus": {}
+              },
+              "@cardType": "action",
+              "@staticHtml": "fileUpload.html",
+              "@onClick": "importFile()"
+            }
+          }
+        },
+        "case-management-gtravel:Underwriting": {
+          "key": [
+            "Underwriting"
+          ],
+          "icons": {
+            "step": {
+              "content": "5"
+            },
+            "cardIcon": {
+              "content": "uWIcon"
+            }
+          },
+          "permission": {
+            "AGENT": {
+              "openable": true,
+              "editable": false,
+              "viewable": true
+            },
+            "POLICY_OWNER": {
+              "openable": false,
+              "editable": false,
+              "viewable": true
+            },
+            "UW": {
+              "openable": true,
+              "editable": true,
+              "viewable": true
+            },
+            "GROUP_DPMT_MNGR": {
+              "openable": false,
+              "editable": false,
+              "viewable": false
+            },
+            "MANAGER_REVIEW": {
+              "openable": false,
+              "editable": false,
+              "viewable": false
+            },
+            "CSO": {
+              "openable": false,
+              "editable": false,
+              "viewable": false
+            }
+          },
+          "isVisible": "findElementInDetail(['Underwriting'])['@refUid']",
+          "onOpen": "getUnderwritingLazyList()",
+          "section": "case-management-gtravel:CaseManagement"
+        }
+      }
+    }
+  }
+}

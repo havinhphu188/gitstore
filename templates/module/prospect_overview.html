@@ -1,0 +1,106 @@
+<div layout="column" class="height-inherit">
+    <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div style="overflow: scroll;" class="backgroundColor touch">
+        <div layout="row" refresh-on="vars.bIsHeaderContentChanged" use-boolean>
+            <div flex="20" ng-click="_showImgPickerAvatar()">
+                <!-- <div flex="20"> -->
+                <output>
+                    <img ng-if="!moduleService.newAvatarInfo" class="edit-avatar" v3-avatar="moduleService.findElementInDetail_V3(['ipos-prospect:Prospect', 'ipos-prospect:Photo']).$">
+                    <!-- only show this div when user chose new avatar (not saved yet)-->
+                    <img ng-show="moduleService.newAvatarInfo" id="prospectPhoto" class="edit-avatar">
+                </output>
+            </div>
+            <div flex="40">
+                <br>
+                <span class="main-info">{{::variables.FullName.$}}</span>
+                <br>
+                <span class="sub-info">
+                        <span t-lazy v3-translate="v3.myworkspace.label.prospect.Age" prefix=""></span>:&nbsp;{{::variables.Age.$}}</span>
+                <br>
+                <span class="sub-info"> <span t-lazy v3-translate="v3.myworkspace.label.prospect.Gender" prefix=""></span>:&nbsp;<span v3-translate="variables.Gender.Value" prefix="v3.application.motor.gender"></span></span>
+                <br>
+                <span class="sub-info"> <span t-lazy v3-translate="v3.myworkspace.label.prospect.CreatedDate" prefix=""></span>:&nbsp;{{::moduleService.createdDate }}</span>
+                <br>
+                <span class="tags" ng-if="moduleService.tagList!=''" ng-repeat="tag in ::moduleService.tagList track by $index">{{::tag}}</span>
+            </div>
+        </div>
+        <div layout="row" class="header-repeat-bar">
+            <div flex="80" layout-margin>
+                <h class="repeat-toobar-text">
+                    <!-- <span t-lazy v3-translate="v3.myworkspace.label.illustration.life.Parties-C" prefix=""></span> -->
+                    PROSPECT TYPE
+                </h>
+            </div>
+        </div>
+        <div class="white-card">
+            <div layout="row" class="row" layout-margin>
+                <div flex="20">
+                    <v3-label label-prop="variables.ProspectType" label-value="v3.myworkspace.label.prospect.ProspectType" />
+                </div>
+                <div flex="5">
+                    
+                </div>
+                <div flex="65">
+                    <v3-Select class="input-select" src-data="moduleService.listProspectTypes" displayText="text" displayValue="value" Prefix="" dialogTitle="Prospect Type" select-disabled="::!moduleService.isCreateNewMode" model="variables.ProspectType.Value"></v3-Select>
+                </div>
+            </div>
+        </div>
+        <div class="white-card">
+            <v3-sub-pages sub-name='v3.myworkspace.label.prospect.pages.BasicInformation' sub-id='basic_info'></v3-sub-pages>
+            <div class="breakLine"></div>
+            <v3-sub-pages sub-name='v3.myworkspace.label.prospect.pages.Contact' sub-id='contact'></v3-sub-pages>
+            <div class="breakLine"></div>
+            <v3-sub-pages sub-name='v3.myworkspace.label.prospect.pages.Address' sub-id='address'></v3-sub-pages>
+            <div ng-if="variables.ProspectType.Value == 'PERSONAL'">
+                <div class="breakLine"></div>
+                <v3-sub-pages sub-name='PDPA' sub-id='pdpa'></v3-sub-pages>
+            </div>
+        </div>
+        <div layout="row" class="header-repeat-bar">
+            <div flex layout-margin>
+                <h class="repeat-toobar-text">ATTACHMENTS</h>
+            </div>
+        </div>
+        <div class="white-card">
+            <div ng-if="moduleService.findElementInDetail_V3(['Attachments'])['@counter'] > 0">
+                <div layout="row" class="row breakLine" layout-margin ng-repeat="attachment in moduleService.attachments track by $index" class="tag-card">
+                    <div flex="5">
+                        <i align="left" class="fa fa-paperclip fa-lg"></i>
+                    </div>
+                    <div ng-click="moduleService.attachmentPreview(attachment['@refResourceUid'])" flex="60" style="text-align:left; color:gray;">
+                        {{attachment.FileName.$}}
+                    </div>
+                    <div flex>
+                        <div layout="row" ng-if="moduleService.isEditMode">
+                            <div flex="40" style="text-align: right">
+                                <i class="fa fa-edit fa-lg fa-style" ng-click="_showImgPickerEdit(attachment['@refResourceUid'])"></i>
+                            </div>
+                            <div flex="40" style="text-align: right">
+                                <i class="fa fa-trash fa-lg fa-style" ng-click="_markRemoveFile(attachment['@refResourceUid'])"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div layout="row" ng-if="moduleService.tempNewResource" class="row breakLine" layout-margin ng-repeat="attachment in moduleService.tempNewResource track by $index" class="tag-card">
+                <div flex="5">
+                    <i align="left" class="fa fa-paperclip fa-lg"></i>
+                </div>
+                <div ng-click="moduleService.attachmentPreview(attachment['@refResourceUid'])" flex="60" style="text-align:left; color:gray;">
+                    {{attachment.FileName}}
+                </div>
+                <div flex>
+                    <div layout="row">
+                        <div flex="40" style="text-align: right">
+                        </div>
+                        <div flex="40" style="text-align: right">
+                            <i class="fa fa-trash fa-lg fa-style" ng-click="removeTempFile($index)"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

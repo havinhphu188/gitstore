@@ -1,0 +1,804 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Section: Policy Information -->
+<div fieldId="policy-term-life-protect:ActionType" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Action Type</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />        
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:PolicyNo" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Policy Number</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:PolicyStatus" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Policy Status</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:CommencementDate" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Commencement Date</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ExpiryDate" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Expiry Date</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+
+<!-- Section: Client Information -->
+<div fieldId="policy-term-life-protect:ClientId" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Client ID</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+
+
+<!-- Section: Product Details -->
+<div fieldId="policy-term-life-protect:MainCoverage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content">
+	<div flex layout="row" class="ipos_portlet_table_header_item md-whiteframe-z1" style="line-height: 25px;">
+		<div flex="10">
+			<label>No</label>
+		</div>
+		<div flex="40">
+			<label>Benefit</label>
+		</div>
+		<div flex="25">
+			<label>AmountofCoverage (SGD)</label>
+		</div>
+		<div flex>
+			<label>Premium (SGD)</label>
+		</div>
+	</div>
+    <div flex layout="row" class="ipos_portlet_table_listRow">
+		<div flex="10">
+			<span>1</span>
+		</div>
+		<div flex="40">
+			<span>Comprehensive Cover</span>
+		</div>
+		<div flex="25">
+			<span>1500</span>
+		</div>
+		<div flex="25">
+			<span>776.48</span>
+		</div>
+	</div>
+	<div flex layout="row" class="ipos_portlet_table_listRow">
+		<div flex="10">
+			<span>2</span>
+		</div>
+		<div flex="40">
+			<span>Comprehensive Cover</span>
+		</div>
+		<div flex="25">
+			<span>1500</span>
+		</div>
+		<div flex="25">
+			<span>776.48</span>
+		</div>
+	</div>			
+</div>
+<div fieldId="policy-term-life-protect:AnnualPremium" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Annual Premium</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ExcessType" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Excess Type</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ExcessAmt" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Excess Amt</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:NCDAllowed" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>NCD Allowed</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:NoOfClaim" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Number Of Claim</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+
+<!-- Section: Policy Owner -->
+<div fieldId="policy-term-life-protect:Title" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	 <div flex="40" layout="row" layout-align="start center">
+         <span>Title <span ng-show="moduleService.findElementInElement_V3(policyDetail, ['Title'])['@mandatory'] == '1'" >*</span></span>
+     </div>
+     <div layout="column" layout-align="center start" flex>
+     	<md-select ng-model="unknown1">
+			<md-option>MR</md-option>
+      		<md-option>Miss</md-option>
+      		<md-option>Dr</md-option>
+		</md-select>
+	</div>			
+</div>
+<div fieldId="policy-term-life-protect:FullName" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Full Name</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:BirthDate" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Birth Date</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:Gender" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Gender</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:MaritalStatus" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>MaritalStatus</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:SmokeStatus" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>SmokeStatus</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:POIDs" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>POIDs</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:Industry" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Industry</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:Occupation" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Occupation</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ReferralType" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>ReferralType</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:Referrer" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Referrer</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:Race" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Race</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:Nationality" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Nationality</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:Staff" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Staff</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:VIP" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>VIP</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:YearDrivingLicenceObtained" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Year Driving Licence Obtained</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ContactDetails" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Contact Details</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:AddressDetails" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Address Details</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+
+
+<!-- Section: Main Driver -->
+<div fieldId="policy-term-life-protect:MDSalutation" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Salutation</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:MDFullName" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>FullName</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:MDGender" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Gender</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:MDBirthDate" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>BirthDate</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:MDAge" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Age</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:MDYearDrivingLicenceObtained" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Year Driving Licence Obtained</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:MDIDs" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>MDIDs</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:MDMarialStatus" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Marial Status</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:MDOccupation" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Occupation</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+
+<!-- Section: Other Driver-->
+<div fieldId="policy-term-life-protect:ODSalutation" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Salutation</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ODFullName" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>FullName</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ODGender" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Gender</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ODBirthDate" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>BirthDate</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ODAge" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Age</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ODYearDrivingLicenceObtained" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Year Driving Licence Obtained</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ODIDs" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>MDIDs</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ODMarialStatus" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Marial Status</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:OOccupation" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Occupation</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+
+<!-- Section: VehicleIn formation-->
+<div fieldId="policy-term-life-protect:VehicleClass" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Vehicle Class</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:VehicleType" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Vehicle Type</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:VehicleTypeRefer" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>VehicleType Refer</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:MasterPolicy" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Master Policy</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:DocumentType" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Document Type</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:Reason" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Reason</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:BillingCurrency" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Billing Currency</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:VehicleClass" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Vehicle Class</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:SICurrency" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>SI Currency</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:GeographicLocation" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Geographic Location</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:Region" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Region</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:CoverageType" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Coverage Type</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:UseOfVehicle" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Use Of Vehicle</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:CIType" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>CIType</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:GoodCarriedByVehicle" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Good Carried ByVehicle</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:VehicleNo" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Vehicle No</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:MakeOrModel" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Make Or Model</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ModelDescription" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Model Description</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:EngineCapacity" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Engine Capacity</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:Body" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Body</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:PowerBy" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Power By</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:NoOfSeat" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>No Of Seat</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:YearOfMfg" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Year Of Mfg</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:VarianSeriesTransmission" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Varian Series Transmission</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:Garaged" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Garaged</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:SafetyCode" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Safety Code</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:AntiTheftCode" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Anti Theft Code</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+
+<!-- Section: Additional VehicleIn formation-->
+<div fieldId="policy-term-life-protect:LogBookNo" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Log Book No.</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:EngineMotorNo" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Engine Motor No.</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:ChasisNo" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Chasis No</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:OwnershipType" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Owner ship Type</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:FinalcialType" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Finalcial Type</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:LoanCompany" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Loan Company</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:PurchaseDate" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Purchase Date</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:PurchasePrice" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Purchase Price</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:TrailerNo" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Trailer No</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:TrailerMakeModel" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Trailer Make Model</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:TrailerModelDesc" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Trailer Model Desc</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:TrailerYearMake" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Trailer Year Make</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:TrailerLogBookNo" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Trailer Log Book No</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:TrailerChasisNo" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Trailer Chasis No</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+<div fieldId="policy-term-life-protect:PermittedDriver" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 v3-column-content">
+	<div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+        <span>Permitted Driver</span>
+    </div>
+    <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+    	<input type="text" />
+   </div>			
+</div>
+
+
+
+
+
+
+
+

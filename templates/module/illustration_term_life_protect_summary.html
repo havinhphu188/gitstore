@@ -1,0 +1,163 @@
+<div layout="column" class="height-inherit">
+    <div class="mask" ng-show="vars.bLoadingRightView">
+        <md-progress-circular class="progressBar" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div style="overflow: scroll;" class="backgroundColor touch">
+        <div refresh-on="vars.bIsContentChanged" use-boolean>              
+               <div layout="row">
+                    <div flex="20">
+                        <output id="pic">
+                            <img class="edit-avatar" src="img/avatar_generic.png">
+                        </output>
+                    </div>
+                    <div flex="70">
+                        <br>
+                        <span class="main-info">{{::variables.FullName.$}}</span>
+                      
+                        <br>
+                        <span class="sub-info">
+                            <span t-lazy v3-translate="v3.myworkspace.label.prospect.Gender" prefix=""></span>:&nbsp;<span v3-translate="variables.Gender.Value" prefix="v3.application.motor.gender"></span>
+                        <br>
+                    </div>
+                </div>
+                <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label label-prop="variables.PersonalInfoFullName" label-value="v3.myworkspace.label.illustration.life.FullName" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.PersonalInfoFullName.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label label-prop="variables.PersonalInfoBirthDate" label-value="v3.myworkspace.label.illustration.life.DateofBirth" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.PersonalInfoBirthDate.$" ms-datepicker>
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:FullName')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-label label-prop="variables.PersonalInfoAgeNextBirthday" label-value="v3.myworkspace.label.illustration.life.PersonalInfoAgeNextBirthday" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="true" ng-model="::variables.PersonalInfoAgeNextBirthday.$">
+                            <!--   <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:BirthDate')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label label-prop="variables.PersonalInfoGender" label-value="v3.myworkspace.label.illustration.life.Gender" />
+                        </div>
+                        <div flex="70">
+                             <input class="input" v3-Select src-data="prospectUIService.listGenders" displayText="text" displayValue="value" Prefix="" dialogTitle="Gender" select-disabled="true" model="::variables.PersonalInfoGender.$">
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row" layout-margin>
+                        <div flex="80">
+                            <v3-label label-prop="variables.PersonalInfoSmokerStat" label-value="v3.myworkspace.label.illustration.life.SmokeStatus" />
+                        </div>
+                        <div flex="10">
+                            <span style="font-size:14px; color: lightgray; float:right;" v3-translate="variables.PersonalInfoSmokerStat.$" prefix="v3.companion.smoker.enum"></span>
+                        <!--     <md-switch class="input" md-no-ink style="margin-top:-5px !important; margin-right: 10px;" ng-model="::variables.PersonalInfoSmokerStat.$" ng-true-value="'S'" ng-false-value="'N'" class="md-primary" ng-disabled="true">
+                            </md-switch> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="white-card">
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label label-prop="variables.BasicSummaryProductName" label-value="v3.myworkspace.label.illustration.life.ProductName" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryProductName.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label label-prop="variables.BasicSummarySumAssured" label-value="v3.myworkspace.label.illustration.life.SumInsured" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummarySumAssured.$">
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:FullName')"></span> -->
+                        </div>
+                    </div>
+
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label label-prop="variables.BasicSummaryPolicyTerm" label-value="v3.myworkspace.label.illustration.life.PolicyTerm" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryPolicyTerm.$">
+
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label label-prop="variables.BasicSummaryCurrency" label-value="v3.myworkspace.label.illustration.life.Currency" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryCurrency.$">
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-label label-prop="variables.BasicSummaryFrequencyPremium" label-value="v3.myworkspace.label.illustration.life.FrequencyPremium" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryFrequencyPremium.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label label-prop="variables.BasicSummaryPaymentMode" label-value="v3.myworkspace.label.illustration.life.PaymentMode" />
+                        </div>
+                        <div flex="70">
+                            <!-- <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryPaymentMode.$"> -->
+                            <span style="font-size:14px; color: lightgray; float:right;" v3-translate="variables.BasicSummaryPaymentMode.$" prefix="v3.payment.frequency.enum"></span>
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label label-prop="variables.BasicSummaryYearlyPremium" label-value="v3.myworkspace.label.illustration.life.YearlyPremium" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryYearlyPremium.$">
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="30">
+                            <v3-label label-prop="variables.BasicSummaryHalfYearlyPremium" label-value="v3.myworkspace.label.illustration.life.HalfYearlyPremium" />
+                        </div>
+                        <div flex="60">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryHalfYearlyPremium.$">
+                        </div>
+                    </div>
+                    <div layout="row" class="row breakLine" layout-margin>
+                        <div flex="20">
+                            <v3-label label-prop="variables.BasicSummaryQuarterlyPremium" label-value="v3.myworkspace.label.illustration.life.QuarterlyPremium" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryQuarterlyPremium.$">
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                    <div layout="row" class="row" layout-margin>
+                        <div flex="20">
+                            <v3-label label-prop="variables.BasicSummaryMonthlyPremium" label-value="v3.myworkspace.label.illustration.life.MonthlyPremium" />
+                        </div>
+                        <div flex="70">
+                            <input class="input" ng-disabled="true" ng-model="::variables.BasicSummaryMonthlyPremium.$">
+                            <!--  <span class="error-message" v3-translate="::moduleService.getErrorMessage(moduleService.errorList,'$..ipos-prospect:Prospect.ipos-prospect:Person.ipos-prospect:Gender')"></span> -->
+                        </div>
+                    </div>
+                </div>
+         
+        </div>
+    </div>
+</div>

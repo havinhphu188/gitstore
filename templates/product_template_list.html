@@ -1,0 +1,63 @@
+<!-- <md-dialog style="height: 20%; width:25%; overflow: visible; min-height: 170px" class="md-content-overflow" aria-label="">
+    <div class="md-sticky-no-effect md-subheader md-default-theme" style="min-height: 43px; background-color: #3D4944!important; color: white; font-weight: bold; margin-right: 0px" sticky-state="next">
+        <div layout="row">
+            <div flex="25">
+            </div>
+            <div flex="50" class="attachment-text" style="text-align: center;">
+                <span style="font-size: 15px;">View PDF </span>
+            </div>
+            <div flex="25" style="text-align: right; padding-right: 5px;">
+
+            </div>
+        </div>
+    </div>
+    <md-content style="height: 100%; overflow: visible">
+        <div layout="row">
+            <div flex="25"><span style="font-size: 15px;">Product</span>
+            </div>
+            <div flex="75">
+                <md-select style="width: 200px; margin:0;" ng-model="translate" placeholder="Choose product to view">
+                    <md-option ng-value="template.name" ng-repeat="template in templates">
+                        {{template.name}}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+    </md-content>
+    <div class="md-actions" style="display: block;" layout="row">
+        <md-button ng-click="cancelDialog()" style="float: right; margin-right:8px; color: white; width: 20%; background-color: #3D4944">
+            Cancel
+        </md-button>
+        <md-button ng-click="okDialog()" style="float: right; margin-right:8px; color: white; width: 20%; background-color: #3D4944">
+            OK
+        </md-button>
+    </div>
+
+
+</md-dialog> -->
+<md-dialog class="popup" aria-label="Settings">
+    <div class="breakLine">
+        <div layout="row" class="popup-header" layout-margin>
+            
+             <div flex="10">
+                <div ng-click="cancelDialog()" class="center default-color">Cancel</div>
+            </div>
+            <div flex>
+                <div class="center">PDF Templates List</div>
+            </div>
+            <div flex="10">
+                <div ng-click="okDialog()" class="center default-color">Done</div>
+            </div>
+           
+        </div>
+    </div>
+    <div>
+        <md-content class="popupSelectContainer">
+            <div layout="row" class="popupSelectBeakeline popupSelect" ng-click="selectedProduct(item.action, $index)" ng-repeat="item in productList">
+                <h flex="86" class="popupSelectList">{{::item.productname}}</h>
+                <div flex="10"  id="select-{{::$index}}"></div>
+            </div>
+        </md-content>
+    </div>
+</md-dialog>
+

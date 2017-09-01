@@ -1,0 +1,222 @@
+{
+  "IposDocument": {
+    "Data": {
+      "ipos-product:BusinessCatalogModule": {
+        "@section": "ipos-product:BusinessCatalogModule",
+        "ipos-product:life-insurance": {
+          "@icon": "fa fa-heart",
+          "@cssClass": "v3-box-0",
+          "@section": "ipos-product:BusinessCatalogModule",
+          "@key": "ipos-product:life-insurance",
+          "@isShowValidationIcon": "false",
+          "@isShowNoOfEmptyField": "false",
+          "@isVisible": "hasChildrenCard(card)",
+          "ipos-product:term-life-secure": {
+            "@icon": "fa fa-umbrella",
+            "@cssClass": "v3-box-3",
+            "@section": "ipos-product:life-insurance",
+            "@key": "ipos-product:term-life-secure",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "hasProduct(commonService.CONSTANTS.PRODUCT.TERM_LIFE_SECURE)",
+            "ipos-product:term-life-secure_Table": {
+              "@key": ""
+            }
+          },
+          "ipos-product:guaranteed-cashback-saver-as": {
+            "@icon": "fa fa-line-chart",
+            "@cssClass": "v3-box-3",
+            "@section": "ipos-product:life-insurance",
+            "@key": "ipos-product:term-life-protect-as",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "hasProduct(commonService.CONSTANTS.PRODUCT.GUARANTEED_CASHBACK)",
+            "ipos-product:guaranteed_cashback_saver_Table": {
+              "@key": ""
+            }
+          },
+          "ipos-product:income-protection-plan-as": {
+            "@icon": "fa fa-life-ring",
+            "@cssClass": "v3-box-4",
+            "@section": "ipos-product:life-insurance",
+            "@key": "ipos-product:motor-private-car-m-as",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "hasProduct(commonService.CONSTANTS.PRODUCT.TERM_LIFE_PROTECT_AS) || hasProduct(commonService.CONSTANTS.PRODUCT.TERM_LIFE_PROTECT_DS)",
+            "ipos-product:income_protection_plan_as_Table": {
+              "@key": ""
+            }
+          },
+          "ipos-product:regular-unit-link": {
+            "@icon": "fa fa-pie-chart",
+            "@cssClass": "v3-box-4",
+            "@section": "ipos-product:life-insurance",
+            "@key": "ipos-product:regular-unit-link",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "hasProduct(commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK)",
+            "ipos-product:regular-unit-link_as_Table": {
+              "@key": ""
+            }
+          },
+          "ipos-product:endowment": {
+            "@icon": "fa fa-line-chart",
+            "@cssClass": "v3-box-4",
+            "@section": "ipos-product:life-insurance",
+            "@key": "ipos-product:endowment",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "hasProduct(commonService.CONSTANTS.PRODUCT.ENDOWMENT)",
+            "ipos-product:endowment_as_Table": {
+              "@key": ""
+            }
+          }
+        },
+        "ipos-product:general-insurance": {
+          "@icon": "fa fa-shield",
+          "@cssClass": "v3-box-0",
+          "@section": "ipos-product:BusinessCatalogModule",
+          "@key": "ipos-product:general-insurance",
+          "@isShowValidationIcon": "false",
+          "@isShowNoOfEmptyField": "false",
+          "@isVisible": "hasChildrenCard(card)",
+          "ipos-product:motor-private-car-m-as": {
+            "@icon": "fa fa-car",
+            "@cssClass": "v3-box-4",
+            "@section": "ipos-product:general-insurance",
+            "@key": "ipos-product:motor-private-car-m-as",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "hasProduct(commonService.CONSTANTS.PRODUCT.MOTOR_PRIVATE_CAR_M_AS) || hasProduct(commonService.CONSTANTS.PRODUCT.MOTOR_PRIVATE_CAR_M_DS)",
+            "ipos-product:motor_private_car_m_as_Table": {
+              "@key": ""
+            }
+          },
+          "ipos-product:fire-houseowner-as": {
+            "@icon": "fa fa-fire",
+            "@cssClass": "v3-box-0",
+            "@section": "ipos-product:general-insurance",
+            "@key": "ipos-product:fire-houseowner-as",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "hasProduct(commonService.CONSTANTS.PRODUCT.FIRE)",
+            "ipos-product:fire_houseowner_as_Table": {
+              "@key": ""
+            }
+          },
+          "ipos-product:personal-accident-as": {
+            "@icon": "fa fa-plus",
+            "@cssClass": "v3-box-3",
+            "@section": "ipos-product:general-insurance",
+            "@key": "ipos-product:term-life-protect-as",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "hasProduct(commonService.CONSTANTS.PRODUCT.PERSONAL_ACCIDENT)",
+            "ipos-product:personal_accident_as_Table": {
+              "@key": ""
+            }
+          },
+          "ipos-product:travel-express": {
+            "@icon": "fa fa-plane",
+            "@cssClass": "v3-box-4",
+            "@section": "ipos-product:general-insurance",
+            "@key": "ipos-product:travel-express",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "hasProduct(commonService.CONSTANTS.PRODUCT.TRAVEL_EXPRESS)",
+            "ipos-product:travel_express_Table": {
+              "@key": ""
+            }
+          },
+          "ipos-product:group-travel-express": {
+            "@icon": "fa fa-group",
+            "@cssClass": "v3-box-0",
+            "@section": "ipos-product:general-insurance",
+            "@key": "ipos-product:group-travel-express",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "hasProduct(commonService.CONSTANTS.PRODUCT.GROUP_TRAVEL_EXPRESS)",
+            "ipos-product:group_travel_Table": {
+              "@key": ""
+            }
+          },
+          "ipos-product:direct-sale-pa": {
+            "@icon": "fa fa-group",
+            "@cssClass": "v3-box-0",
+            "@section": "ipos-product:general-insurance",
+            "@key": "ipos-product:direct-sale-pa",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "false",
+            "ipos-product:direct_sale_pa_table": {
+              "@key": ""
+            }
+          },          
+          "ipos-product:direct-sale-travel-express": {
+            "@icon": "fa fa-group",
+            "@cssClass": "v3-box-0",
+            "@section": "ipos-product:general-insurance",
+            "@key": "ipos-product:direct-sale-travel-express",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "false",
+            "ipos-product:direct_sale_travel_express_table": {
+              "@key": ""
+            }
+          }
+        },
+        "ipos-product:group-insurance": {
+          "@icon": "fa fa-object-group",
+          "@cssClass": "v3-box-0",
+          "@section": "ipos-product:BusinessCatalogModule",
+          "@key": "ipos-product:group-insurance",
+          "@isShowValidationIcon": "false",
+          "@isShowNoOfEmptyField": "false",
+          "@isVisible": "hasChildrenCard(card)",
+          "ipos-product:group-term-life": {
+            "@icon": "fa fa-group",
+            "@cssClass": "v3-box-0",
+            "@section": "ipos-product:group-insurance",
+            "@key": "ipos-product:group-term-life",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "hasProduct(commonService.CONSTANTS.PRODUCT.GROUP_TERM_LIFE)",
+            "ipos-product:group_term_life_Table": {
+              "@key": ""
+            }
+          }
+        },
+        "ipos-product:notification": {
+          "@icon": "fa fa-bell-slash",
+          "@cssClass": "v3-box-0",
+          "@section": "ipos-product:BusinessCatalogModule",
+          "@key": "ipos-product:notification",
+          "@isShowValidationIcon": "false",
+          "@isShowNoOfEmptyField": "false",
+          "ipos-product:notice-of-loss": {
+            "@icon": "fa fa-chain-broken",
+            "@cssClass": "v3-box-0",
+            "@section": "ipos-product:notification",
+            "@key": "ipos-product:notice-of-loss",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "ipos-product:notice_of_loss_Table": {
+              "@key": ""
+            }
+          },
+          "ipos-product:notice-of-death": {
+            "@icon": "fa fa-user-times",
+            "@cssClass": "v3-box-0",
+            "@section": "ipos-product:notification",
+            "@key": "ipos-product:notice-of-death",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "ipos-product:notice_of_death_Table": {
+              "@key": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}

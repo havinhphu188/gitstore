@@ -1,0 +1,26 @@
+<ion-popover-view >
+    <ion-content>
+      <div class="list"   ng-disabled="visible" >
+        <a ng-if="visible" ng-click="showAttachment(); hidePopover()" class="item" href="" target="_blank">
+          <!-- Edit -->
+          Show attachments
+        </a>
+        <!-- <a ng-if="!visible" ng-click="saveEdit(); toggleEdit(); goToState('home.view.document')" class="item" href="" target="_blank">
+          Save
+        </a> -->
+        <!-- compute document -->
+        <!-- <a ng-if="!visible" ng-click="saveEdit()" class="item" href="" target="_blank">
+          Save
+        </a> -->
+          <a ng-if="!visible"  md-ink-ripple="#bbb" ng-click="saveDoc()" class="item" href="" target="_blank">
+          Save
+        </a>
+        <a ng-if="!visible"  md-ink-ripple="#bbb" ng-click="hidePopover(); showAttachment()" class="item" href="" target="_blank">
+          Manage attachments
+        </a>
+        <a ng-if="!visible"  md-ink-ripple="#bbb" ng-click="toggleoc(); goToState('home.view.documents')" class="item" href="" target="_blank">
+          Cancel
+        </a>
+      </div>
+    </ion-content>
+</ion-popover-view>

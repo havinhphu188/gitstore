@@ -1,0 +1,248 @@
+{
+  "IposDocument": {
+    "Data": {
+      "policy-servicing-GCS:Detail": {
+        "@section": "policy-servicing-GCS:Detail",
+        "policy-servicing-GCS:Summary": {
+          "@section": "policy-servicing-GCS:Detail",
+          "policy-servicing-GCS:BusinessCaseNo": {
+            "@key": [
+              "DocName"
+            ]
+          },
+          "policy-servicing-GCS:Status": {
+            "@key": [
+              "BusinessStatus"
+            ]
+          },
+          "policy-servicing-GCS:CreatedDate": {
+            "@key": [
+              "CreatedDate"
+            ]
+          },
+          "policy-servicing-GCS:UpdatedDate": {
+            "@key": [
+              "UpdatedDate"
+            ]
+          },
+          "policy-servicing-GCS:PolicyNo": {
+            "@key": [
+              "PolicyNumber"
+            ]
+          },
+          "policy-servicing-GCS:PolicyOwner": {
+            "@key": [
+              "FullName"
+            ]
+          },
+          "policy-servicing-GCS:LifeAssured": {
+            "@key": [
+              "ClientId"
+            ]
+          }
+        },
+        "policy-servicing-GCS:InterestedParties": {
+          "@key": [
+            "Prospects"
+          ],
+          "@section": "policy-servicing-GCS:Detail",
+          "@isVisible": "moduleService.findElementInDetail_V3(['EReason']).Value === 'AB'",
+          "policy-servicing-GCS:ImportFromExistingBeneficiary": {
+            "@key": [
+              ""
+            ],
+            "@section": "policy-servicing-GCS:InterestedParties",
+            "@icon": "fa fa-user",
+            "icons": {
+              "cardIcon": {
+                "content": "fa fa-user"
+              }
+            },
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "importFromExistingProspect(card)",
+            "@staticHtml": "list_existing_prospect.html"
+          },
+          "policy-servicing-GCS:AddNewBeneficiary": {
+            "@key": [
+              ""
+            ],
+            "@section": "policy-servicing-GCS:InterestedParties",
+            "@icon": {
+              "main": "fa fa-user",
+              "mainAction": "addIcon"
+            },
+            "icons": {
+              "cardIcon": {
+                "content": "fa fa-user"
+              },
+              "cardIconPlus": {}
+            },
+            "@cssClass": "v3-box-1",
+            "@cardType": "action",
+            "@onClick": "addCard(card)"
+          },
+          "policy-servicing-GCS:Beneficiary": {
+            "@key": [
+              "Prospect"
+            ],
+            "@icon": {
+              "subAction": "removeIcon"
+            },
+            "icons": {
+              "cardIcon": {
+                "content": "fa fa-user"
+              },
+              "removeCardInList": {
+                "onClick": "removeCardInList()"
+              }
+            },
+            "@cssClass": "v3-box-1",
+            "@section": "policy-servicing-GCS:InterestedParties",
+            "@cardType": "template"
+          }
+        },
+        "policy-servicing-GCS:BeneficiaryShare": {
+          "@section": "policy-servicing-GCS:Detail",
+          "policy-servicing-GCS:PolicyNumber": {
+            "@key": [
+              "PolicyNumber"
+            ]
+          },
+          "@isVisible": "moduleService.findElementInDetail_V3(['EReason']).Value === 'AB'",
+          "policy-servicing-GCS:BenificiaryShareTable": {
+            "@key": []
+          }
+        },
+        "policy-servicing-GCS:FrequencyChange": {
+          "@section": "policy-servicing-GCS:Detail",
+          "policy-servicing-GCS:PolicyNumber": {
+            "@key": [
+              "PolicyNumber"
+            ]
+          },
+          "@isVisible": "moduleService.findElementInDetail_V3(['EReason']).Value === 'CPF'",
+          "policy-servicing-GCS:PlanName": {
+            "@key": [
+              "Product"
+            ]
+          },
+          "policy-servicing-GCS:CurrentFrequency": {
+            "@key": [
+              "CurrentFrequency"
+            ]
+          },
+          "policy-servicing-GCS:InceptionDate": {
+            "@key": [
+              "InceptionDate"
+            ]
+          },
+          "policy-servicing-GCS:PaidToDate": {
+            "@key": [
+              "PaidToDate"
+            ]
+          },
+          "policy-servicing-GCS:BilledToDate": {
+            "@key": [
+              "BilledToDate"
+            ]
+          },
+          "policy-servicing-GCS:NewFrequency": {
+            "@key": [
+              "NewFrequency"
+            ]
+          },
+          "policy-servicing-GCS:selectedFrequencyTable": {
+            "@key": [
+              ""
+            ]
+          },
+          "policy-servicing-GCS:availableFrequencyTable": {
+            "@key": [
+              ""
+            ]
+          }
+        },
+        "policy-servicing-GCS:DocumentCenter": {
+          "@section": "policy-servicing-GCS:Detail",
+          "@key": [
+            "DocumentCenter"
+          ],
+          "icons": {
+            "cardIcon": {
+              "content": "attachmentIcon"
+            }
+          },
+          "policy-servicing-GCS:TransactionDocuments": {
+            "@key": [
+              "Prints"
+            ],
+            "@icon": "fa fa-file-text-o",
+            "icons": {
+              "cardIcon": {
+                "content": "transactionIcon"
+              }
+            },
+            "@section": "policy-servicing-GCS:DocumentCenter",
+            "TransactionDocument": {
+              "@key": [
+                "Print"
+              ],
+              "@section": "policy-servicing-GCS:TransactionDocuments",
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                }
+              },
+              "@cssClass": "v3-box-1",
+              "@cardType": "template",
+              "@previewHtml": "v3-resource-file-transaction.html",
+              "@onOpen": "fileReaderService.openFileReader('view',card.metadata,[],'')"
+            }
+          },
+          "policy-servicing-GCS:Attachments": {
+            "@key": [
+              "Attachments"
+            ],
+            "@section": "policy-servicing-GCS:DocumentCenter",
+            "icons": {
+              "cardIcon": {
+                "content": "attachmentIcon"
+              }
+            },
+            "@cssClass": "v3-box-1",
+            "@previewHtml": "v3-summary-static-attachment.html",
+            "Attachment": {
+              "@key": [
+                "Attachment"
+              ],
+              "@section": "policy-servicing-GCS:Attachments",
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                },
+                "removeCardInList": {}
+              },
+              "@cssClass": "v3-box-1",
+              "@previewHtml": "v3-summary-static-attachment-file.html",
+              "@cardType": "template",
+              "@onOpen": "fileReaderService.openFileReader('view',card.refDetail,self.moduleService.convertToArray(self.moduleService.findElementInElement_V3(self.moduleService.detail, ['Attachment'])),'uploadMode')"
+            },
+            "addAttachment": {
+              "@section": "policy-servicing-GCS:Attachments",
+              "icons": {
+                "cardIcon": {
+                  "content": "attachmentIcon"
+                },
+                "cardIconPlus": {}
+              },
+              "@cardType": "action",
+              "@staticHtml": "fileUpload.html",
+              "@onClick": "importFile()"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "IposDocument": {
+    "@xmlns": "http://www.csc.com/integral/ipos-common",
+    "@xmlns:case-management-term-life": "http://www.csc.com/integral/case-management-term-life",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xsi:schemaLocation": "http://www.csc.com/integral/case-management-term-life case-management-term-life-protect-as-model.xsd ",
+    "Header": {
+      "DocInfo": {
+        "DocType": "case-management",
+        "Product": "term-life-protect-as",
+        "DefUid": "5fd24305-220f-4dd5-9d7a-62c1790d9c09",
+        "DocId": "",
+        "DocName": "case-management-DefaultName",
+        "DocVersion": "",
+        "OwnerUid": "",
+        "CreatedDate": "",
+        "UpdatedDate": "",
+        "UpdatedUserUid": "",
+        "Tags": "",
+        "Star": "",
+        "Archived": "",
+        "Comments": ""
+      },
+      "DocAccessControllList": {
+        "User": {
+          "@userid": "",
+          "Permisions": {
+            "Permision": ""
+          }
+        }
+      },
+      "DocStatus": {
+        "DocumentStatus": "",
+        "BusinessStatus": "NEW"
+      }
+    },
+    "Data": {
+      "case-management-term-life:CaseManagement": {
+        "@section": "case-management-term-life:CaseManagement",
+        "@icon": {
+          "main": "fa fa-heart"
+        },
+        "@case-name": "",
+        "@product": "term-life-protect-as",
+        "@vpms-suffix": "CaseManagement",
+        "case-management-term-life:NewBusiness": {
+          "case-management-term-life:Summary": {
+            "@section": "case-management-term-life:CaseManagement",
+            "case-management-term-life:CaseInformation": {
+              "@index": "1",
+              "@visible": "1"
+            },
+            "case-management-term-life:CurrentStatus": {
+              "@index": "2",
+              "@visible": "1"
+            },
+            "case-management-term-life:PendingInformation": {
+              "@index": "3",
+              "@visible": "1"
+            },
+            "case-management-term-life:NextRequiredAction": {
+              "@index": "4",
+              "@visible": "1"
+            }
+          },
+          "case-management-term-life:Step1_NeedAnalysis": {
+            "@section": "case-management-term-life:CaseManagement",
+            "@refDocType": "factfind;product=term-life-protect-as"
+          },          
+          "case-management-term-life:Step2_RequestForQuotation": {
+            "@section": "case-management-term-life:CaseManagement",
+            "case-management-term-life:Quotation": {
+              "@refDocType": "illustration;product=term-life-protect-as",
+              "@refUid": "",
+              "@section": "case-management-term-life:Step2_RequestForQuotation",
+              "case-management-term-life:SummaryOfStep2": {
+                "@section": "case-management-term-life:Quotation"
+              },
+              "case-management-term-life:BasicPlan": {
+                "@section": "case-management-term-life:Quotation"
+              },
+              "case-management-term-life:PolicyOwner": {
+                "@section": "case-management-term-life:Quotation"
+              },
+              "case-management-term-life:LifeAssure": {
+                "@section": "case-management-term-life:Quotation"
+              },
+              "case-management-term-life:Rider": {
+                "@section": "case-management-term-life:Quotation"
+              }
+            }
+          },
+          "case-management-term-life:Step3_GenerateAndReviewQuotation": {
+            "@section": "case-management-term-life:CaseManagement",
+            "case-management-term-life:PolicyOwner": {
+              "@section": "case-management-term-life:Step3_GenerateAndReviewQuotation"
+            },
+            "case-management-term-life:LifeAssure": {
+              "@section": "case-management-term-life:Step3_GenerateAndReviewQuotation"
+            },
+            "case-management-term-life:Illustration": {
+              "@section": "case-management-term-life:Step3_GenerateAndReviewQuotation"
+            },
+            "case-management-term-life:TermAndCondition": {
+              "@section": "case-management-term-life:Step3_GenerateAndReviewQuotation"
+            } 
+          },
+          "case-management-term-life:Step4_Application": {
+            "@section": "case-management-term-life:CaseManagement",
+            "case-management-term-life:Illustration1": {
+              "@section": "case-management-term-life:Step4_Application"
+            },
+            "case-management-term-life:Illustration2": {
+              "@section": "case-management-term-life:Step4_Application"
+            },
+            "case-management-term-life:Illustration3": {
+              "@section": "case-management-term-life:Step4_Application"
+            },
+            "case-management-term-life:Illustration4": {
+              "@section": "case-management-term-life:Step4_Application"
+            } 
+          },
+          "case-management-term-life:Step5_Attachment": {
+            "@section": "case-management-term-life:CaseManagement"
+          },
+          "case-management-term-life:Step6_Underwriting": {
+            "@section": "case-management-term-life:CaseManagement"
+          },
+          "case-management-term-life:Step7_Payment": {
+            "@section": "case-management-term-life:CaseManagement"
+          }
+        }
+      }
+    }
+  }
+}

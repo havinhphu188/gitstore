@@ -1,0 +1,1199 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="illustration-motor:quotation-information" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-md-6">{{'new.v3.mynewworkspace.motor.illustration.label.QuotationInformation' | translate}}:</span>
+    <span class="col-md-6">{{moduleService.findElementInDetail_V3(['DocName'])}}</span>
+  </div>
+</div>
+<div fieldId="illustration-motor:current-status" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-md-6">{{'new.v3.mynewworkspace.motor.illustration.label.CurrentStatus' | translate}}:</span>
+    <span class="col-md-6">{{moduleService.findElementInDetail_V3(['BusinessStatus'])}}</span>
+  </div>
+</div>
+<div fieldId="illustration-motor:pending-information" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-md-6">{{'new.v3.mynewworkspace.motor.illustration.label.PendingInformation' | translate}}:</span>
+    <span class="col-md-6"></span>
+  </div>
+</div>
+<div fieldId="illustration-motor:next-required-action" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+  <div class="form-group form-group-lg has-success">
+    <span class="col-md-6">{{'new.v3.mynewworkspace.motor.illustration.label.NextRequiredAction' | translate}}:</span>
+    <span class="col-md-6"></span>
+  </div>
+</div>
+
+<!-- Basic Product -->
+<!-- <div fieldId="illustration-motor:ProductName" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="v3-text-detail-header">
+    <div class="form-group form-group-lg has-success">
+      <label >BASIC {{'v3.illustration.product.'+moduleService.findElementInDetail_V3(['ProductName']).$ | translate}}</label>
+    </div>
+  </div>
+</div> -->
+<div fieldId="illustration-motor:ProductName" class="v3-column-content">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+      <div class="form-group form-group-lg has-success">
+        <label>{{'new.v3.mynewworkspace.motor.illustration.label.ProductName' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ProductName'])['@mandatory'] == '1'">*</span></label>
+        <input class="form-control" type="text" ng-disabled="true" 
+            value="{{'v3.illustration.product.'+ moduleService.findElementInDetail_V3(['ProductName']).$ | translate}}"/>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ProductName']).errorMessage | translate"></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" hide-sm>
+    <div class="col-xs-offset-1 col-xs-10 v3-column-content"></div>
+  </div>
+</div>
+<div fieldId="motor:InceptionDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.InceptionDate' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['InceptionDate'])['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper">
+      <input ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['InceptionDate'])['@editable']=='0'" 
+      ms-datepicker ng-model="moduleService.findElementInDetail_V3(['InceptionDate']).$" 
+      class="ms-calendar"/></div> 
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['InceptionDate']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:ExpiryDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.ExpiryDate' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ExpiryDate'])['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper">
+      <input maxDate='{{illustrationMaxDate}}' minDate='{{illustrationMinDate}}' 
+      ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['ExpiryDate'])['@editable']=='0'" 
+      ms-datepicker ng-model="moduleService.findElementInDetail_V3(['ExpiryDate']).$" 
+      class="ms-calendar"/></div>
+        <!-- <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ExpiryDate']).errorMessage | translate"></span> -->
+        <span class="errorMessage" title="{{moduleService.findElementInDetail_V3(['ExpiryDate']).errorMessage | translateMessage}}" ng-bind="moduleService.findElementInDetail_V3(['ExpiryDate']).errorMessage | translateMessage | trimtext:false:48:'..'"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:BillingCurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.BillingCurrency' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['BillingCurrency'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown model="moduleService.findElementInDetail_V3(['BillingCurrency'])"
+        disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['BillingCurrency'])['@editable']=='0'"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['BillingCurrency','Option'])" 
+        type="nonFlag" prefix="">
+      </ng-newDropDown>
+      <!-- <v3-switch-new switch-size="" switch-name="BillingCurrency" prefix="v3.motor.privateCarM.billingCurrency"
+              switch-model="moduleService.findElementInDetail_V3(['BillingCurrency']).Value" 
+              switch-default-value="" switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['BillingCurrency'])['@editable']=='0'" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['BillingCurrency','Option'])">
+      </v3-switch-new> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['BillingCurrency']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:SICurrency" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.SICurrency' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['SICurrency'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown model="moduleService.findElementInDetail_V3(['SICurrency'])"
+        disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['SICurrency'])['@editable']=='0'"
+        list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['SICurrency','Option'])" 
+        type="nonFlag" prefix="">
+      </ng-newDropDown>
+      <!-- <v3-switch-new switch-size="" switch-name="SICurrency" prefix="v3.motor.privateCarM.sICurrency"
+              switch-model="moduleService.findElementInDetail_V3(['SICurrency']).Value" 
+              switch-default-value="" switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['SICurrency'])['@editable']=='0'" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['SICurrency','Option'])">
+      </v3-switch-new> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['SICurrency']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:DocumentType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.DocumentType' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['DocumentType'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['DocumentType'])['@editable']=='0'"
+         model="moduleService.findElementInDetail_V3(['DocumentType'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['DocumentType','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.documentType"></ng-newDropDown>
+      <!-- <ng-newDropDown model="moduleService.findElementInDetail_V3(['Reason'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Reason','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.reason"></ng-newDropDown> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['DocumentType']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:Reason" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.Reason' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Reason'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['Reason'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['Reason'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Reason','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.reason"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Reason']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Basic Coverage -->
+<div fieldId="motor:CoverageType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'v3.mynewworkspace.portlet.label.illustration-motor:Coverage' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['CoverageType'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['CoverageType'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['CoverageType'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['CoverageType','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.CoverageType"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['CoverageType'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['CoverageType']).Value">      
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['CoverageType','Option'])"
+          value="{{item.value}}">{{'v3.motor.privateCarM.CoverageType.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CoverageType']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:GoodCarriedByVehicle" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.GoodCarriedByVehicle' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['GoodCarriedByVehicle'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['GoodCarriedByVehicle'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['GoodCarriedByVehicle'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['GoodCarriedByVehicle','Option'])" 
+         type="nonFlag" prefix="v3.illustration.motor.sompo.goodcarriedbyvehicle"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['GoodCarriedByVehicle'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['GoodCarriedByVehicle']).Value">            
+        
+        <option ng-repeat="item in moduleService.convertToArray(moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['GoodCarriedByVehicle','Option']))"
+          value="{{item.value}}">{{'v3.illustration.motor.sompo.goodcarriedbyvehicle.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['GoodCarriedByVehicle']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:CIType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.CIType' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['CIType'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['CIType'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['CIType'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['CIType','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.cIType"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['CIType'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['CIType']).Value">            
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['CIType','Option'])"
+          value="{{item.value}}">{{'v3.motor.privateCarM.cIType.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['CIType']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:GeographicLocation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.GeographicLocation' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['GeographicLocation'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['GeographicLocation'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['GeographicLocation'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['GeographicLocation','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.location" more-action="selectGeographic()"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['GeographicLocation'])['@editable']=='0'" 
+        ng-model="moduleService.findElementInDetail_V3(['GeographicLocation']).Value" ng-change="selectGeographic()">           
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['GeographicLocation','Option'])"
+          value="{{item.value}}">{{'v3.motor.privateCarM.location.'+item.value| translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['GeographicLocation']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:Region" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.Region' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Region'])['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new switch-size="" switch-name="Region" prefix="v3.motor.privateCarM.region" 
+              switch-model="moduleService.findElementInDetail_V3(['Region']).Value" 
+              switch-default-value="" switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['Region'])['@editable']=='0'" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Region','Option'])">
+      </v3-switch-new>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Region']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:Garage" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.Garage' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Garage'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['Garage'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['Garage'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Garage','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.garage"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['Garage'])['@editable']=='0'"  
+          ng-model="moduleService.findElementInDetail_V3(['Garage']).Value">            
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Garage','Option'])"
+          value="{{item.value}}">{{'v3.motor.privateCarM.garage.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Garage']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:UseOfVehicle" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.UseOfVehicle' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['UseOfVehicle'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['UseOfVehicle'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['UseOfVehicle'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['UseOfVehicle','Option'])" 
+         type="nonFlag" prefix="v3.illustration.privatecar.directsale.useofvehicle"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['UseOfVehicle'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['UseOfVehicle']).Value">            
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['UseOfVehicle','Option'])"
+          value="{{item.value}}">{{'v3.illustration.privatecar.directsale.useofvehicle.'+item.value| translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['UseOfVehicle']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:MarketValue" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.MarketValue' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MarketValue'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['MarketValue'])['@editable'] == '0'"
+          type="text" ng-model="moduleService.findElementInDetail_V3(['MarketValue']).$" pos-autonumeric />
+        <!-- <input class="check-value pointer" ng-click="checkMarketValue()" /> -->
+        <input class="check-value pointer" ng-click="checkISM()" />
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MarketValue']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:SumInsured" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.SumInsured' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['SumInsured'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['SumInsured'])['@editable'] == '0'"
+          type="text" ng-model="moduleService.findElementInDetail_V3(['SumInsured']).$" pos-autonumeric decimal="0" />
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['SumInsured']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Excess -->
+<div fieldId="motor:ExcessType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.ExcessType' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ExcessType'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['ExcessType'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['ExcessType'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ExcessType','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.excessType"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['ExcessType'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['ExcessType']).Value">            
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['ExcessType','Option'])"
+          value="{{item.value}}">{{'v3.motor.privateCarM.excessType.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ExcessType']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:ExcessAmt" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.ExcessAmount' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ExcessAmt'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['ExcessAmt'])['@editable'] == '0'"
+          type="text" ng-model="moduleService.findElementInDetail_V3(['ExcessAmt']).$" pos-autonumeric />
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ExcessAmt']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Extra Coverage -->
+<div fieldId="illustration-motor:AdditionalBenefitCode" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.ExtraCoverage' | translate}}<span ng-show="card.refDetail['illustration:AdditionalBenefitCode']['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || card.refDetail['illustration:AdditionalBenefitCode']['@editable']=='0'"
+        model="card.refDetail['illustration:AdditionalBenefitCode']"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['AdditionalBenefitCode','Option'])" 
+         type="nonFlag" prefix="v3.privateCarM.extraCoverage"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || card.refDetail['illustration:AdditionalBenefitCode']['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['OptionalCoverage','AdditionalBenefitCode']).Value">            
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['AdditionalBenefitCode','Option'])"
+          value="{{item.value}}">{{'v3.privateCarM.extraCoverage.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="card.refDetail['illustration:AdditionalBenefitCode'].errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:AdditionalBenefitLimit" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.SumInsured' | translate}}<span ng-show="card.refDetail['illustration:AdditionalBenefitLimit']['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || card.refDetail['illustration:AdditionalBenefitLimit']['@editable']=='0'"  
+        ng-model="card.refDetail['illustration:AdditionalBenefitLimit'].$" pos-autonumeric decimal="0" />
+      <span class="errorMessage" ng-bind="card.refDetail['illustration:AdditionalBenefitLimit'].errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:AdditionalPremiumClass" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.PremiumClass' | translate}}<span ng-show="card.refDetail['illustration:AdditionalPremiumClass']['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || card.refDetail['illustration:AdditionalPremiumClass']['@editable']=='0'"
+        model="card.refDetail['illustration:AdditionalPremiumClass']"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['AdditionalPremiumClass','Option'])" 
+         type="nonFlag" prefix="v3.privateCar.PremClass"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['OptionalCoverage','AdditionalPremiumClass'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['OptionalCoverage','AdditionalPremiumClass']).Value">           
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['AdditionalPremiumClass','Option'])"
+          value="{{item.value}}">{{'v3.privateCar.PremClass.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="card.refDetail['illustration:AdditionalPremiumClass'].errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:OCPremium" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.Premium' | translate}}<span ng-show="card.refDetail['illustration:Premium']['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="true"  
+        ng-model="card.refDetail['illustration:Premium'].$"/>
+      <span class="errorMessage" ng-bind="card.refDetail['illustration:Premium'].errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<!-- Vehicle Information -->
+<div fieldId="motor:VehicleClass" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.VehicleClass' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['VehicleClass'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['VehicleClass'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['VehicleClass'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['VehicleClass','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.vehicleClass"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['VehicleClass'])['@editable']=='0'" 
+        ng-model="moduleService.findElementInDetail_V3(['VehicleClass']).Value">            
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['VehicleClass','Option'])"
+          value="{{item.value}}">{{'v3.motor.privateCarM.vehicleClass.'+item.value| translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['VehicleClass']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:VehicleNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.VehicleNo' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['VehicleNo'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['VehicleNo'])['@editable'] == '0'"
+          type="text" ng-model="moduleService.findElementInDetail_V3(['VehicleNo']).$"  ng-change = "populateNCDVehicleNo()"/>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['VehicleNo']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:VehicleType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.VehicleType' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['VehicleType'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['VehicleType'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['VehicleType'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['VehicleType','Option'])" 
+         type="nonFlag" prefix="v3.illustration.motor.sompo.vehicletype"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['VehicleType'])['@editable']=='0'" 
+        ng-model="moduleService.findElementInDetail_V3(['VehicleType']).Value">           
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['VehicleType','Option'])"
+          value="{{item.value}}">{{'v3.illustration.motor.sompo.vehicletype.'+item.value| translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['VehicleType']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:MakeOrModel" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.MakeOrModel' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MakeOrModel'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['MakeOrModel'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['MakeOrModel'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['MakeOrModel','Option'])" 
+         type="nonFlag" prefix="v3.illustration.motor.sompo.makeormodel" more-action="selectMakeOrModel()"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['MakeOrModel'])['@editable']=='0'"
+        ng-model="moduleService.findElementInDetail_V3(['MakeOrModel']).Value"
+        ng-change="selectMakeOrModel()">
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['MakeOrModel','Option'])" value="{{item.value}}">{{item.translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MakeOrModel']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:ModelDescription" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.ModelDescription' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ModelDescription'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['ModelDescription'])['@editable']=='0'"
+        ng-model="moduleService.findElementInDetail_V3(['ModelDescription']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ModelDescription']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:YearOfManufacture" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.YearManufactured' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['YearOfManufacture'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['YearOfManufacture'])['@editable'] == '0'"
+          type="text" ng-model="moduleService.findElementInDetail_V3(['YearOfManufacture']).$"/>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['YearOfManufacture']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:EngineCapacity" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.EngineCapacity' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['EngineCapacity'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['EngineCapacity'])['@editable'] == '0'"
+          type="text" ng-model="moduleService.findElementInDetail_V3(['EngineCapacity']).$" pos-autonumeric />
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['EngineCapacity']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:Body" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.Body' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['Body'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['Body'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['Body'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Body','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.body"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['Body'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['Body']).Value">            
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['Body','Option'])"
+          value="{{item.value}}">{{'v3.motor.privateCarM.body.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['Body']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:PowerBy" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.PoweredBy' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PowerBy'])['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new switch-size="" switch-name="PowerBy" prefix="v3.motor.privateCarM.powerBy"
+              switch-model="moduleService.findElementInDetail_V3(['PowerBy']).Value" 
+              switch-default-value="" switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['PowerBy'])['@editable']=='0'" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['PowerBy','Option'])">
+      </v3-switch-new>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PowerBy']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:NoOfSeat" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.NumberOfSeats' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['NoOfSeat'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['NoOfSeat'])['@editable'] == '0'"
+          type="text" ng-model="moduleService.findElementInDetail_V3(['NoOfSeat']).$"/>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['NoOfSeat']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:LogBookNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.LogBookNo' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['LogBookNo'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['LogBookNo'])['@editable'] == '0'"
+          type="text" ng-model="moduleService.findElementInDetail_V3(['LogBookNo']).$"/>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['LogBookNo']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:EngineMotorNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.EngineMotorNo' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['EngineMotorNo'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['EngineMotorNo'])['@editable'] == '0'"
+          type="text" ng-model="moduleService.findElementInDetail_V3(['EngineMotorNo']).$"/>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['EngineMotorNo']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:ChassisNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.ChassisNo' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['ChassisNo'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['ChassisNo'])['@editable'] == '0'"
+          type="text" ng-model="moduleService.findElementInDetail_V3(['ChassisNo']).$"/>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['ChassisNo']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:SafetyCode" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.SafetyCode' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['SafetyCode'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['SafetyCode'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['SafetyCode'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['SafetyCode','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.safetyCode"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['SafetyCode'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['SafetyCode']).Value">            
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['SafetyCode','Option'])"
+          value="{{item.value}}">{{'v3.motor.privateCarM.safetyCode.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['SafetyCode']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:AntiThefCode" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.AntiThefCode' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['AntiThefCode'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['AntiThefCode'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['AntiThefCode'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['AntiThefCode','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.antiTheftCode"></ng-newDropDown>
+      <!-- <select class="form-control" 
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['AntiThefCode'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['AntiThefCode']).Value">            
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['AntiThefCode','Option'])"
+          value="{{item.value}}">{{'v3.motor.privateCarM.antiTheftCode.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['AntiThefCode']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:PermittedDriver" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.PermittedDriver' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PermittedDriver'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['PermittedDriver'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['PermittedDriver'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['PermittedDriver','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.permittedDriver"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['PermittedDriver'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['PermittedDriver']).Value">           
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['PermittedDriver','Option'])"
+          value="{{item.value}}">{{'v3.motor.privateCarM.permittedDriver.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PermittedDriver']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Financing Information -->
+<div fieldId="motor:OwnershipType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.OwnershipType' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['OwnershipType'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['OwnershipType'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['OwnershipType'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['OwnershipType','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.ownershipType"></ng-newDropDown>
+      <!-- <select class="form-control" 
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['OwnershipType'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['OwnershipType']).Value">           
+        
+        <option ng-repeat="item in moduleService.convertToArray(moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['OwnershipType','Option']))"
+          value="{{item.value}}">{{'v3.motor.privateCarM.ownershipType.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['OwnershipType']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:FinancialType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.FinancialType' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['FinancialType'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['FinancialType'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['FinancialType'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['FinancialType','Option'])" 
+         type="nonFlag" prefix="v3.motor.privateCarM.financial"></ng-newDropDown>
+      <!-- <select class="form-control" 
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['FinancialType'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['FinancialType']).Value">           
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['FinancialType','Option'])"
+          value="{{item.value}}">{{'v3.motor.privateCarM.financial.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['FinancialType']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:LoanCompany" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.LoanCompany' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['LoanCompany'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" 
+        ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['LoanCompany'])['@editable']=='0'" 
+        ng-model="moduleService.findElementInDetail_V3(['LoanCompany']).$"/>
+       <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['LoanCompany']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:VehiclePurchaseDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.VehiclePurchaseDate' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['VehiclePurchaseDate'])['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper"><input ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['VehiclePurchaseDate'])['@editable']=='0'" ms-datepicker ng-model=" moduleService.findElementInDetail_V3(['VehiclePurchaseDate']).$" class="ms-calendar"/></div> 
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['VehiclePurchaseDate']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="motor:PurchasePrice" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.PurchasePrice' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PurchasePrice'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['PurchasePrice'])['@editable']=='0'" 
+        ng-model="moduleService.findElementInDetail_V3(['PurchasePrice']).$" pos-autonumeric />
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PurchasePrice']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Trailer -->
+<!-- <div fieldId="motor:TrailerNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Trailer Number<span ng-show="moduleService.findElementInDetail_V3(['TrailerNo'])['@mandatory'] == '1'">*</span></span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+      <div layout="row">
+        <input class="form-control" type="text" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['TrailerNo'])['@editable']=='0'" 
+        ng-model="moduleService.findElementInDetail_V3(['TrailerNo']).$"/>
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['TrailerNo']).errorMessage | translate"></span>
+     </div>
+</div>
+<div fieldId="motor:TrailerMakeModel" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Trailer Make/Model<span ng-show="moduleService.findElementInDetail_V3(['TrailerMakeModel'])['@mandatory'] == '1'">*</span></span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+      <div layout="row">
+        <select class="form-control" 
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['TrailerMakeModel'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['TrailerMakeModel']).Value">            
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['TrailerMakeModel','Option'])"
+          value="{{item.value}}">{{'v3.motor.privateCarM.trailerMakeModel.'+item.value | translate}}</option>
+      </select>
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['TrailerMakeModel']).errorMessage | translate"></span>
+     </div>
+</div>
+<div fieldId="motor:TrailerModelDesc" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Trailer Model Description<span ng-show="moduleService.findElementInDetail_V3(['TrailerModelDesc'])['@mandatory'] == '1'">*</span></span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+      <div layout="row">
+        <input class="form-control" type="text" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['TrailerModelDesc'])['@editable']=='0'"
+        ng-model="moduleService.findElementInDetail_V3(['TrailerModelDesc']).$"/>
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['TrailerModelDesc']).errorMessage | translate"></span>
+     </div>
+</div>
+<div fieldId="motor:TrailerYearMake" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Trailer Year Make<span ng-show="moduleService.findElementInDetail_V3(['TrailerYearMake'])['@mandatory'] == '1'">*</span></span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+      <div layout="row">
+        <input class="form-control" type="text" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['TrailerYearMake'])['@editable']=='0'"
+        ng-model="moduleService.findElementInDetail_V3(['TrailerYearMake']).$"/>
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['TrailerYearMake']).errorMessage | translate"></span>
+     </div>
+</div>
+<div fieldId="motor:TrailerLogBookNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Trailer Log Book Number<span ng-show="moduleService.findElementInDetail_V3(['TrailerLogBookNo'])['@mandatory'] == '1'">*</span></span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+      <div layout="row">
+        <input class="form-control" type="text" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['TrailerLogBookNo'])['@editable']=='0'"
+        ng-model="moduleService.findElementInDetail_V3(['TrailerLogBookNo']).$"/>
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['TrailerLogBookNo']).errorMessage | translate"></span>
+     </div>
+</div>
+<div fieldId="motor:TrailerChassisNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+     <div flex-sm="100" flex-md="100" flex="30" layout="row" layout-align="start center">
+         <span>Trailer Chassis Number<span ng-show="moduleService.findElementInDetail_V3(['TrailerChassisNo'])['@mandatory'] == '1'">*</span></span>
+     </div>
+     <div flex-sm="100" flex-md="100" layout="column" layout-align="start start" flex>
+      <div layout="row">
+        <input class="form-control" type="text" ng-disabled="viewMode || moduleService.findElementInDetail_V3(['TrailerChassisNo'])['@editable']=='0'"
+        ng-model="moduleService.findElementInDetail_V3(['TrailerChassisNo']).$"/>
+        </div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['TrailerChassisNo']).errorMessage | translate"></span>
+     </div>
+</div> -->
+
+<!-- Main Driver -->
+<div fieldId="person:ImportMD" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content" ng-if="!isRenewal">
+  <div class="col-xs-offset-3 col-xs-6 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.SelectfromProspect' | translate}}</label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') " 
+        model="moduleService.mainDriver"
+         list="moduleService.chosenProspectList" 
+         type="regular" key="FullName"></ng-newDropDown>
+      <i class="fa fa-arrow-circle-down fa-3x button-import" ng-click="importProspect(moduleService.mainDriver.DocId)"></i>  
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainDriver','Title']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:MDTitle" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.Title' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainDriver','Title'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['MainDriver','Title'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['MainDriver','Title'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['I_MDTitle','Option'])" 
+         type="nonFlag" prefix="v3.application.motor.salutation"></ng-newDropDown>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainDriver','Title']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:MDFullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.FullName' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainDriver','FullName'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['MainDriver','FullName'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['MainDriver','FullName']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainDriver','FullName']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:MDFakeDiv" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" hide-sm>
+  
+</div>
+<div fieldId="person:MDGender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.Gender' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainDriver','Gender'])['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new switch-size="" switch-name="gender" prefix="v3.gender.enum"
+              switch-model="moduleService.findElementInDetail_V3(['MainDriver','Gender']).Value" 
+              switch-default-value="" switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['MainDriver','Gender'])['@editable']=='0'" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['I_MDGender','Option'])">
+      </v3-switch-new>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainDriver','Gender']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:MDBirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.DateOfBirth' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainDriver','BirthDate'])['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper"><input ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['MainDriver','BirthDate'])['@editable']=='0'" ms-datepicker ng-model=" moduleService.findElementInDetail_V3(['MainDriver','BirthDate']).$" class="ms-calendar"/></div> 
+        <span class="errorMessage" title="{{moduleService.findElementInDetail_V3(['MainDriver','BirthDate']).errorMessage | translate}}" ng-bind="moduleService.findElementInDetail_V3(['MainDriver','BirthDate']).errorMessage | translate | trimtext:false:48:'..'"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:MDYearDrivingLicenseObtained" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.YearDrivingLicenseObtained' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainDriver','YearDrivingLicenseObtained'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['MainDriver','YearDrivingLicenseObtained'])['@editable']=='0'" type="text" 
+        ng-model="moduleService.findElementInDetail_V3(['MainDriver','YearDrivingLicenseObtained']).$"/>
+      <span class="errorMessage" title="{{moduleService.findElementInDetail_V3(['MainDriver','YearDrivingLicenseObtained']).errorMessage | translateMessage}}" ng-bind="moduleService.findElementInDetail_V3(['MainDriver','YearDrivingLicenseObtained']).errorMessage | translateMessage | trimtext:false:48:'..'"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:MDIDType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.IDType' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainDriver','IDs','ID','IDType'])['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new switch-size="" switch-name="idtype" prefix="v3.pnc.idType.enum"
+          switch-model="moduleService.findElementInDetail_V3(['MainDriver','IDs','ID','IDType']).Value" 
+          switch-default-value="" switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['MainDriver','IDs','ID','IDType'])['@editable'] == '0'"
+          switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName], ['I_MDIDType']).Option">
+      </v3-switch-new>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainDriver','IDs','ID','IDType']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:MDIDNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.IDNumber' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainDriver','IDs','ID','IDNumber'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['MainDriver','IDs','ID','IDNumber'])['@editable'] == '0'"
+        maxlength="12" ng-model="moduleService.findElementInDetail_V3(['MainDriver','IDs','ID','IDNumber']).$" />&nbsp;
+      <!-- <i class="pointer fa fa-plus-square fa-2x" style="color: #43A047;"></i>&nbsp;
+      <i class="pointer fa fa-minus-square fa-2x" style="color: #43A047;"></i> -->
+      <span class="errorMessage" title="{{moduleService.findElementInDetail_V3(['MainDriver','IDs','ID','IDNumber']).errorMessage | translate}}" ng-bind="moduleService.findElementInDetail_V3(['MainDriver','IDs','ID','IDNumber']).errorMessage | translate | trimtext:false:48:'..'"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:MDMaritalStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.MaritalStatus' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainDriver','MaritalStatus'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['MainDriver','MaritalStatus'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['MainDriver','MaritalStatus'])"
+          list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['I_MDMaritalStatus','Option'])" 
+          type="nonFlag" prefix="v3.maritalStatus.enum"></ng-newDropDown>
+           <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainDriver','MaritalStatus']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:MDOccupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.Occupation' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['MainDriver','Occupation'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['MainDriver','Occupation'])['@editable']=='0'" 
+        model="moduleService.findElementInDetail_V3(['MainDriver','Occupation'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['I_MDOccupation','Option'])" 
+         type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['MainDriver','Occupation'])['@editable']=='0'"
+        ng-model="moduleService.findElementInDetail_V3(['MainDriver','Occupation']).Value">
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['MDOccupation','Option'])" value="{{item.value}}">{{item.translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainDriver','Occupation']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Other Drivers -->
+<div fieldId="person:ImportOD" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v3-column-content" ng-if="!isRenewal">
+  <div class="col-xs-offset-3 col-xs-6 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.SelectfromProspect' | translate}}</label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') "
+        model="moduleService.otherDriver"
+        list="moduleService.chosenProspectList" 
+        type="regular" key="FullName"></ng-newDropDown>
+      <i  class="fa fa-arrow-circle-down fa-3x button-import" ng-click="importProspect(moduleService.otherDriver.DocId, card.refDetail)"></i>  
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['MainDriver','Title']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:ODTitle" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.Title' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['Title'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInElement_V3(card.refDetail, ['Title'])['@editable']=='0'"
+        model="moduleService.findElementInElement_V3(card.refDetail, ['Title'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['I_ODTitle','Option'])" 
+         type="nonFlag" prefix="v3.application.motor.salutation"></ng-newDropDown>
+      <!-- <select class="form-control" style="width: 100%;" 
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['OtherDrivers','Title'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInDetail_V3(['OtherDrivers','Title']).Value">            
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['MDSalutation','Option'])"
+          value="{{item.value}}">{{'v3.application.motor.salutation.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Title']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:ODFullName" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.FullName' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['FullName'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInElement_V3(card.refDetail, ['FullName'])['@editable']=='0'"  
+        ng-model="moduleService.findElementInElement_V3(card.refDetail, ['FullName']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['FullName']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:ODFakeDiv" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content" hide-sm>
+  
+</div>
+<div fieldId="person:ODGender" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.Gender' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['Gender'])['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new switch-size="" switch-name="gender" prefix="v3.gender.enum"
+              switch-model="moduleService.findElementInElement_V3(card.refDetail, ['Gender']).Value" 
+              switch-default-value="" switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInElement_V3(card.refDetail, ['Gender'])['@editable']=='0'" 
+              switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['I_ODGender','Option'])">
+      </v3-switch-new>
+      <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Gender']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:ODMaritalStatus" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.MaritalStatus' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['MaritalStatus'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInElement_V3(card.refDetail, ['MaritalStatus'])['@editable']=='0'"
+        model="moduleService.findElementInElement_V3(card.refDetail, ['MaritalStatus'])"
+          list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['I_ODMaritalStatus','Option'])" 
+          type="nonFlag" prefix="v3.maritalStatus.enum"></ng-newDropDown>
+          <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['MaritalStatus']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:ODBirthDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.DateOfBirth' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['BirthDate'])['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper"><input ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInElement_V3(card.refDetail, ['BirthDate'])['@editable']=='0'" ms-datepicker ng-model="moduleService.findElementInElement_V3(card.refDetail, ['BirthDate']).$" class="ms-calendar"/></div>
+        <span class="errorMessage" title="{{moduleService.findElementInElement_V3(card.refDetail,['BirthDate']).errorMessage | translate}}" ng-bind="moduleService.findElementInElement_V3(card.refDetail,['BirthDate']).errorMessage | translate | trimtext:false:48:'..'"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:ODYearDrivingLicenseObtained" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.YearDrivingLicenseObtained' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['YearDrivingLicenseObtained'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInElement_V3(card.refDetail, ['YearDrivingLicenseObtained'])['@editable']=='0'" type="text" 
+        ng-model="moduleService.findElementInElement_V3(card.refDetail, ['YearDrivingLicenseObtained']).$"/>
+      <span class="errorMessage" title="{{moduleService.findElementInElement_V3(card.refDetail, ['YearDrivingLicenseObtained']).errorMessage | translateMessage}}" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['YearDrivingLicenseObtained']).errorMessage | translateMessage | trimtext:false:48:'..'"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:ODIDType" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.IDType' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['IDType'])['@mandatory'] == '1'">*</span></label>
+      <v3-switch-new switch-size="" switch-name="idtype" 
+          switch-model="moduleService.findElementInElement_V3(card.refDetail, ['IDType']).Value" prefix="v3.pnc.idType.enum"
+          switch-default-value="" switch-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInElement_V3(card.refDetail, ['IDType'])['@editable'] == '0'"
+          switch-options="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName], ['I_ODIDType']).Option">
+      </v3-switch-new>
+      <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['IDType']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:ODIDNumber" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.IDNumber' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['IDNumber'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInElement_V3(card.refDetail, ['IDNumber'])['@editable'] == '0'"
+        maxlength="12" ng-model="moduleService.findElementInElement_V3(card.refDetail, ['IDNumber']).$" />&nbsp;
+      <!-- <i class="pointer fa fa-plus-square fa-2x" style="color: #43A047;"></i>&nbsp;
+      <i class="pointer fa fa-minus-square fa-2x" style="color: #43A047;"></i> -->
+      <span class="errorMessage" title="{{moduleService.findElementInElement_V3(card.refDetail, ['IDNumber']).errorMessage | translate}}" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['IDNumber']).errorMessage | translate | trimtext:false:48:'..'"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="person:ODOccupation" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.Occupation' | translate}}<span ng-show="moduleService.findElementInElement_V3(card.refDetail, ['Occupation'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInElement_V3(card.refDetail, ['Occupation'])['@editable']=='0'"
+        model="moduleService.findElementInElement_V3(card.refDetail, ['Occupation'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['I_ODOccupation','Option'])" 
+         type="nonFlag" prefix="v3.pnc.occupation.enum"></ng-newDropDown>
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['OtherDrivers','Occupation'])['@editable']=='0'"
+        ng-model="moduleService.findElementInDetail_V3(['OtherDrivers','Occupation']).Value">
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['MDOccupation','Option'])" value="{{item.value}}">{{item.translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInElement_V3(card.refDetail, ['Occupation']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- NCD Source -->
+<div fieldId="illustration-motor:NCDFrom" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.NCDFrom' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['NCDFrom'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['NCDFrom'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['NCDFrom'])"
+         list="nCDFrom" 
+         type="nonFlag" prefix=""></ng-newDropDown>     
+      <!-- <select class="form-control" 
+        ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['NCDFrom'])['@editable']=='0'"
+        ng-model="moduleService.findElementInDetail_V3(['NCDFrom']).Value">
+        
+        <option value="Insurance Company 1">Insurance Company 1</option>
+        <option value="Insurance Company 2">Insurance Company 2</option>
+        <option value="Insurance Company 3">Insurance Company 3</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['NCDFrom']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:NCDVehicleNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.NCDVehicleNo' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['NCDVehicleNo'])['@mandatory'] == '1'">*</span></label>
+      <!-- <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['NCDVehicleNo'])['@editable']=='0'" type="text" 
+        ng-model="moduleService.findElementInDetail_V3(['NCDVehicleNo']).$"/> -->
+      <input class="form-control" ng-disabled="moduleService.findElementInDetail_V3(['NCDVehicleNo'])['@editable']=='0'" type="text" 
+        ng-model="moduleService.findElementInDetail_V3(['NCDVehicleNo']).$"/> 
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['NCDVehicleNo']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:PreviousPolicyNo" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.PrevPolicyNo' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PreviousPolicyNo'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['PreviousPolicyNo'])['@editable']=='0'" type="text" 
+        ng-model="moduleService.findElementInDetail_V3(['PreviousPolicyNo']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PreviousPolicyNo']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:PreviousPolicyEffectiveDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.PrevPolicyEffectiveDate' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PreviousPolicyEffectiveDate'])['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper"><input ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['PreviousPolicyEffectiveDate'])['@editable']=='0'" ms-datepicker ng-model=" moduleService.findElementInDetail_V3(['PreviousPolicyEffectiveDate']).$" class="ms-calendar"/></div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PreviousPolicyEffectiveDate']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:PreviousPolicyExpiryDate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.PrevPolicyExpiryDate' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['PreviousPolicyExpiryDate'])['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper"><input ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['PreviousPolicyExpiryDate'])['@editable']=='0'" ms-datepicker ng-model=" moduleService.findElementInDetail_V3(['PreviousPolicyExpiryDate']).$" class="ms-calendar"/></div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['PreviousPolicyExpiryDate']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:NCDAllowed" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.NCDAllow' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['NCDAllowed'])['@mandatory'] == '1'">*</span></label>
+      <ng-newDropDown disable="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['NCDAllowed'])['@editable']=='0'"
+        model="moduleService.findElementInDetail_V3(['NCDAllowed'])"
+         list="moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['NCDAllowed','Option'])" 
+         type="nonFlag" prefix="v3.NCDAllowed"></ng-newDropDown>
+      <!-- <input class="check-value pointer" ng-click="checkNCDValue()" /> -->
+      <input class="check-value pointer" ng-click="checkISM()" />
+      <!-- <select class="form-control"
+        ng-disabled="viewMode || moduleService.findElementInDetail_V3(['NCDAllowed'])['@editable']=='0'" 
+        ng-model="moduleService.findElementInDetail_V3(['NCDAllowed']).Value">
+        
+        <option ng-repeat="item in moduleService.findElementInElement_V3(moduleService.lazyChoiceList[moduleService.productName],['NCDAllowed','Option'])"
+          value="{{item.value}}">{{'v3.NCDAllowed.'+item.value | translate}}</option>
+      </select> -->
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['NCDAllowed']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:NCDEffectivedate" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.NCDEffDate' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['NCDEffectivedate'])['@mandatory'] == '1'">*</span></label>
+      <div class="ms-calendar-wrapper"><input ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['NCDEffectivedate'])['@editable']=='0'" ms-datepicker ng-model=" moduleService.findElementInDetail_V3(['NCDEffectivedate']).$" class="ms-calendar"/></div>
+        <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['NCDEffectivedate']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:NoOfClaim" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.NoOfClaimForLast3Years' | translate}}<span ng-show="moduleService.findElementInDetail_V3(['NoOfClaim'])['@mandatory'] == '1'">*</span></label>
+      <input class="form-control" type="text" ng-disabled="(moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!=='DRAFT' && moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus']!== 'NEW') || moduleService.findElementInDetail_V3(['NoOfClaim'])['@editable']=='0'"
+        ng-model="moduleService.findElementInDetail_V3(['NoOfClaim']).$"/>
+      <span class="errorMessage" ng-bind="moduleService.findElementInDetail_V3(['NoOfClaim']).errorMessage | translate"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Premium -->
+<div fieldId="illustration-motor:BasePremium" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.BasicPremium' | translate}} ({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</label>
+      <input class="form-control" type="text" 
+        ng-disabled="true" 
+        ng-model="moduleService.findElementInDetail_V3(['BasePremium']).$"/>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:BasePremiumAfterLoadingAndNCD" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.GrossBasicPremium' | translate}}({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</label>
+      <input class="form-control" type="text" 
+        ng-disabled="true" 
+        ng-model="moduleService.findElementInDetail_V3(['BasePremiumAfterLoadingAndNCD']).$"/>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:OptionalCoveragePremium" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.OptionalCoveragePremium' | translate}} ({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</label>
+      <input class="form-control" type="text" 
+        ng-disabled="true" 
+        ng-model="moduleService.findElementInDetail_V3(['OptionalCoveragePremium']).$"/>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:TotalPremium" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.TotalPremium' | translate}} ({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</label>
+      <input class="form-control" type="text" 
+        ng-disabled="true" 
+        ng-model="moduleService.findElementInDetail_V3(['TotalPremium']).$"/>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:StampDuty" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label style="padding-top:21px">{{'new.v3.mynewworkspace.motor.illustration.label.StampDuty' | translate}} ({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</label>
+      <input class="form-control" type="text" 
+        ng-disabled="true" 
+        ng-model="moduleService.findElementInDetail_V3(['StampDuty']).$"/>
+    </div>
+  </div>
+</div>
+<div fieldId="illustration-motor:TotalPayablePremium" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 v3-column-content">
+  <div class="col-xs-offset-1 col-xs-10 v3-column-content">
+    <div class="form-group form-group-lg has-success">
+      <label>{{'new.v3.mynewworkspace.motor.illustration.label.TotalPayablePremium' | translate}} ({{illustrationService.findElementInDetail_V3(['SICurrency']).Value}})</label>
+      <input class="form-control" type="text" 
+        ng-disabled="true" 
+        ng-model="moduleService.findElementInDetail_V3(['TotalPayablePremium']).$"/>
+    </div>
+  </div>
+</div>

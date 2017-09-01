@@ -1,0 +1,258 @@
+{
+  "IposDocument": {
+    "Data": {
+      "illustration-travel-express:Quotation": {
+        "key": [
+          "Quotation"
+        ],
+        "section": "illustration-travel-express:Quotation",
+        "illustration-travel-express:Summary": {
+          "key": [
+            "Summary"
+          ],
+          "icon": "fa fa-bar-chart",
+          "cssClass": "v3-box-2",
+          "isShowValidationIcon": "false",
+          "isShowNoOfEmptyField": "false",
+          "section": "illustration-travel-express:Quotation",
+          "previewHtml": "v3-preview-static-travel-express-illustration-summary.html",
+          "illustration-travel-express:ProductNameSummary": {
+            "key": [
+              "ProductName"
+            ]
+          },
+          "illustration-travel-express:QuotationNo": {
+            "key": [
+              "DocName"
+            ]
+          },
+          "illustration-rul:Status": {
+            "key": [
+              "Header",
+              "BusinessStatus"
+            ],
+            "preview": [
+              {
+                "cardName": "illustration-travel-express:Quotation",
+                "label": "v3.mynewworkspace.portlet.previewlabel.illustration-travel-express.Status",
+                "priority": 40
+              }
+            ],
+            "valuePrefix": "v3.document.status."
+          },
+          "illustration-travel-express:TripType": {
+            "key": [
+              "TypeOfTravel"
+            ]
+          },
+          "illustration-travel-express:PlanType": {
+            "key": [
+              "Plan"
+            ]
+          },
+          "illustration-travel-express:TravelPeriod": {},
+          "illustration-travel-express:PayableAmountContract": {
+            "key": [
+              "TotalPayablePremiumUSD"
+            ]
+          },
+          "illustration-travel-express:ExchangeRate": {
+            "key": [
+              "ExchangeRate"
+            ]
+          },
+          "illustration-travel-express:PayableAmountBilling": {
+            "key": [
+              "TotalPayablePremiumIDR"
+            ]
+          },
+          "illustration-travel-express:Preview": {}
+        },
+        "illustration-travel-express:Inputs": {
+          "key": [
+            "Inputs"
+          ],
+          "illustration-travel-express:ProductInformation": {
+            "key": [],
+            "icon": "fa fa-bar-chart",
+            "section": "illustration-travel-express:Quotation",
+            "illustration-travel-express:ProductName": {
+              "key": [
+                "ProductName"
+              ],
+              "preview": [
+                {
+                  "cardName": "illustration-travel-express:Quotation",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.illustration-travel-express.ProductName",
+                  "priority": 50
+                },
+                {
+                  "cardName": "illustration-travel-express:ProductInformation",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.illustration-travel-express.ProductName",
+                  "priority": 50
+                }
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.illustration:ProductName",
+              "valuePrefix": "v3.mynewworkspace.portlet.label.productName."
+            },
+            "illustration-travel-express:TypeOfTravel": {
+              "key": [
+                "TypeOfTravel"
+              ],
+              "preview": [
+                {
+                  "cardName": "illustration-travel-express:Coverage",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.illustration-travel-express.TypeofTravel",
+                  "priority": 50
+                }
+              ],
+              "valuePrefix": "v3.travel-express.typeoftravel.enum."
+            },
+            "illustration-travel-express:InceptionDate": {
+              "key": [
+                "InceptionDate"
+              ],
+              "preview": [
+                {
+                  "cardName": "illustration-travel-express:ProductInformation",
+                  "label": "v3.mynewworkspace.travel-express.illustration.label.InceptionDate",
+                  "priority": 50
+                }
+              ],
+              "format": "datetime:DD/MM/YYYY",
+              "labelKey": "v3.mynewworkspace.portlet.label.illustration:InceptionDate"
+            },
+            "illustration-travel-express:ExpiryDate": {
+              "key": [
+                "ExpiryDate"
+              ],
+              "format": "datetime:DD/MM/YYYY",
+              "labelKey": "v3.mynewworkspace.portlet.label.illustration:ExpiryDate"
+            },
+            "illustration-travel-express:Region": {
+              "key": [
+                "Region"
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.illustration:ExpiryDate"
+            },
+            "illustration-travel-express:Plan": {
+              "key": [
+                "Plan"
+              ],
+              "preview": [
+                {
+                  "cardName": "illustration-travel-express:Coverage",
+                  "label": "v3.mynewworkspace.travel-express.illustration.label.Plan",
+                  "priority": 50
+                }
+              ],
+              "valuePrefix": "v3.travel-express.plan.enum.",
+              "labelKey": "v3.mynewworkspace.portlet.label.illustration:ExpiryDate"
+            },
+            "illustration-travel-express:SICurrency": {
+              "key": [
+                "SICurrency"
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.illustration:ExpiryDate"
+            },
+            "illustration-travel-express:BillingCurrency": {
+              "key": [
+                "BillingCurrency"
+              ],
+              "labelKey": "v3.mynewworkspace.portlet.label.illustration:ExpiryDate"
+            }
+          },
+          "illustration-travel-express:Coverage": {
+            "key": [
+              "CoverageInformation"
+            ],
+            "icon": "fa fa-bar-chart",
+            "cssClass": "v3-text-transform-none",
+            "section": "illustration-travel-express:Quotation",
+            "illustration-travel-express:TravelInformation": {
+              "key": [],
+              "icon": "fa fa-bar-chart",
+              "section": "illustration-travel-express:Coverage",
+              "onOpen": "convertTravelInfosToArray()",
+              "previewHtml": "v3-preview-static-travel-express-travel-information.html",
+              "illustration-travel-express:TravelInformations": {
+                "key": [
+                  "TravelInformations"
+                ],
+                "valuePrefix": "v3.personal-accident.plan.enum."
+              }
+            },
+            "illustration-travel-express:Insured": {
+              "key": [],
+              "icon": "fa fa-bar-chart",
+              "section": "illustration-travel-express:Coverage",
+              "onOpen": "checkTravelInsureds()",
+              "previewHtml": "v3-preview-static-travel-express-insured.html",
+              "illustration-travel-express:BeInsureds": {
+                "key": [
+                  "Insureds"
+                ]
+              }
+            }
+          },
+          "illustration-travel-express:Beneficiary": {
+            "key": [
+              "BeneficiaryInformation"
+            ],
+            "icon": "fa fa-bar-chart",
+            "section": "illustration-travel-express:Quotation",
+            "illustration-travel-express:BeneficiaryName": {
+              "key": [
+                "BeneficiaryInformation",
+                "BEFullname"
+              ],
+              "icon": "fa fa-bar-chart",
+              "preview": [
+                {
+                  "cardName": "illustration-travel-express:Beneficiary",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.illustration-travel-express.BeneficiaryName",
+                  "priority": 50
+                }
+              ]
+            },
+            "illustration-travel-express:RelationshipWithMainInsured": {
+              "key": [
+                "BeneficiaryInformation",
+                "BERelationship"
+              ],
+              "valuePrefix": "v3.travel-express.relationship.enum.",
+              "preview": [
+                {
+                  "cardName": "illustration-travel-express:Beneficiary",
+                  "label": "v3.mynewworkspace.portlet.previewlabel.illustration-travel-express.Relationship",
+                  "priority": 50
+                }
+              ]
+            },
+            "illustration-travel-express:ContactNumber": {
+              "key": [
+                "BeneficiaryInformation",
+                "BEContactNumber"
+              ]
+            },
+            "illustration-travel-express:EmergencyContact": {
+              "key": [
+                "EmergencySameBeneficiary"
+              ]
+            },
+            "illustration-travel-express:EmergencyName": {
+              "key": [
+                "EmergencyName"
+              ]
+            },
+            "illustration-travel-express:EmergencyContactNumber": {
+              "key": [
+                "EmergencyNumber"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<div class="row v3-margin-right-0">
+	<div class="col-xs-12 v3-padding-0 v3-live-card-preview-label" 
+			ng-if="card.show && commonService.hasValueNotEmpty(moduleService.findElementInElement_V3(card.refDetail,['PlanCd']).Value)">
+		{{'v3.mynewworkspace.portlet.previewlabel.illustration-group-travel-express.Plan' | translate}}
+    </div>
+    <div class="col-xs-12 v3-padding-0 v3-live-card-preview-content">
+    	{{('v3.travel-express.plan.enum.' + moduleService.findElementInElement_V3(card.refDetail,['PlanCd']).Value) | translate}}
+    </div>
+	<div class="col-xs-12 v3-padding-0 v3-live-card-preview-label" 
+			ng-if="card.show && isTravelFamilyPlan(moduleService.findElementInElement_V3(card.refDetail,['PlanCd']).Value) && commonService.hasValueNotEmpty(moduleService.findElementInDetail_V3(['Insureds','Insured','FirstName']).$)">
+		{{'v3.mynewworkspace.portlet.previewlabel.illustration-travel-express.MainInsured' | translate}}
+    </div>
+    <div class="col-xs-12 v3-padding-0 v3-live-card-preview-content"
+    		ng-if="card.show && isTravelFamilyPlan(moduleService.findElementInElement_V3(card.refDetail,['PlanCd']).Value) && commonService.hasValueNotEmpty(moduleService.findElementInDetail_V3(['Insureds','Insured','FirstName']).$)">
+    	{{moduleService.findElementInElement_V3(card.refDetail,['Insureds','Insured','FirstName']).$}}
+    </div>
+	<div class="col-xs-12 v3-padding-0 v3-live-card-preview-label" ng-if="card.show && moduleService.findElementInDetail_V3(['PlanCd']).Value != ''">
+		{{'v3.mynewworkspace.portlet.previewlabel.illustration-travel-express.NoofInsured' | translate}}
+    </div>
+    <div class="col-xs-12 v3-padding-0 v3-live-card-preview-content" ng-if="moduleService.findElementInDetail_V3(['PlanCd']).Value != ''">
+    	{{parseInt(moduleService.findElementInElement_V3(card.refDetail,['Insureds'])['@counter'])}}
+    </div>
+</div>
