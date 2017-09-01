@@ -144,6 +144,7 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
     		
     		if (applicationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
     				|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+    				|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
     				|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT){
     			$scope.moduleService.freeze = (applicationStatus == commonService.CONSTANTS.STATUS.DRAFT || applicationStatus == commonService.CONSTANTS.STATUS.NEW) ? false : true;
     			//MNC Link - migrate old beneficiary - add refUid
@@ -202,7 +203,8 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
         						});
     	    				}
     	    				if (applicationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.TERM_LIFE
-    	    						&& applicationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK) {   					
+    	    						&& applicationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+    	    						&& applicationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK) {   					
     	    					$scope.populateAddresses();
     							
     	                	};
@@ -338,6 +340,7 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
     	
         if (applicationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
         		|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+        		|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
         		|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT){
         	
         	//if rider in illustration, the IsHasRider is true and some questions
@@ -439,7 +442,8 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
 		var propsectId;
         var deferred = self.moduleService.$q.defer();
 		if ( applicationUIService.group === commonService.CONSTANTS.PRODUCT_GROUP.TERM_LIFE
-				&& applicationUIService.productName !== commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK){
+				&& applicationUIService.productName !== commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+				&& applicationUIService.productName !== commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK){
 	 		propsectId = salecaseUIService.findElementInDetail_V3(['ProspectId']).$;
 	 		if (commonService.hasValueNotEmpty(propsectId)){
 	 			wait = true;
@@ -528,7 +532,8 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
 			
 			//for GCS
 			if ((applicationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.TERM_LIFE
-					&& applicationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK)
+					&& applicationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+					&& applicationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK)
 			    && applicationUIService.isFirstMailingAddressInitialize == true){
 			    applicationUIService.isFirstMailingAddressInitialize = false;
 				for(var i=0; i < applicationUIService.addressList.length; i++){
@@ -559,7 +564,8 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
 			applicationUIService.PDPAId = prospectPersonalUIService.findElementInDetail_V3(['PdpaInformation'])['@refUid'];
 			
 			 if (applicationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
-					 ||applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+					 || applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+					 || applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 					 || applicationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT){
 				 $scope.getPDPAInfo_MNC();
 			 }else{
@@ -1309,7 +1315,8 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
 
 		
 		if (applicationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.TERM_LIFE
-				&& applicationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK){
+				&& applicationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+				&& applicationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK){
 			var POId = $scope.moduleService.findElementInDetail_V3(['PolicyOwnerInformation'])['@refUid'];
 			var LIId = $scope.moduleService.findElementInDetail_V3(['LifeAssuredInformation'])['@refUid'];
 			
@@ -1322,6 +1329,7 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
 		//For Unit Link product
 		if (applicationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
 				|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+				|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 				|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT){
 			var POId = $scope.moduleService.findElementInDetail_V3(['ProporserInformation'])['@refUid'];
 			var LIId = $scope.moduleService.findElementInDetail_V3(['LifeAssuredInformation'])['@refUid'];
@@ -1348,6 +1356,7 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
 				applicationUIService.getDetail_V3($scope.resourceURL, undefined, doNothing).then(function(data){
 					if (applicationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
 							|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+							|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 							|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT){
 						salecaseUIService.findElementInDetail_V3(['FirstPaymentMethod']).$ = $scope.moduleService.findElementInDetail_V3(['FirstPaymentMethod']).Value;
 						salecaseUIService.findElementInDetail_V3(['RenewalPaymentMethod']).$ = $scope.moduleService.findElementInDetail_V3(['RenewalPaymentMethod']).Value;
@@ -1537,7 +1546,8 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
         }
 		//if policy owner is the same as life insured, copy policy owner to life insured before generate document
 		if (applicationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
-				||applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+				|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+				|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 				|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT) {
 			var POId = $scope.moduleService.findElementInDetail_V3(['ProporserInformation'])['@refUid'];
 			var LIId = $scope.moduleService.findElementInDetail_V3(['LifeAssuredInformation'])['@refUid'];
@@ -1845,6 +1855,7 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
     	if($scope.moduleService.findElementInDetail_V3(['BusinessStatus']) == commonService.CONSTANTS.STATUS.ACCEPTED 
     			&& (applicationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
     					|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+    					|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
     					|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT)){
 			deferred.resolve();
 			return deferred.promise;
@@ -1863,6 +1874,7 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
     	if($scope.moduleService.findElementInDetail_V3(['BusinessStatus']) != commonService.CONSTANTS.STATUS.ACCEPTED 
     			&& (applicationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
     					|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+    					|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
     					|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT)){
     		if($scope.POGenderDetail != $scope.moduleService.findElementInDetail_V3(['PolicyOwnerDetails','Gender']).Value
     			|| $scope.LAGenderDetail != $scope.moduleService.findElementInDetail_V3(['LifeAssuredDetails','Gender']).Value
@@ -1879,6 +1891,7 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
     	if($scope.moduleService.findElementInDetail_V3(['BusinessStatus']) != commonService.CONSTANTS.STATUS.ACCEPTED 
     			&& (applicationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
     					|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+    					|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
     					|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT)){
     		if($scope.POGenderDetail != $scope.moduleService.findElementInDetail_V3(['PolicyOwnerDetails','Gender']).Value
     			|| $scope.LAGenderDetail != $scope.moduleService.findElementInDetail_V3(['LifeAssuredDetails','Gender']).Value
@@ -2001,6 +2014,7 @@ var ApplicationDetailCtrl = ['$rootScope', '$filter', '$scope', '$log', 'ajax', 
     $scope.initScopeRul = function initScopeRul(){
     	if (applicationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
     		|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+    		|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
     		|| applicationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT){
 
     		$scope.LAIsTheSameWithPO = $scope.moduleService.findElementInDetail_V3(['LAIsTheSameWithPO']);

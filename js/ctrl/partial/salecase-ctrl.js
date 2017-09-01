@@ -437,7 +437,8 @@ var CaseManagementDetailCtrl = ['$rootScope', '$scope', '$filter', '$log', '$sta
 			}
 			else{
 				commonUIService.showNotifyMessage("v3.mynewworkspace.message.SaveCaseUnsuccessfully");
-				if (salecaseUIService.findElementInDetail_V3(["Product"]) == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK) {
+				if (salecaseUIService.findElementInDetail_V3(["Product"]) == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+						|| salecaseUIService.findElementInDetail_V3(["Product"]) == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK) {
 					var error = salecaseUIService.findElementInElement_V3(data,['response-message']);
 					if (angular.isArray(error)) error = error[0];
 					commonUIService.showNotifyMessage(salecaseUIService.findElementInElement_V3(error,['error-code']));
@@ -624,6 +625,7 @@ var CaseManagementDetailCtrl = ['$rootScope', '$scope', '$filter', '$log', '$sta
         					//	solution: get detail of case-management
         					if (commonService.hasValueNotEmpty(saleCaseID) && (
     			        		salecaseUIService.product == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK ||
+    			        		salecaseUIService.product == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK ||
     			        		salecaseUIService.product == commonService.CONSTANTS.PRODUCT.ENDOWMENT )){        						 
         						salecaseUIService.findDocumentToEdit_V3($scope.resourceURL, salecaseUIService.product, saleCaseID, {transactionType: "NewBusiness"}).then(function(){
         							$scope.reSetupConcreteUiStructure(salecaseUIService.detail);
@@ -662,6 +664,7 @@ var CaseManagementDetailCtrl = ['$rootScope', '$scope', '$filter', '$log', '$sta
 	    						if(salecaseUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.TRAVEL
 	    								|| salecaseUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
 	    								|| salecaseUIService.product == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+	    								|| salecaseUIService.product == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 	    								|| salecaseUIService.product === commonService.CONSTANTS.PRODUCT.ENDOWMENT) {
 	    							var errorMessage = applicationUIService.findElementInElement_V3(data, ['error-code']);
 	    							if(commonService.hasValueNotEmpty(errorMessage)) {
@@ -675,6 +678,7 @@ var CaseManagementDetailCtrl = ['$rootScope', '$scope', '$filter', '$log', '$sta
         			$scope.rollbackApplicationStatus();
     				if (salecaseUIService.findElementInDetail_V3(["Product"]) == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK ||
     					salecaseUIService.findElementInDetail_V3(["Product"]) == commonService.CONSTANTS.PRODUCT.ENDOWMENT) {
+    					salecaseUIService.findElementInDetail_V3(["Product"]) == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK) {
     					var error = salecaseUIService.findElementInElement_V3(data,['response-message']);
     					if (angular.isArray(error)) error = error[0];
     					commonUIService.showNotifyMessage(salecaseUIService.findElementInElement_V3(error,['error-code']));
@@ -1196,6 +1200,7 @@ var CaseManagementDetailCtrl = ['$rootScope', '$scope', '$filter', '$log', '$sta
 						//for RUL - Underwriter accept
 						if(salecaseUIService.group === commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
 							|| salecaseUIService.product == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+							|| salecaseUIService.product == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 							|| salecaseUIService.product === commonService.CONSTANTS.PRODUCT.ENDOWMENT) {
 							if(isUnderwriterAccept) {
 								
@@ -1220,6 +1225,7 @@ var CaseManagementDetailCtrl = ['$rootScope', '$scope', '$filter', '$log', '$sta
 						var errorMessRul = illustrationUIService.findElementInElement_V3(data, ['error-code']);
 						if((salecaseUIService.group === commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK 
 								||salecaseUIService.product == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+								||salecaseUIService.product == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 								|| salecaseUIService.product === commonService.CONSTANTS.PRODUCT.ENDOWMENT) 
 							&& errorMessRul == "MSG-P101"){
 							illustrationUIService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] = "DRAFT";
@@ -1792,6 +1798,7 @@ var CaseManagementDetailCtrl = ['$rootScope', '$scope', '$filter', '$log', '$sta
 	$scope.checkSignedDocument = function(){
 		var isValid = false;
 		if (salecaseUIService.product == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK ||
+			salecaseUIService.product == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK ||	
 			salecaseUIService.product == commonService.CONSTANTS.PRODUCT.ENDOWMENT) {
 			var listAllTransactionDoucument = $scope.moduleService.convertToArray($scope.moduleService.findElementInDetail_V3(["Print"]));
 			for(var i=0; i<listAllTransactionDoucument.length; i++){
@@ -2119,7 +2126,8 @@ var ListImportProspect = ['$scope', '$log', 'prospectPersonalUIService', 'saleca
 				
 				if(salecaseUIService.group){
 					if(salecaseUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.TERM_LIFE
-							&& (commonService.hasValueNotEmpty(salecaseUIService.product) && salecaseUIService.product != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK)
+							&& (commonService.hasValueNotEmpty(salecaseUIService.product) && salecaseUIService.product != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+									&& salecaseUIService.product != commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK)
 							|| (commonService.hasValueNotEmpty(salecaseUIService.findElementInDetail_V3(['Prospect', 'Type'])) && salecaseUIService.findElementInDetail_V3(['Prospect', 'Type']).Value == 'BENEFICIARY')
 					){
 						self.moduleService.findElementInElement_V3(addedEle, ['ProspectName']).$ = prospectName;

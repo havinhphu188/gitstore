@@ -115,6 +115,7 @@ var UnderwritingDetailCtrl = ['$scope','$rootScope', '$log', '$state', '$mdDialo
         });
         if(underwritingUIService.productName == "motor-private-car-m-as"||underwritingUIService.productName == "GTL1" || underwritingUIService.productName == commonService.CONSTANTS.PRODUCT.TRAVEL_EXPRESS || underwritingUIService.productName == commonService.CONSTANTS.PRODUCT.GROUP_TRAVEL_EXPRESS
         	|| underwritingUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+        	|| underwritingUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
         	|| underwritingUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT) {
 	        $scope.getUnderwritingLazyList().then(function(data){
 	        	self.generalConfigCtrl('UnderwritingDetailCtrl', underwritingUIService).then(function doneSetup(){
@@ -300,6 +301,7 @@ var UnderwritingDetailCtrl = ['$scope','$rootScope', '$log', '$state', '$mdDialo
 	$scope.checkIsSignedUQDocument = function() {
 		var isValid = true;
 		if (underwritingUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK ||
+			underwritingUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK ||
 			underwritingUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT) {
 			isValid = false;
 			var listAllTransactionDoucument = $scope.moduleService.convertToArray($scope.salecaseService.findElementInDetail_V3(["Print"]));

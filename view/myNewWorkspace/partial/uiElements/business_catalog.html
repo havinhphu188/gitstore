@@ -103,7 +103,6 @@
   </div>
   <div>&nbsp;</div> 
 </div>
-
 <div fieldId="ipos-product:endowment_as_Table" class="col-xs-12 v3-column-content">
   <div class="row">
     <h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.businesscatalog.endowment.content1' | translate}}</h4>
@@ -280,4 +279,29 @@
 	    </div>
 	</div>
 	<div>&nbsp;</div>	
+</div>
+<div fieldId="ipos-product:regular-save-link_as_Table" class="col-xs-12 v3-column-content">
+  <div class="row">
+    <h4 class="cardTitle">{{'v3.mynewworkspace.portlet.label.businesscatalog.regularsavelink.content1' | translate}}</h4>
+    <span>
+    <!-- <b>{{'v3.mynewworkspace.portlet.label.ipos-product:regular-unit-link' | translate}}</b> -->
+    <br/>{{'v3.mynewworkspace.portlet.label.businesscatalog.regularsavelink.content2' | translate}}
+    <br/>
+    <br/>{{'v3.mynewworkspace.portlet.label.businesscatalog.regularsavelink.content3' | translate}}
+    <br/>{{'v3.mynewworkspace.portlet.label.businesscatalog.regularsavelink.content4' | translate}}
+     <br/>
+    <br/>{{'v3.mynewworkspace.portlet.label.businesscatalog.regularsavelink.content5' | translate}}
+
+    </span>
+  </div>
+  <div>&nbsp;</div>
+  <div class="row">
+      <div class="col-sm-offset-5 col-sm-2 col-md-2 col-lg-2 text-center">
+           <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" ng-click="gotoCase('regular-save-link')" 
+            ng-if="commonUIService.getActiveSaleChannel() == 'DS'" ng-disabled="true" >{{'v3.mynewworkspace.portlet.label.businesscatalog.button.buynow' | translate}}</button>
+           <button class="col-md-4 btn btn-lg-new-ui v3-box-4 ng-binding" 
+            ng-click="gotoCase('regular-save-link')" ng-if="commonUIService.getActiveSaleChannel() == 'AS'">{{'v3.mynewworkspace.portlet.label.businesscatalog.button.newcase' | translate}}</button> 
+      </div>
+  </div>
+  <div>&nbsp;</div> 
 </div>

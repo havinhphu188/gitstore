@@ -143,6 +143,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
 	if (illustrationUIService.gcsAddNewLifeInsured == undefined){
 		if (illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT){
 			$scope.refreshTags([["LAIsTheSameWithPO"], ["LifeInsured"]]).then(function(){
 				illustrationUIService.gcsAddNewLifeInsured = false;
@@ -156,6 +157,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
     $scope.populatePOToLI = function populatePOToLI () {
 		if(illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT){
 
 			if(commonService.hasValueNotEmpty(illustrationUIService.findElementInDetail_V3(['LifeInsuredInformation'])['@refUid'])){
@@ -193,6 +195,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
 	//for regular unit link
 	if(illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
 			|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+			|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 			|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT){
 		if(illustrationUIService.findElementInDetail_V3(['LAIsTheSameWithPO'])
 			&& (illustrationUIService.findElementInDetail_V3(['LAIsTheSameWithPO']).Value == undefined || illustrationUIService.findElementInDetail_V3(['LAIsTheSameWithPO']).Value == '')) {
@@ -201,7 +204,8 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
 	}
 	//for DS GCS
 	if(illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.TERM_LIFE
-			&& illustrationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK){
+			&& (illustrationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+					|| illustrationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK)){
 		if(illustrationUIService.findElementInDetail_V3(['LARelationship'])
 			&& (illustrationUIService.findElementInDetail_V3(['LARelationship']).Value == undefined || illustrationUIService.findElementInDetail_V3(['LARelationship']).Value == '')) {
 			illustrationUIService.findElementInDetail_V3(['LARelationship']).Value = 'Y';
@@ -226,7 +230,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
 									var quotationId = illustrationUIService.findElementInElement_V3(quotations[quotations.length - 1], ['QuotationId']);
 									if(commonService.hasValue(quotationId) && commonService.hasValue(quotationId.$)) {
 										if(quotationCurrentId == quotationId.$){
-											if($scope.salecaseService.product != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK){
+											if($scope.salecaseService.product != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK && $scope.salecaseService.product != commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK ){
 												if($scope.moduleService.findElementInDetail_V3(['DocStatus'])['BusinessStatus'] == "DRAFT"){
 													$scope.moduleService.findElementInDetail_V3(['Loading']).$ = '';
 												}
@@ -312,6 +316,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
 		
 		if (illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT){
 			$scope.refreshTags([["LAIsTheSameWithPO"], ["LifeInsured"]]).then(function(){
 				
@@ -351,6 +356,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
 		// $scope.refreshCardsOnScreen();
 		if (illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT){
 			$scope.refreshTags([["LAIsTheSameWithPO"], ["LifeInsured"]]);
 		} 
@@ -545,7 +551,8 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
 							$scope.updateCurrencyByCountry();
 						}
 						else if (illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.TERM_LIFE 
-								&& illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+								&& (illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+										||illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK)
 								&& illustrationUIService.findElementInDetail_V3(['BusinessStatus'])!="ACCEPTED"){
 								$scope.filterOcupationPO();
 								$scope.filterOcupationLA();
@@ -583,7 +590,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
 								illustrationUIService.findElementInDetail_V3(['PolicyOwner','Nationality']).Value = prospectPersonalUIService.findElementInDetail_V3(['Nationality']).Value;
 								
 								if (illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.TERM_LIFE && 
-										illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK){
+										(illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK || illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK )){
 									$scope.filterOcupationPO();
 									$scope.filterOcupationLA();
 									$scope.computeTag([["PolicyOwner"], ["LifeInsured"], ["PolicyTerm"]]).then(function(data){
@@ -750,7 +757,8 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
     				}
     			}
     			if (illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.TERM_LIFE
-    					&& illustrationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK) {
+    					&& (illustrationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+    							||illustrationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK)) {
     				if (commonService.hasValueNotEmpty(illustrationUIService.findElementInDetail_V3(['PremiumFrequencyPayable']).$)) {
     					return true;
     				}
@@ -936,7 +944,8 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
             					}
             	    		}
             	    		if (illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.TERM_LIFE
-            	    				&& illustrationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK) {
+            	    				&& (illustrationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+            	    						||illustrationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK)) {
             	    			if (illustrationUIService.isSuccess(data)) {
             	    				commonUIService.showNotifyMessage("v3.myworkspace.message.ComputeQuotationSuccessfully", "success");
             	    			} else {
@@ -945,6 +954,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
             	    		}
             	    		if (illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
             	    			|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+            	    			|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
             	    			|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT) {
                 	    		if (illustrationUIService.isSuccess(data)) { 	    			
                 	    			$scope.savePOandLAName_RUL();
@@ -1064,7 +1074,8 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
 						illustrationUIService.findElementInDetail_V3(['EmailAddressOfAgent']).$ = prospectPersonalUIService.findElementInElement_V3(salecaseUIService.userDoc, ['FullName']).$;*/
 						}  
 						if(salecaseUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.TERM_LIFE
-								&& illustrationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK){
+								&& illustrationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+								&& illustrationUIService.productName != commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK){
 							illustrationUIService.findElementInDetail_V3(['AgentName']).$ = prospectPersonalUIService.findElementInElement_V3(salecaseUIService.userDoc, ['FullName']).$;
 							illustrationUIService.findElementInDetail_V3(['PhoneNumberOfAgent']).$ = prospectPersonalUIService.findElementInElement_V3(salecaseUIService.userDoc, ['FullName']).$;
 							illustrationUIService.findElementInDetail_V3(['EmailAddressOfAgent']).$ = prospectPersonalUIService.findElementInElement_V3(salecaseUIService.userDoc, ['FullName']).$;
@@ -1622,6 +1633,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
 		if($scope.moduleService.findElementInDetail_V3(['BusinessStatus']) == commonService.CONSTANTS.STATUS.ACCEPTED 
 				&& (illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
 						|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+						|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 						|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT)){
 			deferred.resolve();
 			return deferred.promise;
@@ -1695,6 +1707,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
 		//for MNC Link - new action type for underwriting quotation
 		if (illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT) {
 			//Populate Policy Owner to Life Assure
 			$scope.populatePOToLI();
@@ -2050,7 +2063,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
     	    )    	    
     	){
     		return true;
-    	} else if((($scope.moduleService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK || $scope.moduleService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT)
+    	} else if((($scope.moduleService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK || $scope.moduleService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT|| $scope.moduleService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK)
 	    		 && $scope.moduleService.findElementInDetail_V3(['BusinessStatus']) != 'ACCEPTED'
 	    			 && $scope.moduleService.findElementInDetail_V3(['DocumentStatus']) == 'VALID'
 	    		 && !(commonService.hasValueNotEmpty(salecaseUIService.findElementInDetail_V3(['ClientPayment'])['@refUid']) || commonService.hasValueNotEmpty(salecaseUIService.findElementInDetail_V3(['Underwriting'])['@refUid']))
@@ -2691,6 +2704,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
 		
 		if (illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT){
 			var quotation = $scope.getRightDetailInMultipleEleFromParentDoc();
 			var poName = $scope.salecaseService.findElementInElement_V3(quotation, ['POName']);
@@ -2706,6 +2720,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
 		var deferred = illustrationUIService.$q.defer();
 		if(illustrationUIService.group == commonService.CONSTANTS.PRODUCT_GROUP.UNIT_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK
+				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK
 				|| illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT){
 			$scope.updatePOandLAName_RUL();
 		   	salecaseUIService.saveDetail_V3($scope.resourceURL, false).then(function(){
@@ -2939,6 +2954,7 @@ var IllustrationDetailCtrl = ['$rootScope', 'underwritingUIService', '$filter', 
     	var result = undefined;
 		if (illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.GROUP_TRAVEL_EXPRESS ||
 			illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_UNIT_LINK ||
+			illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK ||
 			illustrationUIService.productName == commonService.CONSTANTS.PRODUCT.ENDOWMENT) {
 			result = true;
 		}
