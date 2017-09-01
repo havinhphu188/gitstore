@@ -59,6 +59,18 @@
               "@key": ""
             }
           },
+          "ipos-product:regular-save-link": {
+            "@icon": "fa fa-pie-chart",
+            "@cssClass": "v3-box-4",
+            "@section": "ipos-product:life-insurance",
+            "@key": "ipos-product:regular-save-link",
+            "@isShowValidationIcon": "false",
+            "@isShowNoOfEmptyField": "false",
+            "@isVisible": "hasProduct(commonService.CONSTANTS.PRODUCT.REGULAR_SAVE_LINK)",
+            "ipos-product:regular-save-link_as_Table": {
+              "@key": ""
+            }
+          },
           "ipos-product:endowment": {
             "@icon": "fa fa-line-chart",
             "@cssClass": "v3-box-4",
