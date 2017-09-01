@@ -1,0 +1,92 @@
+<!--
+
+    //*******************************************************************************
+    // * Copyright (c) 2011-2014 CSC.
+    // * Copyright (C) 2010-2016 CSC - All rights reserved.
+    // *
+    // * The information contained in this document is the exclusive property of
+    // * CSC.  This work is protected under USA copyright law
+    // * and the copyright laws of given countries of origin and international
+    // * laws, treaties and/or conventions. No part of this document may be
+    // * reproduced or transmitted in any form or by any means, electronic or
+    // * mechanical including photocopying or by any informational storage or
+    // * retrieval system, unless as expressly permitted by CSC.
+    //
+    // * Design, Develop and Manage by Team Integral Point-of-Sales & Services
+    // ******************************************************************************
+
+-->
+
+<!-- Summary -->
+<div fieldId="case-management-rul:CaseInformation"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-xs-12 col-sm-7"
+			title="{{'new.v3.mynewworkspace.rul.casemanagement.label.BusinessTransactionInformation' | translate}}">
+			{{'new.v3.mynewworkspace.rul.casemanagement.label.BusinessTransactionInformation'
+			| translate | trimtext:false:25:'...'}} : </span>
+		<span class="col-xs-12 col-sm-5">{{uiElement.refDetail}}</span>
+	</div>
+</div>
+
+<div fieldId="case-management-rul:CreatedDate"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-xs-12 col-sm-7"
+			title="{{'new.v3.mynewworkspace.rul.casemanagement.label.CreatedDate' | translate}}">
+			{{'new.v3.mynewworkspace.rul.casemanagement.label.CreatedDate'
+			| translate | trimtext:false:25:'...'}} : </span>
+		<span class="col-xs-12 col-sm-5">{{uiElement.refDetail | datetimeFilter:"MMM DD, YYYY" }}</span>
+	</div>
+</div>
+<div fieldId="case-management-rul:UpdatedDate"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-xs-12 col-sm-6"
+			title="{{'new.v3.mynewworkspace.rul.casemanagement.label.UpdatedDate' | translate}}">
+			{{'new.v3.mynewworkspace.rul.casemanagement.label.UpdatedDate'
+			| translate | trimtext:false:25:'...'}} : </span>
+		<span class="col-xs-12 col-sm-6">{{uiElement.refDetail | datetimeFilter:"MMM DD, YYYY"}}</span>
+	</div>
+</div>
+<div fieldId="case-management-rul:ProductName"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-xs-12 col-sm-7"
+			title="{{'new.v3.mynewworkspace.rul.casemanagement.label.ProductName' | translate}}">
+			{{'new.v3.mynewworkspace.rul.casemanagement.label.ProductName'
+			| translate | trimtext:false:25:'...'}} : </span>
+		<span class="col-xs-12 col-sm-5">{{'v3.mynewworkspace.portlet.label.productName.'
+			+ uiElement.refDetail | translate}}</span>
+	</div>
+</div>
+<div fieldId="case-management-rul:PolicyOwner"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-xs-12 col-sm-6"
+			title="{{'new.v3.mynewworkspace.rul.casemanagement.label.label.PolicyOwner' | translate}}">
+				{{'new.v3.mynewworkspace.rul.casemanagement.label.label.PolicyOwner'
+			| translate | trimtext:false:25:'...'}} :</span>
+		<span class="col-xs-12 col-sm-6">{{uiElement.refDetail.$}}</span>
+	</div>
+</div>
+
+<div fieldId="case-management-rul:Status"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-xs-12 col-sm-6"
+			title="{{'new.v3.mynewworkspace.rul.casemanagement.label.label.Status' | translate}}">
+			{{'new.v3.mynewworkspace.rul.casemanagement.label.label.Status'
+			| translate | trimtext:false:25:'...'}} : </span>
+		<span class="col-xs-12 col-sm-6">{{'v3.document.status.' + uiElement.refDetail |translate}}</span>
+	</div>
+</div>
+<div fieldId="case-management-rul:PolicyNumber"
+	class="col-xs-12 col-sm-6 col-md-6 col-lg-6 summary">
+	<div class="form-group form-group-lg has-success">
+		<span class="col-xs-12 col-sm-7">{{'new.v3.mynewworkspace.rul.casemanagement.label.PolicyNo' | translate}}:</span>
+		<span class="col-xs-12 col-sm-5">{{uiElement.refDetail.$}}</span>
+	</div>
+</div>
+
+
