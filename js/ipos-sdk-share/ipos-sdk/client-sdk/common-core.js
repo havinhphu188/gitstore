@@ -1560,6 +1560,7 @@ var commonModule = angular.module('commonModule', [])
 						"TERM_LIFE_SECURE": "term-life-secure",
 						"GROUP_TERM_LIFE": "GTL1",
 						"REGULAR_UNIT_LINK": "regular-unit-link",
+						"REGULAR_SAVE_LINK": "regular-save-link",
 						"TRAVEL_EXPRESS": "travel-express",
 						"GROUP_TRAVEL_EXPRESS": "group-travel-express",
 						"DIRECT_SALE_PA": "direct-sale-pa",
